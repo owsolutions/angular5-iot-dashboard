@@ -4,15 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { IndexComponent } from './index/index.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import {MdButtonModule, MdCheckboxModule} from '@angular/material';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IndexComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MdButtonModule,
+    MdCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
