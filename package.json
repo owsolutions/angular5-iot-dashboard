@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "postbuild": "mkdir -p dist && cp public dist/public -R",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
