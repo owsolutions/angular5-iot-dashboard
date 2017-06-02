@@ -10,7 +10,7 @@ window.onload = function () {
         colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"], // alternatively colorbrewer.YlGnBu[9]
         days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
         times = ["1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12a", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12p"];
-        datasets = ["/public/data.tsv"];
+        datasets = ["http://smartapi-dev.openweb.solutions/public/data.tsv"];
 
    
     function getDayLabels (svg) {
@@ -115,21 +115,34 @@ window.onload = function () {
         };
     };
 
-    function createChart($elSelector) {
+    function createChart($elSelector , week = 15) {
         var svg = getSvg($elSelector);
         var timeLabels = getTimeLabels(svg);
         var dayLabels = getDayLabels(svg);
         var heatmapChart = function(tsvFile) {
-            d3.tsv(tsvFile, tsvMap, function(error, data) {
-                viewCards(svg , data)
-                viewLegend(svg, data);
+
+            fetch('http://smart.openweb.solutions/api/report/byweek/' + week).then(response => response.json())
+            .then(function (data) {
+                let firstDay = data.results[0].Day;
+                let result = data.results.map(data => {
+                    return {
+                        hour: +data.Hour + 1,
+                        day: +data.Day - firstDay + 1,
+                        value: 10*data.avgFee
+                    }
+                });
+                viewCards(svg , result);
+                viewLegend(svg, result);    
             });
+        
         };
         heatmapChart(datasets[0]);
     }
 
-    createChart("#chart1");
-    createChart("#chart2");
-    createChart("#chart3");
-    createChart("#chart4");
+    createChart("#chart1" , 15);
+    createChart("#chart2", 16);
+    createChart("#chart3", 17);
+    createChart("#chart4", 18);
+    createChart("#chart5", 19);
+    createChart("#chart6", 20); 
 }
