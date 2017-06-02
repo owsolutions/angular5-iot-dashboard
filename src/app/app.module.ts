@@ -7,7 +7,16 @@ import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import {MdButtonModule, MdCheckboxModule} from '@angular/material';
+import {
+  MdButtonModule, 
+  MdCheckboxModule, 
+  MdSidenav, 
+  MdToolbarModule,
+  MdSidenavContainer,
+  MdSidenavModule,
+  MdNavListCssMatStyler,
+  MdListItem
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -20,7 +29,9 @@ import {MdButtonModule, MdCheckboxModule} from '@angular/material';
     FormsModule,
     HttpModule,
     MdButtonModule,
-    MdCheckboxModule
+    MdCheckboxModule,
+    MdToolbarModule,
+    MdSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
