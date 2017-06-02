@@ -3,7 +3,7 @@ window.onload = function () {
     // Define variables section
     var margin = { top: 50, right: 0, bottom: 100, left: 30 },
         width = 500 - margin.left - margin.right,
-        height = 430 - margin.top - margin.bottom,
+        height = 300 - margin.top - margin.bottom,
         gridSize = Math.floor(width / 24),
         legendElementWidth = gridSize*2,
         buckets = 9,
@@ -79,8 +79,8 @@ window.onload = function () {
             .range(colors);
         return colorScale;
     }
+
     function viewCards (svg , data) {
-         
         var cards = svg.selectAll(".hour")
             .data(data, function(d) {return d.day+':'+d.hour;});
 
@@ -105,13 +105,7 @@ window.onload = function () {
         return cards;
     }
 
-    var tsvHandler = function(error, data) {
-       
 
-        viewCards(svg , data)
-        viewLegend(svg, data);
-        
-    };
 
     var tsvMap = function(d) {
         return {
@@ -121,17 +115,21 @@ window.onload = function () {
         };
     };
 
-    var svg = getSvg("#chart1");
-    var timeLabels = getTimeLabels(svg);
-    var dayLabels = getDayLabels(svg);
+    function createChart($elSelector) {
+        var svg = getSvg($elSelector);
+        var timeLabels = getTimeLabels(svg);
+        var dayLabels = getDayLabels(svg);
+        var heatmapChart = function(tsvFile) {
+            d3.tsv(tsvFile, tsvMap, function(error, data) {
+                viewCards(svg , data)
+                viewLegend(svg, data);
+            });
+        };
+        heatmapChart(datasets[0]);
+    }
 
-    
-    var heatmapChart = function(tsvFile) {
-        d3.tsv(tsvFile, tsvMap, tsvHandler);
-    };
-
-    heatmapChart(datasets[0]);
-    
-    var datasetpicker = d3.select("#dataset-picker").selectAll(".dataset-button")
-    .data(datasets);
+    createChart("#chart1");
+    createChart("#chart2");
+    createChart("#chart3");
+    createChart("#chart4");
 }
