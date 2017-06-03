@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+    console.log(">> index");
+    (window as any).createChart("#chart1" , 15);
+    (window as any).createChart("#chart2", 16);
   }
 
 }
