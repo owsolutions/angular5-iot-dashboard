@@ -1,32 +1,41 @@
-<md-toolbar class='mat-primary'>
-  Dashboard Admin
-</md-toolbar>
- 
 
-<nav class="main-menu">
-  <ul>
-      <li>
-          <a routerLink='/index' routerLinkActive="active">
-              <i class="fa fa-home fa-2x"></i>
-              <span class="nav-text">
-                  Dashboard
-              </span>
-          </a>
-      </li>
-      <li class="has-subnav">
-          <a routerLink='/summary' routerLinkActive="active">
-              <i class="fa fa-laptop fa-2x"></i>
-              <span class="nav-text">
-                  Reports summary
-              </span>
-          </a>
-      </li> 
-  </ul>
- 
-</nav>
- 
 
-<div class='doc--content-container clearfix'>
-  <router-outlet></router-outlet>
+<div class="app-container">
+
+    <!-- Navigation -->
+    <nav class="navigation">
+        <ul>
+            <li><a routerLink='/index' routerLinkActive="active"><i class="icon icon-home-outline"></i>Home</a></li>
+            <li><a routerLink='/summary' routerLinkActive="active"><i class="icon icon-search"></i>Search</a></li>
+            <li><a><i class="icon icon-adjust"></i>Adjust</a></li>
+            <li><a><i class="icon icon-temperatire"></i>Temperature</a></li>
+            <li><a><i class="icon icon-sliders"></i>Settings</a></li>
+            <li><a><i class="icon icon-history"></i>Activities</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="quick-status">
+
+        <div class="docked">
+            <h2>Quick view</h2>
+            <div class="flex-container">
+                <div class="large-icon-widget">
+                    <i class="icon icon-adjust"></i>
+                    <span class="value">10</span>
+                </div>
+                <div class="large-icon-widget">
+                    <i class="icon icon-adjust"></i>
+                    <span class="value">20</span>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <div class="flex-item">
+        <router-outlet></router-outlet>
+    </div>
+
 </div>
- 
+
