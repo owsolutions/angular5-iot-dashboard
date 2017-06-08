@@ -113,25 +113,23 @@ var tsvMap = function(d) {
     };
 };
 
-function createChart($elSelector , week = 15) {
+function createChart($elSelector , collection) {
     var svg = getSvg($elSelector);
     var timeLabels = getTimeLabels(svg);
     var dayLabels = getDayLabels(svg);
     var heatmapChart = function(tsvFile) {
 
-        fetch('http://smart.openweb.solutions/api/report/byweek/' + week).then(response => response.json())
-        .then(function (data) {
-            let firstDay = data.results[0].Day;
-            let result = data.results.map(data => {
-                return {
-                    hour: +data.Hour + 1,
-                    day: +data.Day - firstDay + 1,
-                    value: 10*data.avgFee
-                }
-            });
-            viewCards(svg , result);
-            viewLegend(svg, result);    
+        let firstDay = collection[0].Day;
+        let result = collection.map(data => {
+            return {
+                hour: +data.Hour + 1,
+                day: +data.Day - firstDay + 1,
+                value: 10*data.avgFee
+            }
         });
+        viewCards(svg , result);
+        viewLegend(svg, result);    
+    
     };
     heatmapChart();
 }

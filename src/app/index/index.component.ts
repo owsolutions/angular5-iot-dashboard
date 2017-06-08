@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { fetchApi } from '../api';
 
 @Component({
   selector: 'app-index',
@@ -9,11 +10,19 @@ export class IndexComponent implements OnInit {
 
   constructor() {
   }
+ 
+  async getApi (week) {
+    let url = 'http://smart.openweb.solutions/api/report/byweek/' + week;
+    let response = await fetchApi(url);
+    return (response as any).results;
+  }
+  
+  async ngOnInit() {
 
-  ngOnInit() {
-    console.log(">> index");
-    (window as any).createChart("#chart1" , 15);
-    (window as any).createChart("#chart2", 16);
+    let collection = await this.getApi(15);
+    (window as any).createChart("#chart1" , collection);
+    collection = await this.getApi(16);
+    (window as any).createChart("#chart2", collection);
   }
 
 }

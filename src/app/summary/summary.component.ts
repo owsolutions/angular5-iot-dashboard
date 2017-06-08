@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-declare var fetch: Function;
+import { fetchApi } from '../api';
+
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
@@ -22,13 +23,15 @@ export class SummaryComponent implements OnInit {
     };
   }
 
-  ngOnInit() {
 
-    fetch('http://smart.openweb.solutions/api/summary')
-    .then(response => response.json())
-    .then(data => {
-      this.summary = data.result[0];
-    });
+  async getApi () : Promise<{result: Array<any>}> {
+    let url = 'http://smart.openweb.solutions/api/summary';
+    let response = await fetchApi(url);
+    return (response as any).result;
+  }
+
+  async ngOnInit() {
+      this.summary = (await this.getApi())[0];
   }
 
 }
