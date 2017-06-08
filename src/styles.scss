@@ -157,9 +157,11 @@ nav.navigation {
 		}
 	}
 }
-
+body {
+  background: $rightAcc;
+}
 .flex-item:nth-child(3) {
-	background:steelblue;
+	background:$rightAcc;
 	flex:1;
 }
 
