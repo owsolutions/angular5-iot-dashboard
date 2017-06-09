@@ -69,7 +69,7 @@ html, body
 .app-container {
 
 	display:flex;
-
+	height:100vh;
 	/* Apply rule only on small devices */
 	@media (max-width: $screen-sm-max) {
 		flex-direction: column;
@@ -132,7 +132,7 @@ nav.navigation {
 
 	/* Apply rule only on large devices */
 	@media (min-width: $screen-md-min) {
-		max-width:275px;
+		max-width:350px;
 	}
 
 	.calendar-box {
