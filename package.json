@@ -8,7 +8,7 @@
     "postbuild": "mkdir -p dist && cp public dist/public -R && rm -rf dist-production && cp dist dist-production -R",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
+    "lint": "ng lint --fix",
     "hmr": "ng serve --hmr -e=hmr --disableHostCheck",
     "e2e": "ng e2e"
   },
