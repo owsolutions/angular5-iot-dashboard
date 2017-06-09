@@ -12,7 +12,7 @@ $shadow:          rgba(0,0,0,0.3);
 $leftNav:         #1a1a1c;
 $leftAcc:         #2bc661;
 $theme-color: $leftAcc;
-$rightAcc:        #eef1f8;
+$appinfo:        #eef1f8;
 $container: rgb(238,241,247);
 
 
@@ -159,12 +159,17 @@ nav.navigation {
 		}
 	}
 }
-body {
-  background: $rightAcc;
-}
-.flex-item:nth-child(3) {
-	background:$rightAcc;
+
+.app-info{
+	background:$appinfo;
+	max-width: 350px;
 	flex:1;
+}
+
+.flex-item:nth-child(3) {
+	background:$background;
+	flex:1;
+	padding:0px 15px;
 }
 
 .activity-container {
