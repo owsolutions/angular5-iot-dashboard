@@ -134,6 +134,8 @@ nav.navigation {
 	background:$theme-color;
 	flex:1;
 
+	$smoothBorder: 1px solid rgba(220,220,220,0.5);
+
 	/* Apply rule only on large devices */
 	@media (min-width: $screen-md-min) {
 		max-width:250px;
@@ -166,7 +168,7 @@ nav.navigation {
 	
 	
 	.medium-icon-widget {
-		border-right:1px solid rgba(220,220,220,0.5);
+		border-right:$smoothBorder;
 		flex:1;
 		&:last-child {
 			border-right:none;
@@ -195,6 +197,36 @@ nav.navigation {
 		}
 		.value {
 			font-size:30px;
+		}
+	}
+
+	.bordered-bottom {
+		padding-bottom:10px;
+		border-bottom:$smoothBorder;
+		.large-value-item:first-child {
+			border-right: $smoothBorder;
+		}
+	}
+
+
+	.bordered-top {
+		padding-top:10px;
+		border-top:$smoothBorder;
+		.large-value-item:first-child {
+			border-right: $smoothBorder;
+		}
+	}
+
+	.padding-medium {
+		padding:15px 0;
+	}
+
+	.single-large-icon {
+		text-align:center;
+		flex:1;
+		.icon {
+			color:white;
+			font-size:45px;
 		}
 	}
 
