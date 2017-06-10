@@ -126,6 +126,10 @@ nav.navigation {
 	display: flex;
 }
 
+.margin-bottom {
+	margin-bottom:15px;
+}
+
 .quick-status {
 	background:$theme-color;
 	flex:1;
@@ -158,6 +162,20 @@ nav.navigation {
 			color:white;
 		}
 	}
+	
+	.medium-icon-widget {
+		flex:1;
+		.value, .icon, .title {
+			display:block;
+			text-align:center;
+			font-size:12px;
+			color:white;
+		}
+		.icon {
+			font-size:30px;
+		}
+	}
+
 }
 
 .app-info{
