@@ -69,7 +69,7 @@ export class IndexComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.drawChart();
+   // this.drawChart();
 
   }
 

@@ -136,7 +136,7 @@ nav.navigation {
 
 	/* Apply rule only on large devices */
 	@media (min-width: $screen-md-min) {
-		max-width:275px;
+		max-width:250px;
 	}
 
 	.calendar-box {
@@ -156,22 +156,44 @@ nav.navigation {
 	}
 	
 	.large-icon-widget {
+		text-align:center;
 		flex:1;
 		.value, .icon {
-			font-size:30px;
+			font-size:26px;
 			color:white;
 		}
 	}
 	
+	
 	.medium-icon-widget {
+		border-right:1px solid rgba(220,220,220,0.5);
 		flex:1;
+		&:last-child {
+			border-right:none;
+		}
 		.value, .icon, .title {
 			display:block;
 			text-align:center;
-			font-size:12px;
+			font-size:11px;
 			color:white;
 		}
 		.icon {
+			font-size:22px;
+		}
+	}
+
+	.large-value-item {
+		flex:1;
+
+		sup {
+			top:-12px;
+			font-size:12px;
+		}
+		.value,.title {
+			color:white;
+			text-align:center;
+		}
+		.value {
 			font-size:30px;
 		}
 	}
