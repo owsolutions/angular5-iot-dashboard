@@ -10,7 +10,7 @@ $black:           #000000;
 $background:      #FFFFFF;
 $shadow:          rgba(0,0,0,0.3);
 $leftNav:         #1a1a1c;
-$leftAcc:         #2bc661;
+$leftAcc:         rgb(0,203,122);
 $theme-color: $leftAcc;
 $appinfo:        #eef1f8;
 $container: rgb(238,241,247);
@@ -132,7 +132,7 @@ nav.navigation {
 
 	/* Apply rule only on large devices */
 	@media (min-width: $screen-md-min) {
-		max-width:350px;
+		max-width:275px;
 	}
 
 	.calendar-box {
