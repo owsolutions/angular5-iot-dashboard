@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { SummaryComponent } from './summary/summary.component';
+import { SettingsComponent } from './settings/settings.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -20,6 +21,11 @@ const appRoutes: Routes = [
   {
     path: 'summary',
     component: SummaryComponent,
+    data: {}
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent,
     data: {}
   },
   { path: '',
@@ -45,7 +51,8 @@ import {
   declarations: [
     AppComponent,
     IndexComponent,
-    SummaryComponent
+    SummaryComponent,
+    SettingsComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

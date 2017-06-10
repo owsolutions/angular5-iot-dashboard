@@ -7,10 +7,10 @@
         <ul>
             <li><a routerLink='/index' routerLinkActive="active"><i class="icon icon-home-outline"></i>Home</a></li>
             <li><a routerLink='/summary' routerLinkActive="active"><i class="icon icon-search"></i>Search</a></li>
-            <li><a><i class="icon icon-adjust"></i>Adjust</a></li>
-            <li><a><i class="icon icon-temperatire"></i>Temperature</a></li>
-            <li><a><i class="icon icon-sliders"></i>Settings</a></li>
-            <li><a><i class="icon icon-history"></i>Activities</a></li>
+            <!--<li><a><i class="icon icon-adjust"></i>Adjust</a></li>-->
+            <!--<li><a><i class="icon icon-temperatire"></i>Temperature</a></li>-->
+            <li><a routerLink='/settings' routerLinkActive="active"><i class="icon icon-sliders"></i>Settings</a></li>
+            <!--<li><a><i class="icon icon-history"></i>Activities</a></li>-->
         </ul>
     </nav>
 
@@ -29,6 +29,9 @@
                     <span class="value">20</span>
                 </div>
             </div>
+
+            <div id="chart-container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
         </div>
         
         

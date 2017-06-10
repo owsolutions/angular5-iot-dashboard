@@ -22,8 +22,8 @@
         "styles.scss"
       ],
       "scripts": [
-        "assets/d3.v3.js",
-        "assets/heatmap.js"
+        "assets/highcharts/highcharts.js",
+        "assets/highcharts/exporting.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
