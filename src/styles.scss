@@ -229,10 +229,19 @@ $smoothBorder: 1px solid gray;
 
 }
 
+.content-box{
+	position: absolute;
+	left:450px;
+	right:350px;
+}
+
 .activity-container {
 	background:$container;
 }
 
+.flex-container{
+	display: flex;
+}
 
 
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
