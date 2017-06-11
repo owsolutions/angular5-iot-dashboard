@@ -44,3 +44,31 @@
         }
     }
 }
+
+.place-container {
+    padding:0 30px;
+    
+    .place-row {
+        display:flex;
+    }
+    .column {
+        flex:1;
+    }
+
+    h4 {
+        font-size:13px;
+        color: rgb(195, 203, 212);
+    }
+    
+    .title-icon {
+        h2 {
+            text-transform: uppercase;
+            font-size:16px;
+            letter-spacing: 3px;
+            color: rgb(159, 169,187);
+        }
+        .icon {
+            font-size:60px;
+        }
+    }
+}
