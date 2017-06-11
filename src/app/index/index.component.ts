@@ -12,8 +12,8 @@ import { ChartComponent } from './chart/chart.component';
 })
 export class IndexComponent implements OnInit {
 
-    private places: Array<any>;
-    private largeWidgets : Array<any>;
+    public places: Array<any>;
+    public largeWidgets : Array<any>;
 
   constructor() {
   }
