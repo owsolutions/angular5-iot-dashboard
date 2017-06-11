@@ -20,37 +20,37 @@
 
 
 <div class="place-container">
-
-    <div class="place-row">
-        
-        <div class="column title-icon">
-            <h2>Kitchen</h2>
-            <i class="icon icon-temperatire"></i>
-        </div>
-
-        <div class="column value-box">
-            <h4>Temperature</h4>
-            <div class="value">
-                22.8<sup>C</sup>
+    <div style="overflow-y: scroll; height:400px; width:100%;" id="style-3">
+        <div class="place-row" *ngFor="let place of places;">
+            
+            <div class="column title-icon">
+                <h2>Kitchen</h2>
+                <i class="icon icon-temperatire"></i>
             </div>
+
+            <div class="column value-box">
+                <h4>Temperature</h4>
+                <div class="value">
+                    22.8<sup>C</sup>
+                </div>
+            </div>
+
+            <div class="column">
+                <h4>Name</h4>
+                <ul>
+                    <li>Ceiling lighting</li>
+                    <li>Worktop lighting</li>
+                    <li>Pane windows</li>
+                    <li>Fan</li>
+                </ul>
+            </div>
+
+            <div class="column">
+                <h4>Status</h4>
+            </div>
+
         </div>
 
-        <div class="column">
-            <h4>Name</h4>
-            <ul>
-                <li>Ceiling lighting</li>
-                <li>Worktop lighting</li>
-                <li>Pane windows</li>
-                <li>Fan</li>
-            </ul>
-        </div>
-
-        <div class="column">
-            <h4>Status</h4>
-        </div>
 
     </div>
-
-
-
 </div>

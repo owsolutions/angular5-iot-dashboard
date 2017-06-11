@@ -10,6 +10,7 @@ declare var Highcharts: any;
 })
 export class IndexComponent implements OnInit {
 
+    private places: Array<any>;
   constructor() {
   }
  
@@ -70,6 +71,15 @@ export class IndexComponent implements OnInit {
 
   async ngOnInit() {
    // this.drawChart();
+
+   this.places = [
+       {} ,
+       {} ,{} ,
+       {} ,{} ,
+       {} ,{} ,
+       {} ,
+       {}
+   ];
 
   }
 

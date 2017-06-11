@@ -45,10 +45,36 @@
     }
 }
 
+
+
+/*
+ *  STYLE 3
+ */
+
+#style-3
+{
+    &::-webkit-scrollbar-track {
+	    background-color: white;;
+    }
+    &::-webkit-scrollbar
+    {
+        width: 6px;
+        background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+        background-color: rgb(237, 241, 247);
+    }
+	
+}
+
+
+
 .place-container {
-    padding:0 30px;
-    
+    margin:10px 7.5px 0 0;
     .place-row {
+        padding:0 30px;
         display:flex;
     }
     .column {
