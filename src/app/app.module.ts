@@ -9,7 +9,7 @@ import { IndexComponent } from './index/index.component';
 import { ChartComponent } from './index/chart/chart.component';
 import { SummaryComponent } from './summary/summary.component';
 import { SettingsComponent } from './settings/settings.component';
-
+import { SwitchWidgetsComponent } from './shared/switch-widgets/switch-widgets.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
@@ -54,7 +54,8 @@ import {
     IndexComponent,
     SummaryComponent,
     SettingsComponent,
-    ChartComponent
+    ChartComponent,
+    SwitchWidgetsComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

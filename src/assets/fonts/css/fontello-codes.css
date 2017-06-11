@@ -7,6 +7,10 @@
 .icon-flash:before { content: '\e805'; } /* '' */
 .icon-cloud:before { content: '\e806'; } /* '' */
 .icon-tint:before { content: '\e807'; } /* '' */
+.icon-lightbulb:before { content: '\e808'; } /* '' */
+.icon-sun-filled:before { content: '\e809'; } /* '' */
+.icon-sun:before { content: '\e80a'; } /* '' */
+.icon-spin5:before { content: '\e838'; } /* '' */
 .icon-moon:before { content: '\f186'; } /* '' */
 .icon-history:before { content: '\f1da'; } /* '' */
 .icon-sliders:before { content: '\f1de'; } /* '' */
