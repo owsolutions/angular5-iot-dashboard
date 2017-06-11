@@ -5,6 +5,15 @@
     border-bottom:$border;
     display:flex;
 
+    .theme-green-dark {
+        color:rgb(24,219,169);
+    }
+    .theme-green-light {
+        color: rgb(0, 195,105);
+    }
+    .theme-blue {
+        color:rgb(0, 212, 252);
+    }
     
     .large-icon-widget {
         flex: 1;
