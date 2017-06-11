@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-switch-widgets',
   templateUrl: './switch-widgets.component.html',
-  styleUrls: ['./switch-widgets.component.scss']
+  styleUrls: ['./switch-widgets.component.scss' , './checkbox-switch.scss']
 })
 export class SwitchWidgetsComponent implements OnInit {
 
@@ -11,11 +11,18 @@ export class SwitchWidgetsComponent implements OnInit {
   constructor() { 
 
     this.Widgets = [
-      {} ,
-      {},
-      {},
-      {},
-      {}
+      {
+        icon: 'icon icon-spin5'
+      } ,
+      {
+        icon: 'icon icon-cloud'
+      },
+      {
+        icon: 'icon icon-sun'
+      },
+      {
+        icon: 'icon  icon-lightbulb'
+      },
     ]
 
 
