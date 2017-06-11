@@ -2,30 +2,17 @@
 
 
 <div class="large-icon-status">
-
-    <div class="large-icon-widget theme-green-dark">
-        <div class="title">Power</div>
-        <i class="icon icon-flash"></i>
-        <div class="value">504<sub>Wh</sub></div>
+    <div class="large-icon-widget" *ngFor="let widget of largeWidgets">
+        <div class="title">{{widget.title}}</div>
+        <i class="{{widget.icon}}"></i>
+        <div class="value">{{widget.value}}<sub>{{widget.unit}}</sub></div>
     </div>
-    <div class="large-icon-widget theme-green-light">
-        <div class="title">Consumption</div>
-        <i class="icon icon-temperatire"></i>
-        <div class="value">31.62<sub>kWh</sub></div>
-    </div>
-    <div class="large-icon-widget theme-blue">
-        <div class="title">Water(marker)</div>
-        <i class="icon icon-tint"></i>
-        <div class="value">43.6<sub>L</sub></div>
-    </div>
-
 </div>
 
 
 <div class="place-container">
     <div style="overflow-y: scroll; height:400px; width:100%;" id="style-3">
 
-     
         <!-- Place row -->
         <div class="place-row" *ngFor="let place of places;">
             <div class="column title-icon">

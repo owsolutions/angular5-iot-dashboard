@@ -12,6 +12,8 @@ declare var Highcharts: any;
 export class IndexComponent implements OnInit {
 
     private places: Array<any>;
+    private largeWidgets : Array<any>;
+    private chartData: Array<any>;
   constructor() {
   }
  
@@ -21,7 +23,7 @@ export class IndexComponent implements OnInit {
     return (response as any).results;
   }
 
-  drawChart () {
+  drawChart (data) {
 
     Highcharts.chart('chart-container', {
       chart: {
@@ -48,15 +50,47 @@ export class IndexComponent implements OnInit {
       },
       series: [{
           name: 'Temperature',
-          data: times(10 , () => random(1,100))
+          data: data
       }]
     });
 
     
   }
 
+  mockData () {
+      return [
+          {
+              'title': 'Power',
+              'icon': 'icon icon-flash',
+              'value': random(300,600),
+              'unit': 'Wh'
+          },
+          {
+              'title': 'Consumption',
+              'icon': 'icon icon-temperatire',
+              'value': random(5500,6000)/100,
+              'unit': 'kWh'
+          },
+          {
+              'title': 'Water',
+              'icon': 'icon icon-tint',
+              'value': random(200,800)/100,
+              'unit': "L"
+          }
+      ];
+  }
+
+
   async ngOnInit() {
-   this.drawChart();
+      this.chartData = times(10 , () => random(1,100));
+
+   this.drawChart(this.chartData);
+
+   this.largeWidgets = this.mockData();
+
+   setInterval(() => {
+       this.largeWidgets = this.mockData()
+   }, 5000);
 
    this.places = [
        {name: "Kitchen"} ,
