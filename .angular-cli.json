@@ -23,7 +23,8 @@
       ],
       "scripts": [
         "assets/highcharts/highcharts.js",
-        "assets/highcharts/exporting.js"
+        "assets/highcharts/exporting.js",
+        "assets/plotly-1.8.0.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
