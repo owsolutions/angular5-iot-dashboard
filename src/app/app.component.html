@@ -2,70 +2,40 @@
 
 <div class="app-container">
 
+    <!-- dashboard title [only show on mobile and tablet view] -->
+    <div class="dashboard-title">
+        <a href="#">smart dashboard</a>
+        <a href="#"></a>
+    </div>
+
     <!-- Navigation -->
     <nav class="navigation">
-        <ul>
-            <li><a routerLink='/index' routerLinkActive="active"><i class="icon icon-home-outline"></i>Home</a></li>
-            <li><a routerLink='/summary' routerLinkActive="active"><i class="icon icon-search"></i>Search</a></li>
-            <!--<li><a><i class="icon icon-adjust"></i>Adjust</a></li>-->
-            <!--<li><a><i class="icon icon-temperatire"></i>Temperature</a></li>-->
-            <li><a routerLink='/settings' routerLinkActive="active"><i class="icon icon-sliders"></i>Settings</a></li>
-            <!--<li><a><i class="icon icon-history"></i>Activities</a></li>-->
-        </ul>
+        <div class="nav-item-container">
+            <a routerLink='/index' routerLinkActive="active"><i class="icon icon-home-outline"></i>Home</a>
+            <a routerLink='/summary' routerLinkActive="active"><i class="icon icon-search"></i>Search</a>
+            <a><i class="icon icon-adjust"></i>Adjust</a>
+            <a><i class="icon icon-temperatire"></i>Temperature</a>
+            <a routerLink='/settings' routerLinkActive="active"><i class="icon icon-sliders"></i>Settings</a>
+            <a><i class="icon icon-history"></i>Activities</a>
+        </div>
     </nav>
 
 
-    <div class="quick-status">
-
-        <div class="docked">
-            <h2>Quick view</h2>
-            <div class="flex-container margin-bottom ">
-                <div class="large-icon-widget">
-                    <i class="icon icon-adjust"></i>
-                    <span class="value">10</span>
-                </div>
-                <div class="large-icon-widget">
-                    <i class="icon icon-adjust"></i>
-                    <span class="value">20</span>
-                </div>
-            </div>
-
-            <div class="flex-container margin-bottom">
-                <div class="medium-icon-widget">
-                    <div class='title'>Wind</div>
-                    <i class="icon icon-adjust"></i>
-                    <div class="value">10</div>
-                </div>
-                <div class="medium-icon-widget">
-                    <div class="title">Pressure</div>
-                    <i class="icon icon-adjust"></i>
-                    <div class="value">20</div>
-                </div>
-                <div class="medium-icon-widget">
-                    <div class="title">Precipilation</div>
-                    <i class="icon icon-adjust"></i>
-                    <div class="value">20</div>
-                </div>
-            </div>
-
-
-
-            <div id="chart-container" style="min-width: 310px; height: 200px; margin: 0 auto"></div>
-
-        </div>
-        
-        
-    </div>
-    <div class="flex-item">
+    <div class="content-box">
         <router-outlet></router-outlet>
     </div>
 
+    <div class="quick-status">
+        <div class="docked">
+            <h2>Quick view</h2>
+            <!--<div id="chart-container" style="min-width: 310px; height: 200px; margin: 0 auto"></div>-->
+        </div>
+    </div>
+    
     <div class="app-info">
         <div class="docked">
             <h2>app info</h2>
         </div>
-        
-        
     </div>
 </div>
 
