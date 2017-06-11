@@ -11,13 +11,19 @@ before_script:
   - npm install -g @angular/cli
 
 
+cache:
+  yarn: true
+  directories:
+    - $HOME/.yarn-cache
+    - node_modules
+
+
 addons:
 apt:
   sources:
     - google-chrome
   packages:
     - google-chrome-stable
-    - google-chrome-beta
 
 before_install:
   - export CHROME_BIN=chromium-browser
