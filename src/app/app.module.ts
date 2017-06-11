@@ -47,6 +47,7 @@ import {
   MdNavListCssMatStyler,
   MdListItem
 } from '@angular/material';
+import { InlineChartComponent } from './shared/inline-chart/inline-chart.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {
     IndexComponent,
     SummaryComponent,
     SettingsComponent,
-    ChartComponent
+    ChartComponent,
+    InlineChartComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
