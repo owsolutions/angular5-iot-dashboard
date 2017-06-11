@@ -12,7 +12,6 @@ import { ChartComponent } from './chart/chart.component';
 })
 export class IndexComponent implements OnInit {
 
-
     public places: Array<any>;
     public largeWidgets: Array<any>;
 
@@ -72,6 +71,5 @@ export class IndexComponent implements OnInit {
         ];
 
     }
-
 
 }
