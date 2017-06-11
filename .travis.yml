@@ -33,8 +33,11 @@ script:
 
 deploy:
   provider: firebase
+  on:
+    branch: master
   token:
     secure: "$FIREBASE_TOKEN"
+
 
 notifications:
   email:
