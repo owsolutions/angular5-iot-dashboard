@@ -11,6 +11,7 @@ before_script:
   - npm install -g @angular/cli
 
 script:
+  - npm test
   - ng build --prod
 
 after_success:
