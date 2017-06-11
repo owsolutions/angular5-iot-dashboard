@@ -1,8 +1,11 @@
+<div id="chart-container" style="min-width: 310px; height: 200px; margin: 0 auto"></div>
+
+
 <div class="large-icon-status">
 
     <div class="large-icon-widget theme-green-dark">
         <div class="title">Power</div>
-        <i class="icon icon-temperatire"></i>
+        <i class="icon icon-flash"></i>
         <div class="value">504<sub>Wh</sub></div>
     </div>
     <div class="large-icon-widget theme-green-light">
@@ -12,7 +15,7 @@
     </div>
     <div class="large-icon-widget theme-blue">
         <div class="title">Water(marker)</div>
-        <i class="icon icon-temperatire"></i>
+        <i class="icon icon-tint"></i>
         <div class="value">43.6<sub>L</sub></div>
     </div>
 
@@ -21,10 +24,12 @@
 
 <div class="place-container">
     <div style="overflow-y: scroll; height:400px; width:100%;" id="style-3">
+
+     
+        <!-- Place row -->
         <div class="place-row" *ngFor="let place of places;">
-            
             <div class="column title-icon">
-                <h2>Kitchen</h2>
+                <h2>{{place.name}}</h2>
                 <i class="icon icon-temperatire"></i>
             </div>
 
@@ -37,20 +42,13 @@
 
             <div class="column">
                 <h4>Name</h4>
-                <ul>
+                <ul class="list">
                     <li>Ceiling lighting</li>
                     <li>Worktop lighting</li>
                     <li>Pane windows</li>
                     <li>Fan</li>
                 </ul>
             </div>
-
-            <div class="column">
-                <h4>Status</h4>
-            </div>
-
         </div>
-
-
     </div>
 </div>

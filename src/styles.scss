@@ -181,6 +181,9 @@ nav.navigation {
 		}
 		.icon {
 			font-size:22px;
+			-webkit-animation:spin 9s linear infinite;
+			-moz-animation:spin 9s linear infinite;
+			animation:spin 9s linear infinite;
 		}
 	}
 
@@ -252,3 +255,8 @@ nav.navigation {
 	}
 }
 
+
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

@@ -73,6 +73,11 @@
 
 .place-container {
     margin:10px 7.5px 0 0;
+
+    .list {
+        list-style: none;
+        font-size:13px;
+    }
     .place-row {
         padding:0 30px;
         display:flex;
@@ -81,18 +86,24 @@
         flex:1;
     }
 
+    
+    
     h4 {
         font-size:13px;
         color: rgb(195, 203, 212);
     }
+    h2 {
+        margin:10px 0;
+
+        text-transform: uppercase;
+        font-size:14px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: rgb(159, 169,187);
+    }
     
     .title-icon {
-        h2 {
-            text-transform: uppercase;
-            font-size:16px;
-            letter-spacing: 3px;
-            color: rgb(159, 169,187);
-        }
+        
         .icon {
             font-size:60px;
         }
