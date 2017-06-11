@@ -26,9 +26,9 @@ before_install:
 
 script:
   - npm test
-  - ng build --prod
 
 after_success:
+  - ng build --prod
   - firebase deploy --token $FIREBASE_TOKEN
 
 notifications:
