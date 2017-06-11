@@ -106,15 +106,27 @@ body {-webkit-user-select: none; cursor: default; font: 18px "Helvetica Neue";co
     display:flex;
     background:white;
     margin:7.5px;
-    padding:15px 0;
+    padding:10px 0;
 
-    h1 {
+    .icon {
+        font-size:45px;
+    }
+
+    .info-box {
         flex:2;
         font-size:16px;
         margin-left:15px;
+        
+        .name {
+            font-size:13px;
+        }
     }
 
     .controlls {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         label {
             
             display: block;

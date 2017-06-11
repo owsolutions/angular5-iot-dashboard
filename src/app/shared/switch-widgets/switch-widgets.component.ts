@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SwitchWidgetsComponent implements OnInit {
 
-  constructor() { }
+  public Widgets: Array<any>;
+  constructor() { 
+
+    this.Widgets = [
+      {} ,
+      {},
+      {},
+      {},
+      {}
+    ]
+
+
+  }
 
   ngOnInit() {
+
   }
 
 }
