@@ -5,10 +5,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "postbuild": "mkdir -p dist && cp public dist/public -R && rm -rf dist-production && cp dist dist-production -R",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint --fix",
+    "lint": "ng lint",
     "hmr": "ng serve --hmr -e=hmr --disableHostCheck",
     "e2e": "ng e2e"
   },
@@ -26,6 +25,7 @@
     "@angular/router": "^4.0.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "lodash": "^4.17.4",
     "intl": "^1.2.5",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"

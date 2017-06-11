@@ -1,7 +1,7 @@
 declare var fetch: any;
 
 export async function fetchApi (url: string) {
-    let key = window.localStorage.getItem('_url_' + url);
+    const key = window.localStorage.getItem('_url_' + url);
     if (key) {
       return JSON.parse(key);
     }
