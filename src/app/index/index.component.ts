@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { fetchApi } from '../api';
 import { times, random} from 'lodash';
+import { ChartComponent } from './chart/chart.component';
 
-declare var Highcharts: any;
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+  styleUrls: ['./index.component.scss'],
+   
 })
 export class IndexComponent implements OnInit {
 
     private places: Array<any>;
     private largeWidgets : Array<any>;
-    private chartData: Array<any>;
+    
   constructor() {
   }
  
@@ -23,39 +24,7 @@ export class IndexComponent implements OnInit {
     return (response as any).results;
   }
 
-  drawChart (data) {
-
-    Highcharts.chart('chart-container', {
-      chart: {
-          backgroundColor: 'transparent',
-          type: 'area'
-      }, 
-      tooltip: {
-          pointFormat: '{series.name} produced <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
-      },
-      plotOptions: {
-          area: {
-              pointStart: 100,
-              marker: {
-                  enabled: false,
-                  symbol: 'circle',
-                  radius: 2,
-                  states: {
-                      hover: {
-                          enabled: true
-                      }
-                  }
-              }
-          }
-      },
-      series: [{
-          name: 'Temperature',
-          data: data
-      }]
-    });
-
-    
-  }
+  
 
   mockData () {
       return [
@@ -82,9 +51,7 @@ export class IndexComponent implements OnInit {
 
 
   async ngOnInit() {
-      this.chartData = times(10 , () => random(1,100));
-
-   this.drawChart(this.chartData);
+   
 
    this.largeWidgets = this.mockData();
 
