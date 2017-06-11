@@ -24,7 +24,7 @@ export class SummaryComponent implements OnInit {
   }
 
 
-  async getApi () : Promise<{result: Array<any>}> {
+  async getApi (): Promise<{result: Array<any>}> {
     const url = 'http://smart.openweb.solutions/api/summary';
     const response = await fetchApi(url);
     return (response as any).result;

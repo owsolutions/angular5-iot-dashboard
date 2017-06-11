@@ -13,63 +13,63 @@ import { ChartComponent } from './chart/chart.component';
 export class IndexComponent implements OnInit {
 
     public places: Array<any>;
-    public largeWidgets : Array<any>;
+    public largeWidgets: Array<any>;
 
-  constructor() {
-  }
+    constructor() {
+    }
 
-  async getApi (week) {
-    const url = 'http://smart.openweb.solutions/api/report/byweek/' + week;
-    const response = await fetchApi(url);
-    return (response as any).results;
-  }
-
-
-
-  mockData () {
-      return [
-          {
-              'title': 'Power',
-              'icon': 'icon icon-flash',
-              'value': random(300, 600),
-              'unit': 'Wh'
-          },
-          {
-              'title': 'Consumption',
-              'icon': 'icon icon-temperatire',
-              'value': random(5500, 6000) / 100,
-              'unit': 'kWh'
-          },
-          {
-              'title': 'Water',
-              'icon': 'icon icon-tint',
-              'value': random(200, 800) / 100,
-              'unit': 'L'
-          }
-      ];
-  }
+    async getApi (week) {
+        const url = 'http://smart.openweb.solutions/api/report/byweek/' + week;
+        const response = await fetchApi(url);
+        return (response as any).results;
+    }
 
 
-  async ngOnInit() {
+
+    mockData () {
+        return [
+            {
+                'title': 'Power',
+                'icon': 'icon icon-flash',
+                'value': random(300, 600),
+                'unit': 'Wh'
+            },
+            {
+                'title': 'Consumption',
+                'icon': 'icon icon-temperatire',
+                'value': random(5500, 6000) / 100,
+                'unit': 'kWh'
+            },
+            {
+                'title': 'Water',
+                'icon': 'icon icon-tint',
+                'value': random(200, 800) / 100,
+                'unit': 'L'
+            }
+        ];
+    }
 
 
-   this.largeWidgets = this.mockData();
+    async ngOnInit() {
 
-   setInterval(() => {
-       this.largeWidgets = this.mockData();
-   }, 5000);
 
-   this.places = [
-       {name: 'Kitchen'} ,
-       {name: 'Bathroom'} ,
-       {name: 'Master bedrrom'} ,
-       {name: ' Parking'} ,
-       {name: 'Kitchen'} ,
-       {name: 'Bathroom'} ,
-       {name: 'Master bedrrom'} ,
-       {name: ' Parking'}
-   ];
+        this.largeWidgets = this.mockData();
 
-  }
+        setInterval(() => {
+            this.largeWidgets = this.mockData();
+        }, 5000);
+
+        this.places = [
+            {name: 'Kitchen'} ,
+            {name: 'Bathroom'} ,
+            {name: 'Master bedrrom'} ,
+            {name: ' Parking'} ,
+            {name: 'Kitchen'} ,
+            {name: 'Bathroom'} ,
+            {name: 'Master bedrrom'} ,
+            {name: ' Parking'}
+        ];
+
+    }
 
 }
