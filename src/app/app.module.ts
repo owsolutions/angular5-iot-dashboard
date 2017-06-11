@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
+import { ChartComponent } from './index/chart/chart.component';
 import { SummaryComponent } from './summary/summary.component';
 import { SettingsComponent } from './settings/settings.component';
 
@@ -37,9 +38,9 @@ const appRoutes: Routes = [
 
 
 import {
-  MdButtonModule, 
-  MdCheckboxModule, 
-  MdSidenav, 
+  MdButtonModule,
+  MdCheckboxModule,
+  MdSidenav,
   MdToolbarModule,
   MdSidenavContainer,
   MdSidenavModule,
@@ -52,7 +53,8 @@ import {
     AppComponent,
     IndexComponent,
     SummaryComponent,
-    SettingsComponent
+    SettingsComponent,
+    ChartComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

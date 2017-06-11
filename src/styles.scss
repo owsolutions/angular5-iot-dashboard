@@ -83,6 +83,7 @@ nav.navigation {
 /// left dock quick status styles 
 /// </summary>
 .quick-status {
+<<<<<<< HEAD
 	@include gradien(#44d9a1, #38cf80, #02bc56);
 	@include transition(width 0.3s);
 	position: fixed;
@@ -94,6 +95,18 @@ nav.navigation {
 	&.active{
 		@include transition(left .5s);
 		left:0;
+=======
+	background:$theme-color;
+	flex:1;
+
+	$smoothBorder: 1px solid rgba(220,220,220,0.5);
+
+	/* Apply rule only on large devices */
+	@media (min-width: $screen-md-min) {
+
+		max-width:275px;
+
+>>>>>>> fbb3430fd252b6d1bf53ce488dad936fe3a59aab
 	}
 	.calendar-box {
 		min-height:200px;
@@ -110,12 +123,84 @@ nav.navigation {
 		color: rgb(218, 245, 233);	
 	}
 	.large-icon-widget {
+		text-align:center;
 		flex:1;
 		.value, .icon {
-			font-size:30px;
+			font-size:26px;
 			color:white;
 		}
 	}
+<<<<<<< HEAD
+=======
+	
+	
+	.medium-icon-widget {
+		border-right:$smoothBorder;
+		flex:1;
+		&:last-child {
+			border-right:none;
+		}
+		.value, .icon, .title {
+			display:block;
+			text-align:center;
+			font-size:11px;
+			color:white;
+		}
+		.icon {
+			font-size:22px;
+			-webkit-animation:spin 9s linear infinite;
+			-moz-animation:spin 9s linear infinite;
+			animation:spin 9s linear infinite;
+		}
+	}
+
+	.large-value-item {
+		flex:1;
+
+		sup {
+			top:-12px;
+			font-size:12px;
+		}
+		.value,.title {
+			color:white;
+			text-align:center;
+		}
+		.value {
+			font-size:30px;
+		}
+	}
+
+	.bordered-bottom {
+		padding-bottom:10px;
+		border-bottom:$smoothBorder;
+		.large-value-item:first-child {
+			border-right: $smoothBorder;
+		}
+	}
+
+
+	.bordered-top {
+		padding-top:10px;
+		border-top:$smoothBorder;
+		.large-value-item:first-child {
+			border-right: $smoothBorder;
+		}
+	}
+
+	.padding-medium {
+		padding:15px 0;
+	}
+
+	.single-large-icon {
+		text-align:center;
+		flex:1;
+		.icon {
+			color:white;
+			font-size:45px;
+		}
+	}
+
+>>>>>>> fbb3430fd252b6d1bf53ce488dad936fe3a59aab
 	.medium-icon-widget {
 		flex:1;
 		.value, .icon, .title {
@@ -128,12 +213,17 @@ nav.navigation {
 			font-size:30px;
 		}
 	}
+<<<<<<< HEAD
 	@media (min-width: $screen-desktop){
 		left:100px;
 	}
 	@media (min-width: $screen-xlg-desktop){
 		width:350px;
 	}
+=======
+
+
+>>>>>>> fbb3430fd252b6d1bf53ce488dad936fe3a59aab
 }
 
 /// <summary> 
@@ -141,6 +231,7 @@ nav.navigation {
 /// </summary>
 .app-info{
 	background:$appinfo;
+<<<<<<< HEAD
 	@include transition((width 0.3s,right .5s));
 	position: fixed;
 	right:-300px;
@@ -153,9 +244,23 @@ nav.navigation {
 	@media (min-width: $screen-xlg-desktop){
 		width:350px;
 	}
+=======
+	max-width: 250px;
+	flex:1;
+}
+
+.flex-item:nth-child(3) {
+	background:$background;
+	flex:1;
+>>>>>>> fbb3430fd252b6d1bf53ce488dad936fe3a59aab
 }
 
 .activity-container {
 	background:$container;
 }
 
+
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
