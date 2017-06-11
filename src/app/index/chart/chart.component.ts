@@ -10,13 +10,13 @@ import { times, random} from 'lodash';
 export class ChartComponent implements OnInit {
 
   private chartData: Array<any>;
-   
+
   drawChart (data) {
     Highcharts.chart('chart-container', {
       chart: {
           backgroundColor: 'transparent',
           type: 'area'
-      }, 
+      },
       tooltip: {
           pointFormat: '{series.name} produced <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
       },
@@ -41,13 +41,13 @@ export class ChartComponent implements OnInit {
       }]
     });
 
-    
+
   }
 
   constructor() { }
 
   ngOnInit() {
-    this.chartData = times(10 , () => random(1,100));
+    this.chartData = times(10 , () => random(1, 100));
     this.drawChart(this.chartData);
   }
 

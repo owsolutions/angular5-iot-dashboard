@@ -8,66 +8,66 @@ import { ChartComponent } from './chart/chart.component';
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
-   
+
 })
 export class IndexComponent implements OnInit {
 
     private places: Array<any>;
     private largeWidgets : Array<any>;
-    
+
   constructor() {
   }
- 
+
   async getApi (week) {
-    let url = 'http://smart.openweb.solutions/api/report/byweek/' + week;
-    let response = await fetchApi(url);
+    const url = 'http://smart.openweb.solutions/api/report/byweek/' + week;
+    const response = await fetchApi(url);
     return (response as any).results;
   }
 
-  
+
 
   mockData () {
       return [
           {
               'title': 'Power',
               'icon': 'icon icon-flash',
-              'value': random(300,600),
+              'value': random(300, 600),
               'unit': 'Wh'
           },
           {
               'title': 'Consumption',
               'icon': 'icon icon-temperatire',
-              'value': random(5500,6000)/100,
+              'value': random(5500, 6000) / 100,
               'unit': 'kWh'
           },
           {
               'title': 'Water',
               'icon': 'icon icon-tint',
-              'value': random(200,800)/100,
-              'unit': "L"
+              'value': random(200, 800) / 100,
+              'unit': 'L'
           }
       ];
   }
 
 
   async ngOnInit() {
-   
+
 
    this.largeWidgets = this.mockData();
 
    setInterval(() => {
-       this.largeWidgets = this.mockData()
+       this.largeWidgets = this.mockData();
    }, 5000);
 
    this.places = [
-       {name: "Kitchen"} ,
-       {name:"Bathroom"} ,
-       {name:"Master bedrrom"} ,
-       {name: " Parking"} ,
-       {name: "Kitchen"} ,
-       {name:"Bathroom"} ,
-       {name:"Master bedrrom"} ,
-       {name: " Parking"}
+       {name: 'Kitchen'} ,
+       {name: 'Bathroom'} ,
+       {name: 'Master bedrrom'} ,
+       {name: ' Parking'} ,
+       {name: 'Kitchen'} ,
+       {name: 'Bathroom'} ,
+       {name: 'Master bedrrom'} ,
+       {name: ' Parking'}
    ];
 
   }

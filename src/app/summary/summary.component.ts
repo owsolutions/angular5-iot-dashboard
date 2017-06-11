@@ -14,19 +14,19 @@ export class SummaryComponent implements OnInit {
     minhumidity: Number,
     maxhumidity: Number
   };
-  constructor() { 
+  constructor() {
     this.summary = {
       mintemp: 0,
       minhumidity: 0,
       maxhumidity: 0,
-      maxtemp:0
+      maxtemp: 0
     };
   }
 
 
   async getApi () : Promise<{result: Array<any>}> {
-    let url = 'http://smart.openweb.solutions/api/summary';
-    let response = await fetchApi(url);
+    const url = 'http://smart.openweb.solutions/api/summary';
+    const response = await fetchApi(url);
     return (response as any).result;
   }
 

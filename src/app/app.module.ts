@@ -38,9 +38,9 @@ const appRoutes: Routes = [
 
 
 import {
-  MdButtonModule, 
-  MdCheckboxModule, 
-  MdSidenav, 
+  MdButtonModule,
+  MdCheckboxModule,
+  MdSidenav,
   MdToolbarModule,
   MdSidenavContainer,
   MdSidenavModule,
