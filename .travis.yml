@@ -29,7 +29,7 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 script:
-  - ng build --prod
+  - npm run lint && ng build --prod
 
 deploy:
   provider: firebase
