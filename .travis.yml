@@ -31,10 +31,10 @@ before_install:
 script:
   - ng build --prod
 
-after_success:
-  - firebase deploy --token $FIREBASE_TOKEN
-  on: 
-    branch: master
+deploy:
+  provider: firebase
+  token:
+    secure: "$FIREBASE_TOKEN"
 
 notifications:
   email:
