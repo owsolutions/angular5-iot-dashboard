@@ -84,7 +84,7 @@ $smoothBorder: 1px solid gray;
 /// </summary>
 .quick-status {
 
-	@include gradien(#44d9a1, #38cf80, #02bc56);
+	@include gradient(#44d9a1, #38cf80, #02bc56);
 	@include transition(width 0.3s);
 	position: fixed;
 	left:-300px;
