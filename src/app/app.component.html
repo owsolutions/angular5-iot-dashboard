@@ -7,10 +7,7 @@
         <ul>
             <li><a routerLink='/index' routerLinkActive="active"><i class="icon icon-home-outline"></i>Home</a></li>
             <li><a routerLink='/summary' routerLinkActive="active"><i class="icon icon-search"></i>Search</a></li>
-            <!--<li><a><i class="icon icon-adjust"></i>Adjust</a></li>-->
-            <!--<li><a><i class="icon icon-temperatire"></i>Temperature</a></li>-->
             <li><a routerLink='/settings' routerLinkActive="active"><i class="icon icon-sliders"></i>Settings</a></li>
-            <!--<li><a><i class="icon icon-history"></i>Activities</a></li>-->
         </ul>
     </nav>
 
@@ -49,9 +46,41 @@
             </div>
 
 
+            <h2>Netatmo indoor</h2>
 
-            <div id="chart-container" style="min-width: 310px; height: 200px; margin: 0 auto"></div>
+            <div class="flex-container bordered-bottom">
+                <div class="large-value-item">
+                    <div class="value">34<sup>%</sup></div>
+                    <div class="title">Humidity</div>
+                </div>
+                <div class="large-value-item">
+                    <div class="value">1096</div>
+                    <div class="title">mBar</div>
+                </div>
+            </div>
 
+            <div class="flex-container padding-medium">
+                <div class="single-large-icon">
+                  <i class="icon icon-temperatire"></i>  
+                </div>
+
+                <div class="large-value-item">
+                    <div class="value">22.8<sup>C</sup></div>
+                    <div class="title">Temperature</div>
+                </div>
+            </div>
+
+
+            <div class="flex-container bordered-top">
+                <div class="large-value-item">
+                    <div class="value">34<sup>%</sup></div>
+                    <div class="title">Humidity</div>
+                </div>
+                <div class="large-value-item">
+                    <div class="value">1096</div>
+                    <div class="title">mBar</div>
+                </div>
+            </div>
         </div>
         
         
@@ -62,10 +91,8 @@
 
     <div class="app-info">
         <div class="docked">
-            <h2>app info</h2>
-        </div>
-        
-        
+            
+        </div> 
     </div>
 </div>
 

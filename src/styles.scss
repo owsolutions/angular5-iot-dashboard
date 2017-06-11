@@ -134,9 +134,13 @@ nav.navigation {
 	background:$theme-color;
 	flex:1;
 
+	$smoothBorder: 1px solid rgba(220,220,220,0.5);
+
 	/* Apply rule only on large devices */
 	@media (min-width: $screen-md-min) {
+
 		max-width:275px;
+
 	}
 
 	.calendar-box {
@@ -156,13 +160,81 @@ nav.navigation {
 	}
 	
 	.large-icon-widget {
+		text-align:center;
 		flex:1;
 		.value, .icon {
-			font-size:30px;
+			font-size:26px;
 			color:white;
 		}
 	}
 	
+	
+	.medium-icon-widget {
+		border-right:$smoothBorder;
+		flex:1;
+		&:last-child {
+			border-right:none;
+		}
+		.value, .icon, .title {
+			display:block;
+			text-align:center;
+			font-size:11px;
+			color:white;
+		}
+		.icon {
+			font-size:22px;
+			-webkit-animation:spin 9s linear infinite;
+			-moz-animation:spin 9s linear infinite;
+			animation:spin 9s linear infinite;
+		}
+	}
+
+	.large-value-item {
+		flex:1;
+
+		sup {
+			top:-12px;
+			font-size:12px;
+		}
+		.value,.title {
+			color:white;
+			text-align:center;
+		}
+		.value {
+			font-size:30px;
+		}
+	}
+
+	.bordered-bottom {
+		padding-bottom:10px;
+		border-bottom:$smoothBorder;
+		.large-value-item:first-child {
+			border-right: $smoothBorder;
+		}
+	}
+
+
+	.bordered-top {
+		padding-top:10px;
+		border-top:$smoothBorder;
+		.large-value-item:first-child {
+			border-right: $smoothBorder;
+		}
+	}
+
+	.padding-medium {
+		padding:15px 0;
+	}
+
+	.single-large-icon {
+		text-align:center;
+		flex:1;
+		.icon {
+			color:white;
+			font-size:45px;
+		}
+	}
+
 	.medium-icon-widget {
 		flex:1;
 		.value, .icon, .title {
@@ -176,18 +248,18 @@ nav.navigation {
 		}
 	}
 
+
 }
 
 .app-info{
 	background:$appinfo;
-	max-width: 350px;
+	max-width: 250px;
 	flex:1;
 }
 
 .flex-item:nth-child(3) {
 	background:$background;
 	flex:1;
-	padding:0px 15px;
 }
 
 .activity-container {
@@ -199,3 +271,8 @@ nav.navigation {
 	}
 }
 
+
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
