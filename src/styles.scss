@@ -78,7 +78,7 @@ nav.navigation {
 	}
 }
 
-$smoothBorder: 1px solid gray;
+
 /// <summary> 
 /// left dock quick status styles 
 /// </summary>
@@ -220,7 +220,7 @@ $smoothBorder: 1px solid gray;
 	top:0px;
 	bottom:0;
 	width:300px;
-	@media (min-width: $screen-lg-desktop){
+	@media (min-width: $screen-1366){
 		right:0;
 	}
 	@media (min-width: $screen-xlg-desktop){
@@ -230,9 +230,23 @@ $smoothBorder: 1px solid gray;
 }
 
 .content-box{
-	position: absolute;
-	left:450px;
-	right:350px;
+	position:relative;
+	left:0px;
+	right:0px;
+	@include transition((right 0.5s,left .5s));
+	@media (min-width: $screen-desktop){
+		position: absolute;
+		left:400px;
+		right:0px;
+	}
+	@media (min-width: $screen-1366 + 1){
+		right:300px;
+	}
+	@media (min-width: $screen-xlg-desktop){
+		position: absolute;
+		left:450px;
+		right:350px;
+	}
 }
 
 .activity-container {
