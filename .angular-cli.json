@@ -23,7 +23,9 @@
       ],
       "scripts": [
         "assets/highcharts/highcharts.js",
-        "assets/highcharts/exporting.js"
+        "assets/highcharts/exporting.js",
+        "assets/jquery.min.js",
+        "assets/Chart.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

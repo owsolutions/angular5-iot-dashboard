@@ -10,6 +10,11 @@ export class SettingsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    // Inspired by https://dribbble.com/shots/1821178-Sales-Report/
+
+
+
   }
 
 }
