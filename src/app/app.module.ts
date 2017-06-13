@@ -11,6 +11,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SwitchWidgetsComponent } from './shared/switch-widgets/switch-widgets.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { DevicesComponent } from './devices/devices.component';
 
 
 const appRoutes: Routes = [
@@ -27,6 +28,11 @@ const appRoutes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent,
+    data: {}
+  },
+  {
+    path: 'devices',
+    component: DevicesComponent,
     data: {}
   },
   { path: '',
@@ -55,7 +61,8 @@ import {
     SummaryComponent,
     SettingsComponent,
     ChartComponent,
-    SwitchWidgetsComponent
+    SwitchWidgetsComponent,
+    DevicesComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
