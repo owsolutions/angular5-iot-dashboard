@@ -21,10 +21,11 @@
           <h3>Inputs</h3>
         </div>
         <div class="vertical-row">
-          <span class="button-container" *ngFor="let input of device.Inputs">
-            <label><input type="checkbox" class="ios-switch smallswitch" checked /><div><div></div></div></label>
+          <span class="button-container" *ngFor="let pin of device.Inputs">
+            <label><input type="checkbox" class="ios-switch smallswitch" [attr.checked]="pin.value == 1 ? '' : null" /><div><div></div></div></label>
           </span>
         </div>
+        {{device.DescribeInputs()}}
     </div>
 
     <hr>
@@ -34,17 +35,18 @@
           <h3>Outputs</h3>
         </div>
         <div class="vertical-row">
-          <span class="button-container" *ngFor="let input of device.Outputs">
-            <label><input type="checkbox" class="ios-switch smallswitch" checked /><div><div></div></div></label>
+          <span class="button-container" *ngFor="let pin of device.Outputs">
+            <label><input type="checkbox" class="ios-switch smallswitch" [attr.checked]="pin.value == 1 ? '' : null" /><div><div></div></div></label>
           </span>
         </div>
+        {{device.DescribeOutputs()}}
     </div>
 
   </div>
 </div>
-
+<!--
 <br>
 <br>
 <pre style='font-size:10px;'>
 {{devices | json}}
-</pre>
+</pre>-->

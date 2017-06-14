@@ -19,14 +19,14 @@ export class DevicesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     let eco = new Echosystem();
-    eco.UpdateDevices(eco.generateMock[1]);
+    eco.UpdateDevices(eco.generateMock);
     this.devices = eco.Devices;
 
-    // window.currentSocket.on('message', message => {
-    //     eco.UpdateDevices(message.device);
-    //     this.devices = eco.Devices;
-    //     this.chRef.detectChanges();
-    // });
+    window.currentSocket.on('message', message => {
+        eco.UpdateDevice(message.device);
+        this.devices = eco.Devices;
+        this.chRef.detectChanges();
+    });
     
     
   }

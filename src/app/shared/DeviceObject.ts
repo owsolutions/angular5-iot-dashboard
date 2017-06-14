@@ -20,4 +20,11 @@ export class DeviceObject {
     return this.native.pins.filter(pin => pin.type == 'output')
   }
 
+  DescribeInputs () {
+      return this.Inputs.map(pin => pin.value).join(',');
+  }
+  DescribeOutputs () {
+      return this.Outputs.map(pin => pin.value).join(',');
+  }
+
 }

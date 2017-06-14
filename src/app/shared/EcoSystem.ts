@@ -22,7 +22,7 @@ export class Echosystem {
         };
       });
     }
-    function createDevices (id: Number = 6) : Array<IDevice> {
+    function createDevices (id: Number = 3) : Array<IDevice> {
       return times(id , () => {
         return {
           uniqueid: 'dev-' + random(1111,9999),
@@ -45,11 +45,17 @@ export class Echosystem {
    * it will update the devices status; if device exists,
    * just changes the values. if not exists, will create the device.
    */
-  UpdateDevices (device: IDevice) {
+  UpdateDevice (device: IDevice) {
     let _ = this.contextDevices.find(_ => _.uniqueid == device.uniqueid);
     if (_) {
         this.contextDevices = this.contextDevices.filter(_ => _.uniqueid != device.uniqueid);
     }
     this.contextDevices.push(device);
+  }
+
+  UpdateDevices (devices: Array<IDevice>) {
+      devices.forEach(device => {
+          this.UpdateDevice(device);
+      })
   }
 }
