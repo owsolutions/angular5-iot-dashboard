@@ -13,6 +13,27 @@ import { SwitchWidgetsComponent } from './shared/switch-widgets/switch-widgets.c
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { DevicesComponent } from './devices/devices.component';
 
+declare global {
+  
+  interface Window {
+    io: any,
+    currentSocket: any
+  }
+
+}
+let IO = window.io;
+let SOCKET: any = window.currentSocket = {};
+if (IO) {
+    IO.sails.autoConnect = false;
+    SOCKET = IO.sails.connect('http://localhost:1337' , undefined , true);
+
+    SOCKET.on('connect' , function (client) {
+      console.log('Client : ' , client);
+    });
+    SOCKET.on('message', function (message) {
+      console.log('Message > ', message);
+    });
+}
 
 const appRoutes: Routes = [
   {
