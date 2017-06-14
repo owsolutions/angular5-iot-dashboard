@@ -5,8 +5,27 @@
     display:inline-block;
     width:31%;
 
+    .vertical-container {
+        flex-direction: column;
+
+    }
+    .content-padding {
+        padding:5px 15px;
+    }
+    hr {
+        margin:5px 0;
+    }
+    h3 {
+        font-size:13px;
+        color: $context-color;
+        margin-top:0;
+    }
+    .vertical-row {
+        flex:1;
+    }
     .device-box {
         display:flex;
+        flex-direction: column;
         background-color:$background-color;
         margin:7.5px;
         padding:10px 0;

@@ -25,14 +25,12 @@ let IO = window.io;
 let SOCKET: any = window.currentSocket = {};
 if (IO) {
     IO.sails.autoConnect = false;
-    SOCKET = IO.sails.connect('http://localhost:1337' , undefined , true);
+    window.currentSocket = IO.sails.connect('http://localhost:1337' , undefined , true);
 
-    SOCKET.on('connect' , function (client) {
+    window.currentSocket.on('connect' , function (client) {
       console.log('Client : ' , client);
     });
-    SOCKET.on('message', function (message) {
-      console.log('Message > ', message);
-    });
+
 }
 
 const appRoutes: Routes = [

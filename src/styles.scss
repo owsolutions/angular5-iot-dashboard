@@ -88,7 +88,7 @@ nav.navigation {
 
 	/* Apply rule only on large devices */
 	@media (min-width: $screen-md-min) {
-		max-width: 90px;	
+		max-width: 70px;	
 	}
 
 	ul {
@@ -103,7 +103,7 @@ nav.navigation {
 				font-size:13px;
 				i {
 					display:block;
-					font-size:30px;
+					font-size:20px;
 					padding-bottom:0px;
 				}
 				&:hover, &.active {
