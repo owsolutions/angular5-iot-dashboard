@@ -1,5 +1,3 @@
-
-
 <div class="app-container">
 
     <!-- dashboard title [only show on mobile and tablet view] -->
@@ -10,25 +8,20 @@
 
     <!-- Navigation -->
     <nav class="navigation">
-        <ul>
-            <li><a routerLink='/index' routerLinkActive="active"><i class="icon icon-home-outline"></i>Home</a></li>
-            <li><a routerLink='/summary' routerLinkActive="active"><i class="icon icon-search"></i>Search</a></li>
-            <li><a routerLink='/devices' routerLinkActive="active"><i class="icon icon-sliders"></i>Devices</a></li>
-            <li><a routerLink='/settings' routerLinkActive="active"><i class="icon icon-sliders"></i>Settings</a></li>
-        </ul>
+        <div class="nav-item-container">    
+            <a routerLink='/index' routerLinkActive="active"><i class="icon icon-home-outline"></i>Home</a>
+            <a routerLink='/summary' routerLinkActive="active"><i class="icon icon-search"></i>Search</a>
+            <a routerLink='/devices' routerLinkActive="active"><i class="icon icon-sliders"></i>Devices</a>
+            <a routerLink='/settings' routerLinkActive="active"><i class="icon icon-sliders"></i>Settings</a>
+        </div>
     </nav>
-
 
     <div class="content-box">
         <router-outlet></router-outlet>
     </div>
-
     <app-quick-status></app-quick-status>
-
     <div class="app-info">
-        <div class="docked">    
-        </div> 
-
+        <div class="docked"></div> 
     </div>
 </div>
 
