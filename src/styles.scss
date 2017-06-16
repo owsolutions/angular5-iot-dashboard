@@ -44,9 +44,9 @@ html, body{
 
 .dashboard-title{
 	display:none;
-	@media (max-width: #{$screen-tablet-max}){
-		display: block;
-	}
+	// @media (max-width: #{$screen-tablet-max}){
+	// 	display: block;
+	// }
 }
  
 
