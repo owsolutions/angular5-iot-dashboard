@@ -13,6 +13,8 @@ html, body{
     margin: 0;
     padding: 0;
 	font-size:13px;
+	font-family: 'Quicksand', sans-serif;
+
 	color:$primary-text;
 	@media (min-width: #{$screen-desktop}){
 		font-size:14px;
@@ -87,10 +89,10 @@ nav.navigation {
 	@include gradient(#44d9a1, #38cf80, #02bc56);
 	@include transition(width 0.3s);
 	position: fixed;
-	left:-300px;
+	left:-275px;
 	top:0px;
 	bottom:0;
-	width:300px;
+	width:275px;
 
 	&.active{
 		@include transition(left .5s);
@@ -204,7 +206,7 @@ nav.navigation {
 		left:100px;
 	}
 	@media (min-width: $screen-xlg-desktop){
-		width:350px;
+		width:275px;
 	}
 
 }
