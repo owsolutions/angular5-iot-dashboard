@@ -4,6 +4,8 @@
 @import "medias";
 @import "mixins";
 
+$navigationWidth: 80px;
+
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
@@ -42,7 +44,7 @@ nav.navigation {
 		left:0px;
 		top:0px;
 		bottom:0;
-		width:100px;
+		width:$navigationWidth;
 	}
 	.nav-item-container{
 		display: flex;
@@ -74,7 +76,7 @@ nav.navigation {
 			}
 
 			@media (max-width: $screen-tablet-max){
-				min-width:100px;
+				min-width:$navigationWidth;
 			}
 		}
 	}
@@ -203,12 +205,11 @@ nav.navigation {
 	}
 
 	@media (min-width: $screen-desktop){
-		left:100px;
+		left:$navigationWidth;
 	}
 	@media (min-width: $screen-xlg-desktop){
 		width:275px;
 	}
-
 }
 
 /// <summary> 
