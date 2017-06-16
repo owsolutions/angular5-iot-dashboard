@@ -1,0 +1,46 @@
+.quick-time-container{
+    position:relative;
+    margin-bottom:15px;
+    .date-time{
+        position: absolute;
+        bottom: 4px;
+        left:0px;
+        right:0px;
+        height:150px;
+        padding:50px 30px 15px;
+        background: rgba(255,255,255,0);
+        background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0.74) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(100%, rgba(0,0,0,0.74)));
+        background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0.74) 100%);
+        background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0.74) 100%);
+        background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0.74) 100%);
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(0,0,0,0.74) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=0 );
+
+        > span{
+            display: inline-block;
+            color: white;
+            font-size: 19px;
+        }
+
+        .q-week-day{
+            display: block;
+        }
+        .q-month,.q-day{
+            font-size: 40px;
+        }
+        .q-day{
+            position: relative;
+            > span{
+                font-size:14px;
+                position: absolute;
+                top: 10px;
+                right:-15px;
+            }
+        } 
+        .q-time{
+            float: right;
+            margin-top:20px;
+        }
+    }
+}
