@@ -16,6 +16,8 @@
 }
 
 html, body{
+
+	overflow-x: hidden;
 	&::-webkit-scrollbar-track {
 	    background-color: black;
     }
