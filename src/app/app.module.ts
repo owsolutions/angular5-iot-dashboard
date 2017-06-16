@@ -16,15 +16,15 @@ import { QuickStatusComponent } from './master/quick-status/quick-status.compone
 import { QuickChartComponent } from './master/quick-status/quick-chart/quick-chart.component';
 
 declare global {
-  
+
   interface Window {
-    io: any,
-    currentSocket: any
+    io: any;
+    currentSocket: any;
   }
 
 }
-let IO = window.io;
-let SOCKET: any = window.currentSocket = {};
+const IO = window.io;
+const SOCKET: any = window.currentSocket = {};
 if (IO) {
     IO.sails.autoConnect = false;
     window.currentSocket = IO.sails.connect('http://localhost:1337' , undefined , true);

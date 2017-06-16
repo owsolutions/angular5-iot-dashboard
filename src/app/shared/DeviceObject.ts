@@ -3,7 +3,7 @@ import { IDevice } from './Definitions';
 export class DeviceObject {
 
   constructor(private native: IDevice) {
-    
+
   }
   get GetTitle () {
     return this.native.uniqueid;
@@ -13,11 +13,11 @@ export class DeviceObject {
   }
 
   get Inputs () {
-    return this.native.pins.filter(pin => pin.type == 'input')
+    return this.native.pins.filter(pin => pin.type === 'input');
   }
 
   get Outputs () {
-    return this.native.pins.filter(pin => pin.type == 'output')
+    return this.native.pins.filter(pin => pin.type === 'output');
   }
 
   DescribeInputs () {

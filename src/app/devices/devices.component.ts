@@ -1,24 +1,21 @@
 import { Component, OnInit, OnDestroy, Pipe } from '@angular/core';
 import { Echosystem } from '../shared/EcoSystem';
-import {ChangeDetectorRef}  from '@angular/core';
+import { ChangeDetectorRef } from '@angular/core';
 import { DeviceObject } from '../shared/DeviceObject';
 
 @Component({
   selector: 'app-devices',
   templateUrl: './devices.component.html',
-  styleUrls: ['./devices.component.scss' , '../shared/checkbox-switch.scss'],
-  
+  styleUrls: ['./devices.component.scss' , '../shared/checkbox-switch.scss']
 })
 export class DevicesComponent implements OnInit, OnDestroy {
 
-  constructor(
-    public chRef: ChangeDetectorRef
-  ) { 
-  }
   public devices: Array<DeviceObject>;
+  constructor (public chRef: ChangeDetectorRef) {
 
-  ngOnInit() {
-    let eco = new Echosystem();
+  }
+  ngOnInit () {
+    const eco = new Echosystem();
     eco.UpdateDevices(eco.generateMock);
     this.devices = eco.Devices;
 
@@ -27,11 +24,9 @@ export class DevicesComponent implements OnInit, OnDestroy {
         this.devices = eco.Devices;
         this.chRef.detectChanges();
     });
-    
-    
   }
 
-  ngOnDestroy() {
+  ngOnDestroy () {
     this.chRef.detach();
   }
 }

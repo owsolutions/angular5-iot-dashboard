@@ -8,24 +8,24 @@ import { DeviceObject } from './DeviceObject';
  * only manages devices and their io
  */
 export class Echosystem {
-  
+
   private contextDevices: Array<IDevice> = [];
 
-  get generateMock () : Array<IDevice> {
+  get generateMock (): Array<IDevice> {
 
-    function createPins (id: Number = 2) : Array<IPin> {
+    function createPins (id: Number = 2): Array<IPin> {
       return times(8 , (index) => {
         return {
           id: index,
-          type: random (0,1) == 1 ? 'input' : 'output',
-          value: random(0,1)
+          type: random (0, 1) === 1 ? 'input' : 'output',
+          value: random(0, 1)
         };
       });
     }
-    function createDevices (id: Number = 3) : Array<IDevice> {
+    function createDevices (id: Number = 3): Array<IDevice> {
       return times(id , () => {
         return {
-          uniqueid: 'dev-' + random(1111,9999),
+          uniqueid: 'dev-' + random(1111, 9999),
           pins: createPins (2)
         };
       });
@@ -34,10 +34,10 @@ export class Echosystem {
     return createDevices() ;
   }
 
-  get Devices () : Array<DeviceObject> {
+  get Devices (): Array<DeviceObject> {
     return this.contextDevices.map(device => {
-      return new DeviceObject(device);      
-    })
+      return new DeviceObject(device);
+    });
   }
 
   /**
@@ -46,9 +46,9 @@ export class Echosystem {
    * just changes the values. if not exists, will create the device.
    */
   UpdateDevice (device: IDevice) {
-    let _ = this.contextDevices.find(_ => _.uniqueid == device.uniqueid);
+    const _ = this.contextDevices.find($ => $.uniqueid === device.uniqueid);
     if (_) {
-        this.contextDevices = this.contextDevices.filter(_ => _.uniqueid != device.uniqueid);
+        this.contextDevices = this.contextDevices.filter($ => $.uniqueid !== device.uniqueid);
     }
     this.contextDevices.push(device);
   }
@@ -56,6 +56,6 @@ export class Echosystem {
   UpdateDevices (devices: Array<IDevice>) {
       devices.forEach(device => {
           this.UpdateDevice(device);
-      })
+      });
   }
 }
