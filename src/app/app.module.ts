@@ -10,8 +10,10 @@ import { ChartComponent } from './index/chart/chart.component';
 import { SummaryComponent } from './summary/summary.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SwitchWidgetsComponent } from './shared/switch-widgets/switch-widgets.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DevicesComponent } from './devices/devices.component';
+import { QuickStatusComponent } from './master/quick-status/quick-status.component';
+import { QuickChartComponent } from './master/quick-status/quick-chart/quick-chart.component';
 
 declare global {
   
@@ -80,6 +82,8 @@ import {
     SummaryComponent,
     SettingsComponent,
     ChartComponent,
+    QuickStatusComponent,
+    QuickChartComponent,
     SwitchWidgetsComponent,
     DevicesComponent
   ],
