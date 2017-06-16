@@ -5,6 +5,8 @@
 @import "mixins";
 
 $navigationWidth: 80px;
+$statusBarWidth: 275px;
+
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -81,6 +83,7 @@ nav.navigation {
 		}
 	}
 }
+
 
 
 /// <summary> 
@@ -208,7 +211,7 @@ nav.navigation {
 		left:$navigationWidth;
 	}
 	@media (min-width: $screen-xlg-desktop){
-		width:275px;
+		width:$statusBarWidth;
 	}
 }
 
@@ -247,7 +250,7 @@ nav.navigation {
 	}
 	@media (min-width: $screen-xlg-desktop){
 		position: absolute;
-		left:450px;
+		left: $statusBarWidth + $navigationWidth;
 		right:350px;
 	}
 }
