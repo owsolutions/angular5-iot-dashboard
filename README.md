@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/smart-dashboard/angular-dashboard.svg?branch=master)](https://travis-ci.org/smart-dashboard/angular-dashboard)
+
 # Smart angular dashboard
 This is a smart home client application demo.
 
