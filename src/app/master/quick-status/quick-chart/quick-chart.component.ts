@@ -68,7 +68,7 @@ export class QuickChartComponent implements OnInit {
       },
       series: [{
           name: 'Temperature',
-          data: [3, 4, 3, 5, 4, 7, 5], //data,
+          data: [3, 4, 3, 5, 4, 7, 5],
           fillColor: {
               linearGradient: {
                   x1: 0,
