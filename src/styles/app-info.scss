@@ -1,0 +1,17 @@
+
+.app-info{
+	background:$appinfo;
+	@include transition((width 0.3s,right .5s));
+	position: fixed;
+	right:-300px;
+	top:0px;
+	bottom:0;
+	width:300px;
+	@media (min-width: $screen-1366){
+		right:0;
+	}
+	@media (min-width: $screen-xlg-desktop){
+		width:350px;
+	}
+
+}
