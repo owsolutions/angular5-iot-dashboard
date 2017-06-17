@@ -20,7 +20,7 @@ export class QuickChartComponent implements OnInit {
           spacingLeft: 0,
           spacingRight: 0,
       },
-      
+
       tooltip: {
           enable: null
       },
@@ -42,11 +42,11 @@ export class QuickChartComponent implements OnInit {
             style: {
                 color: 'rgba(255,255,255,0.8)'
             },
-            y:-10,
-            x:27
+            y: -10,
+            x: 27
         },
         tickLength: -250,
-        tickColor: "rgba(255,255,255,0.25)",
+        tickColor: 'rgba(255,255,255,0.25)',
         lineColor: 'transparent',
         tickmarkPlacement: 'right'
       },
@@ -83,7 +83,9 @@ export class QuickChartComponent implements OnInit {
       },
       series: [{
           name: 'Temperature',
-          data: [11, 15, 13, 16, 10, 17, 14], //data,
+          data: [
+              11, 15, 13, 16, 10, 17, 14
+          ],
           fillColor: {
               linearGradient: {
                   x1: 0,
@@ -102,10 +104,10 @@ export class QuickChartComponent implements OnInit {
             enabled: true,
             color: '#FFFFFF',
             align: 'left',
-            x:13,
-            y:top,
+            x: 13,
+            y: top,
             format: '{y}˚',
-            style:{
+            style: {
                 fontWeight: 'light',
                 fontSize: 13,
                 textOutline: false
