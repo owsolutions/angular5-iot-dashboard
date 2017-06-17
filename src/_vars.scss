@@ -1,5 +1,5 @@
 /// Default theme base variables
-$navigationWidth: 80px;
+$navigationWidth: 100px;
 $statusBarWidth: 275px;
 
 $theme-color:               rgb(0,203,122);
@@ -18,4 +18,4 @@ $nav-icon-active:           rgb(170,170,170);
 
 $appinfo:                   #eef1f8;
 $container:                 rgb(238,241,247);
-$smoothBorder:              1px solid #DDDDDD;
+$smoothBorder:              1px solid rgba(255,255,255,0.3);

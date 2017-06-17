@@ -1,6 +1,4 @@
-
 .content-box{
-	height:100%;
 	position:relative;
 	left:0px;
 	right:0px;
@@ -15,7 +13,7 @@
 	}
 	@media (min-width: $screen-xlg-desktop){
 		position: absolute;
-		left: $statusBarWidth + $navigationWidth;
+		left:450px;
 		right:350px;
 	}
 }

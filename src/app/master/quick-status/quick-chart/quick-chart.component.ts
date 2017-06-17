@@ -14,8 +14,13 @@ export class QuickChartComponent implements OnInit {
     Highcharts.chart('quick-chart-container', {
       chart: {
           backgroundColor: 'transparent',
-          type: 'areaspline'
+          type: 'areaspline',
+          spacingBottom: 0,
+          spacingTop: 10,
+          spacingLeft: 0,
+          spacingRight: 0,
       },
+
       tooltip: {
           enable: null
       },
@@ -23,6 +28,7 @@ export class QuickChartComponent implements OnInit {
           text: null
       },
       xAxis: {
+        min: 0.5, max: 5.5,
         categories: [
             'MON',
             'TUE',
@@ -32,11 +38,17 @@ export class QuickChartComponent implements OnInit {
             'SAT',
             'SUN'
         ],
-        lable: {
-          textColor: 'rgba(255,255,255,0.5)'
+        labels: {
+            style: {
+                color: 'rgba(255,255,255,0.8)'
+            },
+            y: -10,
+            x: 27
         },
-        tickLength: 0,
-        lineColor: 'transparent'
+        tickLength: -250,
+        tickColor: 'rgba(255,255,255,0.25)',
+        lineColor: 'transparent',
+        tickmarkPlacement: 'right'
       },
       yAxis: {
           min: 0,
@@ -47,6 +59,9 @@ export class QuickChartComponent implements OnInit {
           labels:
           {
               enabled: false
+          },
+          stackLabels: {
+            enabled: true,
           }
       },
       legend: {
@@ -68,7 +83,9 @@ export class QuickChartComponent implements OnInit {
       },
       series: [{
           name: 'Temperature',
-          data: [3, 4, 3, 5, 4, 7, 5],
+          data: [
+              11, 15, 13, 16, 10, 17, 14
+          ],
           fillColor: {
               linearGradient: {
                   x1: 0,
@@ -81,8 +98,21 @@ export class QuickChartComponent implements OnInit {
                   [1, 'rgba(0,0,0,.05)']
               ]
           },
-          lineWidth: 3,
-          lineColor: 'rgba(255,255,255,0.5)'
+          lineWidth: 2.2,
+          lineColor: 'rgba(255,255,255,0.5)',
+          dataLabels: {
+            enabled: true,
+            color: '#FFFFFF',
+            align: 'left',
+            x: 13,
+            y: top,
+            format: '{y}˚',
+            style: {
+                fontWeight: 'light',
+                fontSize: 13,
+                textOutline: false
+            }
+         }
       }]
     });
 
