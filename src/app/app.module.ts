@@ -71,6 +71,9 @@ import {
   MdNavListCssMatStyler,
   MdListItem
 } from '@angular/material';
+import { QuickStatusComponent } from './master/quick-status/quick-status.component';
+import { QuickChartComponent } from './master/quick-status/quick-chart/quick-chart.component';
+import { QuickTimeComponent } from './master/quick-status/quick-time/quick-time.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +83,8 @@ import {
     SettingsComponent,
     ChartComponent,
     QuickStatusComponent,
-    QuickChartComponent
+    QuickChartComponent,
+    QuickTimeComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

@@ -4,11 +4,11 @@
 	@include gradient(#44d9a1, #38cf80, #02bc56);
 	@include transition(width 0.3s);
 	position: fixed;
-	left:-275px;
+	left:-300px;
 	top:0px;
 	bottom:0;
-	width:275px;
-
+	width:300px;
+	overflow-x: hidden;
 	&.active{
 		@include transition(left .5s);
 		left:0;
@@ -20,19 +20,21 @@
 		width:100%;
 	}
 	.docked {
-		margin-right:30px;
-		margin-left:30px;
+		
 	}
 	h2 {
 		font-size:16px;
 		text-transform: uppercase;
 		color: rgb(218, 245, 233);	
+		text-align: center;
+		padding-bottom: 20px;
 	}
 	.large-icon-widget {
 		text-align:center;
 		flex:1;
+		padding-bottom: 15px;
 		.value, .icon {
-			font-size:26px;
+			font-size:42px;
 			color:white;
 		}
 	}
@@ -44,11 +46,16 @@
 		&:last-child {
 			border-right:none;
 		}
-		.value, .icon, .title {
+		.value, .icon, .title ,> span{
 			display:block;
 			text-align:center;
 			font-size:11px;
 			color:white;
+		}
+		> span{
+			font-size : 22px;
+			font-weight: bold;
+			padding:5px 0;
 		}
 		.icon {
 			font-size:22px;
@@ -118,9 +125,9 @@
 	}
 
 	@media (min-width: $screen-desktop){
-		left:$navigationWidth;
+		left:100px;
 	}
 	@media (min-width: $screen-xlg-desktop){
-		width:$statusBarWidth;
+		width:350px;
 	}
 }
