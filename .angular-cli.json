@@ -23,8 +23,7 @@
       ],
       "scripts": [
         "assets/highcharts/highcharts.js",
-        "assets/highcharts/exporting.js",
-	      "assets/sails.io.js"
+        "assets/highcharts/exporting.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
