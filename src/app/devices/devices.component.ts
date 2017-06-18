@@ -3,10 +3,10 @@ import { ChangeDetectorRef } from '@angular/core';
 import { DeviceObject } from '../shared/DeviceObject';
 import { IDevice } from '../shared/Definitions';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 interface AppState {
-  devices: Array<any>
+  devices: Array<any>;
 }
 
 @Component({
@@ -19,7 +19,7 @@ export class DevicesComponent implements  OnDestroy , OnInit {
   private devices: Array<IDevice>;
 
   constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>) {
-    
+
   }
 
   get Devices (): Array<DeviceObject> {
@@ -33,8 +33,8 @@ export class DevicesComponent implements  OnDestroy , OnInit {
     });
   }
 
-  ngOnDestroy () { 
-    this.chRef.detach(); 
+  ngOnDestroy () {
+    this.chRef.detach();
   }
- 
+
 }

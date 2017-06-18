@@ -2,7 +2,7 @@ export default function UpdateOrInsert (element: any, context: Array<any>, compa
     let updated = false;
     let newContext;
     newContext = context.map($el => {
-        if ($el[compareKey] == element[compareKey]) {
+        if ($el[compareKey] === element[compareKey]) {
             updated = true;
             return element;
         }
