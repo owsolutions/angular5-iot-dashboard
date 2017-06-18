@@ -1,0 +1,9 @@
+<h2>Activity Feed</h2>
+<ol class="activity-feed">
+  <li class="feed-item" *ngFor="let activity of activities;">
+    <time class="date" datetime="9-25">{{activity.key}} Sep 25</time>
+    <span class="text">
+      {{activity.description}}  
+    </span>
+  </li>
+</ol>

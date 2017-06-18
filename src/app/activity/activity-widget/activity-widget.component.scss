@@ -1,0 +1,58 @@
+
+// Colors:
+$brand-primary: #50bced;   // Blue
+$brand-secondary: #f37167; // Orange
+
+a {
+  color: $brand-primary;
+}
+h2 {
+    padding:30px 15px 10px;
+    color: rgb(180, 188, 203);
+    text-transform: uppercase;
+    font-size:17px;
+    letter-spacing: 1px;
+    font-weight:bold;
+
+}
+.activity-feed {
+  padding: 15px 25px;
+  list-style: none;
+
+  .feed-item {
+    position: relative;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    border-left: 2px solid #e4e8eb;
+
+    &:last-child {
+      border-color: transparent;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 6px;
+      background: #fff;
+      border: 1px solid $brand-secondary;
+    }
+
+    .date {
+      display: block;
+      position: relative;
+      top: -5px;
+      color: #8c96a3;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+    .text {
+      position: relative;
+      top: -3px;
+    }
+  }
+}

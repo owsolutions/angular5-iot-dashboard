@@ -1,0 +1,40 @@
+.widget-box {
+    display:flex;
+    background-color:#00cb7a;
+
+    &:hover {
+        transition: 0.3s all ease-in-out;
+        background-color:#43A047;
+    }
+    margin:7.5px;
+    padding:10px 0;
+
+    .icon {
+        font-size:45px;
+        color:white;
+    }
+
+    .info-box {
+        flex:2;
+        font-size:16px;
+        margin-left:15px;
+        
+        .name {
+            font-size:13px;
+            color:white;
+        }
+    }
+
+    .controlls {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        label {
+            margin:5px 0;
+            display: block;
+        }
+        flex:1;
+    }
+    
+}

@@ -1,0 +1,7 @@
+<div class="large-icon-status">
+    <div class="large-icon-widget" *ngFor="let widget of largeWidgets">
+        <div class="title">{{widget.title}}</div>
+        <i class="{{widget.icon}}"></i>
+        <div class="value">{{widget.value}}<sub>{{widget.unit}}</sub></div>
+    </div>
+</div>

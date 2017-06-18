@@ -1,0 +1,66 @@
+<div class="place-container">
+    <div style="overflow-y: scroll; width:100%;" id="style-3">
+
+        <!-- Place row -->
+        <div class="place-row" *ngFor="let place of places;">
+            <div class="column title-icon">
+                <h2>{{place.name}}</h2>
+                <img width='100px' [src]="'assets/images/' + place.icon" alt="">
+            </div>
+
+            <div class="column value-box">
+                <h4>Temperature</h4>
+                <div class="value">
+                    22.8<sup>&#8451;</sup>
+                </div>
+            </div>
+
+            <div class="column">
+                <h4>Name</h4>
+                <ul class="list">
+                    <li>Ceiling lighting</li>
+                    <li>Worktop lighting</li>
+                    <li>Pane windows</li>
+                    <li>Fan</li>
+                </ul>
+            </div>
+
+            <div class="column">
+                <h4>Status</h4>
+                <ul class="list">
+                    <li>
+                        <label>
+                            <input type="checkbox" disabled class="ios-switch tinyswitch"  checked />
+                            <div><div></div></div>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" disabled class="ios-switch tinyswitch"  checked />
+                            <div><div></div></div>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" disabled class="ios-switch tinyswitch"  checked />
+                            <div><div></div></div>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" disabled class="ios-switch tinyswitch"  checked />
+                            <div><div></div></div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class=" control-column">
+                <a class='next-button'>
+                    <span class="icon icon-info icon-round-next"></span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
