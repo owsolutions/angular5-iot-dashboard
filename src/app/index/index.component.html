@@ -16,13 +16,13 @@
         <div class="place-row" *ngFor="let place of places;">
             <div class="column title-icon">
                 <h2>{{place.name}}</h2>
-                <i class="icon icon-temperatire"></i>
+                <img width='100px' [src]="'assets/images/' + place.icon" alt="">
             </div>
 
             <div class="column value-box">
                 <h4>Temperature</h4>
                 <div class="value">
-                    22.8<sup>C</sup>
+                    22.8<sup>&#8451;</sup>
                 </div>
             </div>
 
@@ -35,6 +35,17 @@
                     <li>Fan</li>
                 </ul>
             </div>
+
+            <div class="column">
+                <h4>Status</h4>
+                <ul class="list">
+                    <li>Ceiling lighting</li>
+                    <li>Worktop lighting</li>
+                    <li>Pane windows</li>
+                    <li>Fan</li>
+                </ul>
+            </div>
+
         </div>
     </div>
 </div>

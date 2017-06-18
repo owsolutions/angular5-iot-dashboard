@@ -51,25 +51,14 @@ export class IndexComponent implements OnInit {
 
 
     async ngOnInit() {
-
-
         this.largeWidgets = this.mockData();
-
-        setInterval(() => {
-            this.largeWidgets = this.mockData();
-        }, 5000);
-
         this.places = [
-            {name: 'Kitchen'} ,
-            {name: 'Bathroom'} ,
-            {name: 'Master bedrrom'} ,
-            {name: ' Parking'} ,
-            {name: 'Kitchen'} ,
-            {name: 'Bathroom'} ,
-            {name: 'Master bedrrom'} ,
-            {name: ' Parking'}
+            {name: 'Kitchen' , 'icon': 'four-cooking-accessories-set-for-kitchen.svg'},
+            {name: 'Bathroom' , 'icon': 'bathtub.svg'},
+            {name: 'Master bedrrom', 'icon': 'fireplace.svg'},
+            {name: 'Living room', 'icon': 'living-room.svg'},
+            {name: 'Conference room', 'icon': 'conference.svg'}
         ];
-
     }
 
 }

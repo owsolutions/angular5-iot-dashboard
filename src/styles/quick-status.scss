@@ -1,6 +1,22 @@
 
 .quick-status {
 
+
+	&::-webkit-scrollbar-track {
+	    background-color: white;;
+    }
+    &::-webkit-scrollbar
+    {
+        width: 6px;
+        background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+        background-color: rgb(237, 241, 247);
+    }
+
+	
 	@include gradient(#44d9a1, #38cf80, #02bc56);
 	@include transition(width 0.3s);
 	position: fixed;
