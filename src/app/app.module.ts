@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { ChartComponent } from './index/chart/chart.component';
@@ -13,14 +12,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DevicesComponent } from './devices/devices.component';
 import { QuickStatusComponent } from './master/quick-status/quick-status.component';
 import { QuickChartComponent } from './master/quick-status/quick-chart/quick-chart.component';
+import { appRoutesGenerator } from './routes';
+import { QuickTimeComponent } from './master/quick-status/quick-time/quick-time.component';
 
 declare global {
-
   interface Window {
     io: any;
     currentSocket: any;
   }
-
 }
 const IO = window.io;
 const SOCKET: any = window.currentSocket = {};
@@ -31,12 +30,7 @@ if (IO) {
     window.currentSocket.on('connect' , function (client) {
       console.log('Client : ' , client);
     });
-
 }
-
-import { appRoutesGenerator } from './routes';
-
-import { QuickTimeComponent } from './master/quick-status/quick-time/quick-time.component';
 
 @NgModule({
   declarations: [
