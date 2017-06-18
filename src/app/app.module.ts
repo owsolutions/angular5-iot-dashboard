@@ -15,6 +15,7 @@ import { QuickChartComponent } from './master/quick-status/quick-chart/quick-cha
 import { appRoutesGenerator } from './routes';
 import { QuickTimeComponent } from './master/quick-status/quick-time/quick-time.component';
 import { ActivityWidgetComponent } from './activity/activity-widget/activity-widget.component';
+import { NavigationComponent } from './shared/navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ActivityWidgetComponent } from './activity/activity-widget/activity-wid
     SwitchWidgetsComponent,
     DevicesComponent,
     QuickTimeComponent,
-    ActivityWidgetComponent
+    ActivityWidgetComponent,
+    NavigationComponent
   ],
   imports: [
     appRoutesGenerator(),
