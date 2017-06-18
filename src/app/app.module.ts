@@ -15,23 +15,6 @@ import { QuickChartComponent } from './master/quick-status/quick-chart/quick-cha
 import { appRoutesGenerator } from './routes';
 import { QuickTimeComponent } from './master/quick-status/quick-time/quick-time.component';
 
-declare global {
-  interface Window {
-    io: any;
-    currentSocket: any;
-  }
-}
-const IO = window.io;
-const SOCKET: any = window.currentSocket = {};
-if (IO) {
-    IO.sails.autoConnect = false;
-    window.currentSocket = IO.sails.connect('http://localhost:1337' , undefined , true);
-
-    window.currentSocket.on('connect' , function (client) {
-      console.log('Client : ' , client);
-    });
-}
-
 @NgModule({
   declarations: [
     AppComponent,
