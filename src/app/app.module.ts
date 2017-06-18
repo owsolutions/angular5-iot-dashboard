@@ -16,6 +16,7 @@ import { appRoutesGenerator } from './routes';
 import { QuickTimeComponent } from './master/quick-status/quick-time/quick-time.component';
 import { ActivityWidgetComponent } from './activity/activity-widget/activity-widget.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
+import { AppInfoComponent } from './layout/app-info/app-info.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
     DevicesComponent,
     QuickTimeComponent,
     ActivityWidgetComponent,
-    NavigationComponent
+    NavigationComponent,
+    AppInfoComponent
   ],
   imports: [
     appRoutesGenerator(),
