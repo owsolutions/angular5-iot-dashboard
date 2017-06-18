@@ -14,7 +14,7 @@ export class ActivityWidgetComponent implements OnInit {
   mockActivity (): Array<any> {
 
     function mockDescription () {
-      let descriptions = [
+      const descriptions = [
         'User 1 Changed Lamp 3 to ON',
         'Bathroom temperature changed to 55.3F'
       ];
@@ -27,7 +27,7 @@ export class ActivityWidgetComponent implements OnInit {
       return {
         key: index,
         description: mockDescription()
-        
+
       };
     });
     activities = activities.reverse();
