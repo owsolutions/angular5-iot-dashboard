@@ -7,7 +7,7 @@ import { ChartComponent } from './chart/chart.component';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss'],
+  styleUrls: ['./index.component.scss',  '../shared/checkbox-switch.scss'],
 
 })
 export class IndexComponent implements OnInit {
