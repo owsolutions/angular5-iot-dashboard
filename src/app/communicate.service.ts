@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { UPDATE_DEVICE }  from './devices/devices.reducer';
+import * as mocks from './devices/devices.mock';
 
 declare global {
   interface Window {
@@ -46,6 +47,13 @@ export class CommunicateService {
       this.socket.on('message', message => {
         this.store.dispatch({type: UPDATE_DEVICE, payload: message.device});
       });
+
+
+      // mocks
+      let devices = mocks.generateMock();
+      this.store.dispatch({type: UPDATE_DEVICE, payload: devices[0]});
+      this.store.dispatch({type: UPDATE_DEVICE, payload: devices[1]});
+      
 
     } else {
       console.warn('%c window.io is not present. Make sure you included client socket file.' , 'color: orange');
