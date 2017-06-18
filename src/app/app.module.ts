@@ -18,6 +18,8 @@ import { ActivityWidgetComponent } from './activity/activity-widget/activity-wid
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { AppInfoComponent } from './layout/app-info/app-info.component';
 import { ContentBoxComponent } from './layout/content-box/content-box.component';
+import { IconWidgetsComponent } from './index/icon-widgets/icon-widgets.component';
+import { PlacesComponent } from './index/places/places.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ContentBoxComponent } from './layout/content-box/content-box.component'
     ActivityWidgetComponent,
     NavigationComponent,
     AppInfoComponent,
-    ContentBoxComponent
+    ContentBoxComponent,
+    IconWidgetsComponent,
+    PlacesComponent
   ],
   imports: [
     appRoutesGenerator(),
