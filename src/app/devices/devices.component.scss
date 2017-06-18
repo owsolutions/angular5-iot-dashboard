@@ -1,6 +1,8 @@
+@import "../../injects";
 .device-box-container {
+    
     $context-color:#E3F2FD;
-    $background-color: #0D47A1;
+    $background-color: $theme-color;
     $background-hover:   #2196F3;
     display:inline-block;
     width:31%;
@@ -23,6 +25,10 @@
     .vertical-row {
         flex:1;
     }
+    .border-top {
+        border-top: 1px solid $context-color;
+    }
+    
     .device-box {
         display:flex;
         flex-direction: column;
