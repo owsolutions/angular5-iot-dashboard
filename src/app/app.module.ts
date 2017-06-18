@@ -17,6 +17,7 @@ import { QuickTimeComponent } from './master/quick-status/quick-time/quick-time.
 import { ActivityWidgetComponent } from './activity/activity-widget/activity-widget.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { AppInfoComponent } from './layout/app-info/app-info.component';
+import { ContentBoxComponent } from './layout/content-box/content-box.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AppInfoComponent } from './layout/app-info/app-info.component';
     QuickTimeComponent,
     ActivityWidgetComponent,
     NavigationComponent,
-    AppInfoComponent
+    AppInfoComponent,
+    ContentBoxComponent
   ],
   imports: [
     appRoutesGenerator(),
