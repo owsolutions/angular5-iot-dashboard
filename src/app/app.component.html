@@ -1,33 +1,9 @@
-
-
 <div class="app-container">
-
-    <!-- dashboard title [only show on mobile and tablet view] -->
-    <div class="dashboard-title">
-        <a href="#">smart dashboard</a>
-        <a href="#"></a>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navigation">
-        <div class="nav-item-container">    
-            <a routerLink='/index' routerLinkActive="active"><i class="icon icon-home-outline"></i>Home</a>
-            <a routerLink='/summary' routerLinkActive="active"><i class="icon icon-search"></i>Search</a>
-            <a routerLink='/settings' routerLinkActive="active"><i class="icon icon-sliders"></i>Settings</a>
-        </div>
-    </nav>
-
-
-    <div class="content-box">
-        <router-outlet></router-outlet>
-    </div>
-
+    
+    <app-navigation></app-navigation>
+    <app-content-box></app-content-box>
     <app-quick-status></app-quick-status>
+    <app-app-info></app-app-info>
 
-    <div class="app-info">
-        <div class="docked">    
-        </div> 
-
-    </div>
 </div>
 
