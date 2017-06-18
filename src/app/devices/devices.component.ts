@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy, Pipe } from '@angular/core';
-import { Echosystem } from '../shared/EcoSystem';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { DeviceObject } from '../shared/DeviceObject';
+import { IDevice } from '../shared/Definitions';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -14,24 +14,27 @@ interface AppState {
   templateUrl: './devices.component.html',
   styleUrls: ['./devices.component.scss' , '../shared/checkbox-switch.scss']
 })
-export class DevicesComponent  {
+export class DevicesComponent implements  OnDestroy , OnInit {
 
-  devices: any;
+  private devices: Array<IDevice>;
 
   constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>) {
     
-    store.select('devices').subscribe(storeDevices => {
-      this.devices = storeDevices;
-      console.log('Devices: ' , this.devices);
-    });
-
   }
 
   get Devices (): Array<DeviceObject> {
-    return this.devices.map(device => {
-      return new DeviceObject(device);
+    return this.devices.map(device => new DeviceObject(device));
+  }
+
+  ngOnInit() {
+    this.store.select('devices').subscribe(devices => {
+      this.devices = (devices as Array<IDevice>);
+      this.chRef.detectChanges();
     });
   }
 
+  ngOnDestroy () { 
+    this.chRef.detach(); 
+  }
  
 }
