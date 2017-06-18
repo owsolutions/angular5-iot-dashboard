@@ -1,15 +1,26 @@
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { UPDATE_DEVICE }  from './devices/devices.reducer';
 
 declare global {
-
   interface Window {
     io: any;    
   }
+}
 
+interface AppState {
+  devices: Array<any>
 }
 
 @Injectable()
 export class CommunicateService {
+
+  devices: Observable<Array<any>>;
+
+  constructor(private store: Store<AppState>) {
+    this.devices = store.select('devices');
+  }
 
   /**
    * Holds the current socket connection to server.
@@ -33,8 +44,9 @@ export class CommunicateService {
       });
 
       this.socket.on('message', message => {
-        console.log('Message > ' , message);
+        this.store.dispatch({type: UPDATE_DEVICE, payload: message.device});
       });
+
     } else {
       console.warn('%c window.io is not present. Make sure you included client socket file.' , 'color: orange');
     }

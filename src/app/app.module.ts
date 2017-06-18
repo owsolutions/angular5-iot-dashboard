@@ -21,6 +21,8 @@ import { AppInfoComponent } from './layout/app-info/app-info.component';
 import { ContentBoxComponent } from './layout/content-box/content-box.component';
 import { IconWidgetsComponent } from './index/icon-widgets/icon-widgets.component';
 import { PlacesComponent } from './index/places/places.component';
+import { StoreModule } from '@ngrx/store';
+import { devicesReducer } from './devices/devices.reducer';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { PlacesComponent } from './index/places/places.component';
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    StoreModule.provideStore({ devices: devicesReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]
