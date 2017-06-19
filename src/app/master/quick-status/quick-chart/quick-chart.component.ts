@@ -28,7 +28,7 @@ export class QuickChartComponent implements OnInit {
           text: null
       },
       xAxis: {
-        min: 0.5, max: 5.5,
+        min: 1, max: 6,
         categories: [
             'MON',
             'TUE',
@@ -36,19 +36,21 @@ export class QuickChartComponent implements OnInit {
             'THU',
             'FRI',
             'SAT',
-            'SUN'
+            'SUN',
+            'MON',
+            'TUE',
+            'WED'
         ],
         labels: {
             style: {
                 color: 'rgba(255,255,255,0.8)'
             },
             y: -10,
-            x: 27
+            x: 0
         },
         tickLength: -250,
         tickColor: 'rgba(255,255,255,0.25)',
-        lineColor: 'transparent',
-        tickmarkPlacement: 'right'
+        lineColor: 'transparent'
       },
       yAxis: {
           min: 0,
@@ -84,7 +86,7 @@ export class QuickChartComponent implements OnInit {
       series: [{
           name: 'Temperature',
           data: [
-              11, 15, 13, 16, 10, 17, 14
+              11, 15, 10, 16, 10, 15, 11, 14, 9, 14
           ],
           fillColor: {
               linearGradient: {
@@ -104,7 +106,7 @@ export class QuickChartComponent implements OnInit {
             enabled: true,
             color: '#FFFFFF',
             align: 'left',
-            x: 13,
+            x: -15,
             y: top,
             format: '{y}˚',
             style: {
