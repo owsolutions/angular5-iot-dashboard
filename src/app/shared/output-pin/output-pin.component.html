@@ -1,3 +1,8 @@
-
-<label><input type="checkbox" (click)=' pinValueChange(pin, this)' class="ios-switch smallswitch" [attr.checked]="pin.value == 1 ? '' : null" /><div><div></div></div></label>
- 
+<span class='output-pin'>
+  <span class="pin-id">
+    {{pin.id}}
+  </span>
+  <span class="pin-value">
+    {{castPinValue(pin.value)}}
+  </span>
+</span>

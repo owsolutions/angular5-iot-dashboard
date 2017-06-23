@@ -13,14 +13,11 @@ export class InputPinComponent implements OnInit {
   /**
    * Since each pin 
    */
-  castPinVallue (value: any) {
+  castPinValue (value: any) {
     if (value === 'ON') 
       return 'on';
-    
     if (value === 'OFF')
       return 'off';
-    
-
     return parseFloat(value).toPrecision(3);
   }
 
