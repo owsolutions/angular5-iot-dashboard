@@ -2,17 +2,10 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { UPDATE_DEVICE } from './devices/devices.reducer';
-import * as mocks from './devices/devices.mock';
-
-declare global {
-  interface Window {
-    io: any;
-  }
-}
-
-interface AppState {
-  devices: Array<any>;
-}
+import * as devicesMocks from './devices/devices.mock';
+import * as locationsMocks from './locations/locations.mock';
+import { UPDATE_LOCATION } from './locations/locations.reducer';
+import { IDevice, ILocation, AppState } from './shared/Definitions';
 
 @Injectable()
 export class CommunicateService {
@@ -23,13 +16,25 @@ export class CommunicateService {
    * this socket connection.
    */
   public socket: any;
-
-  devices: Observable<Array<any>>;
+  public devices: Observable<Array<IDevice>>;
+  public locations: Observable<Array<any>>;
 
   constructor(private store: Store<AppState>) {
-    this.devices = store.select('devices');
+    this.createDevices();
+    this.createLocations();
+  }
 
-    const devices = mocks.generateMock();
+  createLocations () {
+    this.locations = this.store.select('locations');
+    const locations = locationsMocks.generateMock();
+    for (let location of locations) {
+      this.store.dispatch({type: UPDATE_LOCATION, payload: location});
+    }
+  }
+
+  createDevices () {
+    this.devices = this.store.select('devices');
+    const devices = devicesMocks.generateMock();
     this.store.dispatch({type: UPDATE_DEVICE, payload: devices[0]});
     this.store.dispatch({type: UPDATE_DEVICE, payload: devices[1]});
   }
@@ -39,21 +44,21 @@ export class CommunicateService {
    */
   connect (URL = 'http://localhost:7000') {
 
-    // if (window.io) {
-    //   console.log('%c Connecting to server at: ' + URL , 'color:yellow; background:black;');
-    //   window.io.sails.autoConnect = false;
-    //   this.socket = window.io.sails.connect(URL , undefined , true);
+    if (window.io) {
+      console.log('%c Connecting to server at: ' + URL , 'color:yellow; background:black;');
+      window.io.sails.autoConnect = false;
+      this.socket = window.io.sails.connect(URL , undefined , true);
 
-    //   this.socket.on('connect' , function (client) {
-    //     console.log('Connected to remote socket server' , URL);
-    //   });
+      this.socket.on('connect' , function (client) {
+        console.log('Connected to remote socket server' , URL);
+      });
 
-    //   this.socket.on('message', message => {
-    //     this.store.dispatch({type: UPDATE_DEVICE, payload: message.device});
-    //   });
+      this.socket.on('message', message => {
+        this.store.dispatch({type: UPDATE_DEVICE, payload: message.device});
+      });
 
-    // } else {
-    //   console.warn('%c window.io is not present. Make sure you included client socket file.' , 'color: orange');
-    // }
+    } else {
+      console.warn('%c window.io is not present. Make sure you included client socket file.' , 'color: orange');
+    }
   }
 }

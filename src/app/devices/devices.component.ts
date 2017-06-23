@@ -1,13 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { DeviceObject } from '../shared/DeviceObject';
-import { IDevice, IPin } from '../shared/Definitions';
+import { IDevice, IPin, AppState } from '../shared/Definitions';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-
-interface AppState {
-  devices: Array<any>;
-}
 
 @Component({
   selector: 'app-devices',

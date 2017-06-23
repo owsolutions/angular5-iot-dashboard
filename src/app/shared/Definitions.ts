@@ -19,3 +19,26 @@ export interface IDevice {
   pins: Array<IPin>;
 }
 
+
+/**
+ * A place, defines the area of modules and infrustructure
+ */
+export interface ILocation {
+  name: string,
+  icon: string
+}
+
+/**
+ * Represents the application store structure
+ */
+export interface AppState {
+  devices: Array<IDevice>;
+  locations: Array<any>;
+}
+
+
+declare global {
+  export interface Window {
+    io: any;
+  }
+}

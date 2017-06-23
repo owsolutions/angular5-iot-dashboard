@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ILocation, AppState } from '../../shared/Definitions';
+import { Observable } from 'rxjs/Observable';
+import { ChangeDetectorRef } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-places',
@@ -6,19 +10,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./places.component.scss',  '../../shared/checkbox-switch.scss']
 })
 export class PlacesComponent implements OnInit {
-  public places: Array<any>;
 
-  constructor() { }
+  public places: Array<ILocation> = [];
+
+  constructor(public chRef: ChangeDetectorRef, private store: Store<AppState>) { 
+    // Initialize the private variables
+  }
 
   async ngOnInit() {
 
-    this.places = [
-        {name: 'Kitchen' , 'icon': 'four-cooking-accessories-set-for-kitchen.svg'},
-        {name: 'Bathroom' , 'icon': 'bathtub.svg'},
-        {name: 'Master bedrrom', 'icon': 'fireplace.svg'},
-        {name: 'Living room', 'icon': 'living-room.svg'},
-        {name: 'Conference room', 'icon': 'conference.svg'}
-    ];
+    this.store.select('locations').subscribe((locations: Array<ILocation>)=> {
+      console.log('Locations: ' , locations);
+      this.places = locations;
+      this.chRef.detectChanges();
+    });
   }
 
 }
