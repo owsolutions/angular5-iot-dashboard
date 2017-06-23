@@ -1,6 +1,11 @@
-<div class="device-box-container" *ngFor="let device of devices">
+<h1 class='page-title'>
+  <i class="icon icon-keyboard"></i>
+  Devices
+</h1>
+
+<div class="device-box-container">
   
-  <div class="device-box" >
+  <div class="device-box"  *ngFor="let device of Devices">
     <div class='flex-container'>
       <div class="info-box">
         <i class="{{device.icon}}"></i>
@@ -13,30 +18,27 @@
         <span class="text-info outputs">{{device.Outputs.length}}<sup>Outputs</sup></span>
       </div>
     </div>
-    <hr>
     
     <!-- Input managing -->
-    <div class='flex-container vertical-container content-padding' *ngIf='device.Inputs.length'>
+    <div class='flex-container vertical-container content-padding border-top' *ngIf='device.Inputs.length'>
         <div class="vertical-row">
           <h3>Inputs</h3>
         </div>
-        <div class="vertical-row">
-          <span class="button-container" *ngFor="let pin of device.Inputs">
-            <label><input type="checkbox" class="ios-switch smallswitch" [attr.checked]="pin.value == 1 ? '' : null" /><div><div></div></div></label>
+        <div class="controlls">
+          <span *ngFor="let pin of device.Inputs">
+            <app-input-pin [pin]="pin"></app-input-pin>
           </span>
         </div>
-        {{device.DescribeInputs()}}
     </div>
-
-    <hr>
+    
     <!-- Outputs managing -->
-    <div class='flex-container vertical-container content-padding' *ngIf='device.Outputs.length'>
+    <div class='flex-container vertical-container content-padding border-top' *ngIf='device.Outputs.length'>
         <div class="vertical-row">
           <h3>Outputs</h3>
         </div>
-        <div class="vertical-row">
+        <div class="controlls">
           <span class="button-container" *ngFor="let pin of device.Outputs">
-            <label><input type="checkbox" class="ios-switch smallswitch" [attr.checked]="pin.value == 1 ? '' : null" /><div><div></div></div></label>
+            <app-output-pin [pin]="pin"></app-output-pin>
           </span>
         </div>
         {{device.DescribeOutputs()}}

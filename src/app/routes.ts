@@ -1,5 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './index/index.component';
+import { LocationsComponent } from './locations/locations.component';
 import { SummaryComponent } from './summary/summary.component';
 import { SettingsComponent } from './settings/settings.component';
 import { DevicesComponent } from './devices/devices.component';
@@ -13,6 +14,11 @@ export const appRoutes: Routes = [
     {
         path: 'summary',
         component: SummaryComponent,
+        data: {}
+    },
+    {
+        path: 'locations',
+        component: LocationsComponent,
         data: {}
     },
     {
