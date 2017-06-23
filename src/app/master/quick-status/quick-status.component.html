@@ -6,70 +6,32 @@
 
             <h2>Quick view</h2>
             <div class="flex-container">
-                <div class="large-icon-widget">
-                    <i class="icon icon-adjust"></i>
-                    <span class="value">10˚</span>
-                </div>
-                <div class="large-icon-widget">
-                    <i class="icon icon-adjust"></i>
-                    <span class="value">20˚</span>
-                </div>
+                <div class='flex-item' app-large-icon-widget></div>
+                <div class='flex-item' app-large-icon-widget></div>
             </div>
 
             <div class="flex-container">
-                <div class="medium-icon-widget">
-                    <div class='title'>Wind</div>
-                    <i class="icon icon-adjust"></i>
-                    <div class="value">10 km/h</div>
-                </div>
-                <div class="medium-icon-widget">
-                    <div class="title">Pressure</div>
-                    <span>1016</span>
-                    <div class="value">hpa</div>
-                </div>
-                <div class="medium-icon-widget">
-                    <div class="title">Precipilation</div>
-                    <span>4</span>
-                    <div class="value">mm</div>
-                </div>
+                <div class='flex-item' app-medium-icon-widget></div>
+                <div class='flex-item' app-medium-icon-widget></div>
+                <div class='flex-item' app-medium-icon-widget></div>
             </div>
+
             <!-- Load quick-chart component-->
             <app-quick-chart></app-quick-chart>
 
             <h2>Netatmo indoor</h2>
 
             <div class="flex-container bordered-bottom">
-                <div class="large-value-item">
-                    <div class="value">34<sup>%</sup></div>
-                    <div class="title">Humidity</div>
-                </div>
-                <div class="large-value-item">
-                    <div class="value">1096</div>
-                    <div class="title">mBar</div>
-                </div>
+                <div class='flex-item' app-large-value-widget></div>
+                <div class='flex-item' app-large-value-widget></div>
+                <div class='flex-item' app-large-value-widget></div>
             </div>
 
-            <div class="flex-container padding-medium">
-                <div class="single-large-icon">
-                  <i class="icon icon-temperatire"></i>  
-                </div>
-
-                <div class="large-value-item">
-                    <div class="value">22.8<sup>C</sup></div>
-                    <div class="title">Temperature</div>
-                </div>
-            </div>
-
+            <div app-full-widget class="flex-container padding-medium"></div>
 
             <div class="flex-container bordered-top">
-                <div class="large-value-item">
-                    <div class="value">34<sup>%</sup></div>
-                    <div class="title">Humidity</div>
-                </div>
-                <div class="large-value-item">
-                    <div class="value">1096</div>
-                    <div class="title">mBar</div>
-                </div>
+                <div class='flex-item' app-large-value-widget></div>
+                <div class='flex-item' app-large-value-widget></div>
             </div>
         </div>
     </div>

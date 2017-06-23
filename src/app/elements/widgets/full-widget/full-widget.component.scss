@@ -1,0 +1,24 @@
+.single-large-icon {
+    text-align:center;
+    flex:1;
+    .icon {
+        color:white;
+        font-size:45px;
+    }
+}
+
+.large-value-item {
+    flex:1;
+
+    sup {
+        top:-12px;
+        font-size:12px;
+    }
+    .value,.title {
+        color:white;
+        text-align:center;
+    }
+    .value {
+        font-size:30px;
+    }
+}

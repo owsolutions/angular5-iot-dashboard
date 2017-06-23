@@ -25,6 +25,10 @@ import { PlacesComponent } from './index/places/places.component';
 import { InputPinComponent } from './shared/input-pin/input-pin.component';
 import { OutputPinComponent } from './shared/output-pin/output-pin.component';
 import { LocationsComponent } from './locations/locations.component';
+import { LargeIconWidgetComponent } from './elements/widgets/large-icon-widget/large-icon-widget.component';
+import { MediumIconWidgetComponent } from './elements/widgets/medium-icon-widget/medium-icon-widget.component';
+import { LargeValueWidgetComponent } from './elements/widgets/large-value-widget/large-value-widget.component';
+import { FullWidgetComponent } from './elements/widgets/full-widget/full-widget.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,11 @@ import { LocationsComponent } from './locations/locations.component';
     PlacesComponent,
     InputPinComponent,
     OutputPinComponent,
-    LocationsComponent
+    LocationsComponent,
+    LargeIconWidgetComponent,
+    MediumIconWidgetComponent,
+    LargeValueWidgetComponent,
+    FullWidgetComponent
   ],
   imports: [
     appRoutesGenerator(),
