@@ -15,6 +15,7 @@ export class DeviceObject {
   get Inputs () {
     return this.native.pins.filter(pin => pin.type === 'input');
   }
+  
 
   get Outputs () {
     return this.native.pins.filter(pin => pin.type === 'output');

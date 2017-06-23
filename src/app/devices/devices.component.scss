@@ -4,44 +4,23 @@
     $context-color:#E3F2FD;
     $background-color: $theme-color;
     $background-hover:   #2196F3;
-    display:inline-block;
+    display:flex;
     
+    
+    @include desktop() {
+        flex-direction: row;
+    };
 
-
-    .button-container {
-        display:inline-block;
-        width:50px;
-        
-    }
-    .vertical-container {
+    @include phone () {
         flex-direction: column;
-
     }
-    .content-padding {
-        padding:5px 15px;
-    }
-    hr {
-        margin:5px 0;
-    }
-    h3 {
-        font-size:13px;
-        color: $context-color;
-        margin-top:0;
-    }
-    .vertical-row {
-        flex:1;
-    }
-    .border-top {
-        border-top: 1px solid $context-color;
-    }
-    
     .device-box {
-        display:flex;
+        flex:1;
         flex-direction: column;
         background-color:$background-color;
         margin:7.5px;
         padding:10px 0;
-
+        
         h2 {
             margin:0;
             color: $context-color;
@@ -89,6 +68,31 @@
                 display: block;
             }
         }
-        
+        .button-container {
+            display:inline-block;
+            width:50px;
+            
+        }
+        .vertical-container {
+            flex-direction: column;
+
+        }
+        .content-padding {
+            padding:5px 15px;
+        }
+        hr {
+            margin:5px 0;
+        }
+        h3 {
+            font-size:13px;
+            color: $context-color;
+            margin-top:0;
+        }
+        .vertical-row {
+            flex:1;
+        }
+        .border-top {
+            border-top: 1px solid $context-color;
+        }
     }
 }

@@ -24,6 +24,7 @@ import { PlacesComponent } from './index/places/places.component';
 import { StoreModule } from '@ngrx/store';
 import { devicesReducer } from './devices/devices.reducer';
 import { InputPinComponent } from './shared/input-pin/input-pin.component';
+import { OutputPinComponent } from './shared/output-pin/output-pin.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { InputPinComponent } from './shared/input-pin/input-pin.component';
     ContentBoxComponent,
     IconWidgetsComponent,
     PlacesComponent,
-    InputPinComponent
+    InputPinComponent,
+    OutputPinComponent
   ],
   imports: [
     appRoutesGenerator(),

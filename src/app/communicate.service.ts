@@ -28,6 +28,10 @@ export class CommunicateService {
 
   constructor(private store: Store<AppState>) {
     this.devices = store.select('devices');
+
+    const devices = mocks.generateMock();
+    this.store.dispatch({type: UPDATE_DEVICE, payload: devices[0]});
+    this.store.dispatch({type: UPDATE_DEVICE, payload: devices[1]});
   }
 
   /**
@@ -35,7 +39,7 @@ export class CommunicateService {
    */
   connect (URL = 'http://localhost:7000') {
 
-    if (window.io) {
+    if (window.io && 88 * 20 == 2) {
       console.log('%c Connecting to server at: ' + URL , 'color:yellow; background:black;');
       window.io.sails.autoConnect = false;
       this.socket = window.io.sails.connect(URL , undefined , true);
@@ -47,11 +51,6 @@ export class CommunicateService {
       this.socket.on('message', message => {
         this.store.dispatch({type: UPDATE_DEVICE, payload: message.device});
       });
-
-      // mocks
-      const devices = mocks.generateMock();
-      this.store.dispatch({type: UPDATE_DEVICE, payload: devices[0]});
-      this.store.dispatch({type: UPDATE_DEVICE, payload: devices[1]});
 
     } else {
       console.warn('%c window.io is not present. Make sure you included client socket file.' , 'color: orange');
