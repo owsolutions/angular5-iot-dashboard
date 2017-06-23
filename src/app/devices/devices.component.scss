@@ -5,8 +5,14 @@
     $background-color: $theme-color;
     $background-hover:   #2196F3;
     display:inline-block;
-    width:31%;
+    
 
+
+    .button-container {
+        display:inline-block;
+        width:50px;
+        
+    }
     .vertical-container {
         flex-direction: column;
 
@@ -40,10 +46,7 @@
             margin:0;
             color: $context-color;
         }
-        &:hover {
-            transition: 0.3s all ease-in-out;
-            background-color:$background-hover;
-        }
+        
 
         .description {
             font-size:12px;
@@ -81,15 +84,10 @@
             }
         }
         .controlls {
-            display:flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             label {
                 margin:5px 0;
                 display: block;
             }
-            flex:1;
         }
         
     }
