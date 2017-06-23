@@ -7,9 +7,9 @@ export function generateMock (): Array<IDevice> {
     function value () {
         switch (random(0, 1)) {
             case 0:
-                return random(0, 1) ? 'ON' : 'OFF'
+                return random(0, 1) ? 'ON' : 'OFF';
             case 1:
-                return random(1000,9000) * 0.001
+                return random(1000, 9000) * 0.001;
         }
     }
     function createPins (id: Number = 2): Array<IPin> {

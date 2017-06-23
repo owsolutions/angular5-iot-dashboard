@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { IPin } from '../Definitions';
 
 @Component({
   selector: 'app-input-pin',
@@ -7,17 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class InputPinComponent implements OnInit {
 
-  @Input() pin: string;
+  @Input() pin: IPin;
   constructor() { }
 
   /**
-   * Since each pin 
+   * Since each pin
    */
   castPinValue (value: any) {
-    if (value === 'ON') 
+    if (value === 'ON') {
       return 'on';
-    if (value === 'OFF')
+    }
+    if (value === 'OFF') {
       return 'off';
+    }
     return parseFloat(value).toPrecision(3);
   }
 
