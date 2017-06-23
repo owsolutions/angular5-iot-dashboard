@@ -4,8 +4,10 @@ import { Observable } from 'rxjs/Observable';
 import { UPDATE_DEVICE } from './devices/devices.reducer';
 import * as devicesMocks from './devices/devices.mock';
 import * as locationsMocks from './locations/locations.mock';
+import * as activityMocks from './activity/activity-widget/activity.mock';
 import { UPDATE_LOCATION } from './locations/locations.reducer';
-import { IDevice, ILocation, AppState } from './shared/Definitions';
+import { UPDATE_ACTIVITY } from './activity/activity.reducer';
+import { IDevice, ILocation, AppState, IActivity } from './shared/Definitions';
 
 @Injectable()
 export class CommunicateService {
@@ -17,11 +19,13 @@ export class CommunicateService {
    */
   public socket: any;
   public devices: Observable<Array<IDevice>>;
-  public locations: Observable<Array<any>>;
+  public locations: Observable<Array<ILocation>>;
+  public activities: Observable<Array<IActivity>>;
 
   constructor(private store: Store<AppState>) {
     this.createDevices();
     this.createLocations();
+    this.createActivities();
   }
 
   createLocations () {
@@ -29,6 +33,14 @@ export class CommunicateService {
     const locations = locationsMocks.generateMock();
     for (let location of locations) {
       this.store.dispatch({type: UPDATE_LOCATION, payload: location});
+    }
+  }
+
+  createActivities () {
+    this.activities = this.store.select('activities');
+    const activities = activityMocks.generateMock();
+    for (let activity of activities) {
+      this.store.dispatch({type: UPDATE_ACTIVITY, payload: activity});
     }
   }
 

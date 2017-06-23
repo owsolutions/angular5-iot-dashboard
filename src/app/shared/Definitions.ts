@@ -34,6 +34,7 @@ export interface ILocation {
 export interface AppState {
   devices: Array<IDevice>;
   locations: Array<any>;
+  activities: Array<IActivity>;
 }
 
 
@@ -41,4 +42,12 @@ declare global {
   export interface Window {
     io: any;
   }
+}
+
+/**
+ * This represents if an activity occures in application
+ */
+export interface IActivity {
+  key: string,
+  description: string
 }

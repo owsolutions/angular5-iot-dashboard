@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { times, sample } from 'lodash';
+import { Store } from '@ngrx/store';
+import { IActivity, AppState } from '../../shared/Definitions';
 
 @Component({
   selector: 'app-activity-widget',
@@ -9,32 +11,16 @@ import { times, sample } from 'lodash';
 export class ActivityWidgetComponent implements OnInit {
 
   public activities: Array<any>;
-  constructor() { }
-
-  mockActivity (): Array<any> {
-
-    function mockDescription () {
-      const descriptions = [
-        'User 1 Changed Lamp 3 to ON',
-        'Bathroom temperature changed to 55.3F'
-      ];
-      return sample(descriptions);
-
-    }
-
-
-    let activities = times(55, (index) => {
-      return {
-        key: index,
-        description: mockDescription()
-
-      };
-    });
-    activities = activities.reverse();
-    return activities;
+  
+  constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>) { 
+    // Initialize the private variables
   }
+
   ngOnInit() {
-    this.activities = this.mockActivity();
+    this.store.select('activities').subscribe((activities: Array<IActivity>) => {
+      this.activities = activities;
+      this.chRef.detectChanges();
+    });
   }
 
 }
