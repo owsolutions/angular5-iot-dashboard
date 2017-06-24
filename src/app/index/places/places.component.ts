@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ILocation, AppState } from '../../shared/Definitions';
 import { Observable } from 'rxjs/Observable';
 import { ChangeDetectorRef } from '@angular/core';
@@ -9,7 +9,7 @@ import { Store } from '@ngrx/store';
   templateUrl: './places.component.html',
   styleUrls: ['./places.component.scss',  '../../shared/checkbox-switch.scss']
 })
-export class PlacesComponent implements OnInit {
+export class PlacesComponent implements OnInit, OnDestroy {
 
   public places: Array<ILocation> = [];
 
@@ -24,6 +24,10 @@ export class PlacesComponent implements OnInit {
       this.places = locations;
       this.chRef.detectChanges();
     });
+  }
+
+  ngOnDestroy () {
+    this.chRef.detach();
   }
 
 }

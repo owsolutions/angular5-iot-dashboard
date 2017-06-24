@@ -17,6 +17,5 @@ export function generateMock (count: Number = 10): Array<IActivity> {
             description: mockDescription()
         };
     });
-    activities = activities.reverse();
     return activities;
 }

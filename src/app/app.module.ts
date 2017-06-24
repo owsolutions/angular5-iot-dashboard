@@ -29,6 +29,7 @@ import { LargeIconWidgetComponent } from './elements/widgets/large-icon-widget/l
 import { MediumIconWidgetComponent } from './elements/widgets/medium-icon-widget/medium-icon-widget.component';
 import { LargeValueWidgetComponent } from './elements/widgets/large-value-widget/large-value-widget.component';
 import { FullWidgetComponent } from './elements/widgets/full-widget/full-widget.component';
+import { ActivityComponent } from './activity/activity.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { FullWidgetComponent } from './elements/widgets/full-widget/full-widget.
     LargeIconWidgetComponent,
     MediumIconWidgetComponent,
     LargeValueWidgetComponent,
-    FullWidgetComponent
+    FullWidgetComponent,
+    ActivityComponent
   ],
   imports: [
     appRoutesGenerator(),

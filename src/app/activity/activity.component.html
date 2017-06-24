@@ -1,0 +1,14 @@
+<table class="flat-table">
+  <tbody>
+    <tr >
+      <th>Id</th>
+      <th>Description</th>
+    </tr>
+    <tr *ngFor="let activity of activities;">
+      <td>{{activity.id}}</td>
+      <td>
+        {{activity.description}}
+      </td>
+    </tr>
+  </tbody>
+</table>

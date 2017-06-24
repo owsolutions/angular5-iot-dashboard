@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { times, sample } from 'lodash';
 import { Store } from '@ngrx/store';
 import { IActivity, AppState } from '../../shared/Definitions';
@@ -8,7 +8,7 @@ import { IActivity, AppState } from '../../shared/Definitions';
   templateUrl: './activity-widget.component.html',
   styleUrls: ['./activity-widget.component.scss']
 })
-export class ActivityWidgetComponent implements OnInit {
+export class ActivityWidgetComponent implements OnInit, OnDestroy {
 
   public activities: Array<any>;
 
@@ -18,9 +18,12 @@ export class ActivityWidgetComponent implements OnInit {
 
   ngOnInit() {
     this.store.select('activities').subscribe((activities: Array<IActivity>) => {
-      this.activities = activities.reverse();
+      this.activities = activities;
       this.chRef.detectChanges();
     });
   }
 
+  ngOnDestroy () {
+    this.chRef.detach();
+  }
 }
