@@ -12,18 +12,18 @@ interface AppState {
 @Component({
   selector: 'app-devices',
   templateUrl: './devices.component.html',
-  styleUrls: ['./devices.component.scss' , '../shared/checkbox-switch.scss']
+  styleUrls: ['./devices.component.scss']
 })
 export class DevicesComponent implements  OnDestroy , OnInit {
 
-  private devices: Array<IDevice>;
+  public devices: Array<IDevice>;
 
   constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>) {
 
   }
 
-  get Devices (): Array<DeviceObject> {
-    return this.devices.map(device => new DeviceObject(device));
+  deviceInfo (device: any) {
+    return new DeviceObject(device);
   }
 
   ngOnInit() {
