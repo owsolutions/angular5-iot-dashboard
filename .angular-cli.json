@@ -22,7 +22,7 @@
         "styles.scss"
       ],
       "scripts": [
-        "assets/highcharts/highcharts.js",
+        "assets/highcharts/highstock.js",
         "assets/highcharts/exporting.js",
 	      "assets/sails.io.js"
       ],
