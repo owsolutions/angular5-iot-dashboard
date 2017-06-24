@@ -155,7 +155,8 @@ export class ChartComponent implements OnInit {
   }
   constructor() { }
 
-  ngOnInit() {
+
+  drawChart () {
     const chart = new Highcharts.stockChart(this.getChartOptions());
     const btnEx = document.getElementsByClassName('setChartEx');
     Array.from(btnEx).forEach(function(element) {
@@ -193,17 +194,20 @@ export class ChartComponent implements OnInit {
     });
 
     function removeClassPressed ($btnEx, className) {
-        Array.from($btnEx).forEach(function(el: any) {
-            console.log(el.className);
-            el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+        Array.from($btnEx).forEach(($el: any) => {
+            $el.className = $el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
         });
     }
     const legend = document.getElementsByClassName('legend-chart');
-    Array.from(legend).forEach(function(element) {
-        element.addEventListener('click', function(){
+    Array.from(legend).forEach($el => {
+        $el.addEventListener('click', function(){
             const key = this.getAttribute('data_set');
             chart.series[key - 1].options.visible === false ? chart.series[key - 1].show() : chart.series[key - 1].hide();
         });
     });
+  }
+
+  ngOnInit() {
+    this.drawChart();
   }
 }
