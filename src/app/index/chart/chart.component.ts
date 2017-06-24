@@ -3,7 +3,7 @@ declare var Highcharts: any;
 import { times, random} from 'lodash';
 
 @Component({
-  selector: '[app-index-chart]',
+  selector: 'app-index-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss']
 })
@@ -11,12 +11,12 @@ export class ChartComponent implements OnInit {
 
 
   getMock (count = 100) {
-    return times(100, (index) => {
+    return times(count, (index) => {
         return [
             1317888000000 + (index * 60000),
-            random(32000,40000) / 100,
-            random(32000,40000) / 100,
-            random(32000,40000) / 100, 
+            random(32000, 40000) / 100,
+            random(32000, 40000) / 100,
+            random(32000, 40000) / 100,
         ];
     });
   }
@@ -25,7 +25,7 @@ export class ChartComponent implements OnInit {
       return [
         {
             name: 'Sea-Level Pressure',
-            type: 'area',        
+            type: 'area',
             gapSize: 5,
             data: this.getMock(),
             marker: {
@@ -72,7 +72,7 @@ export class ChartComponent implements OnInit {
     ];
   }
   getChartOptions () {
-    var chartOpt = {
+    const chartOpt = {
         chart: {
             backgroundColor: 'transparent',
             type: 'areaspline',
@@ -80,7 +80,7 @@ export class ChartComponent implements OnInit {
         },
         title: {
             text: 'ENERGY',
-            align:'left'
+            align: 'left'
         },
         xAxis: {
             gapGridLineWidth: 0
@@ -88,7 +88,7 @@ export class ChartComponent implements OnInit {
         yAxis: [
             {
                 labels: {
-                    enabled:false
+                    enabled: false
                 },
                 title: {
                     text: null,
@@ -103,24 +103,24 @@ export class ChartComponent implements OnInit {
                 },
                 labels: {
                     format: '{value:.1f} Wh',
-                    x:65,
-                    y:-30,
+                    x: 65,
+                    y: -30,
                     useHTML: true
                 },
                 gridLineDashStyle: 'longdash',
                 gridLineColor: '#e4e4e4',
                 gridZIndex: 4,
                 opposite: false,
-                
-            }, 
+
+            },
             {
                 title: {
                     text: null
                 },
                 labels: {
                     format: '{value} L',
-                    x:-45,
-                    y:-30,
+                    x: -45,
+                    y: -30,
                     useHTML: true
                 },
                 gridLineDashStyle: 'longdash',
@@ -156,65 +156,54 @@ export class ChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-             
-    var chart = new Highcharts.stockChart(this.getChartOptions());
-    
-    var btnEx = document.getElementsByClassName("setChartEx")
-    Array.from(btnEx).forEach(function(element) { 
-        element.addEventListener('click', function(){
-        if (!chart) return;
-        var extremes = chart.xAxis[0].getExtremes();
-        var max = extremes.max;
-        var min = 0;
-        switch(this.getAttribute("data_set")){
-            case 'half_hour':
-                min = max - 1800000;
-            break;
-            case 'hour':
-                min = max - 3600000;
-            break;
-            case 'day':
-                min = max - 86400000;
-            break;
-            case 'week':
-                min = max - 604800000;
-            break;
-            case 'month':
-                min = max - 2592000000;
-            break;
-            case 'year':
-                min = max - 31104000000;
-            break;
-        }
-        chart.xAxis[0].setExtremes(min, max);
-        removeClassPressed(btnEx,'pressed');
-        this.className += ' pressed';
+    const chart = new Highcharts.stockChart(this.getChartOptions());
+    const btnEx = document.getElementsByClassName('setChartEx');
+    Array.from(btnEx).forEach(function(element) {
+        element.addEventListener ('click', function(){
+            if (!chart) {
+                return;
+            }
+            const extremes = chart.xAxis[0].getExtremes();
+            const max = extremes.max;
+            let min = 0;
+            switch (this.getAttribute('data_set')) {
+                case 'half_hour':
+                    min = max - 1800000;
+                break;
+                case 'hour':
+                    min = max - 3600000;
+                break;
+                case 'day':
+                    min = max - 86400000;
+                break;
+                case 'week':
+                    min = max - 604800000;
+                break;
+                case 'month':
+                    min = max - 2592000000;
+                break;
+                case 'year':
+                    min = max - 31104000000;
+                break;
+            }
+            chart.xAxis[0].setExtremes(min, max);
+            removeClassPressed(btnEx, 'pressed');
+            this.className += ' pressed';
         });
     });
-    
-    function removeClassPressed(btnEx,className){
-        Array.from(btnEx).forEach(function(el: any) { 
+
+    function removeClassPressed ($btnEx, className) {
+        Array.from($btnEx).forEach(function(el: any) {
             console.log(el.className);
             el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
         });
     }
-    var legend = document.getElementsByClassName("legend-chart");
-    Array.from(legend).forEach(function(element) { 
+    const legend = document.getElementsByClassName('legend-chart');
+    Array.from(legend).forEach(function(element) {
         element.addEventListener('click', function(){
-            switch(this.getAttribute("data_set")){
-                case '1':
-                    chart.series[0].options.visible == false ? chart.series[0].show() : chart.series[0].hide();
-                break;
-                case '2':
-                    chart.series[1].options.visible == false ? chart.series[1].show() : chart.series[1].hide();
-                break;
-                case '3':
-                    chart.series[2].options.visible == false ? chart.series[2].show() : chart.series[2].hide();
-                break;
-            }
-            
+            const key = this.getAttribute('data_set');
+            chart.series[key - 1].options.visible === false ? chart.series[key - 1].show() : chart.series[key - 1].hide();
         });
-    })
+    });
   }
-
 }
