@@ -18,7 +18,7 @@ export class ActivityWidgetComponent implements OnInit {
 
   ngOnInit() {
     this.store.select('activities').subscribe((activities: Array<IActivity>) => {
-      this.activities = activities;
+      this.activities = activities.reverse();
       this.chRef.detectChanges();
     });
   }

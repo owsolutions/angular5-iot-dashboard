@@ -1,7 +1,7 @@
 import { times, sample } from 'lodash';
 import { IActivity } from '../../shared/Definitions';
 
-export function generateMock (): Array<IActivity> {
+export function generateMock (count: Number = 10): Array<IActivity> {
 
     function mockDescription () {
         const descriptions = [
@@ -11,7 +11,7 @@ export function generateMock (): Array<IActivity> {
         return sample(descriptions);
     }
 
-    let activities = times(55, (index) => {
+    let activities = times(count, (index) => {
         return {
             id: index,
             description: mockDescription()

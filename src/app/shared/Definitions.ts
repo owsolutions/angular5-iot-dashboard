@@ -48,6 +48,6 @@ declare global {
  * This represents if an activity occures in application
  */
 export interface IActivity {
-  key: string;
+  id: string;
   description: string;
 }

@@ -38,7 +38,7 @@ export class CommunicateService {
 
   createActivities () {
     this.activities = this.store.select('activities');
-    const activities = activityMocks.generateMock();
+    const activities = activityMocks.generateMock(5);
     for (const activity of activities) {
       this.store.dispatch({type: UPDATE_ACTIVITY, payload: activity});
     }
@@ -51,6 +51,13 @@ export class CommunicateService {
     this.store.dispatch({type: UPDATE_DEVICE, payload: devices[1]});
   }
 
+  /**
+   * When a new event happens on system, you can call this function
+   * to notify the rest of application an event occured.
+   */
+  public notfityActivity (activity: IActivity) {
+    this.store.dispatch({type: UPDATE_ACTIVITY, payload: activity});
+  }
   /**
    * Connects to a socket IO server, based on it's url
    */
