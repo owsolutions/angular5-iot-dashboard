@@ -17,5 +17,6 @@ export function generateMock (count: Number = 10): Array<IActivity> {
             description: mockDescription()
         };
     });
-    return activities;
+    return [];
+    // return activities;
 }

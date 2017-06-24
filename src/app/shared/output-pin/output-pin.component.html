@@ -5,7 +5,7 @@
   <span class="pin-value">
 
     <label *ngIf="findType(pin.value) === 'switch'">
-      <input (change)="pin.value = changeDigitalData($event, device, pin)" [checked]="pin.value === 'ON'" type="checkbox" class="ios-switch tinyswitch" />
+      <input (change)="pin.value = changeDigitalData($event, device, pin)" [checked]="pin.value === 'ON'" type="checkbox" class="ios-switch bigswitch" />
       <div><div></div></div>
     </label>
 

@@ -44,10 +44,19 @@ declare global {
   }
 }
 
+
+/**
+ * Occures when a device changes
+ */
+export enum ActivityTypes {
+  DevicePinChange
+}
 /**
  * This represents if an activity occures in application
  */
 export interface IActivity {
   id: string;
   description: string;
+  type: ActivityTypes;
+  meta: any;
 }

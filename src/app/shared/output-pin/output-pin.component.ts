@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IDevice, IPin } from '../Definitions';
 import { CommunicateService } from '../../communicate.service';
-import { IActivity } from '../Definitions';
+import { IActivity, ActivityTypes } from '../Definitions';
 import { random } from 'lodash';
 
 @Component({
@@ -36,26 +36,26 @@ export class OutputPinComponent implements OnInit {
     return parseFloat(value).toPrecision(3);
   }
 
-  changeAnalogData ($event: any, device: IDevice, pin: IPin) {
-    let newValue = $event.target.value;
+  changeData($event: any, device: IDevice, pin: IPin, newValue: any) {
     this.communicate.notfityActivity({
       description: $event.target.value + ' -> ' + device.uniqueid + ' > ' + newValue,
-      id: random(111,999)
+      id: random(111,999),
+      type: ActivityTypes.DevicePinChange,
+      meta: {
+        device, pin, newValue
+      }
     });
+  }
+
+  changeAnalogData ($event: any, device: IDevice, pin: IPin) {
+    let newValue = $event.target.value;
+    this.changeData($event, device, pin, newValue);
     return newValue;
   }
   changeDigitalData ($event, device: IDevice, pin: IPin) {
     let newValue = $event.target.checked ? 'ON' : 'OFF';
-    this.communicate.notfityActivity({
-      description: $event.target.value + ' -> ' + device.uniqueid + ' > ' + newValue,
-      id: random(111,999)
-    });
+    this.changeData($event, device, pin, newValue);
     return newValue;
-  }
-
-  pinValueChange (pin: IPin , t) {
-    console.log('Pin Change: ' , pin, t);
-    return true;
   }
 
 }

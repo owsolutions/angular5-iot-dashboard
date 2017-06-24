@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState, IActivity } from '../shared/Definitions';
+import { AppState, IActivity, ActivityTypes } from '../shared/Definitions';
 
 @Component({
   selector: 'app-activity',
@@ -13,6 +13,10 @@ export class ActivityComponent implements OnInit {
 
   constructor (private store: Store<AppState>) {
     // Initialize the private variables
+  }
+
+  getType (type: any) {
+    return ActivityTypes[type];
   }
 
   ngOnInit() {
