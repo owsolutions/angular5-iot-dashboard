@@ -31,7 +31,7 @@ export class CommunicateService {
   createLocations () {
     this.locations = this.store.select('locations');
     const locations = locationsMocks.generateMock();
-    for (let location of locations) {
+    for (const location of locations) {
       this.store.dispatch({type: UPDATE_LOCATION, payload: location});
     }
   }
@@ -39,7 +39,7 @@ export class CommunicateService {
   createActivities () {
     this.activities = this.store.select('activities');
     const activities = activityMocks.generateMock();
-    for (let activity of activities) {
+    for (const activity of activities) {
       this.store.dispatch({type: UPDATE_ACTIVITY, payload: activity});
     }
   }

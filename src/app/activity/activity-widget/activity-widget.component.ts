@@ -11,8 +11,8 @@ import { IActivity, AppState } from '../../shared/Definitions';
 export class ActivityWidgetComponent implements OnInit {
 
   public activities: Array<any>;
-  
-  constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>) { 
+
+  constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>) {
     // Initialize the private variables
   }
 

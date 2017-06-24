@@ -13,13 +13,13 @@ export class PlacesComponent implements OnInit {
 
   public places: Array<ILocation> = [];
 
-  constructor(public chRef: ChangeDetectorRef, private store: Store<AppState>) { 
+  constructor(public chRef: ChangeDetectorRef, private store: Store<AppState>) {
     // Initialize the private variables
   }
 
   async ngOnInit() {
 
-    this.store.select('locations').subscribe((locations: Array<ILocation>)=> {
+    this.store.select('locations').subscribe((locations: Array<ILocation>) => {
       console.log('Locations: ' , locations);
       this.places = locations;
       this.chRef.detectChanges();

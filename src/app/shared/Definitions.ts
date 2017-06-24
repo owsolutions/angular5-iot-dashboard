@@ -24,8 +24,8 @@ export interface IDevice {
  * A place, defines the area of modules and infrustructure
  */
 export interface ILocation {
-  name: string,
-  icon: string
+  name: string;
+  icon: string;
 }
 
 /**
@@ -48,6 +48,6 @@ declare global {
  * This represents if an activity occures in application
  */
 export interface IActivity {
-  key: string,
-  description: string
+  key: string;
+  description: string;
 }
