@@ -11,7 +11,7 @@ export function generateMock (count: Number = 10): Array<IActivity> {
         return sample(descriptions);
     }
 
-    let activities = times(count, (index) => {
+    const activities = times(count, (index) => {
         return {
             id: index,
             description: mockDescription()

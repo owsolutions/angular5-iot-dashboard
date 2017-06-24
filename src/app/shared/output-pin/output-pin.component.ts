@@ -39,7 +39,7 @@ export class OutputPinComponent implements OnInit {
   changeData($event: any, device: IDevice, pin: IPin, newValue: any) {
     this.communicate.notfityActivity({
       description: $event.target.value + ' -> ' + device.uniqueid + ' > ' + newValue,
-      id: random(111,999),
+      id: random(111, 999),
       type: ActivityTypes.DevicePinChange,
       meta: {
         device, pin, newValue
@@ -48,12 +48,12 @@ export class OutputPinComponent implements OnInit {
   }
 
   changeAnalogData ($event: any, device: IDevice, pin: IPin) {
-    let newValue = $event.target.value;
+    const newValue = $event.target.value;
     this.changeData($event, device, pin, newValue);
     return newValue;
   }
   changeDigitalData ($event, device: IDevice, pin: IPin) {
-    let newValue = $event.target.checked ? 'ON' : 'OFF';
+    const newValue = $event.target.checked ? 'ON' : 'OFF';
     this.changeData($event, device, pin, newValue);
     return newValue;
   }
