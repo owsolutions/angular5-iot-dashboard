@@ -5,7 +5,7 @@ input[type="checkbox"].ios-switch {
 	opacity: 0;
 }
 
-$switchColor: $theme-color;
+$switchColor: $dialect;
  
 /* Normal Track */
 input[type="checkbox"].ios-switch + div {

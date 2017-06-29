@@ -1,3 +1,5 @@
+
+   
 <h1 class='page-title'>
   <i class="icon icon-keyboard"></i>
   Devices
@@ -12,13 +14,12 @@
         <h2>{{device.GetTitle}}</h2>
         <span class="description">Last connectivity: 1 minute ago</span>
       </div>
-       
       <div class="io-overview">
         <span class='text-info inputs'>{{deviceInfo(device).Inputs.length}}<sup>Inputs</sup></span>
         <span class="text-info outputs">{{deviceInfo(device).Outputs.length}}<sup>Outputs</sup></span>
       </div>
     </div>
-    
+     
     <!-- Input managing -->
     <div class='flex-container vertical-container content-padding border-top' *ngIf='deviceInfo(device).Inputs.length'>
         <div class="vertical-row">
@@ -33,14 +34,14 @@
     
     <!-- Outputs managing -->
     <div class='flex-container vertical-container content-padding border-top' *ngIf='deviceInfo(device).Outputs.length'>
-        <div class="vertical-row">
-          <h3>Outputs</h3>
-        </div>
-        <div class="controlls">
-          <span class="button-container" *ngFor="let pin of deviceInfo(device).Outputs">
-            <app-output-pin [device]="device" [pin]="pin"></app-output-pin>
-          </span>
-        </div>
+      <div class="vertical-row">
+        <h3>Outputs</h3>
+      </div>
+      <div class="controlls">
+        <span class="button-container" *ngFor="let pin of deviceInfo(device).Outputs">
+          <app-output-pin [device]="device" [pin]="pin"></app-output-pin>
+        </span>
+      </div>
     </div>
 
   </div>

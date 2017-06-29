@@ -6,8 +6,6 @@
     border-top:$border;
     border-bottom:$border;
     display:flex;
-
-    
     
     .large-icon-widget {
         flex: 1;
@@ -32,6 +30,9 @@
             font-size:13px;
         }
         .value {
+            @include phone () {
+                font-size:25px;
+            }
             font-size:30px;
             sub {
                 font-size:15px;
@@ -40,6 +41,10 @@
             }
         }
         .icon {
+
+            @include phone () {
+                font-size:35px;
+            }
             font-size:40px;
             margin:15px 0;
             display:block;
