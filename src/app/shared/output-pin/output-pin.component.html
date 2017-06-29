@@ -1,8 +1,13 @@
 <span class='output-pin'>
-  <span class="pin-id">
-    {{pin.id}}
-  </span>
   <span class="pin-value">
-    {{castPinValue(pin.value)}}
+    <label *ngIf="findType(pin.value) === 'switch'">
+      <input (change)="pin.value = changeDigitalData($event, device, pin)" [checked]="pin.value === 'ON'" type="checkbox" class="ios-switch bigswitch" />
+      <div><div></div></div>
+    </label>
+    <div *ngIf="findType(pin.value) === 'input'">
+      <input class="input-value" (change)="pin.value = changeAnalogData($event, device, pin)" type="text" value="{{pin.value}}">
+    </div>
   </span>
 </span>
+
+

@@ -36,9 +36,7 @@
 		display: inline-block;
 		width:100%;
 	}
-	.docked {
-		
-	}
+
 	h2 {
 		font-size:16px;
 		text-transform: uppercase;
@@ -46,58 +44,7 @@
 		text-align: center;
 		padding-bottom: 20px;
 	}
-	.large-icon-widget {
-		text-align:center;
-		flex:1;
-		padding-bottom: 15px;
-		.value, .icon {
-			font-size:42px;
-			color:white;
-		}
-	}
-
 	
-	.medium-icon-widget {
-		border-right:$smoothBorder;
-		flex:1;
-		&:last-child {
-			border-right:none;
-		}
-		.value, .icon, .title ,> span{
-			display:block;
-			text-align:center;
-			font-size:11px;
-			color:white;
-		}
-		> span{
-			font-size : 22px;
-			font-weight: bold;
-			padding:5px 0;
-		}
-		.icon {
-			font-size:22px;
-			-webkit-animation:spin 9s linear infinite;
-			-moz-animation:spin 9s linear infinite;
-			animation:spin 9s linear infinite;
-		}
-	}
-
-	.large-value-item {
-		flex:1;
-
-		sup {
-			top:-12px;
-			font-size:12px;
-		}
-		.value,.title {
-			color:white;
-			text-align:center;
-		}
-		.value {
-			font-size:30px;
-		}
-	}
-
 	.bordered-bottom {
 		padding-bottom:10px;
 		border-bottom:$smoothBorder;
@@ -118,16 +65,6 @@
 	.padding-medium {
 		padding:15px 0;
 	}
-
-	.single-large-icon {
-		text-align:center;
-		flex:1;
-		.icon {
-			color:white;
-			font-size:45px;
-		}
-	}
-
 	.medium-icon-widget {
 		flex:1;
 		.value, .icon, .title {

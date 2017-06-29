@@ -19,3 +19,44 @@ export interface IDevice {
   pins: Array<IPin>;
 }
 
+
+/**
+ * A place, defines the area of modules and infrustructure
+ */
+export interface ILocation {
+  name: string;
+  icon: string;
+}
+
+/**
+ * Represents the application store structure
+ */
+export interface AppState {
+  devices: Array<IDevice>;
+  locations: Array<any>;
+  activities: Array<IActivity>;
+}
+
+
+declare global {
+  export interface Window {
+    io: any;
+  }
+}
+
+
+/**
+ * Occures when a device changes
+ */
+export enum ActivityTypes {
+  DevicePinChange
+}
+/**
+ * This represents if an activity occures in application
+ */
+export interface IActivity {
+  id: string;
+  description: string;
+  type: ActivityTypes;
+  meta: any;
+}

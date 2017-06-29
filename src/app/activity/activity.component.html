@@ -1,0 +1,29 @@
+<h1 class='page-title'>
+  <i class="icon icon-camera-alt"></i>
+  Activities
+</h1>
+
+<table class="flat-table">
+  <tbody>
+    <tr >
+      <th>Id</th>
+      <th>Type</th>
+      <th>Device</th>
+      <th>Pin</th>
+      <th>Change</th>
+      <th>description</th>
+    </tr>
+    <tr *ngFor="let activity of activities;">
+      <td>{{activity.id}}</td>
+      <td>{{getType(activity.type)}}</td>
+      <td>{{activity.meta ? activity.meta.device.uniqueid : '-'}}</td>
+      <td>
+        {{activity.meta ? activity.meta.pin.id : '-'}}
+      </td>
+      <td>
+        {{activity.meta ? activity.meta.newValue: '-'}}
+      </td>
+      <td>{{activity.description}}</td>
+    </tr>
+  </tbody>
+</table>

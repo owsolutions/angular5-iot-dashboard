@@ -63,15 +63,20 @@
             }
         }
         .controlls {
+            flex-wrap:wrap;
+            display: flex;
+
             label {
                 margin:5px 0;
                 display: block;
             }
         }
         .button-container {
-            display:inline-block;
-            width:50px;
-            
+            width: calc(100% * (1/3) - 10px - 1px);
+            flex-grow: 1;
+            display: inline-block;
+            margin:3px 5px;
+             
         }
         .vertical-container {
             flex-direction: column;

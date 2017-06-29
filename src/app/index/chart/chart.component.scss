@@ -1,13 +1,20 @@
+@import '../../../injects';
 .highcharts-range-selector-buttons,.highcharts-scrollbar {
     visibility:hidden;
 }
 
-.range-selector-wrapper{
+.range-selector-wrapper {
     right:10px;
-    top:10px;
+    top:60px;
     z-index:1;
     position:absolute;
+
+    @include phone() {
+        display:none;
+    }
+    
 }
+
 .setChartEx{
     background: transparent;
     border:2px solid lightgray;
@@ -33,5 +40,6 @@
 }
 .chart-wrapper:hover .highcharts-axis-labels.highcharts-yaxis-labels span{
     opacity:1 !important;
-    transition: opacity .5s
+    transition: opacity .5s;
+    position:relative;
 }

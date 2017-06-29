@@ -2,20 +2,22 @@
     <div style="width:100%;">
 
         <!-- Place row -->
-        <div class="place-row" *ngFor="let place of places;">
-            <div class="column title-icon">
+        <div class="row place-row clearfix" *ngFor="let place of places;">
+            <div class="col-sm-3 col-xs-6 title-icon">
                 <h2>{{place.name}}</h2>
                 <img width='100px' [src]="'assets/images/' + place.icon" alt="">
             </div>
 
-            <div class="column value-box">
+            <div class="col-sm-3 col-xs-6 value-box">
                 <h4>Temperature</h4>
                 <div class="value">
                     22.8<sup>&#8451;</sup>
                 </div>
             </div>
 
-            <div class="column">
+            <div class="clearfix visible-xs"></div>
+        
+            <div class="col-sm-3 col-xs-6">
                 <h4>Name</h4>
                 <ul class="list">
                     <li>Ceiling lighting</li>
@@ -25,7 +27,7 @@
                 </ul>
             </div>
 
-            <div class="column">
+            <div class="col-sm-3 col-xs-6">
                 <h4>Status</h4>
                 <ul class="list">
                     <li>
@@ -53,12 +55,10 @@
                         </label>
                     </li>
                 </ul>
-            </div>
 
-            <div class=" control-column">
-                <a class='next-button'>
+                <!--<a class='next-button'>
                     <span class="icon icon-info icon-round-next"></span>
-                </a>
+                </a>-->
             </div>
 
         </div>

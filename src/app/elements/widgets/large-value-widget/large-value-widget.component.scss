@@ -1,0 +1,15 @@
+.large-value-item {
+    flex:1;
+
+    sup {
+        top:-12px;
+        font-size:12px;
+    }
+    .value,.title {
+        color:white;
+        text-align:center;
+    }
+    .value {
+        font-size:30px;
+    }
+}

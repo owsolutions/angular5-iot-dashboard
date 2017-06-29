@@ -4,6 +4,7 @@ import { LocationsComponent } from './locations/locations.component';
 import { SummaryComponent } from './summary/summary.component';
 import { SettingsComponent } from './settings/settings.component';
 import { DevicesComponent } from './devices/devices.component';
+import { ActivityComponent } from './activity/activity.component';
 
 export const appRoutes: Routes = [
     {
@@ -24,6 +25,11 @@ export const appRoutes: Routes = [
     {
         path: 'settings',
         component: SettingsComponent,
+        data: {}
+    },
+    {
+        path: 'activities',
+        component: ActivityComponent,
         data: {}
     },
     {

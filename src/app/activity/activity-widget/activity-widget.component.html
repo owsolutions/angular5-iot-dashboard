@@ -1,9 +1,14 @@
-<h2>Activity Feed</h2>
-<ol class="activity-feed">
-  <li class="feed-item" *ngFor="let activity of activities;">
-    <time class="date" datetime="9-25">{{activity.key}} Sep 25</time>
-    <span class="text">
-      {{activity.description}}  
-    </span>
-  </li>
-</ol>
+ 
+
+
+  <ul class="timeline">
+    <li class="event" *ngFor="let activity of activities;">
+      <div class="left-arrow"></div>
+      <h3>{{activity.key}}</h3>
+      <div class="description">
+        <p> 
+          {{activity.description}}  
+        </p>
+      </div>
+    </li>
+  </ul>
