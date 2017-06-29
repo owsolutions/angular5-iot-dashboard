@@ -56,6 +56,7 @@ export class CommunicateService {
    * to notify the rest of application an event occured.
    */
   public notfityActivity (activity: IActivity) {
+    
     this.store.dispatch({type: UPDATE_ACTIVITY, payload: activity});
   }
   /**
