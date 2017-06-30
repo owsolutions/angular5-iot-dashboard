@@ -1,45 +1,89 @@
 @import '../../../injects';
-.highcharts-range-selector-buttons,.highcharts-scrollbar {
-    visibility:hidden;
-}
-
-.range-selector-wrapper {
-    right:10px;
-    top:60px;
-    z-index:1;
-    position:absolute;
-
-    @include phone() {
-        display:none;
+.chart-wrapper{
+    #container{
+        margin-top:20px;
     }
-    
+    /deep/ .highcharts-range-selector-buttons,/deep/ .highcharts-scrollbar {
+        visibility:hidden;
+    }
+    .range-selector-wrapper{
+        right:10px;
+        top:10px;
+        z-index:1;
+        position:absolute;
+    }
+    .setChartEx{
+        background: transparent;
+        border:2px solid lightgray;
+        color: lightgray;
+        padding:7px 9px;
+        border-radius: 20px;
+        cursor: pointer;
+        outline: none;
+        margin-left:5px;
+    }
+    .setChartEx:hover,.setChartEx.pressed{
+        border:2px solid gray;
+        color: gray;
+    }
+
+    /deep/ .highcharts-axis-labels.highcharts-yaxis-labels span{
+        background:#e1e1e1;
+        border-radius:5px;
+        color:gray;
+        padding:3px 5px;
+        opacity:0 !important;
+        transition: opacity .5s
+    }
+    &:hover /deep/ .highcharts-axis-labels.highcharts-yaxis-labels span{
+        opacity:1 !important;
+        transition: opacity .5s
+    }
 }
 
-.setChartEx{
-    background: transparent;
-    border:2px solid lightgray;
-    color: lightgray;
-    padding:7px 9px;
-    border-radius: 20px;
-    cursor: pointer;
-    outline: none;
-    margin-left:5px;
-}
-.setChartEx:hover,.setChartEx.pressed{
-    border:2px solid gray;
-    color: gray;
-}
+.large-icon-status {
+    $border: 2px solid rgb(241, 243, 247);
+    border-top:$border;
+    border-bottom:$border;
+    display:flex;
+    .large-icon-widget {
+        flex: 1;
+        text-align:center;
+        border-left: $border;
+        padding:15px 0;
+        cursor: pointer;
+        &.deActive{
+            background: #fafafa;
+            color:#aaa !important;
+        }
+        &:first-child {
+            border-left:none;
+        }
+        &:nth-child(1) {
+            color:rgb(24,219,169);
+        }
+        &:nth-child(2) {
+            color: rgb(0, 195,105);
+        }
+        &:nth-child(3) {
+            color:rgb(0, 212, 252);
+        }
 
-.highcharts-axis-labels.highcharts-yaxis-labels span{
-    background:#e1e1e1;
-    border-radius:5px;
-    color:gray;
-    padding:3px 5px;
-    opacity:0 !important;
-    transition: opacity .5s
-}
-.chart-wrapper:hover .highcharts-axis-labels.highcharts-yaxis-labels span{
-    opacity:1 !important;
-    transition: opacity .5s;
-    position:relative;
+        .title {
+            font-size:13px;
+        }
+        .value {
+            font-size:30px;
+            sub {
+                font-size:15px;
+                top:0;
+                margin-left:5px;
+            }
+        }
+        .icon {
+            font-size:40px;
+            margin:15px 0;
+            display:block;
+        }
+    }
 }

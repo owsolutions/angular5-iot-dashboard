@@ -8,10 +8,13 @@
         <button class="setChartEx" data_set="month">MONTH</button>
         <button class="setChartEx" data_set="year">YEAR</button>
     </div>
-    <div id="container" style="height: 400px; min-width: 310px"></div>
+    <div id="container" style="height: 325px; min-width: 310px"></div>
 </div>
 
-<!--<button class="legend-chart" data_set="1">Serie1</button>
-<button class="legend-chart" data_set="2">Serie2</button>
-<button class="legend-chart" data_set="3">Serie3</button>-->
- 
+<div class="large-icon-status">
+    <div class="large-icon-widget legend-chart"  *ngFor="let widget of largeWidgets; let i = index" [attr.data-set]="i">
+        <div class="title">{{widget.title}}</div>
+        <i class="{{widget.icon}}"></i>
+        <div class="value">{{widget.value}}<sub>{{widget.unit}}</sub></div>
+    </div>
+</div>
