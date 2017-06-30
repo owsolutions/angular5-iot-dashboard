@@ -4,6 +4,7 @@
 @import "medias";
 @import "mixins";
 
+
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
@@ -52,6 +53,9 @@ html, body{
 
 .flex-container{
 	display: flex;
+    .flex-item {
+        flex:1;
+    }
 }
 
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }

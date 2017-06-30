@@ -1,58 +1,78 @@
+@import '../../..//injects';
 
-// Colors:
-$brand-primary: #50bced;   // Blue
-$brand-secondary: #f37167; // Orange
+$bgColor: #f0f0f0;
+$timelineColor: #0077bb;
 
-a {
-  color: $brand-primary;
-}
-h2 {
-    padding:30px 15px 10px;
-    color: rgb(180, 188, 203);
-    text-transform: uppercase;
-    font-size:17px;
-    letter-spacing: 1px;
-    font-weight:bold;
+// Generic body stuff
+body { background: $bgColor; font-family: sans-serif; padding-top: 30px; }
 
-}
-.activity-feed {
-  padding: 15px 25px;
-  list-style: none;
-
-  .feed-item {
+ul.timeline {
+  right:15px;
+  $left: 80px;
+  position: relative;
+  list-style-type: none;
+  padding-left: $left;
+  &:before {
+    position: absolute;
+    display: block;
+    left: $left - 44px;
+    width: 3px;
+    height: 100%;
+    border-radius: 4px;
+    background-color: $timelineColor;
+    content: ' ';
+  }
+  .event {
     position: relative;
-    padding-bottom: 20px;
-    padding-left: 30px;
-    border-left: 2px solid #e4e8eb;
-
-    &:last-child {
-      border-color: transparent;
-    }
-
-    &::after {
-      content: "";
+    padding: 16px;
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+    padding: 16px;
+    margin-bottom: 15px;
+    &:before {
       display: block;
       position: absolute;
-      top: 0;
-      left: -6px;
-      width: 10px;
-      height: 10px;
-      border-radius: 6px;
-      background: #fff;
-      border: 1px solid $brand-secondary;
+      top: 15px;
+      left: -55px;
+      width: 27px;
+      height: 27px;
+      border: 3px solid $timelineColor;
+      border-radius: 50%;
+      background-color: white;
+      box-shadow: 0 0 4px -1px rgba(0,0,0,0.6);
+      content: ' ';
     }
+  }
+  h3 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
 
-    .date {
-      display: block;
-      position: relative;
-      top: -5px;
-      color: #8c96a3;
-      text-transform: uppercase;
-      font-size: 13px;
+  .left-arrow {
+     &:before {
+      position: absolute;
+      top: 30px;
+      left: -15px;
+      display: inline-block;
+      border-top: 15px solid transparent;
+      border-right: 15px solid #ddd;
+      border-left: 0 solid #ddd;
+      border-bottom: 15px solid transparent;
+      content: ' ';
     }
-    .text {
-      position: relative;
-      top: -3px;
+    &:after {
+      position: absolute;
+      top: 30px;
+      left: -14px;
+      display: inline-block;
+      border-top: 15px solid transparent;
+      border-right: 15px solid #fff;
+      border-left: 0 solid #fff;
+      border-bottom: 15px solid transparent;
+      content: ' ';
     }
   }
 }
+

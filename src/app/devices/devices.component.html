@@ -1,3 +1,5 @@
+
+   
 <h1 class='page-title'>
   <i class="icon icon-keyboard"></i>
   Devices
@@ -5,43 +7,41 @@
 
 <div class="device-box-container">
   
-  <div class="device-box"  *ngFor="let device of Devices">
+  <div class="device-box"  *ngFor="let device of devices">
     <div class='flex-container'>
       <div class="info-box">
         <i class="{{device.icon}}"></i>
         <h2>{{device.GetTitle}}</h2>
         <span class="description">Last connectivity: 1 minute ago</span>
       </div>
-      
       <div class="io-overview">
-        <span class='text-info inputs'>{{device.Inputs.length}}<sup>Inputs</sup></span>
-        <span class="text-info outputs">{{device.Outputs.length}}<sup>Outputs</sup></span>
+        <span class='text-info inputs'>{{deviceInfo(device).Inputs.length}}<sup>Inputs</sup></span>
+        <span class="text-info outputs">{{deviceInfo(device).Outputs.length}}<sup>Outputs</sup></span>
       </div>
     </div>
-    
+     
     <!-- Input managing -->
-    <div class='flex-container vertical-container content-padding border-top' *ngIf='device.Inputs.length'>
+    <div class='flex-container vertical-container content-padding border-top' *ngIf='deviceInfo(device).Inputs.length'>
         <div class="vertical-row">
           <h3>Inputs</h3>
         </div>
         <div class="controlls">
-          <span *ngFor="let pin of device.Inputs">
+          <span *ngFor="let pin of deviceInfo(device).Inputs">
             <app-input-pin [pin]="pin"></app-input-pin>
           </span>
         </div>
     </div>
     
     <!-- Outputs managing -->
-    <div class='flex-container vertical-container content-padding border-top' *ngIf='device.Outputs.length'>
-        <div class="vertical-row">
-          <h3>Outputs</h3>
-        </div>
-        <div class="controlls">
-          <span class="button-container" *ngFor="let pin of device.Outputs">
-            <app-output-pin [pin]="pin"></app-output-pin>
-          </span>
-        </div>
-        {{device.DescribeOutputs()}}
+    <div class='flex-container vertical-container content-padding border-top' *ngIf='deviceInfo(device).Outputs.length'>
+      <div class="vertical-row">
+        <h3>Outputs</h3>
+      </div>
+      <div class="controlls">
+        <span class="button-container" *ngFor="let pin of deviceInfo(device).Outputs">
+          <app-output-pin [device]="device" [pin]="pin"></app-output-pin>
+        </span>
+      </div>
     </div>
 
   </div>

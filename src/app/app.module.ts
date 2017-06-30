@@ -14,6 +14,7 @@ import { DevicesComponent } from './devices/devices.component';
 import { QuickStatusComponent } from './master/quick-status/quick-status.component';
 import { QuickChartComponent } from './master/quick-status/quick-chart/quick-chart.component';
 import { appRoutesGenerator } from './routes';
+import { appReducersGenerator } from './app.reducers';
 import { QuickTimeComponent } from './master/quick-status/quick-time/quick-time.component';
 import { ActivityWidgetComponent } from './activity/activity-widget/activity-widget.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
@@ -21,11 +22,14 @@ import { AppInfoComponent } from './layout/app-info/app-info.component';
 import { ContentBoxComponent } from './layout/content-box/content-box.component';
 import { IconWidgetsComponent } from './index/icon-widgets/icon-widgets.component';
 import { PlacesComponent } from './index/places/places.component';
-import { StoreModule } from '@ngrx/store';
-import { devicesReducer } from './devices/devices.reducer';
 import { InputPinComponent } from './shared/input-pin/input-pin.component';
 import { OutputPinComponent } from './shared/output-pin/output-pin.component';
 import { LocationsComponent } from './locations/locations.component';
+import { LargeIconWidgetComponent } from './elements/widgets/large-icon-widget/large-icon-widget.component';
+import { MediumIconWidgetComponent } from './elements/widgets/medium-icon-widget/medium-icon-widget.component';
+import { LargeValueWidgetComponent } from './elements/widgets/large-value-widget/large-value-widget.component';
+import { FullWidgetComponent } from './elements/widgets/full-widget/full-widget.component';
+import { ActivityComponent } from './activity/activity.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,12 @@ import { LocationsComponent } from './locations/locations.component';
     PlacesComponent,
     InputPinComponent,
     OutputPinComponent,
-    LocationsComponent
+    LocationsComponent,
+    LargeIconWidgetComponent,
+    MediumIconWidgetComponent,
+    LargeValueWidgetComponent,
+    FullWidgetComponent,
+    ActivityComponent
   ],
   imports: [
     appRoutesGenerator(),
@@ -55,7 +64,7 @@ import { LocationsComponent } from './locations/locations.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    StoreModule.provideStore({ devices: devicesReducer })
+    appReducersGenerator()
   ],
   providers: [],
   bootstrap: [AppComponent]
