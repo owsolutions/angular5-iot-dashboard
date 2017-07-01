@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit } from '@angular/core';
 declare var Highcharts: any;
 import { times, random} from 'lodash';
 
@@ -7,7 +7,7 @@ import { times, random} from 'lodash';
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss']
 })
-export class ChartComponent implements OnInit {
+export class ChartComponent implements OnInit, AfterViewInit {
 
   public places: Array<any>;
   public largeWidgets: Array<any>;
@@ -25,7 +25,6 @@ export class ChartComponent implements OnInit {
 
   getSeries () {
       return [
-        
         {
             name: 'Power',
             type: 'area',
@@ -38,7 +37,7 @@ export class ChartComponent implements OnInit {
             marker: {
                 enabled: false,
                 fillColor: '#FFF',
-                lineColor:'#52dba7',
+                lineColor: '#52dba7',
                 lineWidth: 1,
                 symbol: 'circle',
                 radius: 3
@@ -54,7 +53,7 @@ export class ChartComponent implements OnInit {
             marker: {
                 enabled: false,
                 fillColor: '#FFF',
-                lineColor:'#2bc661',
+                lineColor: '#2bc661',
                 lineWidth: 1,
                 symbol: 'circle',
                 radius: 3
@@ -62,7 +61,6 @@ export class ChartComponent implements OnInit {
             tooltip: {
                 valueSuffix: ' kWh'
             },
-            
             fillColor: 'rgba(232, 245, 236, 0.8)',
             lineColor: '#2bc661'
         },
@@ -79,7 +77,7 @@ export class ChartComponent implements OnInit {
             marker: {
                 enabled: false,
                 fillColor: '#FFF',
-                lineColor:'rgb(0, 212, 252)',
+                lineColor: 'rgb(0, 212, 252)',
                 lineWidth: 1,
                 symbol: 'circle',
                 radius: 3
@@ -103,9 +101,9 @@ export class ChartComponent implements OnInit {
             align: 'left',
             style: {
                 color: '#9ea9bf',
-                fontSize: "22px"
+                fontSize: '22px'
             },
-            y:6
+            y: 6
         },
         xAxis: {
             gapGridLineWidth: 0
@@ -181,7 +179,6 @@ export class ChartComponent implements OnInit {
   }
   constructor() { }
 
-
   drawChart () {
     const chart = this.chart = new Highcharts.stockChart(this.getChartOptions());
     const btnEx = document.getElementsByClassName('setChartEx');
@@ -224,9 +221,7 @@ export class ChartComponent implements OnInit {
             $el.className = $el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
         });
     }
-    
   }
-
   mockData () {
       return [
           {
@@ -250,16 +245,16 @@ export class ChartComponent implements OnInit {
       ];
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     const chart = this.chart;
     const legend = document.getElementsByClassName('legend-chart');
     Array.from(legend).forEach($el => {
         $el.addEventListener('click', function(){
             const key = this.getAttribute('data-set');
-            if(chart.series[key].options.visible === false) {
+            if (chart.series[key].options.visible === false) {
                 this.classList.remove('deActive');
-                chart.series[key].show()  
-            }else{
+                chart.series[key].show();
+            }else {
                 this.classList.add('deActive');
                 chart.series[key].hide();
             }
