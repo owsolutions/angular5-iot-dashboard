@@ -44,7 +44,14 @@
         list-style: none;
         font-size:13px;
         li {
-            padding:7.5px 0;
+            padding:0;
+        }
+    }
+    .list-names {
+        list-style: none;
+        font-size:13px;
+        li {
+            padding:3px 0;
         }
     }
     .place-row {
