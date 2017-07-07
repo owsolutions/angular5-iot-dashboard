@@ -11,11 +11,11 @@ import { SettingsComponent } from './settings/settings.component';
 import { SwitchWidgetsComponent } from './shared/switch-widgets/switch-widgets.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DevicesComponent } from './devices/devices.component';
-import { QuickStatusComponent } from './master/quick-status/quick-status.component';
-import { QuickChartComponent } from './master/quick-status/quick-chart/quick-chart.component';
+import { QuickStatusComponent } from './layout/quick-status/quick-status.component';
+import { QuickChartComponent } from './layout/quick-status/quick-chart/quick-chart.component';
 import { appRoutesGenerator } from './routes';
 import { appReducersGenerator } from './app.reducers';
-import { QuickTimeComponent } from './master/quick-status/quick-time/quick-time.component';
+import { QuickTimeComponent } from './layout/quick-status/quick-time/quick-time.component';
 import { ActivityWidgetComponent } from './activity/activity-widget/activity-widget.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { AppInfoComponent } from './layout/app-info/app-info.component';
@@ -30,6 +30,8 @@ import { MediumIconWidgetComponent } from './elements/widgets/medium-icon-widget
 import { LargeValueWidgetComponent } from './elements/widgets/large-value-widget/large-value-widget.component';
 import { FullWidgetComponent } from './elements/widgets/full-widget/full-widget.component';
 import { ActivityComponent } from './activity/activity.component';
+import { ThermostatComponent } from './layout/app-info/thermostat/thermostat.component';
+import { ModesComponent } from './layout/app-info/modes/modes.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { ActivityComponent } from './activity/activity.component';
     MediumIconWidgetComponent,
     LargeValueWidgetComponent,
     FullWidgetComponent,
-    ActivityComponent
+    ActivityComponent,
+    ThermostatComponent,
+    ModesComponent
   ],
   imports: [
     appRoutesGenerator(),
