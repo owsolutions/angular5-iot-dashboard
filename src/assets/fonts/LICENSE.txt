@@ -1,15 +1,6 @@
 Font license info
 
 
-## Web Symbols
-
-   Copyright (c) 2011 by Just Be Nice studio. All rights reserved.
-
-   Author:    Just Be Nice studio
-   License:   SIL (http://scripts.sil.org/OFL)
-   Homepage:  http://www.justbenicestudio.com/
-
-
 ## Font Awesome
 
    Copyright (C) 2016 by Dave Gandy
@@ -19,6 +10,15 @@ Font license info
    Homepage:  http://fortawesome.github.com/Font-Awesome/
 
 
+## Meteocons
+
+   Copyright (C) 2012 by Alessio Atzeni
+
+   Author:    Alessio Atzeni
+   License:   SIL (http://scripts.sil.org/OFL)
+   Homepage:  http://www.alessioatzeni.com
+
+
 ## Typicons
 
    (c) Stephen Hutchings 2012
@@ -26,14 +26,5 @@ Font license info
    Author:    Stephen Hutchings
    License:   SIL (http://scripts.sil.org/OFL)
    Homepage:  http://typicons.com/
-
-
-## Fontelico
-
-   Copyright (C) 2012 by Fontello project
-
-   Author:    Crowdsourced, for Fontello project
-   License:   SIL (http://scripts.sil.org/OFL)
-   Homepage:  http://fontello.com
 
 
