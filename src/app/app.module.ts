@@ -32,6 +32,7 @@ import { FullWidgetComponent } from './elements/widgets/full-widget/full-widget.
 import { ActivityComponent } from './activity/activity.component';
 import { ThermostatComponent } from './layout/app-info/thermostat/thermostat.component';
 import { ModesComponent } from './layout/app-info/modes/modes.component';
+import { NewDeviceComponent } from './devices/new/new.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ModesComponent } from './layout/app-info/modes/modes.component';
     FullWidgetComponent,
     ActivityComponent,
     ThermostatComponent,
-    ModesComponent
+    ModesComponent,
+    NewDeviceComponent
   ],
   imports: [
     appRoutesGenerator(),
