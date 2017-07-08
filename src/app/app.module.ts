@@ -33,6 +33,7 @@ import { ActivityComponent } from './activity/activity.component';
 import { ThermostatComponent } from './layout/app-info/thermostat/thermostat.component';
 import { ModesComponent } from './layout/app-info/modes/modes.component';
 import { NewDeviceComponent } from './devices/new/new.component';
+import { TextInputComponent } from './forms/text-input/text-input.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { NewDeviceComponent } from './devices/new/new.component';
     ActivityComponent,
     ThermostatComponent,
     ModesComponent,
-    NewDeviceComponent
+    NewDeviceComponent,
+    TextInputComponent
   ],
   imports: [
     appRoutesGenerator(),
