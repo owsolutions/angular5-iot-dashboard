@@ -64,6 +64,30 @@ html, body{
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 
+
+.helper-box {
+    overflow-y: scroll;
+    border-top:3px solid $theme-color;
+    background: yellow; position:fixed; width: calc(100% - 350px);  bottom:0; height: 450px;
+    .helper-box-title {
+        background: $theme-color;
+        margin: 0;
+        font-size: 17px;
+        padding: 9px 15px 9px;
+        color: white;
+    }
+
+
+}
+
+.device-configuration {
+    padding: 15px;
+    h3 {
+        margin:0 auto 10px;
+        font-size:21px;
+    }    
+}
+
 .page-description {
     padding:15px;
     font-size:13px;

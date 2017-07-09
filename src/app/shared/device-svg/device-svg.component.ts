@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { IPin , IDevice } from '../Definitions';
 
 @Component({
@@ -9,6 +9,7 @@ import { IPin , IDevice } from '../Definitions';
 export class DeviceSvgComponent implements OnInit {
 
   @Input() public device: IDevice;
+  @Output() public onFocusDevice: EventEmitter<any> = new EventEmitter();
 
   public focusedPin: IPin = null;
   constructor() { }
@@ -36,6 +37,7 @@ export class DeviceSvgComponent implements OnInit {
 
   pinClick (id) {
     this.focusedPin = this.device.pins.find(pin => pin.id === id);
+    this.onFocusDevice.emit({device: this.device , pin: this.focusedPin});
   }
 
 }

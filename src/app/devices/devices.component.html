@@ -20,7 +20,60 @@
 </div>
 <div class="device-box-container">
   <div *ngFor="let device of devices" class="col-sm-6 padding-box">
-
-     <device-svg [device]="device"></device-svg>
+     <device-svg [device]="device" (onFocusDevice)="clickDispatch($event);"></device-svg>
   </div>
+</div>
+
+
+<div class="clearfix"></div>
+
+
+
+<div class="helper-box" *ngIf="focusedDevice">
+  <h1 class='helper-box-title clearfix'>
+    <div class='page-label pull-left'>
+      <i class="icon icon-keyboard"></i>
+      Pin configuration
+    </div>
+  </h1>
+  <div class="box-content device-configuration">
+    <div class="row">
+     
+      <div class="col-sm-6" >
+        <h3>Device unique id: {{focusedDevice.uniqueid}}</h3>
+        <div class="device-description">
+          {{describeDevice(focusedDevice)}}
+        </div>
+        <hr>
+        <section *ngIf="focusedPin" >
+          <h3>Alias ( widgets )</h3>
+          <div class="device-description">
+            You can config this pin as a widget, afterward, it will be accessible by normal users with specific name, access control, and value.
+
+            <br><br>
+            <forms-text-input
+              placeholder="Type the widget name ( e.g: Front Lamp )"
+              icon="icon icon-user"
+              name="Widget name"
+              (onChange)="onWidgetNameInputChange($event)"
+              ></forms-text-input>
+          </div>
+
+          <h3>Pin: {{focusedPin.id}}</h3>
+          <div class="device-description">
+            Type: {{focusedPin.type}}
+            <br>
+            Realtime value: {{focusedPin.value}}
+
+            <br>
+            Value: <app-output-pin [pin]="focusedPin" [device]="focusedDevice"></app-output-pin>
+          </div>
+          <hr>
+          
+          
+        </section>
+      </div>
+    </div>
+  </div>
+
 </div>
