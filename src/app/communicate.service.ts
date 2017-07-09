@@ -6,8 +6,7 @@ import * as devicesMocks from './devices/devices.mock';
 import * as locationsMocks from './locations/locations.mock';
 import * as activityMocks from './activity/activity-widget/activity.mock';
 import { UPDATE_LOCATION } from './locations/locations.reducer';
-import { UPDATE_ACTIVITY } from './activity/activity.reducer';
-import { IDevice, ILocation, AppState, IActivity } from './shared/Definitions';
+import { IDevice, ILocation, AppState, IActivity, IWidget } from './shared/Definitions';
 
 @Injectable()
 export class CommunicateService {
@@ -21,11 +20,17 @@ export class CommunicateService {
   public devices: Observable<Array<IDevice>>;
   public locations: Observable<Array<ILocation>>;
   public activities: Observable<Array<IActivity>>;
+  public widgets: Observable<Array<IWidget>>;
 
   constructor(private store: Store<AppState>) {
     this.createDevices();
     this.createLocations();
     this.createActivities();
+  }
+
+  createWidgets (widget: IWidget) {
+    this.widgets = this.store.select('widgets');
+    this.store.dispatch({type: 'UPDATE_WIDGET' , payload: widget});
   }
 
   createLocations () {
@@ -40,7 +45,7 @@ export class CommunicateService {
     this.activities = this.store.select('activities');
     const activities = activityMocks.generateMock(5);
     for (const activity of activities) {
-      this.store.dispatch({type: UPDATE_ACTIVITY, payload: activity});
+      this.store.dispatch({type: 'UPDATE_ACTIVITY', payload: activity});
     }
   }
 
@@ -64,7 +69,7 @@ export class CommunicateService {
    * to notify the rest of application an event occured.
    */
   public notfityActivity (activity: IActivity) {
-    this.store.dispatch({type: UPDATE_ACTIVITY, payload: activity});
+    this.store.dispatch({type: 'UPDATE_ACTIVITY', payload: activity});
   }
   /**
    * Connects to a socket IO server, based on it's url

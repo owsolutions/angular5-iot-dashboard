@@ -1,10 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { DeviceObject } from '../shared/DeviceObject';
 import { IDevice, IPin, AppState } from '../shared/Definitions';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-
+import { CommunicateService } from '../communicate.service';
 @Component({
   selector: 'app-devices',
   templateUrl: './devices.component.html',
@@ -16,7 +15,7 @@ export class DevicesComponent implements  OnDestroy , OnInit {
   public focusedPin: IPin = null;
   public devices: Array<IDevice>;
 
-  constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>) {
+  constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>, private communications: CommunicateService) {
     // Initialize private variables
   }
 
@@ -31,6 +30,11 @@ export class DevicesComponent implements  OnDestroy , OnInit {
 
   onWidgetNameInputChange (value) {
     console.log("Input change: " , value);
+    this.communications.createWidgets({
+      device: this.focusedDevice,
+      pin: this.focusedPin,
+      name: value
+    });
   }
   describeDevice( device: IDevice) {
     return `This device has ${this.countInputPins(device)} inputs, and ${this.countOutputPins(device)} outputs.`;

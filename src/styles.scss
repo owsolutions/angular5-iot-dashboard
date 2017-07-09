@@ -68,7 +68,7 @@ html, body{
 .helper-box {
     overflow-y: scroll;
     border-top:3px solid $theme-color;
-    background: yellow; position:fixed; width: calc(100% - 350px);  bottom:0; height: 450px;
+    background: #e8e8e2; position:fixed; width: calc(100% - 350px);  bottom:0; height: 450px;
     .helper-box-title {
         background: $theme-color;
         margin: 0;
@@ -109,7 +109,7 @@ html, body{
             transition: 0.3s all ease-in-out;
             &:hover {
                 color: green;
-                background: yellow;
+                background: #e8e8e2;
             }
         }
     }
