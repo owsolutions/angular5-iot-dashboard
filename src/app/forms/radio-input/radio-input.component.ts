@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'forms-radio-input',
+  selector: 'app-forms-radio-input',
   templateUrl: './radio-input.component.html',
   styleUrls: ['./radio-input.component.scss']
 })

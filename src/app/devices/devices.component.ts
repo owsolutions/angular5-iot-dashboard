@@ -23,13 +23,13 @@ export class DevicesComponent implements  OnDestroy , OnInit {
   countInputPins (device: IDevice) {
     return device.pins.filter(pin => pin.type === 'input').length;
   }
-  
+
   countOutputPins (device: IDevice) {
     return device.pins.filter(pin => pin.type === 'output').length;
   }
 
   onWidgetNameInputChange (value) {
-    console.log("Input change: " , value);
+    console.log('Input change: ' , value);
     this.communications.createWidgets({
       device: this.focusedDevice,
       pin: this.focusedPin,

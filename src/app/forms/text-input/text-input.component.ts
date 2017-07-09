@@ -1,7 +1,7 @@
 import { EventEmitter,  Output, Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'forms-text-input',
+  selector: 'app-forms-text-input',
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.scss']
 })

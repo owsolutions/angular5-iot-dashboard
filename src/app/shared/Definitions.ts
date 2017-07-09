@@ -25,9 +25,9 @@ export interface ILocation {
  * the pin
  */
 export interface IWidget {
-  device: IDevice,
-  pin: IPin,
-  name: string
+  device: IDevice;
+  pin: IPin;
+  name: string;
 }
 
 /**

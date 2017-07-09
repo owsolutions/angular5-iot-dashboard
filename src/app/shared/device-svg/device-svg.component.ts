@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { IPin , IDevice } from '../Definitions';
 
 @Component({
-  selector: 'device-svg',
+  selector: 'app-device-svg',
   templateUrl: './device-svg.component.html',
   styleUrls: ['./device-svg.component.scss']
 })
@@ -16,7 +16,7 @@ export class DeviceSvgComponent implements OnInit {
 
   getPinValue (id) {
     if (this.device) {
-      let pin = this.device.pins.find(pin => pin.id === id);
+      const pin = this.device.pins.find(T => T.id === id);
       if ( pin ) {
         switch (typeof pin.value) {
           case 'string':

@@ -18,7 +18,7 @@
 </div>
 <div class="device-box-container">
   <div *ngFor="let device of devices" class="col-sm-6 padding-box">
-     <device-svg [device]="device" (onFocusDevice)="clickDispatch($event);"></device-svg>
+     <app-device-svg [device]="device" (onFocusDevice)="clickDispatch($event);"></app-device-svg>
   </div>
 </div>
 
@@ -46,12 +46,12 @@
             You can config this pin as a widget, afterward, it will be accessible by normal users with specific name, access control, and value.
 
             <br><br>
-            <forms-text-input
+            <app-forms-text-input
               placeholder="Type the widget name ( e.g: Front Lamp )"
               icon="icon icon-user"
               name="Widget name"
               (onChange)="onWidgetNameInputChange($event)"
-              ></forms-text-input>
+              ></app-forms-text-input>
           </div>
 
           <h3>Pin: {{focusedPin.id}}</h3>
