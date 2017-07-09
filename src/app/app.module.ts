@@ -34,6 +34,7 @@ import { ThermostatComponent } from './layout/app-info/thermostat/thermostat.com
 import { ModesComponent } from './layout/app-info/modes/modes.component';
 import { NewDeviceComponent } from './devices/new/new.component';
 import { TextInputComponent } from './forms/text-input/text-input.component';
+import { RadioInputComponent } from './forms/radio-input/radio-input.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { TextInputComponent } from './forms/text-input/text-input.component';
     ThermostatComponent,
     ModesComponent,
     NewDeviceComponent,
-    TextInputComponent
+    TextInputComponent,
+    RadioInputComponent
   ],
   imports: [
     appRoutesGenerator(),

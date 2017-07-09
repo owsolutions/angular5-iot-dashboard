@@ -1,12 +1,19 @@
 <h1 class='page-title'>
   <i class="icon icon-keyboard"></i>
-  New Device
+  New Device ({{device}})
 </h1>
 
 <div class="wrapper">
-    <form role="form" id="arooly_cform">
+    <form role="form" id="arooly_cform" (ngSubmit)="onSubmit()">
 
-      <forms-text-input></forms-text-input>
+      <forms-text-input 
+        name="Device name" 
+        [(ngModel)]="device"
+        placeholder="Enter device name"
+        icon="icon icon-user">
+      </forms-text-input>
+
+
       <button type="submit" class="btn btn-primary">Submit</button>
 
   </form>

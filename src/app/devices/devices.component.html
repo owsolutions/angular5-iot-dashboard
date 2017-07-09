@@ -1,12 +1,14 @@
-
-   
-<h1 class='page-title'>
-  <i class="icon icon-keyboard"></i>
-  Devices
+<h1 class='page-title clearfix'>
+  <div class='page-label pull-left'>
+    <i class="icon icon-keyboard"></i>
+    Devices
+  </div>
+  <div class='actions pull-right'>
+    <a routerLink='/devices/new' class="btn btn-primary">Create a device</a>
+  </div>
 </h1>
 
 <div class="device-box-container">
-  
   <div class="device-box"  *ngFor="let device of devices">
     <div class='flex-container'>
       <div class="info-box">
@@ -43,12 +45,5 @@
         </span>
       </div>
     </div>
-
   </div>
 </div>
-<!--
-<br>
-<br>
-<pre style='font-size:10px;'>
-{{devices | json}}
-</pre>-->

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'forms-text-input',
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TextInputComponent implements OnInit {
 
+  @Input() name: string;
+  @Input() icon: string;
+  @Input() placeholder: string;
   constructor() { }
 
   ngOnInit() {

@@ -52,6 +52,14 @@ export class CommunicateService {
   }
 
   /**
+   * Inserts a new device into store
+   */
+  insertDevice () {
+    const devices = devicesMocks.generateMock();
+    this.store.dispatch({type: 'INSERT_DEVICE' , payload: devices[0]});
+  }
+
+  /**
    * When a new event happens on system, you can call this function
    * to notify the rest of application an event occured.
    */
