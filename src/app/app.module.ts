@@ -35,6 +35,7 @@ import { ModesComponent } from './layout/app-info/modes/modes.component';
 import { NewDeviceComponent } from './devices/new/new.component';
 import { TextInputComponent } from './forms/text-input/text-input.component';
 import { RadioInputComponent } from './forms/radio-input/radio-input.component';
+import { DeviceSvgComponent } from './shared/device-svg/device-svg.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { RadioInputComponent } from './forms/radio-input/radio-input.component';
     ModesComponent,
     NewDeviceComponent,
     TextInputComponent,
-    RadioInputComponent
+    RadioInputComponent,
+    DeviceSvgComponent
   ],
   imports: [
     appRoutesGenerator(),
