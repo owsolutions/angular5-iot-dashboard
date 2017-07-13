@@ -44,6 +44,10 @@ export class DevicesComponent implements  OnDestroy , OnInit {
     return new DeviceObject(device);
   }
 
+  unfocus () {
+    this.focusedPin = null;
+    this.focusedDevice = null;
+  }
   clickDispatch ({device, pin}) {
     this.focusedDevice = device;
     this.focusedPin = pin;
@@ -54,8 +58,8 @@ export class DevicesComponent implements  OnDestroy , OnInit {
       this.devices = (devices as Array<IDevice>);
       this.chRef.detectChanges();
     });
-    this.focusedDevice = this.devices[0];
-    this.focusedPin = this.devices[0].pins[0];
+    // this.focusedDevice = this.devices[0];
+    // this.focusedPin = this.devices[0].pins[0];
   }
 
   ngOnDestroy () {

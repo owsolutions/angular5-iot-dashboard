@@ -24,12 +24,14 @@
 
 <div class="clearfix"></div>
 
-<div id="bs-1" class="helper-box" *ngIf="focusedDevice" element-type="bottom-sheet">
+<div id="bs-1" class="helper-box" *ngIf="focusedDevice" element-type="bottom-sheet"  (mouseleave)="unfocus()"> 
   <h1 class='helper-box-title clearfix'>
     <div class='page-label pull-left'>
       <i class="icon icon-keyboard"></i>
       Pin configuration
     </div>
+
+    <a class="btn btn-primary" (click)="unfocus();">Close</a>
   </h1>
   <div class="box-content device-configuration">
     <div class="row">
