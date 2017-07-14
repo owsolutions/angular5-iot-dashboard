@@ -3,10 +3,12 @@
     <i class="{{widget.icon ? widget.icon : 'icon icon-cloud'}}"></i>
     <div class="name">{{widget.name}}</div>
   </div>
-  
+
+  {{widget.device | json}}
+  <hr>
+  {{widget.pin | json}}
   <div class="controlls">
-    <label><input type="checkbox" class="ios-switch smallswitch" checked /><div><div></div></div></label>
-    <label><input type="checkbox" class="ios-switch smallswitch" checked /><div><div></div></div></label>
+    
   </div>  
 </div>
 

@@ -7,6 +7,7 @@ export function widgetsReducer (widgets = [], action: Action) {
     case 'UPDATE_WIDGET':
         const widget: IWidget = action.payload;
 
+        console.log('Widget >>>> ' , widget);
         let exists = false;
         // find widget by device and pin, not the name.
         widgets = widgets.map((T: IWidget) => {

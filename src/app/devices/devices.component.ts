@@ -30,6 +30,7 @@ export class DevicesComponent implements  OnDestroy , OnInit {
 
   onWidgetNameInputChange (value) {
     console.log('Input change: ' , value);
+    console.log("Pin: " , this.focusedPin);
     this.communications.createWidgets({
       device: this.focusedDevice,
       pin: this.focusedPin,

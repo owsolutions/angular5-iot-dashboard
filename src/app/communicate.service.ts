@@ -31,6 +31,7 @@ export class CommunicateService {
   createWidgets (widget: IWidget) {
     this.widgets = this.store.select('widgets');
     this.store.dispatch({type: 'UPDATE_WIDGET' , payload: widget});
+    console.log('dispatch...');
   }
 
   createLocations () {
