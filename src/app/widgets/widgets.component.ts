@@ -8,24 +8,17 @@ import { IWidget, AppState } from '../shared/Definitions';
   templateUrl: './widgets.component.html',
   styleUrls: ['./widgets.component.scss']
 })
-export class WidgetsComponent implements OnInit, OnDestroy {
+export class WidgetsComponent implements OnInit {
 
   public widgets: Array<IWidget>;
 
-  constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>) {
+  constructor (private store: Store<AppState>) {
     // Initialize private variables
-    
   }
   
-
   ngOnInit() {
     this.store.select('widgets').subscribe(widgets => {
       this.widgets = (widgets as Array<IWidget>);
-      this.chRef.detectChanges();
     });
   }
-  ngOnDestroy () {
-    this.chRef.detach();
-  }
-
 }

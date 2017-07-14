@@ -24,7 +24,7 @@
 
 <div class="clearfix"></div>
 
-<div class="helper-box" [ngClass]="focusedDevice ? 'active' : ''" (mouseleave)="unfocus()"> 
+<div class="helper-box" [ngClass]="focusedDevice ? 'active' : ''"  > 
   <div *ngIf="focusedDevice">
   <h1 class='helper-box-title clearfix'>
     <div class='page-label pull-left'>
@@ -47,12 +47,17 @@
             You can config this pin as a widget, afterward, it will be accessible by normal users with specific name, access control, and value.
 
             <br><br>
-            <app-forms-text-input
-              placeholder="Type the widget name ( e.g: Front Lamp )"
-              icon="icon icon-user"
-              name="Widget name"
-              (onChange)="onWidgetNameInputChange($event)"
-              ></app-forms-text-input>
+
+              <app-forms-text-input
+                placeholder="Type the widget name ( e.g: Front Lamp )"
+                icon="icon icon-user"
+                name="Widget name"
+                (onChange)="onWidgetNameInputChange($event)"
+                >
+              </app-forms-text-input>
+
+              <input type="submit" class="form-control" value="Update" (click)="submitForm()">
+
           </div>
 
           <h3>Pin: {{focusedPin.id}}</h3>

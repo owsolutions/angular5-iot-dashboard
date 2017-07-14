@@ -4,11 +4,9 @@
     <div class="name">{{widget.name}}</div>
   </div>
 
-  {{widget.device | json}}
-  <hr>
-  {{widget.pin | json}}
+  {{widget.pin.id}} {{widget.pin.value}}
   <div class="controlls">
-    
+    <app-output-pin [pin]="widget.pin" [device]="widget.device"></app-output-pin> 
   </div>  
 </div>
 

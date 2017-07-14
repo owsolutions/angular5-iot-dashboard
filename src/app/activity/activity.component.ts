@@ -11,7 +11,7 @@ export class ActivityComponent implements OnInit {
 
   public activities: Array<IActivity>;
 
-  constructor (private store: Store<AppState>) {
+  constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>) {
     // Initialize the private variables
   }
 
@@ -24,4 +24,9 @@ export class ActivityComponent implements OnInit {
       this.activities = activities;
     });
   }
+
+  ngOnDestroy () {
+    this.chRef.detach();
+  }
+
 }

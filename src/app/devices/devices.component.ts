@@ -4,6 +4,10 @@ import { IDevice, IPin, AppState } from '../shared/Definitions';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { CommunicateService } from '../communicate.service';
+
+interface IForm {
+  name: string
+}
 @Component({
   selector: 'app-devices',
   templateUrl: './devices.component.html',
@@ -15,10 +19,12 @@ export class DevicesComponent implements  OnDestroy , OnInit {
   public focusedPin: IPin = null;
   public devices: Array<IDevice>;
 
+  public form: IForm = {
+    name: ''
+  };
   constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>, private communications: CommunicateService) {
     // Initialize private variables
   }
-
 
   countInputPins (device: IDevice) {
     return device.pins.filter(pin => pin.type === 'input').length;
@@ -29,14 +35,18 @@ export class DevicesComponent implements  OnDestroy , OnInit {
   }
 
   onWidgetNameInputChange (value) {
-    console.log('Input change: ' , value);
-    console.log("Pin: " , this.focusedPin);
+    this.form.name = value;
+  }
+
+  submitForm () {
+    if (!this.focusedDevice || !this.focusedPin) return;
     this.communications.createWidgets({
       device: this.focusedDevice,
       pin: this.focusedPin,
-      name: value
+      name: this.form.name
     });
   }
+
   describeDevice( device: IDevice) {
     return `This device has ${this.countInputPins(device)} inputs, and ${this.countOutputPins(device)} outputs.`;
   }
@@ -59,8 +69,8 @@ export class DevicesComponent implements  OnDestroy , OnInit {
       this.devices = (devices as Array<IDevice>);
       this.chRef.detectChanges();
     });
-    // this.focusedDevice = this.devices[0];
-    // this.focusedPin = this.devices[0].pins[0];
+    this.focusedDevice = this.devices[0];
+    this.focusedPin = this.devices[0].pins[0];
   }
 
   ngOnDestroy () {
