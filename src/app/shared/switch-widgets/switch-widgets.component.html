@@ -1,7 +1,7 @@
-<div class="widget-box flex-container" *ngFor="let widget of Widgets">
+<div class="widget-box flex-container">
   <div class="info-box">
-    <i class="{{widget.icon}}"></i>
-    <div class="name">Home lights</div>
+    <i class="{{widget.icon ? widget.icon : 'icon icon-cloud'}}"></i>
+    <div class="name">{{widget.name}}</div>
   </div>
   
   <div class="controlls">

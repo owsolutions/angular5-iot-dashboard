@@ -14,7 +14,9 @@ export class WidgetsComponent implements OnInit, OnDestroy {
 
   constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>) {
     // Initialize private variables
+    
   }
+  
 
   ngOnInit() {
     this.store.select('widgets').subscribe(widgets => {

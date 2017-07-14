@@ -24,7 +24,8 @@
 
 <div class="clearfix"></div>
 
-<div class="helper-box" [ngClass]="focusedDevice ? 'active' : ''"  (mouseleave)="unfocus()"> 
+<div class="helper-box" [ngClass]="focusedDevice ? 'active' : ''" (mouseleave)="unfocus()"> 
+  <div *ngIf="focusedDevice">
   <h1 class='helper-box-title clearfix'>
     <div class='page-label pull-left'>
       <i class="icon icon-keyboard"></i>
@@ -70,5 +71,5 @@
       </div>
     </div>
   </div>
-
+  </div>
 </div>
