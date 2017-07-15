@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
 
 import { ActivityWidgetComponent } from './activity-widget.component';
 
@@ -8,6 +9,7 @@ describe('ActivityWidgetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [StoreModule.provideStore({})],
       declarations: [ ActivityWidgetComponent ]
     })
     .compileComponents();

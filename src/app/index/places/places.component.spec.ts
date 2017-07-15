@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
 
 import { PlacesComponent } from './places.component';
 
@@ -8,6 +9,7 @@ describe('PlacesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [StoreModule.provideStore({})],
       declarations: [ PlacesComponent ]
     })
     .compileComponents();

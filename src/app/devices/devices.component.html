@@ -3,7 +3,6 @@
     <i class="icon icon-keyboard"></i>
     Devices <sup>({{devices.length}})</sup>
   </div>
- 
 </h1>
 
 <div class="page-description">
@@ -24,7 +23,7 @@
 
 <div class="clearfix"></div>
 
-<div class="helper-box" [ngClass]="focusedDevice ? 'active' : ''" (mouseleave)="unfocus()" > 
+<div class="helper-box" [ngClass]="focusedDevice ? 'active' : ''" (mouseleave)="unfocus()" >
   <div *ngIf="focusedDevice">
   <h1 class='helper-box-title clearfix'>
     <div class='page-label pull-left'>
@@ -45,7 +44,7 @@
 
       </div>
       <div class="col-sm-6" >
-        
+
         <section *ngIf="focusedPin" >
           <div class="device-description">
             <app-forms-text-input

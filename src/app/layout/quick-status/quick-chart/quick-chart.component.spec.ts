@@ -16,6 +16,7 @@ describe('QuickChartComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(QuickChartComponent);
     component = fixture.componentInstance;
+    component.drawChart = () => {};
     fixture.detectChanges();
   });
 

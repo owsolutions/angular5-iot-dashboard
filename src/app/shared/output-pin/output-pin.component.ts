@@ -10,11 +10,13 @@ import { random } from 'lodash';
   styleUrls: ['./output-pin.component.scss',  '../checkbox-switch.scss']
 })
 export class OutputPinComponent implements OnInit {
+
   public enable: any;
   @Input() pin: IPin;
   @Input() device: IDevice;
 
   constructor(public communicate: CommunicateService) { }
+
   ngOnInit() {
     // empty for now.
   }
@@ -47,15 +49,15 @@ export class OutputPinComponent implements OnInit {
     });
   }
 
-  changeAnalogData ($event: any, device: IDevice, pin: IPin) {
+  changeAnalogData($event: any, device: IDevice, pin: IPin) {
     const newValue = $event.target.value;
     this.changeData($event, device, pin, newValue);
     return newValue;
   }
-  changeDigitalData ($event, device: IDevice, pin: IPin) {
+
+  changeDigitalData($event, device: IDevice, pin: IPin) {
     const newValue = $event.target.checked ? 'ON' : 'OFF';
     this.changeData($event, device, pin, newValue);
     return newValue;
   }
-
 }
