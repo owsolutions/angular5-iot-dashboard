@@ -87,12 +87,12 @@ export class CommunicateService {
   connect (URL = 'http://localhost:7000') {
 
     if (window.io) {
-      console.log('%c Connecting to server at: ' + URL , 'color:yellow; background:black;');
+      // xonsole.log('%c Connecting to server at: ' + URL , 'color:yellow; background:black;');
       window.io.sails.autoConnect = false;
       this.socket = window.io.sails.connect(URL , undefined , true);
 
       this.socket.on('connect' , function (client) {
-        console.log('Connected to remote socket server' , URL);
+        // xonsole.log('Connected to remote socket server' , URL);
       });
 
       this.socket.on('message', message => {
@@ -100,7 +100,7 @@ export class CommunicateService {
       });
 
     } else {
-      console.warn('%c window.io is not present. Make sure you included client socket file.' , 'color: orange');
+      // xonsole.warn('%c window.io is not present. Make sure you included client socket file.' , 'color: orange');
     }
   }
 }
