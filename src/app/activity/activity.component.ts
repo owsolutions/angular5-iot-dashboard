@@ -7,7 +7,7 @@ import { AppState, IActivity, ActivityTypes } from '../shared/Definitions';
   templateUrl: './activity.component.html',
   styleUrls: ['./activity.component.scss']
 })
-export class ActivityComponent implements OnInit {
+export class ActivityComponent implements OnInit, OnDestroy {
 
   public activities: Array<IActivity>;
 

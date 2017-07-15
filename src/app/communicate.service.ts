@@ -64,7 +64,7 @@ export class CommunicateService {
         resolve(widget[0]);
       });
     });
-     
+
   }
   /**
    * Inserts a new device into store

@@ -27,7 +27,7 @@ export class DeviceSvgComponent {
     }
     return '';
   }
-   
+
   focusedDialogLeave () {
     this.focusedPin = null;
   }

@@ -5,8 +5,8 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { CommunicateService } from '../communicate.service';
 interface IForm {
-  name: string,
-  location: any
+  name: string;
+  location: any;
 }
 @Component({
   selector: 'app-devices',
@@ -43,7 +43,9 @@ export class DevicesComponent implements  OnDestroy , OnInit {
   }
 
   submitForm () {
-    if (!this.focusedDevice || !this.focusedPin) return;
+    if (!this.focusedDevice || !this.focusedPin) {
+      return;
+    }
     this.communications.createWidgets({
       device: this.focusedDevice,
       pin: this.focusedPin,
@@ -69,21 +71,21 @@ export class DevicesComponent implements  OnDestroy , OnInit {
     this.form.name = '';
     this.form.location = '';
   }
-  clickDispatch ({device, pin}) {
+  async clickDispatch ({device, pin}) {
     this.focusedDevice = device;
     this.focusedPin = pin;
 
     // find if there is a widget
-    const widget = this.communications.findWidget(device, pin);
-    widget.then((widget: IWidget) => {
-      if (!widget) return this.resetForm();
-      this.form.name = widget.name;
-      this.form.location = widget.location.name;
-    })
+    const widget = (await this.communications.findWidget(device, pin) as IWidget);
+    if (!widget) {
+      return this.resetForm();
+    }
+    this.form.name = widget.name;
+    this.form.location = widget.location.name;
   }
 
   findLocationByName (name: string): ILocation {
-    return this.locations.find(x => x.name == name);
+    return this.locations.find(x => x.name === name);
   }
 
   ngOnInit() {

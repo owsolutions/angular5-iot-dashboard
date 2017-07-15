@@ -34,10 +34,9 @@ script:
 deploy:
   provider: firebase
   on:
-    branch: master
+    branch: preview
   token:
     secure: "$FIREBASE_TOKEN"
-
 
 notifications:
   email:

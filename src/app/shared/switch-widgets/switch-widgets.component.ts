@@ -8,7 +8,7 @@ import { times, random } from 'lodash';
 })
 export class SwitchWidgetsComponent implements OnInit {
   @Input() public widget: any;
-  
+
   constructor() {
   }
   ngOnInit() {

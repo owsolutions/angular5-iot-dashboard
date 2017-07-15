@@ -15,7 +15,7 @@ export class WidgetsComponent implements OnInit {
   constructor (private store: Store<AppState>) {
     // Initialize private variables
   }
-  
+
   ngOnInit() {
     this.store.select('widgets').subscribe(widgets => {
       this.widgets = (widgets as Array<IWidget>);
