@@ -1,103 +1,48 @@
 @import "../../injects";
-.device-box-container {
-    
-    $context-color:#E3F2FD;
-    $background-color: $theme-color;
-    $background-hover:   #2196F3;
-    display:flex;
-    
-    
-    @include desktop() {
-        flex-direction: row;
-    };
+.padding-box {
+    padding:15px;
+    text-align:center;
+}
 
-    @include phone () {
-        flex-direction: column;
+.helper-box {
+    overflow-y: scroll;
+    border-top:3px solid $theme-color;
+    background: #e8e8e2; 
+    position:fixed;  
+    height: 450px;
+    top: 100%;
+    height: 450px;
+    transform: translateY(0);
+    transition: transform 0.5s;
+    .helper-box-title {
+        background: $theme-color;
+        margin: 0;
+        font-size: 17px;
+        padding: 9px 15px 9px;
+        color: white;
     }
-    .device-box {
-        flex:1;
-        flex-direction: column;
-        background-color:$background-color;
-        margin:7.5px;
-        padding:10px 0;
-        
-        h2 {
-            margin:0;
-            color: $context-color;
-        }
-        
+    &.active{
+        transform: translateY(-100%);
+    }   
 
-        .description {
-            font-size:12px;
-            color: $context-color;
-        }
-        
-        .icon {
-            font-size:45px;
-            color:$context-color;
-        }
-
-        .info-box {
-            flex:2;
-            font-size:16px;
-            margin-left:15px;
-            
-            .name {
-                font-size:13px;
-                color:$context-color;
-            }
-        }
-
-        .io-overview {
-            flex:1;
-            display:flex;
-            flex-direction: column;
-            .text-info {
-                flex:1;
-                color: $context-color;
-                font-size:30px;
-                sup {
-                    top:-15px;
-                    font-size:12px;
-                }
-            }
-        }
-        .controlls {
-            flex-wrap:wrap;
-            display: flex;
-
-            label {
-                margin:5px 0;
-                display: block;
-            }
-        }
-        .button-container {
-            width: calc(100% * (1/3) - 10px - 1px);
-            flex-grow: 1;
-            display: inline-block;
-            margin:3px 5px;
-             
-        }
-        .vertical-container {
-            flex-direction: column;
-
-        }
-        .content-padding {
-            padding:5px 15px;
-        }
-        hr {
-            margin:5px 0;
-        }
-        h3 {
-            font-size:13px;
-            color: $context-color;
-            margin-top:0;
-        }
-        .vertical-row {
-            flex:1;
-        }
-        .border-top {
-            border-top: 1px solid $context-color;
-        }
+    @media (min-width: $screen-desktop){
+        left:400px;
+        right:0px;
+    }
+    @media (min-width: $screen-1366 + 1){
+        right:300px;
+    }
+    @media (min-width: $screen-xlg-desktop){
+        left:450px;
+        right:350px;
     }
 }
+
+.device-configuration {
+    padding: 15px;
+    h3 {
+        margin:0 auto 10px;
+        font-size:21px;
+    }    
+}
+

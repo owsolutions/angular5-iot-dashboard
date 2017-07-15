@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { times, random } from 'lodash';
 
 @Component({
@@ -7,22 +7,9 @@ import { times, random } from 'lodash';
   styleUrls: ['./switch-widgets.component.scss' , '../checkbox-switch.scss']
 })
 export class SwitchWidgetsComponent implements OnInit {
-  public Widgets: Array<any>;
+  @Input() public widget: any;
+
   constructor() {
-    this.Widgets = [
-      {
-        icon: 'icon icon-spin5'
-      },
-      {
-        icon: 'icon icon-cloud'
-      },
-      {
-        icon: 'icon icon-sun'
-      },
-      {
-        icon: 'icon  icon-lightbulb'
-      },
-    ];
   }
   ngOnInit() {
 

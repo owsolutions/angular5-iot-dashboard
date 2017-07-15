@@ -1,0 +1,15 @@
+<h1 class='page-title clearfix'>
+  <div class='page-label pull-left'>
+    <i class="icon icon-keyboard"></i>
+    Widgets <sup>({{widgets.length}})</sup>
+  </div> 
+</h1>
+
+<div class="page-description">
+  <p>
+    You can define widgets on devices list, clicking on each device pin, and set a alias name.
+    Then, you will be able to control them.
+  </p>
+</div>
+
+<app-switch-widgets [widget]="widget" *ngFor="let widget of widgets"></app-switch-widgets>

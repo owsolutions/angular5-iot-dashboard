@@ -1,54 +1,78 @@
-
-   
-<h1 class='page-title'>
-  <i class="icon icon-keyboard"></i>
-  Devices
+<h1 class='page-title clearfix'>
+  <div class='page-label pull-left'>
+    <i class="icon icon-keyboard"></i>
+    Devices <sup>({{devices.length}})</sup>
+  </div>
+ 
 </h1>
 
-<div class="device-box-container">
-  
-  <div class="device-box"  *ngFor="let device of devices">
-    <div class='flex-container'>
-      <div class="info-box">
-        <i class="{{device.icon}}"></i>
-        <h2>{{device.GetTitle}}</h2>
-        <span class="description">Last connectivity: 1 minute ago</span>
-      </div>
-      <div class="io-overview">
-        <span class='text-info inputs'>{{deviceInfo(device).Inputs.length}}<sup>Inputs</sup></span>
-        <span class="text-info outputs">{{deviceInfo(device).Outputs.length}}<sup>Outputs</sup></span>
-      </div>
-    </div>
-     
-    <!-- Input managing -->
-    <div class='flex-container vertical-container content-padding border-top' *ngIf='deviceInfo(device).Inputs.length'>
-        <div class="vertical-row">
-          <h3>Inputs</h3>
-        </div>
-        <div class="controlls">
-          <span *ngFor="let pin of deviceInfo(device).Inputs">
-            <app-input-pin [pin]="pin"></app-input-pin>
-          </span>
-        </div>
-    </div>
-    
-    <!-- Outputs managing -->
-    <div class='flex-container vertical-container content-padding border-top' *ngIf='deviceInfo(device).Outputs.length'>
-      <div class="vertical-row">
-        <h3>Outputs</h3>
-      </div>
-      <div class="controlls">
-        <span class="button-container" *ngFor="let pin of deviceInfo(device).Outputs">
-          <app-output-pin [device]="device" [pin]="pin"></app-output-pin>
-        </span>
-      </div>
-    </div>
+<div class="page-description">
+  <p>
+    Devices currently connected to the software are shown as chipsets below. Maximum recognized pins for community version is 16 pins, which can be configurated as input or output.
+  </p>
+  <p>
+    By Clicking on each pin, you can see the details, and manipulate the value of pin, if it's output. Creating a new device is not allowed in this application, since each device must be self descriptive,
+    when sends a new message to the application. On the other hand, you can delete a device, if you disconnected from infrustucture, and if you reconnect, you might see it back, but without any user configured data.
+  </p>
 
+</div>
+<div class="device-box-container">
+  <div *ngFor="let device of devices" class="col-sm-6 padding-box">
+     <app-device-svg [device]="device" (onFocusDevice)="clickDispatch($event);"></app-device-svg>
   </div>
 </div>
-<!--
-<br>
-<br>
-<pre style='font-size:10px;'>
-{{devices | json}}
-</pre>-->
+
+<div class="clearfix"></div>
+
+<div class="helper-box" [ngClass]="focusedDevice ? 'active' : ''" (mouseleave)="unfocus()" > 
+  <div *ngIf="focusedDevice">
+  <h1 class='helper-box-title clearfix'>
+    <div class='page-label pull-left'>
+      <i class="icon icon-keyboard"></i>
+      Pin configuration
+    </div>
+  </h1>
+  <div class="box-content device-configuration">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>{{focusedDevice.uniqueid}} Pin: <font color='green'>{{focusedPin.id}}</font> </h3>
+        <div class="device-description">
+          Modify: <app-output-pin [pin]="focusedPin" [device]="focusedDevice"></app-output-pin>
+          <br>
+          Realtime value: {{focusedPin.value}}
+        </div>
+         {{describeDevice(focusedDevice)}}
+
+      </div>
+      <div class="col-sm-6" >
+        
+        <section *ngIf="focusedPin" >
+          <div class="device-description">
+            <app-forms-text-input
+              placeholder="Type the widget name ( e.g: Front Lamp )"
+              icon="icon icon-user"
+              name="Widget name"
+              [value]="form.name"
+              (onChange)="onWidgetNameInputChange($event)"
+              >
+            </app-forms-text-input>
+            <app-forms-select-input
+              placeholder="Select the position"
+              icon="icon icon-user"
+              name="Widget Place"
+              [selected]="form.location"
+              [options]="[{'name':'-- no place --', 'value':''}].concat(locations)"
+              (onChange)="onPlaceChange($event)"
+              >
+            </app-forms-select-input>
+
+            <input type="submit" class="form-control" value="Update" (click)="submitForm()">
+            <br>
+            <input type="submit" class="form-control btn-warning" value="Cancel" (click)="unfocus()">
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
