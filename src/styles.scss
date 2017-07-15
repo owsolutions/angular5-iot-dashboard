@@ -64,10 +64,3 @@ html, body{
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 
-.page-title {
-	background: $theme-color;
-    margin: 0;
-    font-size: 23px;
-    padding: 10px 15px;
-	color: white;
-}
