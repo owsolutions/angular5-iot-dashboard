@@ -28,16 +28,16 @@ export class CommunicateService {
     this.createLocations();
     this.createActivities();
     this.widgets = this.store.select('widgets');
-    this.mockWidgets()
+    this.mockWidgets();
   }
-  
+
   makeMockWidget(device: IDevice, location: ILocation): IWidget {
-    let widget: IWidget = {
+    const widget: IWidget = {
       device: device,
       location: location,
-      name : sample(['Cloud', "Lamp", "Roberry"]),
+      name : sample(['Cloud', 'Lamp', 'Roberry']),
       pin: sample(device.pins)
-    }
+    };
     return widget;
   }
 
@@ -49,7 +49,7 @@ export class CommunicateService {
         }
       });
     });
-    
+
   }
 
   createWidgets (widget: IWidget) {
