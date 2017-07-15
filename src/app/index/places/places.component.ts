@@ -18,9 +18,7 @@ export class PlacesComponent implements OnInit, OnDestroy {
   }
 
   async ngOnInit() {
-
     this.store.select('locations').subscribe((locations: Array<ILocation>) => {
-      console.log('Locations: ' , locations);
       this.places = locations;
       this.chRef.detectChanges();
     });

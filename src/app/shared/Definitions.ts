@@ -29,12 +29,28 @@ export interface ILocation {
 }
 
 /**
+ * A widget, is only a shortuct ( alias ) for a device pin,
+ * to make it user friendly for normal users.
+ * As a user perspective, when you want to turn on your house lamp,
+ * you are not expecting to go for devices, and "set pin 4 on device x8395 to 5V",
+ * so you can create alias on top of pin, and give it to users by security group to control
+ * the pin
+ */
+export interface IWidget {
+  device: IDevice;
+  pin: IPin;
+  name: string;
+  location: ILocation;
+}
+
+/**
  * Represents the application store structure
  */
 export interface AppState {
   devices: Array<IDevice>;
   locations: Array<any>;
   activities: Array<IActivity>;
+  widgets: Array<IWidget>;
 }
 
 
@@ -60,3 +76,4 @@ export interface IActivity {
   type: ActivityTypes;
   meta: any;
 }
+

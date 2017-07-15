@@ -6,8 +6,7 @@ import * as devicesMocks from './devices/devices.mock';
 import * as locationsMocks from './locations/locations.mock';
 import * as activityMocks from './activity/activity-widget/activity.mock';
 import { UPDATE_LOCATION } from './locations/locations.reducer';
-import { UPDATE_ACTIVITY } from './activity/activity.reducer';
-import { IDevice, ILocation, AppState, IActivity } from './shared/Definitions';
+import { IDevice, ILocation, AppState, IActivity, IWidget, IPin } from './shared/Definitions';
 
 @Injectable()
 export class CommunicateService {
@@ -21,11 +20,18 @@ export class CommunicateService {
   public devices: Observable<Array<IDevice>>;
   public locations: Observable<Array<ILocation>>;
   public activities: Observable<Array<IActivity>>;
+  public widgets: Observable<Array<IWidget>>;
 
   constructor(private store: Store<AppState>) {
     this.createDevices();
     this.createLocations();
     this.createActivities();
+    this.widgets = this.store.select('widgets');
+  }
+
+  createWidgets (widget: IWidget) {
+    this.widgets = this.store.select('widgets');
+    this.store.dispatch({type: 'UPDATE_WIDGET' , payload: widget});
   }
 
   createLocations () {
@@ -40,7 +46,7 @@ export class CommunicateService {
     this.activities = this.store.select('activities');
     const activities = activityMocks.generateMock(5);
     for (const activity of activities) {
-      this.store.dispatch({type: UPDATE_ACTIVITY, payload: activity});
+      this.store.dispatch({type: 'UPDATE_ACTIVITY', payload: activity});
     }
   }
 
@@ -51,12 +57,29 @@ export class CommunicateService {
     this.store.dispatch({type: UPDATE_DEVICE, payload: devices[1]});
   }
 
+  findWidget (device: IDevice, pin: IPin) {
+    return new Promise((resolve, reject) => {
+      this.store.select<Array<IWidget>>(state => state.widgets).subscribe(widgets => {
+        const widget = widgets.filter(x => x.device.uniqueid === device.uniqueid && x.pin.id === pin.id);
+        resolve(widget[0]);
+      });
+    });
+
+  }
+  /**
+   * Inserts a new device into store
+   */
+  insertDevice () {
+    const devices = devicesMocks.generateMock();
+    this.store.dispatch({type: 'INSERT_DEVICE' , payload: devices[0]});
+  }
+
   /**
    * When a new event happens on system, you can call this function
    * to notify the rest of application an event occured.
    */
   public notfityActivity (activity: IActivity) {
-    this.store.dispatch({type: UPDATE_ACTIVITY, payload: activity});
+    this.store.dispatch({type: 'UPDATE_ACTIVITY', payload: activity});
   }
   /**
    * Connects to a socket IO server, based on it's url
@@ -64,12 +87,12 @@ export class CommunicateService {
   connect (URL = 'http://localhost:7000') {
 
     if (window.io) {
-      console.log('%c Connecting to server at: ' + URL , 'color:yellow; background:black;');
+      // xonsole.log('%c Connecting to server at: ' + URL , 'color:yellow; background:black;');
       window.io.sails.autoConnect = false;
       this.socket = window.io.sails.connect(URL , undefined , true);
 
       this.socket.on('connect' , function (client) {
-        console.log('Connected to remote socket server' , URL);
+        // xonsole.log('Connected to remote socket server' , URL);
       });
 
       this.socket.on('message', message => {
@@ -77,7 +100,7 @@ export class CommunicateService {
       });
 
     } else {
-      console.warn('%c window.io is not present. Make sure you included client socket file.' , 'color: orange');
+      // xonsole.warn('%c window.io is not present. Make sure you included client socket file.' , 'color: orange');
     }
   }
 }

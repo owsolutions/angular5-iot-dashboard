@@ -33,6 +33,11 @@ import { ActivityComponent } from './activity/activity.component';
 import { ThermostatComponent } from './layout/app-info/thermostat/thermostat.component';
 import { ModesComponent } from './layout/app-info/modes/modes.component';
 import { PageHeaderComponent } from './shared/page-header/page-header.component';
+import { TextInputComponent } from './forms/text-input/text-input.component';
+import { RadioInputComponent } from './forms/radio-input/radio-input.component';
+import { DeviceSvgComponent } from './shared/device-svg/device-svg.component';
+import { WidgetsComponent } from './widgets/widgets.component';
+import { SelectInputComponent } from './forms/select-input/select-input.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +67,12 @@ import { PageHeaderComponent } from './shared/page-header/page-header.component'
     ActivityComponent,
     ThermostatComponent,
     ModesComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
+    TextInputComponent,
+    RadioInputComponent,
+    DeviceSvgComponent,
+    WidgetsComponent,
+    SelectInputComponent
   ],
   imports: [
     appRoutesGenerator(),
