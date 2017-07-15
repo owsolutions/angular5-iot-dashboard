@@ -94,8 +94,10 @@ export class DevicesComponent implements  OnDestroy , OnInit {
     this.store.select('locations').subscribe(collection => {
       this.locations = (collection as Array<ILocation>);
     });
-    this.focusedDevice = this.devices[0];
-    this.focusedPin = this.devices[0].pins[0];
+
+    // Set the initial window opened
+    // this.focusedDevice = this.devices[0];
+    // this.focusedPin = this.devices[0].pins[0];
   }
 
   ngOnDestroy () {
