@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { IPin , IDevice } from '../Definitions';
 
 @Component({
@@ -6,13 +6,12 @@ import { IPin , IDevice } from '../Definitions';
   templateUrl: './device-svg.component.html',
   styleUrls: ['./device-svg.component.scss']
 })
-export class DeviceSvgComponent implements OnInit {
+export class DeviceSvgComponent {
 
   @Input() public device: IDevice;
   @Output() public onFocusDevice: EventEmitter<any> = new EventEmitter();
 
   public focusedPin: IPin = null;
-  constructor() { }
 
   getPinValue (id) {
     if (this.device) {
@@ -28,9 +27,7 @@ export class DeviceSvgComponent implements OnInit {
     }
     return '';
   }
-  ngOnInit() {
-    console.log('device -> ', this.device);
-  }
+   
   focusedDialogLeave () {
     this.focusedPin = null;
   }

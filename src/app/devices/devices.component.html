@@ -34,53 +34,42 @@
   </h1>
   <div class="box-content device-configuration">
     <div class="row">
-     
-      <div class="col-sm-6" >
-        <h3>Device unique id: {{focusedDevice.uniqueid}}</h3>
+      <div class="col-sm-6">
+        <h3>{{focusedDevice.uniqueid}} Pin: <font color='green'>{{focusedPin.id}}</font> </h3>
         <div class="device-description">
-          {{describeDevice(focusedDevice)}}
+          Modify: <app-output-pin [pin]="focusedPin" [device]="focusedDevice"></app-output-pin>
+          <br>
+          Realtime value: {{focusedPin.value}}
         </div>
-        <hr>
+         {{describeDevice(focusedDevice)}}
+
+      </div>
+      <div class="col-sm-6" >
+        
         <section *ngIf="focusedPin" >
-          <h3>Alias ( widgets )</h3>
           <div class="device-description">
-            You can config this pin as a widget, afterward, it will be accessible by normal users with specific name, access control, and value.
+            <app-forms-text-input
+              placeholder="Type the widget name ( e.g: Front Lamp )"
+              icon="icon icon-user"
+              name="Widget name"
+              [value]="form.name"
+              (onChange)="onWidgetNameInputChange($event)"
+              >
+            </app-forms-text-input>
+            <app-forms-select-input
+              placeholder="Select the position"
+              icon="icon icon-user"
+              name="Widget Place"
+              [selected]="form.location"
+              [options]="[{'name':'-- no place --', 'value':''}].concat(locations)"
+              (onChange)="onPlaceChange($event)"
+              >
+            </app-forms-select-input>
 
-            <br><br>
-
-              <app-forms-text-input
-                placeholder="Type the widget name ( e.g: Front Lamp )"
-                icon="icon icon-user"
-                name="Widget name"
-                [value]="form.name"
-                (onChange)="onWidgetNameInputChange($event)"
-                >
-              </app-forms-text-input>
-              <app-forms-select-input
-                placeholder="Select the position"
-                icon="icon icon-user"
-                name="Widget Place"
-                [options]="places"
-                (onChange)="onPlaceChange($event)"
-                >
-              </app-forms-select-input>
-
-              <input type="submit" class="form-control" value="Update" (click)="submitForm()">
-
-          </div>
-
-          <h3>Pin: {{focusedPin.id}}</h3>
-          <div class="device-description">
-            Type: {{focusedPin.type}}
+            <input type="submit" class="form-control" value="Update" (click)="submitForm()">
             <br>
-            Realtime value: {{focusedPin.value}}
-
-            <br>
-            Value: <app-output-pin [pin]="focusedPin" [device]="focusedDevice"></app-output-pin>
+            <input type="submit" class="form-control btn-warning" value="Cancel" (click)="unfocus()">
           </div>
-          <hr>
-          
-          
         </section>
       </div>
     </div>

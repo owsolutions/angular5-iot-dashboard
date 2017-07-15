@@ -5,7 +5,8 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { CommunicateService } from '../communicate.service';
 interface IForm {
-  name: string
+  name: string,
+  location: any
 }
 @Component({
   selector: 'app-devices',
@@ -17,9 +18,10 @@ export class DevicesComponent implements  OnDestroy , OnInit {
   public focusedDevice: IDevice = null;
   public focusedPin: IPin = null;
   public devices: Array<IDevice>;
-  public places: Array<ILocation>;
+  public locations: Array<ILocation>;
   public form: IForm = {
-    name: ''
+    name: '',
+    location: ''
   };
   constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>, private communications: CommunicateService) {
     // Initialize private variables
@@ -33,6 +35,9 @@ export class DevicesComponent implements  OnDestroy , OnInit {
     return device.pins.filter(pin => pin.type === 'output').length;
   }
 
+  onPlaceChange (value) {
+    this.form.location = value;
+  }
   onWidgetNameInputChange (value) {
     this.form.name = value;
   }
@@ -43,7 +48,7 @@ export class DevicesComponent implements  OnDestroy , OnInit {
       device: this.focusedDevice,
       pin: this.focusedPin,
       name: this.form.name,
-      location: null
+      location: this.findLocationByName(this.form.location)
     });
   }
 
@@ -62,6 +67,7 @@ export class DevicesComponent implements  OnDestroy , OnInit {
 
   resetForm () {
     this.form.name = '';
+    this.form.location = '';
   }
   clickDispatch ({device, pin}) {
     this.focusedDevice = device;
@@ -70,21 +76,23 @@ export class DevicesComponent implements  OnDestroy , OnInit {
     // find if there is a widget
     const widget = this.communications.findWidget(device, pin);
     widget.then((widget: IWidget) => {
-      console.log(widget);
       if (!widget) return this.resetForm();
       this.form.name = widget.name;
-
+      this.form.location = widget.location.name;
     })
   }
 
+  findLocationByName (name: string): ILocation {
+    return this.locations.find(x => x.name == name);
+  }
+
   ngOnInit() {
-    this.store.select('devices').subscribe(devices => {
-      this.devices = (devices as Array<IDevice>);
+    this.store.select('devices').subscribe(collection => {
+      this.devices = (collection as Array<IDevice>);
       this.chRef.detectChanges();
     });
-    this.store.select('locations').subscribe(devices => {
-      this.places = (devices as Array<ILocation>);
-      this.chRef.detectChanges();
+    this.store.select('locations').subscribe(collection => {
+      this.locations = (collection as Array<ILocation>);
     });
     this.focusedDevice = this.devices[0];
     this.focusedPin = this.devices[0].pins[0];

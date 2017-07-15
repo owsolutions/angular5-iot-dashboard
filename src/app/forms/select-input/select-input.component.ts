@@ -10,6 +10,7 @@ export class SelectInputComponent implements OnInit {
   @Input() public icon: string;
   @Input() public placeholder: string;
   @Input() public options: any;
+  @Input() public selected: any;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
