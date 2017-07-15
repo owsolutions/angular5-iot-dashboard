@@ -2,7 +2,8 @@
   <label for="inputName">{{name}}*</label>
   <div class="input-group Name">
     <span class="input-group-addon"><i class="{{icon}}"></i></span>
-    <input type="text" class="form-control" 
-    value="{{value}}" (keyup)="onInputChange($event)" placeholder="{{placeholder}}">
+    <select type="text" class="form-control">
+      <option *ngFor="let option of options">{{option.name}}</option>
+    </select>
   </div>
 </div>

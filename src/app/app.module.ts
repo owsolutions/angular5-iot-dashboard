@@ -36,6 +36,7 @@ import { TextInputComponent } from './forms/text-input/text-input.component';
 import { RadioInputComponent } from './forms/radio-input/radio-input.component';
 import { DeviceSvgComponent } from './shared/device-svg/device-svg.component';
 import { WidgetsComponent } from './widgets/widgets.component';
+import { SelectInputComponent } from './forms/select-input/select-input.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { WidgetsComponent } from './widgets/widgets.component';
     TextInputComponent,
     RadioInputComponent,
     DeviceSvgComponent,
-    WidgetsComponent
+    WidgetsComponent,
+    SelectInputComponent
   ],
   imports: [
     appRoutesGenerator(),

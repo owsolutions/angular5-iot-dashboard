@@ -24,7 +24,7 @@
 
 <div class="clearfix"></div>
 
-<div class="helper-box" [ngClass]="focusedDevice ? 'active' : ''"  > 
+<div class="helper-box" [ngClass]="focusedDevice ? 'active' : ''" (mouseleave)="unfocus()" > 
   <div *ngIf="focusedDevice">
   <h1 class='helper-box-title clearfix'>
     <div class='page-label pull-left'>
@@ -52,9 +52,18 @@
                 placeholder="Type the widget name ( e.g: Front Lamp )"
                 icon="icon icon-user"
                 name="Widget name"
+                [value]="form.name"
                 (onChange)="onWidgetNameInputChange($event)"
                 >
               </app-forms-text-input>
+              <app-forms-select-input
+                placeholder="Select the position"
+                icon="icon icon-user"
+                name="Widget Place"
+                [options]="places"
+                (onChange)="onPlaceChange($event)"
+                >
+              </app-forms-select-input>
 
               <input type="submit" class="form-control" value="Update" (click)="submitForm()">
 

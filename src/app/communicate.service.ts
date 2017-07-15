@@ -6,7 +6,7 @@ import * as devicesMocks from './devices/devices.mock';
 import * as locationsMocks from './locations/locations.mock';
 import * as activityMocks from './activity/activity-widget/activity.mock';
 import { UPDATE_LOCATION } from './locations/locations.reducer';
-import { IDevice, ILocation, AppState, IActivity, IWidget } from './shared/Definitions';
+import { IDevice, ILocation, AppState, IActivity, IWidget, IPin } from './shared/Definitions';
 
 @Injectable()
 export class CommunicateService {
@@ -26,6 +26,7 @@ export class CommunicateService {
     this.createDevices();
     this.createLocations();
     this.createActivities();
+    this.widgets = this.store.select('widgets');
   }
 
   createWidgets (widget: IWidget) {
@@ -57,6 +58,15 @@ export class CommunicateService {
     this.store.dispatch({type: UPDATE_DEVICE, payload: devices[1]});
   }
 
+  findWidget (device: IDevice, pin: IPin) {
+    return new Promise((resolve, reject) => {
+      this.store.select<Array<IWidget>>(state => state.widgets).subscribe(widgets => {
+        const widget = widgets.filter(x => x.device.uniqueid === device.uniqueid && x.pin.id === pin.id);
+        resolve(widget[0]);
+      });
+    });
+     
+  }
   /**
    * Inserts a new device into store
    */

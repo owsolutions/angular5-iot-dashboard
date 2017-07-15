@@ -10,6 +10,7 @@ export class TextInputComponent implements OnInit {
   @Input() name: string;
   @Input() icon: string;
   @Input() placeholder: string;
+  @Input() value: any;
   @Output() onChange: EventEmitter<any> = new EventEmitter();
   constructor() { }
 
