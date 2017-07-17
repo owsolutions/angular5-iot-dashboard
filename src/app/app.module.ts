@@ -38,6 +38,7 @@ import { DeviceSvgComponent } from './shared/device-svg/device-svg.component';
 import { WidgetsComponent } from './widgets/widgets.component';
 import { SelectInputComponent } from './forms/select-input/select-input.component';
 import { HelperBoxComponent } from './shared/helper-box/helper-box.component';
+import { LocationRowComponent } from './locations/location-row/location-row.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { HelperBoxComponent } from './shared/helper-box/helper-box.component';
     DeviceSvgComponent,
     WidgetsComponent,
     SelectInputComponent,
-    HelperBoxComponent
+    HelperBoxComponent,
+    LocationRowComponent
   ],
   imports: [
     appRoutesGenerator(),

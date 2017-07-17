@@ -3,4 +3,6 @@
   Locations
 </h1>
 
-<app-places></app-places>
+<div *ngFor="let location of locations;">
+    <app-location-row [location]="location"></app-location-row>
+</div>
