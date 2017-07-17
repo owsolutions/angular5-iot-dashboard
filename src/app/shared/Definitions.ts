@@ -20,6 +20,11 @@ export interface IDevice {
 }
 
 
+export interface IWidgetForm {
+  name: string;
+  location: any;
+}
+
 /**
  * A place, defines the area of modules and infrustructure
  */
