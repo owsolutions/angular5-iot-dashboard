@@ -3,8 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { StoreModule } from '@ngrx/store';
 
 import { OutputPinComponent } from './output-pin.component';
-import { CommunicateService } from './../../communicate.service'
-
+import { CommunicateService } from './../../communicate.service';
 
 describe('OutputPinComponent', () => {
   let component: OutputPinComponent;
@@ -22,8 +21,8 @@ describe('OutputPinComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(OutputPinComponent);
     component = fixture.componentInstance;
-    component.pin = { id: '1', type: 'switch', value: 'ON' }
-    component.device = { pins: [ { id : '2', type : 'switch', value: 'OFF' } ], uniqueid: '12' }
+    component.pin = { id: '1', type: 'switch', value: 'ON' };
+    component.device = { pins: [ { id : '2', type : 'switch', value: 'OFF' } ], uniqueid: '12' };
     component.changeAnalogData = ($event, device, pin) => '';
     component.changeData = ($event, device, pin, newValue) => { };
     component.changeDigitalData = ($event, device, pin) => 'OFF';
