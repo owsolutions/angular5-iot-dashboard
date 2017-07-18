@@ -62,33 +62,3 @@ html, body{
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-
-
-
-.page-description {
-    padding:15px;
-    font-size:13px;
-
-}
-.page-title {
-	background: $theme-color;
-    margin: 0;
-    font-size: 23px;
-    padding: 10px 15px;
-	color: white;
-
-    .actions {
-        .btn {
-            background: transparent;
-            border:1px solid white;
-            font-size:14px;
-            border-radius: 0;
-            transition: 0.3s all ease-in-out;
-            &:hover {
-                color: green;
-                background: #e8e8e2;
-            }
-        }
-    }
-}
