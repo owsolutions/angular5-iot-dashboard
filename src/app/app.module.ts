@@ -32,6 +32,7 @@ import { FullWidgetComponent } from './elements/widgets/full-widget/full-widget.
 import { ActivityComponent } from './activity/activity.component';
 import { ThermostatComponent } from './layout/app-info/thermostat/thermostat.component';
 import { ModesComponent } from './layout/app-info/modes/modes.component';
+import { PageHeaderComponent } from './shared/page-header/page-header.component';
 import { TextInputComponent } from './forms/text-input/text-input.component';
 import { RadioInputComponent } from './forms/radio-input/radio-input.component';
 import { DeviceSvgComponent } from './shared/device-svg/device-svg.component';
@@ -68,6 +69,7 @@ import { LocationRowComponent } from './locations/location-row/location-row.comp
     ActivityComponent,
     ThermostatComponent,
     ModesComponent,
+    PageHeaderComponent,
     TextInputComponent,
     RadioInputComponent,
     DeviceSvgComponent,
