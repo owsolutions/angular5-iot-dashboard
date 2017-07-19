@@ -15,7 +15,7 @@ export class DevicesComponent implements  OnDestroy , OnInit {
   public focusedPin: IPin = null;
   public devices: Array<IDevice>;
   public locations: Array<ILocation>;
-  
+
   constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>, private communications: CommunicateService) {
     // Initialize private variables
   }

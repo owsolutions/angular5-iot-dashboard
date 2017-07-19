@@ -8,10 +8,10 @@ import { CommunicateService } from '../communicate.service';
   templateUrl: './locations.component.html',
   styleUrls: ['./locations.component.scss']
 })
-export class LocationsComponent implements OnInit {
+export class LocationsComponent implements OnInit, OnDestroy {
 
   public locations: Array<ILocation>;
-  
+
   constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>, private communications: CommunicateService) {
     // Initialize private variables
   }

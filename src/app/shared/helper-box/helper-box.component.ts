@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectorRef, OnDestroy, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef, OnDestroy, OnChanges, EventEmitter, Output } from '@angular/core';
 import { IDevice, IPin, ILocation, IWidget, AppState, IWidgetForm } from '../../shared/Definitions';
 import { CommunicateService } from '../../communicate.service';
 import { Store } from '@ngrx/store';
@@ -8,7 +8,7 @@ import { Store } from '@ngrx/store';
   templateUrl: './helper-box.component.html',
   styleUrls: ['./helper-box.component.scss']
 })
-export class HelperBoxComponent implements OnInit, OnDestroy {
+export class HelperBoxComponent implements OnInit, OnDestroy, OnChanges {
 
   @Input() public device: IDevice;
   @Input() public pin: IPin;
@@ -95,6 +95,6 @@ export class HelperBoxComponent implements OnInit, OnDestroy {
   onWidgetNameInputChange (value) {
     this.form.name = value;
   }
-  
+
 
 }
