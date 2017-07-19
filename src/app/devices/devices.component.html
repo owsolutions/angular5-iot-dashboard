@@ -17,55 +17,5 @@
 
 <div class="clearfix"></div>
 
-<div class="helper-box" [ngClass]="focusedDevice ? 'active' : ''" (mouseleave)="unfocus()" > 
-  <div *ngIf="focusedDevice">
-  <h1 class='helper-box-title clearfix'>
-    <div class='page-label pull-left'>
-      <i class="icon icon-keyboard"></i>
-      Pin configuration
-    </div>
-  </h1>
-  <div class="box-content device-configuration">
-    <div class="row">
-      <div class="col-sm-6">
-        <h3>{{focusedDevice.uniqueid}} Pin: <font color='green'>{{focusedPin.id}}</font> </h3>
-        <div class="device-description">
-          Modify: <app-output-pin [pin]="focusedPin" [device]="focusedDevice"></app-output-pin>
-          <br>
-          Realtime value: {{focusedPin.value}}
-        </div>
-         {{describeDevice(focusedDevice)}}
 
-      </div>
-      <div class="col-sm-6" >
-        
-        <section *ngIf="focusedPin" >
-          <div class="device-description">
-            <app-forms-text-input
-              placeholder="Type the widget name ( e.g: Front Lamp )"
-              icon="icon icon-user"
-              name="Widget name"
-              [value]="form.name"
-              (onChange)="onWidgetNameInputChange($event)"
-              >
-            </app-forms-text-input>
-            <app-forms-select-input
-              placeholder="Select the position"
-              icon="icon icon-user"
-              name="Widget Place"
-              [selected]="form.location"
-              [options]="[{'name':'-- no place --', 'value':''}].concat(locations)"
-              (onChange)="onPlaceChange($event)"
-              >
-            </app-forms-select-input>
-
-            <input type="submit" class="form-control" value="Update" (click)="submitForm()">
-            <br>
-            <input type="submit" class="form-control btn-warning" value="Cancel" (click)="unfocus()">
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
+<app-helper-box (onFocusLost)="unfocus();" [device]="focusedDevice" [pin]="focusedPin">  </app-helper-box>

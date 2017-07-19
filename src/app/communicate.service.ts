@@ -83,7 +83,7 @@ export class CommunicateService {
   findWidget (device: IDevice, pin: IPin) {
     return new Promise((resolve, reject) => {
       this.store.select<Array<IWidget>>(state => state.widgets).subscribe(widgets => {
-        const widget = widgets.filter(x => x.device.uniqueid === device.uniqueid && x.pin.id === pin.id);
+        const widget = widgets.filter(x => pin && device && x.device.uniqueid === device.uniqueid && x.pin.id === pin.id);
         resolve(widget[0]);
       });
     });

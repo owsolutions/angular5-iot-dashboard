@@ -38,6 +38,8 @@ import { RadioInputComponent } from './forms/radio-input/radio-input.component';
 import { DeviceSvgComponent } from './shared/device-svg/device-svg.component';
 import { WidgetsComponent } from './widgets/widgets.component';
 import { SelectInputComponent } from './forms/select-input/select-input.component';
+import { HelperBoxComponent } from './shared/helper-box/helper-box.component';
+import { LocationRowComponent } from './locations/location-row/location-row.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import { SelectInputComponent } from './forms/select-input/select-input.componen
     RadioInputComponent,
     DeviceSvgComponent,
     WidgetsComponent,
-    SelectInputComponent
+    SelectInputComponent,
+    HelperBoxComponent,
+    LocationRowComponent
   ],
   imports: [
     appRoutesGenerator(),

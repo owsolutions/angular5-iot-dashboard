@@ -1,2 +1,5 @@
 <app-page-header title="Locations" icon="icon icon-location"></app-page-header>
-<app-places></app-places>
+
+<div *ngFor="let location of locations;">
+    <app-location-row [location]="location"></app-location-row>
+</div>
