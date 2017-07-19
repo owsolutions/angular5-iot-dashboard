@@ -1,10 +1,4 @@
-<h1 class='page-title clearfix'>
-  <div class='page-label pull-left'>
-    <i class="icon icon-keyboard"></i>
-    Devices <sup>({{devices.length}})</sup>
-  </div>
-</h1>
-
+<app-page-header [title]="'Devices <sup>' + devices.length + ')</sup>'" icon="icon icon-keyboard"></app-page-header>
 <div class="page-description">
   <p>
     Devices currently connected to the software are shown as chipsets below. Maximum recognized pins for community version is 16 pins, which can be configurated as input or output.
@@ -22,56 +16,4 @@
 </div>
 
 <div class="clearfix"></div>
-
-<div class="helper-box" [ngClass]="focusedDevice ? 'active' : ''" (mouseleave)="unfocus()" >
-  <div *ngIf="focusedDevice">
-  <h1 class='helper-box-title clearfix'>
-    <div class='page-label pull-left'>
-      <i class="icon icon-keyboard"></i>
-      Pin configuration
-    </div>
-  </h1>
-  <div class="box-content device-configuration">
-    <div class="row">
-      <div class="col-sm-6">
-        <h3>{{focusedDevice.uniqueid}} Pin: <font color='green'>{{focusedPin.id}}</font> </h3>
-        <div class="device-description">
-          Modify: <app-output-pin [pin]="focusedPin" [device]="focusedDevice"></app-output-pin>
-          <br>
-          Realtime value: {{focusedPin.value}}
-        </div>
-         {{describeDevice(focusedDevice)}}
-
-      </div>
-      <div class="col-sm-6" >
-
-        <section *ngIf="focusedPin" >
-          <div class="device-description">
-            <app-forms-text-input
-              placeholder="Type the widget name ( e.g: Front Lamp )"
-              icon="icon icon-user"
-              name="Widget name"
-              [value]="form.name"
-              (onChange)="onWidgetNameInputChange($event)"
-              >
-            </app-forms-text-input>
-            <app-forms-select-input
-              placeholder="Select the position"
-              icon="icon icon-user"
-              name="Widget Place"
-              [selected]="form.location"
-              [options]="[{'name':'-- no place --', 'value':''}].concat(locations)"
-              (onChange)="onPlaceChange($event)"
-              >
-            </app-forms-select-input>
-
-            <input type="submit" class="form-control" value="Update" (click)="submitForm()">
-            <br>
-            <input type="submit" class="form-control btn-warning" value="Cancel" (click)="unfocus()">
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
+<app-helper-box (onFocusLost)="unfocus();" [device]="focusedDevice" [pin]="focusedPin">  </app-helper-box>
