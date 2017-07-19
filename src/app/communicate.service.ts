@@ -7,6 +7,7 @@ import * as locationsMocks from './locations/locations.mock';
 import * as activityMocks from './activity/activity-widget/activity.mock';
 import { UPDATE_LOCATION } from './locations/locations.reducer';
 import { IDevice, ILocation, AppState, IActivity, IWidget, IPin } from './shared/Definitions';
+import { sample } from 'lodash';
 
 @Injectable()
 export class CommunicateService {
@@ -27,6 +28,28 @@ export class CommunicateService {
     this.createLocations();
     this.createActivities();
     this.widgets = this.store.select('widgets');
+    this.mockWidgets();
+  }
+
+  makeMockWidget(device: IDevice, location: ILocation): IWidget {
+    const widget: IWidget = {
+      device: device,
+      location: location,
+      name : sample(['Cloud', 'Lamp', 'Roberry']),
+      pin: sample(device.pins)
+    };
+    return widget;
+  }
+
+  mockWidgets() {
+    this.devices.subscribe(devices => {
+      this.locations.subscribe(locations => {
+        for (let i = 1; i <= 6; i ++) {
+          this.store.dispatch({type: 'UPDATE_WIDGET' , payload: this.makeMockWidget(sample(devices), sample(locations) )});
+        }
+      });
+    });
+
   }
 
   createWidgets (widget: IWidget) {

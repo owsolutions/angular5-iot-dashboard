@@ -1,5 +1,4 @@
-<div class="chart-wrapper ">
-    
+<div class="chart-wrapper">
     <div class="range-selector-wrapper  hidden-xs ">
         <button *ngFor="let exp of chartExt" class="setChartEx" [ngClass]="exp === expFocus ? 'pressed' : ''" (click)="setChartExtreme(exp)">{{exp}}</button>
     </div>
