@@ -16,10 +16,13 @@
 	}
 
 	/deep/.box-title{
-		text-align: center;
-		color: #bbbdc3;
-		font-size:22px;
+		color: #9fa7ba;
 		font-weight: bold;
+		padding: 0 30px;
+		
+		&:nth-child(1){
+			margin-top:30px;
+		}
 	}
 
 }
