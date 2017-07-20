@@ -50,6 +50,7 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-phantomjs-launcher": "^1.0.4",
+    "ng2-mock-component": "0.0.6",
     "node-sass": "^4.5.3",
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",

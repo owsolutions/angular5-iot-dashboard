@@ -16,6 +16,7 @@ describe('InputPinComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(InputPinComponent);
     component = fixture.componentInstance;
+    component.pin = { id: '', type: '', value: '' };
     fixture.detectChanges();
   });
 

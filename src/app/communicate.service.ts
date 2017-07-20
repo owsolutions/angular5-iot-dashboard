@@ -107,7 +107,7 @@ export class CommunicateService {
   /**
    * Connects to a socket IO server, based on it's url
    */
-  connect (URL = 'http://localhost:7000') {
+  connect(URL = 'http://localhost:7000') {
 
     if (window.io) {
       // xonsole.log('%c Connecting to server at: ' + URL , 'color:yellow; background:black;');

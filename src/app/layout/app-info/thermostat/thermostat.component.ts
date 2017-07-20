@@ -9,6 +9,9 @@ export class ThermostatComponent implements OnInit {
   public tempratures: Array<any>;
   public nowTemp: any;
   public temp: any = 22;
+
+  constructor() { }
+
   changeTemp(status) {
     switch (status) {
       case 'add':
@@ -45,11 +48,8 @@ export class ThermostatComponent implements OnInit {
     return temps;
   }
 
-  constructor() { }
-
   ngOnInit() {
     this.tempratures = this.setTemperature(this.getTemperature());
     this.nowTemp = this.getTemperature();
   }
-
 }

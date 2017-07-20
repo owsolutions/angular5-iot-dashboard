@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MockComponent } from 'ng2-mock-component';
 
 import { IndexComponent } from './index.component';
 
@@ -8,7 +9,11 @@ describe('IndexComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IndexComponent ]
+      declarations: [
+        IndexComponent,
+        MockComponent({ selector: 'app-index-chart' }),
+        MockComponent({ selector: 'app-places' }),
+      ]
     })
     .compileComponents();
   }));

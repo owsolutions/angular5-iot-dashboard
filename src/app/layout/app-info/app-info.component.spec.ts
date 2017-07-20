@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MockComponent } from 'ng2-mock-component';
 import { AppInfoComponent } from './app-info.component';
 
 describe('AppInfoComponent', () => {
@@ -8,7 +8,12 @@ describe('AppInfoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppInfoComponent ]
+      declarations: [
+        AppInfoComponent,
+        MockComponent({ selector: 'app-thermostat'}),
+        MockComponent({ selector: 'app-modes'}),
+        MockComponent({ selector: 'app-activity-widget'}),
+    ]
     })
     .compileComponents();
   }));

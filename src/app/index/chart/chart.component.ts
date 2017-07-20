@@ -1,6 +1,7 @@
-import {AfterViewInit, Component, OnInit } from '@angular/core';
-declare var Highcharts: any;
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { times, random} from 'lodash';
+
+declare var Highcharts: any;
 
 @Component({
   selector: 'app-index-chart',
@@ -22,6 +23,9 @@ export class ChartComponent implements OnInit, AfterViewInit {
   public places: Array<any>;
   public largeWidgets: Array<any>;
   public chart: any;
+
+  constructor() { }
+
   getMock (count = 300) {
     return times(count, (index) => {
         return [
@@ -187,7 +191,6 @@ export class ChartComponent implements OnInit, AfterViewInit {
     };
     return chartOpt;
   }
-  constructor() { }
 
 
 
@@ -221,6 +224,7 @@ export class ChartComponent implements OnInit, AfterViewInit {
   drawChart () {
     this.chart = new Highcharts.stockChart(this.getChartOptions());
   }
+
   mockData () {
       return [
           {
@@ -246,6 +250,10 @@ export class ChartComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     const chart = this.chart;
+    this.putChartLegend(chart);
+  }
+
+  putChartLegend(chart) {
     const legend = document.getElementsByClassName('legend-chart');
     Array.from(legend).forEach($el => {
         $el.addEventListener('click', function(){

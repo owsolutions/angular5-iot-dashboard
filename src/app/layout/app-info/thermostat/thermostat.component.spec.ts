@@ -16,6 +16,11 @@ describe('ThermostatComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ThermostatComponent);
     component = fixture.componentInstance;
+    component.tempratures = [];
+    component.nowTemp = 1;
+    component.setTemperature = (t) => component.tempratures;
+    component.getTemperature = () => 1;
+    component.changeTemp = (s) => {};
     fixture.detectChanges();
   });
 
