@@ -53,12 +53,13 @@
     }
 }
 
-// Override some styles from 'c-switch for this component' 
+// Override some styles from 'c-switch' for this component
 .c-switch{
     margin-right: -25px;
     input.cmn-toggle-round{
         + label {
             width: 100% !important;
+            font-size: 30px !important;
             &:after,&:before{
                 font-family: inherit !important;
                 font-weight: bold !important;
@@ -69,6 +70,7 @@
                 content: attr(data-checked) !important;
                 text-indent: 25px !important;
                 color: #888 !important;
+                line-height: 50px !important;
             }
             &:before{
                 margin-left:30px !important;
