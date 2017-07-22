@@ -11,6 +11,7 @@ import { IActivity, AppState } from '../../shared/Definitions';
 export class ActivityWidgetComponent implements OnInit, OnDestroy {
 
   public activities: Array<any>;
+  public activitiesItems: Array<any>;
 
   constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>) {
     // Initialize the private variables
@@ -21,6 +22,47 @@ export class ActivityWidgetComponent implements OnInit, OnDestroy {
       this.activities = activities;
       this.chRef.detectChanges();
     });
+    this.activitiesItems = [{
+        icon: 'assets/images/avatar-2.jpg',
+        reason: 'Katy',
+        act: 'activated the',
+        description: 'Security Alaram',
+        time: '10 minutes ago',
+        iconType: 'image'
+      },
+      {
+        icon: 'icon-play',
+        reason: 'Sonos PLAY',
+        act: 'played',
+        description: 'Bakermat - teach me',
+        time: '26 minutes ago',
+        iconType: 'icon'
+      },
+      {
+        icon: 'icon-wifi',
+        reason: 'Macbook',
+        act: 'connected to',
+        description: 'Wifi network',
+        time: '29 minutes ago',
+        iconType: 'icon'
+      },
+      {
+        icon: 'assets/images/avatar-3.jpg',
+        reason: 'Chromecast',
+        act: 'played movie',
+        description: 'Interstellar',
+        time: '2 hour ago',
+        iconType: 'image'
+      },
+      {
+        icon: 'assets/images/avatar-1.jpg',
+        reason: 'Incomming call',
+        act: '3min50',
+        description: 'Micheal Darrah',
+        time: '3 hour ago',
+        iconType: 'image'
+      }
+    ];
   }
 
   ngOnDestroy () {

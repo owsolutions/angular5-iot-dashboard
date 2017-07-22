@@ -1,78 +1,70 @@
-@import '../../..//injects';
+@import '../../../injects';
 
 $bgColor: #f0f0f0;
-$timelineColor: #0077bb;
+$lineColor: #d7dbe6;
+$background: #e6eaf5;
+$itemicon: #8e96ad;
 
-// Generic body stuff
-body { background: $bgColor; font-family: sans-serif; padding-top: 30px; }
+#timeline-container{
+  width: 100%;
+  overflow: hidden;
+  background: $background;
 
-ul.timeline {
-  right:15px;
-  $left: 80px;
-  position: relative;
-  list-style-type: none;
-  padding-left: $left;
-  &:before {
-    position: absolute;
-    display: block;
-    left: $left - 44px;
-    width: 3px;
-    height: 100%;
-    border-radius: 4px;
-    background-color: $timelineColor;
-    content: ' ';
-  }
-  .event {
-    position: relative;
-    padding: 16px;
-    background: white;
-    border-radius: 2px;
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
-    padding: 16px;
-    margin-bottom: 15px;
-    &:before {
-      display: block;
-      position: absolute;
-      top: 15px;
-      left: -55px;
-      width: 27px;
-      height: 27px;
-      border: 3px solid $timelineColor;
-      border-radius: 50%;
-      background-color: white;
-      box-shadow: 0 0 4px -1px rgba(0,0,0,0.6);
-      content: ' ';
-    }
-  }
-  h3 {
-    font-size: 1.5em;
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
+  > ul{
+    margin-left: 45px;
+    border-left: 2px solid $lineColor;
+    > li{
+      list-style: none;
+      padding-left: 30px;
+      position: relative;
+      margin-bottom: 20px;
+      .description{
+        font-weight: bold;
+        color: $itemicon;
+        font-size: 14px;
+        p{
+          margin-bottom: 5px;
+        }
+      }
+      h3{
+        font-size: 14px;
+        color: lighten($itemicon,5);
+      }
+      > span{
+        background: $background;        
+        display: block;
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 0 0 4px $background;
+        overflow: hidden;
+        position: absolute;
+        border-radius: 50%;
+        left: -20px;
+        i{
+          display: block;
+          text-align: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 2px solid $itemicon;
+          color: lighten($itemicon,5);
+          &:before{
+              width: 2.15em !important;
+              display: block !important;
+              padding-top: .9em;
+          }
+        }
+        img{
+          width: 40px;
+          height: 40px;
+        }
+      }
 
-  .left-arrow {
-     &:before {
-      position: absolute;
-      top: 30px;
-      left: -15px;
-      display: inline-block;
-      border-top: 15px solid transparent;
-      border-right: 15px solid #ddd;
-      border-left: 0 solid #ddd;
-      border-bottom: 15px solid transparent;
-      content: ' ';
-    }
-    &:after {
-      position: absolute;
-      top: 30px;
-      left: -14px;
-      display: inline-block;
-      border-top: 15px solid transparent;
-      border-right: 15px solid #fff;
-      border-left: 0 solid #fff;
-      border-bottom: 15px solid transparent;
-      content: ' ';
+      &:after{
+        content: attr(date-is);
+        color: $theme-color;
+        font-size: 11px;
+      }
     }
   }
 }
-

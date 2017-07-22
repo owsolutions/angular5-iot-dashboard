@@ -1,6 +1,21 @@
 @import '../../../injects';
 
 .app-info{
+
+	&::-webkit-scrollbar-track {
+	    background-color: white;;
+    }
+    &::-webkit-scrollbar
+    {
+        width: 6px;
+        background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+        background-color: rgb(237, 241, 247);
+    }
+	
 	background:$appinfo;
 	@include transition((width 0.3s,right .5s));
 	position: fixed;
@@ -8,6 +23,7 @@
 	top:0px;
 	bottom:0;
 	width:300px;
+	overflow-x: hidden;
 	@media (min-width: $screen-1366){
 		right:0;
 	}
@@ -16,10 +32,13 @@
 	}
 
 	/deep/.box-title{
-		text-align: center;
-		color: #bbbdc3;
-		font-size:22px;
+		color: #9fa7ba;
 		font-weight: bold;
+		padding: 0 30px;
+		
+		&:nth-child(1){
+			margin-top:30px;
+		}
 	}
 
 }

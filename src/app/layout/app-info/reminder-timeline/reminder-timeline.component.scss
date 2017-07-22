@@ -1,0 +1,96 @@
+@import '../../../../injects';
+#timeline{
+    position: relative;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    /deep/.highcharts-range-selector-buttons,/deep/.highcharts-scrollbar{
+        visibility:hidden;
+    }
+    /deep/.range-selector-wrapper{
+        right:10px;
+        top:10px;
+        z-index:1;
+        position:absolute;
+    }
+    &:hover /deep/.highcharts-scrollbar{
+        visibility:visible;
+    }
+
+    /deep/.highcharts-plot-line-label {
+        width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        display: inline-block;
+        background: #fff;
+        transform: translate(-13px,-9px) !important;
+        box-shadow: 0 0 5px #ddd;
+    }
+    /deep/.highcharts-plot-line-label:after{
+        content: '';
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        display: inline-block;
+        top: 3px;
+        border: 3px solid #d0d6e2;
+        position: relative;
+        left: 3px;
+    }
+}
+
+#switch-wrapp{
+    height: auto;
+    overflow: hidden;
+    .row{
+        margin-top:-10px;
+    }
+    .title{
+        font-size: 17px;
+        color: #bbbdc3;
+        font-weight: bold;
+        padding-top: 10px;
+    }
+}
+
+// Override some styles from 'c-switch' for this component
+.c-switch{
+    margin-right: -25px;
+    input.cmn-toggle-round{
+        + label {
+            width: 100% !important;
+            font-size: 30px !important;
+            &:after,&:before{
+                font-family: inherit !important;
+                font-weight: bold !important;
+            }
+            &:after{
+                width: 50% !important;
+                border-radius: 60px !important;
+                content: attr(data-checked) !important;
+                text-indent: 25px !important;
+                color: #888 !important;
+                line-height: 50px !important;
+            }
+            &:before{
+                margin-left:30px !important;
+                color:#8ce196 !important;
+                display: none !important;
+            }
+        }
+        &:checked{
+            +label{
+                &:after{
+                    content: attr(data-unchecked) !important;
+                    margin-left: 47% !important;
+                    color:#8ce196 !important;
+                    text-indent: 32px !important;
+                };
+                &:before{
+                    margin-left:18px;
+                    color: white !important;
+                }
+            }
+        }
+    }
+}

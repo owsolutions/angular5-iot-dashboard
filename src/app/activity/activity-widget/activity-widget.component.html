@@ -12,3 +12,21 @@
       </div>
     </li>
   </ul>
+
+<div id="timeline-container">
+  <h4 class='box-title'>
+    RECENT ACTIVITY
+  </h4>
+  <ul>
+    <li *ngFor="let item of activitiesItems;" [attr.date-is]="item.time">
+      <span>
+        <img *ngIf="item.iconType == 'image'" src="{{item.icon}}">
+        <i *ngIf="item.iconType == 'icon'" class="{{item.icon}}"></i>
+      </span>
+      <h3><b>{{item.reason}}</b> {{item.act}}</h3>
+      <div class="description">
+        <p>{{item.description}}</p>
+      </div>
+    </li>
+  </ul>
+</div>
