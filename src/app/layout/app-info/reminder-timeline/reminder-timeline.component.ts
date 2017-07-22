@@ -75,78 +75,78 @@ export class ReminderTimelineComponent implements OnInit {
     };
   }
 
-  getDataSeries(begin, offset){
+  getDataSeries(begin, offset) {
     return [
-          [begin, offset % 2 === 0 ? offset : offset + 2],
-          [begin + (random(1, 3) * 3600 * 1000), offset % 2 === 0 ? offset : offset + 2]
-        ]
+      [begin, offset % 2 === 0 ? offset : offset + 2],
+      [begin + (random(1, 3) * 3600 * 1000), offset % 2 === 0 ? offset : offset + 2]
+    ];
   }
 
-  getTimelineSeries(){
+  getTimelineSeries() {
     return [{
-        data: [[1499382584000, 5], [1499389784000, 5]],
-        lineWidth: 10,
-        name: {
-          title: 'Confort',
-          icon: 'icon-bed'
-        }
-      }, {
-        data: [[1499396984000, 2], [1499407784000, 2]],
-        lineWidth: 10,
-        name: {
-          title: 'Eco',
-          icon: 'icon-leaf'
-        }
-      }, {
-        data: [[1499411384000, 8], [1499418584000, 8]],
-        lineWidth: 10,
-        name: {
-          title: 'Night',
-          icon: 'icon-moon'
-        }
-      }, {
-        data: [[1499425658000, 5], [1499432858000, 5]],
-        lineWidth: 10,
-        name: {
-          title: 'Game',
-          icon: 'icon-gamepad'
-        }
-      }, {
-        data: [[1499429258000, 8], [1499440058000, 8]],
-        lineWidth: 10,
-        name: {
-          title: 'Recreation',
-          icon: 'icon-keyboard'
-        }
-      }, {
-        data: [[1499436458000, 2], [1499447258000, 2]],
-        lineWidth: 10,
-        name: {
-          title: 'Visit',
-          icon: 'icon-stethoscope'
-        }
-      }, {
-        data: [[1499466393000, 5], [1499469993000, 5]],
-        lineWidth: 10,
-        name: {
-          title: 'Work',
-          icon: 'icon-briefcase'
-        }
-      }, {
-        data: [[1499473593000, 2], [1499484393000, 2]],
-        lineWidth: 10,
-        name: {
-          title: 'Shopping',
-          icon: 'icon-shopping-bag'
-        }
-      }, {
-        data: [[1499477193000, 5], [1499491593000, 5]],
-        lineWidth: 10,
-        name: {
-          title: 'Confort',
-          icon: 'icon-flash'
-        }
-      }]
+      data: [[1499382584000, 5], [1499389784000, 5]],
+      lineWidth: 10,
+      name: {
+        title: 'Confort',
+        icon: 'icon-bed'
+      }
+    }, {
+      data: [[1499396984000, 2], [1499407784000, 2]],
+      lineWidth: 10,
+      name: {
+        title: 'Eco',
+        icon: 'icon-leaf'
+      }
+    }, {
+      data: [[1499411384000, 8], [1499418584000, 8]],
+      lineWidth: 10,
+      name: {
+        title: 'Night',
+        icon: 'icon-moon'
+      }
+    }, {
+      data: [[1499425658000, 5], [1499432858000, 5]],
+      lineWidth: 10,
+      name: {
+        title: 'Game',
+        icon: 'icon-gamepad'
+      }
+    }, {
+      data: [[1499429258000, 8], [1499440058000, 8]],
+      lineWidth: 10,
+      name: {
+        title: 'Recreation',
+        icon: 'icon-keyboard'
+      }
+    }, {
+      data: [[1499436458000, 2], [1499447258000, 2]],
+      lineWidth: 10,
+      name: {
+        title: 'Visit',
+        icon: 'icon-stethoscope'
+      }
+    }, {
+      data: [[1499466393000, 5], [1499469993000, 5]],
+      lineWidth: 10,
+      name: {
+        title: 'Work',
+        icon: 'icon-briefcase'
+      }
+    }, {
+      data: [[1499473593000, 2], [1499484393000, 2]],
+      lineWidth: 10,
+      name: {
+        title: 'Shopping',
+        icon: 'icon-shopping-bag'
+      }
+    }, {
+      data: [[1499477193000, 5], [1499491593000, 5]],
+      lineWidth: 10,
+      name: {
+        title: 'Confort',
+        icon: 'icon-flash'
+      }
+    }];
   }
 
   timelineSeries(count = 8) {
@@ -180,8 +180,8 @@ export class ReminderTimelineComponent implements OnInit {
     for (const k in this.chart.series) {
       if (typeof this.chart.series[k] === 'object') {
         const icon = '<i class="icon ' + this.chart.series[k].name.icon + '"></i>',
-            title = '<span>' + this.chart.series[k].name.title + '</span>',
-            titleWrapp = document.createElement('span');
+          title = '<span>' + this.chart.series[k].name.title + '</span>',
+          titleWrapp = document.createElement('span');
         titleWrapp.innerHTML = icon + title;
         titleWrapp.id = 'highcharts-series-title' + k;
         titleWrapp.style.position = 'absolute';
@@ -200,7 +200,7 @@ export class ReminderTimelineComponent implements OnInit {
 
   drawChart() {
     const chart = this.chart = new Highcharts.stockChart(this.timelineOption());
-    Highcharts.addEvent(chart, 'redraw', ()=> {
+    Highcharts.addEvent(chart, 'redraw', () => {
       for (const k in chart.series) {
         if (typeof chart.series[k] === 'object') {
           const title = document.getElementById('highcharts-series-title' + k);
@@ -221,9 +221,6 @@ export class ReminderTimelineComponent implements OnInit {
       }
     }
     return allPositions;
-  }
-
-  constructor() {
   }
 
   ngOnInit() {
