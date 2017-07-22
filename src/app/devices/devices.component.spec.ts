@@ -19,9 +19,9 @@ describe('DevicesComponent', () => {
       imports: [
         appReducersGenerator()
       ],
-      declarations: [ 
-        DevicesComponent, 
-        InputPinComponent, 
+      declarations: [
+        DevicesComponent,
+        InputPinComponent,
         OutputPinComponent,
         PageHeaderComponent,
         DeviceSvgComponent

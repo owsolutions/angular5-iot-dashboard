@@ -11,7 +11,7 @@ describe('OutputPinComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ OutputPinComponent ],
       providers: [ CommunicateService ],
-      imports: [ 
+      imports: [
         appReducersGenerator()
       ]
     })

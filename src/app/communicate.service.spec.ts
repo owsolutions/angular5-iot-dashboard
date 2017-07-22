@@ -7,7 +7,7 @@ describe('CommunicateService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        appReducersGenerator()  
+        appReducersGenerator()
       ],
       providers: [CommunicateService]
     });

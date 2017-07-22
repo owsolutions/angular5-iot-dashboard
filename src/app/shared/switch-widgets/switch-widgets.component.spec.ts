@@ -33,7 +33,7 @@ describe('SwitchWidgetsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
+      declarations: [
         SwitchWidgetsComponent,
         OutputPinComponent
       ],

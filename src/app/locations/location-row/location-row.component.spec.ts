@@ -19,7 +19,7 @@ describe('LocationRowComponent', () => {
     component.location = {
       icon: 'icon',
       name: 'My location'
-    }
+    };
     fixture.detectChanges();
   });
 

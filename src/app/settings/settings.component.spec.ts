@@ -8,7 +8,7 @@ describe('SettingsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
+      declarations: [
         SettingsComponent,
         MockComponent({selector: 'app-page-header'})
       ]
