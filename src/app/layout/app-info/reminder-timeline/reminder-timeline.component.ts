@@ -5,7 +5,7 @@ import { times, random, shuffle } from 'lodash';
 @Component({
   selector: 'app-reminder-timeline',
   templateUrl: './reminder-timeline.component.html',
-  styleUrls: ['./reminder-timeline.component.scss', '../../../shared/c-switch.scss']
+  styleUrls: ['./reminder-timeline.component.scss', '../../../shared/custom-switch.scss']
 })
 export class ReminderTimelineComponent implements OnInit {
   public chart: any;
@@ -71,7 +71,19 @@ export class ReminderTimelineComponent implements OnInit {
       navigator: {
         enabled: false
       },
-      series: /*this.timelineSeries()*/[{
+      series: this.getTimelineSeries()
+    };
+  }
+
+  getDataSeries(begin, offset){
+    return [
+          [begin, offset % 2 === 0 ? offset : offset + 2],
+          [begin + (random(1, 3) * 3600 * 1000), offset % 2 === 0 ? offset : offset + 2]
+        ]
+  }
+
+  getTimelineSeries(){
+    return [{
         data: [[1499382584000, 5], [1499389784000, 5]],
         lineWidth: 10,
         name: {
@@ -135,7 +147,6 @@ export class ReminderTimelineComponent implements OnInit {
           icon: 'icon-flash'
         }
       }]
-    };
   }
 
   timelineSeries(count = 8) {
@@ -155,10 +166,7 @@ export class ReminderTimelineComponent implements OnInit {
       const seeek = random(-72, 72);
       const begin = date + (seeek * 10000);
       return {
-        data: [
-          [begin, offset % 2 === 0 ? offset : offset + 2],
-          [begin + (random(1, 3) * 3600 * 1000), offset % 2 === 0 ? offset : offset + 2]
-        ],
+        data: this.getDataSeries(begin, offset),
         lineWidth: 10,
         name: {
           title: title[0],
@@ -169,48 +177,45 @@ export class ReminderTimelineComponent implements OnInit {
   }
 
   titleGenerator() {
-    const _this = this;
-    for (const k in _this.chart.series) {
-      if (typeof _this.chart.series[k] === 'object') {
-        const icon = '<i class="icon ' + _this.chart.series[k].name.icon + '"></i>',
-            title = '<span>' + _this.chart.series[k].name.title + '</span>',
+    for (const k in this.chart.series) {
+      if (typeof this.chart.series[k] === 'object') {
+        const icon = '<i class="icon ' + this.chart.series[k].name.icon + '"></i>',
+            title = '<span>' + this.chart.series[k].name.title + '</span>',
             titleWrapp = document.createElement('span');
         titleWrapp.innerHTML = icon + title;
         titleWrapp.id = 'highcharts-series-title' + k;
         titleWrapp.style.position = 'absolute';
-        titleWrapp.style.color = _this.chart.series[k].color;
+        titleWrapp.style.color = this.chart.series[k].color;
         titleWrapp.style.fontSize = '14';
         titleWrapp.style.fontWeight = 'bold';
         titleWrapp.style.width = '100%';
-        titleWrapp.style.left = (_this.retPosition()[k].x + (_this.retPosition()[k].width / 3)) + 'px';
-        titleWrapp.style.top = (_this.retPosition()[k].y + 7) + 'px';
+        titleWrapp.style.left = (this.retPosition()[k].x + (this.retPosition()[k].width / 3)) + 'px';
+        titleWrapp.style.top = (this.retPosition()[k].y + 7) + 'px';
         // tslint:disable-next-line:max-line-length
-        _this.retPosition()[k].x + (_this.retPosition()[k].width / 3) <= 0 ? titleWrapp.style.opacity = '0' : titleWrapp.style.opacity = '1';
+        this.retPosition()[k].x + (this.retPosition()[k].width / 3) <= 0 ? titleWrapp.style.opacity = '0' : titleWrapp.style.opacity = '1';
         document.getElementById('timeline').appendChild(titleWrapp);
       }
     }
   }
 
   drawChart() {
-    const chart = this.chart = new Highcharts.stockChart(this.timelineOption()),
-          _this = this;
-    Highcharts.addEvent(chart, 'redraw', function () {
+    const chart = this.chart = new Highcharts.stockChart(this.timelineOption());
+    Highcharts.addEvent(chart, 'redraw', ()=> {
       for (const k in chart.series) {
         if (typeof chart.series[k] === 'object') {
           const title = document.getElementById('highcharts-series-title' + k);
-          title.style.left = (_this.retPosition()[k].x + (_this.retPosition()[k].width / 3)) + 'px';
-          title.style.top = (_this.retPosition()[k].y + 7) + 'px';
-          (_this.retPosition()[k].x + (_this.retPosition()[k].width / 3) <= 0) ? title.style.opacity = '0' : title.style.opacity = '1';
+          title.style.left = (this.retPosition()[k].x + (this.retPosition()[k].width / 3)) + 'px';
+          title.style.top = (this.retPosition()[k].y + 7) + 'px';
+          (this.retPosition()[k].x + (this.retPosition()[k].width / 3) <= 0) ? title.style.opacity = '0' : title.style.opacity = '1';
         }
       }
     });
   }
 
   retPosition() {
-    const allPositions = [],
-          _this = this;
-    for (const k in _this.chart.series) {
-      if (typeof _this.chart.series[k] === 'object') {
+    const allPositions = [];
+    for (const k in this.chart.series) {
+      if (typeof this.chart.series[k] === 'object') {
         const chartSeries: any = document.querySelector('#timeline .highcharts-series-' + k);
         allPositions.push(chartSeries.getBBox());
       }
