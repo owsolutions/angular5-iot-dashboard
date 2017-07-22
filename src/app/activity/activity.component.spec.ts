@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { StoreModule } from '@ngrx/store';
 
 import { ActivityComponent } from './activity.component';
+import { PageHeaderComponent } from '../shared/page-header/page-header.component';
 
 describe('ActivityComponent', () => {
   let component: ActivityComponent;
@@ -10,7 +11,10 @@ describe('ActivityComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [StoreModule.provideStore({})],
-      declarations: [ ActivityComponent ]
+      declarations: [
+        ActivityComponent,
+        PageHeaderComponent
+      ]
     })
     .compileComponents();
   }));

@@ -1,9 +1,13 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { StoreModule } from '@ngrx/store';
-
 import { DevicesComponent } from './devices.component';
-import { InputPinComponent } from './../shared/input-pin/input-pin.component';
-import { OutputPinComponent } from './../shared/output-pin/output-pin.component';
+import { InputPinComponent } from '../shared/input-pin/input-pin.component';
+import { OutputPinComponent } from '../shared/output-pin/output-pin.component';
+import { PageHeaderComponent } from '../shared/page-header/page-header.component';
+import { DeviceSvgComponent } from '../shared/device-svg/device-svg.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { appReducersGenerator } from '../app.reducers';
+import { CommunicateService } from '../communicate.service';
 
 
 describe('DevicesComponent', () => {
@@ -12,8 +16,22 @@ describe('DevicesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [StoreModule.provideStore({})],
-      declarations: [ DevicesComponent, InputPinComponent, OutputPinComponent ]
+      imports: [
+        appReducersGenerator()
+      ],
+      declarations: [
+        DevicesComponent,
+        InputPinComponent,
+        OutputPinComponent,
+        PageHeaderComponent,
+        DeviceSvgComponent
+      ],
+      schemas: [
+        NO_ERRORS_SCHEMA
+      ],
+      providers: [
+        CommunicateService
+      ]
     })
     .compileComponents();
   }));
@@ -24,7 +42,7 @@ describe('DevicesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should be created', () => {
+  it('should be created', inject([CommunicateService], (service: CommunicateService) => {
     expect(component).toBeTruthy();
-  });
+  }));
 });

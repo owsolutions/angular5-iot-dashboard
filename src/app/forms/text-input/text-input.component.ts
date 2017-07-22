@@ -7,11 +7,11 @@ import { EventEmitter,  Output, Component, OnInit, Input } from '@angular/core';
 })
 export class TextInputComponent implements OnInit {
 
-  @Input() name: string;
-  @Input() icon: string;
-  @Input() placeholder: string;
-  @Input() value: any;
-  @Output() onChange: EventEmitter<any> = new EventEmitter();
+  @Input() public name: string;
+  @Input() public icon: string;
+  @Input() public placeholder: string;
+  @Input() public value: any;
+  @Output() public onChange: EventEmitter<any> = new EventEmitter();
   constructor() { }
 
   onInputChange (e) {
