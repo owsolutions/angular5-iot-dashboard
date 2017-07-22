@@ -1,6 +1,7 @@
-import {AfterViewInit, Component, OnInit } from '@angular/core';
-declare var Highcharts: any;
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { times, random} from 'lodash';
+
+declare var Highcharts: any;
 
 @Component({
   selector: 'app-index-chart',
@@ -9,9 +10,22 @@ import { times, random} from 'lodash';
 })
 export class ChartComponent implements OnInit, AfterViewInit {
 
+    public chartExt: Array<string> = [
+        'half_hour',
+        'hour',
+        'day',
+        'week',
+        'month',
+        'year'
+    ];
+  public expFocus = null;
+
   public places: Array<any>;
   public largeWidgets: Array<any>;
   public chart: any;
+
+  constructor() { }
+
   getMock (count = 300) {
     return times(count, (index) => {
         return [
@@ -177,51 +191,40 @@ export class ChartComponent implements OnInit, AfterViewInit {
     };
     return chartOpt;
   }
-  constructor() { }
 
-  drawChart () {
-    const chart = this.chart = new Highcharts.stockChart(this.getChartOptions());
-    const btnEx = document.getElementsByClassName('setChartEx');
-    Array.from(btnEx).forEach(function(element) {
-        element.addEventListener ('click', function(){
-            if (!chart) {
-                return;
-            }
-            const extremes = chart.xAxis[0].getExtremes();
-            const max = extremes.max;
-            let min = 0;
-            switch (this.getAttribute('data_set')) {
-                case 'half_hour':
-                    min = max - 1800000;
-                break;
-                case 'hour':
-                    min = max - 3600000;
-                break;
-                case 'day':
-                    min = max - 86400000;
-                break;
-                case 'week':
-                    min = max - 604800000;
-                break;
-                case 'month':
-                    min = max - 2592000000;
-                break;
-                case 'year':
-                    min = max - 31104000000;
-                break;
-            }
-            chart.xAxis[0].setExtremes(min, max);
-            removeClassPressed(btnEx, 'pressed');
-            this.className += ' pressed';
-        });
-    });
 
-    function removeClassPressed ($btnEx, className) {
-        Array.from($btnEx).forEach(($el: any) => {
-            $el.className = $el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-        });
+
+  setChartExtreme (dataSet) {
+    this.expFocus = dataSet;
+    const extremes = this.chart.xAxis[0].getExtremes();
+    const max = extremes.max;
+    let min = 0;
+    switch (dataSet) {
+        case 'half_hour':
+            min = max - 1800000;
+        break;
+        case 'hour':
+            min = max - 3600000;
+        break;
+        case 'day':
+            min = max - 86400000;
+        break;
+        case 'week':
+            min = max - 604800000;
+        break;
+        case 'month':
+            min = max - 2592000000;
+        break;
+        case 'year':
+            min = max - 31104000000;
+        break;
     }
+    this.chart.xAxis[0].setExtremes(min, max);
   }
+  drawChart () {
+    this.chart = new Highcharts.stockChart(this.getChartOptions());
+  }
+
   mockData () {
       return [
           {
@@ -247,6 +250,10 @@ export class ChartComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     const chart = this.chart;
+    this.putChartLegend(chart);
+  }
+
+  putChartLegend(chart) {
     const legend = document.getElementsByClassName('legend-chart');
     Array.from(legend).forEach($el => {
         $el.addEventListener('click', function(){

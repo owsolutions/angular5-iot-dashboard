@@ -16,6 +16,8 @@ describe('ChartComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ChartComponent);
     component = fixture.componentInstance;
+    component.drawChart = () => {};
+    component.putChartLegend = (chart) => {};
     fixture.detectChanges();
   });
 

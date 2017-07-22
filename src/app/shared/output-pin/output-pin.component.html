@@ -4,7 +4,7 @@
       <input (change)="pin.value = changeDigitalData($event, device, pin)" [checked]="pin.value === 'ON'" type="checkbox" class="ios-switch bigswitch" />
       <div><div></div></div>
     </label>
-    <div *ngIf="findType(pin.value) === 'input'">
+     <div *ngIf="findType(pin.value) === 'input'">
       <input class="input-value" (change)="pin.value = changeAnalogData($event, device, pin)" type="text" value="{{pin.value}}">
     </div>
   </span>

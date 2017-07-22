@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-declare var Highcharts: any;
 import { times, random} from 'lodash';
+
+declare var Highcharts: any;
 
 @Component({
   selector: 'app-quick-chart',
@@ -10,7 +11,7 @@ import { times, random} from 'lodash';
 export class QuickChartComponent implements OnInit {
   private chartData: Array<any>;
 
-  drawChart (data) {
+  drawChart(data) {
     Highcharts.chart('quick-chart-container', {
       chart: {
           backgroundColor: 'transparent',
@@ -127,5 +128,4 @@ export class QuickChartComponent implements OnInit {
     this.chartData = times(10 , () => random(1, 100));
     this.drawChart(this.chartData);
   }
-
 }

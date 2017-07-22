@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MockComponent } from 'ng2-mock-component';
 
 import { QuickStatusComponent } from './quick-status.component';
 
@@ -8,7 +9,11 @@ describe('QuickStatusComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuickStatusComponent ]
+      declarations: [
+        QuickStatusComponent,
+        MockComponent({selector: 'app-quick-time'}),
+        MockComponent({selector: 'app-quick-chart'})
+      ]
     })
     .compileComponents();
   }));

@@ -1,13 +1,9 @@
-<div class="widget-box flex-container" *ngFor="let widget of Widgets">
+<div class="widget-box flex-container">
   <div class="info-box">
-    <i class="{{widget.icon}}"></i>
-    <div class="name">Home lights</div>
+    <i class="{{widget.icon ? widget.icon : 'icon icon-cloud'}}"></i>
+    <div class="name">{{widget.name}} {{widget.location ? ' in ' + widget.location.name : ''}}</div>
   </div>
-  
   <div class="controlls">
-    <label><input type="checkbox" class="ios-switch smallswitch" checked /><div><div></div></div></label>
-    <label><input type="checkbox" class="ios-switch smallswitch" checked /><div><div></div></div></label>
+    <app-output-pin [pin]="widget.pin" [device]="widget.device"></app-output-pin> 
   </div>  
 </div>
-
- 

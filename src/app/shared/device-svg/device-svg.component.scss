@@ -1,0 +1,41 @@
+.pin-wire {
+    fill: #f2f3f0;
+    &:hover {
+        fill: rgba(179, 21,21,0.73) !important;
+    }
+
+    &.active {
+        fill: #7eca86;
+    }
+}
+
+
+.pin-group {
+    text {
+        font-size:18px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        fill: white;
+    }
+}
+
+.pin-collect {
+    fill: #E8EAE9;
+}
+
+.dialog-title {
+    color: black;
+    font-size:36px;
+}
+
+.dialog-value {
+    color: black;
+    font-size:28px;    
+}
+
+svg {
+    margin: auto;
+}
+
+.pin-focused-dialog {
+    transition: all 0.5s fade-in(red, 0)
+}

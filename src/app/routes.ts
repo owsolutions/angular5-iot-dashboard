@@ -5,6 +5,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { SettingsComponent } from './settings/settings.component';
 import { DevicesComponent } from './devices/devices.component';
 import { ActivityComponent } from './activity/activity.component';
+import { WidgetsComponent } from './widgets/widgets.component';
 
 export const appRoutes: Routes = [
     {
@@ -35,6 +36,11 @@ export const appRoutes: Routes = [
     {
         path: 'devices',
         component: DevicesComponent,
+        data: {}
+    },
+    {
+        path: 'widgets',
+        component: WidgetsComponent,
         data: {}
     },
     { path: '',

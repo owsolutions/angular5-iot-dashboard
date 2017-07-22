@@ -1,9 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { DeviceObject } from '../shared/DeviceObject';
-import { IDevice, IPin, AppState } from '../shared/Definitions';
+import { IDevice, IPin, AppState, ILocation, IWidget } from '../shared/Definitions';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { CommunicateService } from '../communicate.service';
 
 @Component({
   selector: 'app-devices',
@@ -12,25 +11,37 @@ import { Observable } from 'rxjs/Observable';
 })
 export class DevicesComponent implements  OnDestroy , OnInit {
 
+  public focusedDevice: IDevice = null;
+  public focusedPin: IPin = null;
   public devices: Array<IDevice>;
+  public locations: Array<ILocation>;
 
-  constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>) {
-
+  constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>, private communications: CommunicateService) {
+    // Initialize private variables
   }
 
-  deviceInfo (device: any) {
-    return new DeviceObject(device);
+  async clickDispatch ({device, pin}) {
+    this.focusedDevice = device;
+    this.focusedPin = pin;
   }
 
   ngOnInit() {
-    this.store.select('devices').subscribe(devices => {
-      this.devices = (devices as Array<IDevice>);
+    this.store.select('devices').subscribe(collection => {
+      this.devices = (collection as Array<IDevice>);
       this.chRef.detectChanges();
+    });
+    this.store.select('locations').subscribe(collection => {
+      this.locations = (collection as Array<ILocation>);
     });
   }
 
   ngOnDestroy () {
     this.chRef.detach();
+  }
+
+  unfocus () {
+    this.focusedPin = null;
+    this.focusedDevice = null;
   }
 
 }
