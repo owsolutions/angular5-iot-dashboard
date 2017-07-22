@@ -1,6 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { SwitchWidgetsComponent } from '../shared/switch-widgets/switch-widgets.component';
 import { WidgetsComponent } from './widgets.component';
+import { OutputPinComponent } from '../shared/output-pin/output-pin.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
+
+function widgetsReducer (widgets = []) {
+  return widgets;
+}
 
 describe('WidgetsComponent', () => {
   let component: WidgetsComponent;
@@ -8,7 +15,16 @@ describe('WidgetsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WidgetsComponent ]
+      imports: [
+         StoreModule.provideStore({
+           widgets: widgetsReducer
+         })
+      ],
+      declarations: [
+        WidgetsComponent,
+        SwitchWidgetsComponent
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));

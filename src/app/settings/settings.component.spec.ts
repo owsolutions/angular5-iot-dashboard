@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SettingsComponent } from './settings.component';
+import { MockComponent } from 'ng2-mock-component';
 
 describe('SettingsComponent', () => {
   let component: SettingsComponent;
@@ -8,7 +8,10 @@ describe('SettingsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SettingsComponent ]
+      declarations: [
+        SettingsComponent,
+        MockComponent({selector: 'app-page-header'})
+      ]
     })
     .compileComponents();
   }));

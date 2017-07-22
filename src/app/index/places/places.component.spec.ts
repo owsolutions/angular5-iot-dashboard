@@ -1,6 +1,6 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { appReducersGenerator } from '../../app.reducers';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { StoreModule } from '@ngrx/store';
-
 import { PlacesComponent } from './places.component';
 
 describe('PlacesComponent', () => {
@@ -9,8 +9,11 @@ describe('PlacesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [StoreModule.provideStore({})],
-      declarations: [ PlacesComponent ]
+      imports: [
+        appReducersGenerator()
+      ],
+      declarations: [ PlacesComponent ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));

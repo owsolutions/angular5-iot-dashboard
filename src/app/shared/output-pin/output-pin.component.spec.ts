@@ -1,9 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { StoreModule } from '@ngrx/store';
-
 import { OutputPinComponent } from './output-pin.component';
 import { CommunicateService } from './../../communicate.service';
+import { appReducersGenerator } from '../../app.reducers';
 
 describe('OutputPinComponent', () => {
   let component: OutputPinComponent;
@@ -13,7 +11,9 @@ describe('OutputPinComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ OutputPinComponent ],
       providers: [ CommunicateService ],
-      imports: [ StoreModule.provideStore({}) ]
+      imports: [
+        appReducersGenerator()
+      ]
     })
     .compileComponents();
   }));
