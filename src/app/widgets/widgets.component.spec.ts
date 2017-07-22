@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { SwitchWidgetsComponent } from '../shared/switch-widgets/switch-widgets.component';
 import { WidgetsComponent } from './widgets.component';
 
 describe('WidgetsComponent', () => {
@@ -8,7 +8,10 @@ describe('WidgetsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WidgetsComponent ]
+      declarations: [
+        WidgetsComponent,
+        SwitchWidgetsComponent
+      ]
     })
     .compileComponents();
   }));

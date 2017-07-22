@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SwitchWidgetsComponent } from './switch-widgets.component';
+import { OutputPinComponent } from '../output-pin/output-pin.component';
 
 describe('SwitchWidgetsComponent', () => {
   let component: SwitchWidgetsComponent;
@@ -8,7 +8,10 @@ describe('SwitchWidgetsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SwitchWidgetsComponent ]
+      declarations: [ 
+        SwitchWidgetsComponent,
+        OutputPinComponent
+      ]
     })
     .compileComponents();
   }));

@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { PageHeaderComponent } from '../shared/page-header/page-header.component';
 import { SummaryComponent } from './summary.component';
 
 describe('SummaryComponent', () => {
@@ -8,7 +8,10 @@ describe('SummaryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SummaryComponent ]
+      declarations: [
+        SummaryComponent,
+        PageHeaderComponent
+      ]
     })
     .compileComponents();
   }));
