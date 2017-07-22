@@ -12,8 +12,8 @@ import { random } from 'lodash';
 export class OutputPinComponent implements OnInit {
 
   public enable: any;
-  @Input() public pin: IPin;
-  @Input() public device: IDevice;
+  @Input('pin') public pin: IPin;
+  @Input('device') public device: IDevice;
 
   constructor(public communicate: CommunicateService) { }
 

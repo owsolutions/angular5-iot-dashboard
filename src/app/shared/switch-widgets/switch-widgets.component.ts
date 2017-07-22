@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { times, random } from 'lodash';
+import { IWidget } from '../Definitions';
 
 @Component({
   selector: 'app-switch-widgets',
@@ -7,8 +8,7 @@ import { times, random } from 'lodash';
   styleUrls: ['./switch-widgets.component.scss' , '../checkbox-switch.scss']
 })
 export class SwitchWidgetsComponent implements OnInit {
-  @Input() public widget: any;
-
+  @Input() public widget: IWidget;
   constructor() {
   }
   ngOnInit() {

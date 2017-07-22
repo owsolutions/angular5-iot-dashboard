@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { StoreModule } from '@ngrx/store';
 import { MockComponent } from 'ng2-mock-component';
-
+import { appReducersGenerator } from '../app/app.reducers';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -14,7 +14,9 @@ describe('AppComponent', () => {
         MockComponent({selector: 'app-quick-status' }),
         MockComponent({selector: 'app-app-info' })
       ],
-      imports: [StoreModule.provideStore({})]
+      imports: [
+        appReducersGenerator()
+      ]
     }).compileComponents();
   }));
 

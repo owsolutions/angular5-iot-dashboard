@@ -1,8 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { StoreModule } from '@ngrx/store';
 import { PageHeaderComponent } from '../shared/page-header/page-header.component';
 import { LocationsComponent } from './locations.component';
 import { PlacesComponent } from './../index/places/places.component';
+import { CommunicateService } from '../communicate.service';
+import { appReducersGenerator } from '../app.reducers';
+
 
 describe('LocationsComponent', () => {
   let component: LocationsComponent;
@@ -15,7 +19,11 @@ describe('LocationsComponent', () => {
         PlacesComponent,
         PageHeaderComponent
       ],
-      imports: [StoreModule.provideStore({})]
+      imports: [
+        appReducersGenerator()
+      ],
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [CommunicateService]
     })
     .compileComponents();
   }));
@@ -26,7 +34,7 @@ describe('LocationsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should be created', () => {
+  it('should be created', inject([CommunicateService], (service: CommunicateService) => {
     expect(component).toBeTruthy();
-  });
+  }));
 });
