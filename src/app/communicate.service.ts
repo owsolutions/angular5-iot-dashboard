@@ -83,9 +83,7 @@ export class CommunicateService {
   createActivities () {
     this.activities = this.store.select('activities');
     const activities = activityMocks.generateMock(5);
-    console.log('Activities: ' , activities);
     for (const activity of activities) {
-      console.log("Activity: ", activity);
       this.store.dispatch({type: 'UPDATE_ACTIVITY', payload: activity});
     }
   }
