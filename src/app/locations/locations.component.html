@@ -1,5 +1,5 @@
 <app-page-header title="Locations" icon="icon icon-location"></app-page-header>
 
 <div *ngFor="let location of locations;">
-    <app-location-row [location]="location"></app-location-row>
+    <app-location-row [widgets]="findWidgets(location)" [location]="location"></app-location-row>
 </div>

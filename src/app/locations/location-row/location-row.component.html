@@ -13,42 +13,18 @@
 
     <div class="clearfix visible-xs"></div>
 
-    <div class="col-sm-3 col-xs-6">
+    <div class="col-sm-3 col-xs-6" *ngIf="widgets && widgets.length > 0">
         <h4>Name</h4>
         <ul class="list-names">
-            <li>Ceiling lighting</li>
-            <li>Worktop lighting</li>
-            <li>Pane windows</li>
-            <li>Fan</li>
+            <li *ngFor="let widget of widgets;">{{widget.name}}</li>
         </ul>
     </div>
 
-    <div class="col-sm-3 col-xs-6">
+    <div class="col-sm-3 col-xs-6" *ngIf="widgets && widgets.length > 0">
         <h4>Status</h4>
         <ul class="list">
-            <li>
-                <label>
-                    <input type="checkbox" class="ios-switch tinyswitch"  checked />
-                    <div><div></div></div>
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input type="checkbox" class="ios-switch tinyswitch"  checked />
-                    <div><div></div></div>
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input type="checkbox" class="ios-switch tinyswitch"  checked />
-                    <div><div></div></div>
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input type="checkbox" class="ios-switch tinyswitch"  checked />
-                    <div><div></div></div>
-                </label>
+            <li *ngFor="let widget of widgets;">
+                <app-output-pin  switchSize="tinyswitch"  [pin]="widget.pin" [device]="widget.device"></app-output-pin> 
             </li>
         </ul>
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ILocation, AppState } from '../../shared/Definitions';
+import { ILocation, AppState, IWidget } from '../../shared/Definitions';
 import { Observable } from 'rxjs/Observable';
 import { ChangeDetectorRef } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -12,6 +12,7 @@ import { Store } from '@ngrx/store';
 export class PlacesComponent implements OnInit, OnDestroy {
 
   public places: Array<ILocation> = [];
+  public widgets: Array<IWidget> = [];
 
   constructor(public chRef: ChangeDetectorRef, private store: Store<AppState>) {
     // Initialize the private variables
@@ -22,6 +23,13 @@ export class PlacesComponent implements OnInit, OnDestroy {
       this.places = locations;
       this.chRef.detectChanges();
     });
+    this.store.select('widgets').subscribe(collection => {
+      this.widgets = (collection as Array<IWidget>);
+    });
+  }
+
+  findWidgets (location: ILocation): Array<IWidget> {
+    return this.widgets.filter(widget => widget.location.name === location.name);
   }
 
   ngOnDestroy () {

@@ -14,6 +14,7 @@ export class OutputPinComponent implements OnInit {
   public enable: any;
   @Input('pin') public pin: IPin;
   @Input('device') public device: IDevice;
+  @Input('switchSize') public switchSize = 'bigswitch';
 
   constructor(public communicate: CommunicateService) { }
 

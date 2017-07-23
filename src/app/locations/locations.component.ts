@@ -11,6 +11,7 @@ import { CommunicateService } from '../communicate.service';
 export class LocationsComponent implements OnInit, OnDestroy {
 
   public locations: Array<ILocation>;
+  public widgets: Array<IWidget>;
 
   constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>, private communications: CommunicateService) {
     // Initialize private variables
@@ -20,6 +21,13 @@ export class LocationsComponent implements OnInit, OnDestroy {
     this.store.select('locations').subscribe(collection => {
       this.locations = (collection as Array<ILocation>);
     });
+    this.store.select('widgets').subscribe(collection => {
+      this.widgets = (collection as Array<IWidget>);
+    });
+  }
+
+  findWidgets (location: ILocation): Array<IWidget> {
+    return this.widgets.filter(widget => widget.location.name === location.name);
   }
 
   ngOnDestroy () {
