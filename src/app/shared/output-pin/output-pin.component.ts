@@ -38,26 +38,15 @@ export class OutputPinComponent implements OnInit {
     return parseFloat(value).toPrecision(3);
   }
 
-  changeData($event: any, device: IDevice, pin: IPin, newValue: any) {
-    this.communicate.notfityActivity({
-      description: $event.target.value + ' -> ' + device.uniqueid + ' > ' + newValue,
-      id: random(111, 999),
-      type: ActivityTypes.DevicePinChange,
-      meta: {
-        device, pin, newValue
-      }
-    });
-  }
-
   changeAnalogData($event: any, device: IDevice, pin: IPin) {
     const newValue = $event.target.value;
-    this.changeData($event, device, pin, newValue);
+    this.communicate.triggerDeviceChange($event, device, pin, newValue);
     return newValue;
   }
 
   changeDigitalData($event, device: IDevice, pin: IPin) {
     const newValue = $event.target.checked ? 'ON' : 'OFF';
-    this.changeData($event, device, pin, newValue);
+    this.communicate.triggerDeviceChange($event, device, pin, newValue);
     return newValue;
   }
 }
