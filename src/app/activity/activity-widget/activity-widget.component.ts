@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { times, sample } from 'lodash';
 import { Store } from '@ngrx/store';
-import { IActivity, AppState } from '../../shared/Definitions';
+import { IActivity, AppState, ActivityTypes } from '../../shared/Definitions';
 
 @Component({
   selector: 'app-activity-widget',
@@ -11,7 +11,7 @@ import { IActivity, AppState } from '../../shared/Definitions';
 export class ActivityWidgetComponent implements OnInit, OnDestroy {
 
   public activities: Array<any>;
-  public activitiesItems: Array<any>;
+  public activitiesItems: Array<IActivity>;
 
   constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>) {
     // Initialize the private variables
@@ -22,45 +22,56 @@ export class ActivityWidgetComponent implements OnInit, OnDestroy {
       this.activities = activities;
       this.chRef.detectChanges();
     });
-    this.activitiesItems = [{
+    this.activitiesItems = [
+      {
+        id: 0,
         icon: 'assets/images/avatar-2.jpg',
         reason: 'Katy',
-        act: 'activated the',
+        type: ActivityTypes.DevicePinChange,
         description: 'Security Alaram',
         time: '10 minutes ago',
-        iconType: 'image'
+        iconType: 'image',
+        meta: {}
       },
       {
+        id: 1,
         icon: 'icon-play',
         reason: 'Sonos PLAY',
-        act: 'played',
+        type: ActivityTypes.DevicePinChange,
         description: 'Bakermat - teach me',
         time: '26 minutes ago',
-        iconType: 'icon'
+        iconType: 'icon',
+        meta: {}
       },
       {
+        id: 2,
         icon: 'icon-wifi',
         reason: 'Macbook',
-        act: 'connected to',
+        type: ActivityTypes.DevicePinChange,
         description: 'Wifi network',
         time: '29 minutes ago',
-        iconType: 'icon'
+        iconType: 'icon',
+        meta: {}
       },
       {
+        id: 3,
         icon: 'assets/images/avatar-3.jpg',
         reason: 'Chromecast',
-        act: 'played movie',
+        type: ActivityTypes.DevicePinChange,
         description: 'Interstellar',
         time: '2 hour ago',
-        iconType: 'image'
+        iconType: 'image',
+        meta: {}
       },
       {
+        id: 4,
         icon: 'assets/images/avatar-1.jpg',
         reason: 'Incomming call',
-        act: '3min50',
+        type: ActivityTypes.DevicePinChange,
         description: 'Micheal Darrah',
         time: '3 hour ago',
-        iconType: 'image'
+        iconType: 'image',
+        meta: {}
       }
     ];
   }

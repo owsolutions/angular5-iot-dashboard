@@ -76,9 +76,13 @@ export enum ActivityTypes {
  * This represents if an activity occures in application
  */
 export interface IActivity {
-  id: string;
+  id: Number;
   description: string;
   type: ActivityTypes;
   meta: any;
+  icon: string;
+  iconType: string;
+  reason: string;
+  time: string;
 }
 

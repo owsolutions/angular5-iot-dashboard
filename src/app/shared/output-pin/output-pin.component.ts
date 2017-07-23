@@ -45,7 +45,11 @@ export class OutputPinComponent implements OnInit {
       type: ActivityTypes.DevicePinChange,
       meta: {
         device, pin, newValue
-      }
+      },
+      icon: 'assets/images/avatar-2.jpg',
+      iconType: 'image',
+      reason: 'Ali',
+      time: ' 10 minutes ago'
     });
   }
 
