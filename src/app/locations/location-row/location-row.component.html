@@ -24,7 +24,7 @@
         <h4>Status</h4>
         <ul class="list">
             <li *ngFor="let widget of widgets;">
-                <app-output-pin [pin]="widget.pin" [device]="widget.device"></app-output-pin> 
+                <app-output-pin  switchSize="tinyswitch"  [pin]="widget.pin" [device]="widget.device"></app-output-pin> 
             </li>
         </ul>
 
