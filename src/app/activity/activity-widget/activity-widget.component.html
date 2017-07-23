@@ -1,31 +1,16 @@
- 
-
-
-  <ul class="timeline">
-    <li class="event" *ngFor="let activity of activities;">
-      <div class="left-arrow"></div>
-      <h3>{{activity.key}}</h3>
-      <div class="description">
-        <p> 
-          {{activity.description}}  
-        </p>
-      </div>
-    </li>
-  </ul>
-
 <div id="timeline-container">
   <h4 class='box-title'>
     RECENT ACTIVITY
   </h4>
   <ul>
-    <li *ngFor="let item of activitiesItems;" [attr.date-is]="item.time">
+    <li *ngFor="let activity of activities;" [attr.date-is]="activity.time">
       <span>
-        <img *ngIf="item.iconType == 'image'" src="{{item.icon}}">
-        <i *ngIf="item.iconType == 'icon'" class="{{item.icon}}"></i>
+        <img *ngIf="activity.iconType == 'image'" src="{{activity.icon}}">
+        <i *ngIf="activity.iconType == 'icon'" class="{{activity.icon}}"></i>
       </span>
-      <h3><b>{{item.reason}}</b> {{item.act}}</h3>
+      <h3><b>{{activity.reason}}</b> {{activity.type}}</h3>
       <div class="description">
-        <p>{{item.description}}</p>
+        <p>{{activity.description}}</p>
       </div>
     </li>
   </ul>
