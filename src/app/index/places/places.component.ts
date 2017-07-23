@@ -27,9 +27,9 @@ export class PlacesComponent implements OnInit, OnDestroy {
       this.widgets = (collection as Array<IWidget>);
     });
   }
-  
+
   findWidgets (location: ILocation): Array<IWidget> {
-    return this.widgets.filter(widget => widget.location.name == location.name);
+    return this.widgets.filter(widget => widget.location.name === location.name);
   }
 
   ngOnDestroy () {

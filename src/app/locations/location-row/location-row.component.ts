@@ -8,7 +8,7 @@ import { ILocation, IWidget } from '../../shared/Definitions';
 })
 export class LocationRowComponent {
 
-  @Input() public widgets: IWidget;
+  @Input() public widgets: Array<IWidget>;
   @Input() public location: ILocation;
 
 }
