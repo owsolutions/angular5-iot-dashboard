@@ -6,8 +6,8 @@ import * as devicesMocks from './devices/devices.mock';
 import * as locationsMocks from './locations/locations.mock';
 import * as activityMocks from './activity/activity-widget/activity.mock';
 import { UPDATE_LOCATION } from './locations/locations.reducer';
-import { IDevice, ILocation, AppState, IActivity, IWidget, IPin } from './shared/Definitions';
-import { sample } from 'lodash';
+import { IDevice, ILocation, AppState, IActivity, IWidget, IPin, ActivityTypes } from './shared/Definitions';
+import { sample, random } from 'lodash';
 
 @Injectable()
 export class CommunicateService {
@@ -31,6 +31,8 @@ export class CommunicateService {
     this.mockWidgets();
   }
 
+
+
   makeMockWidget(device: IDevice, location: ILocation): IWidget {
     const widget: IWidget = {
       device: device,
@@ -49,9 +51,22 @@ export class CommunicateService {
         }
       });
     });
-
   }
 
+  triggerDeviceChange ($event: any, device: IDevice, pin: IPin, newValue: any) {
+    this.notfityActivity({
+      icon: 'icon-play',
+      iconType: 'icon',
+      reason: 'Ali',
+      time: '10 Minutes ago',
+      description: $event.target.value + ' -> ' + device.uniqueid + ' > ' + newValue,
+      id: random(111, 999),
+      type: ActivityTypes.DevicePinChange,
+      meta: {
+        device, pin, newValue
+      }
+    });
+  }
   createWidgets (widget: IWidget) {
     this.widgets = this.store.select('widgets');
     this.store.dispatch({type: 'UPDATE_WIDGET' , payload: widget});
