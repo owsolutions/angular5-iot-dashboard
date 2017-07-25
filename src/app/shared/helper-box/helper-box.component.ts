@@ -34,9 +34,6 @@ export class HelperBoxComponent implements OnInit, OnDestroy, OnChanges {
     this.chRef.detach();
   }
 
-  findLocationByName (name: string): ILocation {
-    return this.locations.find(x => x.name === name);
-  }
 
   async ngOnChanges(changes: any) {
     const widget = (await this.communications.findWidget(this.device, this.pin) as IWidget);
@@ -45,7 +42,7 @@ export class HelperBoxComponent implements OnInit, OnDestroy, OnChanges {
     }
     this.form.name = widget.name;
     if (widget.location) {
-      this.form.location = widget.location.name;
+      this.form.location = widget.location.id;
     }
   }
 
@@ -54,7 +51,7 @@ export class HelperBoxComponent implements OnInit, OnDestroy, OnChanges {
       device: this.device,
       pin: this.pin,
       name: this.form.name,
-      location: this.findLocationByName(this.form.location)
+      location: this.locations.find(x => x.id === this.form.location)
     };
   }
 

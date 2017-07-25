@@ -24,12 +24,12 @@
         <h4>Status</h4>
         <ul class="list">
             <li *ngFor="let widget of widgets;">
-                <app-output-pin  switchSize="tinyswitch"  [pin]="widget.pin" [device]="widget.device"></app-output-pin> 
+                {{widget.pin.value}}
             </li>
         </ul>
 
-        <!--<a class='next-button'>
+        <a routerLink='/locations/edit/{{location.id}}' class='next-button'>
             <span class="icon icon-info icon-round-next"></span>
-        </a>-->
+        </a>
     </div>
 </div>

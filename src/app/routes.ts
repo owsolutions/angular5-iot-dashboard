@@ -6,6 +6,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { DevicesComponent } from './devices/devices.component';
 import { ActivityComponent } from './activity/activity.component';
 import { WidgetsComponent } from './widgets/widgets.component';
+import { LocationEditComponent } from './locations/location-edit/location-edit.component';
 
 export const appRoutes: Routes = [
     {
@@ -27,6 +28,20 @@ export const appRoutes: Routes = [
         path: 'settings',
         component: SettingsComponent,
         data: {}
+    },
+    {
+        path: 'locations/edit/:id',
+        component: LocationEditComponent,
+        data: {
+            mode: 'edit'
+        }  
+    },
+    {
+        path: 'locations/new',
+        component: LocationEditComponent,
+        data: {
+            mode: 'new'
+        }  
     },
     {
         path: 'activities',
