@@ -6,6 +6,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { DevicesComponent } from './devices/devices.component';
 import { ActivityComponent } from './activity/activity.component';
 import { WidgetsComponent } from './widgets/widgets.component';
+import { DataTableComponent } from './shared/data-table/data-table.component';
 
 export const appRoutes: Routes = [
     {
@@ -26,6 +27,11 @@ export const appRoutes: Routes = [
     {
         path: 'settings',
         component: SettingsComponent,
+        data: {}
+    },
+    {
+        path: 'table',
+        component: DataTableComponent,
         data: {}
     },
     {
