@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IPin, IDevice }from '../Definitions';
+import { IPin, IDevice } from '../Definitions';
 import { random } from 'lodash';
 
 @Component({
@@ -44,7 +44,7 @@ export class OutputPinViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.precent = random(20,90);
+    this.precent = random(20, 90);
     this.precentStyle = this.setPrecent(this.precent);
   }
 
