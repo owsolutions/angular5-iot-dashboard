@@ -46,9 +46,12 @@ export class CommunicateService {
   mockWidgets() {
     this.devices.subscribe(devices => {
       this.locations.subscribe(locations => {
-        for (let i = 1; i <= 6; i ++) {
-          this.store.dispatch({type: 'UPDATE_WIDGET' , payload: this.makeMockWidget(sample(devices), sample(locations) )});
-        }
+        locations.forEach((location: ILocation) => {
+          for (let i = 1; i <= 4; i ++) {
+            console.log('>> ' , i, location);
+            this.store.dispatch({type: 'UPDATE_WIDGET' , payload: this.makeMockWidget(sample(devices), location)});
+          }
+        });
       });
     });
   }
