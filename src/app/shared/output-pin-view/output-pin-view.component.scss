@@ -1,0 +1,56 @@
+
+.circularProgress {
+    $backgroundBarColor: #f2f2f2;
+    $barColor: #777;
+    float: left;
+    position: relative;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background-color: $backgroundBarColor;
+    overflow: hidden;
+    margin-right: 5px;
+    &:after{
+        content: "";
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    .circularProgress__overlay {
+        position: absolute;
+        width: 17px;
+        height: 17px;
+        background-color: $backgroundBarColor;
+        border-radius: 50%;
+        margin-left: 2px;
+        margin-top: 2px;
+    }
+}	
+
+li {
+    padding: 0;
+    height: 38px;
+    span{
+        font-weight: bold;
+        &.on{
+            color: #acd942;
+            i{
+                border: 1px solid #acd942;
+            }
+        }
+        &.off{
+            color: #fe4728;
+            i{
+                border: 1px solid #fe4728;
+            }
+        }
+        > i{
+            font-style: normal;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            padding-left: 0.27em;
+        }
+    }
+}

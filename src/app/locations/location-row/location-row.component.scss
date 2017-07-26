@@ -26,22 +26,46 @@
     border-radius:100%;
     color: rgb(185, 195, 213);
     text-align:center;
-    padding:5px;
+    padding:3px;
     font-size:21px;
     display:inline-block;
 
     @include transition(all .5s);
     
     &:hover {
-        background: $theme-color;
+        background: #8ce196;
         color: white;
     }
 }
-.list {
+.list.status {
     list-style: none;
     font-size:13px;
     li {
-        padding:0;
+        padding: 0;
+        height: 38px;
+        span{
+            font-weight: bold;
+            &.on{
+                color: #acd942;
+                i{
+                    border: 1px solid #acd942;
+                }
+            }
+            &.off{
+                color: #fe4728;
+                i{
+                    border: 1px solid #fe4728;
+                }
+            }
+            > i{
+                font-style: normal;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                display: inline-block;
+                padding-left: 0.27em;
+            }
+        }
     }
 }
 .list-names {
@@ -49,11 +73,23 @@
     font-size:13px;
     li {
         padding:3px 0;
+        height: 40px;
     }
 }
 .place-row {
     padding:15px 30px;
     border-bottom: 1px solid #f1f3f7;
+    display: table-row;
+    > div{
+        display: table-cell;
+        float: none;
+        vertical-align: middle;
+        position: relative;
+        > h4{
+            position: absolute;
+            top: 0;
+        }
+    }
 }
 
 
@@ -76,3 +112,35 @@ h2 {
         font-size:60px;
     }
 }
+
+.align-bottom{
+    vertical-align: bottom !important;
+}
+
+.circularProgress {
+    $backgroundBarColor: #f2f2f2;
+    $barColor: #777;
+    float: left;
+    position: relative;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background-color: $backgroundBarColor;
+    overflow: hidden;
+    margin-right: 5px;
+    &:after{
+        content: "";
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    .circularProgress__overlay {
+        position: absolute;
+        width: 17px;
+        height: 17px;
+        background-color: $backgroundBarColor;
+        border-radius: 50%;
+        margin-left: 2px;
+        margin-top: 2px;
+    }
+}	
