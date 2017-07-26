@@ -13,14 +13,20 @@ export class DataTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (typeof $ !== 'undefined') {
+      this.drawDataTable();    
+    }
+  }
+
+  drawDataTable () {
     $('#example').DataTable({
       columns: [
-          { title: "Name" },
-          { title: "Position" },
-          { title: "Office" },
-          { title: "Extn." },
-          { title: "Start date" },
-          { title: "Salary" }
+          { title: 'Name' },
+          { title: 'Position' },
+          { title: 'Office' },
+          { title: 'Extn.' },
+          { title: 'Start date' },
+          { title: 'Salary' }
       ],
       columnDefs: [
           {
@@ -28,8 +34,8 @@ export class DataTableComponent implements OnInit {
               className: 'mdl-data-table__cell--non-numeric'
           }
       ],
-      "serverSide": true,
-      "fnServerData": async function ( sSource, aoData, fnCallback ) {
+      'serverSide': true,
+      'fnServerData': async function ( sSource, aoData, fnCallback ) {
         fnCallback(await handleMockTableRequests(createPagiantion(aoData)));
       }
     });

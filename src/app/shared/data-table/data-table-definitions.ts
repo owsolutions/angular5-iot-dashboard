@@ -12,7 +12,7 @@ export interface IPagination {
 }
 
 export function createPagiantion (aoData: any): IPagination {
-  let options: any = {};
+  const options: any = {};
   aoData.forEach(data => {
     options[data.name] = data.value;
   });
