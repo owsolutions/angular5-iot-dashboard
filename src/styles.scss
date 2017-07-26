@@ -74,4 +74,25 @@ html, body{
             background: darken($theme-color, 15%);
         }
     }
+
+    &.docked {
+        float: right;
+        top: -39px;
+        position: relative;
+        right: 15px;
+        border: 1px solid white;
+    }
+}
+
+.input-group-addon {
+    border: 0;
+    border-radius:0;
+    background: $theme-color;
+    i {
+        color: white;
+    }
+}
+.form-control {
+    border: 1px solid $theme-color;
+    border-radius:0;
 }

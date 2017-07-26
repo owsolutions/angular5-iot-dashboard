@@ -3,6 +3,7 @@ import { CommunicateService } from '../../communicate.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppState, ILocation } from '../../shared/Definitions'; 
 import { Store } from '@ngrx/store';
+import { maxBy } from 'lodash';
 
 @Component({
   selector: 'app-location-edit',
@@ -25,6 +26,19 @@ export class LocationEditComponent implements OnInit {
   public mode: string = "new";
 
   /**
+   * Assigns the mode and id above;
+   * make sure you call this on ngInit
+   */
+  extractRouterInfo () {
+    this.route.data.subscribe(data => {
+      this.mode = data['mode'];
+    });
+    this.route.params.subscribe(params => {
+      this.id = +params['id'];
+    });
+  }
+
+  /**
    * When editing form, temporary values are stored
    * in this object.
    */
@@ -34,7 +48,11 @@ export class LocationEditComponent implements OnInit {
     id: null
   };
 
-  public location: ILocation;
+  public location: ILocation = {
+    icon: '',
+    id: null,
+    name: ''
+  };
 
   constructor(
     private communications: CommunicateService,
@@ -54,14 +72,7 @@ export class LocationEditComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.route.data.subscribe(data => {
-      this.mode = data['mode'];
-    });
-
-    this.route.params.subscribe(params => {
-      this.id = +params['id'];
-    });
-
+    this.extractRouterInfo();
     if ( this.mode === 'edit') {
       this.store.select('locations').subscribe((locations: Array<ILocation>) => {
         this.location = locations.find(x => x.id === this.id);
@@ -70,11 +81,26 @@ export class LocationEditComponent implements OnInit {
     }
   }
 
-  formSubmit () {
+  async postToServer (location: ILocation): Promise<ILocation> {
+    let id = 0;
+    this.store.select('locations').subscribe((locations: Array<ILocation>) => {
+      id = maxBy(locations, location => location.id).id + 1
+    });
+    return {
+      icon: location.icon,
+      id: location.id ? location.id : id,
+      name: location.name
+    };
+  }
+
+  async formSubmit () {
     console.error(this.form);
+    
+    let result = await this.postToServer(this.form);
+
     this.store.dispatch({
       type: 'UPDATE_LOCATION',
-      payload: this.form
+      payload: result
     });
     this.router.navigateByUrl('/locations');
   }
