@@ -1,57 +1,5 @@
 <div class="row place-row clearfix" >
     <div class="col-sm-3 col-xs-6 title-icon">
-        <h2>KITCHEN</h2>
-        <img width='200px' src="assets/images/kitchen.svg" alt="">
-    </div>
-
-    <div class="col-sm-3 col-xs-6 value-box">
-        <h4>Temperature</h4>
-        <div class="value">
-            22.8<sup>&#8451;</sup>
-        </div>
-    </div>
-
-    <div class="clearfix visible-xs"></div>
-
-    <div class="col-sm-3 col-xs-6 align-bottom">
-        <h4>Name</h4>
-        <ul class="list-names">
-            <li>Ceiling lighting</li>
-            <li>Worktop lighting</li>
-            <li>Pane Windows</li>
-            <li>Fan</li>
-        </ul>
-    </div>
-
-    <div class="col-sm-3 col-xs-6 align-bottom">
-        <h4>Status</h4>
-        <ul class="list status">
-            <li>
-                <span class="on"><i>&#10003;</i> ON</span>
-            </li>
-            <li>
-                <span class="off"><i>&#10005;</i> OFF</span>
-            </li>
-            <li>
-                <div class="circularProgress" [ngStyle]="precentStyle">   
-                    <div class="circularProgress__overlay"></div>
-                </div>
-                {{precent}}%
-            </li>
-            <li>
-                <span class="off"><i>&#10005;</i> OFF</span>
-            </li>
-        </ul>
-    </div>
-    <div class="col-sm-1">
-        <a class='next-button'>
-            <span class="icon icon-right-big icon-round-next"></span>
-        </a>
-    </div>
-</div>
-
-<div class="row place-row clearfix" >
-    <div class="col-sm-3 col-xs-6 title-icon">
         <h2>{{location.name}}</h2>
         <img width='200px' [src]="'assets/images/' + location.icon" alt="">
     </div>
@@ -65,23 +13,24 @@
 
     <div class="clearfix visible-xs"></div>
 
-    <div class="col-sm-3 col-xs-6" *ngIf="widgets && widgets.length > 0">
+    <div class="col-sm-3 col-xs-6 align-bottom">
         <h4>Name</h4>
         <ul class="list-names">
             <li *ngFor="let widget of widgets;">{{widget.name}}</li>
         </ul>
     </div>
 
-    <div class="col-sm-3 col-xs-6" *ngIf="widgets && widgets.length > 0">
+    <div class="col-sm-3 col-xs-6 align-bottom">
         <h4>Status</h4>
-        <ul class="list">
-            <li *ngFor="let widget of widgets;">
-                <app-output-pin  switchSize="tinyswitch"  [pin]="widget.pin" [device]="widget.device"></app-output-pin> 
-            </li>
-        </ul>
+        <ul class="list status">
 
-        <!--<a class='next-button'>
-            <span class="icon icon-info icon-round-next"></span>
-        </a>-->
+            <app-output-pin-view *ngFor="let widget of widgets;" [pin]="widget.pin" [device]="widget.device"></app-output-pin-view> 
+        </ul>
+    </div>
+    <div class="col-sm-1">
+        <a class='next-button'>
+            <span class="icon icon-right-big icon-round-next"></span>
+        </a>
     </div>
 </div>
+ 
