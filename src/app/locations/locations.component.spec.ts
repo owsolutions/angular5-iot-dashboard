@@ -14,7 +14,7 @@ import 'rxjs/add/observable/of';
 class MockActivatedRoute extends ActivatedRoute {
     constructor() {
       super();
-      this.params = Observable.of({id: "5"});
+      this.params = Observable.of({id: '5'});
     }
 }
 describe('LocationsComponent', () => {
