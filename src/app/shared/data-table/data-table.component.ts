@@ -14,7 +14,7 @@ export class DataTableComponent implements OnInit {
 
   ngOnInit() {
     if (typeof $ !== 'undefined') {
-      this.drawDataTable();    
+      this.drawDataTable();
     }
   }
 
