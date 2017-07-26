@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommunicateService } from '../../communicate.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppState, ILocation } from '../../shared/Definitions'; 
+import { AppState, ILocation } from '../../shared/Definitions';
 import { Store } from '@ngrx/store';
 import { maxBy } from 'lodash';
 
@@ -23,20 +23,7 @@ export class LocationEditComponent implements OnInit {
    * initial mode is new; but it will be set
    * through the routes
    */
-  public mode: string = "new";
-
-  /**
-   * Assigns the mode and id above;
-   * make sure you call this on ngInit
-   */
-  extractRouterInfo () {
-    this.route.data.subscribe(data => {
-      this.mode = data['mode'];
-    });
-    this.route.params.subscribe(params => {
-      this.id = +params['id'];
-    });
-  }
+  public mode = 'new';
 
   /**
    * When editing form, temporary values are stored
@@ -54,15 +41,6 @@ export class LocationEditComponent implements OnInit {
     name: ''
   };
 
-  constructor(
-    private communications: CommunicateService,
-    private route: ActivatedRoute,
-    private store: Store<AppState>,
-    private router: Router
-  ) { 
-
-  }
-
   public defaultIcons = [
     {name: 'Kitchen' , value: 'four-cooking-accessories-set-for-kitchen.svg'},
     {name: 'Bathroom' , value: 'bathtub.svg'},
@@ -70,6 +48,29 @@ export class LocationEditComponent implements OnInit {
     {name: 'Living room', value: 'living-room.svg'},
     {name: 'Conference room', value: 'conference.svg'}
   ];
+
+  /**
+   * Assigns the mode and id above;
+   * make sure you call this on ngInit
+   */
+  extractRouterInfo () {
+    this.route.data.subscribe(data => {
+      this.mode = data['mode'];
+    });
+    this.route.params.subscribe(params => {
+      this.id = +params['id'];
+    });
+  }
+
+
+  constructor(
+    private communications: CommunicateService,
+    private route: ActivatedRoute,
+    private store: Store<AppState>,
+    private router: Router
+  ) {
+
+  }
 
   ngOnInit() {
     this.extractRouterInfo();
@@ -84,7 +85,7 @@ export class LocationEditComponent implements OnInit {
   async postToServer (location: ILocation): Promise<ILocation> {
     let id = 0;
     this.store.select('locations').subscribe((locations: Array<ILocation>) => {
-      id = maxBy(locations, location => location.id).id + 1
+      id = maxBy(locations, x => x.id).id + 1;
     });
     return {
       icon: location.icon,
@@ -94,9 +95,7 @@ export class LocationEditComponent implements OnInit {
   }
 
   async formSubmit () {
-    console.error(this.form);
-    
-    let result = await this.postToServer(this.form);
+    const result = await this.postToServer(this.form);
 
     this.store.dispatch({
       type: 'UPDATE_LOCATION',

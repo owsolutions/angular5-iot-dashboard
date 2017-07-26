@@ -34,14 +34,14 @@ export const appRoutes: Routes = [
         component: LocationEditComponent,
         data: {
             mode: 'edit'
-        }  
+        }
     },
     {
         path: 'locations/new',
         component: LocationEditComponent,
         data: {
             mode: 'new'
-        }  
+        }
     },
     {
         path: 'activities',

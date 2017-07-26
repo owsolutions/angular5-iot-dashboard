@@ -40,10 +40,9 @@ export class CommunicateService {
     for (const activity of activities) {
       this.store.dispatch({type: 'UPDATE_ACTIVITY', payload: activity});
     }
-    
     for (let i = 1; i <= 6; i ++) {
       this.store.dispatch({
-        type: 'UPDATE_WIDGET' , 
+        type: 'UPDATE_WIDGET',
         payload: this.makeMockWidget(sample(devices), sample(locations))
       });
     }
