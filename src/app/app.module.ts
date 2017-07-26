@@ -41,6 +41,7 @@ import { WidgetsComponent } from './widgets/widgets.component';
 import { SelectInputComponent } from './forms/select-input/select-input.component';
 import { HelperBoxComponent } from './shared/helper-box/helper-box.component';
 import { LocationRowComponent } from './locations/location-row/location-row.component';
+import { OutputPinViewComponent } from './shared/output-pin-view/output-pin-view.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { LocationRowComponent } from './locations/location-row/location-row.comp
     WidgetsComponent,
     SelectInputComponent,
     HelperBoxComponent,
-    LocationRowComponent
+    LocationRowComponent,
+    OutputPinViewComponent
   ],
   imports: [
     appRoutesGenerator(),
