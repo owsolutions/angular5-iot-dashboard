@@ -6,7 +6,7 @@ declare var $: any;
 @Component({
   selector: 'app-data-table',
   templateUrl: './data-table.component.html',
-  styleUrls: ['./data-table.component.css']
+  styleUrls: ['./data-table.component.css', './material.min.css' , './dataTables.material.min.css']
 })
 export class DataTableComponent implements OnInit {
 
