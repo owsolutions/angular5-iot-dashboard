@@ -42,6 +42,7 @@ import { SelectInputComponent } from './forms/select-input/select-input.componen
 import { HelperBoxComponent } from './shared/helper-box/helper-box.component';
 import { LocationRowComponent } from './locations/location-row/location-row.component';
 import { OutputPinViewComponent } from './shared/output-pin-view/output-pin-view.component';
+import { LocationEditComponent } from './locations/location-edit/location-edit.component';
 import { DataTableComponent } from './shared/data-table/data-table.component';
 
 @NgModule({
@@ -82,6 +83,7 @@ import { DataTableComponent } from './shared/data-table/data-table.component';
     HelperBoxComponent,
     LocationRowComponent,
     OutputPinViewComponent,
+    LocationEditComponent,
     DataTableComponent
   ],
   imports: [

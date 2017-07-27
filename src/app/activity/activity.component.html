@@ -13,9 +13,9 @@
     <tr *ngFor="let activity of activities;">
       <td>{{activity.id}}</td>
       <td>{{getType(activity.type)}}</td>
-      <td>{{activity.meta ? activity.meta.device.uniqueid : '-'}}</td>
+      <td>{{activity.meta && activity.meta.device ? activity.meta.device.uniqueid : '-'}}</td>
       <td>
-        {{activity.meta ? activity.meta.pin.id : '-'}}
+        {{activity.meta && activity.meta.pin ? activity.meta.pin.id : '-'}}
       </td>
       <td>
         {{activity.meta ? activity.meta.newValue: '-'}}

@@ -62,3 +62,37 @@ html, body{
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+.btn {
+    &.btn-primary {
+        border: 0;
+        border-radius: 0;
+        background: $theme-color;
+
+        &:hover {
+            background: darken($theme-color, 15%);
+        }
+    }
+
+    &.docked {
+        float: right;
+        top: -39px;
+        position: relative;
+        right: 15px;
+        border: 1px solid white;
+    }
+}
+
+.input-group-addon {
+    border: 0;
+    border-radius:0;
+    background: $theme-color;
+    i {
+        color: white;
+    }
+}
+.form-control {
+    border: 1px solid $theme-color;
+    border-radius:0;
+}

@@ -29,6 +29,7 @@ export interface IWidgetForm {
  * A place, defines the area of modules and infrustructure
  */
 export interface ILocation {
+  id: Number;
   name: string;
   icon: string;
 }

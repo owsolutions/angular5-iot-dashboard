@@ -6,6 +6,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { DevicesComponent } from './devices/devices.component';
 import { ActivityComponent } from './activity/activity.component';
 import { WidgetsComponent } from './widgets/widgets.component';
+import { LocationEditComponent } from './locations/location-edit/location-edit.component';
 import { DataTableComponent } from './shared/data-table/data-table.component';
 
 export const appRoutes: Routes = [
@@ -30,9 +31,23 @@ export const appRoutes: Routes = [
         data: {}
     },
     {
-        path: 'table',
-        component: DataTableComponent,
-        data: {}
+        path: 'locations/edit/:id',
+        component: LocationEditComponent,
+        data: {
+            mode: 'edit'
+        }
+    },
+    {
+        path: 'locations/new',
+        component: LocationEditComponent,
+        data: {
+            mode: 'new'
+        }
+    },
+    {
+          path: 'table',
+          component: DataTableComponent,
+          data: {}
     },
     {
         path: 'activities',

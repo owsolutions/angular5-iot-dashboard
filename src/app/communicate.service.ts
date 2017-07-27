@@ -5,7 +5,6 @@ import { UPDATE_DEVICE } from './devices/devices.reducer';
 import * as devicesMocks from './devices/devices.mock';
 import * as locationsMocks from './locations/locations.mock';
 import * as activityMocks from './activity/activity-widget/activity.mock';
-import { UPDATE_LOCATION } from './locations/locations.reducer';
 import { IDevice, ILocation, AppState, IActivity, IWidget, IPin, ActivityTypes } from './shared/Definitions';
 import { sample, random } from 'lodash';
 
@@ -24,13 +23,30 @@ export class CommunicateService {
   public widgets: Observable<Array<IWidget>>;
 
   constructor(private store: Store<AppState>) {
-    this.createDevices();
-    this.createLocations();
-    this.createActivities();
-    this.widgets = this.store.select('widgets');
-    this.mockWidgets();
+    this.mock ();
   }
 
+  mock () {
+    const devices = devicesMocks.generateMock();
+    this.store.dispatch({type: UPDATE_DEVICE, payload: devices[0]});
+    this.store.dispatch({type: UPDATE_DEVICE, payload: devices[1]});
+
+    const locations = locationsMocks.generateMock();
+    for (const location of locations) {
+      this.store.dispatch({type: 'UPDATE_LOCATION', payload: location});
+    }
+
+    const activities = activityMocks.generateMock(5);
+    for (const activity of activities) {
+      this.store.dispatch({type: 'UPDATE_ACTIVITY', payload: activity});
+    }
+    for (let i = 1; i <= 6; i ++) {
+      this.store.dispatch({
+        type: 'UPDATE_WIDGET',
+        payload: this.makeMockWidget(sample(devices), sample(locations))
+      });
+    }
+  }
 
 
   makeMockWidget(device: IDevice, location: ILocation): IWidget {
@@ -41,19 +57,6 @@ export class CommunicateService {
       pin: sample(device.pins)
     };
     return widget;
-  }
-
-  mockWidgets() {
-    this.devices.subscribe(devices => {
-      this.locations.subscribe(locations => {
-        locations.forEach((location: ILocation) => {
-          for (let i = 1; i <= 4; i ++) {
-            console.log('>> ' , i, location);
-            this.store.dispatch({type: 'UPDATE_WIDGET' , payload: this.makeMockWidget(sample(devices), location)});
-          }
-        });
-      });
-    });
   }
 
   triggerDeviceChange ($event: any, device: IDevice, pin: IPin, newValue: any) {
@@ -75,28 +78,6 @@ export class CommunicateService {
     this.store.dispatch({type: 'UPDATE_WIDGET' , payload: widget});
   }
 
-  createLocations () {
-    this.locations = this.store.select('locations');
-    const locations = locationsMocks.generateMock();
-    for (const location of locations) {
-      this.store.dispatch({type: UPDATE_LOCATION, payload: location});
-    }
-  }
-
-  createActivities () {
-    this.activities = this.store.select('activities');
-    const activities = activityMocks.generateMock(5);
-    for (const activity of activities) {
-      this.store.dispatch({type: 'UPDATE_ACTIVITY', payload: activity});
-    }
-  }
-
-  createDevices () {
-    this.devices = this.store.select('devices');
-    const devices = devicesMocks.generateMock();
-    this.store.dispatch({type: UPDATE_DEVICE, payload: devices[0]});
-    this.store.dispatch({type: UPDATE_DEVICE, payload: devices[1]});
-  }
 
   findWidget (device: IDevice, pin: IPin) {
     return new Promise((resolve, reject) => {
@@ -105,7 +86,6 @@ export class CommunicateService {
         resolve(widget[0]);
       });
     });
-
   }
   /**
    * Inserts a new device into store
