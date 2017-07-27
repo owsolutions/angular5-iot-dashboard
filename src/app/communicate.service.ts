@@ -59,7 +59,6 @@ export class CommunicateService {
     return widget;
   }
 
-
   triggerDeviceChange ($event: any, device: IDevice, pin: IPin, newValue: any) {
     this.notfityActivity({
       icon: 'icon-play',
