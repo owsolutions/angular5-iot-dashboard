@@ -43,6 +43,7 @@ import { HelperBoxComponent } from './shared/helper-box/helper-box.component';
 import { LocationRowComponent } from './locations/location-row/location-row.component';
 import { OutputPinViewComponent } from './shared/output-pin-view/output-pin-view.component';
 import { LocationEditComponent } from './locations/location-edit/location-edit.component';
+import { DataTableComponent } from './shared/data-table/data-table.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { LocationEditComponent } from './locations/location-edit/location-edit.c
     HelperBoxComponent,
     LocationRowComponent,
     OutputPinViewComponent,
-    LocationEditComponent
+    LocationEditComponent,
+    DataTableComponent
   ],
   imports: [
     appRoutesGenerator(),
