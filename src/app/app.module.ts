@@ -1,7 +1,12 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
+import { appRoutesGenerator } from './routes';
+import { appReducersGenerator } from './app.reducers';
+
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { ChartComponent } from './index/chart/chart.component';
@@ -9,12 +14,9 @@ import { ChangeDetectorRef } from '@angular/core';
 import { SummaryComponent } from './summary/summary.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SwitchWidgetsComponent } from './shared/switch-widgets/switch-widgets.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DevicesComponent } from './devices/devices.component';
 import { QuickStatusComponent } from './layout/quick-status/quick-status.component';
 import { QuickChartComponent } from './layout/quick-status/quick-chart/quick-chart.component';
-import { appRoutesGenerator } from './routes';
-import { appReducersGenerator } from './app.reducers';
 import { QuickTimeComponent } from './layout/quick-status/quick-time/quick-time.component';
 import { ActivityWidgetComponent } from './activity/activity-widget/activity-widget.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
