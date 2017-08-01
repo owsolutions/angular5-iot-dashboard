@@ -42,7 +42,7 @@
 		text-transform: uppercase;
 		color: rgb(218, 245, 233);	
 		text-align: center;
-		padding-bottom: 20px;
+		font-weight: bold;
 	}
 	
 	.bordered-bottom {
@@ -67,7 +67,7 @@
 	}
 	.medium-icon-widget {
 		flex:1;
-		.value, .icon, .title {
+		.value, .icon, .title , .midVal{
 			display:block;
 			text-align:center;
 			font-size:12px;
@@ -76,8 +76,29 @@
 		.icon {
 			font-size:30px;
 		}
+		.midVal{
+			font-size:28px;
+		}
 	}
 
+	.large-icon-widget {
+		text-align:center;
+		flex:1;
+		padding-bottom: 15px;
+		.value, .icon {
+			font-size:42px;
+			color:white;
+		}
+	}
+
+	.medium-icon-widget-wrapper{
+		.flex-item{
+			border-right: 1px solid rgba(255, 255, 255, 0.2);
+			&:last-child{
+				border-right: 0;
+			}
+		}
+	}
 	@media (min-width: $screen-desktop){
 		left:100px;
 	}
