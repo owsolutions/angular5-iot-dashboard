@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuickStatusComponent implements OnInit {
 
+  public weatherConditions: any;
+
   constructor() { }
 
   ngOnInit() {
+    this.weatherConditions = {
+      largeTemp: {
+        icon: 'icon-cloud-sun',
+        degree: 10
+      },
+      smallTemp: {
+        icon: 'icon-snow-heavy',
+        degree: 6
+      },
+      wind: 10,
+      pressure: 1016,
+      precipitation: 4
+    };
   }
 
 }
