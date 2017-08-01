@@ -24,7 +24,7 @@ export class QuickStatusComponent implements OnInit {
       wind: 10,
       pressure: 1016,
       precipitation: 4
-    }
+    };
   }
 
 }
