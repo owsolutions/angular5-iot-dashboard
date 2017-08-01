@@ -8,7 +8,7 @@ import { IPin , IDevice } from '../Definitions';
 })
 export class DeviceSvgComponent {
 
-  @Input() public device: IDevice;
+  @Input() public device = <IDevice>null;
   @Output() public onFocusDevice: EventEmitter<any> = new EventEmitter();
 
   public focusedPin: IPin = null;

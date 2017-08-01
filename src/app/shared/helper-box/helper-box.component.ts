@@ -10,8 +10,8 @@ import { Store } from '@ngrx/store';
 })
 export class HelperBoxComponent implements OnInit, OnDestroy, OnChanges {
 
-  @Input() public device: IDevice;
-  @Input() public pin: IPin;
+  @Input() public device = <IDevice>null;
+  @Input() public pin = <IPin>null;
   @Output() onFocusLost: EventEmitter<any> = new EventEmitter();
 
   public locations: Array<ILocation>;

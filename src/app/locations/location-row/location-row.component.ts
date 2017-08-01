@@ -11,8 +11,8 @@ export class LocationRowComponent implements OnInit {
   public precent: any;
   public precentStyle: any;
 
-  @Input() public widgets: Array<IWidget>;
-  @Input() public location: ILocation;
+  @Input() public widgets: Array<IWidget> = [];
+  @Input() public location = <ILocation>null;
 
   setPrecent(precent) {
         const increment = 360 / 100;
