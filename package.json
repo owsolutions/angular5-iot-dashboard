@@ -5,10 +5,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng build --prod --aot=false",
     "test": "ng test",
     "lint": "ng lint",
-    "hmr": "ng serve --hmr -e=hmr --disableHostCheck",
+    "hmr": "ng serve --hmr -e=hmr",
     "e2e": "ng e2e"
   },
   "private": true,

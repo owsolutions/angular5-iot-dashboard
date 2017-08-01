@@ -8,7 +8,7 @@ import { IPin } from '../Definitions';
 })
 export class InputPinComponent implements OnInit {
 
-  @Input() pin: IPin;
+  @Input() pin = <IPin>null;
   constructor() { }
 
   /**
