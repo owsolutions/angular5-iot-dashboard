@@ -34,11 +34,9 @@ export function getDataTable (paginator: Function, config: ITableObservable) {
         ],
         'serverSide': true,
         'fnServerData': async ( sSource, aoData, fnCallback ) => {
-            console.log('> >>> ');
             try {
                 const pagination = createPagiantion(aoData);
                 let response: any = await paginator(pagination);
-                console.log(">> Response: ", response);
                 response = castApiIntoDataTable(response);
                 if (config.filterColumns) {
                     response.data = config.filterColumns(response.data);
