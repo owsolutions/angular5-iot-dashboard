@@ -28,9 +28,7 @@ export async function handleMockTableRequests (options: IPagination) {
     start: options.start,
     length: options.length
   });
-  if (cacheMock[key]) {
-    return cacheMock[key];
-  }
+  if (cacheMock[key]) return cacheMock[key];
   await timeout(random(600, 1000));
   const result = {
     draw: 0,
