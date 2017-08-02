@@ -25,7 +25,7 @@ export class UserService {
       username: 'alitorabi',
       firstname: 'John',
       lastname: 'Doe'
-    }
+    };
   }
 
 
@@ -33,6 +33,6 @@ export class UserService {
     return [];
   }
 
-  
+
 
 }

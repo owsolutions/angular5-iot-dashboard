@@ -21,7 +21,7 @@ function makeMockPaginationForUsers ({limit, offset}) {
         'firstname': faker.name.findName().split(' ')[0],
         'lastname': faker.name.findName().split(' ')[0],
         'email': faker.internet.email()
-      }
+      };
     })
   };
 }
@@ -39,7 +39,7 @@ export class PaginationRequestService {
       'offset': +aoData.start.toString(),
       'limit': +aoData.length.toString()
     };
-    
+
     return makeMockPaginationForUsers(head);
   }
 }

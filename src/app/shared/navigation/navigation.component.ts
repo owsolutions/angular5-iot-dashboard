@@ -39,8 +39,8 @@ export class NavigationComponent implements OnInit {
       icon: 'icon icon-camera-alt',
       title: 'Activities'
     },
-      
-  ]
+
+  ];
   constructor() { }
 
   ngOnInit() {

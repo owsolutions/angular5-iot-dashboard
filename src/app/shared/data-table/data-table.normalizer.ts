@@ -24,7 +24,7 @@ function castApiIntoDataTable (response) {
 
 export function getDataTable (paginator: Function, config: ITableObservable) {
     return {
-        displayStart: config.page ? (config.page - 1)* 10 : 0,
+        displayStart: config.page ? (config.page - 1) * 10 : 0,
         columns: config.columns,
         columnDefs: [
             {
