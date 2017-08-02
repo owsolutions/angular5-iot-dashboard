@@ -10,6 +10,21 @@ interface IPaginate {
   limit: any;
 }
 
+function makeMockPaginationForUsers ({limit, offset}) {
+  return {
+    table: {
+      count: 50 + +limit
+    },
+    data: times(limit, (index) => {
+      return {
+        'id' : index + +offset + 1,
+        'firstname': faker.name.findName().split(' ')[0],
+        'lastname': faker.name.findName().split(' ')[0],
+        'email': faker.internet.email()
+      }
+    })
+  };
+}
 @Injectable()
 export class PaginationRequestService {
 
@@ -25,20 +40,6 @@ export class PaginationRequestService {
       'limit': +aoData.length.toString()
     };
     
-    return {
-        table: {
-          count: 50 + +head.limit
-        },
-        data: times(head.limit, (index) => {
-          return {
-            'id' : index + +head.offset + 1,
-            'firstname': faker.name.findName().split(' ')[0],
-            'lastname': faker.name.findName().split(' ')[0],
-            'email': faker.internet.email()
-          }
-        }) 
-      
-      
-    };
+    return makeMockPaginationForUsers(head);
   }
 }
