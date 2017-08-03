@@ -5,9 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent implements OnInit {
-
-  //<!--icon icon-home-outline-->
+export class NavigationComponent {
   public navigation: Array<any> = [
     {
       link: '/index',
@@ -38,12 +36,6 @@ export class NavigationComponent implements OnInit {
       link: '/activities',
       icon: 'icon icon-camera-alt',
       title: 'Activities'
-    },
-
+    }
   ];
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }
