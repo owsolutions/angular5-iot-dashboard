@@ -8,6 +8,7 @@ import { ActivityComponent } from './activity/activity.component';
 import { WidgetsComponent } from './widgets/widgets.component';
 import { LocationEditComponent } from './locations/location-edit/location-edit.component';
 import { DataTableComponent } from './shared/data-table/data-table.component';
+import {FormElementsComponent} from './shared/form-elements/form-elements.component';
 
 export const appRoutes: Routes = [
     {
@@ -67,6 +68,11 @@ export const appRoutes: Routes = [
     { path: '',
         redirectTo: '/index',
         pathMatch: 'full'
+    },
+    {
+        path: 'form-elements',
+        component: FormElementsComponent,
+        data: {}
     }
 ];
 
