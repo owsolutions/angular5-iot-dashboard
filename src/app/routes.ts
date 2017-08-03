@@ -7,7 +7,7 @@ import { DevicesComponent } from './devices/devices.component';
 import { ActivityComponent } from './activity/activity.component';
 import { WidgetsComponent } from './widgets/widgets.component';
 import { LocationEditComponent } from './locations/location-edit/location-edit.component';
-import { DataTableComponent } from './shared/data-table/data-table.component';
+import { UsersComponent } from './users/users.component';
 
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { QuickStatusComponent } from './layout/quick-status/quick-status.component';
@@ -100,11 +100,11 @@ export const appRoutes: Routes = [
         ]
     },
     {
-        path: 'table',
+        path: 'users',
         children: [
             {
                 path: '',
-                component: DataTableComponent,
+                component: UsersComponent,
             },
             ...SidebarOutlets
         ]
