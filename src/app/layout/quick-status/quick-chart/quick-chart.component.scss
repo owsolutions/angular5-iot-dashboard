@@ -1,5 +1,6 @@
 #quick-chart-container{
     width: 100%; 
+    position: relative;
     height: 150px; 
     margin: 25px auto;
     /deep/ .highcharts-container {
