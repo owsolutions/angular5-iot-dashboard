@@ -10,7 +10,6 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         MockComponent({selector: 'app-navigation' }),
-        MockComponent({selector: 'app-content-box' }),
         MockComponent({selector: 'app-quick-status' }),
         MockComponent({selector: 'app-app-info' })
       ],
@@ -38,13 +37,6 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('app-navigation')).toBeTruthy();
-  }));
-
-  it(`should have a app-content-box element`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('app-content-box')).toBeTruthy();
   }));
 
   it(`should have a app-quick-status element`, async(() => {
