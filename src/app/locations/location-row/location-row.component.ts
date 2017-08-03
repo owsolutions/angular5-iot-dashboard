@@ -28,8 +28,6 @@ export class LocationRowComponent implements OnInit {
             // tslint:disable-next-line:max-line-length
             bgGradient = 'linear-gradient(' + nextdeg + 'deg, #777 50%, transparent 50%, transparent), linear-gradient(270deg, #777 50%, #f2f2f2 50%, #f2f2f2)';
         }
-
-        console.log(bgGradient);
       const styles = {
           'background-image': bgGradient
       };
