@@ -140,14 +140,20 @@ export const appRoutes: Routes = [
             ...SidebarOutlets
         ]
     },
+    {
+        path: 'form-elements',
+        children: [
+            {
+                path: '',
+                component: FormElementsComponent,
+            },
+            ...SidebarOutlets
+        ]
+
+    },
     { path: '',
         redirectTo: '/index',
         pathMatch: 'full'
-    },
-    {
-        path: 'form-elements',
-        component: FormElementsComponent,
-        data: {}
     }
 ];
 

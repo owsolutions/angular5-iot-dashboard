@@ -36,6 +36,11 @@ export class NavigationComponent {
       link: '/activities',
       icon: 'icon icon-camera-alt',
       title: 'Activities'
+    },
+    {
+      link: '/form-elements',
+      icon: 'icon icon-wpforms',
+      title: 'Form elements'
     }
   ];
 }
