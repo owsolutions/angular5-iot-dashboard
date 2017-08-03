@@ -1,15 +1,22 @@
 import { TestBed, inject } from '@angular/core/testing';
-
-import { PaginationService } from './pagination.service';
+import { CommunicateService } from './communicate.service';
+import { PaginationRequestService } from './pagination.service';
+import { StoreModule } from '@ngrx/store';
 
 describe('PaginationService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PaginationService]
+      providers: [
+        PaginationRequestService,
+        CommunicateService
+      ],
+      imports: [
+        StoreModule.provideStore({})
+      ]
     });
   });
 
-  it('should be created', inject([PaginationService], (service: PaginationService) => {
+  it('should be created', inject([PaginationRequestService], (service: PaginationRequestService) => {
     expect(service).toBeTruthy();
   }));
 });

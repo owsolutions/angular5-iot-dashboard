@@ -18,9 +18,11 @@ export class DataTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    const paginator = (pagination) => this.requests.Paginate(pagination, this.schema.endPoint);
-    const structure = getDataTable(paginator, this.schema);
-    const table = $('#example').DataTable(structure);
+    if (this.schema) {
+      const paginator = (pagination) => this.requests.Paginate(pagination, this.schema.endPoint);
+      const structure = getDataTable(paginator, this.schema);
+      const table = $('#example').DataTable(structure);
+    }
   }
 
 }
