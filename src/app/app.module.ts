@@ -21,7 +21,6 @@ import { QuickTimeComponent } from './layout/quick-status/quick-time/quick-time.
 import { ActivityWidgetComponent } from './activity/activity-widget/activity-widget.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { AppInfoComponent } from './layout/app-info/app-info.component';
-import { ContentBoxComponent } from './layout/content-box/content-box.component';
 import { IconWidgetsComponent } from './index/icon-widgets/icon-widgets.component';
 import { PlacesComponent } from './index/places/places.component';
 import { InputPinComponent } from './shared/input-pin/input-pin.component';
@@ -46,6 +45,8 @@ import { LocationRowComponent } from './locations/location-row/location-row.comp
 import { OutputPinViewComponent } from './shared/output-pin-view/output-pin-view.component';
 import { LocationEditComponent } from './locations/location-edit/location-edit.component';
 import { DataTableComponent } from './shared/data-table/data-table.component';
+import { FormElementsComponent } from './shared/form-elements/form-elements.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,6 @@ import { DataTableComponent } from './shared/data-table/data-table.component';
     ActivityWidgetComponent,
     NavigationComponent,
     AppInfoComponent,
-    ContentBoxComponent,
     IconWidgetsComponent,
     PlacesComponent,
     InputPinComponent,
@@ -86,7 +86,9 @@ import { DataTableComponent } from './shared/data-table/data-table.component';
     LocationRowComponent,
     OutputPinViewComponent,
     LocationEditComponent,
-    DataTableComponent
+    DataTableComponent,
+    FormElementsComponent,
+    UsersComponent
   ],
   imports: [
     appRoutesGenerator(),
