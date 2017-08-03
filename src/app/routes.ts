@@ -10,60 +10,135 @@ import { LocationEditComponent } from './locations/location-edit/location-edit.c
 import { DataTableComponent } from './shared/data-table/data-table.component';
 import {FormElementsComponent} from './shared/form-elements/form-elements.component';
 
+import { NavigationComponent } from './shared/navigation/navigation.component';
+import { QuickStatusComponent } from './layout/quick-status/quick-status.component';
+import { AppInfoComponent } from './layout/app-info/app-info.component';
+
+
+const SidebarOutlets = [
+    {
+        path: '',
+        outlet: 'navigation',
+        component: NavigationComponent
+    },
+    {
+        outlet: 'quick-status',
+        path: '',
+        component: QuickStatusComponent
+    },
+    {
+        outlet: 'app-info',
+        path: '',
+        component: AppInfoComponent
+    }
+];
+
 export const appRoutes: Routes = [
     {
         path: 'index',
-        component: IndexComponent,
-        data: { title: 'Index page' }
+        children: [
+            {
+                path: '',
+                component: IndexComponent
+            },
+            ...SidebarOutlets
+        ]
     },
     {
         path: 'summary',
-        component: SummaryComponent,
-        data: {}
+        children: [
+            {
+                path: '',
+                component: SummaryComponent
+            },
+            ...SidebarOutlets
+        ]
     },
     {
         path: 'locations',
-        component: LocationsComponent,
-        data: {}
+        children: [
+            {
+                path: '',
+                component: LocationsComponent
+            },
+            ...SidebarOutlets
+        ]
     },
     {
         path: 'settings',
-        component: SettingsComponent,
-        data: {}
+        children: [
+            {
+                path: '',
+                component: SettingsComponent,
+            },
+            ...SidebarOutlets
+        ]
     },
     {
         path: 'locations/edit/:id',
-        component: LocationEditComponent,
         data: {
             mode: 'edit'
-        }
+        },
+        children: [
+            {
+                path: '',
+                component: LocationEditComponent
+            },
+            ...SidebarOutlets
+        ]
     },
     {
         path: 'locations/new',
-        component: LocationEditComponent,
         data: {
             mode: 'new'
-        }
+        },
+        children: [
+            {
+                path: '',
+                component: LocationEditComponent
+            },
+            ...SidebarOutlets
+        ]
     },
     {
-          path: 'table',
-          component: DataTableComponent,
-          data: {}
+        path: 'table',
+        children: [
+            {
+                path: '',
+                component: DataTableComponent,
+            },
+            ...SidebarOutlets
+        ]
     },
     {
         path: 'activities',
-        component: ActivityComponent,
-        data: {}
+        children: [
+            {
+                path: '',
+                component: ActivityComponent,
+            },
+            ...SidebarOutlets
+        ]
     },
     {
         path: 'devices',
-        component: DevicesComponent,
-        data: {}
+        children: [
+            {
+                path: '',
+                component: DevicesComponent,
+            },
+            ...SidebarOutlets
+        ]
     },
     {
         path: 'widgets',
-        component: WidgetsComponent,
-        data: {}
+        children: [
+            {
+                path: '',
+                component: WidgetsComponent,
+            },
+            ...SidebarOutlets
+        ]
     },
     { path: '',
         redirectTo: '/index',
