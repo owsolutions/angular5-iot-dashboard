@@ -145,11 +145,11 @@ export const appRoutes: Routes = [
         children: [
             {
                 path: '',
-                component: FormElementsComponent,    
+                component: FormElementsComponent,
             },
             ...SidebarOutlets
         ]
-        
+
     },
     { path: '',
         redirectTo: '/index',
