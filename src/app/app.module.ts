@@ -46,6 +46,7 @@ import { LocationRowComponent } from './locations/location-row/location-row.comp
 import { OutputPinViewComponent } from './shared/output-pin-view/output-pin-view.component';
 import { LocationEditComponent } from './locations/location-edit/location-edit.component';
 import { DataTableComponent } from './shared/data-table/data-table.component';
+import { FormElementsComponent } from './shared/form-elements/form-elements.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { DataTableComponent } from './shared/data-table/data-table.component';
     LocationRowComponent,
     OutputPinViewComponent,
     LocationEditComponent,
-    DataTableComponent
+    DataTableComponent,
+    FormElementsComponent
   ],
   imports: [
     appRoutesGenerator(),
