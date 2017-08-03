@@ -1,6 +1,6 @@
 .widget-box {
     display:flex;
-    width: 48%;
+    width: 100%;
     float: left;
     background-color:#00cb7a;
     
@@ -8,7 +8,7 @@
         transition: 0.3s all ease-in-out;
         background-color:#43A047;
     }
-    margin:7.5px;
+    margin:7.5px 0;
     padding:10px 0;
 
     .icon {
@@ -17,7 +17,6 @@
     }
 
     .info-box {
-        flex:2;
         font-size:16px;
         margin-left:15px;
         
