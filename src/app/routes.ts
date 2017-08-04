@@ -13,7 +13,7 @@ import { UsersComponent } from './users/users.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { QuickStatusComponent } from './layout/quick-status/quick-status.component';
 import { AppInfoComponent } from './layout/app-info/app-info.component';
-
+import { LoginComponent } from './membership/login/login.component';
 
 const SidebarOutlets = [
     {
@@ -151,7 +151,17 @@ export const appRoutes: Routes = [
         ]
 
     },
-    { path: '',
+    {
+        path: 'login',
+        children: [
+            {
+                path: '',
+                component: LoginComponent,
+            }
+        ]
+    },
+    {
+        path: '',
         redirectTo: '/index',
         pathMatch: 'full'
     }

@@ -47,6 +47,7 @@ import { LocationEditComponent } from './locations/location-edit/location-edit.c
 import { DataTableComponent } from './shared/data-table/data-table.component';
 import { FormElementsComponent } from './shared/form-elements/form-elements.component';
 import { UsersComponent } from './users/users.component';
+import { LoginComponent } from './membership/login/login.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { UsersComponent } from './users/users.component';
     LocationEditComponent,
     DataTableComponent,
     FormElementsComponent,
-    UsersComponent
+    UsersComponent,
+    LoginComponent
   ],
   imports: [
     appRoutesGenerator(),

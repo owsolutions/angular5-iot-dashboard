@@ -41,6 +41,11 @@ export class NavigationComponent {
       link: '/form-elements',
       icon: 'icon icon-wpforms',
       title: 'Form elements'
+    },
+    {
+      link: '/login',
+      icon: 'icon icon-logout',
+      title: 'Logout'
     }
   ];
 }
