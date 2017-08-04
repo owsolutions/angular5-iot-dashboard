@@ -1,0 +1,21 @@
+@import '../../injects';
+
+.page-container {
+    padding: 15px;
+}
+
+
+.cards {
+
+    .icon {
+        font-size: 48px;
+    }
+
+    .card {
+        color: $theme-inverse;
+        background: $theme-color;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+}

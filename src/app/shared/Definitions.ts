@@ -49,6 +49,12 @@ export interface IWidget {
   location: ILocation;
 }
 
+export interface IPermission {
+  title: string;
+  key: string;
+  group: string;
+}
+
 /**
  * Represents the application store structure
  */
@@ -59,6 +65,11 @@ export interface AppState {
   widgets: Array<IWidget>;
 }
 
+export interface IRole {
+  id: number;
+  title: string;
+  permissions: Array<IPermission>;
+}
 
 declare global {
   export interface Window {

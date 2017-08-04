@@ -47,7 +47,10 @@ import { LocationEditComponent } from './locations/location-edit/location-edit.c
 import { DataTableComponent } from './shared/data-table/data-table.component';
 import { FormElementsComponent } from './shared/form-elements/form-elements.component';
 import { UsersComponent } from './users/users.component';
-
+import { RolesComponent } from './roles/roles.component';
+import { UserSingleComponent } from './users/user-single/user-single.component';
+import { PermissionsService } from './permissions.service';
+import { RequestsService } from './requests.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,7 +91,9 @@ import { UsersComponent } from './users/users.component';
     LocationEditComponent,
     DataTableComponent,
     FormElementsComponent,
-    UsersComponent
+    UsersComponent,
+    RolesComponent,
+    UserSingleComponent
   ],
   imports: [
     appRoutesGenerator(),
@@ -98,7 +103,10 @@ import { UsersComponent } from './users/users.component';
     HttpModule,
     appReducersGenerator()
   ],
-  providers: [],
+  providers: [
+    PermissionsService,
+    RequestsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

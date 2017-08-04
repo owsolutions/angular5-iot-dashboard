@@ -28,6 +28,11 @@ export class NavigationComponent {
       title: 'Users'
     },
     {
+      link: '/roles',
+      icon: 'icon icon-key',
+      title: 'Roles & permissions'
+    },
+    {
       link: '/locations',
       icon: 'icon icon-location',
       title: 'locations'

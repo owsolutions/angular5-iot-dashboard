@@ -13,7 +13,8 @@ import { UsersComponent } from './users/users.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { QuickStatusComponent } from './layout/quick-status/quick-status.component';
 import { AppInfoComponent } from './layout/app-info/app-info.component';
-
+import { RolesComponent } from './roles/roles.component';
+import { UserSingleComponent } from './users/user-single/user-single.component';
 
 const SidebarOutlets = [
     {
@@ -30,20 +31,25 @@ const SidebarOutlets = [
         outlet: 'app-info',
         path: '',
         component: AppInfoComponent
-    }
+    },
+    
 ];
 
-export const appRoutes: Routes = [
-    {
-        path: 'index',
+function DefaultLayout (component: any, route: string) {
+    return {
+        path: route,
         children: [
             {
                 path: '',
-                component: IndexComponent
+                component: component
             },
             ...SidebarOutlets
         ]
-    },
+    };
+}
+
+export const appRoutes: Routes = [
+    DefaultLayout(IndexComponent, 'index'),
     {
         path: 'summary',
         children: [
@@ -111,6 +117,16 @@ export const appRoutes: Routes = [
         ]
     },
     {
+        'path': 'roles',
+        children: [
+            {
+                path: '',
+                component: RolesComponent
+            },
+            ...SidebarOutlets
+        ]
+    },
+    {
         path: 'activities',
         children: [
             {
@@ -151,6 +167,7 @@ export const appRoutes: Routes = [
         ]
 
     },
+    DefaultLayout(UserSingleComponent, 'user/:id'),
     { path: '',
         redirectTo: '/index',
         pathMatch: 'full'
