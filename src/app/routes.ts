@@ -1,3 +1,4 @@
+import { LoginComponent } from './membership/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { LocationsComponent } from './locations/locations.component';
@@ -10,158 +11,26 @@ import { LocationEditComponent } from './locations/location-edit/location-edit.c
 import { DataTableComponent } from './shared/data-table/data-table.component';
 import { FormElementsComponent } from './shared/form-elements/form-elements.component';
 import { UsersComponent } from './users/users.component';
-import { NavigationComponent } from './shared/navigation/navigation.component';
-import { QuickStatusComponent } from './layout/quick-status/quick-status.component';
-import { AppInfoComponent } from './layout/app-info/app-info.component';
-import { LoginComponent } from './membership/login/login.component';
-
-const SidebarOutlets = [
-    {
-        path: '',
-        outlet: 'navigation',
-        component: NavigationComponent
-    },
-    {
-        outlet: 'quick-status',
-        path: '',
-        component: QuickStatusComponent
-    },
-    {
-        outlet: 'app-info',
-        path: '',
-        component: AppInfoComponent
-    }
-];
+import { RolesComponent } from './roles/roles.component';
+import { UserSingleComponent } from './users/user-single/user-single.component';
+import layout from './layout/DefaultLayout';
 
 export const appRoutes: Routes = [
-    {
-        path: 'index',
-        children: [
-            {
-                path: '',
-                component: IndexComponent
-            },
-            ...SidebarOutlets
-        ]
-    },
-    {
-        path: 'summary',
-        children: [
-            {
-                path: '',
-                component: SummaryComponent
-            },
-            ...SidebarOutlets
-        ]
-    },
-    {
-        path: 'locations',
-        children: [
-            {
-                path: '',
-                component: LocationsComponent
-            },
-            ...SidebarOutlets
-        ]
-    },
-    {
-        path: 'settings',
-        children: [
-            {
-                path: '',
-                component: SettingsComponent,
-            },
-            ...SidebarOutlets
-        ]
-    },
-    {
-        path: 'locations/edit/:id',
-        data: {
-            mode: 'edit'
-        },
-        children: [
-            {
-                path: '',
-                component: LocationEditComponent
-            },
-            ...SidebarOutlets
-        ]
-    },
-    {
-        path: 'locations/new',
-        data: {
-            mode: 'new'
-        },
-        children: [
-            {
-                path: '',
-                component: LocationEditComponent
-            },
-            ...SidebarOutlets
-        ]
-    },
-    {
-        path: 'users',
-        children: [
-            {
-                path: '',
-                component: UsersComponent,
-            },
-            ...SidebarOutlets
-        ]
-    },
-    {
-        path: 'activities',
-        children: [
-            {
-                path: '',
-                component: ActivityComponent,
-            },
-            ...SidebarOutlets
-        ]
-    },
-    {
-        path: 'devices',
-        children: [
-            {
-                path: '',
-                component: DevicesComponent,
-            },
-            ...SidebarOutlets
-        ]
-    },
-    {
-        path: 'widgets',
-        children: [
-            {
-                path: '',
-                component: WidgetsComponent,
-            },
-            ...SidebarOutlets
-        ]
-    },
-    {
-        path: 'form-elements',
-        children: [
-            {
-                path: '',
-                component: FormElementsComponent,
-            },
-            ...SidebarOutlets
-        ]
-
-    },
-    {
-        path: 'login',
-        children: [
-            {
-                path: '',
-                component: LoginComponent,
-            }
-        ]
-    },
-    {
-        path: '',
+    layout (IndexComponent, 'index'),
+    layout (SummaryComponent, 'summary'),
+    layout (LocationsComponent, 'locations'),
+    layout (SettingsComponent, 'settings'),
+    layout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
+    layout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'new'}}),
+    layout (UsersComponent, 'users'),
+    layout (RolesComponent, 'roles'),
+    layout (LoginComponent, 'login'),
+    layout (ActivityComponent, 'activities'),
+    layout (DevicesComponent, 'devices'),
+    layout (WidgetsComponent, 'widgets'),
+    layout (FormElementsComponent, 'form-elements'),
+    layout (UserSingleComponent, 'user/:id'),
+    { path: '',
         redirectTo: '/index',
         pathMatch: 'full'
     }

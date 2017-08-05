@@ -2,6 +2,8 @@ import { TestBed, inject } from '@angular/core/testing';
 import { StoreModule } from '@ngrx/store';
 import { appReducersGenerator } from './app.reducers';
 import { CommunicateService } from './communicate.service';
+import { RequestsService } from './requests.service';
+import { PermissionsService } from './permissions.service';
 
 describe('CommunicateService', () => {
   beforeEach(() => {
@@ -9,7 +11,11 @@ describe('CommunicateService', () => {
       imports: [
         appReducersGenerator()
       ],
-      providers: [CommunicateService]
+      providers: [
+        CommunicateService,
+        RequestsService,
+        PermissionsService
+      ]
     });
   });
 

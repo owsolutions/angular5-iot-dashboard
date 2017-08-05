@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+declare var $: any;
 
 @Component({
   selector: 'app-users',
@@ -6,17 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-
-
-  public schema: any = {
+    public schema: any = {
       'filterColumns': function filterColumns (data: Array<any>): Array<any> {
-          console.log(data);
           return data.map((item: Array<any>) => {
+              const id = item['id'];
               return [
                   item['id'],
                   item['firstname'],
                   item['lastname'],
-                  item['email']
+                  item['email'],
+                  `<a class='btn btn-primary' data-single-id='${id}'>View</a>`
+
               ];
           });
       },
@@ -25,12 +27,24 @@ export class UsersComponent implements OnInit {
           { title: 'Firstname'},
           { title: 'Lastname'},
           { title: 'Email'},
+          { title: 'actions'}
       ]
   };
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  setupEvents () {
+      const ref = this;
+      if (typeof $ !== 'undefined') {
+        $('body').on('click', 'a[data-single-id]', function () {
+            const key = $(this).attr('data-single-id');
+            ref.router.navigateByUrl('/user/' + key);
+        });
+      }
+  }
 
   ngOnInit() {
+      this.setupEvents();
   }
 
 }

@@ -5,6 +5,8 @@ import { SelectInputComponent } from '../../forms/select-input/select-input.comp
 import { TextInputComponent } from '../../forms/text-input/text-input.component';
 import { appReducersGenerator } from '../../app.reducers';
 import { CommunicateService } from '../../communicate.service';
+import { RequestsService } from '../../requests.service';
+import { PermissionsService } from '../../permissions.service';
 
 describe('HelperBoxComponent', () => {
   let component: HelperBoxComponent;
@@ -21,7 +23,11 @@ describe('HelperBoxComponent', () => {
       imports: [
         appReducersGenerator()
       ],
-      providers: [CommunicateService]
+      providers: [
+        CommunicateService,
+        RequestsService,
+        PermissionsService
+      ]
     })
     .compileComponents();
   }));

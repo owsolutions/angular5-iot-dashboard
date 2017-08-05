@@ -47,6 +47,11 @@ import { LocationEditComponent } from './locations/location-edit/location-edit.c
 import { DataTableComponent } from './shared/data-table/data-table.component';
 import { FormElementsComponent } from './shared/form-elements/form-elements.component';
 import { UsersComponent } from './users/users.component';
+import { RolesComponent } from './roles/roles.component';
+import { UserSingleComponent } from './users/user-single/user-single.component';
+import { PermissionsService } from './permissions.service';
+import { RequestsService } from './requests.service';
+import { CheckboxInputComponent } from './forms/checkbox-input/checkbox-input.component';
 import { LoginComponent } from './membership/login/login.component';
 
 @NgModule({
@@ -90,6 +95,9 @@ import { LoginComponent } from './membership/login/login.component';
     DataTableComponent,
     FormElementsComponent,
     UsersComponent,
+    RolesComponent,
+    UserSingleComponent,
+    CheckboxInputComponent,
     LoginComponent
   ],
   imports: [
@@ -100,7 +108,10 @@ import { LoginComponent } from './membership/login/login.component';
     HttpModule,
     appReducersGenerator()
   ],
-  providers: [],
+  providers: [
+    PermissionsService,
+    RequestsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

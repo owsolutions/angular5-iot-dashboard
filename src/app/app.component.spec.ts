@@ -4,6 +4,8 @@ import { MockComponent } from 'ng2-mock-component';
 import { appReducersGenerator } from '../app/app.reducers';
 import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { RequestsService } from './requests.service';
+import { PermissionsService } from './permissions.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -17,6 +19,10 @@ describe('AppComponent', () => {
       imports: [
         appReducersGenerator(),
         RouterTestingModule
+      ],
+      providers: [
+        RequestsService,
+        PermissionsService
       ]
     }).compileComponents();
   }));

@@ -1,6 +1,9 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { CommunicateService } from './communicate.service';
 import { PaginationRequestService } from './pagination.service';
+import { RequestsService } from './requests.service';
+import { PermissionsService } from './permissions.service';
+
 import { StoreModule } from '@ngrx/store';
 
 describe('PaginationService', () => {
@@ -8,7 +11,9 @@ describe('PaginationService', () => {
     TestBed.configureTestingModule({
       providers: [
         PaginationRequestService,
-        CommunicateService
+        CommunicateService,
+        RequestsService,
+        PermissionsService
       ],
       imports: [
         StoreModule.provideStore({})

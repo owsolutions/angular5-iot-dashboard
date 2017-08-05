@@ -5,7 +5,8 @@ import { UPDATE_DEVICE } from './devices/devices.reducer';
 import * as devicesMocks from './devices/devices.mock';
 import * as locationsMocks from './locations/locations.mock';
 import * as activityMocks from './activity/activity-widget/activity.mock';
-import { IDevice, ILocation, AppState, IActivity, IWidget, IPin, ActivityTypes } from './shared/Definitions';
+import { IDevice, ILocation, AppState, IRole, IActivity, IWidget, IPin, ActivityTypes } from './shared/Definitions';
+import { RequestsService } from './requests.service';
 import { sample, random } from 'lodash';
 
 @Injectable()
@@ -19,10 +20,11 @@ export class CommunicateService {
   public socket: any;
   public devices: Observable<Array<IDevice>>;
   public locations: Observable<Array<ILocation>>;
+  public roles: Observable<Array<IRole>>;
   public activities: Observable<Array<IActivity>>;
   public widgets: Observable<Array<IWidget>>;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private requests: RequestsService) {
     this.mock ();
   }
 
@@ -46,8 +48,19 @@ export class CommunicateService {
         payload: this.makeMockWidget(sample(devices), sample(locations))
       });
     }
+
+    this.getRoles();
   }
 
+  async getRoles () {
+    const roles = await this.requests.getRoles();
+    for (const role of roles) {
+      this.store.dispatch({
+        type: 'INSERT_ROLE',
+        payload: role
+      });
+    }
+  }
 
   makeMockWidget(device: IDevice, location: ILocation): IWidget {
     const widget: IWidget = {

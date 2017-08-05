@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PaginationRequestService } from '../../pagination.service';
 import { DataTableComponent } from './data-table.component';
 import { CommunicateService } from '../../communicate.service';
+import { RequestsService } from '../../requests.service';
+import { PermissionsService } from '../../permissions.service';
 import { StoreModule } from '@ngrx/store';
 
 describe('DataTableComponent', () => {
@@ -13,7 +15,9 @@ describe('DataTableComponent', () => {
       declarations: [ DataTableComponent ],
       providers: [
         PaginationRequestService,
-        CommunicateService
+        CommunicateService,
+        PermissionsService,
+        RequestsService
       ],
       imports: [
         StoreModule.provideStore({})

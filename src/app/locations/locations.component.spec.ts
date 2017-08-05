@@ -2,11 +2,13 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { StoreModule } from '@ngrx/store';
 import { PageHeaderComponent } from '../shared/page-header/page-header.component';
+import { RequestsService } from '../requests.service';
 import { LocationsComponent } from './locations.component';
 import { PlacesComponent } from './../index/places/places.component';
 import { CommunicateService } from '../communicate.service';
 import { appReducersGenerator } from '../app.reducers';
 import { ActivatedRoute } from '@angular/router';
+import { PermissionsService } from '../permissions.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
@@ -34,7 +36,9 @@ describe('LocationsComponent', () => {
       schemas: [NO_ERRORS_SCHEMA],
       providers: [
         CommunicateService,
-        MockActivatedRoute
+        MockActivatedRoute,
+        RequestsService,
+        PermissionsService
       ]
     })
     .compileComponents();

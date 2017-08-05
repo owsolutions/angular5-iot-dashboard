@@ -8,7 +8,8 @@ import { DeviceSvgComponent } from '../shared/device-svg/device-svg.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { appReducersGenerator } from '../app.reducers';
 import { CommunicateService } from '../communicate.service';
-
+import { RequestsService } from '../requests.service';
+import { PermissionsService } from '../permissions.service';
 
 describe('DevicesComponent', () => {
   let component: DevicesComponent;
@@ -30,7 +31,9 @@ describe('DevicesComponent', () => {
         NO_ERRORS_SCHEMA
       ],
       providers: [
-        CommunicateService
+        CommunicateService,
+        RequestsService,
+        PermissionsService
       ]
     })
     .compileComponents();

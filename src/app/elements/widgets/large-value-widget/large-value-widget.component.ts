@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { random } from 'lodash';
 @Component({
   /* tslint:disable-next-line */
   selector: '[app-large-value-widget]',
@@ -8,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LargeValueWidgetComponent implements OnInit {
 
+  private value: Number;
+
   constructor() { }
 
   ngOnInit() {
+    this.value = random(20, 90);
   }
 
 }
