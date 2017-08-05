@@ -4,6 +4,8 @@ import { CommunicateService } from './../../communicate.service';
 import { appReducersGenerator } from '../../app.reducers';
 import { RequestsService } from '../../requests.service';
 import { PermissionsService } from '../../permissions.service';
+import { MocksService } from '../../mocks.service';
+import { ActionsService } from '../../actions.service';
 
 describe('OutputPinComponent', () => {
   let component: OutputPinComponent;
@@ -15,7 +17,9 @@ describe('OutputPinComponent', () => {
       providers: [
         CommunicateService,
         RequestsService,
-        PermissionsService
+        PermissionsService,
+        ActionsService,
+        MocksService
       ],
       imports: [
         appReducersGenerator()

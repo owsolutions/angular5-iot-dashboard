@@ -1,6 +1,6 @@
 <app-page-header title="Edit location" icon="icon icon-camera-alt"></app-page-header>
 
-<div class="body">
+<div class="body" *ngIf="location">
 
   <app-forms-text-input
     placeholder="Location name"
@@ -20,8 +20,6 @@
     (onChange)="onInputChange('icon', $event)"
     >
   </app-forms-select-input>
-
-
 
   <a (click)="formSubmit()" class="btn btn-primary" *ngIf="mode == 'new'">Create new location</a>
   <a (click)="formSubmit()" class="btn btn-primary" *ngIf="mode == 'edit'">Edit location</a>

@@ -1,10 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { PaginationRequestService } from '../../pagination.service';
 import { DataTableComponent } from './data-table.component';
 import { CommunicateService } from '../../communicate.service';
 import { RequestsService } from '../../requests.service';
 import { PermissionsService } from '../../permissions.service';
 import { StoreModule } from '@ngrx/store';
+import { MocksService } from '../../mocks.service';
+import { ActionsService } from '../../actions.service';
+
 
 describe('DataTableComponent', () => {
   let component: DataTableComponent;
@@ -14,10 +16,11 @@ describe('DataTableComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ DataTableComponent ],
       providers: [
-        PaginationRequestService,
         CommunicateService,
         PermissionsService,
-        RequestsService
+        RequestsService,
+        ActionsService,
+        MocksService
       ],
       imports: [
         StoreModule.provideStore({})

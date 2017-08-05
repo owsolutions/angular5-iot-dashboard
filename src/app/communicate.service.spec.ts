@@ -4,6 +4,7 @@ import { appReducersGenerator } from './app.reducers';
 import { CommunicateService } from './communicate.service';
 import { RequestsService } from './requests.service';
 import { PermissionsService } from './permissions.service';
+import { MocksService } from './mocks.service';
 
 describe('CommunicateService', () => {
   beforeEach(() => {
@@ -14,7 +15,8 @@ describe('CommunicateService', () => {
       providers: [
         CommunicateService,
         RequestsService,
-        PermissionsService
+        PermissionsService,
+        MocksService
       ]
     });
   });

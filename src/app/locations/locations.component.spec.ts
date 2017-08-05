@@ -9,6 +9,8 @@ import { CommunicateService } from '../communicate.service';
 import { appReducersGenerator } from '../app.reducers';
 import { ActivatedRoute } from '@angular/router';
 import { PermissionsService } from '../permissions.service';
+import { MocksService } from '../mocks.service';
+import { ActionsService } from '../actions.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
@@ -38,7 +40,9 @@ describe('LocationsComponent', () => {
         CommunicateService,
         MockActivatedRoute,
         RequestsService,
-        PermissionsService
+        PermissionsService,
+        MocksService,
+        ActionsService
       ]
     })
     .compileComponents();

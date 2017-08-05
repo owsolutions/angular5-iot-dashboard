@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { handleMockTableRequests } from './data-table-mock';
 import { IPagination, createPagiantion } from './data-table-definitions';
-import { PaginationRequestService } from '../../pagination.service';
 import { getDataTable, ITableObservable } from './data-table.normalizer';
 
 declare var $: any;
@@ -13,14 +11,12 @@ declare var $: any;
 })
 export class DataTableComponent implements OnInit {
   @Input('schema') public schema = <ITableObservable>null;
-  constructor(private requests: PaginationRequestService) {
-
+  constructor() {
   }
 
   ngOnInit() {
     if (this.schema) {
-      const paginator = (pagination) => this.requests.Paginate(pagination, this.schema.endPoint);
-      const structure = getDataTable(paginator, this.schema);
+      const structure = getDataTable(this.schema);
       const table = $('#example').DataTable(structure);
     }
   }

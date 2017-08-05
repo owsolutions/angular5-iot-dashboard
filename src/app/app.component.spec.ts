@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RequestsService } from './requests.service';
 import { PermissionsService } from './permissions.service';
+import { MocksService } from './mocks.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -22,7 +23,8 @@ describe('AppComponent', () => {
       ],
       providers: [
         RequestsService,
-        PermissionsService
+        PermissionsService,
+        MocksService
       ]
     }).compileComponents();
   }));

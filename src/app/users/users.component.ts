@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RequestsService } from '../requests.service';
 declare var $: any;
 
 @Component({
@@ -8,8 +9,11 @@ declare var $: any;
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-    public schema: any = {
-      'filterColumns': function filterColumns (data: Array<any>): Array<any> {
+  public schema: any = { };
+
+  constructor(private router: Router, private requests: RequestsService) {
+    this.schema = {
+        'filterColumns': function filterColumns (data: Array<any>): Array<any> {
           return data.map((item: Array<any>) => {
               const id = item['id'];
               return [
@@ -18,7 +22,6 @@ export class UsersComponent implements OnInit {
                   item['lastname'],
                   item['email'],
                   `<a class='btn btn-primary' data-single-id='${id}'>View</a>`
-
               ];
           });
       },
@@ -28,10 +31,12 @@ export class UsersComponent implements OnInit {
           { title: 'Lastname'},
           { title: 'Email'},
           { title: 'actions'}
-      ]
-  };
-
-  constructor(private router: Router) { }
+      ],
+      paginator: async (aoData: any, url: string = ''): Promise<any> => {
+        return this.requests.getUsers(+aoData.start, +aoData.length);
+      }
+    };
+  }
 
   setupEvents () {
       const ref = this;

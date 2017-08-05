@@ -7,6 +7,7 @@ import { CommunicateService } from '../../communicate.service';
 import { appReducersGenerator } from '../../app.reducers';
 import { ActivatedRoute, Data } from '@angular/router';
 import { PermissionsService } from '../../permissions.service';
+import { MocksService } from '../../mocks.service';
 
 describe('LocationEditComponent', () => {
   let component: LocationEditComponent;
@@ -19,6 +20,7 @@ describe('LocationEditComponent', () => {
         CommunicateService,
         RequestsService,
         PermissionsService,
+        MocksService,
         {
           provide: ActivatedRoute,
           useValue: {
