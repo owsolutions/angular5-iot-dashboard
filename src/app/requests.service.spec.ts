@@ -1,11 +1,16 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { RequestsService } from './requests.service';
-
+import { PermissionsService } from './permissions.service';
+import { MocksService } from './mocks.service';
 describe('RequestsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [RequestsService]
+      providers: [
+        RequestsService,
+        PermissionsService,
+        MocksService
+      ]
     });
   });
 

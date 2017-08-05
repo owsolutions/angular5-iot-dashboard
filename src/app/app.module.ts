@@ -52,6 +52,10 @@ import { UserSingleComponent } from './users/user-single/user-single.component';
 import { PermissionsService } from './permissions.service';
 import { RequestsService } from './requests.service';
 import { CheckboxInputComponent } from './forms/checkbox-input/checkbox-input.component';
+import { LoginComponent } from './membership/login/login.component';
+import { MocksService } from './mocks.service';
+import { ActionsService } from './actions.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,7 +99,8 @@ import { CheckboxInputComponent } from './forms/checkbox-input/checkbox-input.co
     UsersComponent,
     RolesComponent,
     UserSingleComponent,
-    CheckboxInputComponent
+    CheckboxInputComponent,
+    LoginComponent
   ],
   imports: [
     appRoutesGenerator(),
@@ -107,7 +112,9 @@ import { CheckboxInputComponent } from './forms/checkbox-input/checkbox-input.co
   ],
   providers: [
     PermissionsService,
-    RequestsService
+    RequestsService,
+    MocksService,
+    ActionsService
   ],
   bootstrap: [AppComponent]
 })

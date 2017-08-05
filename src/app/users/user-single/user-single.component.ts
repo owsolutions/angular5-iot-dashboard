@@ -10,6 +10,6 @@ export class UserSingleComponent implements OnInit {
 
   }
   ngOnInit () {
-    
+
   }
 }

@@ -1,3 +1,4 @@
+import { LoginComponent } from './membership/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { LocationsComponent } from './locations/locations.component';
@@ -12,22 +13,27 @@ import { FormElementsComponent } from './shared/form-elements/form-elements.comp
 import { UsersComponent } from './users/users.component';
 import { RolesComponent } from './roles/roles.component';
 import { UserSingleComponent } from './users/user-single/user-single.component';
-import DefaultLayout from './layout/DefaultLayout';
+
+import layout from './layout/DefaultLayout';
 
 export const appRoutes: Routes = [
-    DefaultLayout(IndexComponent, 'index'),
-    DefaultLayout(SummaryComponent, 'summary'),
-    DefaultLayout(LocationsComponent, 'locations'),
-    DefaultLayout(SettingsComponent, 'settings'),
-    DefaultLayout(LocationEditComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
-    DefaultLayout(LocationEditComponent, 'locations/edit/:id', {data: {mode: 'new'}}),
-    DefaultLayout(UsersComponent, 'users'),
-    DefaultLayout(RolesComponent, 'roles'),
-    DefaultLayout(ActivityComponent, 'activities'),
-    DefaultLayout(DevicesComponent, 'devices'),
-    DefaultLayout(WidgetsComponent, 'widgets'),
-    DefaultLayout(FormElementsComponent, 'form-elements'),
-    DefaultLayout(UserSingleComponent, 'user/:id'),
+    layout (IndexComponent, 'index'),
+    layout (SummaryComponent, 'summary'),
+    layout (LocationsComponent, 'locations'),
+    layout (SettingsComponent, 'settings'),
+    layout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
+    layout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'new'}}),
+    layout (UsersComponent, 'users'),
+    layout (RolesComponent, 'roles'),
+    layout (ActivityComponent, 'activities'),
+    layout (DevicesComponent, 'devices'),
+    layout (WidgetsComponent, 'widgets'),
+    layout (FormElementsComponent, 'form-elements'),
+    layout (UserSingleComponent, 'user/:id'),
+    {
+        path: 'login',
+        component: LoginComponent
+    },
     { path: '',
         redirectTo: '/index',
         pathMatch: 'full'

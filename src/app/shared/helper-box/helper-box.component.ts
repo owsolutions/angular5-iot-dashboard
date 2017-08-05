@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ChangeDetectorRef, OnDestroy, OnChanges, EventEmitter, Output } from '@angular/core';
 import { IDevice, IPin, ILocation, IWidget, AppState, IWidgetForm } from '../../shared/Definitions';
-import { CommunicateService } from '../../communicate.service';
+import { ActionsService } from '../../actions.service';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -20,7 +20,7 @@ export class HelperBoxComponent implements OnInit, OnDestroy, OnChanges {
     name: '',
     location: ''
   };
-  constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>, private communications: CommunicateService) {
+  constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>, private actions: ActionsService) {
     // Initialize private variables
   }
 
@@ -36,7 +36,7 @@ export class HelperBoxComponent implements OnInit, OnDestroy, OnChanges {
 
 
   async ngOnChanges(changes: any) {
-    const widget = (await this.communications.findWidget(this.device, this.pin) as IWidget);
+    const widget = (await this.actions.findWidget(this.device, this.pin) as IWidget);
     if (!widget) {
       return this.resetForm();
     }
@@ -60,7 +60,7 @@ export class HelperBoxComponent implements OnInit, OnDestroy, OnChanges {
       return void 0;
     }
     const args = this.createWidgetObject();
-    this.communications.createWidgets(args);
+    this.actions.createWidgets(args);
   }
 
 

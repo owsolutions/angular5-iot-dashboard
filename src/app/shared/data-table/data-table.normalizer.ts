@@ -9,7 +9,7 @@ export interface ITableObservable {
     columns: Array<IColumn>;
     page: number;
     onContentChange: Function;
-    endPoint: string;
+    paginator: Function;
 }
 
 function castApiIntoDataTable (response) {
@@ -22,7 +22,7 @@ function castApiIntoDataTable (response) {
 }
 
 
-export function getDataTable (paginator: Function, config: ITableObservable) {
+export function getDataTable (config: ITableObservable) {
     return {
         displayStart: config.page ? (config.page - 1) * 10 : 0,
         columns: config.columns,
@@ -36,7 +36,7 @@ export function getDataTable (paginator: Function, config: ITableObservable) {
         'fnServerData': async ( sSource, aoData, fnCallback ) => {
             try {
                 const pagination = createPagiantion(aoData);
-                let response: any = await paginator(pagination);
+                let response: any = await config.paginator(pagination);
                 response = castApiIntoDataTable(response);
                 if (config.filterColumns) {
                     response.data = config.filterColumns(response.data);

@@ -6,6 +6,10 @@ import { MockComponent } from 'ng2-mock-component';
 import { CommunicateService } from '../../communicate.service';
 import { appReducersGenerator } from '../../app.reducers';
 import { IWidget } from '../Definitions';
+import { RequestsService } from '../../requests.service';
+import { PermissionsService } from '../../permissions.service';
+import { MocksService } from '../../mocks.service';
+import { ActionsService } from '../../actions.service';
 
 function mockWidget (): IWidget {
   const pin = {
@@ -20,7 +24,8 @@ function mockWidget (): IWidget {
     },
     location: {
       icon: 'icon',
-      name: 'Basket'
+      name: 'Basket',
+      id: 1
     },
     name: 'Test widget',
     pin
@@ -38,7 +43,11 @@ describe('SwitchWidgetsComponent', () => {
         OutputPinComponent
       ],
       providers: [
-        CommunicateService
+        CommunicateService,
+        RequestsService,
+        PermissionsService,
+        MocksService,
+        ActionsService
       ],
       imports: [
         appReducersGenerator()

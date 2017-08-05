@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IDevice, IPin } from '../Definitions';
-import { CommunicateService } from '../../communicate.service';
+import { ActionsService } from '../../actions.service';
 import { IActivity, ActivityTypes } from '../Definitions';
 import { random } from 'lodash';
 
@@ -16,7 +16,7 @@ export class OutputPinComponent implements OnInit {
   @Input('device') public device = <IDevice>null;
   @Input('switchSize') public switchSize = 'bigswitch';
 
-  constructor(public communicate: CommunicateService) { }
+  constructor(public actions: ActionsService) { }
 
   ngOnInit() {
     // empty for now.
@@ -41,13 +41,13 @@ export class OutputPinComponent implements OnInit {
 
   changeAnalogData($event: any, device: IDevice, pin: IPin) {
     const newValue = $event.target.value;
-    this.communicate.triggerDeviceChange($event, device, pin, newValue);
+    this.actions.triggerDeviceChange($event, device, pin, newValue);
     return newValue;
   }
 
   changeDigitalData($event, device: IDevice, pin: IPin) {
     const newValue = $event.target.checked ? 'ON' : 'OFF';
-    this.communicate.triggerDeviceChange($event, device, pin, newValue);
+    this.actions.triggerDeviceChange($event, device, pin, newValue);
     return newValue;
   }
 }
