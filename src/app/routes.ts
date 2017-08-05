@@ -1,3 +1,4 @@
+import { LoginComponent } from './membership/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { LocationsComponent } from './locations/locations.component';
@@ -23,6 +24,7 @@ export const appRoutes: Routes = [
     layout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'new'}}),
     layout (UsersComponent, 'users'),
     layout (RolesComponent, 'roles'),
+    layout (LoginComponent, 'login'),
     layout (ActivityComponent, 'activities'),
     layout (DevicesComponent, 'devices'),
     layout (WidgetsComponent, 'widgets'),
