@@ -2,6 +2,7 @@ import { devicesReducer } from './devices/devices.reducer';
 import { locationsReducer } from './locations/locations.reducer';
 import { activitiesReducer } from './activity/activity.reducer';
 import { widgetsReducer } from './widgets/widgets.reducer';
+import { rolesReducer } from './roles/roles.reducer';
 import { StoreModule } from '@ngrx/store';
 
 export function appReducersGenerator () {
@@ -9,6 +10,7 @@ export function appReducersGenerator () {
         devices: devicesReducer,
         locations: locationsReducer,
         activities: activitiesReducer,
-        widgets: widgetsReducer
+        widgets: widgetsReducer,
+        roles: rolesReducer
     });
 }

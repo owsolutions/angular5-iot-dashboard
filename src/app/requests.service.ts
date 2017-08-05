@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
 import { IRole } from './shared/Definitions';
+import { PermissionsService } from './permissions.service';
+
 @Injectable()
 export class RequestsService {
 
-  constructor() { }
+  constructor(private permissions: PermissionsService) { }
 
   async getRoles (): Promise<Array<IRole>> {
     return [
       {
-        permissions: [],
+        permissions: [
+          this.permissions.findByKey('DEVICES_PIN_CHANGE'),
+          this.permissions.findByKey('UPDATE_USER')
+        ],
         id: 1,
         title: 'Content Moderator'
       },
