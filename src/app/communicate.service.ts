@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { UPDATE_DEVICE } from './devices/devices.reducer';
-import * as devicesMocks from './devices/devices.mock';
-import * as locationsMocks from './locations/locations.mock';
-import * as activityMocks from './activity/activity-widget/activity.mock';
+
+
+
 import { IDevice, ILocation, AppState, IRole, IActivity, IWidget, IPin, ActivityTypes } from './shared/Definitions';
 import { RequestsService } from './requests.service';
 import { sample, random } from 'lodash';
@@ -25,52 +25,67 @@ export class CommunicateService {
   public widgets: Observable<Array<IWidget>>;
 
   constructor(private store: Store<AppState>, private requests: RequestsService) {
-    this.mock ();
+    
+    this.getDevices();
+    this.getRoles();
+    this.getLocations();
+    this.getActivities();
+    this.getWidgets();
+
   }
 
-  mock () {
-    const devices = devicesMocks.generateMock();
-    this.store.dispatch({type: UPDATE_DEVICE, payload: devices[0]});
-    this.store.dispatch({type: UPDATE_DEVICE, payload: devices[1]});
 
-    const locations = locationsMocks.generateMock();
-    for (const location of locations) {
-      this.store.dispatch({type: 'UPDATE_LOCATION', payload: location});
-    }
-
-    const activities = activityMocks.generateMock(5);
-    for (const activity of activities) {
-      this.store.dispatch({type: 'UPDATE_ACTIVITY', payload: activity});
-    }
-    for (let i = 1; i <= 6; i ++) {
+  async getWidgets () {
+    const collections = await this.requests.getWidgets();
+    for (const item of collections) {
       this.store.dispatch({
         type: 'UPDATE_WIDGET',
-        payload: this.makeMockWidget(sample(devices), sample(locations))
+        payload: item
       });
     }
+  }
 
-    this.getRoles();
+  async getActivities () {
+    const collections = await this.requests.getActivities();
+    for (const item of collections) {
+      this.store.dispatch({
+        type: 'UPDATE_ACTIVITY',
+        payload: item
+      });
+    }
+  }
+
+  async getDevices () {
+    const collections = await this.requests.getDevices();
+    for (const item of collections) {
+      this.store.dispatch({
+        type: UPDATE_DEVICE,
+        payload: item
+      });
+    }
+  }
+
+  async getLocations () {
+    const collections = await this.requests.getLocations();
+    for (const item of collections) {
+      this.store.dispatch({
+        type: 'UPDATE_LOCATION',
+        payload: item
+      });
+    }
   }
 
   async getRoles () {
-    const roles = await this.requests.getRoles();
-    for (const role of roles) {
+    const collections = await this.requests.getRoles();
+    for (const item of collections) {
       this.store.dispatch({
         type: 'INSERT_ROLE',
-        payload: role
+        payload: item
       });
     }
   }
 
-  makeMockWidget(device: IDevice, location: ILocation): IWidget {
-    const widget: IWidget = {
-      device: device,
-      location: location,
-      name : sample(['Cloud', 'Lamp', 'Roberry']),
-      pin: sample(device.pins)
-    };
-    return widget;
-  }
+
 
   triggerDeviceChange ($event: any, device: IDevice, pin: IPin, newValue: any) {
     this.notfityActivity({
@@ -100,13 +115,7 @@ export class CommunicateService {
       });
     });
   }
-  /**
-   * Inserts a new device into store
-   */
-  insertDevice () {
-    const devices = devicesMocks.generateMock();
-    this.store.dispatch({type: 'INSERT_DEVICE' , payload: devices[0]});
-  }
+
 
   /**
    * When a new event happens on system, you can call this function
