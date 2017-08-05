@@ -35,10 +35,12 @@ export class UsersComponent implements OnInit {
 
   setupEvents () {
       const ref = this;
-      $('body').on('click', 'a[data-single-id]', function () {
-          const key = $(this).attr('data-single-id');
-          ref.router.navigateByUrl('/user/' + key);
-      });
+      if (typeof $ !== 'undefined') {
+        $('body').on('click', 'a[data-single-id]', function () {
+            const key = $(this).attr('data-single-id');
+            ref.router.navigateByUrl('/user/' + key);
+        });
+      }
   }
 
   ngOnInit() {

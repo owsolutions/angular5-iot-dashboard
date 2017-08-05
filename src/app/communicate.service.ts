@@ -54,7 +54,6 @@ export class CommunicateService {
 
   async getRoles () {
     const roles = await this.requests.getRoles();
-    console.log('>', roles);
     for (const role of roles) {
       this.store.dispatch({
         type: 'INSERT_ROLE',
