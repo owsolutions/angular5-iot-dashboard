@@ -29,4 +29,8 @@ export class RequestsService {
     return this.mocks.Roles();
   }
 
+  async getUsers (offset, limit): Promise<any> {
+    return this.mocks.Users({offset, limit});
+  }
+
 }

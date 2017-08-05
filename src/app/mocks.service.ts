@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IActivity, IRole, ActivityTypes, IDevice, ILocation, IWidget, IPin } from './shared/Definitions';
 import { times, random, sample } from 'lodash';
+import faker from 'faker';
 
 /**
  * All mocks data for application sits here. In general, data doesn't belong to components,
@@ -156,5 +157,21 @@ export class MocksService {
   }
 
 
+
+  Users ({limit, offset}) {
+    return {
+        table: {
+            count: 50 + +limit
+        },
+        data: times(limit, (index) => {
+            return {
+                'id' : index + +offset + 1,
+                'firstname': faker.name.findName().split(' ')[0],
+                'lastname': faker.name.findName().split(' ')[0],
+                'email': faker.internet.email()
+            };
+        })
+    };
+    }
 
 }
