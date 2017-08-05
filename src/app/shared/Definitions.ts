@@ -53,7 +53,6 @@ export interface IPermission {
   title: string;
   key: string;
   group: string;
-  checkLabel: Array<string>;
 }
 
 /**

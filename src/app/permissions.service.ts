@@ -11,20 +11,17 @@ export class PermissionsService {
       {
         title: 'Change devices pin',
         group: 'DEVICES',
-        key: 'DEVICES_PIN_CHANGE',
-        checkLabel: ['ON','OFF']
+        key: 'DEVICES_PIN_CHANGE'
       },
       {
         title: 'Create new user',
         group: 'USERS',
-        key: 'CREATE_USER',
-        checkLabel: ['YES','NO']
+        key: 'CREATE_USER'
       },
       {
         title: 'Update the user',
         group: 'USERS',
-        key: 'UPDATE_USER',
-        checkLabel: ['0','1']
+        key: 'UPDATE_USER'
       }
     ];
   }
