@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { IActivity, ActivityTypes } from './shared/Definitions';
+import { IActivity, IRole, ActivityTypes, IDevice, ILocation, IWidget, IPin } from './shared/Definitions';
+import { times, random, sample } from 'lodash';
 
 /**
  * All mocks data for application sits here. In general, data doesn't belong to components,
@@ -67,6 +68,93 @@ export class MocksService {
     ];
 
   }
+
+  Locations(): Array<ILocation> {
+    return [
+        {id: 1, name: 'Kitchen' , 'icon': 'kitchen.svg'},
+        {id: 2, name: 'Bathroom' , 'icon': 'bathroom.svg'},
+        {id: 3, name: 'Master bedrrom', 'icon': 'master-bedroom.svg'},
+        {id: 4, name: 'Kitchen', 'icon': 'kitchen.svg'},
+        {id: 5, name: 'Bathroom', 'icon': 'master-bedroom.svg'}
+    ];
+  }
+
+  Roles (): Array<IRole> {
+    return [
+        {
+            permissions: [
+                {
+                    title: 'Change devices pin',
+                    group: 'DEVICES',
+                    key: 'DEVICES_PIN_CHANGE'
+                },
+                {
+                    title: 'Create new user',
+                    group: 'USERS',
+                    key: 'CREATE_USER'
+                }
+            ],
+            id: 1,
+            title: 'Content Moderator'
+        },
+        {
+            permissions: [],
+            id: 2,
+            title: 'Higher manager'
+        },
+        {
+            permissions: [],
+            id: 3,
+            title: 'Installler'
+        }
+    ]
+  }
+
+
+  Devices (): Array<IDevice> {
+    function value () {
+        switch (random(0, 1)) {
+            case 0:
+                return random(0, 1) ? 'ON' : 'OFF';
+            case 1:
+                return random(1000, 9000) * 0.001;
+        }
+    }
+    function createPins (id: Number = 2): Array<IPin> {
+        return times(8 , (index) => {
+            return {
+                id: index,
+                type: random (0, 1) === 1 ? 'input' : 'output',
+                value: value()
+            };
+        });
+    }
+    function createDevices (id: Number = 3): Array<IDevice> {
+        return times(id , () => {
+            return {
+                uniqueid: 'dev-' + random(1111, 9999),
+                pins: createPins (2)
+            };
+        });
+    }
+    return createDevices() ;
+  }
+
+  Widgets (): Array<IWidget> {
+    const devices = this.Devices();
+    const locations = this.Locations();
+    return times(4, () => {
+      const device = sample (devices);
+      const location = sample(locations);
+      return {
+        device: device,
+        location: location,
+        name : sample(['Cloud', 'Lamp', 'Roberry']),
+        pin: sample(device.pins)
+      };
+    });
+  }
+
   
 
 }

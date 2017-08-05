@@ -54,6 +54,8 @@ import { RequestsService } from './requests.service';
 import { CheckboxInputComponent } from './forms/checkbox-input/checkbox-input.component';
 import { LoginComponent } from './membership/login/login.component';
 import { MocksService } from './mocks.service';
+import { ActionsService } from './actions.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -111,7 +113,8 @@ import { MocksService } from './mocks.service';
   providers: [
     PermissionsService,
     RequestsService,
-    MocksService
+    MocksService,
+    ActionsService
   ],
   bootstrap: [AppComponent]
 })
