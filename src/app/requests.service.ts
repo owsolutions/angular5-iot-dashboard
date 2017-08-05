@@ -16,7 +16,7 @@ export class RequestsService {
   async getLocations(): Promise<Array<ILocation>> {
     return this.mocks.Locations();
   }
-  
+
   async getActivities (): Promise<Array<IActivity>> {
     return this.mocks.Activities();
   }

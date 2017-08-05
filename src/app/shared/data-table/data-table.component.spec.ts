@@ -5,6 +5,9 @@ import { CommunicateService } from '../../communicate.service';
 import { RequestsService } from '../../requests.service';
 import { PermissionsService } from '../../permissions.service';
 import { StoreModule } from '@ngrx/store';
+import { MocksService } from '../../mocks.service';
+import { ActionsService } from '../../actions.service';
+
 
 describe('DataTableComponent', () => {
   let component: DataTableComponent;
@@ -17,7 +20,9 @@ describe('DataTableComponent', () => {
         PaginationRequestService,
         CommunicateService,
         PermissionsService,
-        RequestsService
+        RequestsService,
+        ActionsService,
+        MocksService
       ],
       imports: [
         StoreModule.provideStore({})

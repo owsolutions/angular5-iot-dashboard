@@ -6,6 +6,9 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { PermissionsService } from '../permissions.service';
 import { RequestsService } from '../requests.service';
 import { StoreModule } from '@ngrx/store';
+import { MocksService } from '../mocks.service';
+import { ActionsService } from '../actions.service';
+
 
 describe('RolesComponent', () => {
   let component: RolesComponent;
@@ -23,7 +26,9 @@ describe('RolesComponent', () => {
       ],
       providers: [
         PermissionsService,
-        RequestsService
+        RequestsService,
+        MocksService,
+        ActionsService
       ]
     })
     .compileComponents();

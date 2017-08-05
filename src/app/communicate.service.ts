@@ -13,7 +13,7 @@ export class CommunicateService {
    * If you want to change your remote, you need to change
    * this socket connection.
    */
-  
+
   public devices: Observable<Array<IDevice>>;
   public locations: Observable<Array<ILocation>>;
   public roles: Observable<Array<IRole>>;
@@ -21,7 +21,7 @@ export class CommunicateService {
   public widgets: Observable<Array<IWidget>>;
 
   constructor(private store: Store<AppState>, private requests: RequestsService) {
-    
+
     this.getDevices();
     this.getRoles();
     this.getLocations();

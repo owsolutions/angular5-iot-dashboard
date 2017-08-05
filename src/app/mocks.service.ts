@@ -107,7 +107,7 @@ export class MocksService {
             id: 3,
             title: 'Installler'
         }
-    ]
+    ];
   }
 
 
@@ -155,6 +155,6 @@ export class MocksService {
     });
   }
 
-  
+
 
 }

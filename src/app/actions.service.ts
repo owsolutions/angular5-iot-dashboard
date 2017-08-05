@@ -11,7 +11,7 @@ export class ActionsService {
   constructor (private store: Store<AppState>) {
 
   }
-  
+
   triggerDeviceChange ($event: any, device: IDevice, pin: IPin, newValue: any) {
     this.notfityActivity({
       icon: 'icon-play',
@@ -48,6 +48,6 @@ export class ActionsService {
   public notfityActivity (activity: IActivity) {
     this.store.dispatch({type: 'UPDATE_ACTIVITY', payload: activity});
   }
-  
+
 
 }

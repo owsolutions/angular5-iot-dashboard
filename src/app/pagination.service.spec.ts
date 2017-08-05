@@ -3,7 +3,8 @@ import { CommunicateService } from './communicate.service';
 import { PaginationRequestService } from './pagination.service';
 import { RequestsService } from './requests.service';
 import { PermissionsService } from './permissions.service';
-
+import { MocksService } from './mocks.service';
+import { ActionsService } from './actions.service';
 import { StoreModule } from '@ngrx/store';
 
 describe('PaginationService', () => {
@@ -13,7 +14,9 @@ describe('PaginationService', () => {
         PaginationRequestService,
         CommunicateService,
         RequestsService,
-        PermissionsService
+        PermissionsService,
+        ActionsService,
+        MocksService
       ],
       imports: [
         StoreModule.provideStore({})
