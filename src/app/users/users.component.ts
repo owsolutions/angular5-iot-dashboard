@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RequestsService } from '../requests.service';
-
 declare var $: any;
 
 @Component({
@@ -10,7 +9,6 @@ declare var $: any;
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-
   public schema: any = { };
 
   constructor(private router: Router, private requests: RequestsService) {

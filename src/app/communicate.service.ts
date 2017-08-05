@@ -38,7 +38,6 @@ export class CommunicateService {
         payload: item
       });
     }
-    this.getRoles();
   }
 
   async getActivities () {

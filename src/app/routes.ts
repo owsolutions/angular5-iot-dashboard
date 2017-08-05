@@ -13,7 +13,6 @@ import { FormElementsComponent } from './shared/form-elements/form-elements.comp
 import { UsersComponent } from './users/users.component';
 import { RolesComponent } from './roles/roles.component';
 import { UserSingleComponent } from './users/user-single/user-single.component';
-
 import layout from './layout/DefaultLayout';
 
 export const appRoutes: Routes = [

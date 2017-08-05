@@ -4,9 +4,9 @@ import { PermissionsService } from './permissions.service';
 import { sample, times} from 'lodash';
 import { MocksService } from './mocks.service';
 
+
 @Injectable()
 export class RequestsService {
-
 
   constructor(private permissions: PermissionsService, private mocks: MocksService) { }
 
