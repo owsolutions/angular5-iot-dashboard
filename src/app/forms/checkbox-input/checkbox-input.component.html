@@ -1,5 +1,5 @@
 
 <label class="checkbox-toggle">
     <input [checked]="checked" (change)="onInputChange($event)" type="checkbox">
-    <i></i> {{name}}
+    <i [attr.is-on]="on" [attr.is-off]="off"></i> {{name}}
 </label>

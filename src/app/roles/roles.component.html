@@ -11,7 +11,10 @@
             <app-checkbox-input 
               [checked]="roleHasPermission(role, perm)" 
               (onChange)="onPermChange($event, perm, role)" 
-              [name]='perm.title'>
+              [name]='perm.title'
+              [on]='perm.checkLabel[0]'
+              [off]='perm.checkLabel[1]'
+              >
             </app-checkbox-input>
           </div>
         </div>
