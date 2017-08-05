@@ -31,8 +31,7 @@ const SidebarOutlets = [
         outlet: 'app-info',
         path: '',
         component: AppInfoComponent
-    },
-    
+    }
 ];
 
 function DefaultLayout (component: any, route: string) {

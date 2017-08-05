@@ -48,18 +48,18 @@ export class CommunicateService {
         payload: this.makeMockWidget(sample(devices), sample(locations))
       });
     }
-    
+
     this.getRoles();
   }
 
   async getRoles () {
     const roles = await this.requests.getRoles();
     console.log('>', roles);
-    for (let role of roles) {
+    for (const role of roles) {
       this.store.dispatch({
         type: 'INSERT_ROLE',
         payload: role
-      })
+      });
     }
   }
 

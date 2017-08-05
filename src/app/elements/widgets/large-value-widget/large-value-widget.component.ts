@@ -9,11 +9,11 @@ import { random } from 'lodash';
 export class LargeValueWidgetComponent implements OnInit {
 
   private value: Number;
-  
+
   constructor() { }
-  
+
   ngOnInit() {
-    this.value = random(20,90);
+    this.value = random(20, 90);
   }
 
 }

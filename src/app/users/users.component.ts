@@ -8,10 +8,7 @@ declare var $: any;
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  
-  constructor(private router: Router) { }
-
-  public schema: any = {
+    public schema: any = {
       'filterColumns': function filterColumns (data: Array<any>): Array<any> {
           return data.map((item: Array<any>) => {
               const id = item['id'];
@@ -21,7 +18,7 @@ export class UsersComponent implements OnInit {
                   item['lastname'],
                   item['email'],
                   `<a class='btn btn-primary' data-single-id='${id}'>View</a>`
-                  
+
               ];
           });
       },
@@ -33,6 +30,8 @@ export class UsersComponent implements OnInit {
           { title: 'actions'}
       ]
   };
+
+  constructor(private router: Router) { }
 
   setupEvents () {
       const ref = this;

@@ -6,5 +6,5 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-single.component.scss']
 })
 export class UserSingleComponent {
- 
+
 }

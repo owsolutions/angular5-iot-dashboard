@@ -23,7 +23,7 @@ export class PermissionsService {
         group: 'USERS',
         key: 'UPDATE_USER'
       }
-    ]
+    ];
   }
 
   findByKey (key: string) {
