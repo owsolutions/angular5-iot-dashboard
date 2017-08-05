@@ -24,12 +24,15 @@ export const appRoutes: Routes = [
     layout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'new'}}),
     layout (UsersComponent, 'users'),
     layout (RolesComponent, 'roles'),
-    layout (LoginComponent, 'login'),
     layout (ActivityComponent, 'activities'),
     layout (DevicesComponent, 'devices'),
     layout (WidgetsComponent, 'widgets'),
     layout (FormElementsComponent, 'form-elements'),
     layout (UserSingleComponent, 'user/:id'),
+    {
+        path: 'login',
+        component: LoginComponent
+    },
     { path: '',
         redirectTo: '/index',
         pathMatch: 'full'
