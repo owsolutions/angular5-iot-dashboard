@@ -161,9 +161,9 @@ export class MocksService {
   Users ({limit, offset}) {
     return {
         table: {
-            count: 50 + +limit
+            count: 3
         },
-        data: times(limit, (index) => {
+        data: times(3, (index) => {
             return {
                 'id' : index + +offset + 1,
                 'firstname': faker.name.findName().split(' ')[0],
