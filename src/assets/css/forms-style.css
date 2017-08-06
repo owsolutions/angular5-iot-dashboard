@@ -329,12 +329,12 @@
 }
 .j-forms .checkbox-toggle i:after,
 .j-forms .radio-toggle i:after {
-  /*content: "NO";*/
+  content: attr(check);
   left: 22px;
 }
 .j-forms .checkbox-toggle input:checked + i:after,
 .j-forms .radio-toggle input:checked + i:after {
-  /*content: "YES";*/
+  content: attr(uncheck);
   left: 6px;
 }
 .j-forms .checkbox:hover i,
