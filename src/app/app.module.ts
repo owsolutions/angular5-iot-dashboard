@@ -57,6 +57,7 @@ import { MocksService } from './mocks.service';
 import { ActionsService } from './actions.service';
 import { UserService, AuthGuard } from './user.service';
 import { CommunicateService } from './communicate.service';
+import { DefaultLayoutComponent } from './default-layout/default-layout.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { CommunicateService } from './communicate.service';
     RolesComponent,
     UserSingleComponent,
     CheckboxInputComponent,
-    LoginComponent
+    LoginComponent,
+    DefaultLayoutComponent
   ],
   imports: [
     appRoutesGenerator(),
