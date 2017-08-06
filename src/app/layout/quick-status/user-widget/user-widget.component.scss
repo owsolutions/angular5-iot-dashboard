@@ -1,4 +1,15 @@
-.quick-time-container{
+.user-widget-container{
+
+    .background-overlay {
+        height:250px; 
+        background: #137b50;
+        i {
+            position: absolute;
+            right:-30px;
+            font-size: 175px;
+            color: rgba(255,255,255,0.8)
+        }
+    }
     position:relative;
     margin-bottom:15px;
     .date-time{

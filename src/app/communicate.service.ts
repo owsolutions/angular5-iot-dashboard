@@ -30,6 +30,11 @@ export class CommunicateService {
 
   }
 
+  async getCurrentUser() {
+    const user = await this.requests.getCurrentUser();
+    return user;
+  }
+
   async getWidgets () {
     const collections = await this.requests.getWidgets();
     for (const item of collections) {
@@ -78,6 +83,14 @@ export class CommunicateService {
         payload: item
       });
     }
+  }
+
+  findRoleById (id: Number): IRole {
+    let role = null;
+    this.store.select('roles').subscribe((collection: Array<IRole>) => {
+      role = collection.find(x => x.id === id);
+    });
+    return role;
   }
 
 }

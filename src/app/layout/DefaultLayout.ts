@@ -1,6 +1,7 @@
 import { NavigationComponent } from '../shared/navigation/navigation.component';
 import { QuickStatusComponent } from './quick-status/quick-status.component';
 import { AppInfoComponent } from './app-info/app-info.component';
+import { Route } from '@angular/router';
 
 const SidebarOutlets = [
     {
@@ -20,7 +21,7 @@ const SidebarOutlets = [
     }
 ];
 
-export default function DefaultLayout (component: any, route: string, options: any = {}) {
+export default function DefaultLayout (component: any, route: string, options: any = {}): Route {
     return {
         path: route,
         ... options,
@@ -30,6 +31,6 @@ export default function DefaultLayout (component: any, route: string, options: a
                 component: component
             },
             ...SidebarOutlets
-        ]
+        ],
     };
 }

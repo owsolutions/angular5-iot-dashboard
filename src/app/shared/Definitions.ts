@@ -34,6 +34,15 @@ export interface ILocation {
   icon: string;
 }
 
+
+export interface IUser {
+  username: string;
+  email: string;
+  firstname: string;
+  lastname: string;
+  role: IRole;
+}
+
 /**
  * A widget, is only a shortuct ( alias ) for a device pin,
  * to make it user friendly for normal users.

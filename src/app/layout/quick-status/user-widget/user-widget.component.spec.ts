@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QuickTimeComponent } from './quick-time.component';
+import { UserWidgetComponent } from './user-widget.component';
 
-describe('QuickTimeComponent', () => {
-  let component: QuickTimeComponent;
-  let fixture: ComponentFixture<QuickTimeComponent>;
+describe('UserWidgetComponent', () => {
+  let component: UserWidgetComponent;
+  let fixture: ComponentFixture<UserWidgetComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuickTimeComponent ]
+      declarations: [ UserWidgetComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(QuickTimeComponent);
+    fixture = TestBed.createComponent(UserWidgetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

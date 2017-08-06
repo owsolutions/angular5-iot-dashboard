@@ -1,8 +1,7 @@
 import { LoginComponent } from './membership/login/login.component';
-import { RouterModule, Routes } from '@angular/router';
+import { Route, RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { LocationsComponent } from './locations/locations.component';
-import { SummaryComponent } from './summary/summary.component';
 import { SettingsComponent } from './settings/settings.component';
 import { DevicesComponent } from './devices/devices.component';
 import { ActivityComponent } from './activity/activity.component';
@@ -13,28 +12,33 @@ import { FormElementsComponent } from './shared/form-elements/form-elements.comp
 import { UsersComponent } from './users/users.component';
 import { RolesComponent } from './roles/roles.component';
 import { UserSingleComponent } from './users/user-single/user-single.component';
+import { AuthGuard } from './user.service';
 import layout from './layout/DefaultLayout';
 
+function appendAuthGuard(route: Route) {
+    route.canActivate = [AuthGuard];
+    return route;
+}
+
 export const appRoutes: Routes = [
-    layout (IndexComponent, 'index'),
-    layout (SummaryComponent, 'summary'),
-    layout (LocationsComponent, 'locations'),
-    layout (SettingsComponent, 'settings'),
-    layout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
-    layout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'new'}}),
-    layout (UsersComponent, 'users'),
-    layout (RolesComponent, 'roles'),
-    layout (ActivityComponent, 'activities'),
-    layout (DevicesComponent, 'devices'),
-    layout (WidgetsComponent, 'widgets'),
+    appendAuthGuard(layout (IndexComponent, 'index')),
+    appendAuthGuard(layout (LocationsComponent, 'locations')),
+    appendAuthGuard(layout (SettingsComponent, 'settings')),
+    appendAuthGuard(layout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'edit'}})),
+    appendAuthGuard(layout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'new'}})),
+    appendAuthGuard(layout (UsersComponent, 'users')),
+    appendAuthGuard(layout (RolesComponent, 'roles')),
+    appendAuthGuard(layout (ActivityComponent, 'activities')),
+    appendAuthGuard(layout (DevicesComponent, 'devices')),
+    appendAuthGuard(layout (WidgetsComponent, 'widgets')),
     layout (FormElementsComponent, 'form-elements'),
-    layout (UserSingleComponent, 'user/:id'),
+    appendAuthGuard(layout (UserSingleComponent, 'user/:id')),
     {
         path: 'login',
         component: LoginComponent
     },
     { path: '',
-        redirectTo: '/index',
+        redirectTo: '/form-elements',
         pathMatch: 'full'
     }
 ];
