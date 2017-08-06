@@ -21,6 +21,10 @@ function appendAuthGuard(route: Route) {
 }
 
 export const appRoutes: Routes = [
+    { path: '',
+        redirectTo: '/form-elements',
+        pathMatch: 'full'
+    },
     appendAuthGuard(layout (IndexComponent, 'index')),
     appendAuthGuard(layout (LocationsComponent, 'locations')),
     appendAuthGuard(layout (SettingsComponent, 'settings')),
@@ -36,10 +40,6 @@ export const appRoutes: Routes = [
     {
         path: 'login',
         component: LoginComponent
-    },
-    { path: '',
-        redirectTo: '/form-elements',
-        pathMatch: 'full'
     }
 ];
 
