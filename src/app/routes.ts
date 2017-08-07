@@ -12,8 +12,7 @@ import { FormElementsComponent } from './shared/form-elements/form-elements.comp
 import { UsersComponent } from './users/users.component';
 import { RolesComponent } from './roles/roles.component';
 import { UserSingleComponent } from './users/user-single/user-single.component';
-import layout from './layout/DefaultLayout';
-
+import { DefaultLayout, AuthLayout } from './layout/DefaultLayout';
 
 
 export const appRoutes: Routes = [
@@ -21,18 +20,18 @@ export const appRoutes: Routes = [
         redirectTo: '/form-elements',
         pathMatch: 'full'
     },
-    appendAuthGuard(layout (IndexComponent, 'index')),
-    appendAuthGuard(layout (LocationsComponent, 'locations')),
-    appendAuthGuard(layout (SettingsComponent, 'settings')),
-    appendAuthGuard(layout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'edit'}})),
-    appendAuthGuard(layout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'new'}})),
-    appendAuthGuard(layout (UsersComponent, 'users')),
-    appendAuthGuard(layout (RolesComponent, 'roles')),
-    appendAuthGuard(layout (ActivityComponent, 'activities')),
-    appendAuthGuard(layout (DevicesComponent, 'devices')),
-    appendAuthGuard(layout (WidgetsComponent, 'widgets')),
-    layout (FormElementsComponent, 'form-elements'),
-    appendAuthGuard(layout (UserSingleComponent, 'user/:id')),
+    AuthLayout (IndexComponent, 'index'),
+    AuthLayout (LocationsComponent, 'locations'),
+    AuthLayout (SettingsComponent, 'settings'),
+    AuthLayout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
+    AuthLayout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'new'}}),
+    AuthLayout (UsersComponent, 'users'),
+    AuthLayout (RolesComponent, 'roles'),
+    AuthLayout (ActivityComponent, 'activities'),
+    AuthLayout (DevicesComponent, 'devices'),
+    AuthLayout (WidgetsComponent, 'widgets'),
+    DefaultLayout (FormElementsComponent, 'form-elements'),
+    AuthLayout (UserSingleComponent, 'user/:id'),
     {
         path: 'login',
         component: LoginComponent
