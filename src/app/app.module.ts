@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { ChartComponent } from './index/chart/chart.component';
 import { ChangeDetectorRef } from '@angular/core';
-import { SummaryComponent } from './summary/summary.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SwitchWidgetsComponent } from './shared/switch-widgets/switch-widgets.component';
 import { DevicesComponent } from './devices/devices.component';
@@ -64,7 +63,6 @@ import { LogoutComponent } from './users/logout/logout.component';
   declarations: [
     AppComponent,
     IndexComponent,
-    SummaryComponent,
     SettingsComponent,
     ChartComponent,
     QuickStatusComponent,

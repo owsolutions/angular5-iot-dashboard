@@ -30,8 +30,8 @@ export class CommunicateService {
 
   }
 
-  async getCurrentUser() {
-    const user = await this.requests.getCurrentUser();
+  async authenticateUser (username: string, password: string) {
+    const user = await this.requests.authenticateUser(username, password);
     return user;
   }
 

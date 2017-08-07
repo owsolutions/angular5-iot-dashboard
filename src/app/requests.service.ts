@@ -33,7 +33,7 @@ export class RequestsService {
     return this.mocks.Users({offset, limit});
   }
 
-  async getCurrentUser (): Promise<IUser> {
+  async authenticateUser (username: string, password: string): Promise<IUser> {
     return this.mocks.User();
   }
 

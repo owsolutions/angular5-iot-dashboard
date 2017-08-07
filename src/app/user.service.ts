@@ -10,13 +10,8 @@ export class UserService {
 
   private user: IUser;
   constructor (private communicate: CommunicateService) {
-    // this.loadUser();
+    
   }
-
-  async loadUser () {
-    this.user = await this.communicate.getCurrentUser();
-  }
-
   get User (): IUser {
     return this.user;
   }
@@ -36,8 +31,12 @@ export class UserService {
     return true;
   }
 
+  async Login (username: string, password: string) {
+    const user = await this.communicate.authenticateUser(username, password);
+    this.user = user;
+    return user;
+  }
 }
-
 
 @Injectable()
 export class AuthGuard implements CanActivate {
