@@ -21,7 +21,6 @@ export class CommunicateService {
   public widgets: Observable<Array<IWidget>>;
 
   constructor(private store: Store<AppState>, private requests: RequestsService) {
-
     this.getDevices();
     this.getRoles();
     this.getLocations();
