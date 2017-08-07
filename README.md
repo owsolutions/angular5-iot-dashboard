@@ -30,6 +30,13 @@ for this purpose.
 
 You can see the latest deploy here: [https://smart-angular-dashboard.firebaseapp.com](https://smart-angular-dashboard.firebaseapp.com)
 
+## Contribution guide
+We are so much excited to receive Pull-Requests from you. There are some simple rules that we follow in our project:
+
+* Please no comments on functions unless it's really necessary. Please refer to this article for reason: https://bradt.ca/blog/useless-code-comments/
+* Open an issue for your pull request, and start your branch name with this format: `issue/[number]-this-is-my-branch` so we can track the issue until we close it.
+* Make sure your code passes tests, linting and e2e tests. For new functionality, please add abundant tests.
+
 
 ## Copywrite
 This project is free for educational usage, code review and non-comercial usage. For enterprise/commerial usage, you need to obtain a license. 
