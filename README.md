@@ -2,7 +2,7 @@
 
 
 # Smart angular dashboard
-IoT (Internet of Things) specific dashboard based on Angular 4. The goal of this repository is to be a resilence front-end for smart homes, smart offices, and industrial automation. 
+IoT (Internet of Things) specific dashboard based on Angular 4. The goal of this repository is to be a resilience front-end for smart homes, smart offices, and industrial automation. 
 **This project is heavily under development; In case you need to use some components in production level, please contact the owners**
 
 
@@ -39,7 +39,7 @@ We are so much excited to receive Pull-Requests from you. There are some simple 
 
 
 ## Copywrite
-This project is free for educational usage, code review and non-comercial usage. For enterprise/commerial usage, you need to obtain a license. 
+This project is free for educational usage, code review and non-commercial usage. For enterprise/commercial usage, you need to obtain a license. 
 
 # Credits
 <div>Icons made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
