@@ -21,6 +21,9 @@ export class UserService {
     return this.user;
   }
 
+  logout () {
+    this.user = null;
+  }
   canActivate(permissions: Array<string>) {
     if (permissions && permissions.length) {
       for (const key of permissions) {

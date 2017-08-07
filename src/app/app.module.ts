@@ -58,6 +58,7 @@ import { ActionsService } from './actions.service';
 import { UserService, AuthGuard } from './user.service';
 import { CommunicateService } from './communicate.service';
 import { DefaultLayoutComponent } from './default-layout/default-layout.component';
+import { LogoutComponent } from './users/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,8 @@ import { DefaultLayoutComponent } from './default-layout/default-layout.componen
     UserSingleComponent,
     CheckboxInputComponent,
     LoginComponent,
-    DefaultLayoutComponent
+    DefaultLayoutComponent,
+    LogoutComponent
   ],
   imports: [
     appRoutesGenerator(),
