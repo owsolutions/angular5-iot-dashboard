@@ -6,7 +6,7 @@ IoT (Internet of Things) specific dashboard based on Angular 4. The goal of this
 **This project is heavily under development; In case you need to use some components in production level, please contact the owners**
 
 
-![Smart home app](screenshot.png "Smart home app")
+![Smart home app](screenshot-index.png "Smart home app")
 
 # Features
 This project has a decoupled data layer and view layer. 
