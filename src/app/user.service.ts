@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
-
 import { IUser, IRole } from './shared/Definitions';
 import { CommunicateService } from './communicate.service';
 import { IPermission } from './shared/Definitions';
