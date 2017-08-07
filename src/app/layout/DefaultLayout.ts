@@ -27,6 +27,7 @@ export function AuthLayout (component: any, route: string, options: any = {}): R
     return {
         path: route,
         ... options,
+        canActivate: [AuthGuard],
         component: DefaultLayoutComponent,
         children: [
             {
@@ -40,7 +41,6 @@ export function AuthLayout (component: any, route: string, options: any = {}): R
 export function DefaultLayout (component: any, route: string, options: any = {}): Route {
     return {
         path: route,
-        canActivate: [AuthGuard],
         ... options,
         component: DefaultLayoutComponent,
         children: [

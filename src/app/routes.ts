@@ -17,7 +17,7 @@ import { DefaultLayout, AuthLayout } from './layout/DefaultLayout';
 
 export const appRoutes: Routes = [
     { path: '',
-        redirectTo: '/form-elements',
+        redirectTo: '/login',
         pathMatch: 'full'
     },
     AuthLayout (IndexComponent, 'index'),
@@ -30,7 +30,7 @@ export const appRoutes: Routes = [
     AuthLayout (ActivityComponent, 'activities'),
     AuthLayout (DevicesComponent, 'devices'),
     AuthLayout (WidgetsComponent, 'widgets'),
-    DefaultLayout (FormElementsComponent, 'form-elements'),
+    AuthLayout (FormElementsComponent, 'form-elements'),
     AuthLayout (UserSingleComponent, 'user/:id'),
     {
         path: 'login',
