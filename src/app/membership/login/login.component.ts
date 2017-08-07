@@ -37,17 +37,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
   changeInput (field , value) {
     this.form[field] = value;
-    console.log(this.form);
   }
   async login() {
-    console.log('Triggered');
     if (await this.user.Login(this.form.username, this.form.password)) {
-      console.warn('Yes');
       this.router.navigateByUrl('/index');
-    } else {
-      console.warn("Couldn't make it.");
     }
-
-
   }
 }

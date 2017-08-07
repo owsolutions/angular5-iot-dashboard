@@ -9,9 +9,7 @@ import { IPermission } from './shared/Definitions';
 export class UserService {
 
   private user: IUser;
-  constructor (private communicate: CommunicateService) {
-    
-  }
+  constructor (private communicate: CommunicateService) {}
   get User (): IUser {
     return this.user;
   }

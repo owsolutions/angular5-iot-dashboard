@@ -10,7 +10,7 @@ export class UserWidgetComponent implements OnInit {
   constructor (private user: UserService) { }
 
   ngOnInit() {
-    console.log(this.user.User);
+
   }
 
   get User () {
