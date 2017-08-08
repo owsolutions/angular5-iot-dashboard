@@ -21,13 +21,17 @@ export class CommunicateService {
   public widgets: Observable<Array<IWidget>>;
 
   constructor(private store: Store<AppState>, private requests: RequestsService) {
-
     this.getDevices();
     this.getRoles();
     this.getLocations();
     this.getActivities();
     this.getWidgets();
 
+  }
+
+  async authenticateUser (username: string, password: string) {
+    const user = await this.requests.authenticateUser(username, password);
+    return user;
   }
 
   async getWidgets () {
@@ -78,6 +82,14 @@ export class CommunicateService {
         payload: item
       });
     }
+  }
+
+  findRoleById (id: Number): IRole {
+    let role = null;
+    this.store.select('roles').subscribe((collection: Array<IRole>) => {
+      role = collection.find(x => x.id === id);
+    });
+    return role;
   }
 
 }

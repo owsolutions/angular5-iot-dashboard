@@ -1,11 +1,14 @@
 import { TestBed, inject } from '@angular/core/testing';
-
+import { PermissionsService } from './permissions.service';
 import { MocksService } from './mocks.service';
 
 describe('MocksService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [MocksService]
+      providers: [
+        MocksService,
+        PermissionsService
+      ]
     });
   });
 

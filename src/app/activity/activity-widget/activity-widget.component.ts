@@ -20,7 +20,6 @@ export class ActivityWidgetComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.store.select('activities').subscribe((activities: Array<IActivity>) => {
       this.activities = activities;
-      this.chRef.detectChanges();
     });
     this.activitiesItems = [{
         icon: 'assets/images/avatar-2.jpg',

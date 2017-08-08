@@ -11,13 +11,12 @@ import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { ChartComponent } from './index/chart/chart.component';
 import { ChangeDetectorRef } from '@angular/core';
-import { SummaryComponent } from './summary/summary.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SwitchWidgetsComponent } from './shared/switch-widgets/switch-widgets.component';
 import { DevicesComponent } from './devices/devices.component';
 import { QuickStatusComponent } from './layout/quick-status/quick-status.component';
 import { QuickChartComponent } from './layout/quick-status/quick-chart/quick-chart.component';
-import { QuickTimeComponent } from './layout/quick-status/quick-time/quick-time.component';
+import { UserWidgetComponent } from './layout/quick-status/user-widget/user-widget.component';
 import { ActivityWidgetComponent } from './activity/activity-widget/activity-widget.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { AppInfoComponent } from './layout/app-info/app-info.component';
@@ -55,19 +54,22 @@ import { CheckboxInputComponent } from './forms/checkbox-input/checkbox-input.co
 import { LoginComponent } from './membership/login/login.component';
 import { MocksService } from './mocks.service';
 import { ActionsService } from './actions.service';
+import { UserService, AuthGuard } from './user.service';
+import { CommunicateService } from './communicate.service';
+import { DefaultLayoutComponent } from './default-layout/default-layout.component';
+import { LogoutComponent } from './users/logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
-    SummaryComponent,
     SettingsComponent,
     ChartComponent,
     QuickStatusComponent,
     QuickChartComponent,
     SwitchWidgetsComponent,
     DevicesComponent,
-    QuickTimeComponent,
+    UserWidgetComponent,
     ActivityWidgetComponent,
     NavigationComponent,
     AppInfoComponent,
@@ -100,7 +102,9 @@ import { ActionsService } from './actions.service';
     RolesComponent,
     UserSingleComponent,
     CheckboxInputComponent,
-    LoginComponent
+    LoginComponent,
+    DefaultLayoutComponent,
+    LogoutComponent
   ],
   imports: [
     appRoutesGenerator(),
@@ -114,7 +118,10 @@ import { ActionsService } from './actions.service';
     PermissionsService,
     RequestsService,
     MocksService,
-    ActionsService
+    ActionsService,
+    UserService,
+    CommunicateService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

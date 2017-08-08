@@ -1,11 +1,24 @@
 import { TestBed, inject } from '@angular/core/testing';
-
+import { CommunicateService } from './communicate.service';
 import { UserService } from './user.service';
+import { StoreModule } from '@ngrx/store';
+import { RequestsService } from './requests.service';
+import { PermissionsService } from './permissions.service';
+import { MocksService } from './mocks.service';
 
 describe('UserService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [UserService]
+      imports: [
+        StoreModule.provideStore({})
+      ],
+      providers: [
+        UserService,
+        MocksService,
+        CommunicateService,
+        RequestsService,
+        PermissionsService
+      ]
     });
   });
 

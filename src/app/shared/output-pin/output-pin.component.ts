@@ -19,7 +19,6 @@ export class OutputPinComponent implements OnInit {
   constructor(public actions: ActionsService) { }
 
   ngOnInit() {
-    // empty for now.
   }
 
   findType (value: any) {

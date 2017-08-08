@@ -34,6 +34,15 @@ export interface ILocation {
   icon: string;
 }
 
+
+export interface IUser {
+  username: string;
+  email: string;
+  firstname: string;
+  lastname: string;
+  role: IRole;
+}
+
 /**
  * A widget, is only a shortuct ( alias ) for a device pin,
  * to make it user friendly for normal users.
@@ -98,3 +107,40 @@ export interface IActivity {
   time: string;
 }
 
+export interface IResponse {
+  apiVersion?: string;
+  context?: string;
+  id?: string;
+  params?: {
+    id?: string
+  };
+  data?: {
+    kind?: string;
+    fields?: string;
+    etag?: string;
+    id?: string;
+    lang?: string;
+    updated?: string;
+    deleted?: boolean;
+    currentItemCount?: Number;
+    itemsPerPage?: Number;
+    startIndex?: Number;
+    totalItems?: Number;
+    pageIndex?: Number;
+    totalPages?: Number;
+    items?: Array<any>
+  };
+  error?: {
+    code?: Number;
+    message: string;
+    errors?: Array<{
+      domain?: string;
+      reason?: string;
+      message?: string;
+      location?: string;
+      locationType?: string;
+      extendedHelp?: string;
+      sendReport?: string;
+    }>
+  };
+}
