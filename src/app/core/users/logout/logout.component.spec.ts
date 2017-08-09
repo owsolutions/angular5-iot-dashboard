@@ -3,11 +3,11 @@ import { RouterModule } from '@angular/router';
 import { LogoutComponent } from './logout.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
-import { UserService } from '@app/services/user.service';
-import { CommunicateService } from '@app/services/communicate.service';
-import { RequestsService } from '@app/services/requests.service';
-import { PermissionsService } from '@app/services/permissions.service';
-import { MocksService } from '@app/services/mocks.service';
+import { UserService } from '@app/core/services/user.service';
+import { CommunicateService } from '@app/core/services/communicate.service';
+import { RequestsService } from '@app/core/services/requests.service';
+import { PermissionsService } from '@app/core/services/permissions.service';
+import { MocksService } from '@app/core/services/mocks.service';
 
 describe('LogoutComponent', () => {
   let component: LogoutComponent;

@@ -6,11 +6,11 @@ import { MockComponent } from 'ng2-mock-component';
 import { appReducersGenerator } from '@app/core/app.reducers';
 import { IWidget } from '@app/core/definitions';
 
-import { CommunicateService } from '@app/services/communicate.service';
-import { RequestsService } from '@app/services/requests.service';
-import { PermissionsService } from '@app/services/permissions.service';
-import { MocksService } from '@app/services/mocks.service';
-import { ActionsService } from '@app/services/actions.service';
+import { CommunicateService } from '@app/core/services/communicate.service';
+import { RequestsService } from '@app/core/services/requests.service';
+import { PermissionsService } from '@app/core/services/permissions.service';
+import { MocksService } from '@app/core/services/mocks.service';
+import { ActionsService } from '@app/core/services/actions.service';
 
 function mockWidget (): IWidget {
   const pin = {

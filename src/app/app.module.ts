@@ -8,7 +8,6 @@ import { ChangeDetectorRef } from '@angular/core';
 import { appRoutesGenerator } from '@app/routes';
 import { appReducersGenerator } from '@app/core/app.reducers';
 
-import { AppComponent } from '@app/app.component';
 import { NavigationComponent } from '@app/core/navigation/navigation.component';
 
 
@@ -36,15 +35,23 @@ import { FormElementsComponent } from '@app/core/form-elements/form-elements.com
 import { UsersComponent } from '@app/core/users/users.component';
 import { RolesComponent } from '@app/core/roles/roles.component';
 import { UserSingleComponent } from '@app/core/users/user-single/user-single.component';
-import { PermissionsService } from '@app/services/permissions.service';
-import { RequestsService } from '@app/services/requests.service';
+import { PermissionsService } from '@app/core/services/permissions.service';
+import { RequestsService } from '@app/core/services/requests.service';
 import { CheckboxInputComponent } from '@app/core/forms/checkbox-input/checkbox-input.component';
 import { LoginComponent } from '@app/core/login/login.component';
-import { MocksService } from '@app/services/mocks.service';
-import { ActionsService } from '@app/services/actions.service';
-import { UserService, AuthGuard } from '@app/services/user.service';
-import { CommunicateService } from '@app/services/communicate.service';
+import { MocksService } from '@app/core/services/mocks.service';
+import { ActionsService } from '@app/core/services/actions.service';
+import { UserService, AuthGuard } from '@app/core/services/user.service';
+import { CommunicateService } from '@app/core/services/communicate.service';
 import { LogoutComponent } from '@app/core/users/logout/logout.component';
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: '<router-outlet></router-outlet>'
+})
+export class AppComponent {}
 
 @NgModule({
   declarations: [

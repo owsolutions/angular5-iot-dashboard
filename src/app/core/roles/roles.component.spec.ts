@@ -4,10 +4,10 @@ import { RolesComponent } from './roles.component';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
-import { PermissionsService } from '@app/services/permissions.service';
-import { RequestsService } from '@app/services/requests.service';
-import { MocksService } from '@app/services/mocks.service';
-import { ActionsService } from '@app/services/actions.service';
+import { PermissionsService } from '@app/core/services/permissions.service';
+import { RequestsService } from '@app/core/services/requests.service';
+import { MocksService } from '@app/core/services/mocks.service';
+import { ActionsService } from '@app/core/services/actions.service';
 
 
 describe('RolesComponent', () => {

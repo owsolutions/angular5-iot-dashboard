@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ChangeDetectorRef, OnDestroy, OnChanges, EventEmitter, Output } from '@angular/core';
 import { IDevice, IPin, ILocation, IWidget, AppState, IWidgetForm } from '@app/core/definitions';
-import { ActionsService } from '@app/services/actions.service';
+import { ActionsService } from '@app/core/services/actions.service';
 import { Store } from '@ngrx/store';
 
 @Component({

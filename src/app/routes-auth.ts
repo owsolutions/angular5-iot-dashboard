@@ -1,5 +1,5 @@
 import { Route } from '@angular/router';
-import { AuthGuard } from '@app/services/user.service';
+import { AuthGuard } from '@app/core/services/user.service';
 
 
 export function appendAuthGuard (route: Route) {

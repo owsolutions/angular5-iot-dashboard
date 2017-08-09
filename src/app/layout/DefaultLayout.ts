@@ -3,7 +3,7 @@ import { QuickStatusComponent } from '@app/iot/quick-status/quick-status.compone
 import { AppInfoComponent } from '@app/iot/app-info/app-info.component';
 import { Route } from '@angular/router';
 import { DefaultLayoutComponent } from '@app/iot/default-layout/default-layout.component';
-import { AuthGuard } from '@app/services/user.service';
+import { AuthGuard } from '@app/core/services/user.service';
 import { environment } from '../../environments/environment';
 
 const SidebarOutlets = [
