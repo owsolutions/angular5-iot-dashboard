@@ -2,7 +2,7 @@ import { NavigationComponent } from '@app/core/navigation/navigation.component';
 import { QuickStatusComponent } from './quick-status/quick-status.component';
 import { AppInfoComponent } from './app-info/app-info.component';
 import { Route } from '@angular/router';
-import { DefaultLayoutComponent } from '../default-layout/default-layout.component';
+import { DefaultLayoutComponent } from '@app/iot/default-layout/default-layout.component';
 import { AuthGuard } from '@app/services/user.service';
 import { environment } from '../../environments/environment';
 
