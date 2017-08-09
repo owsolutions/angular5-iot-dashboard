@@ -12,7 +12,7 @@ export class FullWidgetComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.thermometerValue = random(0,4);
+    this.thermometerValue = random(0, 4);
   }
 
 }
