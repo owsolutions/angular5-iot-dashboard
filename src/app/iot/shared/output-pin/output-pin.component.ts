@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IDevice, IPin } from '@app/core/definitions';
+import { IDevice, IPin, IActivity, ActivityTypes } from '@app/iot/definitions';
 import { ActionsService } from '@app/core/services/actions.service';
-import { IActivity, ActivityTypes } from '@app/core/definitions';
 import { random } from 'lodash';
 
 @Component({

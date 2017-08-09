@@ -2,7 +2,9 @@ import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { PermissionsService } from '@app/core/services/permissions.service';
 import { RequestsService } from '@app/core/services/requests.service';
-import { IRole, IPermission, AppState } from '@app/core/definitions';
+import { IRole, IPermission } from '@app/core/definitions';
+import { AppState } from '@app/iot/definitions';
+
 import { Store } from '@ngrx/store';
 
 @Component({
