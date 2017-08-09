@@ -9,7 +9,6 @@ import { LocationEditComponent } from '@app/iot/locations/location-edit/location
 import { DeviceSvgComponent } from '@app/iot/shared/device-svg/device-svg.component';
 import { HelperBoxComponent } from '@app/iot/shared/helper-box/helper-box.component';
 import { OutputPinViewComponent } from '@app/iot/shared/output-pin-view/output-pin-view.component';
-import { DataTableComponent } from '@app/core/data-table/data-table.component';
 import { SwitchWidgetsComponent } from '@app/iot/shared/switch-widgets/switch-widgets.component';
 import { InputPinComponent } from '@app/iot/shared/input-pin/input-pin.component';
 import { OutputPinComponent } from '@app/iot/shared/output-pin/output-pin.component';
@@ -44,7 +43,6 @@ export default {
         DeviceSvgComponent,
         HelperBoxComponent,
         OutputPinViewComponent,
-        DataTableComponent,
         SwitchWidgetsComponent,
         InputPinComponent,
         OutputPinComponent,
