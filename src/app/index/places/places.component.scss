@@ -1,7 +1,11 @@
 @import '../../../injects';
 
 .place-container {
-    margin:10px 3.5px 0 0;
-    
-    
+    > div{
+        padding: 15px 20px 5px;
+        border-bottom: 2px solid #f1f1f1;
+        &:hover{
+            background: #F9F9F9;
+        }
+    }
 }

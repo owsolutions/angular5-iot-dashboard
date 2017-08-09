@@ -9,21 +9,21 @@
               <span>Smart home</span>
             </div>
           </div>
+
           <form (submit)="login()">
             <div class="login-form-content">
               <div class="unit">
                 <div class="input login-input">
                   <label class="icon-left" for="login">
-                      <i class="zmdi zmdi-account"></i>
+                      <i class="icon icon-person"></i>
                   </label>
                   <input (change)="changeInput('username', $event.target.value)" class="form-control login-frm-input" type="text" id="login" name="login" placeholder="Username / Email">
                 </div>
               </div>
-
               <div class="unit">
                 <div class="input login-input">
                   <label class="icon-left" for="password">
-                      <i class="zmdi zmdi-key"></i>
+                      <i class="icon icon-vpn_key"></i>
                   </label>
                   <input (change)="changeInput('password', $event.target.value)" class="form-control login-frm-input" type="password" id="password" name="password" placeholder="Password">
                   <span class="hint">
@@ -54,13 +54,13 @@
           <div class="row">
             <div class="col-md-6 col-sm-6">
               <div class="social-btn twitter">
-                <i class="fa fa-twitter"></i>
+                <i class="icon icon-twitter"></i>
                 <button type="button">Twitter</button>
               </div>
             </div>
             <div class="col-md-6 col-sm-6">
               <div class="social-btn google-plus">
-                <i class="fa fa-google-plus"></i>
+                <i class="icon icon-google-plus"></i>
                 <button type="button">Google+</button>
               </div>
             </div>
@@ -69,13 +69,13 @@
           <div class="row">
             <div class="col-md-6 col-sm-6">
               <div class="social-btn facebook">
-                <i class="fa fa-facebook"></i>
+                <i class="icon icon-facebook"></i>
                 <button type="button">Facebook</button>
               </div>
             </div>
             <div class="col-md-6 col-sm-6">
               <div class="social-btn linkedin">
-                <i class="fa fa-linkedin"></i>
+                <i class="icon icon-linkedin"></i>
                 <button type="button">Linkedin</button>
               </div>
             </div>
