@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { times, sample } from 'lodash';
 import { Store } from '@ngrx/store';
-import { IActivity, AppState } from '../../shared/Definitions';
+import { IActivity, AppState } from '@app/core/definitions';
 
 @Component({
   selector: 'app-activity-widget',

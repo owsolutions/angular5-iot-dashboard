@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter} from '@angular/core';
-import { IPin , IDevice } from '../Definitions';
+import { IPin , IDevice } from '@app/core/definitions';
 
 @Component({
   selector: 'app-device-svg',

@@ -6,7 +6,7 @@ import { RequestsService } from '@app/services/requests.service';
 import { LocationsComponent } from './locations.component';
 import { PlacesComponent } from './../index/places/places.component';
 import { CommunicateService } from '@app/services/communicate.service';
-import { appReducersGenerator } from '../app.reducers';
+import { appReducersGenerator } from '@app/core/app.reducers';;
 import { ActivatedRoute } from '@angular/router';
 import { PermissionsService } from '@app/services/permissions.service';
 import { MocksService } from '@app/services/mocks.service';

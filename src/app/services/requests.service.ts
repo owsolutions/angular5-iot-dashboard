@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IRole, ILocation, IDevice, IActivity, IWidget, IUser } from './shared/Definitions';
+import { IRole, ILocation, IDevice, IActivity, IWidget, IUser } from '@app/core/definitions';
 import { PermissionsService } from './permissions.service';
 import { sample, times} from 'lodash';
 import { MocksService } from './mocks.service';

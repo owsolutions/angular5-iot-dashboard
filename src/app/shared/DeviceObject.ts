@@ -1,4 +1,4 @@
-import { IDevice } from './Definitions';
+import { IDevice } from '@app/core/definitions';
 
 export class DeviceObject {
 

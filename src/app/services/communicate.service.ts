@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { UPDATE_DEVICE } from './devices/devices.reducer';
-import { IDevice, ILocation, AppState, IRole, IActivity, IWidget } from './shared/Definitions';
+import { IDevice, ILocation, AppState, IRole, IActivity, IWidget } from '@app/core/definitions';
 import { RequestsService } from './requests.service';
 
 @Injectable()
@@ -58,7 +57,7 @@ export class CommunicateService {
     const collections = await this.requests.getDevices();
     for (const item of collections) {
       this.store.dispatch({
-        type: UPDATE_DEVICE,
+        type: 'UPDATE_DEVICE',
         payload: item
       });
     }

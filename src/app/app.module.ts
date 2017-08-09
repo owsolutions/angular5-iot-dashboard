@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { ChangeDetectorRef } from '@angular/core';
 
 import { appRoutesGenerator } from '@app/routes';
-import { appReducersGenerator } from '@app/app.reducers';
+import { appReducersGenerator } from '@app/core/app.reducers';
 
 import { AppComponent } from '@app/app.component';
 import { IndexComponent } from '@app/index/index.component';

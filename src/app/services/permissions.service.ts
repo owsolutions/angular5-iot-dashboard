@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IPermission } from './shared/Definitions';
+import { IPermission } from '@app/core/definitions';
 
 @Injectable()
 export class PermissionsService {

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ILocation, AppState, IWidget } from '../../shared/Definitions';
+import { ILocation, AppState, IWidget } from '@app/core/definitions';
 import { Observable } from 'rxjs/Observable';
 import { ChangeDetectorRef } from '@angular/core';
 import { Store } from '@ngrx/store';
