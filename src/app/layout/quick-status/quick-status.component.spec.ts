@@ -11,7 +11,7 @@ describe('QuickStatusComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         QuickStatusComponent,
-        MockComponent({selector: 'app-quick-time'}),
+        MockComponent({selector: 'app-user-widget'}),
         MockComponent({selector: 'app-quick-chart'})
       ]
     })

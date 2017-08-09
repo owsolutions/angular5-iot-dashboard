@@ -1,0 +1,11 @@
+<div class="user-widget-container">
+    <div class='background-overlay'>
+      <i class="icon icon-user"></i>
+    </div>
+    <div class="date-time">
+        <span class="q-week-day" *ngIf="User">Welcome</span>
+        <span class="q-week-day" *ngIf="!User">Login to explore more.</span>
+        <span class="q-month" *ngIf="User">{{User.firstname + ' ' + User.lastname}}</span>
+        <span class="q-month" *ngIf="!User">Guest user</span>
+    </div>
+</div>

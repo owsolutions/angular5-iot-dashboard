@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IRole, ILocation, IDevice, IActivity, IWidget } from './shared/Definitions';
+import { IRole, ILocation, IDevice, IActivity, IWidget, IUser } from './shared/Definitions';
 import { PermissionsService } from './permissions.service';
 import { sample, times} from 'lodash';
 import { MocksService } from './mocks.service';
@@ -31,6 +31,10 @@ export class RequestsService {
 
   async getUsers (offset, limit): Promise<any> {
     return this.mocks.Users({offset, limit});
+  }
+
+  async authenticateUser (username: string, password: string): Promise<IUser> {
+    return this.mocks.User();
   }
 
 }

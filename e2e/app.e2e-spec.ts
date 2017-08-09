@@ -7,8 +7,9 @@ describe('test-project App', () => {
     page = new TestProjectPage();
   });
 
-  it('should display message saying app works', () => {
+  it('Login page must appear', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    const value = page.getTheIndexChart();
+    expect(value).toEqual('Smart home');
   });
 });

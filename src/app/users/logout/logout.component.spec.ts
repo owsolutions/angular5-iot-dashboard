@@ -1,39 +1,39 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
+import { LogoutComponent } from './logout.component';
+import { RouterTestingModule } from '@angular/router/testing';
 import { UserService } from '../../user.service';
-import { LoginComponent } from './login.component';
 import { CommunicateService } from '../../communicate.service';
 import { StoreModule } from '@ngrx/store';
 import { RequestsService } from '../../requests.service';
 import { PermissionsService } from '../../permissions.service';
 import { MocksService } from '../../mocks.service';
-import { RouterTestingModule } from '@angular/router/testing';
-import { RouterModule } from '@angular/router';
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('LogoutComponent', () => {
+  let component: LogoutComponent;
+  let fixture: ComponentFixture<LogoutComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
+      declarations: [ LogoutComponent ],
       providers: [
         UserService,
+        CommunicateService,
         RequestsService,
         PermissionsService,
-        MocksService,
-        CommunicateService
+        MocksService
       ],
       imports: [
         StoreModule.provideStore({}),
-        RouterTestingModule,
-        RouterModule
+        RouterModule,
+        RouterTestingModule
       ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(LogoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

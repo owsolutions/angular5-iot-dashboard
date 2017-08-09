@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { IActivity, IRole, ActivityTypes, IDevice, ILocation, IWidget, IPin } from './shared/Definitions';
+import { IActivity, IUser, IRole, ActivityTypes, IDevice, ILocation, IWidget, IPin } from './shared/Definitions';
 import { times, random, sample } from 'lodash';
+import { PermissionsService } from './permissions.service';
 import faker from 'faker';
 
 /**
@@ -13,6 +14,9 @@ import faker from 'faker';
 @Injectable()
 export class MocksService {
 
+  constructor (private permissions: PermissionsService) {
+
+  }
   Activities ():  Array<IActivity> {
 
     return [
@@ -80,20 +84,25 @@ export class MocksService {
     ];
   }
 
+  User(): IUser {
+    return {
+        email: 'alitorabi@seekasia.com',
+        username: 'alitorabi',
+        firstname: 'Ali',
+        lastname: 'Doe ',
+        role: this.Roles()[0]
+    };
+  }
   Roles (): Array<IRole> {
     return [
         {
             permissions: [
-                {
-                    title: 'Change devices pin',
-                    group: 'DEVICES',
-                    key: 'DEVICES_PIN_CHANGE'
-                },
-                {
-                    title: 'Create new user',
-                    group: 'USERS',
-                    key: 'CREATE_USER'
-                }
+                this.permissions.findByKey('DEVICES::VIEW'),
+                this.permissions.findByKey('WIDGETS::VIEW'),
+                this.permissions.findByKey('LOCATIONS::VIEW'),
+                this.permissions.findByKey('ACTIVITIES::VIEW'),
+                this.permissions.findByKey('ROLES::VIEW'),
+                this.permissions.findByKey('USERS::VIEW')
             ],
             id: 1,
             title: 'Content Moderator'
@@ -155,8 +164,6 @@ export class MocksService {
       };
     });
   }
-
-
 
   Users ({limit, offset}) {
     return {

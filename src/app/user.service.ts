@@ -1,38 +1,45 @@
 import { Injectable } from '@angular/core';
-
-/**
- * Controlls and defines the current user of the dashboard;
- * Besides, interfaces will declare how the users must be implemented.
- */
-interface IUser {
-  username: string;
-  email: string;
-  firstname: string;
-  lastname: string;
-}
+import { CanActivate } from '@angular/router';
+import { IUser, IRole } from './shared/Definitions';
+import { CommunicateService } from './communicate.service';
+import { IPermission } from './shared/Definitions';
 
 @Injectable()
 export class UserService {
 
-  constructor () {
-
-  }
-
-
+  private user: IUser;
+  constructor (private communicate: CommunicateService) {}
   get User (): IUser {
-    return {
-      email: 'alitorabi@seekasia.com',
-      username: 'alitorabi',
-      firstname: 'John',
-      lastname: 'Doe'
-    };
+    return this.user;
   }
 
-
-  get Users (): Array<IUser> {
-    return [];
+  logout () {
+    this.user = null;
+  }
+  canActivate(permissions: Array<string>) {
+    if (permissions && permissions.length) {
+      for (const key of permissions) {
+        const perm = this.User.role.permissions.find(x => x && x.key === key);
+        if ( ! perm ) {
+          return false;
+        }
+      }
+    }
+    return true;
   }
 
+  async Login (username: string, password: string) {
+    const user = await this.communicate.authenticateUser(username, password);
+    this.user = user;
+    return user;
+  }
+}
 
+@Injectable()
+export class AuthGuard implements CanActivate {
 
+  constructor (private user: UserService) {}
+  canActivate (): boolean {
+    return !!this.user.User;
+  }
 }
