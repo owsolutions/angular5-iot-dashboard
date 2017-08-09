@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommunicateService } from '../../communicate.service';
+import { CommunicateService } from '@app/services/communicate.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppState, ILocation } from '../../shared/Definitions';
 import { Store } from '@ngrx/store';

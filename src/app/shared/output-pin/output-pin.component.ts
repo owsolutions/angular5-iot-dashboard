@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IDevice, IPin } from '../Definitions';
-import { ActionsService } from '../../actions.service';
+import { ActionsService } from '@app/services/actions.service';
 import { IActivity, ActivityTypes } from '../Definitions';
 import { random } from 'lodash';
 

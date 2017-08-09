@@ -2,12 +2,13 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { NavigationComponent } from './navigation.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { UserService, AuthGuard} from '../../user.service';
-import { CommunicateService } from '../../communicate.service';
-import { RequestsService } from '../../requests.service';
-import { MocksService } from '../../mocks.service';
-import { PermissionsService } from '../../permissions.service';
 import { StoreModule } from '@ngrx/store';
+
+import { UserService, AuthGuard} from '@app/services/user.service';
+import { CommunicateService } from '@app/services/communicate.service';
+import { RequestsService } from '@app/services/requests.service';
+import { MocksService } from '@app/services/mocks.service';
+import { PermissionsService } from '@app/services/permissions.service';
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;

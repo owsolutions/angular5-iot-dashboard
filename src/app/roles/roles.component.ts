@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { PermissionsService } from '../permissions.service';
-import { RequestsService } from '../requests.service';
+import { PermissionsService } from '@app/services/permissions.service';
+import { RequestsService } from '@app/services/requests.service';
 import { IRole, IPermission, AppState } from '../shared/Definitions';
 import { Store } from '@ngrx/store';
 

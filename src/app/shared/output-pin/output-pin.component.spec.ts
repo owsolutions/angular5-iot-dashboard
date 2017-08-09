@@ -1,11 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { OutputPinComponent } from './output-pin.component';
-import { CommunicateService } from './../../communicate.service';
 import { appReducersGenerator } from '../../app.reducers';
-import { RequestsService } from '../../requests.service';
-import { PermissionsService } from '../../permissions.service';
-import { MocksService } from '../../mocks.service';
-import { ActionsService } from '../../actions.service';
+
+import { CommunicateService } from '@app/services/communicate.service';
+import { RequestsService } from '@app/services/requests.service';
+import { PermissionsService } from '@app/services/permissions.service';
+import { MocksService } from '@app/services/mocks.service';
+import { ActionsService } from '@app/services/actions.service';
 
 describe('OutputPinComponent', () => {
   let component: OutputPinComponent;

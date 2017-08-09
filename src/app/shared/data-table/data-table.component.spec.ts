@@ -1,11 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DataTableComponent } from './data-table.component';
-import { CommunicateService } from '../../communicate.service';
-import { RequestsService } from '../../requests.service';
-import { PermissionsService } from '../../permissions.service';
 import { StoreModule } from '@ngrx/store';
-import { MocksService } from '../../mocks.service';
-import { ActionsService } from '../../actions.service';
+
+import { CommunicateService } from '@app/services/communicate.service';
+import { RequestsService } from '@app/services/requests.service';
+import { PermissionsService } from '@app/services/permissions.service';
+import { MocksService } from '@app/services/mocks.service';
+import { ActionsService } from '@app/services/actions.service';
 
 
 describe('DataTableComponent', () => {

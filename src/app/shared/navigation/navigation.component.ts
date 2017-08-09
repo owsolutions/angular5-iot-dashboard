@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../user.service';
-import { AuthGuard } from '../../user.service';
+import { UserService } from '@app/services/user.service';
+import { AuthGuard } from '@app/services/user.service';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',

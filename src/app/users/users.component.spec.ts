@@ -3,9 +3,9 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { UsersComponent } from './users.component';
 import { RouterModule } from '@angular/router';
-import { RequestsService } from '../requests.service';
-import { PermissionsService } from '../permissions.service';
-import { MocksService } from '../mocks.service';
+import { RequestsService } from '@app/services/requests.service';
+import { PermissionsService } from '@app/services/permissions.service';
+import { MocksService } from '@app/services/mocks.service';
 
 describe('UsersComponent', () => {
   let component: UsersComponent;

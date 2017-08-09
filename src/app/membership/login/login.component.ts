@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit, OnDestroy } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
-import { UserService } from '../../user.service';
+import { UserService } from '@app/services/user.service';
 import { Router } from '@angular/router';
-import { CommunicateService } from '../../communicate.service';
+import { CommunicateService } from '@app/services/communicate.service';
 
 interface IForm {
   username: string;
