@@ -4,11 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { ChangeDetectorRef } from '@angular/core';
-
 import CoreModule from '@app/core/app.module.core';
 import IotModules from '@app/iot/app.module.iot';
-
 
 @Component({
   selector: 'app-root',
@@ -23,12 +20,12 @@ export class AppComponent {}
     ... IotModules.declarations
   ],
   imports: [
-    ...IotModules.imports,
-    ...CoreModule.imports,
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ...IotModules.imports,
+    ...CoreModule.imports
   ],
   providers: [
     ... CoreModule.providers
