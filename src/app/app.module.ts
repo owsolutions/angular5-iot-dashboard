@@ -4,33 +4,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ChangeDetectorRef } from '@angular/core';
-
-import { appRoutesGenerator } from '@app/routes';
 import { appReducersGenerator } from '@app/core/app.reducers';
-
 import { NavigationComponent } from '@app/core/navigation/navigation.component';
-
-
 import IotModules from '@app/iot/app.module.iot';
-
 import { SettingsComponent } from '@app/core/settings/settings.component';
-
-
-
-
-
-
-
-
-
-
 import { PageHeaderComponent } from '@app/core/page-header/page-header.component';
-
 import { TextInputComponent } from '@app/core/forms/text-input/text-input.component';
 import { RadioInputComponent } from '@app/core/forms/radio-input/radio-input.component';
-
 import { SelectInputComponent } from '@app/core/forms/select-input/select-input.component';
-
 import { FormElementsComponent } from '@app/core/form-elements/form-elements.component';
 import { UsersComponent } from '@app/core/users/users.component';
 import { RolesComponent } from '@app/core/roles/roles.component';
@@ -69,10 +50,10 @@ export class AppComponent {}
     CheckboxInputComponent,
     LoginComponent,
     LogoutComponent,
-    ... IotModules
+    ... IotModules.declarations
   ],
   imports: [
-    appRoutesGenerator(),
+    ...IotModules.imports,
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,

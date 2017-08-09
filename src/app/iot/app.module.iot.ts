@@ -30,35 +30,42 @@ import { ThermostatComponent } from '@app/iot/app-info/thermostat/thermostat.com
 import { ModesComponent } from '@app/iot/app-info/modes/modes.component';
 import { ReminderTimelineComponent } from '@app/iot/app-info/reminder-timeline/reminder-timeline.component';
 
-export default [
-    DevicesComponent,
-    WidgetsComponent,
-    ActivityWidgetComponent,
-    LocationsComponent,
-    ActivityComponent,
-    LocationRowComponent,
-    LocationEditComponent,
-    DeviceSvgComponent,
-    HelperBoxComponent,
-    OutputPinViewComponent,
-    DataTableComponent,
-    SwitchWidgetsComponent,
-    InputPinComponent,
-    OutputPinComponent,
-    IconWidgetsComponent,
-    PlacesComponent,
-    IndexComponent,
-    ChartComponent,
-    DefaultLayoutComponent,
-    LargeIconWidgetComponent,
-    MediumIconWidgetComponent,
-    LargeValueWidgetComponent,
-    FullWidgetComponent,
-    QuickStatusComponent,
-    QuickChartComponent,
-    UserWidgetComponent,
-    AppInfoComponent,
-    ThermostatComponent,
-    ModesComponent,
-    ReminderTimelineComponent
-];
+import { appRoutesGenerator as routes } from '@app/iot/app.routes.iot';
+
+export default {
+    declarations: [
+        DevicesComponent,
+        WidgetsComponent,
+        ActivityWidgetComponent,
+        LocationsComponent,
+        ActivityComponent,
+        LocationRowComponent,
+        LocationEditComponent,
+        DeviceSvgComponent,
+        HelperBoxComponent,
+        OutputPinViewComponent,
+        DataTableComponent,
+        SwitchWidgetsComponent,
+        InputPinComponent,
+        OutputPinComponent,
+        IconWidgetsComponent,
+        PlacesComponent,
+        IndexComponent,
+        ChartComponent,
+        DefaultLayoutComponent,
+        LargeIconWidgetComponent,
+        MediumIconWidgetComponent,
+        LargeValueWidgetComponent,
+        FullWidgetComponent,
+        QuickStatusComponent,
+        QuickChartComponent,
+        UserWidgetComponent,
+        AppInfoComponent,
+        ThermostatComponent,
+        ModesComponent,
+        ReminderTimelineComponent
+    ],
+    imports: [
+        routes()
+    ]
+};
