@@ -1,13 +1,13 @@
 import { async, ComponentFixture, TestBed, inject} from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { RequestsService } from '@app/services/requests.service';
+import { RequestsService } from '@app/core/services/requests.service';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { LocationEditComponent } from './location-edit.component';
-import { CommunicateService } from '@app/services/communicate.service';
+import { CommunicateService } from '@app/core/services/communicate.service';
 import { appReducersGenerator } from '@app/core/app.reducers';;
 import { ActivatedRoute, Data } from '@angular/router';
-import { PermissionsService } from '@app/services/permissions.service';
-import { MocksService } from '@app/services/mocks.service';
+import { PermissionsService } from '@app/core/services/permissions.service';
+import { MocksService } from '@app/core/services/mocks.service';
 
 describe('LocationEditComponent', () => {
   let component: LocationEditComponent;

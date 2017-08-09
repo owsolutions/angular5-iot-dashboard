@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { RequestsService } from '@app/services/requests.service';
+import { RequestsService } from '@app/core/services/requests.service';
 declare var $: any;
 
 @Component({
