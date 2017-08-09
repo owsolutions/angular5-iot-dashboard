@@ -12,9 +12,12 @@ import { AppComponent } from '@app/app.component';
 import { IndexComponent } from '@app/index/index.component';
 import { ChartComponent } from '@app/index/chart/chart.component';
 
+// Iot related
+import { DevicesComponent } from '@app/iot/devices/devices.component';
+
+
 import { SettingsComponent } from '@app/settings/settings.component';
 import { SwitchWidgetsComponent } from '@app/shared/switch-widgets/switch-widgets.component';
-import { DevicesComponent } from '@app/devices/devices.component';
 import { QuickStatusComponent } from '@app/layout/quick-status/quick-status.component';
 import { QuickChartComponent } from '@app/layout/quick-status/quick-chart/quick-chart.component';
 import { UserWidgetComponent } from '@app/layout/quick-status/user-widget/user-widget.component';

@@ -3,7 +3,7 @@ import { Route, RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { LocationsComponent } from './locations/locations.component';
 import { SettingsComponent } from './settings/settings.component';
-import { DevicesComponent } from './devices/devices.component';
+import { DevicesComponent } from '@app/iot/devices/devices.component';
 import { ActivityComponent } from './activity/activity.component';
 import { WidgetsComponent } from './widgets/widgets.component';
 import { LocationEditComponent } from './locations/location-edit/location-edit.component';
