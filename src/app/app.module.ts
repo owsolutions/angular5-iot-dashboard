@@ -14,41 +14,45 @@ import { ChartComponent } from '@app/index/chart/chart.component';
 
 // Iot related
 import { DevicesComponent } from '@app/iot/devices/devices.component';
+import { WidgetsComponent } from '@app/iot/widgets/widgets.component';
+import { ActivityWidgetComponent } from '@app/iot/activity/activity-widget/activity-widget.component';
+import { LocationsComponent } from '@app/iot/locations/locations.component';
+import { ActivityComponent } from '@app/iot/activity/activity.component';
+import { LocationRowComponent } from '@app/iot/locations/location-row/location-row.component';
+import { LocationEditComponent } from '@app/iot/locations/location-edit/location-edit.component';
+import { DeviceSvgComponent } from '@app/iot/shared/device-svg/device-svg.component';
+import { HelperBoxComponent } from '@app/iot/shared/helper-box/helper-box.component';
+import { OutputPinViewComponent } from '@app/iot/shared/output-pin-view/output-pin-view.component';
+import { DataTableComponent } from '@app/iot/shared/data-table/data-table.component';
+import { SwitchWidgetsComponent } from '@app/iot/shared/switch-widgets/switch-widgets.component';
+import { InputPinComponent } from '@app/iot/shared/input-pin/input-pin.component';
+import { OutputPinComponent } from '@app/iot/shared/output-pin/output-pin.component';
 
 
 import { SettingsComponent } from '@app/settings/settings.component';
-import { SwitchWidgetsComponent } from '@app/shared/switch-widgets/switch-widgets.component';
 import { QuickStatusComponent } from '@app/layout/quick-status/quick-status.component';
 import { QuickChartComponent } from '@app/layout/quick-status/quick-chart/quick-chart.component';
 import { UserWidgetComponent } from '@app/layout/quick-status/user-widget/user-widget.component';
-import { ActivityWidgetComponent } from '@app/activity/activity-widget/activity-widget.component';
-import { NavigationComponent } from '@app/shared/navigation/navigation.component';
+
+import { NavigationComponent } from '@app/core/navigation/navigation.component';
 import { AppInfoComponent } from '@app/layout/app-info/app-info.component';
 import { IconWidgetsComponent } from '@app/index/icon-widgets/icon-widgets.component';
 import { PlacesComponent } from '@app/index/places/places.component';
-import { InputPinComponent } from '@app/shared/input-pin/input-pin.component';
-import { OutputPinComponent } from '@app/shared/output-pin/output-pin.component';
-import { LocationsComponent } from '@app/locations/locations.component';
+
 import { LargeIconWidgetComponent } from '@app/elements/widgets/large-icon-widget/large-icon-widget.component';
 import { MediumIconWidgetComponent } from '@app/elements/widgets/medium-icon-widget/medium-icon-widget.component';
 import { LargeValueWidgetComponent } from '@app/elements/widgets/large-value-widget/large-value-widget.component';
 import { FullWidgetComponent } from '@app/elements/widgets/full-widget/full-widget.component';
-import { ActivityComponent } from '@app/activity/activity.component';
 import { ThermostatComponent } from '@app/layout/app-info/thermostat/thermostat.component';
 import { ModesComponent } from '@app/layout/app-info/modes/modes.component';
 import { ReminderTimelineComponent } from '@app/layout/app-info/reminder-timeline/reminder-timeline.component';
-import { PageHeaderComponent } from '@app/shared/page-header/page-header.component';
+import { PageHeaderComponent } from '@app/core/page-header/page-header.component';
 import { TextInputComponent } from '@app/forms/text-input/text-input.component';
 import { RadioInputComponent } from '@app/forms/radio-input/radio-input.component';
-import { DeviceSvgComponent } from '@app/shared/device-svg/device-svg.component';
-import { WidgetsComponent } from '@app/widgets/widgets.component';
+
 import { SelectInputComponent } from '@app/forms/select-input/select-input.component';
-import { HelperBoxComponent } from '@app/shared/helper-box/helper-box.component';
-import { LocationRowComponent } from '@app/locations/location-row/location-row.component';
-import { OutputPinViewComponent } from '@app/shared/output-pin-view/output-pin-view.component';
-import { LocationEditComponent } from '@app/locations/location-edit/location-edit.component';
-import { DataTableComponent } from '@app/shared/data-table/data-table.component';
-import { FormElementsComponent } from '@app/shared/form-elements/form-elements.component';
+
+import { FormElementsComponent } from '@app/core/form-elements/form-elements.component';
 import { UsersComponent } from '@app/users/users.component';
 import { RolesComponent } from '@app/roles/roles.component';
 import { UserSingleComponent } from '@app/users/user-single/user-single.component';

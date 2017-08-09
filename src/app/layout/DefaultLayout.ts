@@ -1,4 +1,4 @@
-import { NavigationComponent } from '../shared/navigation/navigation.component';
+import { NavigationComponent } from '@app/core/navigation/navigation.component';
 import { QuickStatusComponent } from './quick-status/quick-status.component';
 import { AppInfoComponent } from './app-info/app-info.component';
 import { Route } from '@angular/router';
