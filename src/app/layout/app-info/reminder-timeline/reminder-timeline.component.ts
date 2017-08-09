@@ -5,7 +5,7 @@ import { times, random, shuffle } from 'lodash';
 @Component({
   selector: 'app-reminder-timeline',
   templateUrl: './reminder-timeline.component.html',
-  styleUrls: ['./reminder-timeline.component.scss', '../../../shared/custom-switch.scss']
+  styleUrls: ['./reminder-timeline.component.scss', '../custom-switch.scss']
 })
 export class ReminderTimelineComponent implements OnInit {
   public chart: any;
