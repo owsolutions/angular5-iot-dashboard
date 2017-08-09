@@ -1,10 +1,17 @@
 @import '../../../injects';
 
 .next-button {
-    margin-top:30px;
     display:inline-block;
 }
-
+.place-row-link{
+    text-decoration: none;
+    &:hover {
+        .icon-round-next {
+            background: #8ce196;
+            color: white;
+        }
+    }
+}
 .value-box {
     font-size:35px;
     padding-top:0px;
@@ -27,15 +34,11 @@
     color: rgb(185, 195, 213);
     text-align:center;
     padding:3px;
-    font-size:21px;
+    font-size:25px;
     display:inline-block;
-
+    line-height: 35px;
+    text-indent: 2px;
     @include transition(all .5s);
-    
-    &:hover {
-        background: #8ce196;
-        color: white;
-    }
 }
 .list.status {
     list-style: none;

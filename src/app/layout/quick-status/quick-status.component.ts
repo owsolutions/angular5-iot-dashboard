@@ -14,11 +14,11 @@ export class QuickStatusComponent implements OnInit {
   ngOnInit() {
     this.weatherConditions = {
       largeTemp: {
-        icon: 'icon-cloud-sun',
+        icon: 'icon-cloudy',
         degree: 10
       },
       smallTemp: {
-        icon: 'icon-snow-heavy',
+        icon: 'icon-rainy2',
         degree: 6
       },
       wind: 10,

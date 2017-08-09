@@ -42,12 +42,14 @@ $itemicon: #8e96ad;
         left: -20px;
         i{
           display: block;
-          text-align: center;
           width: 40px;
           height: 40px;
           border-radius: 50%;
           border: 2px solid $itemicon;
           color: lighten($itemicon,5);
+          padding-left: 8px;
+          font-size: 20px;
+          line-height: 3px;
           &:before{
               width: 2.15em !important;
               display: block !important;

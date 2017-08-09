@@ -566,6 +566,11 @@
   left: 3px;
   height: 98%;
 }
+
+.j-forms .icon-left i{
+  line-height: 2.2em;
+}
+
 .j-forms .icon-right {
   border-left: 1px solid rgba(0, 0, 0, 0.24);
   right: 3px;

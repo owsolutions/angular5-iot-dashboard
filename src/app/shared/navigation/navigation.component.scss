@@ -24,10 +24,11 @@ nav.navigation {
 			padding: 15px 6px 15px 3px;
 			color: $nav-icon;
 			display: inline-block;
+			font-weight: bold;
 			i {
 				display:block;
 				font-size:30px;
-				padding-bottom:0px;
+				padding-bottom:5px;
 			}
 			&:hover, &.active {
 				i {

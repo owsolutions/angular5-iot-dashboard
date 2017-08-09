@@ -229,19 +229,19 @@ export class ChartComponent implements OnInit, AfterViewInit {
       return [
           {
               'title': 'Power',
-              'icon': 'icon icon-flash',
+              'icon': 'icon icon-power',
               'value': random(300, 600),
               'unit': 'Wh'
           },
           {
               'title': 'Consumption',
-              'icon': 'icon icon-temperatire',
+              'icon': 'icon icon-consum',
               'value': random(5500, 6000) / 100,
               'unit': 'kWh'
           },
           {
               'title': 'Water',
-              'icon': 'icon icon-tint',
+              'icon': 'icon icon-water',
               'value': random(200, 800) / 100,
               'unit': 'L'
           }

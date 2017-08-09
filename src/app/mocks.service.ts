@@ -27,7 +27,7 @@ export class MocksService {
             id: 0
         },
         {
-            icon: 'icon-play',
+            icon: 'icon-play_arrow',
             reason: 'Sonos PLAY',
             type: ActivityTypes.DevicePinChange,
             description: 'Bakermat - teach me',
@@ -37,7 +37,7 @@ export class MocksService {
             id: 1
         },
         {
-            icon: 'icon-wifi',
+            icon: 'icon-wifi2',
             reason: 'Macbook',
             type: ActivityTypes.DevicePinChange,
             description: 'Wifi network',

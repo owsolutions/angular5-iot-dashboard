@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "assets/fonts/css/fontello.css";
+@import "assets/fonts/css/icomoon.css";
 @import "assets/fonts/css/FFF-Forward.css";
 @import "vars";
 @import "medias";
@@ -65,16 +65,6 @@ html, body{
 
 
 .btn {
-    &.btn-primary {
-        border: 0;
-        border-radius: 0;
-        background: $theme-color;
-
-        &:hover {
-            background: darken($theme-color, 15%);
-        }
-    }
-
     &.docked {
         float: right;
         top: -39px;
