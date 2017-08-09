@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { HelperBoxComponent } from './helper-box.component';
 import { OutputPinComponent } from '../output-pin/output-pin.component';
-import { SelectInputComponent } from '../../forms/select-input/select-input.component';
-import { TextInputComponent } from '../../forms/text-input/text-input.component';
+import { SelectInputComponent } from '@app/core/forms/select-input/select-input.component';
+import { TextInputComponent } from '@app/core/forms/text-input/text-input.component';
 import { appReducersGenerator } from '@app/core/app.reducers';
 
 import { CommunicateService } from '@app/core/services/communicate.service';
