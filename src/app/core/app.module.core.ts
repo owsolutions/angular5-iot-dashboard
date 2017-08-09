@@ -1,6 +1,7 @@
 import { appReducersGenerator } from '@app/core/app.reducers';
 import { NavigationComponent } from '@app/core/navigation/navigation.component';
 import { SettingsComponent } from '@app/core/settings/settings.component';
+import { DataTableComponent } from '@app/core/data-table/data-table.component';
 import { PageHeaderComponent } from '@app/core/page-header/page-header.component';
 import { TextInputComponent } from '@app/core/forms/text-input/text-input.component';
 import { RadioInputComponent } from '@app/core/forms/radio-input/radio-input.component';
@@ -23,6 +24,7 @@ export default {
     declarations: [
         NavigationComponent,
         SettingsComponent,
+        DataTableComponent,
         PageHeaderComponent,
         TextInputComponent,
         RadioInputComponent,
