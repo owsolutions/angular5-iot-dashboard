@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { DeviceObject } from '../shared/DeviceObject';
 import { IDevice, IPin, AppState, ILocation, IWidget } from '../shared/Definitions';
 import { Store } from '@ngrx/store';
-import { CommunicateService } from '../communicate.service';
+import { CommunicateService } from '@app/services/communicate.service';
 
 @Component({
   selector: 'app-devices',

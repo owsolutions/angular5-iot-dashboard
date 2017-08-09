@@ -7,10 +7,10 @@ import { PageHeaderComponent } from '../shared/page-header/page-header.component
 import { DeviceSvgComponent } from '../shared/device-svg/device-svg.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { appReducersGenerator } from '../app.reducers';
-import { CommunicateService } from '../communicate.service';
-import { RequestsService } from '../requests.service';
-import { PermissionsService } from '../permissions.service';
-import { MocksService } from '../mocks.service';
+import { CommunicateService } from '@app/services/communicate.service';
+import { RequestsService } from '@app/services/requests.service';
+import { PermissionsService } from '@app/services/permissions.service';
+import { MocksService } from '@app/services/mocks.service';
 
 describe('DevicesComponent', () => {
   let component: DevicesComponent;

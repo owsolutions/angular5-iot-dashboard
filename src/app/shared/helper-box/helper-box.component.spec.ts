@@ -4,11 +4,12 @@ import { OutputPinComponent } from '../output-pin/output-pin.component';
 import { SelectInputComponent } from '../../forms/select-input/select-input.component';
 import { TextInputComponent } from '../../forms/text-input/text-input.component';
 import { appReducersGenerator } from '../../app.reducers';
-import { CommunicateService } from '../../communicate.service';
-import { RequestsService } from '../../requests.service';
-import { PermissionsService } from '../../permissions.service';
-import { MocksService } from '../../mocks.service';
-import { ActionsService } from '../../actions.service';
+
+import { CommunicateService } from '@app/services/communicate.service';
+import { RequestsService } from '@app/services/requests.service';
+import { PermissionsService } from '@app/services/permissions.service';
+import { MocksService } from '@app/services/mocks.service';
+import { ActionsService } from '@app/services/actions.service';
 
 
 describe('HelperBoxComponent', () => {

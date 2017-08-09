@@ -1,7 +1,8 @@
 import { TestBed, inject } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
+
 import { CommunicateService } from './communicate.service';
 import { UserService } from './user.service';
-import { StoreModule } from '@ngrx/store';
 import { RequestsService } from './requests.service';
 import { PermissionsService } from './permissions.service';
 import { MocksService } from './mocks.service';

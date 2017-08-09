@@ -3,11 +3,11 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { RolesComponent } from './roles.component';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { PermissionsService } from '../permissions.service';
-import { RequestsService } from '../requests.service';
 import { StoreModule } from '@ngrx/store';
-import { MocksService } from '../mocks.service';
-import { ActionsService } from '../actions.service';
+import { PermissionsService } from '@app/services/permissions.service';
+import { RequestsService } from '@app/services/requests.service';
+import { MocksService } from '@app/services/mocks.service';
+import { ActionsService } from '@app/services/actions.service';
 
 
 describe('RolesComponent', () => {

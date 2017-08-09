@@ -1,12 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { UserService } from '../../../user.service';
+import { UserService } from '@app/services/user.service';
 import { UserWidgetComponent } from './user-widget.component';
-import { CommunicateService } from '../../../communicate.service';
+import { CommunicateService } from '@app/services/communicate.service';
 import { StoreModule } from '@ngrx/store';
 
-import { RequestsService } from '../../../requests.service';
-import { MocksService } from '../../../mocks.service';
-import { PermissionsService } from '../../../permissions.service';
+import { RequestsService } from '@app/services/requests.service';
+import { MocksService } from '@app/services/mocks.service';
+import { PermissionsService } from '@app/services/permissions.service';
 
 describe('UserWidgetComponent', () => {
   let component: UserWidgetComponent;
