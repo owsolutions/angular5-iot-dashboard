@@ -32,6 +32,7 @@ import MODULE from '@app/iot/app.module.iot';
 })
 export class AppComponent {}
 
+console.log('-- hi')
 @NgModule({
   declarations: [
     AppComponent,

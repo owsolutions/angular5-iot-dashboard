@@ -1,5 +1,5 @@
 import {ActionReducer, Action} from '@ngrx/store';
-import UpdateOrInsert from '../functions/UpdateOrInsert';
+import UpdateOrInsert from '@app/core/functions/UpdateOrInsert';
 
 export function rolesReducer (state = [], action: Action) {
     switch (action.type) {
