@@ -21,6 +21,11 @@
       "styles": [
         "styles.scss"
       ],
+      "stylePreprocessorOptions": {
+        "includePaths": [
+          "../src/assets/scss"
+        ]
+      },
       "scripts": [
         "assets/highcharts/highstock.js",
         "assets/highcharts/exporting.js",
