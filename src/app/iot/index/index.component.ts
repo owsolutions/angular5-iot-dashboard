@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { fetchApi } from '../api';
 import { times, random} from 'lodash';
 import { ChartComponent } from './chart/chart.component';
 

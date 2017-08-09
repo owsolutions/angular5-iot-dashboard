@@ -9,8 +9,6 @@ import { appRoutesGenerator } from '@app/routes';
 import { appReducersGenerator } from '@app/core/app.reducers';
 
 import { AppComponent } from '@app/app.component';
-import { IndexComponent } from '@app/index/index.component';
-import { ChartComponent } from '@app/index/chart/chart.component';
 
 // Iot related
 import { DevicesComponent } from '@app/iot/devices/devices.component';
@@ -23,21 +21,24 @@ import { LocationEditComponent } from '@app/iot/locations/location-edit/location
 import { DeviceSvgComponent } from '@app/iot/shared/device-svg/device-svg.component';
 import { HelperBoxComponent } from '@app/iot/shared/helper-box/helper-box.component';
 import { OutputPinViewComponent } from '@app/iot/shared/output-pin-view/output-pin-view.component';
-import { DataTableComponent } from '@app/iot/shared/data-table/data-table.component';
+import { DataTableComponent } from '@app/core/data-table/data-table.component';
 import { SwitchWidgetsComponent } from '@app/iot/shared/switch-widgets/switch-widgets.component';
 import { InputPinComponent } from '@app/iot/shared/input-pin/input-pin.component';
 import { OutputPinComponent } from '@app/iot/shared/output-pin/output-pin.component';
+import { IconWidgetsComponent } from '@app/iot/index/icon-widgets/icon-widgets.component';
+import { PlacesComponent } from '@app/iot/index/places/places.component';
+import { IndexComponent } from '@app/iot/index/index.component';
+import { ChartComponent } from '@app/iot/index/chart/chart.component';
 
 
-import { SettingsComponent } from '@app/settings/settings.component';
+import { SettingsComponent } from '@app/core/settings/settings.component';
 import { QuickStatusComponent } from '@app/layout/quick-status/quick-status.component';
 import { QuickChartComponent } from '@app/layout/quick-status/quick-chart/quick-chart.component';
 import { UserWidgetComponent } from '@app/layout/quick-status/user-widget/user-widget.component';
 
 import { NavigationComponent } from '@app/core/navigation/navigation.component';
 import { AppInfoComponent } from '@app/layout/app-info/app-info.component';
-import { IconWidgetsComponent } from '@app/index/icon-widgets/icon-widgets.component';
-import { PlacesComponent } from '@app/index/places/places.component';
+
 
 import { LargeIconWidgetComponent } from '@app/elements/widgets/large-icon-widget/large-icon-widget.component';
 import { MediumIconWidgetComponent } from '@app/elements/widgets/medium-icon-widget/medium-icon-widget.component';
@@ -47,25 +48,26 @@ import { ThermostatComponent } from '@app/layout/app-info/thermostat/thermostat.
 import { ModesComponent } from '@app/layout/app-info/modes/modes.component';
 import { ReminderTimelineComponent } from '@app/layout/app-info/reminder-timeline/reminder-timeline.component';
 import { PageHeaderComponent } from '@app/core/page-header/page-header.component';
-import { TextInputComponent } from '@app/forms/text-input/text-input.component';
-import { RadioInputComponent } from '@app/forms/radio-input/radio-input.component';
 
-import { SelectInputComponent } from '@app/forms/select-input/select-input.component';
+import { TextInputComponent } from '@app/core/forms/text-input/text-input.component';
+import { RadioInputComponent } from '@app/core/forms/radio-input/radio-input.component';
+
+import { SelectInputComponent } from '@app/core/forms/select-input/select-input.component';
 
 import { FormElementsComponent } from '@app/core/form-elements/form-elements.component';
-import { UsersComponent } from '@app/users/users.component';
-import { RolesComponent } from '@app/roles/roles.component';
-import { UserSingleComponent } from '@app/users/user-single/user-single.component';
+import { UsersComponent } from '@app/core/users/users.component';
+import { RolesComponent } from '@app/core/roles/roles.component';
+import { UserSingleComponent } from '@app/core/users/user-single/user-single.component';
 import { PermissionsService } from '@app/services/permissions.service';
 import { RequestsService } from '@app/services/requests.service';
-import { CheckboxInputComponent } from '@app/forms/checkbox-input/checkbox-input.component';
-import { LoginComponent } from '@app/membership/login/login.component';
+import { CheckboxInputComponent } from '@app/core/forms/checkbox-input/checkbox-input.component';
+import { LoginComponent } from '@app/core/login/login.component';
 import { MocksService } from '@app/services/mocks.service';
 import { ActionsService } from '@app/services/actions.service';
 import { UserService, AuthGuard } from '@app/services/user.service';
 import { CommunicateService } from '@app/services/communicate.service';
 import { DefaultLayoutComponent } from '@app/default-layout/default-layout.component';
-import { LogoutComponent } from '@app/users/logout/logout.component';
+import { LogoutComponent } from '@app/core/users/logout/logout.component';
 
 @NgModule({
   declarations: [
