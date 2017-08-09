@@ -18,6 +18,17 @@ import { PlacesComponent } from '@app/iot/index/places/places.component';
 import { IndexComponent } from '@app/iot/index/index.component';
 import { ChartComponent } from '@app/iot/index/chart/chart.component';
 import { DefaultLayoutComponent } from '@app/iot/default-layout/default-layout.component';
+import { LargeIconWidgetComponent } from '@app/iot/widgets/large-icon-widget/large-icon-widget.component';
+import { MediumIconWidgetComponent } from '@app/iot/widgets/medium-icon-widget/medium-icon-widget.component';
+import { LargeValueWidgetComponent } from '@app/iot/widgets/large-value-widget/large-value-widget.component';
+import { FullWidgetComponent } from '@app/iot/widgets/full-widget/full-widget.component';
+import { QuickStatusComponent } from '@app/iot/quick-status/quick-status.component';
+import { QuickChartComponent } from '@app/iot/quick-status/quick-chart/quick-chart.component';
+import { UserWidgetComponent } from '@app/iot/quick-status/user-widget/user-widget.component';
+import { AppInfoComponent } from '@app/iot/app-info/app-info.component';
+import { ThermostatComponent } from '@app/iot/app-info/thermostat/thermostat.component';
+import { ModesComponent } from '@app/iot/app-info/modes/modes.component';
+import { ReminderTimelineComponent } from '@app/iot/app-info/reminder-timeline/reminder-timeline.component';
 
 export default [
     DevicesComponent,
@@ -38,5 +49,16 @@ export default [
     PlacesComponent,
     IndexComponent,
     ChartComponent,
-    DefaultLayoutComponent
+    DefaultLayoutComponent,
+    LargeIconWidgetComponent,
+    MediumIconWidgetComponent,
+    LargeValueWidgetComponent,
+    FullWidgetComponent,
+    QuickStatusComponent,
+    QuickChartComponent,
+    UserWidgetComponent,
+    AppInfoComponent,
+    ThermostatComponent,
+    ModesComponent,
+    ReminderTimelineComponent
 ];

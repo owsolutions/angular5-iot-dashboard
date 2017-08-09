@@ -9,26 +9,22 @@ import { appRoutesGenerator } from '@app/routes';
 import { appReducersGenerator } from '@app/core/app.reducers';
 
 import { AppComponent } from '@app/app.component';
+import { NavigationComponent } from '@app/core/navigation/navigation.component';
 
 
 import IotModules from '@app/iot/app.module.iot';
 
 import { SettingsComponent } from '@app/core/settings/settings.component';
-import { QuickStatusComponent } from '@app/layout/quick-status/quick-status.component';
-import { QuickChartComponent } from '@app/layout/quick-status/quick-chart/quick-chart.component';
-import { UserWidgetComponent } from '@app/layout/quick-status/user-widget/user-widget.component';
-
-import { NavigationComponent } from '@app/core/navigation/navigation.component';
-import { AppInfoComponent } from '@app/layout/app-info/app-info.component';
 
 
-import { LargeIconWidgetComponent } from '@app/elements/widgets/large-icon-widget/large-icon-widget.component';
-import { MediumIconWidgetComponent } from '@app/elements/widgets/medium-icon-widget/medium-icon-widget.component';
-import { LargeValueWidgetComponent } from '@app/elements/widgets/large-value-widget/large-value-widget.component';
-import { FullWidgetComponent } from '@app/elements/widgets/full-widget/full-widget.component';
-import { ThermostatComponent } from '@app/layout/app-info/thermostat/thermostat.component';
-import { ModesComponent } from '@app/layout/app-info/modes/modes.component';
-import { ReminderTimelineComponent } from '@app/layout/app-info/reminder-timeline/reminder-timeline.component';
+
+
+
+
+
+
+
+
 import { PageHeaderComponent } from '@app/core/page-header/page-header.component';
 
 import { TextInputComponent } from '@app/core/forms/text-input/text-input.component';
@@ -54,18 +50,7 @@ import { LogoutComponent } from '@app/core/users/logout/logout.component';
   declarations: [
     AppComponent,
     SettingsComponent,
-    QuickStatusComponent,
-    QuickChartComponent,
-    UserWidgetComponent,
     NavigationComponent,
-    AppInfoComponent,
-    LargeIconWidgetComponent,
-    MediumIconWidgetComponent,
-    LargeValueWidgetComponent,
-    FullWidgetComponent,
-    ThermostatComponent,
-    ModesComponent,
-    ReminderTimelineComponent,
     PageHeaderComponent,
     TextInputComponent,
     RadioInputComponent,
