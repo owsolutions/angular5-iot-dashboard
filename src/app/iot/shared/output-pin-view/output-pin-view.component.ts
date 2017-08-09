@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IPin, IDevice } from '@app/core/definitions';
+import { IPin, IDevice } from '@app/iot/definitions';
 import { random } from 'lodash';
 
 @Component({
