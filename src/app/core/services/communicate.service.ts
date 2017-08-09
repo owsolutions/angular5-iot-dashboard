@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { IDevice, ILocation, AppState, IRole, IActivity, IWidget } from '@app/core/definitions';
+import { IDevice, ILocation, AppState, IActivity, IWidget } from '@app/iot/definitions';
+import { IRole } from '@app/core/definitions';
 import { RequestsService } from './requests.service';
 
 @Injectable()

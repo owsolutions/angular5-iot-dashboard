@@ -1,12 +1,14 @@
+import { Component } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ChangeDetectorRef } from '@angular/core';
-import IotModules from '@app/iot/app.module.iot';
+
 import CoreModule from '@app/core/app.module.core';
-import { Component, OnInit } from '@angular/core';
+import IotModules from '@app/iot/app.module.iot';
+
 
 @Component({
   selector: 'app-root',

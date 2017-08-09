@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { IActivity, IUser, IRole, ActivityTypes, IDevice, ILocation, IWidget, IPin } from '@app/core/definitions';
+import { IUser, IRole } from '@app/core/definitions';
+import { IActivity, ActivityTypes, IDevice, ILocation, IWidget, IPin } from '@app/iot/definitions';
 import { times, random, sample } from 'lodash';
 import { PermissionsService } from './permissions.service';
 import faker from 'faker';

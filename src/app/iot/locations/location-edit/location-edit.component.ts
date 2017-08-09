@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommunicateService } from '@app/core/services/communicate.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppState, ILocation } from '@app/core/definitions';
+import { AppState, ILocation } from '@app/iot/definitions';
 import { Store } from '@ngrx/store';
 import { maxBy } from 'lodash';
 

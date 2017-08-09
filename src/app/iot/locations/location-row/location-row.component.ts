@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ILocation, IWidget } from '@app/core/definitions';
+import { ILocation, IWidget } from '@app/iot/definitions';
 
 @Component({
   selector: 'app-location-row',

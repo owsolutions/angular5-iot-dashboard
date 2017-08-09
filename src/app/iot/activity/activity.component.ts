@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState, IActivity, ActivityTypes } from '@app/core/definitions';
+import { AppState, IActivity, ActivityTypes } from '@app/iot/definitions';
 
 @Component({
   selector: 'app-activity',

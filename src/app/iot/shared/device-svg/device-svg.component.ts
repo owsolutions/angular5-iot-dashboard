@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter} from '@angular/core';
-import { IPin , IDevice } from '@app/core/definitions';
+import { IPin , IDevice } from '@app/iot/definitions';
 
 @Component({
   selector: 'app-device-svg',

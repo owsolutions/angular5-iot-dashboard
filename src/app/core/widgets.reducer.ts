@@ -1,6 +1,6 @@
 import {ActionReducer, Action} from '@ngrx/store';
 import UpdateOrPrepend from '../functions/UpdateOrPrepend';
-import { IWidget } from '@app/core/definitions';
+import { IWidget } from '@app/iot/definitions';
 
 export function widgetsReducer (widgets = [], action: Action) {
     switch (action.type) {

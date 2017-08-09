@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { random } from 'lodash';
-import { IDevice, AppState, IActivity, IWidget, IPin, ActivityTypes } from '@app/core/definitions';
+import { IDevice, AppState, IActivity, IWidget, IPin, ActivityTypes } from '@app/iot/definitions';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 

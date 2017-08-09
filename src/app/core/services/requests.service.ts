@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { IRole, ILocation, IDevice, IActivity, IWidget, IUser } from '@app/core/definitions';
+import { IRole, IUser } from '@app/core/definitions';
+import { ILocation, IDevice, IActivity, IWidget } from '@app/iot/definitions';
 import { PermissionsService } from './permissions.service';
 import { sample, times} from 'lodash';
 import { MocksService } from './mocks.service';
