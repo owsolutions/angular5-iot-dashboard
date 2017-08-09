@@ -12,7 +12,7 @@ import { FormElementsComponent } from '@app/core/form-elements/form-elements.com
 import { UsersComponent } from '@app/core/users/users.component';
 import { RolesComponent } from '@app/core/roles/roles.component';
 import { UserSingleComponent } from '@app/core/users/user-single/user-single.component';
-import { DefaultLayout, AuthLayout } from './layout/DefaultLayout';
+import { DefaultLayout, AuthLayout } from '@app/iot/layout/DefaultLayout';
 
 
 export const appRoutes: Routes = [
