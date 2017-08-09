@@ -3,8 +3,8 @@ import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing'
 import { SwitchWidgetsComponent } from './switch-widgets.component';
 import { OutputPinComponent } from '../output-pin/output-pin.component';
 import { MockComponent } from 'ng2-mock-component';
-import { appReducersGenerator } from '../../app.reducers';
-import { IWidget } from '../Definitions';
+import { appReducersGenerator } from '@app/core/app.reducers';
+import { IWidget } from '@app/core/definitions';
 
 import { CommunicateService } from '@app/services/communicate.service';
 import { RequestsService } from '@app/services/requests.service';

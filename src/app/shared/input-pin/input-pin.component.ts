@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IPin } from '../Definitions';
+import { IPin } from '@app/core/definitions';
 
 @Component({
   selector: 'app-input-pin',

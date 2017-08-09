@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { StoreModule } from '@ngrx/store';
 import { MockComponent } from 'ng2-mock-component';
-import { appReducersGenerator } from '../app/app.reducers';
+import { appReducersGenerator } from '@app/core/app.reducers';
 import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RequestsService } from '@app/services/requests.service';

@@ -1,5 +1,5 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { appReducersGenerator } from '../../app.reducers';
+import { appReducersGenerator } from '@app/core/app.reducers';;
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PlacesComponent } from './places.component';
 

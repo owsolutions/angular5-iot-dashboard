@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { ILocation } from '../../shared/Definitions';
+import { ILocation } from '@app/core/definitions';
 import { LocationRowComponent } from './location-row.component';
 
 describe('LocationRowComponent', () => {

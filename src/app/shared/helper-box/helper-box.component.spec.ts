@@ -3,7 +3,7 @@ import { HelperBoxComponent } from './helper-box.component';
 import { OutputPinComponent } from '../output-pin/output-pin.component';
 import { SelectInputComponent } from '../../forms/select-input/select-input.component';
 import { TextInputComponent } from '../../forms/text-input/text-input.component';
-import { appReducersGenerator } from '../../app.reducers';
+import { appReducersGenerator } from '@app/core/app.reducers';
 
 import { CommunicateService } from '@app/services/communicate.service';
 import { RequestsService } from '@app/services/requests.service';

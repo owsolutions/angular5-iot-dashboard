@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { DeviceObject } from '../shared/DeviceObject';
-import { IDevice, IPin, AppState, ILocation, IWidget } from '../shared/Definitions';
+import { IDevice, IPin, AppState, ILocation, IWidget } from '@app/core/definitions';
 import { Store } from '@ngrx/store';
 import { CommunicateService } from '@app/services/communicate.service';
 

@@ -4,7 +4,7 @@ import { RequestsService } from '@app/services/requests.service';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { LocationEditComponent } from './location-edit.component';
 import { CommunicateService } from '@app/services/communicate.service';
-import { appReducersGenerator } from '../../app.reducers';
+import { appReducersGenerator } from '@app/core/app.reducers';;
 import { ActivatedRoute, Data } from '@angular/router';
 import { PermissionsService } from '@app/services/permissions.service';
 import { MocksService } from '@app/services/mocks.service';
