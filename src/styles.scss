@@ -1,9 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "assets/fonts/css/icomoon.css";
 @import "assets/fonts/css/FFF-Forward.css";
-@import "assets/scss/vars";
-@import "assets/scss/medias";
-@import "assets/scss/mixins";
+@import "injects";
 
 
 *, *:before, *:after {
