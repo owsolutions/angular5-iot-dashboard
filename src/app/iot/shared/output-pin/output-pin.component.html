@@ -8,12 +8,11 @@
       >
       <div><div></div></div>
     </label>
-     <div *ngIf="findType(pin.value) === 'input'">
-      <input class="input-value" 
-        (change)="pin.value = changeAnalogData($event, device, pin)" 
-        type="text" 
-      value="{{pin.value}}">
+
+    <div class="range-selector" *ngIf="findType(pin.value) === 'input'">
+        <input type="range" min="0" max="100" step="0.5" (change)="pin.value = changeAnalogData($event, device, pin)" >
     </div>
+
   </span>
 </span>
 
