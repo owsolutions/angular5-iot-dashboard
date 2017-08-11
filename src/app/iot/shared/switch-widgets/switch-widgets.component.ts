@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { times, random } from 'lodash';
+import { IWidget } from '@app/iot/definitions';
 
 @Component({
   selector: 'app-switch-widgets',
@@ -13,5 +14,15 @@ export class SwitchWidgetsComponent implements OnInit {
   }
   ngOnInit() {
 
+  }
+
+  value (widget: IWidget) {
+    if (!widget.pin.value.toFixed) {
+      return widget.pin.value;
+    }
+    if (widget.pin.value === 'ON' || widget.pin.value === 'OFF') {
+      return widget.pin.value;
+    }
+    return (widget.pin.value as Number).toFixed(2);
   }
 }
