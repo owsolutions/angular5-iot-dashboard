@@ -17,7 +17,7 @@ export interface IRole {
   title: string;
   permissions: Array<IPermission>;
 }
- 
+
 declare global {
   export interface Window {
     io: any;
