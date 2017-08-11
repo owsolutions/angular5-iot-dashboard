@@ -1,9 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "assets/fonts/css/icomoon.css";
 @import "assets/fonts/css/FFF-Forward.css";
-@import "vars";
-@import "medias";
-@import "mixins";
+@import "injects";
 
 
 *, *:before, *:after {
@@ -58,6 +56,8 @@ html, body{
         flex:1;
     }
 }
+
+$background: red;
 
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }

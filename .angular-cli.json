@@ -19,6 +19,10 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "assets/css/bootstrap.css",
+        "assets/css/datatable.css",
+        "assets/css/loader.css",
+        "assets/css/forms-style.css",
         "styles.scss"
       ],
       "scripts": [

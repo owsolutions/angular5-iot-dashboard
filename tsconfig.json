@@ -7,6 +7,9 @@
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
+    "paths": {
+      "@app/*": ["app/*"]
+    },
     "experimentalDecorators": true,
     "target": "es5",
     "typeRoots": [
