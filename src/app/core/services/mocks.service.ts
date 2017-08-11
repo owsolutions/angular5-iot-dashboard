@@ -160,7 +160,7 @@ export class MocksService {
       return {
         device: device,
         location: location,
-        name : sample(['Cloud', 'Lamp', 'Roberry']),
+        name : sample(['Cloud', 'Lamp', 'Bridge']),
         pin: sample(device.pins)
       };
     });

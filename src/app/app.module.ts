@@ -1,30 +1,65 @@
-/**
- * This is the core module; Since each app is a module for itself,
- * you can configure which app to be loaded.
- * By default, CoreModule is included, so you can use it's services and components
- * There is a Basic Module also, if you want to write your own app,
- * you can continue on that, instead of Iot App.
- *
- * Iot functionality, data flow and components, routing and simply speaking everything
- * related to that is independent of project. Just remove the iot folder, if you don't want to use it
- * at all, and use this dashboard for other purpose.
- */
 import { Component } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import CoreModule from '@app/core/app.module.core';
-import MODULE from '@app/iot/app.module.iot';
+ 
+import { appReducersGenerator } from '@app/core/app.reducers';
+import { NavigationComponent } from '@app/core/navigation/navigation.component';
+import { SettingsComponent } from '@app/core/settings/settings.component';
+import { DataTableComponent } from '@app/core/data-table/data-table.component';
+import { PageHeaderComponent } from '@app/core/page-header/page-header.component';
+import { TextInputComponent } from '@app/core/forms/text-input/text-input.component';
+import { RadioInputComponent } from '@app/core/forms/radio-input/radio-input.component';
+import { SelectInputComponent } from '@app/core/forms/select-input/select-input.component';
+import { FormElementsComponent } from '@app/core/form-elements/form-elements.component';
+import { UsersComponent } from '@app/core/users/users.component';
+import { RolesComponent } from '@app/core/roles/roles.component';
+import { UserSingleComponent } from '@app/core/users/user-single/user-single.component';
+import { LogoutComponent } from '@app/core/users/logout/logout.component';
+import { LoginComponent } from '@app/core/login/login.component';
 
-/**
- * You can uncomment this line, and comment iot module
- * so now you can extend your own application!
- * make sure you are importing CoreModule, because it has user, and dataflow
- */
+import { PermissionsService } from '@app/core/services/permissions.service';
+import { RequestsService } from '@app/core/services/requests.service';
+import { CheckboxInputComponent } from '@app/core/forms/checkbox-input/checkbox-input.component';
+import { MocksService } from '@app/core/services/mocks.service';
+import { ActionsService } from '@app/core/services/actions.service';
+import { UserService, AuthGuard } from '@app/core/services/user.service';
+import { CommunicateService } from '@app/core/services/communicate.service';
 
-// import MODULE from '@app/basic/app.module.basic';
+
+// Iot related
+import { DevicesComponent } from '@app/iot/devices/devices.component';
+import { WidgetsComponent } from '@app/iot/widgets/widgets.component';
+import { ActivityWidgetComponent } from '@app/iot/activity/activity-widget/activity-widget.component';
+import { LocationsComponent } from '@app/iot/locations/locations.component';
+import { ActivityComponent } from '@app/iot/activity/activity.component';
+import { LocationRowComponent } from '@app/iot/locations/location-row/location-row.component';
+import { LocationEditComponent } from '@app/iot/locations/location-edit/location-edit.component';
+import { DeviceSvgComponent } from '@app/iot/shared/device-svg/device-svg.component';
+import { HelperBoxComponent } from '@app/iot/shared/helper-box/helper-box.component';
+import { OutputPinViewComponent } from '@app/iot/shared/output-pin-view/output-pin-view.component';
+import { SwitchWidgetsComponent } from '@app/iot/shared/switch-widgets/switch-widgets.component';
+import { InputPinComponent } from '@app/iot/shared/input-pin/input-pin.component';
+import { OutputPinComponent } from '@app/iot/shared/output-pin/output-pin.component';
+import { IconWidgetsComponent } from '@app/iot/index/icon-widgets/icon-widgets.component';
+import { PlacesComponent } from '@app/iot/index/places/places.component';
+import { IndexComponent } from '@app/iot/index/index.component';
+import { ChartComponent } from '@app/iot/index/chart/chart.component';
+import { DefaultLayoutComponent } from '@app/iot/default-layout/default-layout.component';
+import { LargeIconWidgetComponent } from '@app/iot/widgets/large-icon-widget/large-icon-widget.component';
+import { MediumIconWidgetComponent } from '@app/iot/widgets/medium-icon-widget/medium-icon-widget.component';
+import { LargeValueWidgetComponent } from '@app/iot/widgets/large-value-widget/large-value-widget.component';
+import { FullWidgetComponent } from '@app/iot/widgets/full-widget/full-widget.component';
+import { QuickStatusComponent } from '@app/iot/quick-status/quick-status.component';
+import { QuickChartComponent } from '@app/iot/quick-status/quick-chart/quick-chart.component';
+import { UserWidgetComponent } from '@app/iot/quick-status/user-widget/user-widget.component';
+import { AppInfoComponent } from '@app/iot/app-info/app-info.component';
+import { ThermostatComponent } from '@app/iot/app-info/thermostat/thermostat.component';
+import { ModesComponent } from '@app/iot/app-info/modes/modes.component';
+import { ReminderTimelineComponent } from '@app/iot/app-info/reminder-timeline/reminder-timeline.component';
+import { appRoutesGenerator } from '@app/iot/app.routes.iot';
 
 @Component({
   selector: 'app-root',
@@ -35,19 +70,65 @@ export class AppComponent {}
 @NgModule({
   declarations: [
     AppComponent,
-    ... CoreModule.declarations,
-    ... MODULE.declarations,
+    NavigationComponent,
+    SettingsComponent,
+    DataTableComponent,
+    PageHeaderComponent,
+    TextInputComponent,
+    RadioInputComponent,
+    SelectInputComponent,
+    FormElementsComponent,
+    UsersComponent,
+    RolesComponent,
+    UserSingleComponent,
+    CheckboxInputComponent,
+    LoginComponent,
+    DevicesComponent,
+    WidgetsComponent,
+    ActivityWidgetComponent,
+    LocationsComponent,
+    ActivityComponent,
+    LocationRowComponent,
+    LocationEditComponent,
+    DeviceSvgComponent,
+    HelperBoxComponent,
+    OutputPinViewComponent,
+    SwitchWidgetsComponent,
+    InputPinComponent,
+    OutputPinComponent,
+    IconWidgetsComponent,
+    PlacesComponent,
+    IndexComponent,
+    ChartComponent,
+    DefaultLayoutComponent,
+    LargeIconWidgetComponent,
+    MediumIconWidgetComponent,
+    LargeValueWidgetComponent,
+    FullWidgetComponent,
+    QuickStatusComponent,
+    QuickChartComponent,
+    UserWidgetComponent,
+    AppInfoComponent,
+    ThermostatComponent,
+    ModesComponent,
+    ReminderTimelineComponent
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     HttpModule,
-    ...MODULE.imports,
-    ...CoreModule.imports
+    appRoutesGenerator(),
+    appReducersGenerator()
   ],
   providers: [
-    ... CoreModule.providers
+    PermissionsService,
+    RequestsService,
+    MocksService,
+    ActionsService,
+    UserService,
+    CommunicateService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
