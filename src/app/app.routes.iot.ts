@@ -36,10 +36,7 @@ export const appRoutes: Routes = [
         path: 'login',
         component: LoginComponent
     },
-    {
-        path: 'drop-file',
-        component: DropFileComponent
-    }
+    DefaultLayout(DropFileComponent, 'drop-file')
 ];
 
 export function appRoutesGenerator () {
