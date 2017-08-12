@@ -1,4 +1,3 @@
-import { Component } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -61,11 +60,13 @@ import { ModesComponent } from '@app/iot/app-info/modes/modes.component';
 import { ReminderTimelineComponent } from '@app/iot/app-info/reminder-timeline/reminder-timeline.component';
 import { appRoutesGenerator } from '@app/app.routes.iot';
 
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: '<router-outlet></router-outlet>'
 })
 export class AppComponent {}
+
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ export class AppComponent {}
     LoginComponent,
     DevicesComponent,
     WidgetsComponent,
+    LogoutComponent,
     ActivityWidgetComponent,
     LocationsComponent,
     ActivityComponent,
@@ -117,6 +119,7 @@ export class AppComponent {}
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    BrowserModule.withServerTransition({appId: 'my-app'}),
     HttpModule,
     appRoutesGenerator(),
     appReducersGenerator()

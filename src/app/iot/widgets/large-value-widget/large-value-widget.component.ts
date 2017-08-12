@@ -8,7 +8,7 @@ import { random } from 'lodash';
 })
 export class LargeValueWidgetComponent implements OnInit {
 
-  private value: Number;
+  public value: Number;
 
   constructor() { }
 
