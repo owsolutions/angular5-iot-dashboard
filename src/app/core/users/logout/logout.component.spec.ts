@@ -26,7 +26,12 @@ describe('LogoutComponent', () => {
       imports: [
         StoreModule.provideStore({}),
         RouterModule,
-        RouterTestingModule
+        RouterTestingModule.withRoutes([
+          {
+            path: 'login',
+            redirectTo: '/'
+          }
+        ])
       ]
     })
     .compileComponents();
