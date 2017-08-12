@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IRole, IUser } from '@app/core/definitions';
-import { ILocation, IDevice, IActivity, IWidget } from '@app/iot/definitions';
+import { ILocation, IDevice, IActivity, IWidget, IVPCInformation } from '@app/iot/definitions';
 import { PermissionsService } from './permissions.service';
 import { sample, times} from 'lodash';
 import { MocksService } from './mocks.service';
@@ -13,6 +13,10 @@ export class RequestsService {
 
   async getWidgets (): Promise<Array<IWidget>> {
     return this.mocks.Widgets();
+  }
+
+  async createVPC (vpcInformation: IVPCInformation): Promise<any> {
+    return this.mocks.createVPC(vpcInformation);
   }
   async getLocations(): Promise<Array<ILocation>> {
     return this.mocks.Locations();

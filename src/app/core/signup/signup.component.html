@@ -17,7 +17,7 @@
                   <label class="icon-left" for="login">
                       <i class="icon icon-person"></i>
                   </label>
-                  <input (change)="changeInput('vpc', $event.target.value)" class="form-control login-frm-input" 
+                  <input (change)="changeInput('vpcname', $event.target.value)" class="form-control login-frm-input" 
                     type="text" id="login" 
                     name="login" 
                     placeholder="VPC Name ( unique for you )">
@@ -25,13 +25,13 @@
               </div>
               <div class="unit">
                 <label class="input select">
-                  <select class="form-control">
+                  <select class="form-control" (change)="changeInput('vpcregion', $event.target.value)" >
                       <option value="none" disabled selected>-- Select the region --</option>
-                      <option value="0">Singapore</option>
-                      <option value="1">US West (California)</option>
-                      <option value="1">Middle East ( Dubai )</option>
-                      <option value="1">Middle East ( Yerevan )</option>
-                      <option value="1">Europe ( Frankfurt )</option>
+                      <option value="sg">Singapore</option>
+                      <option value="uw">US West (California)</option>
+                      <option value="du">Middle East ( Dubai )</option>
+                      <option value="ye">Middle East ( Yerevan )</option>
+                      <option value="fr">Europe ( Frankfurt )</option>
                   </select>
                   <i></i>
                 </label>
@@ -42,7 +42,7 @@
                   <label class="icon-left" for="login">
                       <i class="icon icon-person"></i>
                   </label>
-                  <input (change)="changeInput('username', $event.target.value)" class="form-control login-frm-input" type="text" id="login" name="login" placeholder="Username / Email">
+                  <input (change)="changeInput('administrator', $event.target.value)" class="form-control login-frm-input" type="text" id="login" name="login" placeholder="Username / Email">
                 </div>
               </div>
  
@@ -52,7 +52,7 @@
                   <label class="icon-left" for="password">
                       <i class="icon icon-vpn_key"></i>
                   </label>
-                  <input (change)="changeInput('password', $event.target.value)" class="form-control login-frm-input" type="password" id="password" name="password" placeholder="Password">
+                  <input (change)="changeInput('administratorPassword', $event.target.value)" class="form-control login-frm-input" type="password" id="password" name="password" placeholder="Password">
                   <span class="hint">
                     <a routerLink='/login' class="link">Or signin now.</a>
                   </span>

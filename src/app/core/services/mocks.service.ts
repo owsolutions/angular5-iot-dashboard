@@ -166,20 +166,27 @@ export class MocksService {
     });
   }
 
-  Users ({limit, offset}) {
-    return {
-        table: {
-            count: 3
-        },
-        data: times(3, (index) => {
-            return {
-                'id' : index + +offset + 1,
-                'firstname': faker.name.findName().split(' ')[0],
-                'lastname': faker.name.findName().split(' ')[0],
-                'email': faker.internet.email()
-            };
-        })
-    };
+    Users ({limit, offset}) {
+        return {
+            table: {
+                count: 3
+            },
+            data: times(3, (index) => {
+                return {
+                    'id' : index + +offset + 1,
+                    'firstname': faker.name.findName().split(' ')[0],
+                    'lastname': faker.name.findName().split(' ')[0],
+                    'email': faker.internet.email()
+                };
+            })
+        };
+    }
+
+    createVPC (form ) {
+        console.log('Creating vpc: ' , form);
+        return {
+            data: false
+        };
     }
 
 }

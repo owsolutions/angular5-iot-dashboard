@@ -122,3 +122,10 @@ export interface IResponse {
     }>
   };
 }
+
+export interface IVPCInformation {
+  administrator: string;
+  administratorPassword: string;
+  vpcname: string;
+  vpcregion: string;
+}
