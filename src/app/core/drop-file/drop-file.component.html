@@ -1,11 +1,5 @@
-<p>
-  drop-file works!
-
-  <div fileDrop
-      [ngClass]="{'file-is-over': fileIsOver}"
-      [options]="options"
-      (fileOver)="fileOver($event)"
-      (onFileDrop)="onFileDrop($event)">
-      Drop file here
-    </div>
-</p>
+<form enctype="multipart/form-data" action="http://54.254.249.185:8080/upload" class="dropzone">
+  <div class="fallback">
+    <input name="file" type="file" multiple />
+  </div>
+</form>
