@@ -10,7 +10,7 @@
             </div>
           </div>
 
-          <form (submit)="signup()">
+          <form (submit)="signup()" *ngIf="!isRequesting">
             <div class="login-form-content">
               <div class="unit">
                 <div class="input login-input">
@@ -78,11 +78,16 @@
               <div class="response"></div>
 
             </div>
+            <div class="login-form-footer">
+              <a (click)="signup()" class="btn-block btn btn-primary">Sign up</a>
+            </div>
           </form>
-          <div class="login-form-footer">
-            <a (click)="signup()" class="btn-block btn btn-primary">Sign up</a>
-          </div>
+          
      
+        </div>
+
+        <div *ngIf="isRequesting" class="loader">
+          <img class='loader-image image'  src='assets/images/spinner-circle.svg'>
         </div>
       </div>
     </div>

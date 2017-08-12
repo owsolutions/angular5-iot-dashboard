@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class SignupComponent {
 
   public formErrors: Array<any> = [];
+  public isRequesting: Boolean = false;
   public form: IVPCInformation = {
     administrator: '',
     administratorPassword: '',
@@ -31,15 +32,24 @@ export class SignupComponent {
     this.form[field] = value;
   }
 
+
+
   async signup () {
-    const result = await this.requests.createVPC(this.form);
-    if (result.error && result.error.errors) {
-      this.formErrors = result.error.errors;
-      console.log('Errors: ' , this.formErrors);
-    }
-    if (result.data && result.data.items && result.data.items.length) {
-      console.log('Success: ' , result.data.items[0]);
-      this.router.navigateByUrl('/signup-success');
+    this.isRequesting = true;
+    try {
+      const result = await this.requests.createVPC(this.form);
+      this.isRequesting = false;
+      if (result.error && result.error.errors) {
+        this.formErrors = result.error.errors;
+        console.log('Errors: ' , this.formErrors);
+      }
+      if (result.data && result.data.items && result.data.items.length) {
+        console.log('Success: ' , result.data.items[0]);
+        this.router.navigateByUrl('/signup-success');
+      }
+    } catch (error) {
+      this.isRequesting = false;
+      alert('Unexpected error occured.');
     }
   }
 }
