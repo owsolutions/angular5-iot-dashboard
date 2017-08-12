@@ -1,0 +1,11 @@
+<p>
+  drop-file works!
+
+  <div fileDrop
+      [ngClass]="{'file-is-over': fileIsOver}"
+      [options]="options"
+      (fileOver)="fileOver($event)"
+      (onFileDrop)="onFileDrop($event)">
+      Drop file here
+    </div>
+</p>
