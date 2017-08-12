@@ -1,6 +1,7 @@
 @import 'injects';
 
 nav.navigation {
+	overflow-y: auto;
 	background: $navigation;
 	
 	@media (min-width: $screen-desktop){

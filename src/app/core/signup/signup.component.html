@@ -10,8 +10,33 @@
             </div>
           </div>
 
-          <form (submit)="login()">
+          <form (submit)="signup()">
             <div class="login-form-content">
+              <div class="unit">
+                <div class="input login-input">
+                  <label class="icon-left" for="login">
+                      <i class="icon icon-person"></i>
+                  </label>
+                  <input (change)="changeInput('vpc', $event.target.value)" class="form-control login-frm-input" 
+                    type="text" id="login" 
+                    name="login" 
+                    placeholder="VPC Name ( unique for you )">
+                </div>
+              </div>
+              <div class="unit">
+                <label class="input select">
+                  <select class="form-control">
+                      <option value="none" disabled selected>-- Select the region --</option>
+                      <option value="0">Singapore</option>
+                      <option value="1">US West (California)</option>
+                      <option value="1">Middle East ( Dubai )</option>
+                      <option value="1">Middle East ( Yerevan )</option>
+                      <option value="1">Europe ( Frankfurt )</option>
+                  </select>
+                  <i></i>
+                </label>
+              </div>
+ 
               <div class="unit">
                 <div class="input login-input">
                   <label class="icon-left" for="login">
@@ -20,6 +45,8 @@
                   <input (change)="changeInput('username', $event.target.value)" class="form-control login-frm-input" type="text" id="login" name="login" placeholder="Username / Email">
                 </div>
               </div>
+ 
+ 
               <div class="unit">
                 <div class="input login-input">
                   <label class="icon-left" for="password">
@@ -27,30 +54,20 @@
                   </label>
                   <input (change)="changeInput('password', $event.target.value)" class="form-control login-frm-input" type="password" id="password" name="password" placeholder="Password">
                   <span class="hint">
-                <a href="#" class="link">Forgot password?</a>
-              </span>
+                    <a routerLink='/login' class="link">Or signin now.</a>
+                  </span>
                 </div>
               </div>
-
-              <div class="unit">
-                <label class="checkbox">
-                      <input type="checkbox" (change)="changeInput('remember', $event.target.checked)" name="logged" value="true" checked="">
-                      <i></i>
-                      Keep me logged in
-                  </label>
-              </div>
-
+ 
               <div class="response"></div>
 
             </div>
           </form>
           <div class="login-form-footer">
-            <a (click)="login()" class="btn-block btn btn-primary">Sign in</a>
-            <a routerLink='/signup' class="btn-block btn btn-danger">Or signup for free</a>
+            <a (click)="signup()" class="btn-block btn btn-primary">Sign up</a>
           </div>
-          
-            
-        
+     
+
         </div>
       </div>
     </div>

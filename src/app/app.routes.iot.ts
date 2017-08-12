@@ -13,7 +13,7 @@ import { UsersComponent } from '@app/core/users/users.component';
 import { RolesComponent } from '@app/core/roles/roles.component';
 import { UserSingleComponent } from '@app/core/users/user-single/user-single.component';
 import { DefaultLayout, AuthLayout } from '@app/iot/layout/DefaultLayout';
-
+import { SignupComponent } from '@app/core/signup/signup.component';
 
 export const appRoutes: Routes = [
     { path: '',
@@ -35,6 +35,10 @@ export const appRoutes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'signup',
+        component: SignupComponent
     }
 ];
 
