@@ -1,6 +1,8 @@
 import { IVPCInformation } from '@app/iot/definitions';
 import { Component, OnInit } from '@angular/core';
 import { RequestsService } from '@app/core/services/requests.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -21,8 +23,8 @@ export class SignupComponent {
     return error ? error.message : '';
   }
 
-  constructor (private requests: RequestsService) {
-
+  constructor (private requests: RequestsService, private router: Router) {
+    this.formErrors = [];
   }
 
   changeInput (field , value) {
@@ -34,6 +36,10 @@ export class SignupComponent {
     if (result.error && result.error.errors) {
       this.formErrors = result.error.errors;
       console.log('Errors: ' , this.formErrors);
+    }
+    if (result.data && result.data.items && result.data.items.length) {
+      console.log('Success: ' , result.data.items[0]);
+      this.router.navigateByUrl('/signup-success');
     }
   }
 }

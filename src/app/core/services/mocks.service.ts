@@ -215,7 +215,7 @@ export class MocksService {
             }
             return errors;
         }
-        if (hasUnvalidFields(form)) {
+        if (hasUnvalidFields(form).length) {
             return {
                 error: {
                     code: 1,
