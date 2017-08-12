@@ -8,6 +8,7 @@ import { RequestsService } from '@app/core/services/requests.service';
 })
 export class SignupComponent {
 
+  public formErrors: Array<any> = [];
   public form: IVPCInformation = {
     administrator: '',
     administratorPassword: '',
@@ -15,14 +16,24 @@ export class SignupComponent {
     vpcregion: ''
   };
 
+  findFieldErrorMessage (fieldName: string) {
+    const error = this.formErrors.find(x => x.field === fieldName);
+    return error ? error.message : '';
+  }
+
   constructor (private requests: RequestsService) {
-    
+
   }
 
   changeInput (field , value) {
     this.form[field] = value;
   }
-  signup () {
-    this.requests.createVPC(this.form);
+
+  async signup () {
+    const result = await this.requests.createVPC(this.form);
+    if (result.error && result.error.errors) {
+      this.formErrors = result.error.errors;
+      console.log('Errors: ' , this.formErrors);
+    }
   }
 }

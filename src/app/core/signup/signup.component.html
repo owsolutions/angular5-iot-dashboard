@@ -22,6 +22,10 @@
                     name="login" 
                     placeholder="VPC Name ( unique for you )">
                 </div>
+
+                <div class='alert alert-warning' *ngIf='findFieldErrorMessage("vpcname")'>
+                  Error: {{findFieldErrorMessage('vpcname')}}
+                </div>
               </div>
               <div class="unit">
                 <label class="input select">
@@ -35,15 +39,22 @@
                   </select>
                   <i></i>
                 </label>
+                <div class='alert alert-warning' *ngIf='findFieldErrorMessage("vpcregion")'>
+                  Error: {{findFieldErrorMessage('vpcregion')}}
+                </div>
               </div>
  
               <div class="unit">
-                <div class="input login-input">
+                 <div class="input login-input">
                   <label class="icon-left" for="login">
                       <i class="icon icon-person"></i>
                   </label>
                   <input (change)="changeInput('administrator', $event.target.value)" class="form-control login-frm-input" type="text" id="login" name="login" placeholder="Username / Email">
                 </div>
+                <div class='alert alert-warning' *ngIf='findFieldErrorMessage("administrator")'>
+                  Error: {{findFieldErrorMessage('administrator')}}
+                </div>
+     
               </div>
  
  
@@ -53,10 +64,15 @@
                       <i class="icon icon-vpn_key"></i>
                   </label>
                   <input (change)="changeInput('administratorPassword', $event.target.value)" class="form-control login-frm-input" type="password" id="password" name="password" placeholder="Password">
-                  <span class="hint">
-                    <a routerLink='/login' class="link">Or signin now.</a>
-                  </span>
+
+                  <div class='alert alert-warning' *ngIf='findFieldErrorMessage("administratorPassword")'>
+                    Error: {{findFieldErrorMessage('administratorPassword')}}
+                  </div>
                 </div>
+
+                <span class="hint">
+                  <a routerLink='/login' class="link">Or signin now.</a>
+                </span>
               </div>
  
               <div class="response"></div>
@@ -67,7 +83,6 @@
             <a (click)="signup()" class="btn-block btn btn-primary">Sign up</a>
           </div>
      
-
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { IUser, IRole } from '@app/core/definitions';
-import { IActivity, ActivityTypes, IDevice, ILocation, IWidget, IPin } from '@app/iot/definitions';
+import { IUser, IRole, IResponse } from '@app/core/definitions';
+import { IActivity, ActivityTypes, IVPCInformation, IDevice, ILocation, IWidget, IPin } from '@app/iot/definitions';
 import { times, random, sample } from 'lodash';
 import { PermissionsService } from './permissions.service';
 import faker from 'faker';
@@ -182,10 +182,56 @@ export class MocksService {
         };
     }
 
-    createVPC (form ) {
+    createVPC (form: IVPCInformation): IResponse {
         console.log('Creating vpc: ' , form);
+
+        function hasUnvalidFields(vpc: IVPCInformation): Array<any> {
+            const errors = [];
+            if ( ! vpc.administrator ) {
+                errors.push({
+                    field: 'administrator',
+                    message: 'You didn\'t provide the administrator email. VPC needs an administrator'
+                });
+            }
+            if ( ! vpc.administratorPassword ) {
+                errors.push({
+                    field: 'administratorPassword',
+                    message: 'Make sure you provide a password longer than 8 characters'
+                });
+            }
+
+            if ( ! vpc.vpcname ) {
+                errors.push({
+                    field: 'vpcname',
+                    message: 'Please provide the vpcname'
+                });
+            }
+
+            if ( ! vpc.vpcregion ) {
+                errors.push({
+                    field: 'vpcregion',
+                    message: 'Please select your geographical location.'
+                });
+            }
+            return errors;
+        }
+        if (hasUnvalidFields(form)) {
+            return {
+                error: {
+                    code: 1,
+                    message: 'Please fix the errors within the form',
+                    errors: hasUnvalidFields(form)
+                }
+            };
+        }
         return {
-            data: false
+            data: {
+                items: [
+                    {
+                        vpc: form
+                    }
+                ]
+            }
         };
     }
 
