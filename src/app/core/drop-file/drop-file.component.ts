@@ -24,7 +24,9 @@ export class DropFileComponent implements OnInit {
     return $el;
   }
   ngOnInit() {
-    this.initializeDropZone ();
+    if (typeof $ !== 'undefined') {
+      this.initializeDropZone ();
+    }
   }
 
 }
