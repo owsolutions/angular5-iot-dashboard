@@ -15,6 +15,7 @@ import { UserSingleComponent } from '@app/core/users/user-single/user-single.com
 import { DefaultLayout, AuthLayout } from '@app/iot/layout/DefaultLayout';
 import { SignupComponent } from '@app/core/signup/signup.component';
 import { SignupSuccessComponent } from '@app/core/signup/signup-success/signup-success.component';
+import { DropFileComponent } from '@app/core/drop-file/drop-file.component';
 
 export const appRoutes: Routes = [
     { path: '',
@@ -44,7 +45,8 @@ export const appRoutes: Routes = [
     {
         path: 'signup-success',
         component: SignupSuccessComponent
-    }
+    },
+    DefaultLayout(DropFileComponent, 'drop-file')
 ];
 
 export function appRoutesGenerator () {

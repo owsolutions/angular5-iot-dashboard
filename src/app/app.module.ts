@@ -62,6 +62,7 @@ import { ReminderTimelineComponent } from '@app/iot/app-info/reminder-timeline/r
 import { appRoutesGenerator } from '@app/app.routes.iot';
 import { SignupComponent } from './core/signup/signup.component';
 import { SignupSuccessComponent } from './core/signup/signup-success/signup-success.component';
+import { DropFileComponent } from './core/drop-file/drop-file.component';
 
 @Component({
   selector: 'app-root',
@@ -115,7 +116,8 @@ export class AppComponent {}
     ModesComponent,
     ReminderTimelineComponent,
     SignupComponent,
-    SignupSuccessComponent
+    SignupSuccessComponent,
+    DropFileComponent
   ],
   imports: [
     BrowserAnimationsModule,
