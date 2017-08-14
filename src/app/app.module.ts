@@ -60,6 +60,7 @@ import { ThermostatComponent } from '@app/iot/app-info/thermostat/thermostat.com
 import { ModesComponent } from '@app/iot/app-info/modes/modes.component';
 import { ReminderTimelineComponent } from '@app/iot/app-info/reminder-timeline/reminder-timeline.component';
 import { appRoutesGenerator } from '@app/app.routes.iot';
+import { DropFileComponent } from './core/drop-file/drop-file.component';
 
 @Component({
   selector: 'app-root',
@@ -111,7 +112,8 @@ export class AppComponent {}
     AppInfoComponent,
     ThermostatComponent,
     ModesComponent,
-    ReminderTimelineComponent
+    ReminderTimelineComponent,
+    DropFileComponent
   ],
   imports: [
     BrowserAnimationsModule,
