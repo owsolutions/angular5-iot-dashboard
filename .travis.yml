@@ -30,7 +30,7 @@ before_install:
  - sudo dpkg -i google-chrome*.deb
 
 script:
-  - npm run lint && ng test && npm run build
+  - npm run production
 
 deploy:
   provider: firebase

@@ -29,6 +29,13 @@ export class NavigationComponent {
       auth: true
     },
     {
+      link: '/drop-file',
+      icon: 'icon icon-account_box',
+      title: 'File upload',
+      permissions: ['USERS::VIEW'],
+      auth: true
+    },
+    {
       link: '/users',
       icon: 'icon icon-account_box',
       title: 'Users',
