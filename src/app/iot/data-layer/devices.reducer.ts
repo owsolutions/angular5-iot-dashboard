@@ -1,4 +1,4 @@
-import {ActionReducer, Action} from '@ngrx/store';
+import {Action} from '@ngrx/store';
 import UpdateOrInsert from '@app/core/functions/UpdateOrInsert';
 
 export const UPDATE_DEVICE = 'UPDATE_DEVICE';

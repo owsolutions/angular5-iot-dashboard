@@ -1,5 +1,4 @@
 import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
-import { times, sample } from 'lodash';
 import { Store } from '@ngrx/store';
 import { IActivity, AppState } from '@app/iot/definitions';
 

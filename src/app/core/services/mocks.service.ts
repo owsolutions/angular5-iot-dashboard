@@ -167,7 +167,7 @@ export class MocksService {
     });
   }
 
-    Users ({limit, offset}) {
+    Users ({offset}) {
         return {
             table: {
                 count: 3

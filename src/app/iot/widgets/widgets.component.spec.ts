@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SwitchWidgetsComponent } from '../shared/switch-widgets/switch-widgets.component';
 import { WidgetsComponent } from './widgets.component';
-import { OutputPinComponent } from '../shared/output-pin/output-pin.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 

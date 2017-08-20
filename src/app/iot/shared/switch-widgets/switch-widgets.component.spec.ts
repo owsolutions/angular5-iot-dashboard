@@ -2,8 +2,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { SwitchWidgetsComponent } from './switch-widgets.component';
 import { OutputPinComponent } from '../output-pin/output-pin.component';
-import { MockComponent } from 'ng2-mock-component';
-import { appReducersGenerator } from '@app/core/app.reducers';
+import { appReducersGenerator } from '@app/app.reducers';
 import { IWidget } from '@app/core/definitions';
 
 import { CommunicateService } from '@app/core/services/communicate.service';
