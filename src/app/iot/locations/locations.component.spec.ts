@@ -1,12 +1,11 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
-import { StoreModule } from '@ngrx/store';
 import { PageHeaderComponent } from '@app/core/page-header/page-header.component';
 import { RequestsService } from '@app/core/services/requests.service';
 import { LocationsComponent } from './locations.component';
 import { PlacesComponent } from './../index/places/places.component';
 import { CommunicateService } from '@app/core/services/communicate.service';
-import { appReducersGenerator } from '@app/core/app.reducers'; ;
+import { appReducersGenerator } from '@app/app.reducers'; ;
 import { ActivatedRoute } from '@angular/router';
 import { PermissionsService } from '@app/core/services/permissions.service';
 import { MocksService } from '@app/core/services/mocks.service';
