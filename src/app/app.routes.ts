@@ -7,14 +7,13 @@ import { DevicesComponent } from '@app/iot/devices/devices.component';
 import { ActivityComponent } from '@app/iot/activity/activity.component';
 import { WidgetsComponent } from '@app/iot/widgets/widgets.component';
 import { LocationEditComponent } from '@app/iot/locations/location-edit/location-edit.component';
-import { DataTableComponent } from '@app/core/data-table/data-table.component';
 import { FormElementsComponent } from '@app/core/form-elements/form-elements.component';
 import { UsersComponent } from '@app/core/users/users.component';
 import { RolesComponent } from '@app/core/roles/roles.component';
 import { UserSingleComponent } from '@app/core/users/user-single/user-single.component';
 import { DefaultLayout, AuthLayout } from '@app/iot/layout/DefaultLayout';
-import { SignupComponent } from '@app/core/signup/signup.component';
-import { SignupSuccessComponent } from '@app/core/signup/signup-success/signup-success.component';
+import { SignupComponent } from '@app/iot/signup/signup.component';
+import { SignupSuccessComponent } from '@app/iot/signup/signup-success/signup-success.component';
 import { DropFileComponent } from '@app/core/drop-file/drop-file.component';
 
 export const appRoutes: Routes = [

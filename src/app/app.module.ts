@@ -30,6 +30,8 @@ import { CommunicateService } from '@app/core/services/communicate.service';
 
 
 // Iot related
+import { SignupComponent } from '@app/iot/signup/signup.component';
+import { SignupSuccessComponent } from '@app/iot/signup/signup-success/signup-success.component';
 import { DevicesComponent } from '@app/iot/devices/devices.component';
 import { WidgetsComponent } from '@app/iot/widgets/widgets.component';
 import { ActivityWidgetComponent } from '@app/iot/activity/activity-widget/activity-widget.component';
@@ -60,8 +62,7 @@ import { ThermostatComponent } from '@app/iot/app-info/thermostat/thermostat.com
 import { ModesComponent } from '@app/iot/app-info/modes/modes.component';
 import { ReminderTimelineComponent } from '@app/iot/app-info/reminder-timeline/reminder-timeline.component';
 import { createRoutes  } from '@app/app.routes';
-import { SignupComponent } from './core/signup/signup.component';
-import { SignupSuccessComponent } from './core/signup/signup-success/signup-success.component';
+
 import { DropFileComponent } from './core/drop-file/drop-file.component';
 
 @Component({
