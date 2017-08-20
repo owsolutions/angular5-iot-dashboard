@@ -6,7 +6,7 @@ import { OutputPinComponent } from '../shared/output-pin/output-pin.component';
 import { PageHeaderComponent } from '@app/core/page-header/page-header.component';
 import { DeviceSvgComponent } from '../shared/device-svg/device-svg.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { appReducersGenerator } from '@app/core/app.reducers';
+import { appReducersGenerator } from '@app/app.reducers';
 import { CommunicateService } from '@app/core/services/communicate.service';
 import { RequestsService } from '@app/core/services/requests.service';
 import { PermissionsService } from '@app/core/services/permissions.service';

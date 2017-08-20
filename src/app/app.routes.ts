@@ -49,6 +49,6 @@ export const appRoutes: Routes = [
     DefaultLayout(DropFileComponent, 'drop-file')
 ];
 
-export function appRoutesGenerator () {
+export function createRoutes () {
     return RouterModule.forRoot(appRoutes);
 }

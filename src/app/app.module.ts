@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { appReducersGenerator } from '@app/core/app.reducers';
+import { appReducersGenerator } from '@app/app.reducers';
 import { NavigationComponent } from '@app/core/navigation/navigation.component';
 import { SettingsComponent } from '@app/core/settings/settings.component';
 import { DataTableComponent } from '@app/core/data-table/data-table.component';
@@ -59,7 +59,7 @@ import { AppInfoComponent } from '@app/iot/app-info/app-info.component';
 import { ThermostatComponent } from '@app/iot/app-info/thermostat/thermostat.component';
 import { ModesComponent } from '@app/iot/app-info/modes/modes.component';
 import { ReminderTimelineComponent } from '@app/iot/app-info/reminder-timeline/reminder-timeline.component';
-import { appRoutesGenerator } from '@app/app.routes.iot';
+import { createRoutes  } from '@app/app.routes';
 import { SignupComponent } from './core/signup/signup.component';
 import { SignupSuccessComponent } from './core/signup/signup-success/signup-success.component';
 import { DropFileComponent } from './core/drop-file/drop-file.component';
@@ -124,7 +124,7 @@ export class AppComponent {}
     BrowserModule,
     FormsModule,
     HttpModule,
-    appRoutesGenerator(),
+    createRoutes (),
     appReducersGenerator()
   ],
   providers: [
