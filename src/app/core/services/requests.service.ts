@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { IRole, IUser, IResponse } from '@app/core/definitions';
 import { ILocation, IDevice, IActivity, IWidget, IVPCInformation } from '@app/iot/definitions';
 import { PermissionsService } from './permissions.service';
-import { sample, times} from 'lodash';
 import { MocksService } from './mocks.service';
 
 function timeout (ms = 1000): Promise<any> {

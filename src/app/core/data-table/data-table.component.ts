@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IPagination, createPagiantion } from './data-table-definitions';
 import { getDataTable, ITableObservable } from './data-table.normalizer';
 
 declare var $: any;
@@ -17,7 +16,7 @@ export class DataTableComponent implements OnInit {
   ngOnInit() {
     if (this.schema) {
       const structure = getDataTable(this.schema);
-      const table = $('#example').DataTable(structure);
+      $('#example').DataTable(structure);
     }
   }
 

@@ -17,7 +17,6 @@ import { FormElementsComponent } from '@app/core/form-elements/form-elements.com
 import { UsersComponent } from '@app/core/users/users.component';
 import { RolesComponent } from '@app/core/roles/roles.component';
 import { UserSingleComponent } from '@app/core/users/user-single/user-single.component';
-import { LogoutComponent } from '@app/core/users/logout/logout.component';
 import { LoginComponent } from '@app/core/login/login.component';
 
 import { PermissionsService } from '@app/core/services/permissions.service';

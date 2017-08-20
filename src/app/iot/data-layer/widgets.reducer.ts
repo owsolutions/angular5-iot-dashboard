@@ -1,5 +1,4 @@
-import {ActionReducer, Action} from '@ngrx/store';
-import UpdateOrPrepend from '@app/core/functions/UpdateOrPrepend';
+import {Action} from '@ngrx/store';
 import { IWidget } from '@app/iot/definitions';
 
 export function widgetsReducer (widgets = [], action: Action) {

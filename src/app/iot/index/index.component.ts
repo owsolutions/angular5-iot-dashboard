@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { times, random} from 'lodash';
-import { ChartComponent } from './chart/chart.component';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-index',

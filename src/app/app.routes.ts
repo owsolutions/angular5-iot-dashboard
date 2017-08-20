@@ -1,5 +1,5 @@
 import { LoginComponent } from '@app/core/login/login.component';
-import { Route, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from '@app/iot/index/index.component';
 import { LocationsComponent } from '@app/iot/locations/locations.component';
 import { SettingsComponent } from '@app/core/settings/settings.component';

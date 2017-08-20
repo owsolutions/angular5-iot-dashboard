@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IDevice, IPin, IActivity, ActivityTypes } from '@app/iot/definitions';
+import { IDevice, IPin } from '@app/iot/definitions';
 import { ActionsService } from '@app/core/services/actions.service';
-import { random } from 'lodash';
 
 @Component({
   selector: 'app-output-pin',

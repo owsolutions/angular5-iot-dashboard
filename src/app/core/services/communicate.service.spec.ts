@@ -1,5 +1,4 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { StoreModule } from '@ngrx/store';
 import { appReducersGenerator } from '@app/app.reducers';
 import { CommunicateService } from './communicate.service';
 import { RequestsService } from './requests.service';
