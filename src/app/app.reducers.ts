@@ -1,7 +1,7 @@
-import { devicesReducer } from '@app/core/data-layer/devices.reducer';
-import { locationsReducer } from '@app/core/data-layer/locations.reducer';
-import { activitiesReducer } from '@app/core/data-layer/activity.reducer';
-import { widgetsReducer } from '@app/core/data-layer/widgets.reducer';
+import { devicesReducer } from '@app/iot/data-layer/devices.reducer';
+import { locationsReducer } from '@app/iot/data-layer/locations.reducer';
+import { activitiesReducer } from '@app/iot/data-layer/activity.reducer';
+import { widgetsReducer } from '@app/iot/data-layer/widgets.reducer';
 import { rolesReducer } from '@app/core/data-layer/roles.reducer';
 
 import { StoreModule } from '@ngrx/store';
