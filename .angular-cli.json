@@ -19,6 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "assets/google-fonts/quicksand/import.css",
         "assets/css/bootstrap.css",
         "assets/css/datatable.css",
         "assets/css/loader.css",
@@ -31,6 +32,9 @@
         ]
       },
       "scripts": [
+        "assets/js/jquery-3.2.1.min.js",
+        "assets/js/datatables.min.js",
+        "assets/js/dropzone.js",
         "assets/highcharts/highstock.js",
         "assets/highcharts/exporting.js",
 	      "assets/sails.io.js"
