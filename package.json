@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "production": "npm run lint && npm run test && npm run e2e && npm run build",
-    "build": "ng build --prod --aot=false",
+    "build": "ng build --env=prod",
     "test": "ng test",
     "lint": "ng lint",
     "hmr": "ng serve --hmr -e=hmr",
