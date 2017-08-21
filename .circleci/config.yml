@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/app-name
+    docker:
+      - image: circleci/node:6-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: install-dependencies
+          command: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+            - ./node_modules
+      - run:
+          name: angular-lint
+          command: yarn lint
+      - run:
+          name: angular-test
+          command: yarn test -- --single-run --no-progress
+      - run:
+          name: angular-e2e
+          command: yarn e2e
+      - run:
+          name: angular-build
+          command: yarn lint
+    # If you are using firebase for deployment, you can uncomment this part of the code.
+    #   - deploy:
+    #       name: Development server deploy
+    #       command: |
+    #         if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+    #             sudo npm install -g firebase-tools --no-progress
+    #             sudo npm install -g @angular/cli --no-progress
+    #             firebase use development
+    #             firebase deploy --token=$FIREBASE_TOKEN --non-interactive
+    #         fi

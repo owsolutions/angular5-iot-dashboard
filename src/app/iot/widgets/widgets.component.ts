@@ -1,6 +1,5 @@
-import { Component, OnInit, ChangeDetectorRef, OnDestroy} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
 import { IWidget, AppState } from '@app/iot/definitions';
 
 @Component({

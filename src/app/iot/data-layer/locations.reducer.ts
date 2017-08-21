@@ -1,4 +1,4 @@
-import {ActionReducer, Action} from '@ngrx/store';
+import {Action} from '@ngrx/store';
 import UpdateOrInsert from '@app/core/functions/UpdateOrInsert';
 
 export function locationsReducer (state = [], action: Action) {

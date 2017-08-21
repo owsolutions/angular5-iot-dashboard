@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { OutputPinComponent } from './output-pin.component';
-import { appReducersGenerator } from '@app/core/app.reducers';
+import { appReducersGenerator } from '@app/app.reducers';
 
 import { CommunicateService } from '@app/core/services/communicate.service';
 import { RequestsService } from '@app/core/services/requests.service';

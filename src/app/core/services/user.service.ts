@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
-import { IUser, IRole, IPermission } from '@app/core/definitions';
+import { CanActivate, Router } from '@angular/router';
+import { IUser } from '@app/core/definitions';
 import { CommunicateService } from './communicate.service';
 
 @Injectable()
@@ -37,8 +37,15 @@ export class UserService {
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor (private user: UserService) {}
+  constructor (
+    private user: UserService,
+    private router: Router
+  ) {}
   canActivate (): boolean {
+    if (! this.user.User) {
+      this.router.navigateByUrl('/login');
+      return false;
+    }
     return !!this.user.User;
   }
 }

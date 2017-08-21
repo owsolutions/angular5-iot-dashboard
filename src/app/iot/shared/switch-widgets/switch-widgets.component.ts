@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { times, random } from 'lodash';
 import { IWidget } from '@app/iot/definitions';
 
 @Component({

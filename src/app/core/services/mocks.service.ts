@@ -89,6 +89,7 @@ export class MocksService {
     return {
         email: 'alitorabi@seekasia.com',
         username: 'alitorabi',
+        avatar: 'c81d6398-d086-42ba-a4a8-c6b65acaa1ce.jpg',
         firstname: 'Ali',
         lastname: 'Doe ',
         role: this.Roles()[0]
@@ -166,7 +167,7 @@ export class MocksService {
     });
   }
 
-    Users ({limit, offset}) {
+    Users ({offset}) {
         return {
             table: {
                 count: 3

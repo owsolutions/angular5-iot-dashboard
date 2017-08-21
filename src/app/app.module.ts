@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { appReducersGenerator } from '@app/core/app.reducers';
+import { appReducersGenerator } from '@app/app.reducers';
 import { NavigationComponent } from '@app/core/navigation/navigation.component';
 import { SettingsComponent } from '@app/core/settings/settings.component';
 import { DataTableComponent } from '@app/core/data-table/data-table.component';
@@ -16,7 +16,6 @@ import { FormElementsComponent } from '@app/core/form-elements/form-elements.com
 import { UsersComponent } from '@app/core/users/users.component';
 import { RolesComponent } from '@app/core/roles/roles.component';
 import { UserSingleComponent } from '@app/core/users/user-single/user-single.component';
-import { LogoutComponent } from '@app/core/users/logout/logout.component';
 import { LoginComponent } from '@app/core/login/login.component';
 
 import { PermissionsService } from '@app/core/services/permissions.service';
@@ -29,6 +28,8 @@ import { CommunicateService } from '@app/core/services/communicate.service';
 
 
 // Iot related
+import { SignupComponent } from '@app/iot/signup/signup.component';
+import { SignupSuccessComponent } from '@app/iot/signup/signup-success/signup-success.component';
 import { DevicesComponent } from '@app/iot/devices/devices.component';
 import { WidgetsComponent } from '@app/iot/widgets/widgets.component';
 import { ActivityWidgetComponent } from '@app/iot/activity/activity-widget/activity-widget.component';
@@ -58,9 +59,8 @@ import { AppInfoComponent } from '@app/iot/app-info/app-info.component';
 import { ThermostatComponent } from '@app/iot/app-info/thermostat/thermostat.component';
 import { ModesComponent } from '@app/iot/app-info/modes/modes.component';
 import { ReminderTimelineComponent } from '@app/iot/app-info/reminder-timeline/reminder-timeline.component';
-import { appRoutesGenerator } from '@app/app.routes.iot';
-import { SignupComponent } from './core/signup/signup.component';
-import { SignupSuccessComponent } from './core/signup/signup-success/signup-success.component';
+import { createRoutes  } from '@app/app.routes';
+
 import { DropFileComponent } from './core/drop-file/drop-file.component';
 
 import { Component } from '@angular/core';
@@ -127,7 +127,7 @@ export class AppComponent {}
     FormsModule,
     BrowserModule.withServerTransition({appId: 'my-app'}),
     HttpModule,
-    appRoutesGenerator(),
+    createRoutes (),
     appReducersGenerator()
   ],
   providers: [

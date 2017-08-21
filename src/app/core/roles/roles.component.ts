@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PermissionsService } from '@app/core/services/permissions.service';
 import { RequestsService } from '@app/core/services/requests.service';
