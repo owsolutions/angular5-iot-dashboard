@@ -44,3 +44,4 @@ testem.log
 Thumbs.db
 dist-production/
 .vscode
+dist-server

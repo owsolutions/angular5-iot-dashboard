@@ -45,6 +45,43 @@
         "prod": "environments/environment.prod.ts",
         "hmr": "environments/environment.hmr.ts"
       }
+    },
+    {
+      "platform": "server",
+      "root": "src",
+      "outDir": "dist-server",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.server.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.server.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "assets/css/bootstrap.css",
+        "assets/css/datatable.css",
+        "assets/css/loader.css",
+        "assets/css/forms-style.css",
+        "styles.scss"
+      ],
+      "stylePreprocessorOptions": {
+        "includePaths": [
+          "../src/assets/scss"
+        ]
+      },
+      "scripts": [
+        "assets/highcharts/highstock.js",
+        "assets/highcharts/exporting.js",
+	      "assets/sails.io.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
     }
   ],
   "e2e": {
