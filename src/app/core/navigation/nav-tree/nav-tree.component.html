@@ -1,0 +1,9 @@
+<ul>
+    <li *ngFor="let nav of menuObject">
+        <a [routerLink]='nav.link' routerLinkActive="active">
+            <i [class]="nav.icon"></i>
+            {{nav.title}}
+        </a>
+        <app-nav-tree [menuObject]="nav.children"></app-nav-tree>
+    </li>
+</ul>

@@ -5,7 +5,7 @@
 	position:relative;
 	left:0px;
 	right:0px;
-
+	z-index: -1;
 	@include transition((right 0.5s,left .5s));
 
 	@media (min-width: $screen-desktop){
