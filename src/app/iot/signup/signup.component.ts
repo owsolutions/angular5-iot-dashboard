@@ -24,15 +24,16 @@ export class SignupComponent {
     return error ? error.message : '';
   }
 
-  constructor (private requests: RequestsService, private router: Router) {
+  constructor (
+    private requests: RequestsService,
+    private router: Router,
+  ) {
     this.formErrors = [];
   }
 
   changeInput (field , value) {
     this.form[field] = value;
   }
-
-
 
   async signup () {
     this.isRequesting = true;
@@ -41,10 +42,8 @@ export class SignupComponent {
       this.isRequesting = false;
       if (result.error && result.error.errors) {
         this.formErrors = result.error.errors;
-        console.log('Errors: ' , this.formErrors);
       }
       if (result.data && result.data.items && result.data.items.length) {
-        console.log('Success: ' , result.data.items[0]);
         this.router.navigateByUrl('/signup-success');
       }
     } catch (error) {
