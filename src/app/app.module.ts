@@ -57,11 +57,10 @@ import { QuickStatusComponent } from '@app/iot/quick-status/quick-status.compone
 import { QuickChartComponent } from '@app/iot/quick-status/quick-chart/quick-chart.component';
 import { UserWidgetComponent } from '@app/iot/quick-status/user-widget/user-widget.component';
 import { AppInfoComponent } from '@app/iot/app-info/app-info.component';
-import { ThermostatComponent } from '@app/iot/app-info/thermostat/thermostat.component';
 import { ModesComponent } from '@app/iot/app-info/modes/modes.component';
 import { ReminderTimelineComponent } from '@app/iot/app-info/reminder-timeline/reminder-timeline.component';
 import { createRoutes  } from '@app/app.routes';
-
+import { NgIotModule } from 'ng-iot';
 import { DropFileComponent } from './core/drop-file/drop-file.component';
 
 @Component({
@@ -112,7 +111,6 @@ export class AppComponent {}
     QuickChartComponent,
     UserWidgetComponent,
     AppInfoComponent,
-    ThermostatComponent,
     ModesComponent,
     ReminderTimelineComponent,
     SignupComponent,
@@ -124,6 +122,7 @@ export class AppComponent {}
     BrowserModule,
     FormsModule,
     HttpModule,
+    NgIotModule,
     createRoutes (),
     appReducersGenerator()
   ],

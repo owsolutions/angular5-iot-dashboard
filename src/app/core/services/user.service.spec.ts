@@ -11,7 +11,7 @@ describe('UserService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        StoreModule.provideStore({})
+        StoreModule.forRoot({})
       ],
       providers: [
         UserService,

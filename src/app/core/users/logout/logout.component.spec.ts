@@ -24,7 +24,7 @@ describe('LogoutComponent', () => {
         MocksService
       ],
       imports: [
-        StoreModule.provideStore({}),
+        StoreModule.forRoot({}),
         RouterModule,
         RouterTestingModule.withRoutes([
           {
