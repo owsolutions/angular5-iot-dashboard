@@ -1,3 +1,5 @@
+import { IRole } from '@app/core/definitions';
+
 /**
  * A pin is any kind of I/O port of a device.
  * it has a type, which can be input, or output
@@ -60,6 +62,7 @@ export interface IPermission {
  */
 export interface AppState {
   devices: Array<IDevice>;
+  roles: Array<IRole>;
   locations: Array<any>;
   activities: Array<IActivity>;
   widgets: Array<IWidget>;
