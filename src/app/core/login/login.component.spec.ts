@@ -24,7 +24,7 @@ describe('LoginComponent', () => {
         CommunicateService
       ],
       imports: [
-        StoreModule.provideStore({}),
+        StoreModule.forRoot({}),
         RouterTestingModule,
         RouterModule
       ]

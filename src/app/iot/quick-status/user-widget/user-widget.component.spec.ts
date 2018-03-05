@@ -25,7 +25,7 @@ describe('UserWidgetComponent', () => {
         PermissionsService
       ],
       imports: [
-        StoreModule.provideStore({}),
+        StoreModule.forRoot({}),
         RouterTestingModule,
         RouterModule
       ]

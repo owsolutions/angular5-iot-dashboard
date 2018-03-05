@@ -21,7 +21,7 @@ describe('RolesComponent', () => {
       ],
       imports: [
         RouterTestingModule,
-        StoreModule.provideStore({})
+        StoreModule.forRoot({})
       ],
       providers: [
         PermissionsService,
