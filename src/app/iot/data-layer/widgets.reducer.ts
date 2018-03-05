@@ -1,4 +1,4 @@
-import {Action} from '@ngrx/store';
+import { Action } from '@app/core/definitions';
 import { IWidget } from '@app/iot/definitions';
 
 export function widgetsReducer (widgets = [], action: Action) {

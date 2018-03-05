@@ -9,7 +9,7 @@ describe('ActionsService', () => {
         ActionsService
       ],
       imports: [
-        StoreModule.provideStore({})
+        StoreModule.forRoot({})
       ]
     });
   });

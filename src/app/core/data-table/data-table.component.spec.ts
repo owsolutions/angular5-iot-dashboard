@@ -24,7 +24,7 @@ describe('DataTableComponent', () => {
         MocksService
       ],
       imports: [
-        StoreModule.provideStore({})
+        StoreModule.forRoot({})
       ]
     })
     .compileComponents();
