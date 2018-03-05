@@ -61,7 +61,7 @@ import { ThermostatComponent } from '@app/iot/app-info/thermostat/thermostat.com
 import { ModesComponent } from '@app/iot/app-info/modes/modes.component';
 import { ReminderTimelineComponent } from '@app/iot/app-info/reminder-timeline/reminder-timeline.component';
 import { createRoutes  } from '@app/app.routes';
-
+import { NgMediaModule } from 'ng-media';
 import { DropFileComponent } from './core/drop-file/drop-file.component';
 
 @Component({
@@ -124,6 +124,7 @@ export class AppComponent {}
     BrowserModule,
     FormsModule,
     HttpModule,
+    NgMediaModule,
     createRoutes (),
     appReducersGenerator()
   ],

@@ -56,5 +56,8 @@
     "tslint": "~4.5.0",
     "typescript": "~2.2.0",
     "faker": "^4.1.0"
+  },
+  "dependencies": {
+    "ng-media": "0.0.8"
   }
 }
