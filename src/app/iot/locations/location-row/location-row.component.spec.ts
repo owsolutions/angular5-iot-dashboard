@@ -21,6 +21,7 @@ describe('LocationRowComponent', () => {
     component = fixture.componentInstance;
     component.location = {
       icon: 'icon',
+      id: 1,
       name: 'My location'
     };
     fixture.detectChanges();
