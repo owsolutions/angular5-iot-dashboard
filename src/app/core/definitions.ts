@@ -1,3 +1,9 @@
+import {Action as NgrxAction} from '@ngrx/store';
+
+export interface Action extends NgrxAction {
+  payload: any;
+}
+
 export interface IUser {
   username: string;
   email: string;
