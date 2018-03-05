@@ -132,7 +132,7 @@ export class MocksService {
                 return random(1000, 9000) * 0.001;
         }
     }
-    function createPins (id: Number = 2): Array<IPin> {
+    function createPins (id: number = 2): Array<IPin> {
         return times(8 , (index) => {
             return {
                 id: index,
@@ -141,7 +141,7 @@ export class MocksService {
             };
         });
     }
-    function createDevices (id: Number = 3): Array<IDevice> {
+    function createDevices (id: number = 3): Array<IDevice> {
         return times(id , () => {
             return {
                 uniqueid: 'dev-' + random(1111, 9999),
