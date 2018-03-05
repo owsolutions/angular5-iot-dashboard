@@ -1,16 +1,15 @@
+<div style="background: red;">
+
 <section class="login-page social-login">
   <div class="login-container boxed-login">
-    <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
+    <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 no-float">
       <div class="login-form-container">
         <div class="j-forms">
           <div class="login-form-header">
-            <div class="logo">
-              <img src="assets/images/logo.png" alt="logo">
-              <span>Smart home</span>
-            </div>
+              <h2>Log In</h2>
           </div>
 
-          <form (submit)="signup()" *ngIf="!isRequesting">
+          <form (submit)="signup()" [ngDisabled]="isRequesting">
             <div class="login-form-content">
               <div class="unit">
                 <div class="input login-input">
@@ -93,3 +92,5 @@
     </div>
   </div>
 </section>
+
+</div>

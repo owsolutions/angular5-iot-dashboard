@@ -1,11 +1,19 @@
 .card-shadow {
   box-shadow: 0 0.1em 0.25em rgba(0, 0, 0, 0.1), 0 0.1em 0.2em rgba(0, 0, 0, 0.1);
 }
+/deep/body {
+    background-color: #0069ff;
+}
+.alert {
+    padding: 7px;
+    margin-top: 5px;
+}
 .login-page {
   padding-top: 0px;
   //background-image: url("../images/whitey.png");
   background-repeat: repeat;
   background-attachment: fixed;
+  background-color: #0069ff;
 }
 .login-container {
   margin-top: 60px;
