@@ -45,7 +45,7 @@ export const appRoutes: Routes = [
         path: 'signup-success',
         component: SignupSuccessComponent
     },
-    DefaultLayout(DropFileComponent, 'drop-file')
+    DefaultLayout(DropFileComponent, 'gallery')
 ];
 
 export function createRoutes () {
