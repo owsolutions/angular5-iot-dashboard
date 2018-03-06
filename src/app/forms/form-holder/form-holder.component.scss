@@ -1,15 +1,19 @@
+.card-shadow {
+  box-shadow: 0 0.1em 0.25em rgba(0, 0, 0, 0.1), 0 0.1em 0.2em rgba(0, 0, 0, 0.1);
+}
 /deep/body {
     background-color: #0069ff;
 }
-.card-shadow {
-  box-shadow: 0 0.1em 0.25em rgba(0, 0, 0, 0.1), 0 0.1em 0.2em rgba(0, 0, 0, 0.1);
+
+.login-form-header {
+    text-align: center;
 }
 .login-page {
   padding-top: 0px;
   //background-image: url("../images/whitey.png");
   background-repeat: repeat;
-
   background-attachment: fixed;
+  background-color: #0069ff;
 }
 .login-container {
   margin-top: 60px;
@@ -69,29 +73,29 @@
   text-align: center;
 }
 .boxed-login {
-    .login-form-container {
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
-        background-color: #fff;
-        padding: 25px;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-    }
-    
-    .login-form-footer {
-        padding: 25px;
-        margin-top: 25px;
-        margin-left: -25px;
-        margin-right: -25px;
-        margin-bottom: -25px;
-        -webkit-border-radius: 0 0 4px 4px;
-        border-radius: 0 0 4px 4px;
-        .btn {
-            padding: 10px 20px !important;
-            font-size: 16px !important;
-            font-weight: 400 !important;
-        }
-    }
+  .login-form-container {
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+      background-color: #fff;
+      padding: 25px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+  }
+  
+  .login-form-footer {
+      padding: 25px;
+      margin-top: 25px;
+      margin-left: -25px;
+      margin-right: -25px;
+      margin-bottom: -25px;
+      -webkit-border-radius: 0 0 4px 4px;
+      border-radius: 0 0 4px 4px;
+      .btn {
+          padding: 10px 20px !important;
+          font-size: 16px !important;
+          font-weight: 400 !important;
+      }
+  }
 }
 .social-login {
     padding-top:10vh;
@@ -159,4 +163,18 @@
             color: #00bcd4;
         }
     }
+}
+
+.loader {
+    margin-top: 220px;
+    margin-bottom: 90px;
+}
+
+.loading-container {
+  position: absolute;
+  top: 0;
+  left: 45px;
+}
+.login-form-container {
+  position: relative;
 }

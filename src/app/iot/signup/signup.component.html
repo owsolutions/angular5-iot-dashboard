@@ -1,95 +1,49 @@
-<section class="login-page social-login">
-  <div class="login-container boxed-login">
-    <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
-      <div class="login-form-container">
-        <div class="j-forms">
-          <div class="login-form-header">
-            <div class="logo">
-              <img src="assets/images/logo.png" alt="logo">
-              <span>Smart home</span>
-            </div>
-          </div>
+<app-form-holder title="Signup" (submit)="signup();">
+  <app-input
+    name="firstname"
+    [isRequesting]="isRequesting"
+    [response]="response"
+    (change)="changeInput('firstname', $event)"
+    placeholder="Your firstname">
+  </app-input>
+  <app-input
+    name="lastname"
+    [isRequesting]="isRequesting"
+    [response]="response"
+    (change)="changeInput('lastname', $event)"
+    placeholder="Your lastname">
+  </app-input>
+  <app-input
+    name="email"
+    icon="email"
+    type="email"
+    [isRequesting]="isRequesting"
+    [response]="response"
+    (change)="changeInput('email', $event)"
+    placeholder="Your email">
+  </app-input>
+  <app-input
+    icon="vpn_key"
+    name="password"
+    type="password"
+    [isRequesting]="isRequesting"
+    [response]="response"
+    (change)="changeInput('password', $event)"
+    placeholder="Your password">
+  </app-input>
 
-          <form (submit)="signup()" *ngIf="!isRequesting">
-            <div class="login-form-content">
-              <div class="unit">
-                <div class="input login-input">
-                  <label class="icon-left" for="login">
-                      <i class="icon icon-person"></i>
-                  </label>
-                  <input (change)="changeInput('vpcname', $event.target.value)" class="form-control login-frm-input" 
-                    type="text" id="login" 
-                    name="login" 
-                    placeholder="VPC Name ( unique for you )">
-                </div>
+  <app-input
+    icon="vpn_key"
+    name="password2"
+    type="password"
+    [isRequesting]="isRequesting"
+    [response]="response"
+    (change)="changeInput('password2', $event)"
+    placeholder="Repeat Your password">
+  </app-input>
 
-                <div class='alert alert-warning' *ngIf='findFieldErrorMessage("vpcname")'>
-                  Error: {{findFieldErrorMessage('vpcname')}}
-                </div>
-              </div>
-              <div class="unit">
-                <label class="input select">
-                  <select class="form-control" (change)="changeInput('vpcregion', $event.target.value)" >
-                      <option value="none" disabled selected>-- Select the region --</option>
-                      <option value="sg">Singapore</option>
-                      <option value="uw">US West (California)</option>
-                      <option value="du">Middle East ( Dubai )</option>
-                      <option value="ye">Middle East ( Yerevan )</option>
-                      <option value="fr">Europe ( Frankfurt )</option>
-                  </select>
-                  <i></i>
-                </label>
-                <div class='alert alert-warning' *ngIf='findFieldErrorMessage("vpcregion")'>
-                  Error: {{findFieldErrorMessage('vpcregion')}}
-                </div>
-              </div>
- 
-              <div class="unit">
-                 <div class="input login-input">
-                  <label class="icon-left" for="login">
-                      <i class="icon icon-person"></i>
-                  </label>
-                  <input (change)="changeInput('administrator', $event.target.value)" class="form-control login-frm-input" type="text" id="login" name="login" placeholder="Username / Email">
-                </div>
-                <div class='alert alert-warning' *ngIf='findFieldErrorMessage("administrator")'>
-                  Error: {{findFieldErrorMessage('administrator')}}
-                </div>
-     
-              </div>
- 
- 
-              <div class="unit">
-                <div class="input login-input">
-                  <label class="icon-left" for="password">
-                      <i class="icon icon-vpn_key"></i>
-                  </label>
-                  <input (change)="changeInput('administratorPassword', $event.target.value)" class="form-control login-frm-input" type="password" id="password" name="password" placeholder="Password">
-
-                  <div class='alert alert-warning' *ngIf='findFieldErrorMessage("administratorPassword")'>
-                    Error: {{findFieldErrorMessage('administratorPassword')}}
-                  </div>
-                </div>
-
-                <span class="hint">
-                  <a routerLink='/login' class="link">Or signin now.</a>
-                </span>
-              </div>
- 
-              <div class="response"></div>
-
-            </div>
-            <div class="login-form-footer">
-              <a (click)="signup()" class="btn-block btn btn-primary">Sign up</a>
-            </div>
-          </form>
-          
-     
-        </div>
-
-        <div *ngIf="isRequesting" class="loader">
-          <img class='loader-image image'  src='assets/images/spinner-circle.svg'>
-        </div>
-      </div>
-    </div>
+  <a routerLink='/login' class="link">Or signin now.</a>
+  <div class="login-form-footer">
+    <a (click)="signup()" class="btn-block btn btn-primary">Sign up</a>
   </div>
-</section>
+</app-form-holder>
