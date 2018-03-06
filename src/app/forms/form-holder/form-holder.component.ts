@@ -7,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class FormHolderComponent implements OnInit {
 
   @Input('title') public title = '';
+  @Input('isRequesting') public isRequesting = false;
   @Output('submit') public submit: EventEmitter<boolean> = new EventEmitter();
   constructor() { }
 

@@ -61,6 +61,7 @@ import { DropFileComponent } from './core/drop-file/drop-file.component';
 import { LoadingComponent } from './core/loading/loading.component';
 import { InputComponent } from './forms/input/input.component';
 import { FormHolderComponent } from './forms/form-holder/form-holder.component';
+import { LogoutComponent } from '@app/core/users/logout/logout.component';
 
 @Component({
   selector: 'app-root',
@@ -74,6 +75,7 @@ export class AppComponent {}
     NavigationComponent,
     SettingsComponent,
     DataTableComponent,
+    LogoutComponent,
     PageHeaderComponent,
     TextInputComponent,
     RadioInputComponent,

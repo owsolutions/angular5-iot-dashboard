@@ -1,5 +1,4 @@
-
-<app-form-holder title="Signup" (submit)="signup();">
+<app-form-holder title="Signup" [isRequesting]="isRequesting" (submit)="signup();">
   <app-input
     name="firstname"
     [isRequesting]="isRequesting"
