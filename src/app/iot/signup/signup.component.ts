@@ -2,7 +2,8 @@ import { IVPCInformation } from '@app/iot/definitions';
 import { Component } from '@angular/core';
 import { RequestsService } from '@app/core/services/requests.service';
 import { Router } from '@angular/router';
-import { IResponse } from '@app/core/definitions';
+import { IUserForm } from '@app/core/definitions';
+import { IResponse } from 'response-type';
 
 @Component({
   selector: 'app-signup',
@@ -14,11 +15,12 @@ export class SignupComponent {
   public response: IResponse<any> = null;
   public formErrors: Array<any> = [];
   public isRequesting: Boolean = false;
-  public form: IVPCInformation = {
-    administrator: '',
-    administratorPassword: '',
-    vpcname: '',
-    vpcregion: ''
+  public form: IUserForm = {
+    firstname: '',
+    lastname: '',
+    password: '',
+    password2: '',
+    email: '',
   };
 
   findFieldErrorMessage (fieldName: string) {
@@ -44,7 +46,7 @@ export class SignupComponent {
     this.response = null;
     this.isRequesting = true;
     try {
-      const result = await this.requests.createVPC(this.form);
+      const result = await this.requests.createUser(this.form);
       this.isRequesting = false;
       this.response = result;
       if (result.error && result.error.errors) {
