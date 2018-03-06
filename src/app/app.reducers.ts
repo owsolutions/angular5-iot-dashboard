@@ -7,7 +7,7 @@ import { rolesReducer } from '@app/core/data-layer/roles.reducer';
 import { StoreModule } from '@ngrx/store';
 
 export function appReducersGenerator () {
-    return StoreModule.provideStore({
+    return StoreModule.forRoot({
         devices: devicesReducer,
         locations: locationsReducer,
         activities: activitiesReducer,

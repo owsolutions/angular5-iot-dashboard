@@ -10,7 +10,7 @@ describe('ActivityComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [StoreModule.provideStore({})],
+      imports: [StoreModule.forRoot({})],
       declarations: [
         ActivityComponent,
         PageHeaderComponent

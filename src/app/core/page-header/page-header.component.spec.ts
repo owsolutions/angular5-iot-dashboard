@@ -9,7 +9,7 @@ describe('PageHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [StoreModule.provideStore({})],
+      imports: [StoreModule.forRoot({})],
       declarations: [
         PageHeaderComponent,
         MockComponent({selector: 'app-page-header'})

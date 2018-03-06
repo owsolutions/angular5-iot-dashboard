@@ -20,7 +20,7 @@ describe('NavigationComponent', () => {
       imports: [
         RouterModule,
         RouterTestingModule,
-        StoreModule.provideStore({})
+        StoreModule.forRoot({})
       ],
       providers: [
         AuthGuard,
