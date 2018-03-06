@@ -1,4 +1,4 @@
-<app-form-holder title="Signup" (submit)="signup();">
+<app-form-holder title="Signup" [isRequesting]="isRequesting" (submit)="signup();">
   <app-input
     name="firstname"
     [isRequesting]="isRequesting"
@@ -41,7 +41,6 @@
     (change)="changeInput('password2', $event)"
     placeholder="Repeat Your password">
   </app-input>
-
   <a routerLink='/login' class="link">Or signin now.</a>
   <div class="login-form-footer">
     <a (click)="signup()" class="btn-block btn btn-primary">Sign up</a>

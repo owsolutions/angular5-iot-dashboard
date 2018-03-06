@@ -29,7 +29,7 @@ export class NavigationComponent {
       auth: true
     },
     {
-      link: '/drop-file',
+      link: '/gallery',
       icon: 'icon icon-account_box',
       title: 'File upload',
       permissions: ['USERS::VIEW'],

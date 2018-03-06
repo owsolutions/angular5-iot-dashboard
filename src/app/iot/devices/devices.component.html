@@ -12,7 +12,7 @@
   </div>
   <div class="device-box-container">
     <div *ngFor="let device of devices" class="col-sm-6 padding-box">
-      <app-device-svg [device]="device" (onFocusDevice)="clickDispatch($event);"></app-device-svg>
+      <ng-iot-device-ic [device]="device" (onFocusDevice)="clickDispatch($event);"></ng-iot-device-ic>
     </div>
   </div>
 </div>

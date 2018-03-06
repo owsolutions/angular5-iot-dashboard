@@ -3,7 +3,6 @@ import { DevicesComponent } from './devices.component';
 import { InputPinComponent } from '../shared/input-pin/input-pin.component';
 import { OutputPinComponent } from '../shared/output-pin/output-pin.component';
 import { PageHeaderComponent } from '@app/core/page-header/page-header.component';
-import { DeviceSvgComponent } from '../shared/device-svg/device-svg.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { appReducersGenerator } from '@app/app.reducers';
 import { CommunicateService } from '@app/core/services/communicate.service';
@@ -24,8 +23,7 @@ describe('DevicesComponent', () => {
         DevicesComponent,
         InputPinComponent,
         OutputPinComponent,
-        PageHeaderComponent,
-        DeviceSvgComponent
+        PageHeaderComponent
       ],
       schemas: [
         NO_ERRORS_SCHEMA

@@ -9,6 +9,8 @@
     "build": "ng build --env=prod",
     "test": "ng test",
     "lint": "ng lint",
+    "build:github": "ng build -e=prod -prod --base-href=/angular5-iot-dashboard --deploy-url=/angular5-iot-dashboard/ --progress false",
+    "gh-pages": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages",
     "hmr": "ng serve --hmr -e=hmr",
     "e2e": "ng e2e"
   },
@@ -30,7 +32,8 @@
     "core-js": "^2.5.3",
     "intl": "^1.2.5",
     "lodash": "^4.17.4",
-    "ng-iot": "0.0.3",
+    "ng-iot": "0.0.6",
+    "ng-media": "0.0.8",
     "response-type": "^1.0.2",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.12"

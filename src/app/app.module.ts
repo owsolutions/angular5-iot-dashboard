@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 import { appReducersGenerator } from '@app/app.reducers';
 import { NavigationComponent } from '@app/core/navigation/navigation.component';
 import { SettingsComponent } from '@app/core/settings/settings.component';
@@ -18,7 +17,6 @@ import { UsersComponent } from '@app/core/users/users.component';
 import { RolesComponent } from '@app/core/roles/roles.component';
 import { UserSingleComponent } from '@app/core/users/user-single/user-single.component';
 import { LoginComponent } from '@app/core/login/login.component';
-
 import { PermissionsService } from '@app/core/services/permissions.service';
 import { RequestsService } from '@app/core/services/requests.service';
 import { CheckboxInputComponent } from '@app/core/forms/checkbox-input/checkbox-input.component';
@@ -27,8 +25,6 @@ import { ActionsService } from '@app/core/services/actions.service';
 import { UserService, AuthGuard } from '@app/core/services/user.service';
 import { CommunicateService } from '@app/core/services/communicate.service';
 
-
-// Iot related
 import { SignupComponent } from '@app/iot/signup/signup.component';
 import { SignupSuccessComponent } from '@app/iot/signup/signup-success/signup-success.component';
 import { DevicesComponent } from '@app/iot/devices/devices.component';
@@ -38,7 +34,6 @@ import { LocationsComponent } from '@app/iot/locations/locations.component';
 import { ActivityComponent } from '@app/iot/activity/activity.component';
 import { LocationRowComponent } from '@app/iot/locations/location-row/location-row.component';
 import { LocationEditComponent } from '@app/iot/locations/location-edit/location-edit.component';
-import { DeviceSvgComponent } from '@app/iot/shared/device-svg/device-svg.component';
 import { HelperBoxComponent } from '@app/iot/shared/helper-box/helper-box.component';
 import { OutputPinViewComponent } from '@app/iot/shared/output-pin-view/output-pin-view.component';
 import { SwitchWidgetsComponent } from '@app/iot/shared/switch-widgets/switch-widgets.component';
@@ -60,11 +55,13 @@ import { AppInfoComponent } from '@app/iot/app-info/app-info.component';
 import { ModesComponent } from '@app/iot/app-info/modes/modes.component';
 import { ReminderTimelineComponent } from '@app/iot/app-info/reminder-timeline/reminder-timeline.component';
 import { createRoutes  } from '@app/app.routes';
+import { NgMediaModule } from 'ng-media';
 import { NgIotModule } from 'ng-iot';
 import { DropFileComponent } from './core/drop-file/drop-file.component';
 import { LoadingComponent } from './core/loading/loading.component';
 import { InputComponent } from './forms/input/input.component';
 import { FormHolderComponent } from './forms/form-holder/form-holder.component';
+import { LogoutComponent } from '@app/core/users/logout/logout.component';
 
 @Component({
   selector: 'app-root',
@@ -78,6 +75,7 @@ export class AppComponent {}
     NavigationComponent,
     SettingsComponent,
     DataTableComponent,
+    LogoutComponent,
     PageHeaderComponent,
     TextInputComponent,
     RadioInputComponent,
@@ -95,7 +93,6 @@ export class AppComponent {}
     ActivityComponent,
     LocationRowComponent,
     LocationEditComponent,
-    DeviceSvgComponent,
     HelperBoxComponent,
     OutputPinViewComponent,
     SwitchWidgetsComponent,
@@ -127,7 +124,9 @@ export class AppComponent {}
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    NgIotModule,
     HttpModule,
+    NgMediaModule,
     NgIotModule,
     createRoutes (),
     appReducersGenerator()
