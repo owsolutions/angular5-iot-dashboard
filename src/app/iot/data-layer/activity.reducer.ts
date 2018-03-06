@@ -1,4 +1,4 @@
-import {Action} from '@ngrx/store';
+import { Action } from '@app/core/definitions';
 import UpdateOrPrepend from '@app/core/functions/UpdateOrPrepend';
 
 export function activitiesReducer (state = [], action: Action) {

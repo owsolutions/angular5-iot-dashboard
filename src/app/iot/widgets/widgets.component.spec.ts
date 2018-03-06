@@ -15,7 +15,7 @@ describe('WidgetsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-         StoreModule.provideStore({
+         StoreModule.forRoot({
            widgets: widgetsReducer
          })
       ],
