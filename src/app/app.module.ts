@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { NgIotModule } from 'ng-iot';
 import { appReducersGenerator } from '@app/app.reducers';
 import { NavigationComponent } from '@app/core/navigation/navigation.component';
 import { SettingsComponent } from '@app/core/settings/settings.component';
