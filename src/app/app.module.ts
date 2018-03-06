@@ -56,7 +56,7 @@ import { AppInfoComponent } from '@app/iot/app-info/app-info.component';
 import { ModesComponent } from '@app/iot/app-info/modes/modes.component';
 import { ReminderTimelineComponent } from '@app/iot/app-info/reminder-timeline/reminder-timeline.component';
 import { createRoutes  } from '@app/app.routes';
-
+import { NgIotModule } from 'ng-iot';
 import { DropFileComponent } from './core/drop-file/drop-file.component';
 
 @Component({
@@ -118,6 +118,7 @@ export class AppComponent {}
     FormsModule,
     NgIotModule,
     HttpModule,
+    NgIotModule,
     createRoutes (),
     appReducersGenerator()
   ],
