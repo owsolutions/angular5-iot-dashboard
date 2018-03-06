@@ -3,6 +3,13 @@ import {Action as NgrxAction} from '@ngrx/store';
 export interface Action extends NgrxAction {
   payload: any;
 }
+export interface IUserForm {
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+  password2: string;
+}
 
 export interface IUser {
   username: string;

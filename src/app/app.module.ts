@@ -62,6 +62,9 @@ import { ReminderTimelineComponent } from '@app/iot/app-info/reminder-timeline/r
 import { createRoutes  } from '@app/app.routes';
 import { NgIotModule } from 'ng-iot';
 import { DropFileComponent } from './core/drop-file/drop-file.component';
+import { LoadingComponent } from './core/loading/loading.component';
+import { InputComponent } from './forms/input/input.component';
+import { FormHolderComponent } from './forms/form-holder/form-holder.component';
 
 @Component({
   selector: 'app-root',
@@ -115,7 +118,10 @@ export class AppComponent {}
     ReminderTimelineComponent,
     SignupComponent,
     SignupSuccessComponent,
-    DropFileComponent
+    DropFileComponent,
+    LoadingComponent,
+    InputComponent,
+    FormHolderComponent
   ],
   imports: [
     BrowserAnimationsModule,

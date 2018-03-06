@@ -20,8 +20,11 @@ export class RequestsService {
     return this.mocks.Widgets();
   }
 
+  async createUser (user): Promise<IResponse> {
+    return this.mocks.createUser(user);
+  }
   async createVPC (vpcInformation: IVPCInformation): Promise<IResponse> {
-    await timeout (2000);
+    await timeout (200);
     return this.mocks.createVPC(vpcInformation);
   }
   async getLocations(): Promise<Array<ILocation>> {
