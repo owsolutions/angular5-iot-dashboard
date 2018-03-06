@@ -2,6 +2,7 @@ import { IVPCInformation } from '@app/iot/definitions';
 import { Component } from '@angular/core';
 import { RequestsService } from '@app/core/services/requests.service';
 import { Router } from '@angular/router';
+import { IResponse } from '@app/core/definitions';
 
 @Component({
   selector: 'app-signup',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent {
 
+  public response: IResponse<any> = null;
   public formErrors: Array<any> = [];
   public isRequesting: Boolean = false;
   public form: IVPCInformation = {
@@ -32,14 +34,19 @@ export class SignupComponent {
   }
 
   changeInput (field , value) {
+    if (typeof value !== 'string') {
+      return value;
+    }
     this.form[field] = value;
   }
 
   async signup () {
+    this.response = null;
     this.isRequesting = true;
     try {
       const result = await this.requests.createVPC(this.form);
       this.isRequesting = false;
+      this.response = result;
       if (result.error && result.error.errors) {
         this.formErrors = result.error.errors;
       }

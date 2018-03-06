@@ -190,27 +190,27 @@ export class MocksService {
             const errors = [];
             if ( ! vpc.administrator ) {
                 errors.push({
-                    field: 'administrator',
+                    location: 'administrator',
                     message: 'You didn\'t provide the administrator email. VPC needs an administrator'
                 });
             }
             if ( ! vpc.administratorPassword ) {
                 errors.push({
-                    field: 'administratorPassword',
+                    location: 'administratorPassword',
                     message: 'Make sure you provide a password longer than 8 characters'
                 });
             }
 
             if ( ! vpc.vpcname ) {
                 errors.push({
-                    field: 'vpcname',
+                    location: 'vpcname',
                     message: 'Please provide the vpcname'
                 });
             }
 
             if ( ! vpc.vpcregion ) {
                 errors.push({
-                    field: 'vpcregion',
+                    location: 'vpcregion',
                     message: 'Please select your geographical location.'
                 });
             }

@@ -12,29 +12,17 @@
           <div class="login-form-header">
               <h2>Signup</h2>
           </div>
-          <pre>
-          {{form | json}}
-          </pre>
           <form (submit)="signup()" >
             <div class="login-form-content">
-              <div class="unit">
-                <div class="input login-input">
-                  <label class="icon-left" for="login">
-                      <i class="icon icon-person"></i>
-                  </label>
-                  <input 
-                    [disabled]="isRequesting"
-                    (change)="changeInput('vpcname', $event.target.value)" class="form-control login-frm-input" 
-                    type="text" id="login" 
-                    name="login" 
-                    placeholder="VPC Name ( unique for you )">
-                </div>
+              <app-input
+                name="vpcname"
+                [isRequesting]="isRequesting"
+                [response]="response"
+                (change)="changeInput('vpcname', $event)"
+                placeholder="VPC Name (unique for you)">
+              </app-input>
 
-                <div class='alert alert-warning' *ngIf='findFieldErrorMessage("vpcname")'>
-                  Error: {{findFieldErrorMessage('vpcname')}}
-                </div>
-              </div>
-              <div class="unit">
+                <div class="unit">
                 <label class="input select">
                   <select [disabled]="isRequesting" class="form-control" (change)="changeInput('vpcregion', $event.target.value)" >
                       <option value="none" disabled selected>-- Select the region --</option>

@@ -64,6 +64,7 @@ import { createRoutes  } from '@app/app.routes';
 
 import { DropFileComponent } from './core/drop-file/drop-file.component';
 import { LoadingComponent } from './core/loading/loading.component';
+import { InputComponent } from './forms/input/input.component';
 
 @Component({
   selector: 'app-root',
@@ -119,7 +120,8 @@ export class AppComponent {}
     SignupComponent,
     SignupSuccessComponent,
     DropFileComponent,
-    LoadingComponent
+    LoadingComponent,
+    InputComponent
   ],
   imports: [
     BrowserAnimationsModule,
