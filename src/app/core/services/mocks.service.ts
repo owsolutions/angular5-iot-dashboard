@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IUser, IRole, IResponse } from '@app/core/definitions';
+import { IUser, IRole, IResponse, IUserForm } from '@app/core/definitions';
 import { IActivity, ActivityTypes, IVPCInformation, IDevice, ILocation, IWidget, IPin } from '@app/iot/definitions';
 import { times, random, sample } from 'lodash';
 import { PermissionsService } from './permissions.service';
@@ -132,7 +132,7 @@ export class MocksService {
                 return random(1000, 9000) * 0.001;
         }
     }
-    function createPins (id: Number = 2): Array<IPin> {
+    function createPins (id: number = 2): Array<IPin> {
         return times(8 , (index) => {
             return {
                 id: index,
@@ -141,7 +141,7 @@ export class MocksService {
             };
         });
     }
-    function createDevices (id: Number = 3): Array<IDevice> {
+    function createDevices (id: number = 3): Array<IDevice> {
         return times(id , () => {
             return {
                 uniqueid: 'dev-' + random(1111, 9999),
@@ -184,56 +184,105 @@ export class MocksService {
     }
 
     createVPC (form: IVPCInformation): IResponse {
-        console.log('Creating vpc: ' , form);
 
-        function hasUnvalidFields(vpc: IVPCInformation): Array<any> {
-            const errors = [];
-            if ( ! vpc.administrator ) {
-                errors.push({
-                    field: 'administrator',
-                    message: 'You didn\'t provide the administrator email. VPC needs an administrator'
-                });
-            }
-            if ( ! vpc.administratorPassword ) {
-                errors.push({
-                    field: 'administratorPassword',
-                    message: 'Make sure you provide a password longer than 8 characters'
-                });
-            }
+      function hasUnvalidFields(vpc: IVPCInformation): Array<any> {
+          const errors = [];
+          if ( ! vpc.administrator ) {
+              errors.push({
+                  location: 'administrator',
+                  message: 'You didn\'t provide the administrator email. VPC needs an administrator'
+              });
+          }
+          if ( ! vpc.administratorPassword ) {
+              errors.push({
+                  location: 'administratorPassword',
+                  message: 'Make sure you provide a password longer than 8 characters'
+              });
+          }
 
-            if ( ! vpc.vpcname ) {
-                errors.push({
-                    field: 'vpcname',
-                    message: 'Please provide the vpcname'
-                });
-            }
+          if ( ! vpc.vpcname ) {
+              errors.push({
+                  location: 'vpcname',
+                  message: 'Please provide the vpcname'
+              });
+          }
 
-            if ( ! vpc.vpcregion ) {
-                errors.push({
-                    field: 'vpcregion',
-                    message: 'Please select your geographical location.'
-                });
-            }
-            return errors;
-        }
-        if (hasUnvalidFields(form).length) {
-            return {
-                error: {
-                    code: 1,
-                    message: 'Please fix the errors within the form',
-                    errors: hasUnvalidFields(form)
-                }
-            };
-        }
-        return {
-            data: {
-                items: [
-                    {
-                        vpc: form
-                    }
-                ]
-            }
-        };
+          if ( ! vpc.vpcregion ) {
+              errors.push({
+                  location: 'vpcregion',
+                  message: 'Please select your geographical location.'
+              });
+          }
+          return errors;
+      }
+      if (hasUnvalidFields(form).length) {
+          return {
+              error: {
+                  code: 1,
+                  message: 'Please fix the errors within the form',
+                  errors: hasUnvalidFields(form)
+              }
+          };
+      }
+      return {
+          data: {
+              items: [
+                  {
+                      vpc: form
+                  }
+              ]
+          }
+      };
+  }
+  createUser (form: IUserForm): IResponse {
+    function hasUnvalidFields(vpc: IUserForm): Array<any> {
+      const errors = [];
+      if ( ! vpc.firstname ) {
+        errors.push({
+          location: 'firstname',
+          message: 'You didn\'t provide the firstname'
+        });
+      }
+      if ( ! vpc.lastname ) {
+        errors.push({
+          location: 'lastname',
+          message: 'You didn\t provide the lastname'
+        });
+      }
+
+      if ( ! vpc.email ) {
+        errors.push({
+          location: 'email',
+          message: 'Please provide the email'
+        });
+      }
+
+      if ( ! vpc.password ) {
+        errors.push({
+          location: 'password',
+          message: 'Please provide a strong password'
+        });
+      }
+      return errors;
     }
+    if (hasUnvalidFields(form).length) {
+      return {
+        error: {
+          code: 1,
+          message: 'Please fix the errors within the form',
+          errors: hasUnvalidFields(form)
+        }
+      };
+    }
+    return {
+      data: {
+        items: [
+          {
+            vpc: form
+          }
+        ]
+      }
+    };
+  }
 
 }

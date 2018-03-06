@@ -16,7 +16,7 @@ export class LocationEditComponent implements OnInit {
    * If we are on a editing mode, it has a number;
    * otherwise we only having null.
    */
-  public id: Number = null;
+  public id: number = null;
 
   /**
    * Mode shows if it's an editing mode or not.
@@ -85,7 +85,7 @@ export class LocationEditComponent implements OnInit {
   async postToServer (location: ILocation): Promise<ILocation> {
     let id = 0;
     this.store.select('locations').subscribe((locations: Array<ILocation>) => {
-      id = maxBy(locations, x => x.id).id + 1;
+      id = +maxBy(locations, x => x.id).id + 1;
     });
     return {
       icon: location.icon,
