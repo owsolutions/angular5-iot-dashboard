@@ -14,11 +14,9 @@ export class DropFileComponent implements OnInit {
   initializeDropZone (url: string = '/upload'): any {
     const $el = $('div#drop-zone-1').dropzone({ url });
     $el.on('dragenter' , function () {
-      console.log('Drag enter!');
       $el.addClass('onhover');
     });
     $el.on('dragleave' , function () {
-      console.log('Drag left.');
       $el.removeClass('onhover');
     });
     return $el;
