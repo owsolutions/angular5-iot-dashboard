@@ -30,8 +30,8 @@
     "core-js": "^2.5.3",
     "intl": "^1.2.5",
     "lodash": "^4.17.4",
-    "response-type": "^1.0.1",
     "ng-iot": "0.0.3",
+    "response-type": "^1.0.1",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.12"
   },
