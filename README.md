@@ -1,10 +1,10 @@
 [![Build Status](https://travis-ci.org/smart-dashboard/angular-dashboard.svg?branch=master)](https://travis-ci.org/smart-dashboard/angular-dashboard)
 
 
-# Smart angular dashboard
-IoT (Internet of Things) specific dashboard based on Angular 4. The goal of this repository is to be a resilience front-end for smart homes, smart offices, and industrial automation. 
+# Smart angular dashboard ( Angular Iot Dashboard )
+IoT (Internet of Things) specific dashboard based on Angular 4. Many reusable components, you can inspire and implement your own version of hosted iot dashboard using Angular IoT dashboard. A real-time compatible dashboard for any browser.
+The goal of this repository is to be a resilience front-end for smart homes, smart offices, and industrial automation. 
 **This project is heavily under development; In case you need to use some components in production level, please contact the owners**
-
 
 ![Smart home app](screenshot-2.png "Smart home app")
 
@@ -28,7 +28,9 @@ for this purpose.
 
 ## Live preview
 
-You can see the latest deploy here: [https://smart-angular-dashboard.firebaseapp.com](https://smart-angular-dashboard.firebaseapp.com)
+You can see the latest deploy here: [https://owsolutions.github.io/angular5-iot-dashboard](https://owsolutions.github.io/angular5-iot-dashboard)
+
+We are hosting demo version on github. For enterprise version, please contact us.
 
 ## Contribution guide
 We are so much excited to receive Pull-Requests from you. There are some simple rules that we follow in our project:

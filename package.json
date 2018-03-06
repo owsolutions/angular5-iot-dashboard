@@ -9,6 +9,8 @@
     "build": "ng build --env=prod",
     "test": "ng test",
     "lint": "ng lint",
+    "build:github": "ng build -e=prod -prod --base-href=/angular5-iot-dashboard --deploy-url=/angular5-iot-dashboard/ --progress false",
+    "gh-pages": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages",
     "hmr": "ng serve --hmr -e=hmr",
     "e2e": "ng e2e"
   },
