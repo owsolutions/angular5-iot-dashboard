@@ -12,66 +12,107 @@ export class NavigationComponent {
     {
       link: '/index',
       icon: 'icon icon-home',
-      title: 'Home'
+      title: 'Home',
+      children: [
+        {
+          link: '/index',
+          icon: 'icon icon-home',
+          title: 'Test1',
+          children: []
+        },
+        {
+          link: '/index',
+          icon: 'icon icon-home',
+          title: 'Test2',
+          children: [{
+            link: '/index',
+            icon: 'icon icon-home',
+            title: 'Test2-1',
+            children: []
+          }]
+        },
+        {
+          link: '/index',
+          icon: 'icon icon-home',
+          title: 'Test3',
+          children: [
+            {
+              link: '/index',
+              icon: 'icon icon-home',
+              title: 'Test3-1',
+              children: []
+            }
+          ]
+        }
+      ]
     },
     {
       link: '/devices',
       icon: 'icon icon-developer_board',
       title: 'Devices',
       permissions: ['DEVICES::VIEW'],
-      auth: true
+      auth: true,
+      children: []
     },
     {
       link: '/widgets',
       icon: 'icon icon-widgets',
       title: 'Widgets',
       permissions: ['WIDGETS::VIEW'],
-      auth: true
+      auth: true,
+      children: []
     },
     {
       link: '/gallery',
       icon: 'icon icon-account_box',
       title: 'File upload',
       permissions: ['USERS::VIEW'],
-      auth: true
+      auth: true,
+      children: []
     },
     {
       link: '/users',
       icon: 'icon icon-account_box',
       title: 'Users',
       permissions: ['USERS::VIEW'],
-      auth: true
+      auth: true,
+      children: []
     },
     {
       link: '/roles',
       icon: 'icon icon-key',
       title: 'Roles & permissions',
       permissions: ['ROLES::VIEW'],
-      auth: true
+      auth: true,
+      children: []
     },
     {
       link: '/locations',
       icon: 'icon icon-room',
       title: 'locations',
       permissions: ['LOCATIONS::VIEW'],
-      auth: true
+      auth: true,
+      children: []
     },
     {
       link: '/activities',
       icon: 'icon icon-notifications_active',
       title: 'Activities',
       permissions: ['ACTIVITIES::VIEW'],
-      auth: true
+      auth: true,
+      children: []
     },
     {
       link: '/form-elements',
       icon: 'icon icon-wpforms',
-      title: 'Form elements'
+      title: 'Form elements',
+      children: []
     },
     {
       link: '/login',
       icon: 'icon icon-exit_to_app',
-      title: 'Logout'
+      title: 'Logout',
+      children: []
     }
   ];
 

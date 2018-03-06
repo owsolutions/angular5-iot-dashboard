@@ -58,6 +58,7 @@ import { createRoutes  } from '@app/app.routes';
 import { NgMediaModule } from 'ng-media';
 import { NgIotModule } from 'ng-iot';
 import { DropFileComponent } from './core/drop-file/drop-file.component';
+import { NavTreeComponent } from './core/navigation/nav-tree/nav-tree.component';
 import { LoadingComponent } from './core/loading/loading.component';
 import { InputComponent } from './forms/input/input.component';
 import { FormHolderComponent } from './forms/form-holder/form-holder.component';
@@ -116,6 +117,7 @@ export class AppComponent {}
     SignupComponent,
     SignupSuccessComponent,
     DropFileComponent,
+    NavTreeComponent,
     LoadingComponent,
     InputComponent,
     FormHolderComponent

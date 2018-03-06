@@ -26,6 +26,7 @@
 	bottom:0;
 	width:300px;
 	overflow-x: hidden;
+	z-index: -1;
 	&.active{
 		@include transition(left .5s);
 		left:0;
