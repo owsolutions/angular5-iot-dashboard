@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormHolderComponent } from './form-holder.component';
 
 describe('FormHolderComponent', () => {
@@ -8,6 +8,9 @@ describe('FormHolderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+      ],
       declarations: [ FormHolderComponent ]
     })
     .compileComponents();

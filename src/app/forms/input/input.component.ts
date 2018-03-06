@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter, Host } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IResponse } from 'response-type';
-import { FormHolderComponent } from '@app/forms/form-holder/form-holder.component';
 
 @Component({
   selector: 'app-input',
@@ -20,7 +19,6 @@ export class InputComponent implements OnInit {
     this._response = value;
   }
   constructor(
-     @Host() private parent: FormHolderComponent
   ) { }
 
   ngOnInit() {
