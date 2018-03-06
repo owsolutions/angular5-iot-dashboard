@@ -11,11 +11,11 @@ export class InputComponent implements OnInit {
 
   private _response: IResponse<any> = null;
   @Output('change') public change: EventEmitter<string> = new EventEmitter();
-  @Input('icon') public icon: string = 'person';
-  @Input('placeholder') public placeholder: string = '';
-  @Input('type') public type: string = '';
-  @Input('name') public name: string = '';
-  @Input('isRequesting') public isRequesting: boolean = false;
+  @Input('icon') public icon = 'person';
+  @Input('placeholder') public placeholder = '';
+  @Input('type') public type = '';
+  @Input('name') public name = '';
+  @Input('isRequesting') public isRequesting = false;
   @Input('response') public set response (value: IResponse<any>) {
     this._response = value;
   }
@@ -31,7 +31,7 @@ export class InputComponent implements OnInit {
 
   public error (fieldName: string) {
     const res = this._response;
-    if ( ! res || ! res.error || ! res.error.errors || 
+    if ( ! res || ! res.error || ! res.error.errors ||
       ! res.error.errors.find) {
         return '';
     }

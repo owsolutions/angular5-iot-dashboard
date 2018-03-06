@@ -7,7 +7,7 @@ import { IResponse } from 'response-type';
 })
 export class FormHolderComponent implements OnInit {
 
-  @Input('title') public title: string = '';
+  @Input('title') public title = '';
   @Input('response') public response: IResponse<any> = null;
   @Output('submit') public submit: EventEmitter<boolean> = new EventEmitter();
   constructor() { }

@@ -1,4 +1,4 @@
-import { IVPCInformation } from '@app/iot/definitions';
+
 import { Component } from '@angular/core';
 import { RequestsService } from '@app/core/services/requests.service';
 import { Router } from '@angular/router';
