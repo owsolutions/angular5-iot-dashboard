@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Host } from '@angular/core';
 import { IResponse } from 'response-type';
+import { FormHolderComponent } from '@app/forms/form-holder/form-holder.component';
+
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
@@ -16,9 +18,10 @@ export class InputComponent implements OnInit {
   @Input('isRequesting') public isRequesting: boolean = false;
   @Input('response') public set response (value: IResponse<any>) {
     this._response = value;
-    console.log('setting respomnse: ', this._response);
   }
-  constructor() { }
+  constructor(
+     @Host() private parent: FormHolderComponent
+  ) { }
 
   ngOnInit() {
   }

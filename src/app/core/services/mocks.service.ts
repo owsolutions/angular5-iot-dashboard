@@ -184,7 +184,6 @@ export class MocksService {
     }
 
     createVPC (form: IVPCInformation): IResponse {
-      console.log('Creating vpc: ' , form);
 
       function hasUnvalidFields(vpc: IVPCInformation): Array<any> {
           const errors = [];
