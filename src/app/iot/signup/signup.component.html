@@ -1,14 +1,20 @@
-<div style="background: red;">
-
 <section class="login-page social-login">
   <div class="login-container boxed-login">
-    <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 no-float">
+    
+    <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 no-float" style="position: relative;">
+   
       <div class="login-form-container">
+
+        <div class="loading-container">
+          <app-loading *ngIf="isRequesting"></app-loading>
+        </div>
         <div class="j-forms">
           <div class="login-form-header">
               <h2>Signup</h2>
           </div>
-
+          <pre>
+          {{form | json}}
+          </pre>
           <form (submit)="signup()" >
             <div class="login-form-content">
               <div class="unit">
@@ -16,7 +22,9 @@
                   <label class="icon-left" for="login">
                       <i class="icon icon-person"></i>
                   </label>
-                  <input (change)="changeInput('vpcname', $event.target.value)" class="form-control login-frm-input" 
+                  <input 
+                    [disabled]="isRequesting"
+                    (change)="changeInput('vpcname', $event.target.value)" class="form-control login-frm-input" 
                     type="text" id="login" 
                     name="login" 
                     placeholder="VPC Name ( unique for you )">
@@ -28,7 +36,7 @@
               </div>
               <div class="unit">
                 <label class="input select">
-                  <select class="form-control" (change)="changeInput('vpcregion', $event.target.value)" >
+                  <select [disabled]="isRequesting" class="form-control" (change)="changeInput('vpcregion', $event.target.value)" >
                       <option value="none" disabled selected>-- Select the region --</option>
                       <option value="sg">Singapore</option>
                       <option value="uw">US West (California)</option>
@@ -48,7 +56,8 @@
                   <label class="icon-left" for="login">
                       <i class="icon icon-person"></i>
                   </label>
-                  <input (change)="changeInput('administrator', $event.target.value)" class="form-control login-frm-input" type="text" id="login" name="login" placeholder="Username / Email">
+                  <input [disabled]="isRequesting"
+                    (change)="changeInput('administrator', $event.target.value)" class="form-control login-frm-input" type="text" id="login" name="login" placeholder="Username / Email">
                 </div>
                 <div class='alert alert-warning' *ngIf='findFieldErrorMessage("administrator")'>
                   Error: {{findFieldErrorMessage('administrator')}}
@@ -62,8 +71,9 @@
                   <label class="icon-left" for="password">
                       <i class="icon icon-vpn_key"></i>
                   </label>
-                  <input (change)="changeInput('administratorPassword', $event.target.value)" class="form-control login-frm-input" type="password" id="password" name="password" placeholder="Password">
-
+                  <input 
+                    [disabled]="isRequesting"
+                    (change)="changeInput('administratorPassword', $event.target.value)" class="form-control login-frm-input" type="password" id="password" name="password" placeholder="Password">
                   <div class='alert alert-warning' *ngIf='findFieldErrorMessage("administratorPassword")'>
                     Error: {{findFieldErrorMessage('administratorPassword')}}
                   </div>
@@ -85,12 +95,9 @@
      
         </div>
 
-        <div *ngIf="isRequesting" class="loader">
-          <img class='loader-image image'  src='assets/images/spinner-circle.svg'>
-        </div>
+     
       </div>
     </div>
   </div>
 </section>
-
-</div>
+ 
