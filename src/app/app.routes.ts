@@ -17,37 +17,38 @@ import { SignupSuccessComponent } from '@app/iot/signup/signup-success/signup-su
 import { DropFileComponent } from '@app/core/drop-file/drop-file.component';
 
 export const appRoutes: Routes = [
-    { path: '',
-        redirectTo: '/login',
-        pathMatch: 'full'
-    },
-    AuthLayout (IndexComponent, 'index'),
-    AuthLayout (LocationsComponent, 'locations'),
-    AuthLayout (SettingsComponent, 'settings'),
-    AuthLayout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
-    AuthLayout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'new'}}),
-    AuthLayout (UsersComponent, 'users'),
-    AuthLayout (RolesComponent, 'roles'),
-    AuthLayout (ActivityComponent, 'activities'),
-    AuthLayout (DevicesComponent, 'devices'),
-    AuthLayout (WidgetsComponent, 'widgets'),
-    AuthLayout (FormElementsComponent, 'form-elements'),
-    AuthLayout (UserSingleComponent, 'user/:id'),
-    {
-        path: 'login',
-        component: LoginComponent
-    },
-    {
-        path: 'signup',
-        component: SignupComponent
-    },
-    {
-        path: 'signup-success',
-        component: SignupSuccessComponent
-    },
-    DefaultLayout(DropFileComponent, 'gallery')
+  { 
+    path: '',
+    redirectTo: '/index',
+    pathMatch: 'full'
+  },
+  AuthLayout (IndexComponent, 'index'),
+  AuthLayout (LocationsComponent, 'locations'),
+  AuthLayout (SettingsComponent, 'settings'),
+  AuthLayout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
+  AuthLayout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'new'}}),
+  AuthLayout (UsersComponent, 'users'),
+  AuthLayout (RolesComponent, 'roles'),
+  AuthLayout (ActivityComponent, 'activities'),
+  AuthLayout (DevicesComponent, 'devices'),
+  AuthLayout (WidgetsComponent, 'widgets'),
+  AuthLayout (FormElementsComponent, 'form-elements'),
+  AuthLayout (UserSingleComponent, 'user/:id'),
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
+  },
+  {
+    path: 'signup-success',
+    component: SignupSuccessComponent
+  },
+  DefaultLayout(DropFileComponent, 'gallery')
 ];
 
 export function createRoutes () {
-    return RouterModule.forRoot(appRoutes);
+  return RouterModule.forRoot(appRoutes, { useHash: true});
 }
