@@ -17,7 +17,7 @@ import { SignupSuccessComponent } from '@app/iot/signup/signup-success/signup-su
 import { DropFileComponent } from '@app/core/drop-file/drop-file.component';
 
 export const appRoutes: Routes = [
-  { 
+  {
     path: '',
     redirectTo: '/index',
     pathMatch: 'full'
