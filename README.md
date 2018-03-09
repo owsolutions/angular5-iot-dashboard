@@ -18,6 +18,7 @@ first stable version features yet.
 
 * Project is based on Angular 4 and angular CLI. For developing, we've added `npm run hmr` to provide hot reloading, but for production level we use `npm run production`, which calls `ng *` tasks directly.
 * We are using highcharts library for our charts. For any incoming pull requests that containing other chart libraries, please open an issue first and describe why it's not possible to do it using highcharts.
+**We have removed highchart from this library, because it's included in `ng-iot` project. Probably we will remove that as well and use a npm package for this purpose**
 * Lodash, and NgRx store are used heavily for data flow.
 * Async/Await concepts are everywhere since project is a realtime dashboard
 * Our TDD is karma ( default of the angular CLI ) and for CI, we use `TravisCI`. If you want to host the project on a private repository, you might want to 
