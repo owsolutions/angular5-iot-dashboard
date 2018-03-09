@@ -51,4 +51,13 @@ export class RequestsService {
     return this.mocks.User();
   }
 
+  /**
+   * Returns users are registered or associated under this account.
+   * These are users who are inside your workspace; you are not able to edit their details
+   * but only you can view their activity; or disable them from separate accesses.
+   */
+  public GetUsers () {
+
+  }
+
 }
