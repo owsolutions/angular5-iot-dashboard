@@ -12,7 +12,7 @@ describe('QuickStatusComponent', () => {
       declarations: [
         QuickStatusComponent,
         MockComponent({selector: 'app-user-widget'}),
-        MockComponent({selector: 'app-quick-chart'})
+        MockComponent({selector: 'ng-iot-quick-chart'})
       ]
     })
     .compileComponents();

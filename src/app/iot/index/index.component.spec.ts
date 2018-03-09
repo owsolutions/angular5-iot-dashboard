@@ -11,7 +11,7 @@ describe('IndexComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         IndexComponent,
-        MockComponent({ selector: 'app-index-chart' }),
+        MockComponent({ selector: 'ng-iot-usage-chart' }),
         MockComponent({ selector: 'app-places' }),
       ]
     })
