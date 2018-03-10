@@ -20,7 +20,7 @@
       <td>{{user.LastActivity}}</td>
       <td>
 
-        <select name="" id="">
+        <select name="" id="" (change)="changeUserRole(user.id, $event.target.value)">
           <option [value]="role.id" *ngFor="let role of roles">
             {{role.title}}
           </option>

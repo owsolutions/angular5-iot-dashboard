@@ -70,4 +70,8 @@ export class RequestsService {
     ] as Array<WorkspaceUser>);
   }
 
+  public ChangeUserRole (userID: string, roleID: string) {
+    console.log(' Implement the code to change user here');
+  }
+
 }
