@@ -3,8 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { NavigationComponent } from './core/navigation/navigation.component';
 import { SettingsComponent } from './core/settings/settings.component';
 import { DataTableComponent } from './core/data-table/data-table.component';
 import { PageHeaderComponent } from './core/page-header/page-header.component';
@@ -49,7 +49,6 @@ import { QuickStatusComponent } from './iot/quick-status/quick-status.component'
 import { UserWidgetComponent } from './iot/quick-status/user-widget/user-widget.component';
 import { AppInfoComponent } from './iot/app-info/app-info.component';
 import { ModesComponent } from './iot/app-info/modes/modes.component';
-import { createRoutes  } from '@app/app.routes';
 import { NgMediaModule } from 'ng-media';
 import { NgIotModule } from 'ng-iot';
 import { DropFileComponent } from './core/drop-file/drop-file.component';
@@ -60,7 +59,6 @@ import { LogoutComponent } from './core/users/logout/logout.component';
 
 @NgModule({
   declarations: [
-    NavigationComponent,
     SettingsComponent,
     DataTableComponent,
     LogoutComponent,
@@ -112,7 +110,7 @@ import { LogoutComponent } from './core/users/logout/logout.component';
     NgIotModule,
     HttpModule,
     NgMediaModule,
-    createRoutes (),
+    RouterModule
   ],
   providers: [
     PermissionsService,

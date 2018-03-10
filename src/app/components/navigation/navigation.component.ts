@@ -83,7 +83,9 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit () {
     this.route.data.subscribe((data) => {
-      console.warn('data: ', data);
+      if (data.navigation) {
+        this.navigation = data.navigation;
+      }
     })
   }
   getNavigation (): Array<any> {

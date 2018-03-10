@@ -10,6 +10,8 @@ import { NgMediaModule } from 'ng-media';
 import { NgIotModule } from 'ng-iot';
 import { SharedModule } from '../shared/shared.module';
 import { LayoutComponent } from './components/layout/layout.component';
+import { MenuItemsService } from './services/menu-items.service';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +22,8 @@ export class AppComponent {}
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -35,7 +38,8 @@ export class AppComponent {}
     appReducersGenerator()
   ],
   providers: [
-
+    MenuItemsService,
+    ,
   ],
   bootstrap: [AppComponent]
 })

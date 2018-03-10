@@ -21,34 +21,34 @@ export class NavigationComponent implements OnInit {
       permissions: ['DEVICES::VIEW'],
       auth: true
     },
-    {
-      link: '/widgets',
-      icon: 'icon icon-widgets',
-      title: 'Widgets',
-      permissions: ['WIDGETS::VIEW'],
-      auth: true
-    },
-    {
-      link: '/gallery',
-      icon: 'icon icon-account_box',
-      title: 'File upload',
-      permissions: ['USERS::VIEW'],
-      auth: true
-    },
-    {
-      link: '/users',
-      icon: 'icon icon-account_box',
-      title: 'Users',
-      permissions: ['USERS::VIEW'],
-      auth: true
-    },
-    {
-      link: '/roles',
-      icon: 'icon icon-key',
-      title: 'Roles & permissions',
-      permissions: ['ROLES::VIEW'],
-      auth: true
-    },
+    // {
+    //   link: '/widgets',
+    //   icon: 'icon icon-widgets',
+    //   title: 'Widgets',
+    //   permissions: ['WIDGETS::VIEW'],
+    //   auth: true
+    // },
+    // {
+    //   link: '/gallery',
+    //   icon: 'icon icon-account_box',
+    //   title: 'File upload',
+    //   permissions: ['USERS::VIEW'],
+    //   auth: true
+    // },
+    // {
+    //   link: '/users',
+    //   icon: 'icon icon-account_box',
+    //   title: 'Users',
+    //   permissions: ['USERS::VIEW'],
+    //   auth: true
+    // },
+    // {
+    //   link: '/roles',
+    //   icon: 'icon icon-key',
+    //   title: 'Roles & permissions',
+    //   permissions: ['ROLES::VIEW'],
+    //   auth: true
+    // },
     {
       link: '/locations',
       icon: 'icon icon-room',
@@ -62,11 +62,6 @@ export class NavigationComponent implements OnInit {
       title: 'Activities',
       permissions: ['ACTIVITIES::VIEW'],
       auth: true
-    },
-    {
-      link: '/form-elements',
-      icon: 'icon icon-wpforms',
-      title: 'Form elements'
     },
     {
       link: '/login',
