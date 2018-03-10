@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
 export class PageHeaderComponent {
   @Input() public title: string;
   @Input() public icon: string;
+  @Input() public searchbar: boolean = false;
 
 }

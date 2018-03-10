@@ -80,6 +80,10 @@ export class LocationEditComponent implements OnInit {
 
   }
 
+  public selectImage () {
+
+  }
+
   ngOnInit() {
     this.extractRouterInfo();
     if ( this.mode === 'edit') {
