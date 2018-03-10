@@ -1,5 +1,3 @@
-<div class="place-container">
-    <div *ngFor="let location of places;">
-        <app-location-row [widgets]="findWidgets(location)" [location]="location"></app-location-row>
-    </div>
-</div>
+
+<app-location-row *ngFor="let location of places;"
+  [widgets]="findWidgets(location)" [location]="location"></app-location-row>
