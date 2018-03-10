@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IUser, IRole, IResponse, IUserForm } from '@app/core/definitions';
+import { IUser, IRole, IResponse, IUserForm } from '@shared/core/definitions';
 import { IActivity, ActivityTypes, IVPCInformation, IDevice, ILocation, IWidget, IPin } from '@shared/iot/definitions';
 import { times, random, sample } from 'lodash';
 import { PermissionsService } from './permissions.service';

@@ -1,3 +1,4 @@
+
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { SwitchWidgetsComponent } from './switch-widgets.component';
@@ -5,11 +6,11 @@ import { OutputPinComponent } from '../output-pin/output-pin.component';
 import { appReducersGenerator } from '@app/app.reducers';
 import { IWidget } from '@shared/iot/definitions';
 
-import { CommunicateService } from '@app/core/services/communicate.service';
-import { RequestsService } from '@app/core/services/requests.service';
-import { PermissionsService } from '@app/core/services/permissions.service';
-import { MocksService } from '@app/core/services/mocks.service';
-import { ActionsService } from '@app/core/services/actions.service';
+import { CommunicateService } from '@shared/core/services/communicate.service';
+import { RequestsService } from '@shared/core/services/requests.service';
+import { PermissionsService } from '@shared/core/services/permissions.service';
+import { MocksService } from '@shared/core/services/mocks.service';
+import { ActionsService } from '@shared/core/services/actions.service';
 
 function mockWidget (): IWidget {
   const pin = {

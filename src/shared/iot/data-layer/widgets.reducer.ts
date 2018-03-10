@@ -1,4 +1,4 @@
-import { Action } from '@app/core/definitions';
+import { Action } from '@shared/core/definitions';
 import { IWidget } from '@shared/iot/definitions';
 
 export function widgetsReducer (widgets = [], action: Action) {

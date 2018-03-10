@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IRole, IUser, IResponse } from '@app/core/definitions';
+import { IRole, IUser, IResponse } from '@shared/core/definitions';
 import { ILocation, IDevice, IActivity, IWidget, IVPCInformation } from '@shared/iot/definitions';
 import { PermissionsService } from './permissions.service';
 import { MocksService } from './mocks.service';

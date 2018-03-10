@@ -4,11 +4,11 @@ import { NavigationComponent } from './navigation.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 
-import { UserService, AuthGuard} from '@app/core/services/user.service';
-import { CommunicateService } from '@app/core/services/communicate.service';
-import { RequestsService } from '@app/core/services/requests.service';
-import { MocksService } from '@app/core/services/mocks.service';
-import { PermissionsService } from '@app/core/services/permissions.service';
+import { UserService, AuthGuard} from '@shared/core/services/user.service';
+import { CommunicateService } from '@shared/core/services/communicate.service';
+import { RequestsService } from '@shared/core/services/requests.service';
+import { MocksService } from '@shared/core/services/mocks.service';
+import { PermissionsService } from '@shared/core/services/permissions.service';
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;

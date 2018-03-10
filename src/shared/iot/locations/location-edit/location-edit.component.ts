@@ -1,5 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
-import { CommunicateService } from '@app/core/services/communicate.service';
+import { CommunicateService } from '@shared/core/services/communicate.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppState, ILocation } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';

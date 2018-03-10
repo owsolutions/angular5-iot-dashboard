@@ -1,5 +1,5 @@
-import { Action } from '@app/core/definitions';
-import UpdateOrPrepend from '@app/core/functions/UpdateOrPrepend';
+import { Action } from '@shared/core/definitions';
+import UpdateOrPrepend from '@shared/core/functions/UpdateOrPrepend';
 
 export function activitiesReducer (state = [], action: Action) {
     switch (action.type) {

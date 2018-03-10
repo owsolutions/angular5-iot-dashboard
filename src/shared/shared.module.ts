@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { appReducersGenerator } from '@app/app.reducers';
 import { NavigationComponent } from './core/navigation/navigation.component';
 import { SettingsComponent } from './core/settings/settings.component';
 import { DataTableComponent } from './core/data-table/data-table.component';
@@ -113,9 +112,7 @@ import { LogoutComponent } from './core/users/logout/logout.component';
     NgIotModule,
     HttpModule,
     NgMediaModule,
-    NgIotModule,
     createRoutes (),
-    appReducersGenerator()
   ],
   providers: [
     PermissionsService,

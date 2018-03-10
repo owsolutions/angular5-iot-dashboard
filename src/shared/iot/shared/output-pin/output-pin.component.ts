@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IDevice, IPin } from '@shared/iot/definitions';
-import { ActionsService } from '@app/core/services/actions.service';
+import { ActionsService } from '@shared/core/services/actions.service';
 
 @Component({
   selector: 'app-output-pin',

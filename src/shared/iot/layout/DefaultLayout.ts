@@ -1,27 +1,27 @@
-import { NavigationComponent } from '@app/core/navigation/navigation.component';
+import { NavigationComponent } from '@shared/core/navigation/navigation.component';
 import { QuickStatusComponent } from '@shared/iot/quick-status/quick-status.component';
 import { AppInfoComponent } from '@shared/iot/app-info/app-info.component';
 import { Route } from '@angular/router';
 import { DefaultLayoutComponent } from '@shared/iot/default-layout/default-layout.component';
-import { AuthGuard } from '@app/core/services/user.service';
+import { AuthGuard } from '@shared/core/services/user.service';
 import { environment } from '../../../environments/environment';
 
 const SidebarOutlets = [
-    {
-        path: '',
-        outlet: 'navigation',
-        component: NavigationComponent
-    },
-    {
-        outlet: 'quick-status',
-        path: '',
-        component: QuickStatusComponent
-    },
-    {
-        outlet: 'app-info',
-        path: '',
-        component: AppInfoComponent
-    }
+  {
+    path: '',
+    outlet: 'navigation',
+    component: NavigationComponent
+  },
+  {
+    outlet: 'quick-status',
+    path: '',
+    component: QuickStatusComponent
+  },
+  {
+    outlet: 'app-info',
+    path: '',
+    component: AppInfoComponent
+  }
 ];
 
 export function AuthLayout (component: any, route: string, options: any = {}): Route {

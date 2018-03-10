@@ -6,8 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { appReducersGenerator } from '@app/app.reducers';
 import { createRoutes  } from '@app/app.routes';
-import { NgMediaModule } from 'ng-media';
-import { NgIotModule } from 'ng-iot';
 import { SharedModule } from '../shared/shared.module';
 
 @Component({
@@ -24,10 +22,8 @@ export class AppComponent {}
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    NgIotModule,
     HttpModule,
-    NgMediaModule,
-    NgIotModule,
+    SharedModule,
     createRoutes (),
     appReducersGenerator()
   ],

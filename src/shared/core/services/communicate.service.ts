@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { IDevice, ILocation, AppState, IActivity, IWidget } from '@shared/iot/definitions';
-import { IRole } from '@app/core/definitions';
+import { IRole } from '@shared/core/definitions';
 import { RequestsService } from './requests.service';
 
 @Injectable()

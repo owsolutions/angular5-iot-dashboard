@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PermissionsService } from '@app/core/services/permissions.service';
-import { RequestsService } from '@app/core/services/requests.service';
-import { IRole, IPermission } from '@app/core/definitions';
+import { PermissionsService } from '@shared/core/services/permissions.service';
+import { RequestsService } from '@shared/core/services/requests.service';
+import { IRole, IPermission } from '@shared/core/definitions';
 import { AppState } from '@shared/iot/definitions';
 
 import { Store } from '@ngrx/store';

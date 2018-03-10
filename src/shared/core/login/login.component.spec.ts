@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { UserService } from '@app/core/services/user.service';
+import { UserService } from '@shared/core/services/user.service';
 import { LoginComponent } from './login.component';
-import { CommunicateService } from '@app/core/services/communicate.service';
+import { CommunicateService } from '@shared/core/services/communicate.service';
 import { StoreModule } from '@ngrx/store';
-import { RequestsService } from '@app/core/services/requests.service';
-import { PermissionsService } from '@app/core/services/permissions.service';
-import { MocksService } from '@app/core/services/mocks.service';
+import { RequestsService } from '@shared/core/services/requests.service';
+import { PermissionsService } from '@shared/core/services/permissions.service';
+import { MocksService } from '@shared/core/services/mocks.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule } from '@angular/router';
 

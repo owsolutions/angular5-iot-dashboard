@@ -1,8 +1,8 @@
 
 import { Component } from '@angular/core';
-import { RequestsService } from '@app/core/services/requests.service';
+import { RequestsService } from '@shared/core/services/requests.service';
 import { Router } from '@angular/router';
-import { IUserForm } from '@app/core/definitions';
+import { IUserForm } from '@shared/core/definitions';
 import { IResponse } from 'response-type';
 
 @Component({

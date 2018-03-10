@@ -1,4 +1,4 @@
-import { IRole } from '@app/core/definitions';
+import { IRole } from '@shared/core/definitions';
 
 /**
  * A pin is any kind of I/O port of a device.

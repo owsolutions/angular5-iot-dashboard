@@ -1,5 +1,5 @@
-import { Action } from '@app/core/definitions';
-import UpdateOrInsert from '@app/core/functions/UpdateOrInsert';
+import { Action } from '@shared/core/definitions';
+import UpdateOrInsert from '@shared/core/functions/UpdateOrInsert';
 
 export function rolesReducer (state = [], action: Action) {
     switch (action.type) {
