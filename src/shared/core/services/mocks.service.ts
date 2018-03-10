@@ -79,9 +79,9 @@ export class MocksService {
     return [
         {id: 1, name: 'Kitchen' , 'icon': 'kitchen.svg'},
         {id: 2, name: 'Bathroom' , 'icon': 'bathroom.svg'},
-        {id: 3, name: 'Master bedrrom', 'icon': 'master-bedroom.svg'},
-        {id: 4, name: 'Kitchen', 'icon': 'kitchen.svg'},
-        {id: 5, name: 'Bathroom', 'icon': 'master-bedroom.svg'}
+        // {id: 3, name: 'Master bedrrom', 'icon': 'master-bedroom.svg'},
+        // {id: 4, name: 'Kitchen', 'icon': 'kitchen.svg'},
+        // {id: 5, name: 'Bathroom', 'icon': 'master-bedroom.svg'}
     ];
   }
 
