@@ -7,7 +7,15 @@ import { CommunicateService } from './communicate.service';
 export class UserService {
 
   private user: IUser;
-  constructor (private communicate: CommunicateService) {}
+  constructor (
+    private communicate: CommunicateService,
+  ) {
+    try {
+      this.user = JSON.parse(localStorage.getItem('userInformation'));
+    } catch (err) {
+
+    }
+  }
   get User (): IUser {
     return this.user;
   }
@@ -30,6 +38,7 @@ export class UserService {
   async Login (username: string, password: string) {
     const user = await this.communicate.authenticateUser(username, password);
     this.user = user;
+    localStorage.setItem('userInformation', JSON.stringify(user));
     return user;
   }
 }

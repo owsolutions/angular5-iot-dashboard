@@ -132,3 +132,9 @@ export interface IVPCInformation {
   vpcname: string;
   vpcregion: string;
 }
+export interface WorkspaceUser {
+  Email: string;
+  Name: string;
+  LastActivity: string;
+  Access: string;
+}
