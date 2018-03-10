@@ -19,3 +19,4 @@ if (environment.hmr) {
 } else {
   bootstrap();
 }
+console.log('We do suck');

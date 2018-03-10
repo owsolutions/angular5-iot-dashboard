@@ -45,6 +45,7 @@
       }
     },
     {
+      "name":"monitoring",
       "root": "src",
       "outDir": "dist",
       "assets": [

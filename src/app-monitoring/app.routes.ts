@@ -11,7 +11,7 @@ import { FormElementsComponent } from '@shared/core/form-elements/form-elements.
 import { UsersComponent } from '@shared/core/users/users.component';
 import { RolesComponent } from '@shared/core/roles/roles.component';
 import { UserSingleComponent } from '@shared/core/users/user-single/user-single.component';
-import { DefaultLayout, AuthLayout } from '@shared/iot/layout/DefaultLayout';
+import { DefaultLayout, AuthLayout } from './layout';
 import { SignupComponent } from '@shared/iot/signup/signup.component';
 import { SignupSuccessComponent } from '@shared/iot/signup/signup-success/signup-success.component';
 import { DropFileComponent } from '@shared/core/drop-file/drop-file.component';

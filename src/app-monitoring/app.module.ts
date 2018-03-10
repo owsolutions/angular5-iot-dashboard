@@ -5,10 +5,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { appReducersGenerator } from '@app/app.reducers';
-import { createRoutes  } from '@app/app.routes';
+import { createRoutes  } from './app.routes';
 import { NgMediaModule } from 'ng-media';
 import { NgIotModule } from 'ng-iot';
 import { SharedModule } from '../shared/shared.module';
+import { LayoutComponent } from './components/layout/layout.component';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,7 @@ export class AppComponent {}
 @NgModule({
   declarations: [
     AppComponent,
-
+    LayoutComponent
   ],
   imports: [
     BrowserAnimationsModule,

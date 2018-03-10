@@ -11,7 +11,7 @@
     "gh-pages": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages",
     "start": "ng serve --hmr -e=hmr",
     "e2e": "ng e2e",
-    "start:m": "ng serve --hmr -e=hmr --app 1",
+    "start:m": "ng serve --app=monitoring --hmr -e=hmr ",
     "build:m": "ng build --env=prod -prod"
   },
   "private": true,
