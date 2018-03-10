@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { IRole, IUser, IResponse } from '@app/core/definitions';
-import { ILocation, IDevice, IActivity, IWidget, IVPCInformation } from '@app/iot/definitions';
+import { ILocation, IDevice, IActivity, IWidget, IVPCInformation, WorkspaceUser } from '@app/iot/definitions';
 import { PermissionsService } from './permissions.service';
 import { MocksService } from './mocks.service';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+
 
 function timeout (ms = 1000): Promise<any> {
   return new Promise((resolve, reject) => {
@@ -49,6 +52,26 @@ export class RequestsService {
 
   async authenticateUser (username: string, password: string): Promise<IUser> {
     return this.mocks.User();
+  }
+
+  /**
+   * Returns users are registered or associated under this account.
+   * These are users who are inside your workspace; you are not able to edit their details
+   * but only you can view their activity; or disable them from separate accesses.
+   */
+  public GetWorkspaceUsers (): Observable<Array<WorkspaceUser>> {
+    return Observable.of([
+      {
+        Access: 'High',
+        Email: 'user.name@gmail.com',
+        LastActivity: '23 minutes ago',
+        Name: 'Username'
+      }
+    ] as Array<WorkspaceUser>);
+  }
+
+  public ChangeUserRole (userID: string, roleID: string) {
+    console.log(' Implement the code to change user here');
   }
 
 }

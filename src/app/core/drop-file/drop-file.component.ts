@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 declare var Dropzone: any;
 declare var $: any;
 
@@ -7,24 +7,6 @@ declare var $: any;
   templateUrl: './drop-file.component.html',
   styleUrls: ['./drop-file.component.scss']
 })
-export class DropFileComponent implements OnInit {
-
+export class DropFileComponent {
   constructor() { }
-
-  initializeDropZone (url: string = '/upload'): any {
-    const $el = $('div#drop-zone-1').dropzone({ url });
-    $el.on('dragenter' , function () {
-      $el.addClass('onhover');
-    });
-    $el.on('dragleave' , function () {
-      $el.removeClass('onhover');
-    });
-    return $el;
-  }
-  ngOnInit() {
-    if (typeof $ !== 'undefined') {
-      this.initializeDropZone ();
-    }
-  }
-
 }

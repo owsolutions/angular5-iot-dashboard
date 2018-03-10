@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RequestsService } from '@app/core/services/requests.service';
+import { WorkspaceUser, AppState } from '@app/iot/definitions';
+import { IRole } from '@app/core/definitions';
+import { Store } from '@ngrx/store';
 declare var $: any;
+
 
 @Component({
   selector: 'app-users',
@@ -9,47 +13,28 @@ declare var $: any;
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  public schema: any = { };
+  public roles: Array<IRole> = [];
+  public users: Array<WorkspaceUser> = [];
+  constructor(
+    private router: Router,
+    private requests: RequestsService,
+    private store: Store<AppState>,
+  ) {
 
-  constructor(private router: Router, private requests: RequestsService) {
-    this.schema = {
-        'filterColumns': function filterColumns (data: Array<any>): Array<any> {
-          return data.map((item: Array<any>) => {
-              const id = item['id'];
-              return [
-                  item['id'],
-                  item['firstname'],
-                  item['lastname'],
-                  item['email'],
-                  `<a class='btn btn-primary' data-single-id='${id}'>View</a>`
-              ];
-          });
-      },
-      columns: [
-          { title: 'Id'},
-          { title: 'Firstname'},
-          { title: 'Lastname'},
-          { title: 'Email'},
-          { title: 'actions'}
-      ],
-      paginator: async (aoData: any, url: string = ''): Promise<any> => {
-        return this.requests.getUsers(+aoData.start, +aoData.length);
-      }
-    };
   }
 
-  setupEvents () {
-      const ref = this;
-      if (typeof $ !== 'undefined') {
-        $('body').on('click', 'a[data-single-id]', function () {
-            const key = $(this).attr('data-single-id');
-            ref.router.navigateByUrl('/user/' + key);
-        });
-      }
+  public changeUserRole (user: string, role: string) {
+    this.requests.ChangeUserRole(user, role);
   }
 
   ngOnInit() {
-      this.setupEvents();
+    this.store.select('roles').subscribe(collection => {
+      this.roles = (collection as Array<IRole>);
+    });
+    this.requests.GetWorkspaceUsers().subscribe((users: Array<WorkspaceUser>) => {
+      this.users = users;
+    });
+
   }
 
 }
