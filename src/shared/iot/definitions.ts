@@ -138,3 +138,28 @@ export interface WorkspaceUser {
   LastActivity: string;
   Access: string;
 }
+
+/**
+ * Represents a change in device data, when happens inside a analog device reader;
+ * such as temperature, pressure, and humidity.
+ */
+export interface AnalogEvent {
+  createdAt: Date;
+  source?: any;
+  value: number;
+  device: string;
+}
+export interface AnalogSource {
+
+}
+/**
+ * Represents a thermomether device, and keeps it's values overtime.
+ * Since a thermometer is basically a analog source, we are extending it from that
+ * interface for semantic reasons
+ */
+export interface Thermometer extends AnalogSource {
+  name?: string;
+  location?: number;
+  data?: Array<AnalogEvent>;
+
+}

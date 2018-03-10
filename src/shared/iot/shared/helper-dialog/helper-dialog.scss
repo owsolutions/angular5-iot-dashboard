@@ -1,6 +1,6 @@
 .helper-box {
     overflow-y: scroll;
-    border-top:3px solid $theme-color;
+    border-top:3px solid $theme-color-900;
     background: #e8e8e2; 
     position:fixed;  
     height: 450px;
@@ -9,7 +9,7 @@
     transform: translateY(0);
     transition: transform 0.5s;
     .helper-box-title {
-        background: $theme-color;
+        background: $theme-color-900;
         margin: 0;
         font-size: 17px;
         padding: 9px 15px 9px;

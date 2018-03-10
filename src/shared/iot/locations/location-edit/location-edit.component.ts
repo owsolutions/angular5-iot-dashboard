@@ -4,7 +4,7 @@ import { CommunicateService } from '@shared/core/services/communicate.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppState, ILocation } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
-import { maxBy } from 'lodash';
+import { maxBy, times } from 'lodash';
 
 @Component({
   selector: 'app-location-edit',
@@ -49,6 +49,13 @@ export class LocationEditComponent implements OnInit {
     {name: 'Living room', value: 'living-room.svg'},
     {name: 'Conference room', value: 'conference.svg'}
   ];
+
+  public levels = times(100, (index)=> {
+    return {
+      name: 'Level ' + (1+index),
+      value: index + 1
+    };
+  })
 
   /**
    * Assigns the mode and id above;

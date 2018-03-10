@@ -60,13 +60,13 @@ const SidebarOutlets = [
           permissions: ['LOCATIONS::VIEW'],
           auth: true
         },
-        {
-          link: '/activities',
-          icon: 'icon icon-notifications_active',
-          title: 'Activities',
-          permissions: ['ACTIVITIES::VIEW'],
-          auth: true
-        },
+        // {
+        //   link: '/activities',
+        //   icon: 'icon icon-notifications_active',
+        //   title: 'Activities',
+        //   permissions: ['ACTIVITIES::VIEW'],
+        //   auth: true
+        // },
         {
           link: '/login',
           icon: 'icon icon-exit_to_app',

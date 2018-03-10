@@ -4,6 +4,28 @@
 	background: $theme-color-700;
   margin: 0;
   font-size: 23px;
-  padding: 10px 15px;
+  padding: 20px 15px;
 	color: white;
+}
+
+.search-box {
+  background: $theme-color-500;
+  padding:  7.5px 15px;
+  margin: -10px auto;
+  float: right;
+  color: white;
+  border: 0;
+
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $theme-color-50;
+    opacity: 1; /* Firefox */
+  }
+
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: $theme-color-50;
+  }
+
+  &::-ms-input-placeholder { /* Microsoft Edge */
+      color: $theme-color-50;
+  }
 }

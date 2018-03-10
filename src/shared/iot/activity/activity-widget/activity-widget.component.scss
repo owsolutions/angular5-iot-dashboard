@@ -64,7 +64,7 @@ $itemicon: #8e96ad;
 
       &:after{
         content: attr(date-is);
-        color: $theme-color;
+        color: $theme-color-900;
         font-size: 11px;
       }
     }

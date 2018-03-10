@@ -15,7 +15,11 @@ export class DevicesComponent implements  OnDestroy , OnInit {
   public devices: Array<IDevice>;
   public locations: Array<ILocation>;
 
-  constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>, private communications: CommunicateService) {
+  constructor (
+    public chRef: ChangeDetectorRef, 
+    private store: Store<AppState>,
+    private communications: CommunicateService
+  ) {
     // Initialize private variables
   }
 
@@ -27,15 +31,10 @@ export class DevicesComponent implements  OnDestroy , OnInit {
   ngOnInit() {
     this.store.select('devices').subscribe(collection => {
       this.devices = (collection as Array<IDevice>);
-      this.chRef.detectChanges();
     });
     this.store.select('locations').subscribe(collection => {
       this.locations = (collection as Array<ILocation>);
     });
-  }
-
-  ngOnDestroy () {
-    this.chRef.detach();
   }
 
   unfocus () {

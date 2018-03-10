@@ -125,18 +125,18 @@ export class MocksService {
 
   Devices (): Array<IDevice> {
     function value () {
-        switch (random(0, 1)) {
-            case 0:
-                return random(0, 1) ? 'ON' : 'OFF';
-            case 1:
-                return random(1000, 9000) * 0.001;
-        }
+        // switch (random(0, 1)) {
+        //     case 0:
+        //         return random(0, 1) ? 'ON' : 'OFF';
+        //     case 1:
+        return random(1000, 9000) * 0.001;
+        // }
     }
     function createPins (id: number = 2): Array<IPin> {
         return times(8 , (index) => {
             return {
                 id: index,
-                type: random (0, 1) === 1 ? 'input' : 'output',
+                type: 'input',
                 value: value()
             };
         });

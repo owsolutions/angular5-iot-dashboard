@@ -15,23 +15,23 @@ export class LocationRowComponent implements OnInit {
   @Input() public location = <ILocation>null;
 
   setPrecent(precent) {
-        const increment = 360 / 100;
-        const half = Math.round(100 / 2);
-        let nextdeg = 0;
-        let bgGradient = '';
-        if (precent < half) {
-            nextdeg = 90 + ( increment * precent );
-            // tslint:disable-next-line:max-line-length
-            bgGradient = 'linear-gradient(90deg, #f2f2f2 50%, transparent 50%, transparent), linear-gradient(' + nextdeg + 'deg, #777 50%, #f2f2f2 50%, #f2f2f2)';
-        }else {
-            nextdeg = -90 + ( increment * ( precent - half ));
-            // tslint:disable-next-line:max-line-length
-            bgGradient = 'linear-gradient(' + nextdeg + 'deg, #777 50%, transparent 50%, transparent), linear-gradient(270deg, #777 50%, #f2f2f2 50%, #f2f2f2)';
-        }
-      const styles = {
-          'background-image': bgGradient
-      };
-      return styles;
+    const increment = 360 / 100;
+    const half = Math.round(100 / 2);
+    let nextdeg = 0;
+    let bgGradient = '';
+    if (precent < half) {
+        nextdeg = 90 + ( increment * precent );
+        // tslint:disable-next-line:max-line-length
+        bgGradient = 'linear-gradient(90deg, #f2f2f2 50%, transparent 50%, transparent), linear-gradient(' + nextdeg + 'deg, #777 50%, #f2f2f2 50%, #f2f2f2)';
+    }else {
+        nextdeg = -90 + ( increment * ( precent - half ));
+        // tslint:disable-next-line:max-line-length
+        bgGradient = 'linear-gradient(' + nextdeg + 'deg, #777 50%, transparent 50%, transparent), linear-gradient(270deg, #777 50%, #f2f2f2 50%, #f2f2f2)';
+    }
+    const styles = {
+      'background-image': bgGradient
+    };
+    return styles;
   }
 
 

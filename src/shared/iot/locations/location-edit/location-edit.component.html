@@ -1,8 +1,8 @@
 <app-page-header title="Edit location" icon="icon icon-camera-alt"></app-page-header>
 
-<div class="body" *ngIf="location">
+<div class="body" *ngIf="location" style="max-width: 600px;">
 
-  <app-forms-text-input
+    <app-forms-text-input
     placeholder="Location name"
     icon="icon icon-user"
     name="Location name"
@@ -10,6 +10,16 @@
     (onChange)="onInputChange('name', $event)"
     >
   </app-forms-text-input>
+
+  <app-forms-select-input
+    placeholder="Select the level (floor)"
+    icon="icon icon-user"
+    name="Level"
+    [selected]="location.level"
+    [options]="levels"
+    (onChange)="onInputChange('level', $event)"
+    >
+  </app-forms-select-input>
 
   <app-forms-select-input
     placeholder="Select the icon"
