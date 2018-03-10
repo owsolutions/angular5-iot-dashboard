@@ -13,7 +13,11 @@ export class LocationsComponent implements OnInit, OnDestroy {
   public locations: Array<ILocation>;
   public widgets: Array<IWidget>;
 
-  constructor (public chRef: ChangeDetectorRef, private store: Store<AppState>, private communications: CommunicateService) {
+  constructor (
+    public chRef: ChangeDetectorRef,
+    private store: Store<AppState>,
+    private communications: CommunicateService,
+  ) {
     // Initialize private variables
   }
 
@@ -28,10 +32,6 @@ export class LocationsComponent implements OnInit, OnDestroy {
 
   findWidgets (location: ILocation): Array<IWidget> {
     return this.widgets.filter(widget => widget.location.id === location.id);
-  }
-
-  ngOnDestroy () {
-    this.chRef.detach();
   }
 
 }
