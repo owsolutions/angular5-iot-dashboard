@@ -25,13 +25,13 @@ html, body{
     }
     &::-webkit-scrollbar
     {
-        width: 6px;
-        background-color: silver;
+      width: 6px;
+      background-color: silver;
     }
 
     &::-webkit-scrollbar-thumb
     {
-        background-color: $theme-color;
+      background-color: $theme-color-900;
     }
     margin: 0;
     padding: 0;
