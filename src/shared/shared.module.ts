@@ -56,6 +56,7 @@ import { LoadingComponent } from './core/loading/loading.component';
 import { InputComponent } from './forms/input/input.component';
 import { FormHolderComponent } from './forms/form-holder/form-holder.component';
 import { LogoutComponent } from './core/users/logout/logout.component';
+import { NavigationComponent } from '@shared/core/navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { LogoutComponent } from './core/users/logout/logout.component';
     LocationEditComponent,
     HelperBoxComponent,
     OutputPinViewComponent,
+    NavigationComponent,
     SwitchWidgetsComponent,
     InputPinComponent,
     OutputPinComponent,

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { RequestsService } from '@app/core/services/requests.service';
-import { WorkspaceUser, AppState } from '@app/iot/definitions';
-import { IRole } from '@app/core/definitions';
+import { RequestsService } from '@shared/core/services/requests.service';
+import { WorkspaceUser, AppState } from '@shared/iot/definitions';
+import { IRole } from '@shared/core/definitions';
 import { Store } from '@ngrx/store';
 declare var $: any;
 

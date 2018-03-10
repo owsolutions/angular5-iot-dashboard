@@ -1,4 +1,4 @@
-import { NavigationComponent } from './components/navigation/navigation.component';
+import { NavigationComponent } from '../shared/core/navigation/navigation.component';
 import { QuickStatusComponent } from '@shared/iot/quick-status/quick-status.component';
 import { AppInfoComponent } from '@shared/iot/app-info/app-info.component';
 import { Route } from '@angular/router';

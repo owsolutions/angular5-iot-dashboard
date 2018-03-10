@@ -1,9 +1,11 @@
 <!-- Navigation -->
 <nav class="navigation">
-    <div class="nav-item-container">    
-        <a *ngFor="let nav of getNavigation()" [routerLink]='nav.link' routerLinkActive="active">
-            <i [class]="nav.icon"></i>
-            {{nav.title}}
-        </a>
-    </div>
+  <div class="nav-item-container">  
+    <ng-container *ngFor="let nav of navigation">
+      <a  [routerLink]='nav.link' routerLinkActive="active" *ngIf="CanIncludeItem(nav)">
+        <i [class]="nav.icon"></i>
+        {{nav.title}}    
+      </a>
+    </ng-container>
+  </div>
 </nav>

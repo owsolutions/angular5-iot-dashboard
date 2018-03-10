@@ -83,18 +83,18 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit () {
     this.route.data.subscribe((data) => {
-      console.warn('data: ', data);
-    })
-  }
-  getNavigation (): Array<any> {
-
-    return this.navigation.filter((item) => {
-      if (item.auth === true) {
-        if (!this.authGurard.canActivate()) {
-          return false;
-        }
+      if (data.navigation) {
+        this.navigation = data.navigation;
       }
-      return this.user.canActivate(item.permissions);
     });
+  }
+
+  public CanIncludeItem (item): boolean {
+    if (item.auth === true) {
+      if (!this.authGurard.canActivate()) {
+        return false;
+      }
+    }
+    return this.user.canActivate(item.permissions);
   }
 }
