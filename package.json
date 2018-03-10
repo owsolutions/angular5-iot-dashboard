@@ -59,6 +59,7 @@
     "ng2-mock-component": "0.0.6",
     "node-sass": "^4.5.3",
     "protractor": "~5.1.0",
+    "sass-material-colors": "0.0.5",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
     "typescript": "^2.7.2"
