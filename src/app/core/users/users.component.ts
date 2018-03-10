@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RequestsService } from '@app/core/services/requests.service';
-import { WorkspaceUser } from '@app/iot/definitions';
+import { WorkspaceUser, AppState } from '@app/iot/definitions';
+import { IRole } from '@app/core/definitions';
+import { Store } from '@ngrx/store';
 declare var $: any;
 
 
@@ -11,18 +13,21 @@ declare var $: any;
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-
+  public roles: Array<IRole> = [];
   public users: Array<WorkspaceUser> = [];
   constructor(
     private router: Router,
     private requests: RequestsService,
+    private store: Store<AppState>,
   ) {
      
   }
  
   ngOnInit() {
+    this.store.select('roles').subscribe(collection => {
+      this.roles = (collection as Array<IRole>);
+    });
     this.requests.GetWorkspaceUsers().subscribe((users: Array<WorkspaceUser>) => {
-      console.log('users: ', users);
       this.users = users;
     });
 

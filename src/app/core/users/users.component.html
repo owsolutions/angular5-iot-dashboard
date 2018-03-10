@@ -18,7 +18,14 @@
       <td>{{user.Email}}</td>
       <td>{{user.Name}}</td>
       <td>{{user.LastActivity}}</td>
-      <td>{{user.Access}}</td>
+      <td>
+
+        <select name="" id="">
+          <option [value]="role.id" *ngFor="let role of roles">
+            {{role.title}}
+          </option>
+        </select>
+      </td>
       <td>Active</td>
       <td class="controlTd">
         <div class="settingsIcons">
