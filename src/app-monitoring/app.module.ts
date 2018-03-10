@@ -11,7 +11,6 @@ import { NgIotModule } from 'ng-iot';
 import { SharedModule } from '../shared/shared.module';
 import { LayoutComponent } from './components/layout/layout.component';
 import { MenuItemsService } from './services/menu-items.service';
-import { NavigationComponent } from './components/navigation/navigation.component';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +22,6 @@ export class AppComponent {}
   declarations: [
     AppComponent,
     LayoutComponent,
-    NavigationComponent
   ],
   imports: [
     BrowserAnimationsModule,

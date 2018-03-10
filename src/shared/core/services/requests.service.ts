@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IRole, IUser, IResponse } from '@shared/core/definitions';
-import { ILocation, IDevice, IActivity, IWidget, IVPCInformation, WorkspaceUser } from '@app/iot/definitions';
+import { ILocation, IDevice, IActivity, IWidget, IVPCInformation, WorkspaceUser } from '@shared/iot/definitions';
 import { PermissionsService } from './permissions.service';
 import { MocksService } from './mocks.service';
 import { Observable } from 'rxjs/Observable';
