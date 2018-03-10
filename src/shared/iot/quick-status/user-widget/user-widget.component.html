@@ -7,10 +7,10 @@
       <p class="ud-user" *ngIf="User">{{User.firstname + ' ' + User.lastname}}</p>
     </div>
     <div class="user-accesory" *ngIf="User">
-      <div><a [routerLink]='index'><i class="icon icon-settings"></i></a></div>
+      <!-- <div><a [routerLink]='index'><i class="icon icon-settings"></i></a></div>
       <div><a [routerLink]='index'><i class="icon icon-mail_outline"></i></a></div>
-      <div><a [routerLink]='index'><i class="icon icon-notifications_none"></i></a></div>
-      <div><a [routerLink]='index'><i class="icon icon-power_settings_new"></i></a></div>
+      <div><a [routerLink]='index'><i class="icon icon-notifications_none"></i></a></div> -->
+      <div><a routerLink='/login'><i class="icon icon-power_settings_new"></i></a></div>
     </div>
   </div>
 </div>

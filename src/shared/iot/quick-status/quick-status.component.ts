@@ -29,10 +29,29 @@ export class QuickStatusComponent implements OnInit {
       title: 'Precipitation',
       value: {
         amount: 23,
-        unit: 'mm'
+        unit: '%'
       }
     }
-  ]
+  ];
+
+  public example0: Array<SidebarWidgetItem> = [
+    {
+      icon: 'icon icon-rainy2',
+      value: '33˚'
+    },
+    {
+      icon: 'icon icon-cloudy',
+      value: '23˚'
+    },
+  ];
+
+  public temperature: Array<SidebarWidgetItem> = [
+    {
+      icon: 'icon icon-temperature-2',
+      title: 'temperature',
+      value: '22'
+    }
+  ];
   ngOnInit() {
     this.weatherConditions = {
       largeTemp: {

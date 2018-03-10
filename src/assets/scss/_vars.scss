@@ -24,7 +24,7 @@ $container:                 rgb(238,241,247);
 $smoothBorder:              1px solid rgba(255,255,255,0.3);
 
 
-$material-color: 'cyan';
+$material-color: 'purple';
 $theme-color-900: material-color($material-color, '900');
 $theme-color-800: material-color($material-color, '800');
 $theme-color-700: material-color($material-color, '700');
@@ -34,3 +34,4 @@ $theme-color-400: material-color($material-color, '400');
 $theme-color-300: material-color($material-color, '300');
 $theme-color-200: material-color($material-color, '200');
 $theme-color-100: material-color($material-color, '100');
+$theme-color-50: material-color($material-color, '50');

@@ -49,7 +49,21 @@ h2 {
     font-size:28px;
   }
 }
+.large-value-item {
+  flex:1;
 
+  sup {
+      top:-12px;
+      font-size:12px;
+  }
+  .value,.title {
+      color:white;
+      text-align:center;
+  }
+  .value {
+      font-size:30px;
+  }
+}
 .large-icon-widget {
   text-align:center;
   flex:1;
@@ -73,4 +87,30 @@ h2 {
 }
 @media (min-width: $screen-xlg-desktop){
   width:350px;
+}
+.single-large-icon {
+  text-align:center;
+  flex:1;
+  .icon {
+      color:white;
+      font-size:45px;
+      margin-top: 10px;
+      display: inline-block;
+  }
+}
+
+.large-value-item {
+  flex:1;
+
+  sup {
+      top:-12px;
+      font-size:12px;
+  }
+  .value,.title {
+      color:white;
+      text-align:center;
+  }
+  .value {
+      font-size:30px;
+  }
 }
