@@ -75,3 +75,8 @@ export interface IResponse {
     }>
   };
 }
+export interface SidebarWidgetItem {
+  title?: string;
+  value?: string;
+  icon?: string;
+}

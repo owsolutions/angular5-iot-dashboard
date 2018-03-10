@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SidebarWidgetItem } from '@shared/core/definitions';
 
 @Component({
   selector: 'app-sidebar-widget',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarWidgetComponent implements OnInit {
 
+  @Input('items') public items: Array<SidebarWidgetItem> = [];
   constructor() { }
 
   ngOnInit() {
