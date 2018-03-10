@@ -7,8 +7,6 @@ import { HttpModule } from '@angular/http';
 import { appReducersGenerator } from '@app/app.reducers';
 import { createRoutes  } from '@app/app.routes';
 import { SharedModule } from '../shared/shared.module';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { NavigationComponent as x } from '@shared/core/navigation/navigation.component';
 
 @Component({
   selector: 'app-root',
@@ -19,8 +17,6 @@ export class AppComponent {}
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
-    x,
   ],
   imports: [
     BrowserAnimationsModule,
