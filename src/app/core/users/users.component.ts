@@ -20,13 +20,13 @@ export class UsersComponent implements OnInit {
     private requests: RequestsService,
     private store: Store<AppState>,
   ) {
-     
+
   }
 
   public changeUserRole (user: string, role: string) {
     this.requests.ChangeUserRole(user, role);
   }
- 
+
   ngOnInit() {
     this.store.select('roles').subscribe(collection => {
       this.roles = (collection as Array<IRole>);

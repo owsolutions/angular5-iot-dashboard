@@ -18,7 +18,7 @@ export class MocksService {
   constructor (
     private permissions: PermissionsService,
   ) { }
-  
+
   public Activities ():  Array<IActivity> {
     return [
       {

@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { RequestsService } from '@app/core/services/requests.service';
 import { PermissionsService } from '@app/core/services/permissions.service';
 import { MocksService } from '@app/core/services/mocks.service';
+import { StoreModule } from '@ngrx/store';
 
 describe('UsersComponent', () => {
   let component: UsersComponent;
@@ -19,7 +20,9 @@ describe('UsersComponent', () => {
       ],
       imports: [
         RouterTestingModule,
-        RouterModule
+        RouterModule,
+        StoreModule.forRoot({})
+
       ],
       providers: [
         RequestsService,
