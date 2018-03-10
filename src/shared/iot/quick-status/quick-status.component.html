@@ -1,6 +1,7 @@
 <div class="quick-status">
   <div class="docked">
     woow
+
     <app-user-widget></app-user-widget>
 
     <h2>Quick view</h2>
@@ -22,7 +23,9 @@
       </div>
     </div>
 
-    <app-sidebar-widget></app-sidebar-widget>
+    <app-sidebar-widget
+      [items]="example1"
+    ></app-sidebar-widget>
 
 
     <!-- Load quick-chart component-->

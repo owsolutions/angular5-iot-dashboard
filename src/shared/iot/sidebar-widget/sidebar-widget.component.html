@@ -1,27 +1,23 @@
 <div class="flex-container medium-icon-widget-wrapper">
-  <div class='flex-item'>
-    <div class="medium-icon-widget">
-      <div class='title'>Wind</div>
-      <i class="icon icon-wind"></i>
-      <div class="value">1 km/h</div>
+  <ng-container *ngFor="let item of items;">
+    <div class='flex-item' *ngIf="item.title && item.value && item.icon" >
+      <div class="medium-icon-widget">
+        <div class='title'>{{item.title}}</div>
+        <i class="{{item.icon}}"></i>
+        <div class="value">{{item.value}}</div>
+      </div>
     </div>
-  </div>
-  <div class='flex-item'>
-    <div class="medium-icon-widget">
-      <div class='title'>Pressure</div>
-      <span class="midVal">
-        44
-      </span>
-      <div class="value">hPa</div>
+
+    <div class='flex-item' *ngIf="item.title && item.value && item.value.amount && !item.icon">
+      <div class="medium-icon-widget">
+        <div class='title'>{{item.title}}</div>
+        <span class="midVal">
+          {{item.value.amount}}
+        </span>
+        <div class="value">{{item.value.unit}}</div>
+      </div>
     </div>
-  </div>
-  <div class='flex-item'>
-    <div class="medium-icon-widget">
-      <div class='title'>Precipitation</div>
-      <span class="midVal">
-          23
-      </span>
-      <div class="value">mm</div>
-    </div>
-  </div>
+  </ng-container>
+ 
+  
 </div>

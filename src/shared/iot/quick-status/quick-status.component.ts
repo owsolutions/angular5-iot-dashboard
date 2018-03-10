@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SidebarWidgetItem } from '@shared/core/definitions';
 
 @Component({
   selector: 'app-quick-status',
@@ -11,6 +12,27 @@ export class QuickStatusComponent implements OnInit {
 
   constructor() { }
 
+  public example1: Array<SidebarWidgetItem> = [
+    {
+      title: 'Wind',
+      icon: 'icon icon-wind',
+      value: '1 km/h'
+    },
+    {
+      title: 'Pressure',
+      value: {
+        amount: 44,
+        unit: 'hPa'
+      }
+    },
+    {
+      title: 'Precipitation',
+      value: {
+        amount: 23,
+        unit: 'mm'
+      }
+    }
+  ]
   ngOnInit() {
     this.weatherConditions = {
       largeTemp: {
