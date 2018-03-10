@@ -32,10 +32,10 @@ nav.navigation {
 				padding-bottom:5px;
 			}
 			&:hover, &.active {
-				i {
-					color: $nav-icon-active;
+				i, span {
+					color: $theme-color-100;
 				}
-				border-left:3px solid $theme-color;
+				border-left:3px solid $theme-color-100;
 				background-color: $nav-icon-hover;
 				padding-left:0px;
 				cursor: pointer;
