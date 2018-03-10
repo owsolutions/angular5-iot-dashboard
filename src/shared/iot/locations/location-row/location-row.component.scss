@@ -7,7 +7,7 @@
     text-decoration: none;
     &:hover {
         .icon-round-next {
-            background: #8ce196;
+            background: $theme-color-600;
             color: white;
         }
     }
