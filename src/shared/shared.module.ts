@@ -57,7 +57,7 @@ import { InputComponent } from './forms/input/input.component';
 import { FormHolderComponent } from './forms/form-holder/form-holder.component';
 import { LogoutComponent } from './core/users/logout/logout.component';
 import { NavigationComponent } from '@shared/core/navigation/navigation.component';
-
+import { SidebarWidgetComponent } from '@shared/iot/sidebar-widget/sidebar-widget.component';
 @NgModule({
   declarations: [
     SettingsComponent,
@@ -68,6 +68,7 @@ import { NavigationComponent } from '@shared/core/navigation/navigation.componen
     RadioInputComponent,
     SelectInputComponent,
     FormElementsComponent,
+    SidebarWidgetComponent,
     UsersComponent,
     RolesComponent,
     UserSingleComponent,
