@@ -4,7 +4,7 @@ import { IActivity, ActivityTypes, IVPCInformation, IDevice, ILocation, IWidget,
 import { times, random, sample } from 'lodash';
 import { PermissionsService } from './permissions.service';
 import faker from 'faker';
-
+import { IotSvgService } from '../../iot-svg/iot-svg.service';
 /**
  * All mocks data for application sits here. In general, data doesn't belong to components,
  * the data layer is completely independent from the componenets;
@@ -17,6 +17,7 @@ export class MocksService {
 
   constructor (
     private permissions: PermissionsService,
+    private iotsvg: IotSvgService,
   ) { }
 
   public Activities ():  Array<IActivity> {
@@ -77,8 +78,8 @@ export class MocksService {
 
   Locations(): Array<ILocation> {
     return [
-        {id: 1, name: 'Kitchen' , 'icon': 'kitchen.svg'},
-        {id: 2, name: 'Bathroom' , 'icon': 'bathroom.svg'},
+        {id: 1, name: 'Kitchen' , 'icon': this.iotsvg.kitchen},
+        {id: 2, name: 'Bathroom' , 'icon': this.iotsvg.pathtub},
         // {id: 3, name: 'Master bedrrom', 'icon': 'master-bedroom.svg'},
         // {id: 4, name: 'Kitchen', 'icon': 'kitchen.svg'},
         // {id: 5, name: 'Bathroom', 'icon': 'master-bedroom.svg'}

@@ -2,7 +2,7 @@
   <div class="row place-row clearfix">
     <div class="col-sm-3 col-xs-6 title-icon">
       <h2>{{location.name}}</h2>
-      <img width='200px' [src]="'assets/images/' + location.icon" alt="">
+      <img width='200px' [src]="location.icon" [alt]="location.name">
     </div>
     <div class="col-sm-3 col-xs-6 value-box">
       <h4>Temperature</h4>

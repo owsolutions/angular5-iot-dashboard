@@ -1,17 +1,18 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { CommunicateService } from '@shared/core/services/communicate.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppState, ILocation } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
 import { maxBy, times } from 'lodash';
+import { NgMediaComponent } from 'ng-media';
 
 @Component({
   selector: 'app-location-edit',
   templateUrl: './location-edit.component.html',
   styleUrls: ['./location-edit.component.scss']
 })
-export class LocationEditComponent implements OnInit {
+export class LocationEditComponent implements OnInit, AfterViewInit {
 
   /**
    * If we are on a editing mode, it has a number;
@@ -41,6 +42,11 @@ export class LocationEditComponent implements OnInit {
     id: null,
     name: ''
   };
+
+  public items = [];
+
+  @ViewChild('locationIcon')
+  public locationIcon: NgMediaComponent;
 
   public defaultIcons = [
     {name: 'Kitchen' , value: 'four-cooking-accessories-set-for-kitchen.svg'},
@@ -92,6 +98,7 @@ export class LocationEditComponent implements OnInit {
         this.form = Object.assign({}, this.location);
       });
     }
+    this.locationIcon.ResetItems();
   }
 
   async postToServer (location: ILocation): Promise<ILocation> {
@@ -120,4 +127,8 @@ export class LocationEditComponent implements OnInit {
     this.form[field] = value;
   }
 
+
+  ngAfterViewInit () {
+
+  }
 }

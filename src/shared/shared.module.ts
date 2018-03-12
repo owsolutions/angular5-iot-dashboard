@@ -58,6 +58,7 @@ import { FormHolderComponent } from './forms/form-holder/form-holder.component';
 import { LogoutComponent } from './core/users/logout/logout.component';
 import { NavigationComponent } from '@shared/core/navigation/navigation.component';
 import { SidebarWidgetComponent } from '@shared/iot/sidebar-widget/sidebar-widget.component';
+import { IotSvgService } from './iot-svg/iot-svg.service';
 @NgModule({
   declarations: [
     SettingsComponent,
@@ -122,7 +123,8 @@ import { SidebarWidgetComponent } from '@shared/iot/sidebar-widget/sidebar-widge
     ActionsService,
     UserService,
     CommunicateService,
-    AuthGuard
+    AuthGuard,
+    IotSvgService
   ],
 })
 export class SharedModule { }
