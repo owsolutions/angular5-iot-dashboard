@@ -98,7 +98,6 @@ export class LocationEditComponent implements OnInit, AfterViewInit {
         this.form = Object.assign({}, this.location);
       });
     }
-    this.locationIcon.ResetItems();
   }
 
   async postToServer (location: ILocation): Promise<ILocation> {
@@ -129,6 +128,7 @@ export class LocationEditComponent implements OnInit, AfterViewInit {
 
 
   ngAfterViewInit () {
+    this.locationIcon.ResetItems();
 
   }
 }

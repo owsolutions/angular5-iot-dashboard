@@ -24,9 +24,11 @@
 
   </div>
   
-  <app-ng-media #locationIcon></app-ng-media>
 
-  <a (click)="formSubmit()" class="btn btn-primary" *ngIf="mode == 'new'">Create new location</a>
-  <a (click)="formSubmit()" class="btn btn-primary" *ngIf="mode == 'edit'">Edit location</a>
+  <app-ng-media type="single" #locationIcon></app-ng-media>
+
+  <br><br>
+  <a (click)="formSubmit()" class="normal-button" *ngIf="mode == 'new'">Create new location</a>
+  <a (click)="formSubmit()" class="normal-button" *ngIf="mode == 'edit'">Edit location</a>
 
 </div>

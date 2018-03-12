@@ -86,3 +86,16 @@ $background: red;
 .login-state{
     background: #EEEEEE;
 }
+
+.normal-button {
+  font-size: 21px;
+  color: white;
+  background: $theme-color-800;
+  padding: 7.5px 15px;;
+  cursor: pointer;
+  &:hover {
+    background: $theme-color-600;
+    color: white;
+    text-decoration: none;
+  }
+}
