@@ -34,6 +34,7 @@ export interface ILocation {
   id: Number;
   name: string;
   icon: string;
+  level: string;
 }
 
 /**

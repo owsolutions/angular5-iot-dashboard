@@ -1,5 +1,5 @@
 
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterContentInit } from '@angular/core';
 import { CommunicateService } from '@shared/core/services/communicate.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppState, ILocation } from '@shared/iot/definitions';
@@ -12,7 +12,7 @@ import { NgMediaComponent } from 'ng-media';
   templateUrl: './location-edit.component.html',
   styleUrls: ['./location-edit.component.scss']
 })
-export class LocationEditComponent implements OnInit, AfterViewInit {
+export class LocationEditComponent implements OnInit, AfterContentInit {
 
   /**
    * If we are on a editing mode, it has a number;
@@ -33,14 +33,17 @@ export class LocationEditComponent implements OnInit, AfterViewInit {
    */
   public form: ILocation = {
     name: '',
-    icon: '',
-    id: null
+    icon: null,
+    id: null,
+    level: null,
+    
   };
 
   public location: ILocation = {
     icon: '',
     id: null,
-    name: ''
+    name: '',
+    level: null
   };
 
   public items = [];
@@ -108,7 +111,8 @@ export class LocationEditComponent implements OnInit, AfterViewInit {
     return {
       icon: location.icon,
       id: location.id ? location.id : id,
-      name: location.name
+      name: location.name,
+      level: location.level
     };
   }
 
@@ -126,9 +130,17 @@ export class LocationEditComponent implements OnInit, AfterViewInit {
     this.form[field] = value;
   }
 
-
-  ngAfterViewInit () {
-    this.locationIcon.ResetItems();
-
+  ngAfterContentInit () {
+    setTimeout(() => {
+      this.locationIcon.ResetItems();
+    });
   }
+
+  public changeSelection (items) {
+    this.form.icon = GetSelectedItem(items).src;
+  }
+}
+
+function GetSelectedItem (items: Array<any> = []) {
+  return items.find(x => x.$meta && x.$meta.selected);
 }

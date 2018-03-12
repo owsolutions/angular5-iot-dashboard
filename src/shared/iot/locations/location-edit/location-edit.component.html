@@ -1,4 +1,8 @@
-<app-page-header title="Edit location" icon="icon icon-camera-alt"></app-page-header>
+<app-page-header title="Edit location" icon="icon icon-camera-alt">
+  <a (click)="formSubmit()" class="touchbar-button" *ngIf="mode == 'new'">Create new location</a>
+  <a (click)="formSubmit()" class="touchbar-button" *ngIf="mode == 'edit'">Edit location</a>
+
+</app-page-header>
 
 <div class="body" *ngIf="location" >
 
@@ -24,8 +28,9 @@
 
   </div>
   
-
-  <app-ng-media type="single" #locationIcon></app-ng-media>
+  <app-ng-media 
+    (selectionChange)="changeSelection($event);"
+    type="single" #locationIcon></app-ng-media>
 
   <br><br>
   <a (click)="formSubmit()" class="normal-button" *ngIf="mode == 'new'">Create new location</a>
