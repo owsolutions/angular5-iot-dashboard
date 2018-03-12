@@ -8,7 +8,7 @@ import { CommunicateService } from '@shared/core/services/communicate.service';
   templateUrl: './devices.component.html',
   styleUrls: ['./devices.component.scss']
 })
-export class DevicesComponent implements  OnDestroy , OnInit {
+export class DevicesComponent implements  OnInit {
 
   public focusedDevice: IDevice = null;
   public focusedPin: IPin = null;

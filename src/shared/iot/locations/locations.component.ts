@@ -8,7 +8,7 @@ import { CommunicateService } from '@shared/core/services/communicate.service';
   templateUrl: './locations.component.html',
   styleUrls: ['./locations.component.scss']
 })
-export class LocationsComponent implements OnInit, OnDestroy {
+export class LocationsComponent implements OnInit {
 
   public locations: Array<ILocation>;
   public widgets: Array<IWidget>;
