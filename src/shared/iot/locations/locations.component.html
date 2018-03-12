@@ -1,5 +1,6 @@
 <app-page-header title="Locations" 
   [searchbar]="true"
+  (searchChange)="searchChange($event);"
   icon="icon icon-location">
   <a routerLink="/locations/new" class="touchbar-button">Add location</a>
 </app-page-header>

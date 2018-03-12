@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-page-header',
@@ -9,5 +9,26 @@ export class PageHeaderComponent {
   @Input() public title: string;
   @Input() public icon: string;
   @Input() public searchbar: boolean = false;
+  @Output('searchChange') public searchChange: EventEmitter<string> = new EventEmitter();
+  public loading = false;
+  private _timer = null;
 
+  public keyup (value: string) {
+    if (!value) {
+      this.loading = false;
+      clearTimeout(this._timer);
+      return this.searchChange.emit(value);
+    }
+    this.loading = true;
+    clearTimeout(this._timer);
+    this._timer = setTimeout(() => {
+      this.actualFetch();
+      this.loading = false;
+    }, 400);
+  }
+  public actualFetch () {
+    setTimeout(() => {
+      this.searchChange.emit('hey');
+    }, 200);
+  }
 }
