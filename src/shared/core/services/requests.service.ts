@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { IRole, IUser, IResponse } from '@shared/core/definitions';
+import { IRole, IUser } from '@shared/core/definitions';
 import { ILocation, IDevice, IActivity, IWidget, IVPCInformation, WorkspaceUser } from '@shared/iot/definitions';
 import { PermissionsService } from './permissions.service';
 import { MocksService } from './mocks.service';
+import { IResponse } from 'response-type';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
@@ -23,10 +24,10 @@ export class RequestsService {
     return this.mocks.Widgets();
   }
 
-  async createUser (user): Promise<IResponse> {
+  async createUser (user): Promise<IResponse<any>> {
     return this.mocks.createUser(user);
   }
-  async createVPC (vpcInformation: IVPCInformation): Promise<IResponse> {
+  async createVPC (vpcInformation: IVPCInformation): Promise<IResponse<any>> {
     await timeout (200);
     return this.mocks.createVPC(vpcInformation);
   }

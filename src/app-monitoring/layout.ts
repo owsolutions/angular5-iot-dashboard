@@ -18,13 +18,13 @@ const SidebarOutlets = [
           icon: 'icon icon-home',
           title: 'Home'
         },
-        // {
-        //   link: '/devices',
-        //   icon: 'icon icon-developer_board',
-        //   title: 'Devices',
-        //   permissions: ['DEVICES::VIEW'],
-        //   auth: true
-        // },
+        {
+          link: '/devices',
+          icon: 'icon icon-developer_board',
+          title: 'Devices',
+          permissions: ['DEVICES::VIEW'],
+          auth: true
+        },
         // {
         //   link: '/widgets',
         //   icon: 'icon icon-widgets',

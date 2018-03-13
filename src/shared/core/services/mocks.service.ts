@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { IUser, IRole, IResponse, IUserForm } from '@shared/core/definitions';
+import { IUser, IRole, IUserForm } from '@shared/core/definitions';
 import { IActivity, ActivityTypes, IVPCInformation, IDevice, ILocation, IWidget, IPin } from '@shared/iot/definitions';
 import { times, random, sample } from 'lodash';
 import { PermissionsService } from './permissions.service';
+import { IResponse } from 'response-type';
 import faker from 'faker';
 import { IotSvgService } from '../../iot-svg/iot-svg.service';
 /**
@@ -78,8 +79,8 @@ export class MocksService {
 
   Locations(): Array<ILocation> {
     return [
-        {id: 1, name: 'Kitchen' , 'icon': this.iotsvg.kitchen},
-        {id: 2, name: 'Bathroom' , 'icon': this.iotsvg.pathtub},
+        {id: 1, name: 'Kitchen' , 'icon': this.iotsvg.kitchen, level: '2'},
+        {id: 2, name: 'Bathroom' , 'icon': this.iotsvg.pathtub, level: '3'},
         // {id: 3, name: 'Master bedrrom', 'icon': 'master-bedroom.svg'},
         // {id: 4, name: 'Kitchen', 'icon': 'kitchen.svg'},
         // {id: 5, name: 'Bathroom', 'icon': 'master-bedroom.svg'}
@@ -184,7 +185,7 @@ export class MocksService {
         };
     }
 
-    createVPC (form: IVPCInformation): IResponse {
+    createVPC (form: IVPCInformation): IResponse<any> {
 
       function hasUnvalidFields(vpc: IVPCInformation): Array<any> {
           const errors = [];
@@ -235,7 +236,7 @@ export class MocksService {
           }
       };
   }
-  createUser (form: IUserForm): IResponse {
+  createUser (form: IUserForm): IResponse<any> {
     function hasUnvalidFields(vpc: IUserForm): Array<any> {
       const errors = [];
       if ( ! vpc.firstname ) {
@@ -287,3 +288,11 @@ export class MocksService {
   }
 
 }
+
+
+function CreateTemperaturePeriod () {
+  const start = new Date().getTime();
+  console.log('start: ', start);
+}
+
+CreateTemperaturePeriod();

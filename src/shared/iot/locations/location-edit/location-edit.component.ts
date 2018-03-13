@@ -132,7 +132,12 @@ export class LocationEditComponent implements OnInit, AfterContentInit {
 
   ngAfterContentInit () {
     setTimeout(() => {
-      this.locationIcon.ResetItems();
+      this.locationIcon.ResetItems([{
+        id: '2',
+        src: '',
+        name: 'text.svg',
+
+      }]);
     });
   }
 
