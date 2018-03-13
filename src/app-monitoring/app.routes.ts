@@ -15,7 +15,7 @@ import { DefaultLayout, AuthLayout } from './layout';
 import { SignupComponent } from '@shared/iot/signup/signup.component';
 import { SignupSuccessComponent } from '@shared/iot/signup/signup-success/signup-success.component';
 import { DropFileComponent } from '@shared/core/drop-file/drop-file.component';
-
+import { DeviceSingleComponent } from '../app/device-single/device-single.component';
 export const appRoutes: Routes = [
   {
     path: '',
@@ -31,6 +31,7 @@ export const appRoutes: Routes = [
   AuthLayout (RolesComponent, 'roles'),
   AuthLayout (ActivityComponent, 'activities'),
   AuthLayout (DevicesComponent, 'devices'),
+  AuthLayout (DeviceSingleComponent, 'devices/:id'),
   AuthLayout (WidgetsComponent, 'widgets'),
   AuthLayout (FormElementsComponent, 'form-elements'),
   AuthLayout (UserSingleComponent, 'user/:id'),

@@ -4,12 +4,14 @@
   <div class="device-box-container">
     <div *ngFor="let device of devices" class="col-sm-6 padding-box">
       <div class="device-container">
-        <div class="device-item">
-          <h2>Device {{device.device}}</h2>
-          <span>Last activities: {{device.createdAt}}</span>
-          <span>{{device.value}}</span>
-          <ng-iot-thermometer [amount]="CastNumberToSemantic(device.value)"></ng-iot-thermometer>
-        </div>
+        <a [routerLink]="'/devices/' + device.device">
+          <div class="device-item">
+            <h2>Device {{device.device}}</h2>
+            <span>Last activities: {{device.createdAt}}</span>
+            <span>{{device.value}}</span>
+            <ng-iot-thermometer [amount]="CastNumberToSemantic(device.value)"></ng-iot-thermometer>
+          </div>
+        </a>
       </div>
     </div>
   </div>

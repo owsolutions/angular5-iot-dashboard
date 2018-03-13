@@ -59,6 +59,8 @@ import { LogoutComponent } from './core/users/logout/logout.component';
 import { NavigationComponent } from '@shared/core/navigation/navigation.component';
 import { SidebarWidgetComponent } from '@shared/iot/sidebar-widget/sidebar-widget.component';
 import { IotSvgService } from './iot-svg/iot-svg.service';
+import { DeviceSingleComponent } from '../app/device-single/device-single.component';
+
 @NgModule({
   declarations: [
     SettingsComponent,
@@ -66,6 +68,7 @@ import { IotSvgService } from './iot-svg/iot-svg.service';
     LogoutComponent,
     PageHeaderComponent,
     TextInputComponent,
+    DeviceSingleComponent,
     RadioInputComponent,
     SelectInputComponent,
     FormElementsComponent,
