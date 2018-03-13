@@ -19,5 +19,3 @@ if (environment.hmr) {
 } else {
   bootstrap();
 }
-
-console.log('Monitoring is running');

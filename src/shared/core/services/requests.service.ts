@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { IRole, IUser } from '@shared/core/definitions';
-import { ILocation, IDevice, IActivity, IWidget, IVPCInformation, WorkspaceUser } from '@shared/iot/definitions';
+import { ILocation, IDevice, IActivity, IWidget, IVPCInformation, WorkspaceUser, AppState } from '@shared/iot/definitions';
 import { PermissionsService } from './permissions.service';
 import { MocksService } from './mocks.service';
 import { IResponse } from 'response-type';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-
+import { CreateTemperaturePeriod } from './mocks.service';
+import { Store } from '@ngrx/store';
 
 function timeout (ms = 1000): Promise<any> {
   return new Promise((resolve, reject) => {
@@ -14,11 +15,14 @@ function timeout (ms = 1000): Promise<any> {
   });
 }
 
-
 @Injectable()
 export class RequestsService {
 
-  constructor(private permissions: PermissionsService, private mocks: MocksService) { }
+  constructor(
+    private permissions: PermissionsService,
+    private mocks: MocksService,
+    private store: Store<AppState>
+  ) { }
 
   async getWidgets (): Promise<Array<IWidget>> {
     return this.mocks.Widgets();
@@ -73,6 +77,12 @@ export class RequestsService {
 
   public ChangeUserRole (userID: string, roleID: string) {
     console.log(' Implement the code to change user here');
+  }
+  public GetAnalogEvents () {
+    this.store.dispatch({
+      type: 'UPDATE_ANALOG_EVENT',
+      payload: CreateTemperaturePeriod()
+    })
   }
 
 }

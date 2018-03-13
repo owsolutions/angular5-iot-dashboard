@@ -21,7 +21,6 @@ export class LocationsComponent implements OnInit {
     // Initialize private variables
   }
   public searchChange ($event) {
-    console.log('events', $event);
   }
 
   ngOnInit() {

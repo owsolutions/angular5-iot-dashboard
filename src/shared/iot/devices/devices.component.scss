@@ -59,11 +59,22 @@ form {
 }
 
 label {
-      display: none;
-      margin: 0 auto;
+  display: none;
+  margin: 0 auto;
+}
+
+input {
+  display: block;
+  margin: 30px auto;
+}
+
+.device-container {
+  background: $theme-color-50;
+  padding: 15px;
+  border-left: 2px solid $theme-color-800;
+  h2 {
+    color: $theme-color-800;
   }
-  
-  input {
-      display: block;
-      margin: 30px auto;
-  }
+}
+.device-item {
+}

@@ -3,18 +3,14 @@
 <div class='page-container'>
   <div class="device-box-container">
     <div *ngFor="let device of devices" class="col-sm-6 padding-box">
-
-      <div class="device-item">
-        <h2>Device</h2>
-        <ng-iot-thermometer ></ng-iot-thermometer>
+      <div class="device-container">
+        <div class="device-item">
+          <h2>Device {{device.device}}</h2>
+          <span>Last activities: {{device.createdAt}}</span>
+          <span>{{device.value}}</span>
+          <ng-iot-thermometer [amount]="CastNumberToSemantic(device.value)"></ng-iot-thermometer>
+        </div>
       </div>
-      
     </div>
   </div>
 </div>
-
-<pre>
-{{ thermometers | json}}
-</pre>
-<div class="clearfix"></div>
-<app-helper-box (onFocusLost)="unfocus();" [device]="focusedDevice" [pin]="focusedPin">  </app-helper-box>

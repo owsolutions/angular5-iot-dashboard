@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { IUser, IRole, IUserForm } from '@shared/core/definitions';
-import { IActivity, ActivityTypes, IVPCInformation, IDevice, ILocation, IWidget, IPin } from '@shared/iot/definitions';
+import { IActivity, ActivityTypes, IVPCInformation, IDevice, ILocation, IWidget, IPin, AnalogEvent } from '@shared/iot/definitions';
 import { times, random, sample } from 'lodash';
 import { PermissionsService } from './permissions.service';
 import { IResponse } from 'response-type';
 import faker from 'faker';
+
 import { IotSvgService } from '../../iot-svg/iot-svg.service';
 /**
  * All mocks data for application sits here. In general, data doesn't belong to components,
@@ -286,13 +287,18 @@ export class MocksService {
       }
     };
   }
-
 }
 
-
-function CreateTemperaturePeriod () {
-  const start = new Date().getTime();
-  console.log('start: ', start);
-}
-
-CreateTemperaturePeriod();
+export function CreateTemperaturePeriod (total: number = 30): Array<AnalogEvent> {
+  const items: Array<AnalogEvent> = [];
+  let start = new Date().getTime();
+  for (let i = 1; i <= 10; i ++) {
+    start = start - random(100000,6000000);
+    items.push({
+      createdAt: new Date(start),
+      value: random(2000, 9000) * 0.01,
+      device: '#rand-' + random(1,3)
+    });
+  }
+  return items;
+};
