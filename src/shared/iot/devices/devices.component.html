@@ -5,7 +5,7 @@
     <div *ngFor="let device of devices" class="col-sm-6 padding-box">
 
       <div class="device-item">
-        <h2>{{device | json}}</h2>
+        <h2>Device</h2>
         <ng-iot-thermometer ></ng-iot-thermometer>
       </div>
       
@@ -13,6 +13,8 @@
   </div>
 </div>
 
-
+<pre>
+{{ thermometers | json}}
+</pre>
 <div class="clearfix"></div>
 <app-helper-box (onFocusLost)="unfocus();" [device]="focusedDevice" [pin]="focusedPin">  </app-helper-box>

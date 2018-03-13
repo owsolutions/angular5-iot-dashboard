@@ -67,6 +67,7 @@ export interface AppState {
   locations: Array<any>;
   activities: Array<IActivity>;
   widgets: Array<IWidget>;
+  thermometers: Array<Thermometer>;
 }
 
 /**

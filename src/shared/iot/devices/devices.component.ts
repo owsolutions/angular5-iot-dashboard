@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { IDevice, IPin, AppState, ILocation } from '@shared/iot/definitions';
+import { IDevice, IPin, AppState, ILocation, Thermometer } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
 import { CommunicateService } from '@shared/core/services/communicate.service';
 
@@ -12,8 +12,9 @@ export class DevicesComponent implements  OnInit {
 
   public focusedDevice: IDevice = null;
   public focusedPin: IPin = null;
-  public devices: Array<IDevice>;
-  public locations: Array<ILocation>;
+  public devices: Array<IDevice> = [];
+  public locations: Array<ILocation> = [];
+  public thermometers: Array<Thermometer> = [];
 
   constructor (
     public chRef: ChangeDetectorRef, 
@@ -31,6 +32,9 @@ export class DevicesComponent implements  OnInit {
   ngOnInit() {
     this.store.select('devices').subscribe(collection => {
       this.devices = (collection as Array<IDevice>);
+    });
+    this.store.select('thermometers').subscribe(collection => {
+      this.thermometers = (collection as Array<Thermometer>);
     });
     this.store.select('locations').subscribe(collection => {
       this.locations = (collection as Array<ILocation>);
