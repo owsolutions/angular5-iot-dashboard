@@ -8,7 +8,6 @@ import { thermometerReducer, analogEventReducer } from './thermometer.reducer';
 import { StoreModule } from '@ngrx/store';
 
 export function appReducersGenerator () {
-  console.error('reducers!');
   return StoreModule.forRoot({
     devices: devicesReducer,
     locations: locationsReducer,

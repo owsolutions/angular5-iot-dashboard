@@ -1,0 +1,8 @@
+<div class="workaround-container">
+  <span class="headers-label">headers:</span>
+  <pre>{{GetHeaders() | json}}</pre>
+  <div class="api-type">{{type}}</div>
+  <pre>https://dashboard.io/api/{{url}}</pre>
+  <span *ngIf="GetResponse()" class="headers-label">response:</span>
+  <pre *ngIf="GetResponse()">{{GetResponse() | json}}</pre>
+</div>

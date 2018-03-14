@@ -60,6 +60,8 @@ import { NavigationComponent } from '@shared/core/navigation/navigation.componen
 import { SidebarWidgetComponent } from '@shared/iot/sidebar-widget/sidebar-widget.component';
 import { IotSvgService } from './iot-svg/iot-svg.service';
 import { DeviceSingleComponent } from '../app/device-single/device-single.component';
+import { DocsComponent } from './docs/docs.component';
+import { DocsApiWorkaroundComponent } from './docs/docs-api-workaround/docs-api-workaround.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +70,7 @@ import { DeviceSingleComponent } from '../app/device-single/device-single.compon
     LogoutComponent,
     PageHeaderComponent,
     TextInputComponent,
+    DocsApiWorkaroundComponent,
     DeviceSingleComponent,
     RadioInputComponent,
     SelectInputComponent,
@@ -93,6 +96,7 @@ import { DeviceSingleComponent } from '../app/device-single/device-single.compon
     OutputPinComponent,
     IconWidgetsComponent,
     PlacesComponent,
+    DocsComponent,
     IndexComponent,
     DefaultLayoutComponent,
     LargeIconWidgetComponent,

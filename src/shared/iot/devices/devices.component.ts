@@ -44,7 +44,12 @@ export class DevicesComponent implements  OnInit, OnDestroy {
       this.locations = (collection as Array<ILocation>);
     });
   }
-
+  public FormatDate (value: Date) {
+    return `${value.getFullYear()}/${value.getMonth() + 1}/${value.getDate()}`;
+  }
+  public FormatTemperature (value: number) {
+    return value.toFixed(2);
+  }
   unfocus () {
     this.focusedPin = null;
     this.focusedDevice = null;

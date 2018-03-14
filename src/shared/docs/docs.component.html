@@ -1,0 +1,48 @@
+<app-page-header title="Documentations"></app-page-header>
+
+<div class="page-content">
+  <h1>Welcome to realtime documentations</h1>
+  In this section, we explain all about the dashboard usage and it's connectivity conditions to server, and how you can 
+  interact your hardwares using our REST api to make an interactive dashboard.
+
+  <br>
+
+  <h2>REST API</h2>
+  In order to display any information on your dashboard, you need to send your device information changes to our restful API.
+  These apis, all require a token to distingush the identity.
+
+  <br>
+  For more flexibilty, we can accept token per different device or a general token that can describe information for all devices,
+  and in the request body, you can specifiy the device by it's id.
+  Mostly our api sets are used to collect information but also you can find some apis that return you useful information about your ecosystem.
+
+  <br>
+  <b>It's very important to notice that</b> all responses from our server api are coming back with a guideline from google,
+  called <i>google json styleguide</i> and you can guess success and failure of your api request based on this format.
+  Generally speaking, if our servers be able to catch your request, we will return 200 response anyway, even if the operation
+  has not performed. In this case you must look for error field within the response object.
+  <br>
+  Response that are having 50x, 40x or else, are rarely appear because we aim to handle all possible situation with our api,
+  and you must consider these kind of errors temporary out of service or partially downtime.
+
+  <h2>Getting a token</h2>
+  You can find your <b>IOT Token</b> inside your settings section. Make sure you use the <b>IOT Token</b> only to update us for your device information,
+  such as the changes in temperature or humidity, devices usages and etc. There might be other tokens provided to you
+  and each have their own usage.
+
+  <br>
+
+  Eversince you have your token, you can make post and get requests to the api server included <strong>x-access-token</strong> in headers.
+  <br>
+
+  <h3>Server health example</h3>
+  You can get a response from your dashboard to see if it's running healthy and discover a little bit of information.
+  <br><br>
+
+  <app-docs-api-workaround
+    type="get"
+    [response]="healthCheckResponseExample"
+    url="broadcast/healthcheck"
+  ></app-docs-api-workaround>
+
+</div>

@@ -60,6 +60,17 @@ const SidebarOutlets = [
           permissions: ['LOCATIONS::VIEW'],
           auth: true
         },
+        {
+          link: '/settings',
+          icon: 'icon icon-settings',
+          title: 'Settings',
+          auth: true
+        },
+        {
+          link: '/docs',
+          icon: 'icon icon-star',
+          title: 'documents',
+        },
         // {
         //   link: '/activities',
         //   icon: 'icon icon-notifications_active',
