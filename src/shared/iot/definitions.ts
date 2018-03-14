@@ -129,3 +129,13 @@ export interface Thermometer extends AnalogSource {
   data?: Array<AnalogEvent>;
 
 }
+
+export interface DataSource {
+  device: string;
+  value: any;
+  geo?: {
+    lat: number;
+    lng: number;
+  }
+  date?: Date
+}

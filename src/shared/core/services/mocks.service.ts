@@ -297,7 +297,7 @@ export function CreateTemperaturePeriod (total: number = 30): Array<AnalogEvent>
     items.push({
       createdAt: new Date(start),
       value: random(2000, 9000) * 0.01,
-      device: '#rand-' + random(1,3)
+      device: 'device-' + random(1,3)
     });
   }
   return items;

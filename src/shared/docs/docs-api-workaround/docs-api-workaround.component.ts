@@ -10,6 +10,7 @@ export class DocsApiWorkaroundComponent implements OnInit {
   @Input('type') public type: 'post' | 'get' | 'delete' | 'put' = 'get';
   @Input('url') public url: string = '';
   @Input('response') public response: string = '';
+  @Input('body') public body: string = '';
 
   constructor() { }
 
@@ -18,6 +19,9 @@ export class DocsApiWorkaroundComponent implements OnInit {
 
   public GetResponse () {
     return this.response;
+  }
+  public GetBody () {
+    return this.body;
   }
 
   public GetHeaders () {
