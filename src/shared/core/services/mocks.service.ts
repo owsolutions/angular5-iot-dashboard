@@ -129,11 +129,13 @@ export class MocksService {
   Devices (): Array<CloudDevice> {
     return [
       {
+        id: 1,
         name: 'Hall temperature',
         type: CloudDeviceType.TemperatureSensor,
         datasource: 'device-1'
       },
       {
+        id: 2,
         name: 'Room temperature',
         type: CloudDeviceType.TemperatureSensor,
         datasource: 'device-2'

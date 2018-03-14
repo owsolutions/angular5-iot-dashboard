@@ -145,10 +145,11 @@ export enum CloudDeviceType {
 }
 
 export interface CloudDevice {
-  id?: string;
+  id?: any;
   name?: string;
   datasource?: string;
   type: CloudDeviceType;
   description?: string;
   model?: string;
+  location?: any;
 }

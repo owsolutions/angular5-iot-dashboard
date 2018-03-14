@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ILocation, AppState, IWidget } from '@shared/iot/definitions';
+import { ILocation, AppState, CloudDevice } from '@shared/iot/definitions';
 import { ChangeDetectorRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 
@@ -11,7 +11,7 @@ import { Store } from '@ngrx/store';
 export class PlacesComponent implements OnInit, OnDestroy {
 
   public places: Array<ILocation> = [];
-  public widgets: Array<IWidget> = [];
+  public devices: Array<CloudDevice> = [];
 
   constructor(public chRef: ChangeDetectorRef, private store: Store<AppState>) {
     // Initialize the private variables
@@ -21,13 +21,13 @@ export class PlacesComponent implements OnInit, OnDestroy {
     this.store.select('locations').subscribe((locations: Array<ILocation>) => {
       this.places = locations;
     });
-    this.store.select('widgets').subscribe(collection => {
-      this.widgets = (collection as Array<IWidget>);
+    this.store.select('devices').subscribe(collection => {
+      this.devices = (collection as Array<CloudDevice>);
     });
   }
 
-  findWidgets (location: ILocation): Array<IWidget> {
-    return this.widgets.filter(widget => widget.location && widget.location.id === location.id);
+  findWidgets (location: ILocation): Array<CloudDevice> {
+    return this.devices.filter(widget => widget.location && widget.location.id === location.id);
   }
 
   ngOnDestroy () {

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { AppState, ILocation, IWidget } from '@shared/iot/definitions';
+import { AppState, ILocation, IWidget, CloudDevice } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
 import { CommunicateService } from '@shared/core/services/communicate.service';
 
@@ -11,7 +11,7 @@ import { CommunicateService } from '@shared/core/services/communicate.service';
 export class LocationsComponent implements OnInit {
 
   public locations: Array<ILocation>;
-  public widgets: Array<IWidget>;
+  public devices: Array<CloudDevice>;
 
   constructor (
     public chRef: ChangeDetectorRef,
@@ -27,13 +27,13 @@ export class LocationsComponent implements OnInit {
     this.store.select('locations').subscribe(collection => {
       this.locations = (collection as Array<ILocation>);
     });
-    this.store.select('widgets').subscribe(collection => {
-      this.widgets = (collection as Array<IWidget>);
+    this.store.select('devices').subscribe(collection => {
+      this.devices = (collection as Array<CloudDevice>);
     });
   }
 
-  findWidgets (location: ILocation): Array<IWidget> {
-    return this.widgets.filter(widget => widget.location.id === location.id);
+  findWidgets (location: ILocation): Array<CloudDevice> {
+    return this.devices.filter(device => device.location === location.id);
   }
 
 }

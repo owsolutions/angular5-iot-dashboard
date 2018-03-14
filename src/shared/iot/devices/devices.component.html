@@ -1,11 +1,13 @@
-<app-page-header [title]="'Devices ' + devices.length" icon="icon icon-keyboard"></app-page-header>
+<app-page-header [title]="'Devices ' + devices.length" icon="icon icon-keyboard">
+  <a [routerLink]="'/devices/create'" class="touchbar-button">Connect a new device</a>
+</app-page-header>
 <div class='page-container'>
   <div class="device-box-container">
     <div *ngFor="let device of devices" class="col-sm-4 padding-box">
       <div class="device-container">
 
         <div class="device-item">
-          <h2>{{device.device}}</h2>
+          <h2>{{device.name}}</h2>
           <div class="device-content">
             <div class="row">
               <div class="col-sm-6">
@@ -20,7 +22,7 @@
             <div class="row">
               <div class="col-sm-12">
                 <br><br>
-                <a [routerLink]="'/devices/' + device.device" class="normal-button">View device</a>                
+                <a [routerLink]="'/devices/' + device.id" class="normal-button">View device</a>                
               </div>
             </div>
           </div>
