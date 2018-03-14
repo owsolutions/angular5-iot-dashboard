@@ -62,7 +62,7 @@ export interface IPermission {
  * Represents the application store structure
  */
 export interface AppState {
-  devices: Array<IDevice>;
+  devices: Array<CloudDevice>;
   roles: Array<IRole>;
   locations: Array<any>;
   activities: Array<IActivity>;
@@ -138,4 +138,17 @@ export interface DataSource {
     lng: number;
   }
   date?: Date
+}
+
+export enum CloudDeviceType {
+  TemperatureSensor
+}
+
+export interface CloudDevice {
+  id?: string;
+  name?: string;
+  datasource?: string;
+  type: CloudDeviceType;
+  description?: string;
+  model?: string;
 }

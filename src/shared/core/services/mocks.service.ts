@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IUser, IRole, IUserForm } from '@shared/core/definitions';
-import { IActivity, ActivityTypes, IVPCInformation, IDevice, ILocation, IWidget, IPin, AnalogEvent } from '@shared/iot/definitions';
+import { IActivity, ActivityTypes, IVPCInformation, IDevice, ILocation, IWidget, IPin, AnalogEvent, CloudDevice, CloudDeviceType } from '@shared/iot/definitions';
 import { times, random, sample } from 'lodash';
 import { PermissionsService } from './permissions.service';
 import { IResponse } from 'response-type';
@@ -126,33 +126,19 @@ export class MocksService {
   }
 
 
-  Devices (): Array<IDevice> {
-    function value () {
-        // switch (random(0, 1)) {
-        //     case 0:
-        //         return random(0, 1) ? 'ON' : 'OFF';
-        //     case 1:
-        return random(1000, 9000) * 0.001;
-        // }
-    }
-    function createPins (id: number = 2): Array<IPin> {
-        return times(8 , (index) => {
-            return {
-                id: index,
-                type: 'input',
-                value: value()
-            };
-        });
-    }
-    function createDevices (id: number = 3): Array<IDevice> {
-        return times(id , () => {
-            return {
-                uniqueid: 'dev-' + random(1111, 9999),
-                pins: createPins (2)
-            };
-        });
-    }
-    return createDevices() ;
+  Devices (): Array<CloudDevice> {
+    return [
+      {
+        name: 'Hall temperature',
+        type: CloudDeviceType.TemperatureSensor,
+        datasource: 'device-1'
+      },
+      {
+        name: 'Room temperature',
+        type: CloudDeviceType.TemperatureSensor,
+        datasource: 'device-2'
+      }
+    ];
   }
 
   Widgets (): Array<IWidget> {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CloudDevice, CloudDeviceType } from '@shared/iot/definitions';
 
 @Component({
   selector: 'app-device-single',
@@ -7,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeviceSingleComponent implements OnInit {
 
+  public mode: 'edit' | 'new' = 'new';
+  public form: CloudDevice = {
+    type: CloudDeviceType.TemperatureSensor
+  };
   constructor() { }
 
   ngOnInit() {

@@ -28,7 +28,7 @@ export class DevicesComponent implements  OnInit, OnDestroy {
   ) {
     // Initialize private variables
     // this.requests.GetAnalogEvents();
-    this.requests.GetAnalogEvents();
+    this.requests.getDevices();
   }
 
   async clickDispatch ({device, pin}) {
@@ -37,17 +37,21 @@ export class DevicesComponent implements  OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this._ref1 = this.store.select('analogEvents').subscribe(collection => {
-      this.devices = ConvertThermometersToDevices(collection);
+    this._ref1 = this.store.select('devices').subscribe(collection => {
+      this.devices = collection;
     });
     this._ref2 = this.store.select('locations').subscribe(collection => {
       this.locations = (collection as Array<ILocation>);
     });
   }
   public FormatDate (value: Date) {
+    if ( ! value ) {
+      return 'unknown';
+    }
     return `${value.getFullYear()}/${value.getMonth() + 1}/${value.getDate()}`;
   }
-  public FormatTemperature (value: number) {
+  public FormatTemperature (value: number = 0) {
+
     return value.toFixed(2);
   }
   unfocus () {
