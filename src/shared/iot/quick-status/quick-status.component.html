@@ -3,14 +3,25 @@
     <app-user-widget></app-user-widget>
 
     <h2>Quick view</h2>
-    <app-sidebar-widget [items]="example0"></app-sidebar-widget>
-    <app-sidebar-widget [items]="example1"></app-sidebar-widget>
+    <!-- <app-sidebar-widget [items]="example0"></app-sidebar-widget>
+    <app-sidebar-widget [items]="example1"></app-sidebar-widget> -->
 
-    <ng-iot-quick-chart></ng-iot-quick-chart>
     
-    <h2>Netatmo indoor</h2>
+    <ng-container *ngFor="let device of devices">
+      <ng-container *ngIf="device.preferences">
+        <pre>
+          {{device.preferences | json}}
+        </pre>
+        <app-sidebar-widget *ngIf="device.preferences.DisplayRealTimeTemperatureInSidebar"
+          [items]="TempWidget(device)"></app-sidebar-widget>  
+        <ng-iot-quick-chart
+          *ngIf="device.preferences.DisplayAverageLastWeekInSidebar"></ng-iot-quick-chart>
+      </ng-container>
+    </ng-container>
+    
+    <!-- <h2>Netatmo indoor</h2>
     <app-sidebar-widget [items]="temperature"></app-sidebar-widget>
-    <app-sidebar-widget [items]="example1"></app-sidebar-widget>
-
+    <app-sidebar-widget [items]="example1"></app-sidebar-widget> -->
+    <br>
   </div>
 </div>

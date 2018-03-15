@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarWidgetItem } from '@shared/core/definitions';
+import { Store } from '@ngrx/store';
+import { AppState, CloudDevice } from '@shared/iot/definitions';
 
 @Component({
   selector: 'app-quick-status',
@@ -8,9 +10,12 @@ import { SidebarWidgetItem } from '@shared/core/definitions';
 })
 export class QuickStatusComponent implements OnInit {
 
+  public devices: Array<any> = [];
   public weatherConditions: any;
 
-  constructor() { }
+  constructor(
+    private store: Store<AppState>,
+  ) { }
 
   public example1: Array<SidebarWidgetItem> = [
     {
@@ -66,6 +71,21 @@ export class QuickStatusComponent implements OnInit {
       pressure: 1016,
       precipitation: 4
     };
+    this.store.select('devices').subscribe((devices) => {
+      this.devices = devices;
+    });
+  }
+
+  public TempWidget (device: CloudDevice) {
+    console.log(device);
+    return [{
+      icon: 'icon icon-temperature-2',
+      title: device.name,
+      value: "0"
+    }]
+  }
+  public GetDevicesPreferences () {
+    
   }
 
 }
