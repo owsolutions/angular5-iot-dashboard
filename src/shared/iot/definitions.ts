@@ -129,6 +129,16 @@ export interface Thermometer extends AnalogSource {
   data?: Array<AnalogEvent>;
 
 }
+export enum TemperatureCustomization {
+  SidebarRealTimeValue,
+  SidebarLastWeekAverage
+}
+
+export interface IDeviceDisplayPreference {
+  type: 'TemperatureDevice',
+  key: TemperatureCustomization,
+  value: any
+}
 
 export interface DataSource {
   device: string;
@@ -152,4 +162,5 @@ export interface CloudDevice {
   description?: string;
   model?: string;
   location?: any;
+  preferences: Array<IDeviceDisplayPreference>;
 }

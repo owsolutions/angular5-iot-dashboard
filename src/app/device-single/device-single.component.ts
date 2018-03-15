@@ -14,8 +14,10 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   public mode: 'edit' | 'new' = 'new';
   public locations: Array<any> = [];
   public form: CloudDevice = {
-    type: CloudDeviceType.TemperatureSensor
+    type: CloudDeviceType.TemperatureSensor,
+    preferences: []
   };
+  
   constructor(
     private route: ActivatedRoute,
     private store: Store<AppState>,
@@ -23,10 +25,33 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-
+    this.route.params.subscribe((data: {id?: any}) => {
+      if ( ! data.id ) {
+        return ;
+      }
+      this.mode = 'edit';
+      this.form.id = data.id;
+      this.ref = this.store.select('devices').subscribe((devices: Array<CloudDevice>) => {
+        const form = devices.find(dev => dev.id == data.id);
+        if ( ! form) {
+          return;
+        }
+        this.form = form;
+      });
+    }).unsubscribe();
   }
   ngOnDestroy () {
 
   }
+  public SubmitForm () {
+    this.store.dispatch({
+      type: 'UPDATE_DEVICE',
+      payload: this.form
+    });
+    this.router.navigateByUrl('/devices');
+  }
 
+  public DeviceCustomizationChange (value) {
+    this.form.preferences = value;
+  }
 }

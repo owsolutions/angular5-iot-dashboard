@@ -63,6 +63,7 @@ import { DeviceSingleComponent } from '../app/device-single/device-single.compon
 import { DocsComponent } from './docs/docs.component';
 import { DocsApiWorkaroundComponent } from './docs/docs-api-workaround/docs-api-workaround.component';
 import { DeviceGeneralInformationComponent } from '../app/device-general-information/device-general-information.component';
+import { DeviceCustomizationComponent } from '../app/device-customization/device-customization.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { DeviceGeneralInformationComponent } from '../app/device-general-informa
     HelperBoxComponent,
     OutputPinViewComponent,
     NavigationComponent,
+    DeviceCustomizationComponent,
     SwitchWidgetsComponent,
     InputPinComponent,
     OutputPinComponent,
