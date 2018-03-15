@@ -62,6 +62,7 @@ import { IotSvgService } from './iot-svg/iot-svg.service';
 import { DeviceSingleComponent } from '../app/device-single/device-single.component';
 import { DocsComponent } from './docs/docs.component';
 import { DocsApiWorkaroundComponent } from './docs/docs-api-workaround/docs-api-workaround.component';
+import { DeviceGeneralInformationComponent } from '../app/device-general-information/device-general-information.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { DocsApiWorkaroundComponent } from './docs/docs-api-workaround/docs-api-
     ActivityWidgetComponent,
     LocationsComponent,
     ActivityComponent,
+    DeviceGeneralInformationComponent,
     LocationRowComponent,
     LocationEditComponent,
     HelperBoxComponent,
