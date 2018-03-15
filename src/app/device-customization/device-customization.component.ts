@@ -9,39 +9,19 @@ import { IDeviceDisplayPreference, TemperatureCustomization } from '@shared/iot/
 })
 export class DeviceCustomizationComponent implements OnInit {
 
-  @Output('onChange') public onChange: EventEmitter<Array<IDeviceDisplayPreference>> = new EventEmitter();
-  @Input('preferences') public preferences: Array<IDeviceDisplayPreference> = [];
-  public TemperatureCustomization = TemperatureCustomization;
+  private form: IDeviceDisplayPreference = {};
+  @Output('onChange') public onChange: EventEmitter<IDeviceDisplayPreference> = new EventEmitter();
+  @Input('preferences') public set preferences (value:  IDeviceDisplayPreference) {
+    this.form = value || {};
+  }
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  public LastweekAverageInSidebar (value: boolean = false) {
-    const $el: IDeviceDisplayPreference = {
-      key: TemperatureCustomization.SidebarLastWeekAverage,
-      value: value,
-      type: 'TemperatureDevice'
-    };
-    this.preferences = UpdateOrInsert($el, this.preferences || [], 'key');
-    this.onChange.emit(this.preferences);
-  }
-  public RealtimeValueInSidebar (value: boolean = false) {
-    const $el: IDeviceDisplayPreference = {
-      key: TemperatureCustomization.SidebarRealTimeValue,
-      value: value,
-      type: 'TemperatureDevice'
-    };
-    this.preferences = UpdateOrInsert($el, this.preferences || [], 'key');
-    this.onChange.emit(this.preferences);
-  }
-
-  public IsChecked (type: TemperatureCustomization) {
-    if ( ! this.preferences) {
-      return;
-    }
-    const val = this.preferences.find(t=> t.key === type);
-    return val && val.value || false;
+  public TriggerChange () {
+    this.onChange.emit(this.form);
   }
 
 }

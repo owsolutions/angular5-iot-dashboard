@@ -135,9 +135,8 @@ export enum TemperatureCustomization {
 }
 
 export interface IDeviceDisplayPreference {
-  type: 'TemperatureDevice',
-  key: TemperatureCustomization,
-  value: any
+  DisplayRealTimeTemperatureInSidebar?: boolean;
+  DisplayAverageLastWeekInSidebar?: boolean;
 }
 
 export interface DataSource {
