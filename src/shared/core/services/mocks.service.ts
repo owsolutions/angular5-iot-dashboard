@@ -132,15 +132,22 @@ export class MocksService {
         id: 1,
         name: 'Hall temperature',
         type: CloudDeviceType.TemperatureSensor,
-        datasource: 'device-1'
+        datasource: 'device-1',
+        preferences: {
+        
+        }
       },
       {
         id: 2,
         name: 'Room temperature',
         type: CloudDeviceType.TemperatureSensor,
-        datasource: 'device-2'
+        datasource: 'device-2',
+        preferences: {
+          
+        },
+
       }
-    ];
+    ] as Array<CloudDevice>;
   }
 
   Widgets (): Array<IWidget> {
