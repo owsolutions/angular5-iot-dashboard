@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SidebarWidgetItem } from '@shared/core/definitions';
 import { Store } from '@ngrx/store';
 import { AppState, CloudDevice } from '@shared/iot/definitions';
+import { values } from 'lodash';
 
 @Component({
   selector: 'app-quick-status',
@@ -84,7 +85,8 @@ export class QuickStatusComponent implements OnInit {
     }]
   }
   public HasNoPreferenceOnDevices (items: Array<CloudDevice> = []) {
-    return items.every(x => ! x.preferences);
+  
+    return items.every(x => ! x.preferences || values(x.preferences).every(x => false));
   }
 
 }
