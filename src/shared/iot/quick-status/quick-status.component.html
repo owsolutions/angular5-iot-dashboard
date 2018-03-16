@@ -3,15 +3,16 @@
     <app-user-widget></app-user-widget>
 
     <h2>Quick view</h2>
+
+    <div *ngIf="HasNoPreferenceOnDevices(devices)" class="sidebar-no-widget-message">
+      You have not set any kind of widgets on your sidebar. You can add them here
+      by checking out each device single page and configure the customization
+    </div>
     <!-- <app-sidebar-widget [items]="example0"></app-sidebar-widget>
     <app-sidebar-widget [items]="example1"></app-sidebar-widget> -->
-
     
     <ng-container *ngFor="let device of devices">
       <ng-container *ngIf="device.preferences">
-        <pre>
-          {{device.preferences | json}}
-        </pre>
         <app-sidebar-widget *ngIf="device.preferences.DisplayRealTimeTemperatureInSidebar"
           [items]="TempWidget(device)"></app-sidebar-widget>  
         <ng-iot-quick-chart

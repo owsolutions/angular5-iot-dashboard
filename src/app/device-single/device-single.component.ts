@@ -36,7 +36,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
         if ( ! form) {
           return;
         }
-        this.form = form;
+        this.form = Object.assign({}, form);
       });
     }).unsubscribe();
   }

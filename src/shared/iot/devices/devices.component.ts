@@ -38,7 +38,6 @@ export class DevicesComponent implements  OnInit, OnDestroy {
   ngOnInit() {
     this._ref1 = this.store.select('devices').subscribe(collection => {
       this.devices = collection;
-      console.log(collection);
     });
     this._ref2 = this.store.select('locations').subscribe(collection => {
       this.locations = (collection as Array<ILocation>);

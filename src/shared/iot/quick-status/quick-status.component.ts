@@ -77,15 +77,14 @@ export class QuickStatusComponent implements OnInit {
   }
 
   public TempWidget (device: CloudDevice) {
-    console.log(device);
     return [{
       icon: 'icon icon-temperature-2',
       title: device.name,
       value: "0"
     }]
   }
-  public GetDevicesPreferences () {
-    
+  public HasNoPreferenceOnDevices (items: Array<CloudDevice> = []) {
+    return items.every(x => ! x.preferences);
   }
 
 }
