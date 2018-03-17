@@ -145,8 +145,8 @@ export interface DataSource {
   geo?: {
     lat: number;
     lng: number;
-  }
-  date?: Date
+  };
+  date?: Date;
 }
 
 export enum CloudDeviceType {

@@ -42,7 +42,7 @@ export interface SidebarWidgetItem {
   title?: string;
   value?: string | {
     amount: any;
-    unit: string; 
+    unit: string;
   };
   icon?: string;
 }

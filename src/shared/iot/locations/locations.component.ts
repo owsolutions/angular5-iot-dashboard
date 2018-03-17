@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { AppState, ILocation, IWidget, CloudDevice } from '@shared/iot/definitions';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { AppState, ILocation, CloudDevice } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
 import { CommunicateService } from '@shared/core/services/communicate.service';
 

@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { CloudDevice, CloudDeviceType, AppState } from '@shared/iot/definitions';
-import { ActivatedRoute, Router } from '@angular/router';
+import { CloudDevice, AppState } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
 
 @Component({

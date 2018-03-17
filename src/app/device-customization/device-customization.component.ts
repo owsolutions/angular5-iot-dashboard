@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import UpdateOrInsert from '@shared/core/functions/UpdateOrInsert';
-import { IDeviceDisplayPreference, TemperatureCustomization } from '@shared/iot/definitions';
+import { IDeviceDisplayPreference } from '@shared/iot/definitions';
 
 @Component({
   selector: 'app-device-customization',

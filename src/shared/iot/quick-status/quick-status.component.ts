@@ -82,10 +82,10 @@ export class QuickStatusComponent implements OnInit {
       icon: 'icon icon-temperature-2',
       title: device.name,
       value: device.value
-    }]
+    }];
   }
   public HasNoPreferenceOnDevices (items: Array<CloudDevice> = []) {
-  
+
     return items.every(x => ! x.preferences || values(x.preferences).every(x => false));
   }
 

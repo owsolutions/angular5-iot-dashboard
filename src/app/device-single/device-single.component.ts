@@ -17,7 +17,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
     type: CloudDeviceType.TemperatureSensor,
     preferences: {},
   };
-  
+
   constructor(
     private route: ActivatedRoute,
     private store: Store<AppState>,

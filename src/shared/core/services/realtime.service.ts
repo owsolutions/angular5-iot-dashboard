@@ -7,7 +7,7 @@ export class RealtimeService {
 
   constructor(
     private store: Store<AppState>,
-  ) { 
+  ) {
     setInterval(() => {
       console.warn('Recieved update');
       this.RecieveDeviceChange({
@@ -15,9 +15,9 @@ export class RealtimeService {
         name: 'Hall temperature',
         type: CloudDeviceType.TemperatureSensor,
         datasource: 'device-1',
-        value: random(1700,2200) / 100,
+        value: random(1700, 2200) / 100,
         preferences: {}
-      })
+      });
     }, 1500);
   }
 

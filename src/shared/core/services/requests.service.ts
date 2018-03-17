@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IRole, IUser } from '@shared/core/definitions';
-import { ILocation, IDevice, IActivity, IWidget, IVPCInformation, WorkspaceUser, AppState, CloudDevice } from '@shared/iot/definitions';
+import { ILocation, IActivity, IWidget, IVPCInformation, WorkspaceUser, AppState, CloudDevice } from '@shared/iot/definitions';
 import { PermissionsService } from './permissions.service';
 import { MocksService } from './mocks.service';
 import { IResponse } from 'response-type';
@@ -75,7 +75,7 @@ export class RequestsService {
     this.store.dispatch({
       type: 'UPDATE_ANALOG_EVENT',
       payload: CreateTemperaturePeriod()
-    })
+    });
   }
 
 }

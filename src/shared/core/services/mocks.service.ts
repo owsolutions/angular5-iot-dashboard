@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IUser, IRole, IUserForm } from '@shared/core/definitions';
-import { IActivity, ActivityTypes, IVPCInformation, IDevice, ILocation, IWidget, IPin, AnalogEvent, CloudDevice, CloudDeviceType } from '@shared/iot/definitions';
+import { IActivity, ActivityTypes, IVPCInformation, ILocation, IWidget, AnalogEvent, CloudDevice, CloudDeviceType } from '@shared/iot/definitions';
 import { times, random, sample } from 'lodash';
 import { PermissionsService } from './permissions.service';
 import { IResponse } from 'response-type';
@@ -135,7 +135,7 @@ export class MocksService {
         datasource: 'device-1',
         value: 17.5,
         preferences: {
-        
+
         }
       },
       {
@@ -145,7 +145,7 @@ export class MocksService {
         datasource: 'device-2',
         value: 28.8,
         preferences: {
-          
+
         },
 
       }
@@ -290,11 +290,11 @@ export function CreateTemperaturePeriod (total: number = 30): Array<AnalogEvent>
   const items: Array<AnalogEvent> = [];
   let start = new Date().getTime();
   for (let i = 1; i <= 10; i ++) {
-    start = start - random(100000,6000000);
+    start = start - random(100000, 6000000);
     items.push({
       createdAt: new Date(start),
       value: random(2000, 9000) * 0.01,
-      device: 'device-' + random(1,3)
+      device: 'device-' + random(1, 3)
     });
   }
   return items;

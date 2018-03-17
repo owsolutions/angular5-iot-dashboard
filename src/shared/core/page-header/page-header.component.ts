@@ -8,7 +8,7 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 export class PageHeaderComponent {
   @Input() public title: string;
   @Input() public icon: string;
-  @Input() public searchbar: boolean = false;
+  @Input() public searchbar = false;
   @Output('searchChange') public searchChange: EventEmitter<string> = new EventEmitter();
   public loading = false;
   private _timer = null;

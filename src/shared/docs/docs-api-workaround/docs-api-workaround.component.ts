@@ -8,9 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DocsApiWorkaroundComponent implements OnInit {
 
   @Input('type') public type: 'post' | 'get' | 'delete' | 'put' = 'get';
-  @Input('url') public url: string = '';
-  @Input('response') public response: string = '';
-  @Input('body') public body: string = '';
+  @Input('url') public url = '';
+  @Input('response') public response = '';
+  @Input('body') public body = '';
 
   constructor() { }
 

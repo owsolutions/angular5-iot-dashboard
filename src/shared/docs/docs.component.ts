@@ -24,7 +24,7 @@ export class DocsComponent implements OnInit {
         }
       ]
     }
-  }
+  };
   public boardcastResponseExample: IResponse<DataSource> = {
     params: {
       device: '3381947jjw',
@@ -47,7 +47,7 @@ export class DocsComponent implements OnInit {
       ],
 
     }
-  }
+  };
   public boardcastBodyExample: DataSource = {
     device: '3381947jjw',
     value: 22.4,
@@ -55,6 +55,6 @@ export class DocsComponent implements OnInit {
       lat: 32.837298914,
       lng: 43.389482497
     }
-  }
+  };
 }
 

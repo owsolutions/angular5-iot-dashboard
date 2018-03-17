@@ -2,7 +2,7 @@
 import { Component, OnInit, ViewChild, AfterContentInit } from '@angular/core';
 import { CommunicateService } from '@shared/core/services/communicate.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppState, ILocation } from '@shared/iot/definitions';
+import { AppState, ILocation, CloudDevice } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
 import { maxBy, times } from 'lodash';
 import { NgMediaComponent } from 'ng-media';
@@ -14,6 +14,7 @@ import { NgMediaComponent } from 'ng-media';
 })
 export class LocationEditComponent implements OnInit, AfterContentInit {
 
+  public devices: Array<CloudDevice> = [];
   /**
    * If we are on a editing mode, it has a number;
    * otherwise we only having null.
@@ -36,7 +37,7 @@ export class LocationEditComponent implements OnInit, AfterContentInit {
     icon: null,
     id: null,
     level: null,
-    
+
   };
 
   public location: ILocation = {
@@ -59,12 +60,12 @@ export class LocationEditComponent implements OnInit, AfterContentInit {
     {name: 'Conference room', value: 'conference.svg'}
   ];
 
-  public levels = times(100, (index)=> {
+  public levels = times(100, (index) => {
     return {
-      name: 'Level ' + (1+index),
+      name: 'Level ' + (1 + index),
       value: index + 1
     };
-  })
+  });
 
   /**
    * Assigns the mode and id above;
@@ -73,10 +74,10 @@ export class LocationEditComponent implements OnInit, AfterContentInit {
   extractRouterInfo () {
     this.route.data.subscribe(data => {
       this.mode = data['mode'];
-    });
+    }).unsubscribe();
     this.route.params.subscribe(params => {
       this.id = +params['id'];
-    });
+    }).unsubscribe();
   }
 
 
@@ -99,8 +100,12 @@ export class LocationEditComponent implements OnInit, AfterContentInit {
       this.store.select('locations').subscribe((locations: Array<ILocation>) => {
         this.location = locations.find(x => x.id === this.id);
         this.form = Object.assign({}, this.location);
-      });
+      }).unsubscribe();
     }
+
+    this.store.select('devices').subscribe((devices: Array<CloudDevice>) => {
+      this.devices = Object.assign({}, devices);
+    });
   }
 
   async postToServer (location: ILocation): Promise<ILocation> {

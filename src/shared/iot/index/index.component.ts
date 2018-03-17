@@ -21,7 +21,7 @@ export class IndexComponent {
       ];
     });
   }
-  
+
 
   public series = [
     {

@@ -17,12 +17,12 @@ export class DevicesComponent implements  OnInit, OnDestroy {
   public devices: Array<any> = [];
   public locations: Array<ILocation> = [];
   public thermometers: Array<Thermometer> = [];
-  private _ref1:any  = null;
+  private _ref1: any  = null;
   private _ref2 = null;
 
   constructor (
     private requests: RequestsService,
-    public chRef: ChangeDetectorRef, 
+    public chRef: ChangeDetectorRef,
     private store: Store<AppState>,
     private communications: CommunicateService
   ) {
@@ -78,7 +78,7 @@ export function CastNumberToSemantic (
   value: number, min: number = 0, max: number = 100
 ) : 'very-low' | 'low' | 'moderate' | 'high' | 'very-high' {
   const range = max - min;
-  
+
   if (value < 20 * range / 100 ) {
     return 'very-low';
   }
