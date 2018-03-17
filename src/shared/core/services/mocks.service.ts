@@ -133,6 +133,7 @@ export class MocksService {
         name: 'Hall temperature',
         type: CloudDeviceType.TemperatureSensor,
         datasource: 'device-1',
+        value: 17.5,
         preferences: {
         
         }
@@ -142,6 +143,7 @@ export class MocksService {
         name: 'Room temperature',
         type: CloudDeviceType.TemperatureSensor,
         datasource: 'device-2',
+        value: 28.8,
         preferences: {
           
         },

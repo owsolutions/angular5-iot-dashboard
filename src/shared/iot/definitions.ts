@@ -162,4 +162,5 @@ export interface CloudDevice {
   model?: string;
   location?: any;
   preferences: IDeviceDisplayPreference;
+  value?: any;
 }

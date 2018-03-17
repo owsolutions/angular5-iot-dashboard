@@ -26,8 +26,6 @@ export class DevicesComponent implements  OnInit, OnDestroy {
     private store: Store<AppState>,
     private communications: CommunicateService
   ) {
-    // Initialize private variables
-    // this.requests.GetAnalogEvents();
   }
 
   async clickDispatch ({device, pin}) {

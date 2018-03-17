@@ -9,12 +9,6 @@ import 'rxjs/add/observable/of';
 import { CreateTemperaturePeriod } from './mocks.service';
 import { Store } from '@ngrx/store';
 
-function timeout (ms = 1000): Promise<any> {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve() , ms);
-  });
-}
-
 @Injectable()
 export class RequestsService {
 
@@ -32,7 +26,6 @@ export class RequestsService {
     return this.mocks.createUser(user);
   }
   async createVPC (vpcInformation: IVPCInformation): Promise<IResponse<any>> {
-    await timeout (200);
     return this.mocks.createVPC(vpcInformation);
   }
   async getLocations(): Promise<Array<ILocation>> {
@@ -76,7 +69,7 @@ export class RequestsService {
   }
 
   public ChangeUserRole (userID: string, roleID: string) {
-    console.log(' Implement the code to change user here');
+    console.log(' Implement the code to change user here ');
   }
   public GetAnalogEvents () {
     this.store.dispatch({

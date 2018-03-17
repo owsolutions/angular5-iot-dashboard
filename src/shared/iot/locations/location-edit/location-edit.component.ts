@@ -136,7 +136,6 @@ export class LocationEditComponent implements OnInit, AfterContentInit {
         id: '2',
         src: '',
         name: 'text.svg',
-
       }]);
     });
   }

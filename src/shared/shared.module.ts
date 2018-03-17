@@ -64,6 +64,7 @@ import { DocsComponent } from './docs/docs.component';
 import { DocsApiWorkaroundComponent } from './docs/docs-api-workaround/docs-api-workaround.component';
 import { DeviceGeneralInformationComponent } from '../app/device-general-information/device-general-information.component';
 import { DeviceCustomizationComponent } from '../app/device-customization/device-customization.component';
+import { RealtimeService } from '../shared/core/services/realtime.service';
 
 @NgModule({
   declarations: [
@@ -130,6 +131,7 @@ import { DeviceCustomizationComponent } from '../app/device-customization/device
   providers: [
     PermissionsService,
     RequestsService,
+    RealtimeService,
     MocksService,
     ActionsService,
     UserService,
