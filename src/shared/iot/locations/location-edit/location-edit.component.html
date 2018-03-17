@@ -27,6 +27,11 @@
 
   </div>
   
+  <app-ng-media 
+    (selectionChange)="changeSelection($event);"
+    type="single" #locationIcon></app-ng-media>
+
+  <br><br>
 
   <app-forms-select-input
     placeholder="Select a device that shows this location temperature"

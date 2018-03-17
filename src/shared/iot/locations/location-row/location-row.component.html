@@ -4,10 +4,10 @@
       <h2>{{location.name}}</h2>
       <img width='200px' [src]="location.icon" [alt]="location.name">
     </div>
-    <div class="col-sm-3 col-xs-6 value-box">
+    <div class="col-sm-3 col-xs-6 value-box" *ngIf="primaryTemperature">
       <h4>Temperature</h4>
       <div class="value">
-          22.8<sup>&#8451;</sup>
+          {{primaryTemperature}}<sup>&#8451;</sup>
       </div>
     </div>
     <div class="clearfix visible-xs"></div>

@@ -80,11 +80,20 @@ export class MocksService {
 
   Locations(): Array<ILocation> {
     return [
-        {id: 1, name: 'Kitchen' , 'icon': this.iotsvg.kitchen, level: '2'},
-        {id: 2, name: 'Bathroom' , 'icon': this.iotsvg.pathtub, level: '3'},
-        // {id: 3, name: 'Master bedrrom', 'icon': 'master-bedroom.svg'},
-        // {id: 4, name: 'Kitchen', 'icon': 'kitchen.svg'},
-        // {id: 5, name: 'Bathroom', 'icon': 'master-bedroom.svg'}
+      {
+        id: 1,
+        name: 'Kitchen',
+        'icon': this.iotsvg.kitchen,
+        level: '2',
+        temperatureDevice: 1
+      },
+      {
+        id: 2,
+        name: 'Bathroom',
+        'icon': this.iotsvg.pathtub,
+        level: '3',
+        temperatureDevice: 2
+      },
     ];
   }
 
@@ -143,7 +152,7 @@ export class MocksService {
         name: 'Room temperature',
         type: CloudDeviceType.TemperatureSensor,
         datasource: 'device-2',
-        value: 28.8,
+        value: 32.8,
         preferences: {
 
         },

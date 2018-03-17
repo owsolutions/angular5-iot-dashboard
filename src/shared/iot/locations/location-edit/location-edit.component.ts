@@ -14,7 +14,7 @@ import { NgMediaComponent } from 'ng-media';
 })
 export class LocationEditComponent implements OnInit, AfterContentInit {
 
-  public devices: Array<CloudDevice> = [];
+  public devices: Array<{value: any, name: any}> = [];
   /**
    * If we are on a editing mode, it has a number;
    * otherwise we only having null.
@@ -37,12 +37,13 @@ export class LocationEditComponent implements OnInit, AfterContentInit {
     icon: null,
     id: null,
     level: null,
-
+    temperatureDevice: null
   };
 
   public location: ILocation = {
     icon: '',
     id: null,
+    temperatureDevice: null,
     name: '',
     level: null
   };
@@ -90,6 +91,14 @@ export class LocationEditComponent implements OnInit, AfterContentInit {
 
   }
 
+  private DevicesAsKeyName (devices: Array<CloudDevice>): Array<{value: any, name: any}> {
+    return [{name: '- none -', value: ''}].concat(devices.map(x => {
+      return {
+        name: x.name,
+        value: x.id
+      };
+    }));
+  }
   public selectImage () {
 
   }
@@ -104,7 +113,7 @@ export class LocationEditComponent implements OnInit, AfterContentInit {
     }
 
     this.store.select('devices').subscribe((devices: Array<CloudDevice>) => {
-      this.devices = Object.assign({}, devices);
+      this.devices = this.DevicesAsKeyName(devices);
     });
   }
 
@@ -117,7 +126,8 @@ export class LocationEditComponent implements OnInit, AfterContentInit {
       icon: location.icon,
       id: location.id ? location.id : id,
       name: location.name,
-      level: location.level
+      level: location.level,
+      temperatureDevice: location.temperatureDevice
     };
   }
 

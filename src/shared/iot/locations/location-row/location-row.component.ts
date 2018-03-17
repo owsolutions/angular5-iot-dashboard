@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ILocation, IWidget } from '@shared/iot/definitions';
+import { ILocation, IWidget, CloudDevice, AppState } from '@shared/iot/definitions';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-location-row',
@@ -8,12 +9,30 @@ import { ILocation, IWidget } from '@shared/iot/definitions';
 })
 export class LocationRowComponent implements OnInit {
 
+  constructor (
+    private store: Store<AppState>,
+  ) {
+
+  }
   public precent: any;
   public precentStyle: any;
+  public primaryTemperature: any;
 
   @Input() public widgets: Array<IWidget> = [];
   @Input() public location = <ILocation>null;
 
+  /**
+   * In case that in location single we have set a device as primary temperature for this location,
+   * we will display it here.
+   */
+  public findTemperature (location: ILocation) {
+    this.store.select('devices').subscribe((devices) => {
+      const device = devices.find(d => d.id == location.temperatureDevice);
+      if (device) {
+        this.primaryTemperature = device.value;
+      }
+    });
+  }
   setPrecent(precent) {
     const increment = 360 / 100;
     const half = Math.round(100 / 2);
@@ -38,5 +57,6 @@ export class LocationRowComponent implements OnInit {
   ngOnInit() {
     this.precent = 55;
     this.precentStyle = this.setPrecent(this.precent);
+    this.findTemperature(this.location);
   }
 }
