@@ -15,7 +15,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   public locations: Array<any> = [];
   public form: CloudDevice = {
     type: CloudDeviceType.TemperatureSensor,
-    preferences: []
+    preferences: {},
   };
   
   constructor(
