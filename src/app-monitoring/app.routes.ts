@@ -5,7 +5,6 @@ import { LocationsComponent } from '@shared/iot/locations/locations.component';
 import { SettingsComponent } from '@shared/core/settings/settings.component';
 import { DevicesComponent } from '@shared/iot/devices/devices.component';
 import { ActivityComponent } from '@shared/iot/activity/activity.component';
-import { WidgetsComponent } from '@shared/iot/widgets/widgets.component';
 import { LocationEditComponent } from '@shared/iot/locations/location-edit/location-edit.component';
 import { FormElementsComponent } from '@shared/core/form-elements/form-elements.component';
 import { UsersComponent } from '@shared/core/users/users.component';
@@ -34,7 +33,6 @@ export const appRoutes: Routes = [
   AuthLayout (ActivityComponent, 'activities'),
   AuthLayout (DevicesComponent, 'devices'),
   AuthLayout (DeviceSingleComponent, 'devices/:id'),
-  AuthLayout (WidgetsComponent, 'widgets'),
   AuthLayout (FormElementsComponent, 'form-elements'),
   AuthLayout (UserSingleComponent, 'user/:id'),
   DefaultLayout(DocsComponent, 'docs'),

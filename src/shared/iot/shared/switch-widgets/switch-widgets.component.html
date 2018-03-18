@@ -1,12 +1,13 @@
 <div class="widget-box">
-  <div class="info-box col-sm-6">
-    <i class="{{widget.icon ? widget.icon : 'icon icon-cloud'}}"></i>
+  <div class="info-box col-sm-7">
+    <i class="{{ GetIcon(device)}}"></i>
     <div class="name">
-      <span>{{widget.name}} {{widget.location ? ' in ' + widget.location.name : ''}}</span>
-      <span>{{value(widget)}}</span>
+      <span>{{device.name}}</span>
     </div>
   </div>
-  <div class="controlls col-sm-6">
-    <app-output-pin [pin]="widget.pin" [device]="widget.device"></app-output-pin> 
-  </div>  
+  <a class="view-button" [routerLink]="'/devices/' + device.id" >
+    <i class="icon icon-cogs"></i>
+  </a>
+ 
+  <div class="value">{{value(device)}}</div>
 </div>

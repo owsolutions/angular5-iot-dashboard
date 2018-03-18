@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IWidget } from '@shared/iot/definitions';
+import { IWidget, CloudDevice, CloudDeviceType } from '@shared/iot/definitions';
 
 @Component({
   selector: 'app-switch-widgets',
@@ -7,21 +7,27 @@ import { IWidget } from '@shared/iot/definitions';
   styleUrls: ['./switch-widgets.component.scss' , '../checkbox-switch.scss']
 })
 export class SwitchWidgetsComponent implements OnInit {
-  @Input() public widget: any;
+  
+  @Input('device') public device: CloudDevice;
 
-  constructor() {
-  }
   ngOnInit() {
 
   }
 
-  value (widget: IWidget) {
-    if (!widget.pin.value.toFixed) {
-      return widget.pin.value;
+  public GetIcon (device: CloudDevice) {
+    if (device.type === CloudDeviceType.TemperatureSensor) {
+      return 'icon icon-thermometer-2';
     }
-    if (widget.pin.value === 'ON' || widget.pin.value === 'OFF') {
-      return widget.pin.value;
+    return 'icon icon-cloud';
+  }
+
+  public value (device: CloudDevice) {
+    if (!device.value.toFixed) {
+      return device.value;
     }
-    return (widget.pin.value as Number).toFixed(2);
+    if (device.value === 'ON' || device.value === 'OFF') {
+      return device.value;
+    }
+    return (device.value as Number).toFixed(2);
   }
 }

@@ -26,7 +26,6 @@ import { CommunicateService } from './core/services/communicate.service';
 import { SignupComponent } from './iot/signup/signup.component';
 import { SignupSuccessComponent } from './iot/signup/signup-success/signup-success.component';
 import { DevicesComponent } from './iot/devices/devices.component';
-import { WidgetsComponent } from './iot/widgets/widgets.component';
 import { ActivityWidgetComponent } from './iot/activity/activity-widget/activity-widget.component';
 import { LocationsComponent } from './iot/locations/locations.component';
 import { ActivityComponent } from './iot/activity/activity.component';
@@ -41,10 +40,6 @@ import { IconWidgetsComponent } from './iot/index/icon-widgets/icon-widgets.comp
 import { PlacesComponent } from './iot/index/places/places.component';
 import { IndexComponent } from './iot/index/index.component';
 import { DefaultLayoutComponent } from './iot/default-layout/default-layout.component';
-import { LargeIconWidgetComponent } from './iot/widgets/large-icon-widget/large-icon-widget.component';
-import { MediumIconWidgetComponent } from './iot/widgets/medium-icon-widget/medium-icon-widget.component';
-import { LargeValueWidgetComponent } from './iot/widgets/large-value-widget/large-value-widget.component';
-import { FullWidgetComponent } from './iot/widgets/full-widget/full-widget.component';
 import { QuickStatusComponent } from './iot/quick-status/quick-status.component';
 import { UserWidgetComponent } from './iot/quick-status/user-widget/user-widget.component';
 import { AppInfoComponent } from './iot/app-info/app-info.component';
@@ -85,7 +80,6 @@ import { RealtimeService } from '../shared/core/services/realtime.service';
     CheckboxInputComponent,
     LoginComponent,
     DevicesComponent,
-    WidgetsComponent,
     ActivityWidgetComponent,
     LocationsComponent,
     ActivityComponent,
@@ -104,10 +98,6 @@ import { RealtimeService } from '../shared/core/services/realtime.service';
     DocsComponent,
     IndexComponent,
     DefaultLayoutComponent,
-    LargeIconWidgetComponent,
-    MediumIconWidgetComponent,
-    LargeValueWidgetComponent,
-    FullWidgetComponent,
     QuickStatusComponent,
     UserWidgetComponent,
     AppInfoComponent,
