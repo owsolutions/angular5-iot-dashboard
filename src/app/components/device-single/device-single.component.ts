@@ -38,13 +38,15 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
           return;
         }
         this.form = Object.assign({}, form);
-      });
+      }).unsubscribe();
     }).unsubscribe();
   }
   ngOnDestroy () {
 
   }
   public SubmitForm () {
+    console.warn(' I am called');
+    delete this.form.value;
     this.store.dispatch({
       type: 'UPDATE_DEVICE',
       payload: Object.assign({}, this.form)
@@ -52,7 +54,11 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('/devices');
   }
 
+  public DeviceGeneralChange (data: any) {
+    this.form = Object.assign(this.form, data);
+  }
   public DeviceCustomizationChange (value) {
+    console.log('I am changed', value);
     this.form.preferences = value;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { CloudDevice, AppState } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
 
@@ -10,6 +10,7 @@ import { Store } from '@ngrx/store';
 export class DeviceGeneralInformationComponent implements OnInit, OnDestroy {
 
   @Input('mode') public mode: 'edit' | 'new' = 'new';
+  @Output('onChange') public onChange: EventEmitter<any> = new EventEmitter();
   @Input('device') public set device (value: CloudDevice) {
     this.form = Object.assign({}, value);
   }
@@ -28,6 +29,9 @@ export class DeviceGeneralInformationComponent implements OnInit, OnDestroy {
 
   }
 
+  public SubmitChange () {
+    this.onChange.emit(this.form);
+  }
   ngOnDestroy () {
     if ( this.ref ) {
       this.ref.unsubscribe ();

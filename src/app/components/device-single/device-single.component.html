@@ -1,6 +1,7 @@
 <app-page-header title="Device single" icon="icon icon-keyboard"></app-page-header>
 
-<app-device-general-information [mode]="mode" [device]="form" ></app-device-general-information>
+<app-device-general-information [mode]="mode" [device]="form" 
+  (onChange)="DeviceGeneralChange($event)" ></app-device-general-information>
 <app-device-customization [preferences]="form.preferences" (onChange)="DeviceCustomizationChange($event)"></app-device-customization>
 
 <div class="col-md-12">

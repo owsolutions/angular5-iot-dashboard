@@ -17,11 +17,11 @@
                   <div class="row">
                     <div class="col-md-12">
                       <label class="checkbox" >
-                        <input type="checkbox" (click)="TriggerChange();" [(ngModel)]="form.DisplayRealTimeTemperatureInSidebar">
+                        <input type="checkbox" (change)="TriggerChange();" [(ngModel)]="form.DisplayRealTimeTemperatureInSidebar">
                         <i></i> Display the real time value in sidebar
                       </label>
                       <label class="checkbox">
-                        <input type="checkbox" (click)="TriggerChange();" [(ngModel)]="form.DisplayAverageLastWeekInSidebar">
+                        <input type="checkbox" (change)="TriggerChange();" [(ngModel)]="form.DisplayAverageLastWeekInSidebar">
                         <i></i> Display the last 7 days average on sidebar
                       </label>
                     </div>  

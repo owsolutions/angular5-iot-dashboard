@@ -150,7 +150,7 @@ export class MocksService {
         value: 32.8,
         location: 2,
         preferences: {
-
+          DisplayRealTimeTemperatureInSidebar: true
         },
 
       }

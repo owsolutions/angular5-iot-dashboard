@@ -11,7 +11,7 @@ export class DeviceCustomizationComponent implements OnInit {
   public form: IDeviceDisplayPreference = {};
   @Output('onChange') public onChange: EventEmitter<IDeviceDisplayPreference> = new EventEmitter();
   @Input('preferences') public set preferences (value:  IDeviceDisplayPreference) {
-    this.form = value || {};
+    this.form = Object.assign({}, value) || {};
   }
 
   constructor() { }
@@ -20,7 +20,10 @@ export class DeviceCustomizationComponent implements OnInit {
   }
 
   public TriggerChange () {
-    this.onChange.emit(this.form);
+    // setTimeout(() => {
+      this.onChange.emit(this.form);
+    // })
+    
   }
 
 }
