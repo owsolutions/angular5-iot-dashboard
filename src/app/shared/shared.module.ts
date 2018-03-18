@@ -56,6 +56,7 @@ import { DocsApiWorkaroundComponent } from './docs/docs-api-workaround/docs-api-
 import { DeviceGeneralInformationComponent } from 'app/components/device-general-information/device-general-information.component';
 import { DeviceCustomizationComponent } from 'app/components/device-customization/device-customization.component';
 import { RealtimeService } from '../shared/core/services/realtime.service';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +101,8 @@ import { RealtimeService } from '../shared/core/services/realtime.service';
     DropFileComponent,
     LoadingComponent,
     InputComponent,
-    FormHolderComponent
+    FormHolderComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserAnimationsModule,

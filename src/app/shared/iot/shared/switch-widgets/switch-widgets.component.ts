@@ -21,6 +21,9 @@ export class SwitchWidgetsComponent implements OnInit {
     return 'icon icon-cloud';
   }
 
+  public IsTemperature (device: CloudDevice) {
+    return false;
+  }
   public value (device: CloudDevice) {
     if (!device.value.toFixed) {
       return device.value;
