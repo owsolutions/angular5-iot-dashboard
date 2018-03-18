@@ -9,24 +9,25 @@ import { Store } from '@ngrx/store';
 })
 export class LocationRowComponent implements OnInit {
 
-  constructor (
-    private store: Store<AppState>,
-  ) {
 
-  }
   public precent: any;
   public precentStyle: any;
   public primaryTemperature: any;
 
   @Input() public widgets: Array<CloudDevice> = [];
   @Input() public location = <ILocation>null;
+  constructor (
+    private store: Store<AppState>,
+  ) {
 
+  }
   /**
    * In case that in location single we have set a device as primary temperature for this location,
    * we will display it here.
    */
   public findTemperature (location: ILocation) {
     this.store.select('devices').subscribe((devices) => {
+      /* tslint:disable */
       const device = devices.find(d => d.id == location.temperatureDevice);
       if (device) {
         this.primaryTemperature = device.value;

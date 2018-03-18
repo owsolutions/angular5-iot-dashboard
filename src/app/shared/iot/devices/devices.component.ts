@@ -3,7 +3,6 @@ import { IDevice, IPin, AppState, ILocation } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
 import { CommunicateService } from '@shared/core/services/communicate.service';
 import { RequestsService } from '@shared/core/services/requests.service';
-import { groupBy, values } from 'lodash';
 
 @Component({
   selector: 'app-devices',

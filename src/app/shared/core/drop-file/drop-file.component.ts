@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, AfterContentInit } from '@angular/core';
 import { NgMediaComponent } from 'ng-media';
 
 declare var $: any;
@@ -8,7 +8,7 @@ declare var $: any;
   templateUrl: './drop-file.component.html',
   styleUrls: ['./drop-file.component.scss']
 })
-export class DropFileComponent {
+export class DropFileComponent implements AfterContentInit {
 
 
   @ViewChild('gallery')

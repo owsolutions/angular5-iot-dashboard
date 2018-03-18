@@ -32,6 +32,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
       this.mode = 'edit';
       this.form.id = data.id;
       this.ref = this.store.select('devices').subscribe((devices: Array<CloudDevice>) => {
+        /* tslint:disable */
         const form = devices.find(dev => dev.id == data.id);
         if ( ! form) {
           return;

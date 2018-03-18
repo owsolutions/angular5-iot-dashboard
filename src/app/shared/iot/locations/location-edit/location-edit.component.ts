@@ -1,4 +1,3 @@
-
 import { Component, OnInit, ViewChild, AfterContentInit } from '@angular/core';
 import { CommunicateService } from '@shared/core/services/communicate.service';
 import { ActivatedRoute, Router } from '@angular/router';

@@ -8,26 +8,12 @@ import { times, random } from 'lodash';
 })
 
 export class IndexComponent {
-    // Index is empty, since for each customer we might implement
-    // different widgets.
-
-  getMock(count = 50) {
-    return times(count, (index) => {
-      return [
-        1317888000000 + (index * 60000),
-        random(32000, 40000) / 100,
-        random(32000, 40000) / 100,
-        random(32000, 40000) / 100,
-      ];
-    });
-  }
-
 
   public series = [
     {
       name: 'Power',
       type: 'area',
-      data: this.getMock(),
+      data: getMock(),
       yAxis: 1,
       gapSize: 5,
       tooltip: {
@@ -48,7 +34,7 @@ export class IndexComponent {
       name: 'Consumption',
       type: 'area',
       gapSize: 5,
-      data: this.getMock(),
+      data: getMock(),
       marker: {
         enabled: false,
         fillColor: '#FFF',
@@ -66,7 +52,7 @@ export class IndexComponent {
     {
       name: 'Water',
       type: 'area',
-      data: this.getMock(),
+      data: getMock(),
       gapSize: 5,
       yAxis: 2,
       tooltip: {
@@ -86,4 +72,15 @@ export class IndexComponent {
       threshold: null
     }
   ];
+}
+
+function getMock (count = 50) {
+  return times(count, (index) => {
+    return [
+      1317888000000 + (index * 60000),
+      random(32000, 40000) / 100,
+      random(32000, 40000) / 100,
+      random(32000, 40000) / 100,
+    ];
+  });
 }

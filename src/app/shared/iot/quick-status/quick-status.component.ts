@@ -14,10 +14,6 @@ export class QuickStatusComponent implements OnInit {
   public devices: Array<any> = [];
   public weatherConditions: any;
 
-  constructor(
-    private store: Store<AppState>,
-  ) { }
-
   public example1: Array<SidebarWidgetItem> = [
     {
       title: 'Wind',
@@ -58,6 +54,10 @@ export class QuickStatusComponent implements OnInit {
       value: '22'
     }
   ];
+
+  constructor(
+    private store: Store<AppState>,
+  ) { }
   ngOnInit() {
     this.weatherConditions = {
       largeTemp: {
@@ -85,8 +85,7 @@ export class QuickStatusComponent implements OnInit {
     }];
   }
   public HasNoPreferenceOnDevices (items: Array<CloudDevice> = []) {
-
-    return items.every(x => ! x.preferences || values(x.preferences).every(x => false));
+    return items.every(x => ! x.preferences || values(x.preferences).every(() => false));
   }
 
 }
