@@ -282,17 +282,3 @@ export class MocksService {
     };
   }
 }
-
-export function CreateTemperaturePeriod (total: number = 30): Array<AnalogEvent> {
-  const items: Array<AnalogEvent> = [];
-  let start = new Date().getTime();
-  for (let i = 1; i <= 10; i ++) {
-    start = start - random(100000, 6000000);
-    items.push({
-      createdAt: new Date(start),
-      value: random(2000, 9000) * 0.01,
-      device: 'device-' + random(1, 3)
-    });
-  }
-  return items;
-};

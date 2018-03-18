@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IResponse } from 'response-type';
 import { DataSource } from '@shared/iot/definitions';
 
@@ -7,12 +7,7 @@ import { DataSource } from '@shared/iot/definitions';
   templateUrl: './docs.component.html',
   styleUrls: ['./docs.component.scss']
 })
-export class DocsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class DocsComponent {
 
   public healthCheckResponseExample: IResponse<any> = {
     data: {
@@ -57,4 +52,3 @@ export class DocsComponent implements OnInit {
     }
   };
 }
-
