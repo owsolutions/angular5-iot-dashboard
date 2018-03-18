@@ -8,7 +8,7 @@ import { IDeviceDisplayPreference } from '@shared/iot/definitions';
 })
 export class DeviceCustomizationComponent implements OnInit {
 
-  private form: IDeviceDisplayPreference = {};
+  public form: IDeviceDisplayPreference = {};
   @Output('onChange') public onChange: EventEmitter<IDeviceDisplayPreference> = new EventEmitter();
   @Input('preferences') public set preferences (value:  IDeviceDisplayPreference) {
     this.form = value || {};

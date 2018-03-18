@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { random } from 'lodash';
-import { CloudDevice, AppState, IActivity, ActivityTypes, ILocation } from '@shared/iot/definitions';
+import { CloudDevice, AppState, IActivity, ILocation } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
 
 @Injectable()
