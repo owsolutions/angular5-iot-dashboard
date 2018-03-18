@@ -4,9 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { appReducersGenerator } from '@app/app.reducers';
-import { createRoutes  } from '@app/app.routes';
+import { appReducersGenerator } from './app.reducers';
+import { createRoutes  } from './app.routes';
+import { NgMediaModule } from 'ng-media';
+import { NgIotModule } from 'ng-iot';
 import { SharedModule } from '../shared/shared.module';
+import { LayoutComponent } from './components/layout/layout.component';
+import { MenuItemsService } from './services/menu-items.service';
+import { RealtimeService } from '../shared/core/services/realtime.service';
 
 @Component({
   selector: 'app-root',
@@ -17,19 +22,30 @@ export class AppComponent {}
 @NgModule({
   declarations: [
     AppComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    NgIotModule,
     HttpModule,
+    NgMediaModule,
     SharedModule,
+    NgIotModule,
     createRoutes (),
     appReducersGenerator()
   ],
   providers: [
-
+    MenuItemsService,
+    RealtimeService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor (
+    private realtime: RealtimeService,
+  ) {
+    console.log('App module built');
+  }
+}

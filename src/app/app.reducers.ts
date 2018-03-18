@@ -2,6 +2,7 @@ import { devicesReducer } from '@shared/iot/data-layer/devices.reducer';
 import { locationsReducer } from '@shared/iot/data-layer/locations.reducer';
 import { activitiesReducer } from '@shared/iot/data-layer/activity.reducer';
 import { rolesReducer } from '@shared/core/data-layer/roles.reducer';
+import { thermometerReducer, analogEventReducer } from './thermometer.reducer';
 
 import { StoreModule } from '@ngrx/store';
 
@@ -10,6 +11,7 @@ export function appReducersGenerator () {
     devices: devicesReducer,
     locations: locationsReducer,
     activities: activitiesReducer,
-    roles: rolesReducer
+    thermometers: thermometerReducer,
+    roles: rolesReducer,
   });
 }

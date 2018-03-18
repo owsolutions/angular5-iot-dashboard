@@ -42,47 +42,6 @@
         "prod": "environments/environment.prod.ts",
         "hmr": "environments/environment.hmr.ts"
       }
-    },
-    {
-      "name":"monitoring",
-      "root": "src",
-      "outDir": "dist",
-      "assets": [
-        "assets",
-        "favicon.ico"
-      ],
-      "index": "index.html",
-      "main": "main-monitoring.ts",
-      "polyfills": "polyfills.ts",
-      "test": "test.ts",
-      "tsconfig": "tsconfig.app.json",
-      "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
-      "styles": [
-        "assets/google-fonts/quicksand/import.css",
-        "assets/css/bootstrap.css",
-        "assets/css/datatable.css",
-        "assets/css/loader.css",
-        "assets/css/forms-style.css",
-        "styles.scss"
-      ],
-      "stylePreprocessorOptions": {
-        "includePaths": [
-          "../src/assets/scss"
-        ]
-      },
-      "scripts": [
-        "assets/js/jquery-3.2.1.min.js",
-        "assets/js/datatables.min.js",
-        "assets/js/dropzone.js",
-	      "assets/sails.io.js"
-      ],
-      "environmentSource": "environments/environment.ts",
-      "environments": {
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts",
-        "hmr": "environments/environment.hmr.ts"
-      }
     }
   ],
   "e2e": {
