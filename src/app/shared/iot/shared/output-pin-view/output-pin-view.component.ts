@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IPin, IDevice } from '@shared/iot/definitions';
 import { random } from 'lodash';
+import { CloudDevice } from '@app/shared/iot/definitions';
 
 @Component({
   selector: 'app-output-pin-view',
@@ -9,11 +9,9 @@ import { random } from 'lodash';
 })
 export class OutputPinViewComponent implements OnInit {
 
+  @Input('device') public device: CloudDevice = null;
   public precent: any;
   public precentStyle: any;
-
-  @Input('pin') public pin = <IPin>null;
-  @Input('device') public device = <IDevice>null;
 
   constructor() { }
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { IDevice, ILocation, AppState, IActivity } from '@shared/iot/definitions';
+import { ILocation, AppState, IActivity, CloudDevice } from '@shared/iot/definitions';
 import { IRole } from '@shared/core/definitions';
 import { RequestsService } from './requests.service';
 
@@ -14,7 +14,7 @@ export class CommunicateService {
    * this socket connection.
    */
 
-  public devices: Observable<Array<IDevice>>;
+  public devices: Observable<Array<CloudDevice>>;
   public locations: Observable<Array<ILocation>>;
   public roles: Observable<Array<IRole>>;
   public activities: Observable<Array<IActivity>>;

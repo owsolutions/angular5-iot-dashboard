@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { IDevice, IPin, AppState, ILocation } from '@shared/iot/definitions';
+import { AppState, ILocation } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
 import { CommunicateService } from '@shared/core/services/communicate.service';
 import { RequestsService } from '@shared/core/services/requests.service';
@@ -11,8 +11,6 @@ import { RequestsService } from '@shared/core/services/requests.service';
 })
 export class DevicesComponent implements  OnInit, OnDestroy {
 
-  public focusedDevice: IDevice = null;
-  public focusedPin: IPin = null;
   public devices: Array<any> = [];
   public locations: Array<ILocation> = [];
   private _ref1: any  = null;
@@ -24,11 +22,6 @@ export class DevicesComponent implements  OnInit, OnDestroy {
     private store: Store<AppState>,
     private communications: CommunicateService
   ) {
-  }
-
-  async clickDispatch ({device, pin}) {
-    this.focusedDevice = device;
-    this.focusedPin = pin;
   }
 
   ngOnInit() {
@@ -46,12 +39,7 @@ export class DevicesComponent implements  OnInit, OnDestroy {
     return `${value.getFullYear()}/${value.getMonth() + 1}/${value.getDate()}`;
   }
   public FormatTemperature (value: number = 0) {
-
     return value.toFixed(2);
-  }
-  unfocus () {
-    this.focusedPin = null;
-    this.focusedDevice = null;
   }
 
   ngOnDestroy () {

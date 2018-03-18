@@ -32,8 +32,6 @@ import { LocationRowComponent } from './iot/locations/location-row/location-row.
 import { LocationEditComponent } from './iot/locations/location-edit/location-edit.component';
 import { OutputPinViewComponent } from './iot/shared/output-pin-view/output-pin-view.component';
 import { SwitchWidgetsComponent } from './iot/shared/switch-widgets/switch-widgets.component';
-import { InputPinComponent } from './iot/shared/input-pin/input-pin.component';
-import { OutputPinComponent } from './iot/shared/output-pin/output-pin.component';
 import { IconWidgetsComponent } from './iot/index/icon-widgets/icon-widgets.component';
 import { PlacesComponent } from './iot/index/places/places.component';
 import { IndexComponent } from './iot/index/index.component';
@@ -88,8 +86,6 @@ import { RealtimeService } from '../shared/core/services/realtime.service';
     NavigationComponent,
     DeviceCustomizationComponent,
     SwitchWidgetsComponent,
-    InputPinComponent,
-    OutputPinComponent,
     IconWidgetsComponent,
     PlacesComponent,
     DocsComponent,

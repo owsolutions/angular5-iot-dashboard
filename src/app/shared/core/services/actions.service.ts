@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { random } from 'lodash';
-import { IDevice, CloudDevice, AppState, IActivity, IPin, ActivityTypes, ILocation } from '@shared/iot/definitions';
+import { CloudDevice, AppState, IActivity, ActivityTypes, ILocation } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
 
 @Injectable()
@@ -11,19 +11,8 @@ export class ActionsService {
   ) {
   }
 
-  triggerDeviceChange ($event: any, device: IDevice, pin: IPin, newValue: any) {
-    this.notfityActivity({
-      icon: 'icon-play',
-      iconType: 'icon',
-      reason: 'Ali',
-      time: '10 Minutes ago',
-      description: $event.target.value + ' -> ' + device.uniqueid + ' > ' + newValue,
-      id: random(111, 999),
-      type: ActivityTypes.DevicePinChange,
-      meta: {
-        device, pin, newValue
-      }
-    });
+  triggerDeviceChange (device: CloudDevice) {
+    console.warn('User has changed something!');
   }
 
   /**
