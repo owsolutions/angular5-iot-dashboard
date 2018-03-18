@@ -14,13 +14,13 @@
     <div class="col-sm-3 col-xs-6">
       <h4>Name</h4>
       <ul class="list-names" *ngIf="widgets && widgets.length > 0">
-          <li *ngFor="let widget of widgets;">{{widget.name}}</li>
+          <li *ngFor="let device of widgets;">{{device.name}}</li>
       </ul>
     </div>
     <div class="col-sm-3 col-xs-6">
         <h4>Status</h4>
         <ul class="list status" *ngIf="widgets && widgets.length > 0">
-          <app-output-pin-view *ngFor="let widget of widgets;" [pin]="widget.pin" [device]="widget.device"></app-output-pin-view>
+          <app-output-pin-view *ngFor="let device of widgets;"[device]="device"></app-output-pin-view>
         </ul>
     </div>
     <div class="col-sm-1">
