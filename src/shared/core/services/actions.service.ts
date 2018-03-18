@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { random } from 'lodash';
-import { IDevice, AppState, IActivity, IWidget, IPin, ActivityTypes } from '@shared/iot/definitions';
+import { IDevice, CloudDevice, AppState, IActivity, IWidget, IPin, ActivityTypes, ILocation } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
@@ -49,5 +49,8 @@ export class ActionsService {
     this.store.dispatch({type: 'UPDATE_ACTIVITY', payload: activity});
   }
 
+  public findWidgets (devices, location: ILocation): Array<CloudDevice> {
+    return devices.filter(device => device.location === location.id);
+  }
 
 }

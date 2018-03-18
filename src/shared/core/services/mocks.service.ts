@@ -145,7 +145,8 @@ export class MocksService {
         value: 17.5,
         location: 1,
         preferences: {
-
+          DisplayAverageLastWeekInSidebar: true,
+          DisplayRealTimeTemperatureInSidebar: true
         }
       },
       {

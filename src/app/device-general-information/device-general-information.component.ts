@@ -11,7 +11,7 @@ export class DeviceGeneralInformationComponent implements OnInit, OnDestroy {
 
   @Input('mode') public mode: 'edit' | 'new' = 'new';
   @Input('device') public set device (value: CloudDevice) {
-    this.form = value;
+    this.form = Object.assign({}, value);
   }
   private ref = null;
   public locations: Array<any> = [];

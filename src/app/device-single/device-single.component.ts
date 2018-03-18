@@ -46,7 +46,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   public SubmitForm () {
     this.store.dispatch({
       type: 'UPDATE_DEVICE',
-      payload: this.form
+      payload: Object.assign({}, this.form)
     });
     this.router.navigateByUrl('/devices');
   }

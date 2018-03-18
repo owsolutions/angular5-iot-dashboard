@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ILocation, AppState, CloudDevice } from '@shared/iot/definitions';
 import { ChangeDetectorRef } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { ActionsService } from '@shared/core/services/actions.service';
 
 @Component({
   selector: 'app-places',
@@ -10,24 +11,24 @@ import { Store } from '@ngrx/store';
 })
 export class PlacesComponent implements OnInit, OnDestroy {
 
-  public places: Array<ILocation> = [];
+  public locations: Array<ILocation> = [];
   public devices: Array<CloudDevice> = [];
 
-  constructor(public chRef: ChangeDetectorRef, private store: Store<AppState>) {
+  constructor(
+    public chRef: ChangeDetectorRef,
+    private store: Store<AppState>,
+    public actions: ActionsService,
+  ) {
     // Initialize the private variables
   }
 
   async ngOnInit() {
     this.store.select('locations').subscribe((locations: Array<ILocation>) => {
-      this.places = locations;
+      this.locations = locations;
     });
     this.store.select('devices').subscribe(collection => {
       this.devices = (collection as Array<CloudDevice>);
     });
-  }
-
-  findWidgets (location: ILocation): Array<CloudDevice> {
-    return this.devices.filter(widget => widget.location && widget.location.id === location.id);
   }
 
   ngOnDestroy () {

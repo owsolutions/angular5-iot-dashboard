@@ -11,6 +11,7 @@ import { NgIotModule } from 'ng-iot';
 import { SharedModule } from '../shared/shared.module';
 import { LayoutComponent } from './components/layout/layout.component';
 import { MenuItemsService } from './services/menu-items.service';
+import { RealtimeService } from '../shared/core/services/realtime.service';
 
 @Component({
   selector: 'app-root',
@@ -37,8 +38,14 @@ export class AppComponent {}
   ],
   providers: [
     MenuItemsService,
-    ,
+    RealtimeService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor (
+    private realtime: RealtimeService,
+  ) {
+    console.log('App module built');
+  }
+}
