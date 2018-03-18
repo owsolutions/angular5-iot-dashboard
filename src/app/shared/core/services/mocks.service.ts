@@ -5,14 +5,7 @@ import { times } from 'lodash';
 import { PermissionsService } from './permissions.service';
 import { IResponse } from 'response-type';
 import faker from 'faker';
-
 import { IotSvgService } from '../../iot-svg/iot-svg.service';
-/**
- * All mocks data for application sits here. In general, data doesn't belong to components,
- * the data layer is completely independent from the componenets;
- * Components read data from store.
- * Hence, reducers, actions and mocks all are flat in the project directory.
- */
 
 @Injectable()
 export class MocksService {
