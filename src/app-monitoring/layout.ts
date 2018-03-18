@@ -34,8 +34,8 @@ const SidebarOutlets = [
         },
         {
           link: '/gallery',
-          icon: 'icon icon-account_box',
-          title: 'File upload',
+          icon: 'icon icon-eye',
+          title: 'Gallery',
           permissions: ['USERS::VIEW'],
           auth: true
         },
