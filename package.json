@@ -1,6 +1,6 @@
 {
   "name": "angular-dashboard",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "license": "MIT",
   "scripts": {
     "production": "npm run lint && npm run build",
