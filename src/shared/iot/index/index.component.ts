@@ -41,8 +41,8 @@ export class IndexComponent {
         symbol: 'circle',
         radius: 3
       },
-      fillColor: 'rgba(74,20,140,0.4)',
-      lineColor: 'rgba(74,20,140,0.9)'
+      fillColor: 'rgba(220,237,200,0.4)',
+      lineColor: 'rgba(220,237,200,0.9)'
     },
     {
       name: 'Consumption',
@@ -60,8 +60,8 @@ export class IndexComponent {
       tooltip: {
         valueSuffix: ' kWh'
       },
-      fillColor: 'rgba(142,36,170, 0.4)',
-      lineColor: 'rgba(142,36,170, 0.9)'
+      fillColor: 'rgb(156,204,101, 0.4)',
+      lineColor: 'rgb(156,204,101, 0.9)'
     },
     {
       name: 'Water',
@@ -81,8 +81,8 @@ export class IndexComponent {
         symbol: 'circle',
         radius: 3
       },
-      fillColor: 'rgba(171,71,188, 0.6)',
-      lineColor: 'rgba(171,71,188, 0.9)',
+      fillColor: 'rgb(124,179,66, 0.6)',
+      lineColor: 'rgb(124,179,66, 0.9)',
       threshold: null
     }
   ];
