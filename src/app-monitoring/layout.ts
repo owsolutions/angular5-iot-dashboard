@@ -26,11 +26,34 @@ const SidebarOutlets = [
           auth: true
         },
         {
+          link: '/locations',
+          icon: 'icon icon-room',
+          title: 'Locations',
+          permissions: ['LOCATIONS::VIEW'],
+          auth: true
+        },
+        {
           link: '/gallery',
           icon: 'icon icon-account_box',
           title: 'File upload',
           permissions: ['USERS::VIEW'],
           auth: true
+        },
+        {
+          link: '/settings',
+          icon: 'icon icon-settings',
+          title: 'Settings',
+          auth: true
+        },
+        {
+          link: '/docs',
+          icon: 'icon icon-star',
+          title: 'documents',
+        },
+        {
+          link: '/login',
+          icon: 'icon icon-exit_to_app',
+          title: 'Logout'
         },
         {
           link: '/users',
@@ -47,22 +70,9 @@ const SidebarOutlets = [
           auth: true
         },
         {
-          link: '/locations',
-          icon: 'icon icon-room',
-          title: 'locations',
-          permissions: ['LOCATIONS::VIEW'],
-          auth: true
-        },
-        {
-          link: '/settings',
-          icon: 'icon icon-settings',
-          title: 'Settings',
-          auth: true
-        },
-        {
-          link: '/docs',
-          icon: 'icon icon-star',
-          title: 'documents',
+          link: '/form-elements',
+          icon: 'icon icon-wpforms',
+          title: 'Form elements'
         },
         {
           link: '/activities',
@@ -71,11 +81,7 @@ const SidebarOutlets = [
           permissions: ['ACTIVITIES::VIEW'],
           auth: true
         },
-        {
-          link: '/login',
-          icon: 'icon icon-exit_to_app',
-          title: 'Logout'
-        }
+
       ]
     }
   },
