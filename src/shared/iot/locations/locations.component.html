@@ -6,5 +6,5 @@
 </app-page-header>
 
 <div *ngFor="let location of locations;">
-  <app-location-row [widgets]="findWidgets(location)" [location]="location"></app-location-row>
+  <app-location-row [widgets]="actions.findWidgets(devices, location)" [location]="location"></app-location-row>
 </div>

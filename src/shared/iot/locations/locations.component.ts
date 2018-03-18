@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AppState, ILocation, CloudDevice } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
 import { CommunicateService } from '@shared/core/services/communicate.service';
+import { ActionsService } from '@shared/core/services/actions.service';
 
 @Component({
   selector: 'app-locations',
@@ -16,6 +17,7 @@ export class LocationsComponent implements OnInit {
   constructor (
     public chRef: ChangeDetectorRef,
     private store: Store<AppState>,
+    public actions: ActionsService,
     private communications: CommunicateService,
   ) {
     // Initialize private variables
@@ -31,9 +33,4 @@ export class LocationsComponent implements OnInit {
       this.devices = (collection as Array<CloudDevice>);
     });
   }
-
-  findWidgets (location: ILocation): Array<CloudDevice> {
-    return this.devices.filter(device => device.location === location.id);
-  }
-
 }
