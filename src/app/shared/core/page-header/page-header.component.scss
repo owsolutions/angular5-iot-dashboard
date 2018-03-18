@@ -1,0 +1,86 @@
+@import 'injects';
+
+.page-title {
+	background: $theme-color-700;
+  margin: 0;
+  font-size: 23px;
+  padding: 20px 15px;
+	color: white;
+}
+
+.search-box {
+  background: $theme-color-500;
+  padding:  7.5px 15px;
+  margin: -10px auto;
+  float: right;
+  height: 45px;
+  color: white;
+  border: 0;
+
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $theme-color-50;
+    opacity: 1; /* Firefox */
+  }
+
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: $theme-color-50;
+  }
+
+  &::-ms-input-placeholder { /* Microsoft Edge */
+      color: $theme-color-50;
+  }
+}
+.spinner {
+  float: right;
+  top: 0;
+  width: 50px;
+  height: 25px;
+  margin-right: 15px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.spinner > div {
+  background-color: white;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}

@@ -1,0 +1,49 @@
+@import 'injects';
+
+nav.navigation {
+	overflow-y: auto;
+	background: $navigation;
+	
+	@media (min-width: $screen-desktop){
+		position: fixed;
+		left:0px;
+		top:0px;
+		bottom:0;
+		width:$navigationWidth;
+	}
+	.nav-item-container{
+		display: flex;
+		overflow-x:auto;
+		flex-direction: column;
+		@media (max-width: $screen-tablet-max){
+			flex-direction: row;
+		}
+		a{
+			text-decoration: none;
+			flex:1;
+			text-align: center;
+			padding: 15px 6px 15px 3px;
+			color: $nav-icon;
+			display: inline-block;
+			font-weight: bold;
+			i {
+				display:block;
+				font-size:30px;
+				padding-bottom:5px;
+			}
+			&:hover, &.active {
+				i, span {
+					color: $theme-color-100;
+				}
+				border-left:3px solid $theme-color-100;
+				background-color: $nav-icon-hover;
+				padding-left:0px;
+				cursor: pointer;
+			}
+
+			@media (max-width: $screen-tablet-max){
+				min-width:$navigationWidth;
+			}
+		}
+	}
+}

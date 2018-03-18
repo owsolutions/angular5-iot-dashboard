@@ -1,0 +1,48 @@
+<app-page-header title="Edit location" icon="icon icon-camera-alt">
+  <a (click)="formSubmit()" class="touchbar-button" *ngIf="mode == 'new'">Create new location</a>
+  <a (click)="formSubmit()" class="touchbar-button" *ngIf="mode == 'edit'">Edit location</a>
+
+</app-page-header>
+<div class="body" *ngIf="location" >
+
+  <div style="max-width: 600px;">
+    <app-forms-text-input
+    placeholder="Location name"
+    icon="icon icon-user"
+    name="Location name"
+    [value]="location.name"
+    (onChange)="onInputChange('name', $event)"
+    >
+  </app-forms-text-input>
+
+  <app-forms-select-input
+    placeholder="Select the level (floor)"
+    icon="icon icon-user"
+    name="Level"
+    [selected]="location.level"
+    [options]="levels"
+    (onChange)="onInputChange('level', $event)"
+    >
+  </app-forms-select-input>
+
+  </div>
+  
+  <app-ng-media 
+    (selectionChange)="changeSelection($event);"
+    type="single" #locationIcon></app-ng-media>
+
+  <br><br>
+
+  <app-forms-select-input
+    placeholder="Select a device that shows this location temperature"
+    icon="icon icon-user"
+    name="Location temperature"
+    [selected]="location.temperatureDevice"
+    [options]="devices"
+    (onChange)="onInputChange('temperatureDevice', $event)"
+    >
+  </app-forms-select-input>
+  <a (click)="formSubmit()" class="normal-button" *ngIf="mode == 'new'">Create new location</a>
+  <a (click)="formSubmit()" class="normal-button" *ngIf="mode == 'edit'">Edit location</a>
+
+</div>

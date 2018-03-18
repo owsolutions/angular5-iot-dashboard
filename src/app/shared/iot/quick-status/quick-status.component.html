@@ -1,0 +1,27 @@
+<div class="quick-status">
+  <div class="docked">
+    <app-user-widget></app-user-widget>
+
+    <h2>Quick view</h2>
+    <div *ngIf="HasNoPreferenceOnDevices(devices)" class="sidebar-no-widget-message">
+      You have not set any kind of widgets on your sidebar. You can add them here
+      by checking out each device single page and configure the customization
+    </div>
+    <!-- <app-sidebar-widget [items]="example0"></app-sidebar-widget>
+    <app-sidebar-widget [items]="example1"></app-sidebar-widget> -->
+    
+    <ng-container *ngFor="let device of devices">
+      <ng-container *ngIf="device.preferences">
+        <app-sidebar-widget *ngIf="device.preferences.DisplayRealTimeTemperatureInSidebar"
+          [items]="TempWidget(device)"></app-sidebar-widget>  
+        <ng-iot-quick-chart
+          *ngIf="device.preferences.DisplayAverageLastWeekInSidebar"></ng-iot-quick-chart>
+      </ng-container>
+    </ng-container>
+    
+    <!-- <h2>Netatmo indoor</h2>
+    <app-sidebar-widget [items]="temperature"></app-sidebar-widget>
+    <app-sidebar-widget [items]="example1"></app-sidebar-widget> -->
+    <br>
+  </div>
+</div>

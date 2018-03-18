@@ -1,0 +1,37 @@
+<div class="col-md-12">
+  <div class="widget-wrap">
+    <div class="widget-header block-header margin-bottom-0 clearfix">
+      <div class="pull-left">
+        <h3>Device Customization</h3>
+        <p>Modify how a device can look and feel among dashboard</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="widget-container">
+      <div class="widget-content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="j-forms">
+              <div class="form-content">
+                <div class="unit">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label class="checkbox" >
+                        <input type="checkbox" (click)="TriggerChange();" [(ngModel)]="form.DisplayRealTimeTemperatureInSidebar">
+                        <i></i> Display the real time value in sidebar
+                      </label>
+                      <label class="checkbox">
+                        <input type="checkbox" (click)="TriggerChange();" [(ngModel)]="form.DisplayAverageLastWeekInSidebar">
+                        <i></i> Display the last 7 days average on sidebar
+                      </label>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

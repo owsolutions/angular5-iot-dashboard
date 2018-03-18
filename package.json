@@ -3,15 +3,13 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "production": "npm run lint && npm run test && npm run build",
+    "production": "npm run lint && npm run build",
     "build": "ng build --env=prod -prod",
     "test": "ng test",
     "lint": "ng lint",
     "build:github": "ng build -e=prod -prod --base-href=/angular5-iot-dashboard --deploy-url=/angular5-iot-dashboard/ --progress false",
     "gh-pages": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages",
-    "hmr": "ng serve --hmr -e=hmr",
+    "start": "ng serve --hmr -e=hmr",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -32,8 +30,8 @@
     "core-js": "^2.5.3",
     "intl": "^1.2.5",
     "lodash": "^4.17.4",
-    "ng-iot": "0.0.7",
-    "ng-media": "0.0.12",
+    "ng-iot": "0.0.11",
+    "ng-media": "0.0.16",
     "response-type": "^1.0.2",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.12"
@@ -59,6 +57,7 @@
     "ng2-mock-component": "0.0.6",
     "node-sass": "^4.5.3",
     "protractor": "~5.1.0",
+    "sass-material-colors": "0.0.5",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
     "typescript": "^2.7.2"

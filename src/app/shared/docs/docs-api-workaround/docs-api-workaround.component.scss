@@ -1,0 +1,16 @@
+@import 'injects';
+pre {
+  border-radius: 0;
+}
+.api-type {
+  float: left;
+  background: $theme-color-900;
+  color: $theme-color-100;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.workaround-container {
+  border-left: 1px solid $theme-color-900;
+  padding-left: 15px;
+}

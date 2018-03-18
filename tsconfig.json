@@ -8,7 +8,8 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "paths": {
-      "@app/*": ["app/*"]
+      "@app/*": ["app/*"],
+      "@shared/*": ["app/shared/*"]
     },
     "experimentalDecorators": true,
     "target": "es5",

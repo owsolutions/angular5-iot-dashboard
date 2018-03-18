@@ -1,0 +1,51 @@
+<div class="flex-container medium-icon-widget-wrapper">
+  <ng-container *ngFor="let item of items;">
+    <div class='flex-item' *ngIf="item.title && item.value && item.icon && items.length > 1" >
+      <div class="medium-icon-widget">
+        <div class='title'>{{item.title}}</div>
+        <i class="{{item.icon}}"></i>
+        <div class="value">{{item.value}}</div>
+      </div>
+    </div>
+
+    <div class='flex-item' *ngIf="item.title && item.value && item.value.amount && !item.icon && item.value.unit != '%' && items.length > 1">
+      <div class="medium-icon-widget">
+        <div class='title'>{{item.title}}</div>
+        <span class="midVal">
+          {{item.value.amount}}
+        </span>
+        <div class="value">{{item.value.unit}}</div>
+      </div>
+    </div>
+
+    <div class='flex-item' *ngIf="!item.title && item.value && item.icon  && items.length > 1">
+      <div class="large-icon-widget">
+        <i class="icon" [ngClass]="item.icon"></i>
+        <span class="value">{{item.value}}</span>
+      </div>
+    </div>
+
+    <div class="large-value-item" *ngIf="item.value && item.title && !item.icon && item.value.unit == '%' && items.length > 1">
+      <div class="value">{{item.value.amount}}<sup>%</sup></div>
+      <div class="title">{{item.title}}</div>
+    </div>
+
+
+    
+  
+  </ng-container>
+ 
+  
+</div>
+
+<ng-container *ngIf="items.length === 1 && items[0].value && items[0].icon && items[0].title">
+  <div class="flex-container">
+    <div class="flex-item single-large-icon">
+      <i [ngClass]=" 'icon icon-thermometer-2' "></i>  
+    </div>
+    <div class="flex-item large-value-item">
+      <div class="value">{{items[0].value}}<sup>C</sup></div>
+      <div class="title">{{items[0].title}}</div>
+    </div>
+  </div>
+</ng-container>

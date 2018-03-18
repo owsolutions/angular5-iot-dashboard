@@ -1,9 +1,0 @@
-<!-- Navigation -->
-<nav class="navigation">
-    <div class="nav-item-container">    
-        <a *ngFor="let nav of getNavigation()" [routerLink]='nav.link' routerLinkActive="active">
-            <i [class]="nav.icon"></i>
-            {{nav.title}}
-        </a>
-    </div>
-</nav>

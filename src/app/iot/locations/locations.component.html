@@ -1,6 +1,0 @@
-<app-page-header title="Locations" icon="icon icon-location"></app-page-header>
-<a routerLink="/locations/new" class="btn btn-primary docked">Add location</a>
-
-<div *ngFor="let location of locations;">
-    <app-location-row [widgets]="findWidgets(location)" [location]="location"></app-location-row>
-</div>

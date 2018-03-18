@@ -1,0 +1,17 @@
+<h1 class='page-title'>
+  <i class="{{icon}}"></i>
+  {{title}}
+
+  <div style="float: right;">
+    <ng-content></ng-content>
+  </div>
+  <input type="text" *ngIf="searchbar" (keyup)="keyup($event.target.value)" class="search-box" placeholder="Search for locations...">
+
+  <div  *ngIf="loading" class="spinner">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+  </div>
+</h1>

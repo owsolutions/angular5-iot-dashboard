@@ -1,0 +1,95 @@
+<app-page-header title="Documentations"></app-page-header>
+
+<div class="page-content">
+  <h1>Welcome to realtime documentations</h1>
+  In this section, we explain all about the dashboard usage and it's connectivity conditions to server, and how you can 
+  interact your hardwares using our REST api to make an interactive dashboard.
+
+  <br>
+
+  <h2>REST API</h2>
+  In order to display any information on your dashboard, you need to send your device information changes to our restful API.
+  These apis, all require a token to distingush the identity.
+
+  <br>
+  For more flexibilty, we can accept token per different device or a general token that can describe information for all devices,
+  and in the request body, you can specifiy the device by it's id.
+  Mostly our api sets are used to collect information but also you can find some apis that return you useful information about your ecosystem.
+
+  <br>
+  <b>It's very important to notice that</b> all responses from our server api are coming back with a guideline from google,
+  called <i>google json styleguide</i> and you can guess success and failure of your api request based on this format.
+  Generally speaking, if our servers be able to catch your request, we will return 200 response anyway, even if the operation
+  has not performed. In this case you must look for error field within the response object.
+  <br>
+  Response that are having 50x, 40x or else, are rarely appear because we aim to handle all possible situation with our api,
+  and you must consider these kind of errors temporary out of service or partially downtime.
+
+  <h2>Getting a token</h2>
+  You can find your <b>IOT Token</b> inside your settings section. Make sure you use the <b>IOT Token</b> only to update us for your device information,
+  such as the changes in temperature or humidity, devices usages and etc. There might be other tokens provided to you
+  and each have their own usage.
+
+  <br>
+
+  Eversince you have your token, you can make post and get requests to the api server included <strong>x-access-token</strong> in headers.
+  <br>
+
+  <h3>Server health example</h3>
+  You can get a response from your dashboard to see if it's running healthy and discover a little bit of information.
+  <br><br>
+
+  <app-docs-api-workaround
+    type="get"
+    [response]="healthCheckResponseExample"
+    url="broadcast/healthcheck"
+  ></app-docs-api-workaround>
+
+  <h2>Devices Information API</h2>
+  Most important api for developers who want to integrate with dashboard is to post their devices information to our cloud.
+  Basically, you can send these information using REST API and we will collect it overtime and make your analytics.
+  <br>
+  Eventhought there are couple of other different apis, such as your login and etc, we cover data section here and 
+  describe for example, <b>how to connect a temperature arduino device to this end point</b>
+
+  <h3>Schemas vs Data collection</h3>
+  There are two main topic on collecting information and displaying information. Imagine you 2 different kind of temperature measurement
+  devices. One is to measure a house temperature, and other one is going to measure the industrial device temperature.
+
+  <br>
+  What is obvious in this scenrio, you will collect a number from your sensor, let's say for house between 15-40 degrees centegrade and
+  for industrial device, probably something between 500-2500 degrees of centigrade.
+  You will send both of information with same api, but when you want to do analytics or monitoring the way you want system behave 
+  is different.
+  <br>
+  If a house temperature goes more than 60 degree, there must be a alarm but this is not the case for industrial device. To configurate
+  these kind of information, you need to use your dashboard device settings. Using api, you will only send the real values
+  of the sensor device, sometimes not even specifiyng the type of device.
+
+  <h3>Sending a sensor data</h3>
+  We will collect sensor data using same api for analog and digital devices. Each request, must specifiy the device id, even if it's
+  specified in your token specially for this device. In order to do this, you want to send us your device current value and some other 
+  data:
+  <br>
+  <ul>
+    <li><strong>geo</strong> The geographical location of your device. We accept a lat/lng value for each request because
+    in some scenarios, your device might be moving over time and sending you the information. For example, if you have drone that
+  wants to estimate the temperature over a forest, it's nice to just send the position with temperature as well, so we can
+give you a heatmap over the google maps and you would make a better analysis. Also, in case of stable devices but many of them,
+if you can specify the location automatically, it's gonna give you same possibilties</li>
+    <li><strong>value</strong> Value is a numerical data, can be an integer or float. We will store non-numeric values as well, but
+    maybe reportings will be decreased due to type of the value you are sending to us.</li>
+    <li><strong>device</strong> any source of information must have a device id, and this id must be unique among your devices otherwise
+    we cannot differenciate between your multiple devices</li>
+  </ul>
+
+  <br>
+  <app-docs-api-workaround
+    type="post"
+    [body]="boardcastBodyExample"
+    [response]="boardcastResponseExample"
+    url="broadcast/collect"
+  ></app-docs-api-workaround>
+
+
+</div>

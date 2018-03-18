@@ -1,0 +1,16 @@
+<div class="user-widget-container" *ngIf="User">
+  <div class='background-overlay'>
+    <div class="avatar">
+      <img [src]="'assets/images/' + User.avatar" [alt]="User.firstname + ' ' + User.lastname" [title]="User.firstname + ' ' + User.lastname"/>
+    </div>
+    <div class="user-detail">
+      <p class="ud-user" *ngIf="User">{{User.firstname + ' ' + User.lastname}}</p>
+    </div>
+    <div class="user-accesory" *ngIf="User">
+      <!-- <div><a [routerLink]='index'><i class="icon icon-settings"></i></a></div>
+      <div><a [routerLink]='index'><i class="icon icon-mail_outline"></i></a></div>
+      <div><a [routerLink]='index'><i class="icon icon-notifications_none"></i></a></div> -->
+      <div><a routerLink='/login'><i class="icon icon-power_settings_new"></i></a></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<app-page-header title="Device single" icon="icon icon-keyboard"></app-page-header>
+
+<app-device-general-information [mode]="mode" [device]="form" ></app-device-general-information>
+<app-device-customization [preferences]="form.preferences" (onChange)="DeviceCustomizationChange($event)"></app-device-customization>
+
+<div class="col-md-12">
+  <button (click)="SubmitForm()" class="normal-button" *ngIf="mode == 'edit'">Edit device</button>
+  <button (click)="SubmitForm()" class="normal-button" *ngIf="mode == 'new'">Create device</button>
+  <br><br>
+</div>

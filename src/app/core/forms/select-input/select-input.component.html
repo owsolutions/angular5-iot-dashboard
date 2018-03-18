@@ -1,9 +1,0 @@
-<div class="form-group">
-  <label for="inputName">{{name}}*</label>
-  <div class="input-group Name">
-    <span class="input-group-addon"><i class="{{icon}}"></i></span>
-    <select type="text" class="form-control" (change)="onInputChange($event)">
-      <option *ngFor="let option of options" [selected]="(option.value ? option.value : option.name) === selected" value="{{option.value ? option.value : option.name}}">{{option.name}}</option>
-    </select>
-  </div>
-</div>

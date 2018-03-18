@@ -1,0 +1,72 @@
+@import 'injects';
+
+$bgColor: #f0f0f0;
+$lineColor: #d7dbe6;
+$background: #e6eaf5;
+$itemicon: #8e96ad;
+
+#timeline-container{
+  width: 100%;
+  overflow: hidden;
+  background: $background;
+
+  > ul{
+    margin-left: 45px;
+    border-left: 2px solid $lineColor;
+    > li{
+      list-style: none;
+      padding-left: 30px;
+      position: relative;
+      margin-bottom: 20px;
+      .description{
+        font-weight: bold;
+        color: $itemicon;
+        font-size: 14px;
+        p{
+          margin-bottom: 5px;
+        }
+      }
+      h3{
+        font-size: 14px;
+        color: lighten($itemicon,5);
+      }
+      > span{
+        background: $background;        
+        display: block;
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 0 0 4px $background;
+        overflow: hidden;
+        position: absolute;
+        border-radius: 50%;
+        left: -20px;
+        i{
+          display: block;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 2px solid $itemicon;
+          color: lighten($itemicon,5);
+          padding-left: 8px;
+          font-size: 20px;
+          line-height: 3px;
+          &:before{
+              width: 2.15em !important;
+              display: block !important;
+              padding-top: .9em;
+          }
+        }
+        img{
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      &:after{
+        content: attr(date-is);
+        color: $theme-color-900;
+        font-size: 11px;
+      }
+    }
+  }
+}
