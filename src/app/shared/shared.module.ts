@@ -1,4 +1,3 @@
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -53,11 +52,11 @@ import { LogoutComponent } from './core/users/logout/logout.component';
 import { NavigationComponent } from '@shared/core/navigation/navigation.component';
 import { SidebarWidgetComponent } from '@shared/iot/sidebar-widget/sidebar-widget.component';
 import { IotSvgService } from './iot-svg/iot-svg.service';
-import { DeviceSingleComponent } from '../app/device-single/device-single.component';
+import { DeviceSingleComponent } from 'app/components/device-single/device-single.component';
 import { DocsComponent } from './docs/docs.component';
 import { DocsApiWorkaroundComponent } from './docs/docs-api-workaround/docs-api-workaround.component';
-import { DeviceGeneralInformationComponent } from '../app/device-general-information/device-general-information.component';
-import { DeviceCustomizationComponent } from '../app/device-customization/device-customization.component';
+import { DeviceGeneralInformationComponent } from 'app/components/device-general-information/device-general-information.component';
+import { DeviceCustomizationComponent } from 'app/components/device-customization/device-customization.component';
 import { RealtimeService } from '../shared/core/services/realtime.service';
 
 @NgModule({

@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { random } from 'lodash';
-import { IDevice, CloudDevice, AppState, IActivity, IWidget, IPin, ActivityTypes, ILocation } from '@shared/iot/definitions';
+import { IDevice, CloudDevice, AppState, IActivity, IPin, ActivityTypes, ILocation } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ActionsService {
 
-  public widgets: Observable<Array<IWidget>>;
   constructor (
     private store: Store<AppState>,
   ) {

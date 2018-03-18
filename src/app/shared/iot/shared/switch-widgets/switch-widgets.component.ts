@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IWidget, CloudDevice, CloudDeviceType } from '@shared/iot/definitions';
+import { CloudDevice, CloudDeviceType } from '@shared/iot/definitions';
 
 @Component({
   selector: 'app-switch-widgets',

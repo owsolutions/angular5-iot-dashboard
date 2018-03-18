@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ILocation, IWidget, CloudDevice, AppState } from '@shared/iot/definitions';
+import { ILocation, CloudDevice, AppState } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -18,7 +18,7 @@ export class LocationRowComponent implements OnInit {
   public precentStyle: any;
   public primaryTemperature: any;
 
-  @Input() public widgets: Array<IWidget> = [];
+  @Input() public widgets: Array<CloudDevice> = [];
   @Input() public location = <ILocation>null;
 
   /**

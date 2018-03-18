@@ -4,7 +4,7 @@ import { AppInfoComponent } from '@shared/iot/app-info/app-info.component';
 import { Route } from '@angular/router';
 import { DefaultLayoutComponent } from '@shared/iot/default-layout/default-layout.component';
 import { AuthGuard } from '@shared/core/services/user.service';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 
 const SidebarOutlets = [
   {

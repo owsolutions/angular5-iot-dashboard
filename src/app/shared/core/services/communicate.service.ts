@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { IDevice, ILocation, AppState, IActivity, IWidget } from '@shared/iot/definitions';
+import { IDevice, ILocation, AppState, IActivity } from '@shared/iot/definitions';
 import { IRole } from '@shared/core/definitions';
 import { RequestsService } from './requests.service';
 
@@ -18,30 +18,17 @@ export class CommunicateService {
   public locations: Observable<Array<ILocation>>;
   public roles: Observable<Array<IRole>>;
   public activities: Observable<Array<IActivity>>;
-  public widgets: Observable<Array<IWidget>>;
 
   constructor(private store: Store<AppState>, private requests: RequestsService) {
     this.getDevices();
     this.getRoles();
     this.getLocations();
     this.getActivities();
-    this.getWidgets();
-
   }
 
   async authenticateUser (username: string, password: string) {
     const user = await this.requests.authenticateUser(username, password);
     return user;
-  }
-
-  async getWidgets () {
-    const collections = await this.requests.getWidgets();
-    for (const item of collections) {
-      this.store.dispatch({
-        type: 'UPDATE_WIDGET',
-        payload: item
-      });
-    }
   }
 
   async getActivities () {

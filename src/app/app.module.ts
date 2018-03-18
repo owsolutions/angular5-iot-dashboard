@@ -8,10 +8,10 @@ import { appReducersGenerator } from './app.reducers';
 import { createRoutes  } from './app.routes';
 import { NgMediaModule } from 'ng-media';
 import { NgIotModule } from 'ng-iot';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from './shared/shared.module';
 import { LayoutComponent } from './components/layout/layout.component';
 import { MenuItemsService } from './services/menu-items.service';
-import { RealtimeService } from '../shared/core/services/realtime.service';
+import { RealtimeService } from './shared/core/services/realtime.service';
 
 @Component({
   selector: 'app-root',

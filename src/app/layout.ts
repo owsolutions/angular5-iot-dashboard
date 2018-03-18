@@ -1,4 +1,4 @@
-import { NavigationComponent } from '../shared/core/navigation/navigation.component';
+import { NavigationComponent } from '@shared/core/navigation/navigation.component';
 import { QuickStatusComponent } from '@shared/iot/quick-status/quick-status.component';
 import { AppInfoComponent } from '@shared/iot/app-info/app-info.component';
 import { Route } from '@angular/router';
@@ -55,32 +55,32 @@ const SidebarOutlets = [
           icon: 'icon icon-exit_to_app',
           title: 'Logout'
         },
-        {
-          link: '/users',
-          icon: 'icon icon-account_box',
-          title: 'Users',
-          permissions: ['USERS::VIEW'],
-          auth: true
-        },
-        {
-          link: '/roles',
-          icon: 'icon icon-key',
-          title: 'Roles & permissions',
-          permissions: ['ROLES::VIEW'],
-          auth: true
-        },
-        {
-          link: '/form-elements',
-          icon: 'icon icon-wpforms',
-          title: 'Form elements'
-        },
-        {
-          link: '/activities',
-          icon: 'icon icon-notifications_active',
-          title: 'Activities',
-          permissions: ['ACTIVITIES::VIEW'],
-          auth: true
-        },
+        // {
+        //   link: '/users',
+        //   icon: 'icon icon-account_box',
+        //   title: 'Users',
+        //   permissions: ['USERS::VIEW'],
+        //   auth: true
+        // },
+        // {
+        //   link: '/roles',
+        //   icon: 'icon icon-key',
+        //   title: 'Roles & permissions',
+        //   permissions: ['ROLES::VIEW'],
+        //   auth: true
+        // },
+        // {
+        //   link: '/form-elements',
+        //   icon: 'icon icon-wpforms',
+        //   title: 'Form elements'
+        // },
+        // {
+        //   link: '/activities',
+        //   icon: 'icon icon-notifications_active',
+        //   title: 'Activities',
+        //   permissions: ['ACTIVITIES::VIEW'],
+        //   auth: true
+        // },
 
       ]
     }

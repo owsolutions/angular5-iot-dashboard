@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IUser, IRole, IUserForm } from '@shared/core/definitions';
-import { IActivity, ActivityTypes, IVPCInformation, ILocation, IWidget, AnalogEvent, CloudDevice, CloudDeviceType } from '@shared/iot/definitions';
+import { IActivity, ActivityTypes, IVPCInformation, ILocation, AnalogEvent, CloudDevice, CloudDeviceType } from '@shared/iot/definitions';
 import { times, random, sample } from 'lodash';
 import { PermissionsService } from './permissions.service';
 import { IResponse } from 'response-type';
@@ -164,36 +164,21 @@ export class MocksService {
     ] as Array<CloudDevice>;
   }
 
-  Widgets (): Array<IWidget> {
-    const devices = this.Devices();
-    const locations = this.Locations();
-    return times(4, () => {
-      const device = sample (devices);
-      const location = sample(locations);
-      return {
-        device: device,
-        location: location,
-        name : sample(['Cloud', 'Lamp', 'Bridge']),
-        pin: sample(device.pins)
-      };
-    });
-  }
-
-    Users ({offset}) {
+  public Users ({offset}) {
+    return {
+      table: {
+        count: 3
+      },
+      data: times(3, (index) => {
         return {
-            table: {
-                count: 3
-            },
-            data: times(3, (index) => {
-                return {
-                    'id' : index + +offset + 1,
-                    'firstname': faker.name.findName().split(' ')[0],
-                    'lastname': faker.name.findName().split(' ')[0],
-                    'email': faker.internet.email()
-                };
-            })
+          'id' : index + +offset + 1,
+          'firstname': faker.name.findName().split(' ')[0],
+          'lastname': faker.name.findName().split(' ')[0],
+          'email': faker.internet.email()
         };
-    }
+      })
+    };
+  }
 
     createVPC (form: IVPCInformation): IResponse<any> {
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IRole, IUser } from '@shared/core/definitions';
-import { ILocation, IActivity, IWidget, IVPCInformation, WorkspaceUser, AppState, CloudDevice } from '@shared/iot/definitions';
+import { ILocation, IActivity, IVPCInformation, WorkspaceUser, AppState, CloudDevice } from '@shared/iot/definitions';
 import { PermissionsService } from './permissions.service';
 import { MocksService } from './mocks.service';
 import { IResponse } from 'response-type';
@@ -17,10 +17,6 @@ export class RequestsService {
     private mocks: MocksService,
     private store: Store<AppState>
   ) { }
-
-  async getWidgets (): Promise<Array<IWidget>> {
-    return this.mocks.Widgets();
-  }
 
   async createUser (user): Promise<IResponse<any>> {
     return this.mocks.createUser(user);

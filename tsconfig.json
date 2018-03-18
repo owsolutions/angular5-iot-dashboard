@@ -9,7 +9,7 @@
     "emitDecoratorMetadata": true,
     "paths": {
       "@app/*": ["app/*"],
-      "@shared/*": ["shared/*"]
+      "@shared/*": ["app/shared/*"]
     },
     "experimentalDecorators": true,
     "target": "es5",
