@@ -6,10 +6,11 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ActionsService {
+
   public widgets: Observable<Array<IWidget>>;
-
-  constructor (private store: Store<AppState>) {
-
+  constructor (
+    private store: Store<AppState>,
+  ) {
   }
 
   triggerDeviceChange ($event: any, device: IDevice, pin: IPin, newValue: any) {
@@ -24,20 +25,6 @@ export class ActionsService {
       meta: {
         device, pin, newValue
       }
-    });
-  }
-  createWidgets (widget: IWidget) {
-    this.widgets = this.store.select('widgets');
-    this.store.dispatch({type: 'UPDATE_WIDGET' , payload: widget});
-  }
-
-
-  findWidget (device: IDevice, pin: IPin) {
-    return new Promise((resolve, reject) => {
-      this.store.select<Array<IWidget>>(state => state.widgets).subscribe(widgets => {
-        const widget = widgets.filter(x => pin && device && x.device.uniqueid === device.uniqueid && x.pin.id === pin.id);
-        resolve(widget[0]);
-      });
     });
   }
 

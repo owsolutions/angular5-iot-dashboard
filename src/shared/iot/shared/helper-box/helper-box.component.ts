@@ -36,14 +36,7 @@ export class HelperBoxComponent implements OnInit, OnDestroy, OnChanges {
 
 
   async ngOnChanges(changes: any) {
-    const widget = (await this.actions.findWidget(this.device, this.pin) as IWidget);
-    if (!widget) {
-      return this.resetForm();
-    }
-    this.form.name = widget.name;
-    if (widget.location) {
-      this.form.location = widget.location.id;
-    }
+    
   }
 
   createWidgetObject(): IWidget {

@@ -13,6 +13,5 @@ export function appReducersGenerator () {
     activities: activitiesReducer,
     thermometers: thermometerReducer,
     roles: rolesReducer,
-    analogEvents: analogEventReducer
   });
 }

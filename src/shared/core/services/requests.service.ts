@@ -71,11 +71,4 @@ export class RequestsService {
   public ChangeUserRole (userID: string, roleID: string) {
     console.log(' Implement the code to change user here ');
   }
-  public GetAnalogEvents () {
-    this.store.dispatch({
-      type: 'UPDATE_ANALOG_EVENT',
-      payload: CreateTemperaturePeriod()
-    });
-  }
-
 }
