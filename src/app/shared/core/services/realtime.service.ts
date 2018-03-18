@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState, CloudDevice, CloudDeviceType } from '@shared/iot/definitions';
-import { random, merge } from 'lodash';
+import { random } from 'lodash';
 
 @Injectable()
 export class RealtimeService {

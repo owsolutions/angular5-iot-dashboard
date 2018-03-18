@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
 
-  public navigation: Array<any> = []
+  public navigation: Array<any> = [];
 
   constructor(
     private user: UserService,

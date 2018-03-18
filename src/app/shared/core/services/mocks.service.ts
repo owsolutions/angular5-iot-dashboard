@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IUser, IRole, IUserForm } from '@shared/core/definitions';
 import { IActivity, ActivityTypes, IVPCInformation, ILocation, AnalogEvent, CloudDevice, CloudDeviceType } from '@shared/iot/definitions';
-import { times, random, sample } from 'lodash';
+import { times, random } from 'lodash';
 import { PermissionsService } from './permissions.service';
 import { IResponse } from 'response-type';
 import faker from 'faker';

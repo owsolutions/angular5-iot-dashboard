@@ -10,7 +10,6 @@ import { NgMediaModule } from 'ng-media';
 import { NgIotModule } from 'ng-iot';
 import { SharedModule } from './shared/shared.module';
 import { LayoutComponent } from './components/layout/layout.component';
-import { MenuItemsService } from './services/menu-items.service';
 import { RealtimeService } from './shared/core/services/realtime.service';
 
 @Component({
@@ -37,7 +36,6 @@ export class AppComponent {}
     appReducersGenerator()
   ],
   providers: [
-    MenuItemsService,
     RealtimeService
   ],
   bootstrap: [AppComponent]

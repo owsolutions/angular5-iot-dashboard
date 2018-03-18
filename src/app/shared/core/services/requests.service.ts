@@ -6,7 +6,6 @@ import { MocksService } from './mocks.service';
 import { IResponse } from 'response-type';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-import { CreateTemperaturePeriod } from './mocks.service';
 import { Store } from '@ngrx/store';
 
 @Injectable()

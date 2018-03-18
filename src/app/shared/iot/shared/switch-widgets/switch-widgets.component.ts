@@ -7,7 +7,7 @@ import { CloudDevice, CloudDeviceType } from '@shared/iot/definitions';
   styleUrls: ['./switch-widgets.component.scss' , '../checkbox-switch.scss']
 })
 export class SwitchWidgetsComponent implements OnInit {
-  
+
   @Input('device') public device: CloudDevice;
 
   ngOnInit() {
