@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { IUser } from '@shared/core/definitions';
-import { CommunicateService } from './communicate.service';
+import { RequestsService } from '@app/shared/core/services/requests.service';
 
 @Injectable()
 export class UserService {
 
   private user: IUser;
   constructor (
-    private communicate: CommunicateService,
+    private requests: RequestsService,
   ) {
     try {
       this.user = JSON.parse(localStorage.getItem('userInformation'));
@@ -36,7 +36,7 @@ export class UserService {
   }
 
   async Login (username: string, password: string) {
-    const user = await this.communicate.authenticateUser(username, password);
+    const user = await this.requests.authenticateUser(username, password);
     this.user = user;
     localStorage.setItem('userInformation', JSON.stringify(user));
     return user;

@@ -2,7 +2,6 @@ import { Component, Inject, OnInit, OnDestroy } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { UserService } from '@shared/core/services/user.service';
 import { Router } from '@angular/router';
-import { CommunicateService } from '@shared/core/services/communicate.service';
 
 interface IForm {
   username: string;
@@ -26,7 +25,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     @Inject(DOCUMENT) private document: Document,
     private user: UserService,
     private router: Router,
-    private communicate: CommunicateService
   ) { }
 
   ngOnInit() {

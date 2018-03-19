@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { AppState, ILocation } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
-import { CommunicateService } from '@shared/core/services/communicate.service';
 import { RequestsService } from '@shared/core/services/requests.service';
 
 @Component({
@@ -20,7 +19,6 @@ export class DevicesComponent implements  OnInit, OnDestroy {
     private requests: RequestsService,
     public chRef: ChangeDetectorRef,
     private store: Store<AppState>,
-    private communications: CommunicateService
   ) {
   }
 

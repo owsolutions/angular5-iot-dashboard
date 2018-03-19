@@ -1,4 +1,6 @@
-<app-page-header title="Device single" icon="icon icon-keyboard"></app-page-header>
+<app-page-header title="Device single" icon="icon icon-keyboard">
+  <a (click)="DeleteDevice();" class="touchbar-button">Delete Device</a>
+</app-page-header>
 
 <app-device-general-information [mode]="mode" [device]="form" 
   (onChange)="DeviceGeneralChange($event)" ></app-device-general-information>

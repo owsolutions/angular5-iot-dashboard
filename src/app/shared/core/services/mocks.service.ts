@@ -87,6 +87,13 @@ export class MocksService {
         level: '3',
         temperatureDevice: 2
       },
+      {
+        id: 3,
+        name: 'Master bedroom',
+        'icon': this.iotsvg.masterBedroom,
+        level: '2',
+        temperatureDevice: 1
+      },
     ];
   }
 

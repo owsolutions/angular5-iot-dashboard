@@ -105,5 +105,9 @@ $background: red;
   color: $theme-color-800;
   padding: 7.5px 15px;;
   margin-left: 15px;
-  
+  &:hover {
+    background: $theme-color-200;
+    text-decoration: none;
+    cursor: pointer;
+  }
 }

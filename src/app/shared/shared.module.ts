@@ -21,7 +21,6 @@ import { CheckboxInputComponent } from './core/forms/checkbox-input/checkbox-inp
 import { MocksService } from './core/services/mocks.service';
 import { ActionsService } from './core/services/actions.service';
 import { UserService, AuthGuard } from './core/services/user.service';
-import { CommunicateService } from './core/services/communicate.service';
 import { SignupComponent } from './iot/signup/signup.component';
 import { SignupSuccessComponent } from './iot/signup/signup-success/signup-success.component';
 import { DevicesComponent } from './iot/devices/devices.component';
@@ -120,7 +119,6 @@ import { StatisticsComponent } from './statistics/statistics.component';
     MocksService,
     ActionsService,
     UserService,
-    CommunicateService,
     AuthGuard,
     IotSvgService
   ],

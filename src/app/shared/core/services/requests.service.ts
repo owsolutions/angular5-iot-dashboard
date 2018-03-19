@@ -15,7 +15,10 @@ export class RequestsService {
     private permissions: PermissionsService,
     private mocks: MocksService,
     private store: Store<AppState>
-  ) { }
+  ) {
+    this.getDevices();
+    this.getLocations();
+   }
 
   async createUser (user): Promise<IResponse<any>> {
     return this.mocks.createUser(user);
@@ -23,16 +26,35 @@ export class RequestsService {
   async createVPC (vpcInformation: IVPCInformation): Promise<IResponse<any>> {
     return this.mocks.createVPC(vpcInformation);
   }
-  async getLocations(): Promise<Array<ILocation>> {
-    return this.mocks.Locations();
+  async getLocations() {
+    const collections = this.mocks.Locations();
+    for (const item of collections) {
+      this.store.dispatch({
+        type: 'UPDATE_LOCATION',
+        payload: item
+      });
+    }
   }
 
   async getActivities (): Promise<Array<IActivity>> {
     return this.mocks.Activities();
   }
 
-  async getDevices (): Promise<Array<CloudDevice>> {
-    return this.mocks.Devices();
+  async getDevices () {
+    const collections = this.mocks.Devices();
+     for (const item of collections) {
+      this.store.dispatch({
+        type: 'UPDATE_DEVICE',
+        payload: item
+      });
+    }
+  }
+
+  async deleteDevice (id: number) {
+    this.store.dispatch({
+      type: 'DELETE_DEVICE',
+      payload: id
+    });
   }
 
   async getRoles (): Promise<Array<IRole>> {

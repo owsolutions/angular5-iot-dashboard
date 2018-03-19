@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, AfterContentInit } from '@angular/core';
-import { CommunicateService } from '@shared/core/services/communicate.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppState, ILocation, CloudDevice } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
@@ -82,7 +81,6 @@ export class LocationEditComponent implements OnInit, AfterContentInit {
 
 
   constructor(
-    private communications: CommunicateService,
     private route: ActivatedRoute,
     private store: Store<AppState>,
     private router: Router

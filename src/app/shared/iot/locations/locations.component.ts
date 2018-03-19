@@ -1,7 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AppState, ILocation, CloudDevice } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
-import { CommunicateService } from '@shared/core/services/communicate.service';
 import { ActionsService } from '@shared/core/services/actions.service';
 
 @Component({
@@ -18,7 +17,6 @@ export class LocationsComponent implements OnInit {
     public chRef: ChangeDetectorRef,
     private store: Store<AppState>,
     public actions: ActionsService,
-    private communications: CommunicateService,
   ) {
     // Initialize private variables
   }

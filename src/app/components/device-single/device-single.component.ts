@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CloudDevice, CloudDeviceType, AppState } from '@shared/iot/definitions';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { RequestsService } from '@app/shared/core/services/requests.service';
 
 @Component({
   selector: 'app-device-single',
@@ -22,6 +23,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private store: Store<AppState>,
     private router: Router,
+    private requests: RequestsService,
   ) { }
 
   ngOnInit() {
@@ -54,6 +56,11 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('/devices');
   }
 
+  public DeleteDevice () {
+    this.requests.deleteDevice(this.form.id);
+    this.router.navigateByUrl('/devices');
+
+  }
   public DeviceGeneralChange (data: any) {
     this.form = Object.assign(this.form, data);
   }
