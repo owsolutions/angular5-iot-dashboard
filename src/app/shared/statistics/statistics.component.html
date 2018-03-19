@@ -1,37 +1,10 @@
 <section>
-  <div class="box">
+  <div class="box" *ngFor="let statistic of statistics; let i = index;">
     <div class="container">
-      <span class="number">25</span>
+      <span class="number">{{statistic.value}}</span>
       <br />
-      Calls 
+      {{statistic.title}} 
     </div>
-    <div class="fill speed1" style="background : #81c784; "></div>
-  </div> 
-  
-  <div class="box">
-    <div class="container">
-      <span class="number">53</span>
-      <br />
-      Emails 
-    </div>
-    <div class="fill speed2" style="background : #f69679;"></div>
-  </div>
-   
-  <div class="box">
-    <div class="container">
-      <span class="number">12</span>
-      <br />
-      SMS 
-    </div>
-    <div class="fill speed3" style="background : #92bafb;"></div>
-  </div>
-  
-  <div class="box">
-    <div class="container">
-      <span class="number">69</span>
-      <br />
-      Letters 
-    </div>
-    <div class="fill speed4" style="background : #9b92fb;"></div>
+    <div class="fill speed{{i+1}}"></div>
   </div>
 </section>
