@@ -47,7 +47,6 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
 
   }
   public SubmitForm () {
-    console.warn(' I am called');
     delete this.form.value;
     this.store.dispatch({
       type: 'UPDATE_DEVICE',
