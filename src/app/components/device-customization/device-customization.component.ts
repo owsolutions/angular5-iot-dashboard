@@ -23,7 +23,7 @@ export class DeviceCustomizationComponent implements OnInit {
     // setTimeout(() => {
       this.onChange.emit(this.form);
     // })
-    
+
   }
 
 }

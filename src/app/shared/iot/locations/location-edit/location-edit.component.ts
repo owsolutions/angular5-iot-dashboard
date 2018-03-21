@@ -111,14 +111,14 @@ export class LocationEditComponent implements OnInit, AfterContentInit {
 
     this.store.select('devices').subscribe((devices: Array<CloudDevice>) => {
       this.devices = this.DevicesAsKeyName(devices);
-    });
+    }).unsubscribe();
   }
 
   async postToServer (location: ILocation): Promise<ILocation> {
     let id = 0;
     this.store.select('locations').subscribe((locations: Array<ILocation>) => {
       id = +maxBy(locations, x => x.id).id + 1;
-    });
+    }).unsubscribe();
     return {
       icon: location.icon,
       id: location.id ? location.id : id,

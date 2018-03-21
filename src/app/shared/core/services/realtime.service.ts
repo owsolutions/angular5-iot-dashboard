@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState, CloudDevice, CloudDeviceType, DataSource } from '@shared/iot/definitions';
+import { AppState, CloudDevice, DataSource } from '@shared/iot/definitions';
 import { random } from 'lodash';
-import UpdateOrInsert from '@app/shared/core/functions/UpdateOrInsert';
 declare var Pusher: any;
 
 @Injectable()
@@ -94,7 +93,7 @@ export class RealtimeService {
         lat: 22,
         lng: 21
       },
-      dataSourceId: 'device-' + random(2,3)
+      dataSourceId: 'device-' + random(2, 3)
     };
     this.RecieveDataSourceIncoming(data);
   }
