@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState, CloudDevice, CloudDeviceType } from '@shared/iot/definitions';
+import { AppState, CloudDevice, CloudDeviceType, DataSource } from '@shared/iot/definitions';
 import { random } from 'lodash';
+import UpdateOrInsert from '@app/shared/core/functions/UpdateOrInsert';
 declare var Pusher: any;
 
 @Injectable()
 export class RealtimeService {
 
   public channel: any = null;
+  public devices: Array<CloudDevice> = [];
+  public unconnectedDevices: Array<DataSource> = [];
   constructor(
     private store: Store<AppState>,
   ) {
     this.ActivateMockIncomingMessages();
+    this.store.select('devices').subscribe((devices) => {
+      this.devices = devices;
+    });
   }
 
   public StartPusher () {
@@ -38,17 +44,19 @@ export class RealtimeService {
    */
   private ActivateMockIncomingMessages () {
     setInterval(() => {
-      this.RecieveDeviceChange({
-        id: 1,
-        value: random(1700, 1799) / 100,
-      });
+      // this.RecieveDeviceChange({
+      //   id: 1,
+      //   value: random(1700, 1799) / 100,
+      // });
+      this.MockDataIncome();
     }, 3500);
     setInterval(() => {
-      this.RecieveDeviceChange({
-        id: 2,
-        value: -1 * random(1100, 1799) / 100,
-      });
-    }, 7500);
+      // this.RecieveDeviceChange({
+      //   id: 2,
+      //   value: -1 * random(1100, 1799) / 100,
+      // });
+      this.MockDataIncome();
+    }, 1500);
   }
 
   /**
@@ -60,6 +68,35 @@ export class RealtimeService {
       type: 'UPDATE_DEVICE',
       payload: device
     });
+  }
+
+  public RecieveDataSourceIncoming (data: DataSource) {
+
+    const deviceWithThisSource = this.devices.find(x => x.datasource === data.dataSourceId);
+    if ( ! deviceWithThisSource) {
+      this.store.dispatch({
+        type: 'UPDATE_UNCONNECTED_DATA_SOURCE',
+        payload: data
+      });
+    } else {
+      this.store.dispatch({
+        type: 'DEVICE_GET_DATA_SOURCE',
+        payload: data
+      });
+    }
+  }
+
+  public MockDataIncome () {
+    const data: DataSource = {
+      date: new Date(),
+      value: random (1100, 1799) / 100,
+      geo: {
+        lat: 22,
+        lng: 21
+      },
+      dataSourceId: 'device-' + random(2,3)
+    };
+    this.RecieveDataSourceIncoming(data);
   }
 
 }

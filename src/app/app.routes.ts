@@ -33,6 +33,7 @@ export const appRoutes: Routes = [
   AuthLayout (ActivityComponent, 'activities'),
   AuthLayout (DevicesComponent, 'devices'),
   AuthLayout (DeviceSingleComponent, 'devices/:id'),
+  AuthLayout (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
   AuthLayout (FormElementsComponent, 'form-elements'),
   AuthLayout (UserSingleComponent, 'user/:id'),
   DefaultLayout(DocsComponent, 'docs'),

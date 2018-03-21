@@ -32,7 +32,7 @@ export class DocsComponent {
     data: {
       items: [
         {
-          device: '3920',
+          dataSourceId: '3920',
           geo: {
             lat: 32.837298914,
             lng: 43.389482497
@@ -44,7 +44,7 @@ export class DocsComponent {
     }
   };
   public boardcastBodyExample: DataSource = {
-    device: '3381947jjw',
+    dataSourceId: '3381947jjw',
     value: 22.4,
     geo: {
       lat: 32.837298914,

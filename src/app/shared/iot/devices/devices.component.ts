@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { AppState, ILocation } from '@shared/iot/definitions';
+import { AppState, ILocation, DataSource } from '@shared/iot/definitions';
 import { Store } from '@ngrx/store';
 import { RequestsService } from '@shared/core/services/requests.service';
 
@@ -11,6 +11,7 @@ import { RequestsService } from '@shared/core/services/requests.service';
 export class DevicesComponent implements  OnInit, OnDestroy {
 
   public devices: Array<any> = [];
+  public unconnected: Array<DataSource> = [];
   public locations: Array<ILocation> = [];
   private _ref1: any  = null;
   private _ref2 = null;
@@ -28,6 +29,9 @@ export class DevicesComponent implements  OnInit, OnDestroy {
     });
     this._ref2 = this.store.select('locations').subscribe(collection => {
       this.locations = (collection as Array<ILocation>);
+    });
+    this.store.select('unconnectedSources').subscribe(sources => {
+      this.unconnected = sources;
     });
   }
   public FormatDate (value: Date) {

@@ -25,7 +25,7 @@ export class SwitchWidgetsComponent implements OnInit {
     return false;
   }
   public value (device: CloudDevice) {
-    if (!device.value.toFixed) {
+    if (! device.value || !device.value.toFixed) {
       return device.value;
     }
     if (device.value === 'ON' || device.value === 'OFF') {

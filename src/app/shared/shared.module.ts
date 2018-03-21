@@ -31,6 +31,7 @@ import { LocationRowComponent } from './iot/locations/location-row/location-row.
 import { LocationEditComponent } from './iot/locations/location-edit/location-edit.component';
 import { OutputPinViewComponent } from './iot/shared/output-pin-view/output-pin-view.component';
 import { SwitchWidgetsComponent } from './iot/shared/switch-widgets/switch-widgets.component';
+import { UnConnectedSourceComponent } from './iot/shared/unconnected-source/unconnected-source.component';
 import { IconWidgetsComponent } from './iot/index/icon-widgets/icon-widgets.component';
 import { PlacesComponent } from './iot/index/places/places.component';
 import { IndexComponent } from './iot/index/index.component';
@@ -73,6 +74,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
     UsersComponent,
     RolesComponent,
     UserSingleComponent,
+    UnConnectedSourceComponent,
     CheckboxInputComponent,
     LoginComponent,
     DevicesComponent,

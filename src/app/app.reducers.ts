@@ -2,6 +2,7 @@ import { devicesReducer } from '@shared/iot/data-layer/devices.reducer';
 import { locationsReducer } from '@shared/iot/data-layer/locations.reducer';
 import { activitiesReducer } from '@shared/iot/data-layer/activity.reducer';
 import { rolesReducer } from '@shared/core/data-layer/roles.reducer';
+import { unconnectedReducer } from '@shared/iot/data-layer//unconnectedSources.reducer';
 
 import { StoreModule } from '@ngrx/store';
 
@@ -11,5 +12,7 @@ export function appReducersGenerator () {
     locations: locationsReducer,
     activities: activitiesReducer,
     roles: rolesReducer,
+    unconnectedSources: unconnectedReducer
+
   });
 }

@@ -1,21 +1,21 @@
 @import 'injects';
 
 .widget-box {
-  position: relative;
   min-height: 90px;
+  position: relative;
   margin-bottom: 0;
-.main-icon {
-  float: left;
-  margin-right: 15px;
-}
+  .main-icon {
+    float: left;
+    margin-right: 15px;
+  }
     display:flex;
     width: 100%;
     float: left;
-    background-color:$theme-color-700;
+    background-color:$error-color-700;
     
     &:hover {
         transition: 0.3s all ease-in-out;
-        background-color: $theme-color-800;
+        background-color: $error-color-800;
     }
     padding:10px 0;
 
@@ -48,7 +48,7 @@
 }
 
 .view-button {
-  background: $theme-color-200;
+  background: $error-color-200;
   position: absolute;
   top: 0;
   text-align: center;
@@ -59,7 +59,7 @@
   display: block;
   text-decoration: none;
   &:hover {
-    background-color: $theme-color-300;
+    background-color: $error-color-300;
   }
 }
 

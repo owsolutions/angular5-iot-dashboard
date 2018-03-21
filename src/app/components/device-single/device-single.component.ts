@@ -3,6 +3,7 @@ import { CloudDevice, CloudDeviceType, AppState } from '@shared/iot/definitions'
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { RequestsService } from '@app/shared/core/services/requests.service';
+import { random } from 'lodash';
 
 @Component({
   selector: 'app-device-single',
@@ -27,7 +28,10 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.route.params.subscribe((data: {id?: any}) => {
+    this.route.params.subscribe((data: {id?: any, sourceId?: any}) => {
+      if (data.sourceId) {
+        this.form.datasource = data.sourceId;
+      }
       if ( ! data.id ) {
         return ;
       }
@@ -40,6 +44,8 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
           return;
         }
         this.form = Object.assign({}, form);
+
+
       }).unsubscribe();
     }).unsubscribe();
   }
@@ -48,9 +54,14 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   }
   public SubmitForm () {
     delete this.form.value;
+    const device = Object.assign({id: random(1000,9999)}, this.form);
     this.store.dispatch({
       type: 'UPDATE_DEVICE',
-      payload: Object.assign({}, this.form)
+      payload: device
+    });
+    this.store.dispatch({
+      type: 'CLEAR_UNCONNECTED_SOURCE',
+      payload: device.datasource
     });
     this.router.navigateByUrl('/devices');
   }

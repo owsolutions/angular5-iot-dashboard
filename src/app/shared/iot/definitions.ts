@@ -25,6 +25,7 @@ export interface AppState {
   roles: Array<IRole>;
   locations: Array<any>;
   activities: Array<IActivity>;
+  unconnectedSources: Array<DataSource>;
 }
 
 /**
@@ -77,7 +78,7 @@ export interface IDeviceDisplayPreference {
 }
 
 export interface DataSource {
-  device: string;
+  dataSourceId: string;
   value: any;
   geo?: {
     lat: number;

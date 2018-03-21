@@ -149,18 +149,18 @@ export class MocksService {
           DisplayRealTimeTemperatureInSidebar: true
         }
       },
-      {
-        id: 2,
-        name: 'Room temperature',
-        type: CloudDeviceType.TemperatureSensor,
-        datasource: 'device-2',
-        value: 32.8,
-        location: 2,
-        preferences: {
-          DisplayRealTimeTemperatureInSidebar: true
-        },
+      // {
+      //   id: 2,
+      //   name: 'Room temperature',
+      //   type: CloudDeviceType.TemperatureSensor,
+      //   datasource: 'device-2',
+      //   value: 32.8,
+      //   location: 2,
+      //   preferences: {
+      //     DisplayRealTimeTemperatureInSidebar: true
+      //   },
 
-      }
+      // }
     ] as Array<CloudDevice>;
   }
 
