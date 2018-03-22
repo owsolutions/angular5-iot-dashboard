@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { User } from '../services/user';
+import { IUserForm, userLoginMock} from '../shared';
+import { Router } from '@angular/router';
+import { IResponse } from 'response-type';
 
 @Component({
   selector: 'app-login-form',
@@ -8,9 +10,9 @@ import { User } from '../services/user';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  public user: User = {
+  public response: IResponse<any> = null;
+  public user: IUserForm = {
     email: '',
-    username: '',
     password: ''
   };
   public message = '';
@@ -18,21 +20,29 @@ export class LoginFormComponent implements OnInit {
 
   constructor(
     private _auth: AuthService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
   }
 
-  login(e) {
+  public async login (e) {
     e.preventDefault();
-    if (this.user.email === '' || this.user.username === '' || this.user.password === '' ) {
-      this.message = 'Please fill all inputs.';
-      return;
-    }
-    const login = this._auth.login(this.user);
-    this.message = login;
+    console.log('hey');
+    // this.router.navigateByUrl('/index');
+    const ref = await userLoginMock({
+      email: this.user.email,
+      password: this.user.password
+    });
+    this.response = ref;
   }
-
+  public error (fieldName: string) {
+    if ( ! this.response || ! this.response.error || !this.response.error.errors) {
+      return '';
+    }
+    const error = this.response.error.errors.find(x => x.location === fieldName);
+    return error ? error.message : '';
+  }
   togglePassword() {
     this.passwordVisibilty = this.passwordVisibilty ? false : true;
   }

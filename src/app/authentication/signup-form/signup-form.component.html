@@ -12,25 +12,22 @@
         </div>
   
         <div class="form-group material-input">
-          <input type="text" material-input name="username"  [(ngModel)]="user.username">
-          <span class="focus-input" data-placeholder="Username"></span>
-        </div>
-
-        <div class="form-group material-input">
-          <input type="text" material-input name="email" [(ngModel)]="user.email">
+          <input autocomplete="off" type="text" material-input name="email" value="" [(ngModel)]="user.email">
           <span class="focus-input" data-placeholder="Email"></span>
+          <span *ngIf="error('email')">{{error('email')}}</span>
         </div>
   
         <div class="form-group material-input">
           <span class="btn-show-pass" (click)="togglePassword();">
             <i [ngClass]="{'icon-visibility_off': passwordVisibilty, 'icon-visibility': (!passwordVisibilty)}"></i>
           </span>
-          <input [type]="passwordVisibilty ? 'text' : 'password'" material-input name="password" [(ngModel)]="user.password">
+          <input autocomplete="off" [type]="passwordVisibilty ? 'text' : 'password'" material-input name="password" [(ngModel)]="user.password">
           <span class="focus-input" data-placeholder="Password"></span>
-        </div>
-  
-        <p *ngIf="message.content.length > 0" class="message" [ngClass]="message.type">
-          {{message.content}}
+          <span *ngIf="error('password')">{{error('password')}}</span>
+
+        </div>  
+        <p *ngIf="response && response.error && response.error.message" class="message">
+          {{response.error.message}}
         </p>
 
         <p class="signup-info">

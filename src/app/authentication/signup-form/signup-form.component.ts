@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../services/user';
 import { AuthService } from '../services/auth.service';
+import { IResponse } from 'response-type';
+import { RequestsService } from '@app/shared/core/services/requests.service';
+import { IUserForm, createUserMock } from '../shared';
 
 @Component({
   selector: 'app-signup-form',
@@ -8,39 +10,39 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./signup-form.component.scss']
 })
 export class SignupFormComponent implements OnInit {
-  public user: User = {
+
+  public response: IResponse<any> = null;
+  public user: IUserForm = {
     email: '',
-    username: '',
     password: ''
-  };
-  public message = {
-    content: '',
-    type: ''
   };
   public passwordVisibilty = false;
 
-  constructor( private _auth: AuthService ) { }
+  constructor(
+    private _auth: AuthService,
+    private requests: RequestsService,
+  ) { }
 
   ngOnInit() {
   }
 
-  signup(e) {
+  async signup (e) {
     e.preventDefault();
-    if (this.user.email === '' || this.user.username === '' || this.user.password === '' ) {
-      this.message = {
-        content: 'Please fill all inputs.',
-        type: 'text-danger'
-      };
-      return;
-    }
-    const register = this._auth.register(this.user);
-    this.message = {
-      content: register,
-      type: 'text-success'
-    };
+    const ref = await createUserMock({
+      email: this.user.email,
+      password: this.user.password
+    });
+    this.response = ref;
   }
-
+  public error (fieldName: string) {
+    if ( ! this.response || ! this.response.error || !this.response.error.errors) {
+      return '';
+    }
+    const error = this.response.error.errors.find(x => x.location === fieldName);
+    return error ? error.message : '';
+  }
   togglePassword() {
     this.passwordVisibilty = this.passwordVisibilty ? false : true;
   }
 }
+
