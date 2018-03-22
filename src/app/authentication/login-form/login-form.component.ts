@@ -10,6 +10,8 @@ import { IResponse } from 'response-type';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
+  public isRequesting = false;
+
   public response: IResponse<any> = null;
   public user: IUserForm = {
     email: '',
@@ -28,13 +30,15 @@ export class LoginFormComponent implements OnInit {
 
   public async login (e) {
     e.preventDefault();
-    console.log('hey');
-    // this.router.navigateByUrl('/index');
-    const ref = await userLoginMock({
-      email: this.user.email,
-      password: this.user.password
-    });
-    this.response = ref;
+    this.isRequesting = true;
+    setTimeout(async () => {
+      const ref = await userLoginMock({
+        email: this.user.email,
+        password: this.user.password
+      });
+      this.response = ref;
+      this.isRequesting = false;
+    }, 300);
   }
   public error (fieldName: string) {
     if ( ! this.response || ! this.response.error || !this.response.error.errors) {

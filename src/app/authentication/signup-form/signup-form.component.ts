@@ -11,6 +11,7 @@ import { IUserForm, createUserMock } from '../shared';
 })
 export class SignupFormComponent implements OnInit {
 
+  public isRequesting = false;
   public response: IResponse<any> = null;
   public user: IUserForm = {
     email: '',
@@ -26,13 +27,18 @@ export class SignupFormComponent implements OnInit {
   ngOnInit() {
   }
 
+
   async signup (e) {
     e.preventDefault();
-    const ref = await createUserMock({
-      email: this.user.email,
-      password: this.user.password
-    });
-    this.response = ref;
+    this.isRequesting = true;
+    setTimeout(async () => {
+      const ref = await createUserMock({
+        email: this.user.email,
+        password: this.user.password
+      });
+      this.isRequesting = false;
+      this.response = ref;
+    }, 300);
   }
   public error (fieldName: string) {
     if ( ! this.response || ! this.response.error || !this.response.error.errors) {

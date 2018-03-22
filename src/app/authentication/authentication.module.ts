@@ -6,12 +6,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { RouterModule } from '@angular/router';
+import { ProgressLineComponent } from './progress-line/progress-line.component';
 
 @NgModule({
   declarations: [
     ForgotPasswordComponent,
     LoginFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    ProgressLineComponent
   ],
   imports: [
     BrowserModule,
