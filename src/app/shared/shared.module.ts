@@ -93,8 +93,6 @@ import { StatisticsComponent } from './statistics/statistics.component';
     UserWidgetComponent,
     AppInfoComponent,
     ModesComponent,
-    SignupComponent,
-    SignupSuccessComponent,
     DropFileComponent,
     LoadingComponent,
     InputComponent,

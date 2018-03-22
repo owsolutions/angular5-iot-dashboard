@@ -10,7 +10,6 @@ import { UsersComponent } from '@shared/core/users/users.component';
 import { RolesComponent } from '@shared/core/roles/roles.component';
 import { UserSingleComponent } from '@shared/core/users/user-single/user-single.component';
 import { DefaultLayout, AuthLayout } from './layout';
-import { SignupSuccessComponent } from '@shared/iot/signup/signup-success/signup-success.component';
 import { DropFileComponent } from '@shared/core/drop-file/drop-file.component';
 import { DeviceSingleComponent } from '../app/components/device-single/device-single.component';
 import { DocsComponent } from '@shared/docs/docs.component';
@@ -35,18 +34,6 @@ export const appRoutes: Routes = [
   AuthLayout (FormElementsComponent, 'form-elements'),
   AuthLayout (UserSingleComponent, 'user/:id'),
   DefaultLayout(DocsComponent, 'docs'),
-  // {
-  //   path: 'login',
-  //   component: LoginFormComponent
-  // },
-  // {
-  //   path: 'signup',
-  //   component: SignupComponent
-  // },
-  {
-    path: 'signup-success',
-    component: SignupSuccessComponent
-  },
   DefaultLayout(DropFileComponent, 'gallery')
 ];
 

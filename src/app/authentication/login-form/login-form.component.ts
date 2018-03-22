@@ -32,15 +32,16 @@ export class LoginFormComponent implements OnInit {
     e.preventDefault();
     this.isRequesting = true;
 
-    this.signinHttp(this.user);
-    // setTimeout(async () => {
-    //   const ref = await userLoginMock({
-    //     email: this.user.email,
-    //     password: this.user.password
-    //   });
-    //   this.response = ref;
-    //   this.isRequesting = false;
-    // }, 300);
+    // this.signinHttp(this.user);
+    setTimeout(async () => {
+      const ref = await userLoginMock({
+        email: this.user.email,
+        password: this.user.password
+      });
+      this.response = ref;
+      this.isRequesting = false;
+      this.router.navigateByUrl('/index');
+    }, 300);
   }
   public error (fieldName: string) {
     if ( ! this.response || ! this.response.error || !this.response.error.errors) {
