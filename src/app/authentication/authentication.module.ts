@@ -4,9 +4,10 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from './services/auth.service';
 import { RouterModule } from '@angular/router';
 import { ProgressLineComponent } from './progress-line/progress-line.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CoreService } from './core.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ProgressLineComponent } from './progress-line/progress-line.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path: 'login',
@@ -36,11 +38,16 @@ import { ProgressLineComponent } from './progress-line/progress-line.component';
     })
 
   ],
+  exports: [
+    ForgotPasswordComponent,
+    LoginFormComponent,
+    SignupFormComponent,
+  ],
   providers: [
-    AuthService
+    CoreService
   ]
 
 })
-export class AuthenticationModule {
+export class NgxUserModule {
 
 }

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
 import { IResponse } from 'response-type';
-import { RequestsService } from '@app/shared/core/services/requests.service';
-import { IUserForm, createUserMock } from '../shared';
+import { IUserForm, createUserMock, GetNetworkError } from '../shared';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-signup-form',
@@ -19,10 +18,11 @@ export class SignupFormComponent implements OnInit {
   };
   public passwordVisibilty = false;
 
+  public signupUrl = 'http://localhost:1337';
   constructor(
-    private _auth: AuthService,
-    private requests: RequestsService,
+    private http: HttpClient
   ) { }
+
 
   ngOnInit() {
   }
@@ -31,14 +31,17 @@ export class SignupFormComponent implements OnInit {
   async signup (e) {
     e.preventDefault();
     this.isRequesting = true;
-    setTimeout(async () => {
-      const ref = await createUserMock({
-        email: this.user.email,
-        password: this.user.password
-      });
-      this.isRequesting = false;
-      this.response = ref;
-    }, 300);
+
+    return this.signupHttp(this.user);
+
+    // setTimeout(async () => {
+    //   const ref = await createUserMock({
+    //     email: this.user.email,
+    //     password: this.user.password
+    //   });
+    //   this.isRequesting = false;
+    //   this.response = ref;
+    // }, 300);
   }
   public error (fieldName: string) {
     if ( ! this.response || ! this.response.error || !this.response.error.errors) {
@@ -50,5 +53,25 @@ export class SignupFormComponent implements OnInit {
   togglePassword() {
     this.passwordVisibilty = this.passwordVisibilty ? false : true;
   }
-}
 
+  public onSignupSuccess (response = null) {
+
+  }
+  private signupHttp (data: IUserForm) {
+    this.http.post(this.signupUrl, data).subscribe(
+      (response) => {
+        this.response = response;
+        this.isRequesting = false;
+        this.onSignupSuccess(response);
+      },
+      (response) => {
+        this.isRequesting = false;
+        if (response.name === 'HttpErrorResponse') {
+          this.response = GetNetworkError();
+          return false;
+        }
+        this.response = response;
+      }
+    );
+  }
+}

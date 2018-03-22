@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import { IUserForm, userLoginMock} from '../shared';
+import { IUserForm, userLoginMock, GetNetworkError } from '../shared';
 import { Router } from '@angular/router';
 import { IResponse } from 'response-type';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-form',
@@ -11,7 +11,7 @@ import { IResponse } from 'response-type';
 })
 export class LoginFormComponent implements OnInit {
   public isRequesting = false;
-
+  public signinUrl = 'http://localhost:1337/login';
   public response: IResponse<any> = null;
   public user: IUserForm = {
     email: '',
@@ -21,8 +21,8 @@ export class LoginFormComponent implements OnInit {
   public passwordVisibilty = false;
 
   constructor(
-    private _auth: AuthService,
     private router: Router,
+    private http: HttpClient
   ) { }
 
   ngOnInit() {
@@ -31,14 +31,16 @@ export class LoginFormComponent implements OnInit {
   public async login (e) {
     e.preventDefault();
     this.isRequesting = true;
-    setTimeout(async () => {
-      const ref = await userLoginMock({
-        email: this.user.email,
-        password: this.user.password
-      });
-      this.response = ref;
-      this.isRequesting = false;
-    }, 300);
+
+    this.signinHttp(this.user);
+    // setTimeout(async () => {
+    //   const ref = await userLoginMock({
+    //     email: this.user.email,
+    //     password: this.user.password
+    //   });
+    //   this.response = ref;
+    //   this.isRequesting = false;
+    // }, 300);
   }
   public error (fieldName: string) {
     if ( ! this.response || ! this.response.error || !this.response.error.errors) {
@@ -49,5 +51,26 @@ export class LoginFormComponent implements OnInit {
   }
   togglePassword() {
     this.passwordVisibilty = this.passwordVisibilty ? false : true;
+  }
+
+  public onSigninSuccess (response = null) {
+
+  }
+  private signinHttp (data: IUserForm) {
+    this.http.post(this.signinUrl, data).subscribe(
+      (response) => {
+        this.response = response;
+        this.isRequesting = false;
+        this.onSigninSuccess(response);
+      },
+      (response) => {
+        this.isRequesting = false;
+        if (response.name === 'HttpErrorResponse') {
+          this.response = GetNetworkError();
+          return false;
+        }
+        this.response = response;
+      }
+    );
   }
 }

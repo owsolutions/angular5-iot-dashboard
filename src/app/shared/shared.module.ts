@@ -14,15 +14,12 @@ import { FormElementsComponent } from './core/form-elements/form-elements.compon
 import { UsersComponent } from './core/users/users.component';
 import { RolesComponent } from './core/roles/roles.component';
 import { UserSingleComponent } from './core/users/user-single/user-single.component';
-import { LoginComponent } from './core/login/login.component';
 import { PermissionsService } from './core/services/permissions.service';
 import { RequestsService } from './core/services/requests.service';
 import { CheckboxInputComponent } from './core/forms/checkbox-input/checkbox-input.component';
 import { MocksService } from './core/services/mocks.service';
 import { ActionsService } from './core/services/actions.service';
 import { UserService, AuthGuard } from './core/services/user.service';
-import { SignupComponent } from './iot/signup/signup.component';
-import { SignupSuccessComponent } from './iot/signup/signup-success/signup-success.component';
 import { DevicesComponent } from './iot/devices/devices.component';
 import { ActivityWidgetComponent } from './iot/activity/activity-widget/activity-widget.component';
 import { LocationsComponent } from './iot/locations/locations.component';
@@ -76,7 +73,6 @@ import { StatisticsComponent } from './statistics/statistics.component';
     UserSingleComponent,
     UnConnectedSourceComponent,
     CheckboxInputComponent,
-    LoginComponent,
     DevicesComponent,
     ActivityWidgetComponent,
     LocationsComponent,
