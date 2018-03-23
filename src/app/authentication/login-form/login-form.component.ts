@@ -3,6 +3,7 @@ import { IUserForm, userLoginMock, GetNetworkError } from '../shared';
 import { Router } from '@angular/router';
 import { IResponse } from 'response-type';
 import { HttpClient } from '@angular/common/http';
+import { UserService } from '@app/shared/core/services/user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -11,9 +12,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginFormComponent implements OnInit {
   public isRequesting = false;
-  public signinUrl = 'http://localhost:1337/login';
+  public signinUrl = 'http://localhost:1337/api/user/signin';
   public response: IResponse<any> = null;
-  public user: IUserForm = {
+  public form: IUserForm = {
     email: '',
     password: ''
   };
@@ -22,7 +23,8 @@ export class LoginFormComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private user: UserService,
   ) { }
 
   ngOnInit() {
@@ -31,17 +33,7 @@ export class LoginFormComponent implements OnInit {
   public async login (e) {
     e.preventDefault();
     this.isRequesting = true;
-
-    // this.signinHttp(this.user);
-    setTimeout(async () => {
-      const ref = await userLoginMock({
-        email: this.user.email,
-        password: this.user.password
-      });
-      this.response = ref;
-      this.isRequesting = false;
-      this.router.navigateByUrl('/index');
-    }, 300);
+    this.signinHttp(this.form);
   }
   public error (fieldName: string) {
     if ( ! this.response || ! this.response.error || !this.response.error.errors) {
@@ -61,10 +53,15 @@ export class LoginFormComponent implements OnInit {
     this.http.post(this.signinUrl, data).subscribe(
       (response) => {
         this.response = response;
+        if (this.response.data && this.response.data.items[0]) {
+          this.user.SetUser(this.response.data.items[0].user);
+          this.router.navigateByUrl('/index');
+        }
         this.isRequesting = false;
         this.onSigninSuccess(response);
       },
       (response) => {
+        console.log('response: ', response);
         this.isRequesting = false;
         if (response.name === 'HttpErrorResponse') {
           this.response = GetNetworkError();

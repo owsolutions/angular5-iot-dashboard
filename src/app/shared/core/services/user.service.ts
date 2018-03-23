@@ -35,6 +35,10 @@ export class UserService {
     return true;
   }
 
+  public SetUser (user: IUser) {
+    this.user = user;
+    localStorage.setItem('userInformation', JSON.stringify(user));
+  }
   async Login (username: string, password: string) {
     const user = await this.requests.authenticateUser(username, password);
     this.user = user;

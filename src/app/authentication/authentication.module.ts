@@ -6,9 +6,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProgressLineComponent } from './progress-line/progress-line.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CoreService } from './core.service';
 import { MaterialInputDirective } from './material-input.directive';
+import { XMockService } from '../services/xmock.service';
+import { MockInterceptor} from '../services/mock.interceptor';
+import { environment } from '../../environments/environment';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,11 @@ import { MaterialInputDirective } from './material-input.directive';
     SignupFormComponent,
   ],
   providers: [
-    CoreService
+    CoreService,
+    XMockService,
+    !environment.production ? { provide: HTTP_INTERCEPTORS, useClass: MockInterceptor, multi: true } : [],
+
+
   ]
 
 })
