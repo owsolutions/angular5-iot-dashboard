@@ -1,0 +1,12 @@
+<app-page-header [title]="'Devices '" icon="icon icon-keyboard">
+  <a [routerLink]="'/devices/create'" class="touchbar-button">Connect a new device</a>
+</app-page-header>
+
+<div class='page-container'>
+  <div *ngFor="let device of devices" class="col-sm-12 col-xs-12 col-lg-6 padding-box">
+    <app-switch-widgets [device]="device"></app-switch-widgets>
+  </div>
+  <div *ngFor="let source of unconnected" class="col-sm-12 col-xs-12 col-lg-6 padding-box">
+    <app-unconnected-source [dataSource]="source"></app-unconnected-source>
+  </div>
+</div>

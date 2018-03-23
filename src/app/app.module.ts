@@ -11,6 +11,7 @@ import { NgIotModule } from 'ng-iot';
 import { SharedModule } from './shared/shared.module';
 import { LayoutComponent } from './components/layout/layout.component';
 import { RealtimeService } from './shared/core/services/realtime.service';
+import { NgxUserModule } from './authentication/authentication.module';
 
 @Component({
   selector: 'app-root',
@@ -28,6 +29,7 @@ export class AppComponent {}
     BrowserModule,
     FormsModule,
     NgIotModule,
+    NgxUserModule,
     HttpModule,
     NgMediaModule,
     SharedModule,

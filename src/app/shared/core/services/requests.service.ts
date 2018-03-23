@@ -1,53 +1,56 @@
 import { Injectable } from '@angular/core';
-import { IRole, IUser } from '@shared/core/definitions';
-import { IActivity, IVPCInformation, WorkspaceUser, AppState } from '@shared/iot/definitions';
+import { AppState } from '@shared/core/definitions';
 import { PermissionsService } from './permissions.service';
-import { MocksService } from './mocks.service';
-import { IResponse } from 'response-type';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { Store } from '@ngrx/store';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'environments/environment';
+import { MockService } from '@app/shared/core/services/mocks.service';
 
 @Injectable()
 export class RequestsService {
 
   constructor(
     private permissions: PermissionsService,
-    private mocks: MocksService,
-    private store: Store<AppState>
+    private mocks: MockService,
+    private store: Store<AppState>,
+    private http: HttpClient,
   ) {
     this.getDevices();
     this.getLocations();
    }
-
-  async createUser (user): Promise<IResponse<any>> {
-    return this.mocks.createUser(user);
-  }
-  async createVPC (vpcInformation: IVPCInformation): Promise<IResponse<any>> {
-    return this.mocks.createVPC(vpcInformation);
-  }
   async getLocations() {
-    const collections = this.mocks.Locations();
-    for (const item of collections) {
-      this.store.dispatch({
-        type: 'UPDATE_LOCATION',
-        payload: item
-      });
-    }
-  }
-
-  async getActivities (): Promise<Array<IActivity>> {
-    return this.mocks.Activities();
+    this.http.get(environment.api + '/api/locations').subscribe(
+      (response: any) => {
+        const collections = response.data.items;
+        for (const item of collections) {
+          this.store.dispatch({
+            type: 'UPDATE_LOCATION',
+            payload: item
+          });
+        }
+      },
+      (response) => {
+        console.log('error:', response);
+      }
+    );
   }
 
   async getDevices () {
-    const collections = this.mocks.Devices();
-     for (const item of collections) {
-      this.store.dispatch({
-        type: 'UPDATE_DEVICE',
-        payload: item
-      });
-    }
+    this.http.get(environment.api + '/api/devices').subscribe(
+      (response: any) => {
+        const collections = response.data.items;
+        for (const item of collections) {
+          this.store.dispatch({
+            type: 'UPDATE_DEVICE',
+            payload: item
+          });
+        }
+      },
+      (response: any) => {
+        console.log('error:', response);
+      },
+    );
   }
 
   async deleteDevice (id: number) {
@@ -57,35 +60,4 @@ export class RequestsService {
     });
   }
 
-  async getRoles (): Promise<Array<IRole>> {
-    return this.mocks.Roles();
-  }
-
-  async getUsers (offset, limit): Promise<any> {
-    return this.mocks.Users({offset});
-  }
-
-  async authenticateUser (username: string, password: string): Promise<IUser> {
-    return this.mocks.User();
-  }
-
-  /**
-   * Returns users are registered or associated under this account.
-   * These are users who are inside your workspace; you are not able to edit their details
-   * but only you can view their activity; or disable them from separate accesses.
-   */
-  public GetWorkspaceUsers (): Observable<Array<WorkspaceUser>> {
-    return Observable.of([
-      {
-        Access: 'High',
-        Email: 'user.name@gmail.com',
-        LastActivity: '23 minutes ago',
-        Name: 'Username'
-      }
-    ] as Array<WorkspaceUser>);
-  }
-
-  public ChangeUserRole (userID: string, roleID: string) {
-    console.log(' Implement the code to change user here ');
-  }
 }

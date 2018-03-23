@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from '@app/shared/iot/definitions';
+import { AppState } from '@app/shared/core/definitions';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
 import { Subscription } from 'rxjs/Subscription';

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CloudDevice, AppState, IActivity, ILocation } from '@shared/iot/definitions';
+import { CloudDevice, AppState, IActivity, ILocation } from '@shared/core/definitions';
 import { Store } from '@ngrx/store';
 
 @Injectable()

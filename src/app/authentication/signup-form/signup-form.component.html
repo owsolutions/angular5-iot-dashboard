@@ -1,0 +1,54 @@
+<app-progress-line *ngIf="isRequesting"></app-progress-line>
+<div class="container-login">
+    <div class="wrap-login">
+      <form>
+        <div class="login-header">
+        
+          <span>
+            Join to IOT Dashboard
+          </span>
+          <p>
+              The best way to manage and monitoring you IOT devices.
+          </p>
+        </div>
+  
+        <div class="form-group material-input">
+          <input autocomplete="off" type="text" material-input name="email" value="" [(ngModel)]="form.email">
+          <span class="focus-input" data-placeholder="Email"></span>
+          <span *ngIf="error('email')">{{error('email')}}</span>
+        </div>
+  
+        <div class="form-group material-input">
+          <span class="btn-show-pass" (click)="togglePassword();">
+            <i [ngClass]="{'icon-visibility_off': passwordVisibilty, 'icon-visibility': (!passwordVisibilty)}"></i>
+          </span>
+          <input autocomplete="off" [type]="passwordVisibilty ? 'text' : 'password'" material-input name="password" [(ngModel)]="form.password">
+          <span class="focus-input" data-placeholder="Password"></span>
+          <span *ngIf="error('password')">{{error('password')}}</span>
+
+        </div>  
+        <p *ngIf="response && response.error && response.error.message" class="message">
+          {{response.error.message}}
+        </p>
+
+        <p class="signup-info">
+            By clicking on "Signup" below, you are agreeing to the
+            <a href="#" target="_blank">Terms of Service</a> and the
+            <a href="#" target="_blank">Privacy Policy</a>.
+        </p>
+
+        <div class="form-group login-button">
+          <button class="btn btn-primary" (click)="signup($event);">
+            Signup
+          </button>
+        </div>
+
+        <div>
+          Do you have an account?
+          <a routerLink="/login">
+            Login
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>

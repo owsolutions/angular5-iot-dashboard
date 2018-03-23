@@ -1,0 +1,123 @@
+
+.material-input {
+  width: 100%;
+  position: relative;
+  border-bottom: 1px solid #adadad;
+  margin-bottom: 35px;
+  input {
+      font-size: 15px;
+      color: #555555;
+      line-height: 1.2;
+      display: block;
+      width: 100%;
+      height: 45px;
+      background: transparent;
+      padding: 0 5px;
+      outline: none;
+      border: none;
+      overflow: visible;
+      &:focus + .focus-input{
+          &:after {
+              top: -10px;
+              font-size: 12px;
+              color: #aaa;
+          }
+          &:before {
+              width: 100%;
+          }
+      }
+      &.focused + .focus-input{
+          &:after {
+              top: -10px;
+              font-size: 12px;
+              color: #aaa;
+          }
+          &:before {
+              width: 100%;
+          }
+      }
+  }
+  .focus-input {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          
+          -webkit-transition: all 0.4s;
+          -o-transition: all 0.4s;
+          -moz-transition: all 0.4s;
+          transition: all 0.4s;
+          
+          background: #6a7dfe;
+          background: -webkit-linear-gradient(to left, #21d4fd, #b721ff);
+          background: -o-linear-gradient(to left, #21d4fd, #b721ff);
+          background: -moz-linear-gradient(to left, #21d4fd, #b721ff);
+          background: linear-gradient(to left, #21d4fd, #b721ff);
+      }
+      &:after {
+          font-size: 15px;
+          color: #999999;
+          line-height: 1.2;
+          
+          content: attr(data-placeholder);
+          display: block;
+          width: 100%;
+          position: absolute;
+          top: 16px;
+          left: 0px;
+          padding-left: 5px;
+          
+          -webkit-transition: all 0.4s;
+          -o-transition: all 0.4s;
+          -moz-transition: all 0.4s;
+          transition: all 0.4s;
+      }
+  }
+
+  .btn-show-pass {
+      font-size: 15px;
+      color: #999999;
+      
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      align-items: center;
+      position: absolute;
+      height: 100%;
+      top: 0;
+      right: 0;
+      padding-right: 5px;
+      cursor: pointer;
+      -webkit-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      transition: all 0.4s;
+      &:hover {
+          color: #6a7dfe;
+          color: -webkit-linear-gradient(to left, #21d4fd, #b721ff);
+          color: -o-linear-gradient(to left, #21d4fd, #b721ff);
+          color: -moz-linear-gradient(to left, #21d4fd, #b721ff);
+          color: linear-gradient(to left, #21d4fd, #b721ff);
+      }
+      &.active {
+          color: #6a7dfe;
+          color: -webkit-linear-gradient(to left, #21d4fd, #b721ff);
+          color: -o-linear-gradient(to left, #21d4fd, #b721ff);
+          color: -moz-linear-gradient(to left, #21d4fd, #b721ff);
+          color: linear-gradient(to left, #21d4fd, #b721ff);
+      }
+  }
+}
