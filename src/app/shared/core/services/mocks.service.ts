@@ -234,19 +234,6 @@ export class MocksService {
   createUser (form: IUserForm): IResponse<any> {
     function hasUnvalidFields(vpc: IUserForm): Array<any> {
       const errors = [];
-      // if ( ! vpc.firstname ) {
-      //   errors.push({
-      //     location: 'firstname',
-      //     message: 'You didn\'t provide the firstname'
-      //   });
-      // }
-      // if ( ! vpc.lastname ) {
-      //   errors.push({
-      //     location: 'lastname',
-      //     message: 'You didn\t provide the lastname'
-      //   });
-      // }
-
       if ( ! vpc.email ) {
         errors.push({
           location: 'email',
