@@ -6,9 +6,7 @@ import { DevicesComponent } from '@shared/iot/devices/devices.component';
 import { ActivityComponent } from '@shared/iot/activity/activity.component';
 import { LocationEditComponent } from '@shared/iot/locations/location-edit/location-edit.component';
 import { FormElementsComponent } from '@shared/core/form-elements/form-elements.component';
-import { UsersComponent } from '@shared/core/users/users.component';
 import { RolesComponent } from '@shared/core/roles/roles.component';
-import { UserSingleComponent } from '@shared/core/users/user-single/user-single.component';
 import { DefaultLayout, AuthLayout } from './layout';
 import { DropFileComponent } from '@shared/core/drop-file/drop-file.component';
 import { DeviceSingleComponent } from '../app/components/device-single/device-single.component';
@@ -25,14 +23,12 @@ export const appRoutes: Routes = [
   AuthLayout (SettingsComponent, 'settings'),
   AuthLayout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
   AuthLayout (LocationEditComponent, 'locations/new', {data: {mode: 'new'}}),
-  AuthLayout (UsersComponent, 'users'),
   AuthLayout (RolesComponent, 'roles'),
   AuthLayout (ActivityComponent, 'activities'),
   AuthLayout (DevicesComponent, 'devices'),
   AuthLayout (DeviceSingleComponent, 'devices/:id'),
   AuthLayout (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
   AuthLayout (FormElementsComponent, 'form-elements'),
-  AuthLayout (UserSingleComponent, 'user/:id'),
   DefaultLayout(DocsComponent, 'docs'),
   DefaultLayout(DropFileComponent, 'gallery')
 ];

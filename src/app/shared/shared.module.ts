@@ -11,9 +11,7 @@ import { TextInputComponent } from './core/forms/text-input/text-input.component
 import { RadioInputComponent } from './core/forms/radio-input/radio-input.component';
 import { SelectInputComponent } from './core/forms/select-input/select-input.component';
 import { FormElementsComponent } from './core/form-elements/form-elements.component';
-import { UsersComponent } from './core/users/users.component';
 import { RolesComponent } from './core/roles/roles.component';
-import { UserSingleComponent } from './core/users/user-single/user-single.component';
 import { PermissionsService } from './core/services/permissions.service';
 import { RequestsService } from './core/services/requests.service';
 import { CheckboxInputComponent } from './core/forms/checkbox-input/checkbox-input.component';
@@ -43,7 +41,6 @@ import { DropFileComponent } from './core/drop-file/drop-file.component';
 import { LoadingComponent } from './core/loading/loading.component';
 import { InputComponent } from './forms/input/input.component';
 import { FormHolderComponent } from './forms/form-holder/form-holder.component';
-import { LogoutComponent } from './core/users/logout/logout.component';
 import { NavigationComponent } from '@shared/core/navigation/navigation.component';
 import { SidebarWidgetComponent } from '@shared/iot/sidebar-widget/sidebar-widget.component';
 import { IotSvgService } from './iot-svg/iot-svg.service';
@@ -62,7 +59,6 @@ import { MockInterceptor } from '@app/services/mock.interceptor';
   declarations: [
     SettingsComponent,
     DataTableComponent,
-    LogoutComponent,
     PageHeaderComponent,
     TextInputComponent,
     DocsApiWorkaroundComponent,
@@ -71,9 +67,7 @@ import { MockInterceptor } from '@app/services/mock.interceptor';
     SelectInputComponent,
     FormElementsComponent,
     SidebarWidgetComponent,
-    UsersComponent,
     RolesComponent,
-    UserSingleComponent,
     UnConnectedSourceComponent,
     CheckboxInputComponent,
     DevicesComponent,
