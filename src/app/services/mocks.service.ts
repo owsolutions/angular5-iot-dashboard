@@ -8,6 +8,7 @@ import { PermissionsService } from '@services/permissions.service';
 import { IUserForm } from '@app/definitions';
 import { CloudDeviceType } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
+import { random } from 'lodash';
 
 
 @Injectable()
@@ -159,7 +160,31 @@ export class MockService {
             name: 'Hall temperature',
             type: CloudDeviceType.TemperatureSensor,
             datasource: 'device-1',
-            value: 17.5,
+            value: random(10, 30),
+            location: 1,
+            preferences: {
+              DisplayAverageLastWeekInSidebar: true,
+              DisplayRealTimeTemperatureInSidebar: true
+            }
+          },
+          {
+            id: 2,
+            name: 'Kitchen Temperature',
+            type: CloudDeviceType.TemperatureSensor,
+            datasource: 'device-2',
+            value: random(10, 30),
+            location: 1,
+            preferences: {
+              DisplayAverageLastWeekInSidebar: true,
+              DisplayRealTimeTemperatureInSidebar: true
+            }
+          },
+          {
+            id: 3,
+            name: 'Parking temperature',
+            type: CloudDeviceType.TemperatureSensor,
+            datasource: 'device-4',
+            value: random(10, 30),
             location: 1,
             preferences: {
               DisplayAverageLastWeekInSidebar: true,
