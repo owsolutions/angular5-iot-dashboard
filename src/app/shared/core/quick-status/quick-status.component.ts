@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarWidgetItem } from '@shared/core/definitions';
 import { Store } from '@ngrx/store';
-import { AppState, CloudDevice } from '@shared/iot/definitions';
+import { AppState, CloudDevice } from '@shared/core/definitions';
 import { values } from 'lodash';
 
 @Component({

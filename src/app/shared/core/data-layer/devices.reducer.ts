@@ -1,6 +1,6 @@
 import { Action } from '@shared/core/definitions';
 import UpdateOrInsert from '@shared/core/functions/UpdateOrInsert';
-import { CloudDevice, DataSource } from '@app/shared/iot/definitions';
+import { CloudDevice, DataSource } from '@app/shared/core/definitions';
 
 export const UPDATE_DEVICE = 'UPDATE_DEVICE';
 export function devicesReducer (state: Array<CloudDevice> = [], action: Action) {

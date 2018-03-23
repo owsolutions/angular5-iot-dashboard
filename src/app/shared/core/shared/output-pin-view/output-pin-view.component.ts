@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { random } from 'lodash';
-import { CloudDevice } from '@app/shared/iot/definitions';
+import { CloudDevice } from '@app/shared/core/definitions';
 
 @Component({
   selector: 'app-output-pin-view',

@@ -1,6 +1,6 @@
 import { Action } from '@shared/core/definitions';
 import UpdateOrInsert from '@shared/core/functions/UpdateOrInsert';
-import { DataSource } from '@app/shared/iot/definitions';
+import { DataSource } from '@app/shared/core/definitions';
 
 export function unconnectedReducer (state: Array<DataSource> = [], action: Action) {
   const payload: DataSource = action.payload;

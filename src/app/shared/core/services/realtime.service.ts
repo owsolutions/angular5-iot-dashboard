@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState, CloudDevice, DataSource } from '@shared/iot/definitions';
+import { AppState, CloudDevice, DataSource } from '@shared/core/definitions';
 import { random } from 'lodash';
 declare var Pusher: any;
 

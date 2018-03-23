@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { PermissionsService } from '@shared/core/services/permissions.service';
 import { RequestsService } from '@shared/core/services/requests.service';
 import { IRole, IPermission } from '@shared/core/definitions';
-import { AppState } from '@shared/iot/definitions';
+import { AppState } from '@shared/core/definitions';
 
 import { Store } from '@ngrx/store';
 

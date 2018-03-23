@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppState } from '@shared/iot/definitions';
+import { AppState } from '@shared/core/definitions';
 import { PermissionsService } from './permissions.service';
 import 'rxjs/add/observable/of';
 import { Store } from '@ngrx/store';

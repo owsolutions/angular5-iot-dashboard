@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DataSource } from '@shared/iot/definitions';
+import { DataSource } from '@shared/core/definitions';
 
 @Component({
   selector: 'app-unconnected-source',

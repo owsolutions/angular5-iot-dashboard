@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { AppState, ILocation, DataSource } from '@shared/iot/definitions';
+import { AppState, ILocation, DataSource } from '@shared/core/definitions';
 import { Store } from '@ngrx/store';
 import { RequestsService } from '@shared/core/services/requests.service';
 

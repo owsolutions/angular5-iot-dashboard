@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, AfterContentInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppState, ILocation, CloudDevice } from '@shared/iot/definitions';
+import { AppState, ILocation, CloudDevice } from '@shared/core/definitions';
 import { Store } from '@ngrx/store';
 import { maxBy, times } from 'lodash';
 import { NgMediaComponent } from 'ng-media';

@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { IActivity, AppState } from '@shared/iot/definitions';
+import { IActivity, AppState } from '@shared/core/definitions';
 
 @Component({
   selector: 'app-activity-widget',

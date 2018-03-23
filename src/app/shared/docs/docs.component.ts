@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IResponse } from 'response-type';
-import { DataSource } from '@shared/iot/definitions';
+import { DataSource } from '@shared/core/definitions';
 
 @Component({
   selector: 'app-docs',

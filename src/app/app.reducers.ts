@@ -1,8 +1,8 @@
-import { devicesReducer } from '@shared/iot/data-layer/devices.reducer';
-import { locationsReducer } from '@shared/iot/data-layer/locations.reducer';
-import { activitiesReducer } from '@shared/iot/data-layer/activity.reducer';
+import { devicesReducer } from '@shared/core/data-layer/devices.reducer';
+import { locationsReducer } from '@shared/core/data-layer/locations.reducer';
+import { activitiesReducer } from '@shared/core/data-layer/activity.reducer';
 import { rolesReducer } from '@shared/core/data-layer/roles.reducer';
-import { unconnectedReducer } from '@shared/iot/data-layer//unconnectedSources.reducer';
+import { unconnectedReducer } from '@shared/core/data-layer//unconnectedSources.reducer';
 
 import { StoreModule } from '@ngrx/store';
 

@@ -6,8 +6,9 @@ import { matchPattern } from 'url-matcher';
 import { environment } from '../../../../environments/environment';
 import { PermissionsService } from '@app/shared/core/services/permissions.service';
 import { IUserForm } from '@app/shared/core/definitions';
-import { CloudDeviceType } from '@app/shared/iot/definitions';
+import { CloudDeviceType } from '@app/shared/core/definitions';
 import { IotSvgService } from '@app/shared/iot-svg/iot-svg.service';
+
 
 @Injectable()
 export class MockService {

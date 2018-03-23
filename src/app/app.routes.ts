@@ -1,10 +1,10 @@
 import { RouterModule, Routes } from '@angular/router';
-import { IndexComponent } from '@shared/iot/index/index.component';
-import { LocationsComponent } from '@shared/iot/locations/locations.component';
+import { IndexComponent } from '@shared/core/index/index.component';
+import { LocationsComponent } from '@shared/core/locations/locations.component';
 import { SettingsComponent } from '@shared/core/settings/settings.component';
-import { DevicesComponent } from '@shared/iot/devices/devices.component';
-import { ActivityComponent } from '@shared/iot/activity/activity.component';
-import { LocationEditComponent } from '@shared/iot/locations/location-edit/location-edit.component';
+import { DevicesComponent } from '@shared/core/devices/devices.component';
+import { ActivityComponent } from '@shared/core/activity/activity.component';
+import { LocationEditComponent } from '@shared/core/locations/location-edit/location-edit.component';
 import { FormElementsComponent } from '@shared/core/form-elements/form-elements.component';
 import { RolesComponent } from '@shared/core/roles/roles.component';
 import { DefaultLayout, AuthLayout } from './layout';
