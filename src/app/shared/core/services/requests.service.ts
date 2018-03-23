@@ -7,6 +7,7 @@ import { IResponse } from 'response-type';
 import 'rxjs/add/observable/of';
 import { Store } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'environments/environment';
 
 @Injectable()
 export class RequestsService {
@@ -21,7 +22,7 @@ export class RequestsService {
     this.getLocations();
    }
   async getLocations() {
-    this.http.get('http://localhost:1337/api/locations').subscribe(
+    this.http.get(environment.api + '/api/locations').subscribe(
       (response: any) => {
         const collections = response.data.items;
         for (const item of collections) {
@@ -38,7 +39,7 @@ export class RequestsService {
   }
 
   async getDevices () {
-    this.http.get('http://localhost:1337/api/devices').subscribe(
+    this.http.get(environment.api + '/api/devices').subscribe(
       (response: any) => {
         const collections = response.data.items;
         for (const item of collections) {
