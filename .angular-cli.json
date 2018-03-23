@@ -41,6 +41,7 @@
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts",
         "heroku": "environments/environment.heroku.ts",
+        "github": "environments/environment.github.ts",
         "hmr": "environments/environment.hmr.ts"
       }
     }
