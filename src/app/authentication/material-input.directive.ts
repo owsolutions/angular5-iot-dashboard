@@ -1,6 +1,7 @@
 import { Directive, HostListener } from '@angular/core';
 
 @Directive({
+  /* tslint:disable */
   selector: 'input[material-input]'
 })
 export class MaterialInputDirective {
