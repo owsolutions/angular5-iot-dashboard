@@ -68,33 +68,6 @@ export class MocksService {
         id: 4
       }
     ];
-
-  }
-
-  Locations(): Array<ILocation> {
-    return [
-      {
-        id: 1,
-        name: 'Kitchen',
-        'icon': this.iotsvg.kitchen,
-        level: '2',
-        temperatureDevice: 1
-      },
-      {
-        id: 2,
-        name: 'Bathroom',
-        'icon': this.iotsvg.pathtub,
-        level: '3',
-        temperatureDevice: 2
-      },
-      {
-        id: 3,
-        name: 'Master bedroom',
-        'icon': this.iotsvg.masterBedroom,
-        level: '2',
-        temperatureDevice: 1
-      },
-    ];
   }
 
   User(): IUser {

@@ -31,10 +31,6 @@ export class UsersComponent implements OnInit {
     this.store.select('roles').subscribe(collection => {
       this.roles = (collection as Array<IRole>);
     });
-    this.requests.GetWorkspaceUsers().subscribe((users: Array<WorkspaceUser>) => {
-      this.users = users;
-    });
-
   }
 
 }
