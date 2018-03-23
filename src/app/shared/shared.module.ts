@@ -38,8 +38,6 @@ import { NgMediaModule } from 'ng-media';
 import { NgIotModule } from 'ng-iot';
 import { DropFileComponent } from './core/drop-file/drop-file.component';
 import { LoadingComponent } from './core/loading/loading.component';
-import { InputComponent } from './forms/input/input.component';
-import { FormHolderComponent } from './forms/form-holder/form-holder.component';
 import { NavigationComponent } from '@shared/core/navigation/navigation.component';
 import { SidebarWidgetComponent } from '@shared/core/sidebar-widget/sidebar-widget.component';
 import { IotSvgService } from './iot-svg/iot-svg.service';
@@ -92,8 +90,6 @@ import { MockService } from '@app/shared/core/services/mocks.service';
     ModesComponent,
     DropFileComponent,
     LoadingComponent,
-    InputComponent,
-    FormHolderComponent,
     StatisticsComponent
   ],
   imports: [
