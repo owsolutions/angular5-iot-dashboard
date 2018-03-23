@@ -4,10 +4,9 @@ import { Observable } from 'rxjs/Observable';
 import { IResponse } from 'response-type';
 import { matchPattern } from 'url-matcher';
 import { environment } from '../../environments/environment';
-import * as _ from 'lodash';
 import { PermissionsService } from '@app/shared/core/services/permissions.service';
 import { IUserForm } from '@app/shared/core/definitions';
-import { ILocation, CloudDeviceType } from '@app/shared/iot/definitions';
+import { CloudDeviceType } from '@app/shared/iot/definitions';
 import { IotSvgService } from '@app/shared/iot-svg/iot-svg.service';
 
 @Injectable()

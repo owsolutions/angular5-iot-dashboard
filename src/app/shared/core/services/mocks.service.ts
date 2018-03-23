@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IUser, IRole, IUserForm } from '@shared/core/definitions';
-import { IActivity, ActivityTypes, IVPCInformation, ILocation, CloudDevice, CloudDeviceType } from '@shared/iot/definitions';
+import { IActivity, ActivityTypes } from '@shared/iot/definitions';
 import { times } from 'lodash';
 import { PermissionsService } from './permissions.service';
 import { IResponse } from 'response-type';

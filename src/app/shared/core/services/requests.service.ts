@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { IRole } from '@shared/core/definitions';
 import { AppState } from '@shared/iot/definitions';
 import { PermissionsService } from './permissions.service';
 import { MocksService } from './mocks.service';
-import { IResponse } from 'response-type';
 import 'rxjs/add/observable/of';
 import { Store } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
