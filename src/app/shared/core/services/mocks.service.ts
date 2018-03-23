@@ -179,58 +179,6 @@ export class MocksService {
       })
     };
   }
-
-    createVPC (form: IVPCInformation): IResponse<any> {
-
-      function hasUnvalidFields(vpc: IVPCInformation): Array<any> {
-          const errors = [];
-          if ( ! vpc.administrator ) {
-              errors.push({
-                  location: 'administrator',
-                  message: 'You didn\'t provide the administrator email. VPC needs an administrator'
-              });
-          }
-          if ( ! vpc.administratorPassword ) {
-              errors.push({
-                  location: 'administratorPassword',
-                  message: 'Make sure you provide a password longer than 8 characters'
-              });
-          }
-
-          if ( ! vpc.vpcname ) {
-              errors.push({
-                  location: 'vpcname',
-                  message: 'Please provide the vpcname'
-              });
-          }
-
-          if ( ! vpc.vpcregion ) {
-              errors.push({
-                  location: 'vpcregion',
-                  message: 'Please select your geographical location.'
-              });
-          }
-          return errors;
-      }
-      if (hasUnvalidFields(form).length) {
-          return {
-              error: {
-                  code: 1,
-                  message: 'Please fix the errors within the form',
-                  errors: hasUnvalidFields(form)
-              }
-          };
-      }
-      return {
-          data: {
-              items: [
-                  {
-                      vpc: form
-                  }
-              ]
-          }
-      };
-  }
   createUser (form: IUserForm): IResponse<any> {
     function hasUnvalidFields(vpc: IUserForm): Array<any> {
       const errors = [];

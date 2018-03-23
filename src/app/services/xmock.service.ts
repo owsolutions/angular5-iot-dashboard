@@ -7,6 +7,8 @@ import { environment } from '../../environments/environment';
 import * as _ from 'lodash';
 import { PermissionsService } from '@app/shared/core/services/permissions.service';
 import { IUserForm } from '@app/shared/core/definitions';
+import { ILocation } from '@app/shared/iot/definitions';
+import { IotSvgService } from '@app/shared/iot-svg/iot-svg.service';
 
 @Injectable()
 export class XMockService {
@@ -16,11 +18,13 @@ export class XMockService {
     // 'PUT /user/:id': 'updateUser',
     // 'GET /user': 'fetchUsers',
     'POST /api/user/signin': 'signIn',
-    'POST /api/user/signup': 'signUp'
+    'POST /api/user/signup': 'signUp',
+    'GET /api/locations': 'getLocations'
   };
 
   constructor (
-    private permissions: PermissionsService
+    private permissions: PermissionsService,
+    private iotsvg: IotSvgService
   ) {}
 
   urlMatch( url: string, method: string = null ) {
@@ -141,6 +145,36 @@ export class XMockService {
             user: this.mockUser(),
             token: 'fake-token3892379828932982789237982'
           }
+        ]
+      }
+    };
+  }
+
+  public getLocations (): IResponse<any> {
+    return {
+      data: {
+        items: [
+          {
+            id: 1,
+            name: 'Kitchen',
+            'icon': this.iotsvg.kitchen,
+            level: '2',
+            temperatureDevice: 1
+          },
+          {
+            id: 2,
+            name: 'Bathroom',
+            'icon': this.iotsvg.pathtub,
+            level: '3',
+            temperatureDevice: 2
+          },
+          {
+            id: 3,
+            name: 'Master bedroom',
+            'icon': this.iotsvg.masterBedroom,
+            level: '2',
+            temperatureDevice: 1
+          },
         ]
       }
     };

@@ -54,6 +54,9 @@ import { DeviceGeneralInformationComponent } from 'app/components/device-general
 import { DeviceCustomizationComponent } from 'app/components/device-customization/device-customization.component';
 import { RealtimeService } from '../shared/core/services/realtime.service';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { environment } from '../../environments/environment';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MockInterceptor } from '@app/services/mock.interceptor';
 
 @NgModule({
   declarations: [
@@ -116,6 +119,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
     ActionsService,
     UserService,
     AuthGuard,
+    !environment.production ? { provide: HTTP_INTERCEPTORS, useClass: MockInterceptor, multi: true } : [],
     IotSvgService
   ],
 })

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { IUserForm, userLoginMock, GetNetworkError } from '../shared';
+import { IUserForm, GetNetworkError } from '../shared';
 import { Router } from '@angular/router';
 import { IResponse } from 'response-type';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from '@app/shared/core/services/user.service';
+import { environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-login-form',
@@ -12,7 +13,7 @@ import { UserService } from '@app/shared/core/services/user.service';
 })
 export class LoginFormComponent implements OnInit {
   public isRequesting = false;
-  public signinUrl = 'http://localhost:1337/api/user/signin';
+  public signinUrl = `${environment.api}/api/user/signin`;
   public response: IResponse<any> = null;
   public form: IUserForm = {
     email: '',
