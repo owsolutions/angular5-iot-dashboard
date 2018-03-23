@@ -30,7 +30,6 @@ export class MockService {
 
   urlMatch( url: string, method: string = null ) {
     url = url.replace(environment.api, '');
-    console.log(url, method);
     for ( const route of Object.keys( this.routes ) ) {
       const urlMethod = route.split( ' ' );
       let result = '';

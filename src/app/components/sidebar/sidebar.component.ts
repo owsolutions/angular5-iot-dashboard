@@ -5,11 +5,11 @@ import { AppState, CloudDevice } from '@app/definitions';
 import { values } from 'lodash';
 
 @Component({
-  selector: 'app-quick-status',
-  templateUrl: './quick-status.component.html',
-  styleUrls: ['./quick-status.component.scss']
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss']
 })
-export class QuickStatusComponent implements OnInit {
+export class SidebarComponent implements OnInit {
 
   public devices: Array<any> = [];
   public weatherConditions: any;

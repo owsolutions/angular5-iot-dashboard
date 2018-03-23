@@ -1,5 +1,5 @@
 import { NavigationComponent } from '@components/navigation/navigation.component';
-import { QuickStatusComponent } from '@components/quick-status/quick-status.component';
+import { SidebarComponent } from '@components/sidebar/sidebar.component';
 import { AppInfoComponent } from '@components/app-info/app-info.component';
 import { Route } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -86,9 +86,9 @@ const SidebarOutlets = [
     }
   },
   {
-    outlet: 'quick-status',
+    outlet: 'sidebar',
     path: '',
-    component: QuickStatusComponent
+    component: SidebarComponent
   },
   {
     outlet: 'app-info',

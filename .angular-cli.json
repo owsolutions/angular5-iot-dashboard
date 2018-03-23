@@ -32,8 +32,6 @@
         ]
       },
       "scripts": [
-        "assets/js/jquery-3.2.1.min.js",
-        "assets/js/datatables.min.js",
 	      "assets/sails.io.js"
       ],
       "environmentSource": "environments/environment.ts",

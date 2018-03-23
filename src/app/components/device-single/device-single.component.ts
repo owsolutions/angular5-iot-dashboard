@@ -75,7 +75,6 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
     this.form = Object.assign(this.form, data);
   }
   public DeviceCustomizationChange (value) {
-    console.log('I am changed', value);
     this.form.preferences = value;
   }
 }

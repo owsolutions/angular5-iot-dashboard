@@ -62,7 +62,6 @@ export class LoginFormComponent implements OnInit {
         this.onSigninSuccess(response);
       },
       (response) => {
-        console.log('response: ', response);
         this.isRequesting = false;
         if (response.name === 'HttpErrorResponse') {
           this.response = GetNetworkError();

@@ -37,8 +37,8 @@ import { IconWidgetsComponent } from '@components/index/icon-widgets/icon-widget
 import { PlacesComponent } from '@components/index/places/places.component';
 import { IndexComponent } from '@components/index/index.component';
 import { DefaultLayoutComponent } from '@components/default-layout/default-layout.component';
-import { QuickStatusComponent } from '@components/quick-status/quick-status.component';
-import { UserWidgetComponent } from '@components/quick-status/user-widget/user-widget.component';
+import { SidebarComponent } from '@components/sidebar/sidebar.component';
+import { UserWidgetComponent } from '@components/user-widget/user-widget.component';
 import { AppInfoComponent } from '@components/app-info/app-info.component';
 import { ModesComponent } from '@components/app-info/modes/modes.component';
 import { DropFileComponent } from '@components/drop-file/drop-file.component';
@@ -97,7 +97,7 @@ export class AppComponent {}
     DocsComponent,
     IndexComponent,
     DefaultLayoutComponent,
-    QuickStatusComponent,
+    SidebarComponent,
     UserWidgetComponent,
     AppInfoComponent,
     ModesComponent,
@@ -141,6 +141,5 @@ export class AppModule {
   constructor (
     private realtime: RealtimeService,
   ) {
-    console.log('App module built');
   }
 }

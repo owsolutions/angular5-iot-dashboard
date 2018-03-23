@@ -31,7 +31,6 @@ export class RequestsService {
         }
       },
       (response) => {
-        console.log('error:', response);
       }
     );
   }
@@ -48,7 +47,6 @@ export class RequestsService {
         }
       },
       (response: any) => {
-        console.log('error:', response);
       },
     );
   }
