@@ -8,13 +8,15 @@ import { RouterModule } from '@angular/router';
 import { ProgressLineComponent } from './progress-line/progress-line.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreService } from './core.service';
+import { MaterialInputDirective } from './material-input.directive';
 
 @NgModule({
   declarations: [
     ForgotPasswordComponent,
     LoginFormComponent,
     SignupFormComponent,
-    ProgressLineComponent
+    ProgressLineComponent,
+    MaterialInputDirective
   ],
   imports: [
     BrowserModule,
