@@ -106,37 +106,6 @@ export class MocksService {
         }
     ];
   }
-
-
-  Devices (): Array<CloudDevice> {
-    return [
-      {
-        id: 1,
-        name: 'Hall temperature',
-        type: CloudDeviceType.TemperatureSensor,
-        datasource: 'device-1',
-        value: 17.5,
-        location: 1,
-        preferences: {
-          DisplayAverageLastWeekInSidebar: true,
-          DisplayRealTimeTemperatureInSidebar: true
-        }
-      },
-      // {
-      //   id: 2,
-      //   name: 'Room temperature',
-      //   type: CloudDeviceType.TemperatureSensor,
-      //   datasource: 'device-2',
-      //   value: 32.8,
-      //   location: 2,
-      //   preferences: {
-      //     DisplayRealTimeTemperatureInSidebar: true
-      //   },
-
-      // }
-    ] as Array<CloudDevice>;
-  }
-
   public Users ({offset}) {
     return {
       table: {

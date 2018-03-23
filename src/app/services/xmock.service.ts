@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 import * as _ from 'lodash';
 import { PermissionsService } from '@app/shared/core/services/permissions.service';
 import { IUserForm } from '@app/shared/core/definitions';
-import { ILocation } from '@app/shared/iot/definitions';
+import { ILocation, CloudDeviceType } from '@app/shared/iot/definitions';
 import { IotSvgService } from '@app/shared/iot-svg/iot-svg.service';
 
 @Injectable()
@@ -19,7 +19,8 @@ export class XMockService {
     // 'GET /user': 'fetchUsers',
     'POST /api/user/signin': 'signIn',
     'POST /api/user/signup': 'signUp',
-    'GET /api/locations': 'getLocations'
+    'GET /api/locations': 'getLocations',
+    'GET /api/devices': 'getDevices'
   };
 
   constructor (
@@ -145,6 +146,27 @@ export class XMockService {
             user: this.mockUser(),
             token: 'fake-token3892379828932982789237982'
           }
+        ]
+      }
+    };
+  }
+
+  public getDevices () {
+    return {
+      data: {
+        items: [
+          {
+            id: 1,
+            name: 'Hall temperature',
+            type: CloudDeviceType.TemperatureSensor,
+            datasource: 'device-1',
+            value: 17.5,
+            location: 1,
+            preferences: {
+              DisplayAverageLastWeekInSidebar: true,
+              DisplayRealTimeTemperatureInSidebar: true
+            }
+          },
         ]
       }
     };
