@@ -4,9 +4,9 @@ import { NgMediaComponent } from 'ng-media';
 declare var $: any;
 
 @Component({
-  selector: 'app-drop-file',
-  templateUrl: './drop-file.component.html',
-  styleUrls: ['./drop-file.component.scss']
+  selector: 'app-gallery',
+  templateUrl: './gallery.component.html',
+  styleUrls: ['./gallery.component.scss']
 })
 export class DropFileComponent implements AfterContentInit {
 

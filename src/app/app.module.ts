@@ -41,7 +41,7 @@ import { SidebarComponent } from '@components/sidebar/sidebar.component';
 import { UserWidgetComponent } from '@components/user-widget/user-widget.component';
 import { AppInfoComponent } from '@components/app-info/app-info.component';
 import { ModesComponent } from '@components/app-info/modes/modes.component';
-import { DropFileComponent } from '@components/drop-file/drop-file.component';
+import { DropFileComponent } from '@components/gallery/gallery.component';
 import { LoadingComponent } from '@components/loading/loading.component';
 import { NavigationComponent } from '@components/navigation/navigation.component';
 import { SidebarWidgetComponent } from '@components/sidebar-widget/sidebar-widget.component';
