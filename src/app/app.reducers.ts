@@ -1,8 +1,8 @@
-import { devicesReducer } from '@shared/core/data-layer/devices.reducer';
-import { locationsReducer } from '@shared/core/data-layer/locations.reducer';
-import { activitiesReducer } from '@shared/core/data-layer/activity.reducer';
-import { rolesReducer } from '@shared/core/data-layer/roles.reducer';
-import { unconnectedReducer } from '@shared/core/data-layer//unconnectedSources.reducer';
+import { devicesReducer } from '@components/data-layer/devices.reducer';
+import { locationsReducer } from '@components/data-layer/locations.reducer';
+import { activitiesReducer } from '@components/data-layer/activity.reducer';
+import { rolesReducer } from '@components/data-layer/roles.reducer';
+import { unconnectedReducer } from '@components/data-layer//unconnectedSources.reducer';
 
 import { StoreModule } from '@ngrx/store';
 

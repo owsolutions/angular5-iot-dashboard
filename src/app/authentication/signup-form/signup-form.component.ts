@@ -3,7 +3,7 @@ import { IResponse } from 'response-type';
 import { IUserForm, GetNetworkError } from '../shared';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { UserService } from '@app/shared/core/services/user.service';
+import { UserService } from '@services/user.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup-form',

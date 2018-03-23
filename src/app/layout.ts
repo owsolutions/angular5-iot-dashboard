@@ -1,9 +1,9 @@
-import { NavigationComponent } from '@shared/core/navigation/navigation.component';
-import { QuickStatusComponent } from '@shared/core/quick-status/quick-status.component';
-import { AppInfoComponent } from '@shared/core/app-info/app-info.component';
+import { NavigationComponent } from '@components/navigation/navigation.component';
+import { QuickStatusComponent } from '@components/quick-status/quick-status.component';
+import { AppInfoComponent } from '@components/app-info/app-info.component';
 import { Route } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
-import { AuthGuard } from '@shared/core/services/user.service';
+import { AuthGuard } from '@services/user.service';
 import { environment } from '../environments/environment';
 
 const SidebarOutlets = [

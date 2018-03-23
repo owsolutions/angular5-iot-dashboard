@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { IDeviceDisplayPreference } from '@shared/core/definitions';
+import { IDeviceDisplayPreference } from '@app/definitions';
 
 @Component({
   selector: 'app-device-customization',

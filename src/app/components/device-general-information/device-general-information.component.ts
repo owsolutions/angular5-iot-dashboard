@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
-import { CloudDevice, AppState } from '@shared/core/definitions';
+import { CloudDevice, AppState } from '@app/definitions';
 import { Store } from '@ngrx/store';
 
 @Component({

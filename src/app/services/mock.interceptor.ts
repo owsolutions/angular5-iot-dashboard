@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { MockService } from '@app/shared/core/services/mocks.service';
+import { MockService } from '@app/services/mocks.service';
 
 @Injectable()
 export class MockInterceptor implements HttpInterceptor {

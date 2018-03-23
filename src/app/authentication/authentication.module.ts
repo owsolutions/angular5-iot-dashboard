@@ -11,7 +11,7 @@ import { CoreService } from './core.service';
 import { MaterialInputDirective } from './material-input.directive';
 import { MockInterceptor} from '../services/mock.interceptor';
 import { environment } from '../../environments/environment';
-import { MockService } from '@app/shared/core/services/mocks.service';
+import { MockService } from '@app/services/mocks.service';
 
 @NgModule({
   declarations: [

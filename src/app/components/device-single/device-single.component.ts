@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CloudDevice, CloudDeviceType, AppState } from '@shared/core/definitions';
+import { CloudDevice, CloudDeviceType, AppState } from '@app/definitions';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { RequestsService } from '@app/shared/core/services/requests.service';
+import { RequestsService } from '@app/services/requests.service';
 import { random } from 'lodash';
 
 @Component({

@@ -3,7 +3,7 @@ import { IUserForm, GetNetworkError } from '../shared';
 import { Router } from '@angular/router';
 import { IResponse } from 'response-type';
 import { HttpClient } from '@angular/common/http';
-import { UserService } from '@app/shared/core/services/user.service';
+import { UserService } from '@app/services/user.service';
 import { environment} from '../../../environments/environment';
 
 @Component({
