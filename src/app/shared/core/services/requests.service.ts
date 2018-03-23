@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { AppState } from '@shared/iot/definitions';
 import { PermissionsService } from './permissions.service';
-import { MocksService } from './mocks.service';
 import 'rxjs/add/observable/of';
 import { Store } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'environments/environment';
+import { MockService } from '@app/shared/core/services/mocks.service';
 
 @Injectable()
 export class RequestsService {
 
   constructor(
     private permissions: PermissionsService,
-    private mocks: MocksService,
+    private mocks: MockService,
     private store: Store<AppState>,
     private http: HttpClient,
   ) {

@@ -9,9 +9,9 @@ import { ProgressLineComponent } from './progress-line/progress-line.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CoreService } from './core.service';
 import { MaterialInputDirective } from './material-input.directive';
-import { XMockService } from '../services/xmock.service';
 import { MockInterceptor} from '../services/mock.interceptor';
 import { environment } from '../../environments/environment';
+import { MockService } from '@app/shared/core/services/mocks.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ import { environment } from '../../environments/environment';
   ],
   providers: [
     CoreService,
-    XMockService,
+    MockService,
     !environment.production ? { provide: HTTP_INTERCEPTORS, useClass: MockInterceptor, multi: true } : [],
 
 

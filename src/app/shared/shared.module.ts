@@ -15,7 +15,6 @@ import { RolesComponent } from './core/roles/roles.component';
 import { PermissionsService } from './core/services/permissions.service';
 import { RequestsService } from './core/services/requests.service';
 import { CheckboxInputComponent } from './core/forms/checkbox-input/checkbox-input.component';
-import { MocksService } from './core/services/mocks.service';
 import { ActionsService } from './core/services/actions.service';
 import { UserService, AuthGuard } from './core/services/user.service';
 import { DevicesComponent } from './iot/devices/devices.component';
@@ -54,6 +53,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { environment } from '../../environments/environment';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MockInterceptor } from '@app/services/mock.interceptor';
+import { MockService } from '@app/shared/core/services/mocks.service';
 
 @NgModule({
   declarations: [
@@ -109,7 +109,7 @@ import { MockInterceptor } from '@app/services/mock.interceptor';
     PermissionsService,
     RequestsService,
     RealtimeService,
-    MocksService,
+    MockService,
     ActionsService,
     UserService,
     AuthGuard,

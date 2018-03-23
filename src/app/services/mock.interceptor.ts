@@ -2,13 +2,13 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/c
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 import { Injectable } from '@angular/core';
-import { XMockService } from './xmock.service';
 import { environment } from '../../environments/environment';
+import { MockService } from '@app/shared/core/services/mocks.service';
 
 @Injectable()
 export class MockInterceptor implements HttpInterceptor {
   constructor(
-    private mock: XMockService
+    private mock: MockService
   ) {
   }
 
