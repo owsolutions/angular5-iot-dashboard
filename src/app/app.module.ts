@@ -54,6 +54,8 @@ import { MockInterceptor } from '@services/mock.interceptor';
 import { MockService } from '@services/mocks.service';
 import { TokenInterceptor } from '@services/token.interceptor';
 import { QuickChartComponent } from './components/quick-chart/quick-chart.component';
+import { ErrorMessageComponent } from './components/error-message/error-message.component';
+import { ProgressLineComponent } from './components/progress-line/progress-line.component';
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
 window['Highcharts'] = Highcharts;
@@ -74,6 +76,7 @@ export class AppComponent {
     TextInputComponent,
     DocsApiWorkaroundComponent,
     DeviceSingleComponent,
+    ProgressLineComponent,
     RadioInputComponent,
     SelectInputComponent,
     FormElementsComponent,
@@ -102,7 +105,8 @@ export class AppComponent {
     UserWidgetComponent,
     GalleryComponent,
     LoadingComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    ErrorMessageComponent
   ],
   imports: [
     BrowserAnimationsModule,

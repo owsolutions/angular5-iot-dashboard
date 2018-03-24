@@ -1,9 +1,13 @@
+<app-progress-line *ngIf="isRequesting"></app-progress-line>
+
 <app-page-header [title]="(form.id ? 'Edit' : 'Create') +  ' location'" icon="icon icon-camera-alt">
   <a (click)="deleteItem()" class="touchbar-button" *ngIf="form.id">Delete location</a>
   <a (click)="formSubmit()" class="touchbar-button" *ngIf="!form.id">Create new location</a>
   <a (click)="formSubmit()" class="touchbar-button" *ngIf="form.id">Edit location</a>
   
 </app-page-header>
+
+<app-error-message *ngIf="response && response.error">{{response.error.message}}</app-error-message>
 <div class="body" *ngIf="form" >
   <div style="max-width: 600px;">
     <app-forms-text-input

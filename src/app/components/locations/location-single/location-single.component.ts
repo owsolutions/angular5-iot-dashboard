@@ -15,6 +15,7 @@ import { IResponse } from 'response-type';
 })
 export class LocationSingleComponent implements OnInit, AfterContentInit {
 
+  public isRequesting = false;
   public response: IResponse<ILocation> = null;
   public devices: Array<{value: any, name: any}> = [];
   public form: ILocation = {
@@ -69,7 +70,9 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
   }
 
   public async formSubmit () {
+    this.isRequesting = true;
     const response = this.response = await this.requests.PostLocation(this.form);
+    this.isRequesting = false;
     if (IsSuccessEntity(response)) {
       this.router.navigateByUrl('/locations');
     }

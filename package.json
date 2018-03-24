@@ -11,7 +11,8 @@
     "gh-pages": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages",
     "start": "ng serve --hmr -e=hmr",
     "heroku": "ng serve --hmr -e=heroku",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "copy": "cp -R dist/ ../node-microservices/.tmp/public"
   },
   "private": true,
   "dependencies": {

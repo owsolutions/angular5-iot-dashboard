@@ -1,5 +1,5 @@
 <app-page-header title="Locations" 
-  [searchbar]="true"
+  [searchbar]="false"
   (searchChange)="searchChange($event);"
   icon="icon icon-location">
   <a routerLink="/location/new" class="touchbar-button">Add location</a>
@@ -9,6 +9,6 @@
   <app-location-row [widgets]="actions.findWidgets(devices, location)" [location]="location"></app-location-row>
 </div>
 
-<div *ngIf="locations.length === 0">
-  There are no locations.
-</div>
+<app-error-message *ngIf="locations.length === 0">
+  There are no locations. Please create locations and you will be able to manage them here.
+</app-error-message>
