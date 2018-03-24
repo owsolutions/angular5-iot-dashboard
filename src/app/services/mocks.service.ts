@@ -20,7 +20,8 @@ export class MockService {
     'GET /api/locations': 'getLocations',
     'GET /api/devices': 'getDevices',
     'POST /api/device': 'postDevice',
-    'POST /api/location': 'postLocation'
+    'POST /api/location': 'postLocation',
+    'DELETE /api/location/:id': 'deleteLocation'
   };
 
   constructor (
@@ -323,6 +324,16 @@ export class MockService {
         ]
       }
     };
+  }
+
+  public deleteLocation (req: HttpRequest<any>): IResponse<ILocation> {
+    return {
+      data: {
+        items: [
+          {}
+        ]
+      }
+    }
   }
 }
 function DeviceValidator (device: CloudDevice) {

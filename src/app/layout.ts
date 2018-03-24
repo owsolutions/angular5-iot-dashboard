@@ -2,7 +2,7 @@ import { NavigationComponent } from '@components/navigation/navigation.component
 import { SidebarComponent } from '@components/sidebar/sidebar.component';
 import { Route } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
-import { AuthGuard } from '@services/user.service';
+import { AuthGuard , DataSyncGuard} from '@services/user.service';
 import { environment } from '../environments/environment';
 
 const SidebarOutlets = [
@@ -53,34 +53,7 @@ const SidebarOutlets = [
           link: '/login',
           icon: 'icon icon-exit_to_app',
           title: 'Logout'
-        },
-        // {
-        //   link: '/users',
-        //   icon: 'icon icon-account_box',
-        //   title: 'Users',
-        //   permissions: ['USERS::VIEW'],
-        //   auth: true
-        // },
-        // {
-        //   link: '/roles',
-        //   icon: 'icon icon-key',
-        //   title: 'Roles & permissions',
-        //   permissions: ['ROLES::VIEW'],
-        //   auth: true
-        // },
-        // {
-        //   link: '/form-elements',
-        //   icon: 'icon icon-wpforms',
-        //   title: 'Form elements'
-        // },
-        // {
-        //   link: '/activities',
-        //   icon: 'icon icon-notifications_active',
-        //   title: 'Activities',
-        //   permissions: ['ACTIVITIES::VIEW'],
-        //   auth: true
-        // },
-
+        }
       ]
     }
   },
@@ -96,7 +69,7 @@ export function AuthLayout (component: any, route: string, options: any = {}): R
     return {
         path: route,
         ... options,
-        canActivate: environment.production ? [AuthGuard] : [],
+        canActivate: environment.production ? [AuthGuard, DataSyncGuard] : [DataSyncGuard],
         component: LayoutComponent,
         children: [
             {

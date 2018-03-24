@@ -21,7 +21,7 @@ import { PermissionsService } from '@services/permissions.service';
 import { RequestsService } from '@services/requests.service';
 import { CheckboxInputComponent } from '@components/forms/checkbox-input/checkbox-input.component';
 import { ActionsService } from '@services/actions.service';
-import { UserService, AuthGuard } from '@services/user.service';
+import { UserService, AuthGuard, DataSyncGuard } from '@services/user.service';
 import { DevicesComponent } from '@components/devices/devices.component';
 import { ActivityWidgetComponent } from '@components/activity/activity-widget/activity-widget.component';
 import { LocationsComponent } from '@components/locations/locations.component';
@@ -62,7 +62,8 @@ window['Highcharts'] = Highcharts;
   selector: 'app-root',
   template: '<router-outlet></router-outlet>'
 })
-export class AppComponent {}
+export class AppComponent {
+}
 
 @NgModule({
   declarations: [
@@ -127,6 +128,7 @@ export class AppComponent {}
     ActionsService,
     UserService,
     AuthGuard,
+    DataSyncGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

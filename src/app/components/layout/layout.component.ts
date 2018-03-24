@@ -10,8 +10,7 @@ export class LayoutComponent implements OnInit {
   constructor(
     private requests: RequestsService,
   ) {
-    this.requests.getDevices();
-    this.requests.getLocations();
+  
    }
 
   ngOnInit() {
