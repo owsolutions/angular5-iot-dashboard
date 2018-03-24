@@ -84,10 +84,6 @@ export class RequestsService {
   }
 
   public async PostLocation (location: ILocation): Promise<IResponse<ILocation>> {
-    if ( ! location.id) {
-      location.id = random(100, 9999);
-    }
-
     const ref = this.http.post(environment.api + '/api/location' , location).toPromise();
     try {
       const response: IResponse<ILocation> = await ref;

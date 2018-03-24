@@ -37,7 +37,7 @@ import { IndexComponent } from '@components/index/index.component';
 import { DefaultLayoutComponent } from '@components/default-layout/default-layout.component';
 import { SidebarComponent } from '@components/sidebar/sidebar.component';
 import { UserWidgetComponent } from '@components/user-widget/user-widget.component';
-import { DropFileComponent } from '@components/gallery/gallery.component';
+import { GalleryComponent } from '@components/gallery/gallery.component';
 import { LoadingComponent } from '@components/loading/loading.component';
 import { NavigationComponent } from '@components/navigation/navigation.component';
 import { SidebarWidgetComponent } from '@components/sidebar-widget/sidebar-widget.component';
@@ -99,7 +99,7 @@ export class AppComponent {}
     DefaultLayoutComponent,
     SidebarComponent,
     UserWidgetComponent,
-    DropFileComponent,
+    GalleryComponent,
     LoadingComponent,
     StatisticsComponent
   ],

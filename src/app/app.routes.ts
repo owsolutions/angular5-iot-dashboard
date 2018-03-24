@@ -8,7 +8,7 @@ import { LocationSingleComponent } from '@components/locations/location-single/l
 import { FormElementsComponent } from '@components/form-elements/form-elements.component';
 import { RolesComponent } from '@components/roles/roles.component';
 import { DefaultLayout, AuthLayout } from './layout';
-import { DropFileComponent } from '@components/gallery/gallery.component';
+import { GalleryComponent } from '@components/gallery/gallery.component';
 import { DeviceSingleComponent } from '../app/components/device-single/device-single.component';
 import { DocsComponent } from '@components/docs/docs.component';
 
@@ -32,7 +32,7 @@ export const appRoutes: Routes = [
   AuthLayout (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
   AuthLayout (FormElementsComponent, 'form-elements'),
   DefaultLayout(DocsComponent, 'docs'),
-  DefaultLayout(DropFileComponent, 'gallery')
+  DefaultLayout(GalleryComponent, 'gallery')
 ];
 
 export function createRoutes () {

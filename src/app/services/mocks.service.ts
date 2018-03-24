@@ -262,21 +262,21 @@ export class MockService {
           {
             id: 1,
             name: 'Kitchen',
-            'icon': this.iotsvg.kitchen,
+            'icon': IotSvgService.kitchen,
             level: '2',
             temperatureDevice: 1
           },
           {
             id: 2,
             name: 'Bathroom',
-            'icon': this.iotsvg.pathtub,
+            'icon': IotSvgService.pathtub,
             level: '3',
             temperatureDevice: 2
           },
           {
             id: 3,
             name: 'Master bedroom',
-            'icon': this.iotsvg.masterBedroom,
+            'icon': IotSvgService.masterBedroom,
             level: '2',
             temperatureDevice: 1
           },
@@ -307,6 +307,9 @@ export class MockService {
   }
   public postLocation(req: HttpRequest<any>): IResponse<ILocation> {
     const location: ILocation = req.body;
+    if ( ! location.id) {
+      location.id = random(100, 9999);
+    }
     return {
       data: {
         items: [

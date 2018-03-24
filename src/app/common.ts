@@ -8,6 +8,7 @@ export function GetNetworkError (): IResponse<any> {
     }
   };
 }
+import { IotSvgService } from '@app/services/iot-svg/iot-svg.service';
 
 export function error (response: IResponse<any>, fieldName: string) {
   if ( ! response || ! response.error || !response.error.errors) {
@@ -16,3 +17,26 @@ export function error (response: IResponse<any>, fieldName: string) {
   const error = response.error.errors.find(x => x.location === fieldName);
   return error ? error.message : '';
 }
+
+export const IotImages = [
+  {
+    id: '1',
+    src: IotSvgService.bathroom,
+    name: 'Bathroom',
+  },
+  {
+    id: '2',
+    src: IotSvgService.kitchen,
+    name: 'Kitchen'
+  },
+  {
+    id: '3',
+    src: IotSvgService.masterBedroom,
+    name: 'Master bedroom'
+  },
+  {
+    id: '4',
+    src: IotSvgService.pathtub,
+    name: 'Pathtub'
+  }
+];

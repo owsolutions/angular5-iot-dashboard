@@ -8,3 +8,7 @@
 <div *ngFor="let location of locations;">
   <app-location-row [widgets]="actions.findWidgets(devices, location)" [location]="location"></app-location-row>
 </div>
+
+<div *ngIf="locations.length === 0">
+  There are no locations.
+</div>

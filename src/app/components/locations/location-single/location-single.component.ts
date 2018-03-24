@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { times } from 'lodash';
 import { NgMediaComponent } from 'ng-media';
 import { RequestsService } from '@app/services/requests.service';
+import { IotImages } from '@app/common';
 
 @Component({
   selector: 'app-location-single',
@@ -129,11 +130,7 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
 
   ngAfterContentInit () {
     setTimeout(() => {
-      this.locationIcon.ResetItems([{
-        id: '2',
-        src: '',
-        name: 'text.svg',
-      }]);
+      this.locationIcon.ResetItems(IotImages);
     });
   }
 
