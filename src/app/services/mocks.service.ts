@@ -326,14 +326,16 @@ export class MockService {
     };
   }
 
-  public deleteLocation (req: HttpRequest<any>): IResponse<ILocation> {
+  public deleteLocation (req: HttpRequest<any>): IResponse<any> {
     return {
       data: {
         items: [
-          {}
+          {
+
+          }
         ]
       }
-    }
+    };
   }
 }
 function DeviceValidator (device: CloudDevice) {
