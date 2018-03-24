@@ -13,6 +13,7 @@ export class QuickChartComponent implements OnInit {
   drawChart(data) {
     Highcharts.chart('quick-chart-container', {
       chart: {
+        animation: false,
         backgroundColor: 'transparent',
         type: 'areaspline',
         spacingBottom: 0,
@@ -75,6 +76,7 @@ export class QuickChartComponent implements OnInit {
         enabled: false
       },
       plotOptions: {
+        animation: false,
         areaspline: {
           fillOpacity: 0,
           marker: {
@@ -83,6 +85,7 @@ export class QuickChartComponent implements OnInit {
         }
       },
       series: [{
+        animation: false,
         name: 'Temperature',
         data: [
           11, 15, 10, 16, 10, 15, 11, 14, 9, 14
