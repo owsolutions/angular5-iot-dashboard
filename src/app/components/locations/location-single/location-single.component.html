@@ -1,10 +1,9 @@
 <app-page-header title="Edit location" icon="icon icon-camera-alt">
   <a (click)="formSubmit()" class="touchbar-button" *ngIf="mode != 'edit'">Create new location</a>
   <a (click)="formSubmit()" class="touchbar-button" *ngIf="mode == 'edit'">Edit location</a>
-
 </app-page-header>
-<div class="body" *ngIf="location" >
 
+<div class="body" *ngIf="location" >
   <div style="max-width: 600px;">
     <app-forms-text-input
     placeholder="Location name"
@@ -30,10 +29,10 @@
   <app-ng-media 
     (selectionChange)="changeSelection($event);"
     type="single" #locationIcon></app-ng-media>
-
   <br><br>
 
   <app-forms-select-input
+    *ngIf="devices.length > 1"
     placeholder="Select a device that shows this location temperature"
     icon="icon icon-user"
     name="Location temperature"

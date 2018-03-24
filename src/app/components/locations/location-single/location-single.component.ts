@@ -15,23 +15,9 @@ import { IotImages } from '@app/common';
 export class LocationSingleComponent implements OnInit, AfterContentInit {
 
   public devices: Array<{value: any, name: any}> = [];
-  /**
-   * If we are on a editing mode, it has a number;
-   * otherwise we only having null.
-   */
   public id: number = null;
-
-  /**
-   * Mode shows if it's an editing mode or not.
-   * initial mode is new; but it will be set
-   * through the routes
-   */
   public mode = 'new';
 
-  /**
-   * When editing form, temporary values are stored
-   * in this object.
-   */
   public form: ILocation = {
     name: '',
     icon: null,
@@ -50,16 +36,7 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
 
   public items = [];
 
-  @ViewChild('locationIcon')
-  public locationIcon: NgMediaComponent;
-
-  public defaultIcons = [
-    {name: 'Kitchen' , value: 'four-cooking-accessories-set-for-kitchen.svg'},
-    {name: 'Bathroom' , value: 'bathtub.svg'},
-    {name: 'Master bedrrom', value: 'fireplace.svg'},
-    {name: 'Living room', value: 'living-room.svg'},
-    {name: 'Conference room', value: 'conference.svg'}
-  ];
+  @ViewChild('locationIcon') public locationIcon: NgMediaComponent;
 
   public levels = times(100, (index) => {
     return {
@@ -106,8 +83,9 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
 
   ngOnInit() {
     this.extractRouterInfo();
-    if ( this.mode === 'edit') {
+    if ( this.mode !== 'new') {
       this.store.select('locations').subscribe((locations: Array<ILocation>) => {
+        console.log(locations);
         this.location = locations.find(x => x.id === this.id);
         this.form = Object.assign({}, this.location);
       }).unsubscribe();
@@ -118,10 +96,11 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
     }).unsubscribe();
   }
 
-  async formSubmit () {
+  public async formSubmit () {
     const result = await this.requests.PostLocation(this.form);
-    console.log('Submitted the location: ', result);
-    this.router.navigateByUrl('/locations');
+
+    console.log('Result: ', result);
+    //this.router.navigateByUrl('/locations');
   }
 
   onInputChange (field, value) {
