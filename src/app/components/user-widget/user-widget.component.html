@@ -1,10 +1,10 @@
 <div class="user-widget-container" *ngIf="User">
   <div class='background-overlay'>
-    <div class="avatar">
+    <div class="avatar" *ngIf="User.avatar">
       <img [src]="'assets/images/' + User.avatar" [alt]="User.firstname + ' ' + User.lastname" [title]="User.firstname + ' ' + User.lastname"/>
     </div>
     <div class="user-detail">
-      <p class="ud-user" *ngIf="User">{{User.firstname + ' ' + User.lastname}}</p>
+      <p class="ud-user" *ngIf="User && (User.firstname || User.lastname)">{{User.firstname + ' ' + User.lastname}}</p>
     </div>
     <div class="user-accesory" *ngIf="User">
       <!-- <div><a [routerLink]='index'><i class="icon icon-settings"></i></a></div>
