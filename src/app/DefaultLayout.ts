@@ -1,6 +1,5 @@
 import { NavigationComponent } from '@components/navigation/navigation.component';
 import { SidebarComponent } from '@components/sidebar/sidebar.component';
-import { AppInfoComponent } from '@components/app-info/app-info.component';
 import { Route } from '@angular/router';
 import { DefaultLayoutComponent } from '@components/default-layout/default-layout.component';
 import { AuthGuard } from '@services/user.service';
@@ -16,11 +15,6 @@ const SidebarOutlets = [
     outlet: 'sidebar',
     path: '',
     component: SidebarComponent
-  },
-  {
-    outlet: 'app-info',
-    path: '',
-    component: AppInfoComponent
   }
 ];
 

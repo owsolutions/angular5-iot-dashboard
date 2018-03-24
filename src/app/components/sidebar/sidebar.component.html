@@ -14,8 +14,8 @@
       <ng-container *ngIf="device.preferences">
         <app-sidebar-widget *ngIf="device.preferences.DisplayRealTimeTemperatureInSidebar"
           [items]="TempWidget(device)"></app-sidebar-widget>  
-        <ng-iot-quick-chart
-          *ngIf="device.preferences.DisplayAverageLastWeekInSidebar"></ng-iot-quick-chart>
+        <app-quick-chart
+          *ngIf="device.preferences.DisplayAverageLastWeekInSidebar"></app-quick-chart>
       </ng-container>
     </ng-container>
     

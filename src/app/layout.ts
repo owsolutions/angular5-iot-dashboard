@@ -1,6 +1,5 @@
 import { NavigationComponent } from '@components/navigation/navigation.component';
 import { SidebarComponent } from '@components/sidebar/sidebar.component';
-import { AppInfoComponent } from '@components/app-info/app-info.component';
 import { Route } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AuthGuard } from '@services/user.service';
@@ -90,11 +89,7 @@ const SidebarOutlets = [
     path: '',
     component: SidebarComponent
   },
-  {
-    outlet: 'app-info',
-    path: '',
-    component: AppInfoComponent
-  }
+
 ];
 
 export function AuthLayout (component: any, route: string, options: any = {}): Route {

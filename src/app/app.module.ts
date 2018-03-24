@@ -7,7 +7,6 @@ import { HttpModule } from '@angular/http';
 import { appReducersGenerator } from './app.reducers';
 import { createRoutes  } from './app.routes';
 import { NgMediaModule } from 'ng-media';
-import { NgIotModule } from 'ng-iot';
 import { LayoutComponent } from './components/layout/layout.component';
 import { RealtimeService } from '@services/realtime.service';
 import { NgxUserModule } from './authentication/authentication.module';
@@ -38,8 +37,6 @@ import { IndexComponent } from '@components/index/index.component';
 import { DefaultLayoutComponent } from '@components/default-layout/default-layout.component';
 import { SidebarComponent } from '@components/sidebar/sidebar.component';
 import { UserWidgetComponent } from '@components/user-widget/user-widget.component';
-import { AppInfoComponent } from '@components/app-info/app-info.component';
-import { ModesComponent } from '@components/app-info/modes/modes.component';
 import { DropFileComponent } from '@components/gallery/gallery.component';
 import { LoadingComponent } from '@components/loading/loading.component';
 import { NavigationComponent } from '@components/navigation/navigation.component';
@@ -55,7 +52,10 @@ import { environment } from '../environments/environment';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MockInterceptor } from '@services/mock.interceptor';
 import { MockService } from '@services/mocks.service';
-
+import { QuickChartComponent } from './components/quick-chart/quick-chart.component';
+declare var require: any;
+const Highcharts = require('highcharts/highstock');
+window['Highcharts'] = Highcharts;
 
 @Component({
   selector: 'app-root',
@@ -93,12 +93,11 @@ export class AppComponent {}
     IconWidgetsComponent,
     PlacesComponent,
     DocsComponent,
+    QuickChartComponent,
     IndexComponent,
     DefaultLayoutComponent,
     SidebarComponent,
     UserWidgetComponent,
-    AppInfoComponent,
-    ModesComponent,
     DropFileComponent,
     LoadingComponent,
     StatisticsComponent
@@ -107,15 +106,12 @@ export class AppComponent {}
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    NgIotModule,
     NgxUserModule,
     HttpModule,
     NgMediaModule,
-    NgIotModule,
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    NgIotModule,
     HttpModule,
     NgMediaModule,
     createRoutes (),

@@ -1,0 +1,12 @@
+#quick-chart-container{
+    width: 100%; 
+    position: relative;
+    height: 150px; 
+    margin: 25px auto;
+    /deep/ .highcharts-container {
+        width:100% !important;
+        position:absolute !important;
+        left:0;
+        right:0;
+    }
+}
