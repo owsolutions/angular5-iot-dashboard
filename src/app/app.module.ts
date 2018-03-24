@@ -52,6 +52,7 @@ import { environment } from '../environments/environment';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MockInterceptor } from '@services/mock.interceptor';
 import { MockService } from '@services/mocks.service';
+import { TokenInterceptor } from '@services/token.interceptor';
 import { QuickChartComponent } from './components/quick-chart/quick-chart.component';
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -126,6 +127,11 @@ export class AppComponent {}
     ActionsService,
     UserService,
     AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
     !environment.production ? { provide: HTTP_INTERCEPTORS, useClass: MockInterceptor, multi: true } : [],
     IotSvgService
   ],

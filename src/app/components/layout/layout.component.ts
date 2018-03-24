@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestsService } from '@app/services/requests.service';
 
 @Component({
   templateUrl: './layout.component.html',
@@ -6,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private requests: RequestsService,
+  ) {
+    this.requests.getDevices();
+    this.requests.getLocations();
+   }
 
   ngOnInit() {
+
   }
 
 }

@@ -19,9 +19,8 @@ export class RequestsService {
     private store: Store<AppState>,
     private http: HttpClient,
   ) {
-    this.getDevices();
-    this.getLocations();
-   }
+
+  }
   getLocations() {
     this.http.get(environment.api + '/api/locations').subscribe(
       (response: any) => {

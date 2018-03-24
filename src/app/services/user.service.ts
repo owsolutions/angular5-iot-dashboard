@@ -8,12 +8,14 @@ import { PermissionsService } from '@app/services/permissions.service';
 export class UserService {
 
   private user: IUser;
+  private token: string;
   constructor (
     private requests: RequestsService,
     private permissions: PermissionsService
   ) {
     try {
       this.user = JSON.parse(localStorage.getItem('userInformation'));
+      this.token = JSON.parse(localStorage.getItem('tokenInformation'));
     } catch (err) {
 
     }
@@ -53,9 +55,16 @@ export class UserService {
     return true;
   }
 
+  public GetToken () {
+    return this.token || '';
+  }
   public SetUser (user: IUser) {
     this.user = user;
     localStorage.setItem('userInformation', JSON.stringify(user));
+  }
+  public SetToken (token: string) {
+    this.token = token;
+    localStorage.setItem('tokenInformation', JSON.stringify(token));
   }
 }
 

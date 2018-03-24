@@ -57,6 +57,7 @@ export class LoginFormComponent implements OnInit {
         this.response = response;
         if (this.response.data && this.response.data.items[0]) {
           this.user.SetUser(this.response.data.items[0].user);
+          this.user.SetToken(this.response.data.items[0].token);
           this.router.navigateByUrl('/index');
         }
         this.isRequesting = false;
