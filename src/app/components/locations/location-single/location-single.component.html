@@ -1,16 +1,16 @@
-<app-page-header title="Edit location" icon="icon icon-camera-alt">
-  <a (click)="deleteItem()" class="touchbar-button" *ngIf="mode == 'edit' && form.id">Delete location</a>
-  <a (click)="formSubmit()" class="touchbar-button" *ngIf="mode != 'edit'">Create new location</a>
-  <a (click)="formSubmit()" class="touchbar-button" *ngIf="mode == 'edit'">Edit location</a>
+<app-page-header [title]="(form.id ? 'Edit' : 'Create') +  ' location'" icon="icon icon-camera-alt">
+  <a (click)="deleteItem()" class="touchbar-button" *ngIf="form.id">Delete location</a>
+  <a (click)="formSubmit()" class="touchbar-button" *ngIf="!form.id">Create new location</a>
+  <a (click)="formSubmit()" class="touchbar-button" *ngIf="form.id">Edit location</a>
   
 </app-page-header>
-<div class="body" *ngIf="location" >
+<div class="body" *ngIf="form" >
   <div style="max-width: 600px;">
     <app-forms-text-input
     placeholder="Location name"
     icon="icon icon-user"
     name="Location name"
-    [value]="location.name"
+    [value]="form.name"
     (onChange)="onInputChange('name', $event)"
     >
   </app-forms-text-input>
@@ -20,7 +20,7 @@
     placeholder="Select the level (floor)"
     icon="icon icon-user"
     name="Level"
-    [selected]="location.level"
+    [selected]="form.level"
     [options]="levels"
     (onChange)="onInputChange('level', $event)"
     >
@@ -40,12 +40,12 @@
     placeholder="Select a device that shows this location temperature"
     icon="icon icon-user"
     name="Location temperature"
-    [selected]="location.temperatureDevice"
+    [selected]="form.temperatureDevice"
     [options]="devices"
     (onChange)="onInputChange('temperatureDevice', $event)"
     >
   </app-forms-select-input>
-  <a (click)="formSubmit()" class="normal-button" *ngIf="mode != 'edit'">Create new location</a>
-  <a (click)="formSubmit()" class="normal-button" *ngIf="mode == 'edit'">Edit location</a>
+  <a (click)="formSubmit()" class="normal-button" *ngIf="!form.id">Create new location</a>
+  <a (click)="formSubmit()" class="normal-button" *ngIf="form.id">Edit location</a>
 
 </div>

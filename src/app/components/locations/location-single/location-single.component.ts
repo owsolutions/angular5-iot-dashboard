@@ -17,23 +17,12 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
 
   public response: IResponse<ILocation> = null;
   public devices: Array<{value: any, name: any}> = [];
-  public id: number = null;
-  public mode = 'new';
-
   public form: ILocation = {
     name: '',
     icon: null,
     id: null,
     level: null,
     temperatureDevice: null
-  };
-
-  public location: ILocation = {
-    icon: '',
-    id: null,
-    temperatureDevice: null,
-    name: '',
-    level: null
   };
   public error = error;
   public items = [];
@@ -52,11 +41,18 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
    * make sure you call this on ngInit
    */
   extractRouterInfo () {
-    this.route.data.subscribe(data => {
-      this.mode = data['mode'];
-    }).unsubscribe();
     this.route.params.subscribe(params => {
-      this.id = +params['id'];
+      this.form.id = +params['id'];
+      console.log('Form: ', this.form, params);
+      this.store.select('locations').subscribe((locations: Array<ILocation>) => {
+        const form = locations.find(x => x.id === this.form.id);
+        if ( form ) {
+          this.form = form;
+        }
+      }).unsubscribe();
+    }).unsubscribe();
+    this.store.select('devices').subscribe((devices: Array<CloudDevice>) => {
+      this.devices = DevicesAsKeyName(devices);
     }).unsubscribe();
   }
 
@@ -69,16 +65,7 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
 
   ngOnInit() {
     this.extractRouterInfo();
-    if ( this.mode !== 'new') {
-      this.store.select('locations').subscribe((locations: Array<ILocation>) => {
-        this.location = locations.find(x => x.id === this.id);
-        this.form = Object.assign({}, this.location);
-      }).unsubscribe();
-    }
 
-    this.store.select('devices').subscribe((devices: Array<CloudDevice>) => {
-      this.devices = DevicesAsKeyName(devices);
-    }).unsubscribe();
   }
 
   public async formSubmit () {

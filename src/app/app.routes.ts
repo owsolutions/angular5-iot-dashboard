@@ -22,7 +22,7 @@ export const appRoutes: Routes = [
   AuthLayout (LocationsComponent, 'locations'),
   AuthLayout (SettingsComponent, 'settings'),
   AuthLayout (LocationSingleComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
-  AuthLayout (LocationSingleComponent, 'locations/new', {data: {mode: 'new'}}),
+  AuthLayout (LocationSingleComponent, 'location/new', {data: {mode: 'new'}}),
   AuthLayout (RolesComponent, 'roles'),
   AuthLayout (ActivityComponent, 'activities'),
   AuthLayout (DevicesComponent, 'devices'),
