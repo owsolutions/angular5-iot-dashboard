@@ -73,6 +73,7 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
    */
   extractRouterInfo () {
     this.route.data.subscribe(data => {
+      console.log('Mode: ', data);
       this.mode = data['mode'];
     }).unsubscribe();
     this.route.params.subscribe(params => {
