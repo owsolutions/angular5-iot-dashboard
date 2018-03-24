@@ -3,7 +3,6 @@ import { CloudDevice, CloudDeviceType, AppState } from '@app/definitions';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { RequestsService } from '@app/services/requests.service';
-import { random } from 'lodash';
 import 'rxjs/add/operator/toPromise';
 import { IResponse } from 'response-type';
 import { error } from '@app/common';
@@ -15,9 +14,9 @@ import { error } from '@app/common';
 })
 export class DeviceSingleComponent implements OnInit, OnDestroy {
 
+  public isRequesting = false;
   private ref = null;
   public response: IResponse<CloudDevice> = null;
-  public mode: 'edit' | 'new' = 'new';
   public locations: Array<any> = [];
   public form: CloudDevice = {
     type: CloudDeviceType.TemperatureSensor,
@@ -40,7 +39,6 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
       if ( ! data.id ) {
         return ;
       }
-      this.mode = 'edit';
       this.form.id = data.id;
       this.ref = this.store.select('devices').subscribe((devices: Array<CloudDevice>) => {
         /* tslint:disable */
@@ -59,6 +57,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   }
   public async SubmitForm () {
     delete this.form.value;
+    this.isRequesting = true;
     const device = Object.assign({}, this.form);
     try {
       const response: IResponse<CloudDevice> = await this.requests.PostDevice(device);
@@ -68,9 +67,8 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
       this.response = response;
     } catch (error) {
       this.response = error;
-      console.warn('Error:', error);
     }
-    
+    this.isRequesting = false;
   }
 
   public DeleteDevice () {
