@@ -1,8 +1,14 @@
 <app-page-header title="Device single" icon="icon icon-keyboard">
   <a (click)="DeleteDevice();" class="touchbar-button">Delete Device</a>
+  <a (click)="SubmitForm()" class="touchbar-button" *ngIf="mode == 'edit'">Edit device</a>
+  <a (click)="SubmitForm()" class="touchbar-button" *ngIf="mode == 'new'">Create device</a>
 </app-page-header>
 
-<app-device-general-information [mode]="mode" [device]="form" 
+<p *ngIf="response && response.error && response.error.message" class="message">
+  {{response.error.message}}
+</p>
+
+<app-device-general-information [response]="response" [mode]="mode" [device]="form" 
   (onChange)="DeviceGeneralChange($event)" ></app-device-general-information>
 <app-device-customization [preferences]="form.preferences" (onChange)="DeviceCustomizationChange($event)"></app-device-customization>
 

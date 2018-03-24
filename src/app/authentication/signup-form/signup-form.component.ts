@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { IResponse } from 'response-type';
-import { IUserForm, GetNetworkError } from '../shared';
+import { IUserForm } from '../shared';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { UserService } from '@services/user.service';
 import { Router } from '@angular/router';
+import { GetNetworkError } from '@app/common';
 @Component({
   selector: 'app-signup-form',
   templateUrl: './signup-form.component.html',

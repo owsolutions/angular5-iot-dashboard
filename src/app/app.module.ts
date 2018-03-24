@@ -12,7 +12,6 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { RealtimeService } from '@services/realtime.service';
 import { NgxUserModule } from './authentication/authentication.module';
 import { SettingsComponent } from '@components/settings/settings.component';
-import { DataTableComponent } from '@components/data-table/data-table.component';
 import { PageHeaderComponent } from '@components/page-header/page-header.component';
 import { TextInputComponent } from '@components/forms/text-input/text-input.component';
 import { RadioInputComponent } from '@components/forms/radio-input/radio-input.component';
@@ -29,7 +28,7 @@ import { ActivityWidgetComponent } from '@components/activity/activity-widget/ac
 import { LocationsComponent } from '@components/locations/locations.component';
 import { ActivityComponent } from '@components/activity/activity.component';
 import { LocationRowComponent } from '@components/locations/location-row/location-row.component';
-import { LocationEditComponent } from '@components/locations/location-edit/location-edit.component';
+import { LocationSingleComponent } from '@components/locations/location-single/location-single.component';
 import { OutputPinViewComponent } from '@components/shared/output-pin-view/output-pin-view.component';
 import { SwitchWidgetsComponent } from '@components/shared/switch-widgets/switch-widgets.component';
 import { UnConnectedSourceComponent } from '@components/shared/unconnected-source/unconnected-source.component';
@@ -69,7 +68,6 @@ export class AppComponent {}
     AppComponent,
     LayoutComponent,
     SettingsComponent,
-    DataTableComponent,
     PageHeaderComponent,
     TextInputComponent,
     DocsApiWorkaroundComponent,
@@ -87,7 +85,7 @@ export class AppComponent {}
     ActivityComponent,
     DeviceGeneralInformationComponent,
     LocationRowComponent,
-    LocationEditComponent,
+    LocationSingleComponent,
     OutputPinViewComponent,
     NavigationComponent,
     DeviceCustomizationComponent,

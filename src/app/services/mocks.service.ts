@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { IResponse } from 'response-type';
+import { IResponse, IResponseErrorItem } from 'response-type';
 import { matchPattern } from 'url-matcher';
 import { environment } from '../../environments/environment';
 import { PermissionsService } from '@services/permissions.service';
-import { IUserForm } from '@app/definitions';
+import { IUserForm, CloudDevice } from '@app/definitions';
 import { CloudDeviceType } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { random } from 'lodash';
+import { ILocation } from '@app/definitions';
 
 
 @Injectable()
@@ -21,7 +22,9 @@ export class MockService {
     'POST /api/user/signin': 'signIn',
     'POST /api/user/signup': 'signUp',
     'GET /api/locations': 'getLocations',
-    'GET /api/devices': 'getDevices'
+    'GET /api/devices': 'getDevices',
+    'POST /api/device': 'postDevice',
+    'POST /api/location': 'postLocation'
   };
 
   constructor (
@@ -225,4 +228,52 @@ export class MockService {
       }
     };
   }
+  public postDevice( req: HttpRequest<any> ): IResponse<CloudDevice> {
+    const device: CloudDevice = req.body;
+
+    const validations = DeviceValidator(device);
+    if (validations.length) {
+      return {
+        error: {
+          message: 'Device cannot be created. Please current the issue fields',
+          errors: validations,
+          code: 34
+        }
+      };
+    }
+    return {
+      data: {
+        items: [
+          device
+        ]
+      }
+    };
+  }
+  public postLocation(req: HttpRequest<any>): IResponse<ILocation> {
+    const location: ILocation = req.body;
+    return {
+      data: {
+        items: [
+          {
+            icon: location.icon,
+            id: location.id,
+            name: location.name,
+            level: location.level,
+            temperatureDevice: location.temperatureDevice
+          }
+        ]
+      }
+    };
+  }
+}
+function DeviceValidator (device: CloudDevice) {
+  const errors: Array<IResponseErrorItem> = [];
+
+  if ( ! device.name) {
+    errors.push({
+      location: 'name',
+      message: 'Device must have a name to be identified'
+    });
+  }
+  return errors;
 }

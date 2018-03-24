@@ -43,19 +43,8 @@ export class RealtimeService {
    */
   private ActivateMockIncomingMessages () {
     setInterval(() => {
-      // this.RecieveDeviceChange({
-      //   id: 1,
-      //   value: random(1700, 1799) / 100,
-      // });
       this.MockDataIncome();
-    }, 3500);
-    setInterval(() => {
-      // this.RecieveDeviceChange({
-      //   id: 2,
-      //   value: -1 * random(1100, 1799) / 100,
-      // });
-      this.MockDataIncome();
-    }, 1500);
+    }, 500);
   }
 
   /**

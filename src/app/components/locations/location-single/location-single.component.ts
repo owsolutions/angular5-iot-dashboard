@@ -2,15 +2,16 @@ import { Component, OnInit, ViewChild, AfterContentInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppState, ILocation, CloudDevice } from '@app/definitions';
 import { Store } from '@ngrx/store';
-import { maxBy, times } from 'lodash';
+import { times } from 'lodash';
 import { NgMediaComponent } from 'ng-media';
+import { RequestsService } from '@app/services/requests.service';
 
 @Component({
-  selector: 'app-location-edit',
-  templateUrl: './location-edit.component.html',
-  styleUrls: ['./location-edit.component.scss']
+  selector: 'app-location-single',
+  templateUrl: './location-single.component.html',
+  styleUrls: ['./location-single.component.scss']
 })
-export class LocationEditComponent implements OnInit, AfterContentInit {
+export class LocationSingleComponent implements OnInit, AfterContentInit {
 
   public devices: Array<{value: any, name: any}> = [];
   /**
@@ -83,7 +84,8 @@ export class LocationEditComponent implements OnInit, AfterContentInit {
   constructor(
     private route: ActivatedRoute,
     private store: Store<AppState>,
-    private router: Router
+    private router: Router,
+    private requests: RequestsService,
   ) {
 
   }
@@ -114,27 +116,9 @@ export class LocationEditComponent implements OnInit, AfterContentInit {
     }).unsubscribe();
   }
 
-  async postToServer (location: ILocation): Promise<ILocation> {
-    let id = 0;
-    this.store.select('locations').subscribe((locations: Array<ILocation>) => {
-      id = +maxBy(locations, x => x.id).id + 1;
-    }).unsubscribe();
-    return {
-      icon: location.icon,
-      id: location.id ? location.id : id,
-      name: location.name,
-      level: location.level,
-      temperatureDevice: location.temperatureDevice
-    };
-  }
-
   async formSubmit () {
-    const result = await this.postToServer(this.form);
-
-    this.store.dispatch({
-      type: 'UPDATE_LOCATION',
-      payload: result
-    });
+    const result = await this.requests.PostLocation(this.form);
+    console.log('Submitted the location: ', result);
     this.router.navigateByUrl('/locations');
   }
 

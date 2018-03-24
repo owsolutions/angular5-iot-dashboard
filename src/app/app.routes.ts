@@ -4,7 +4,7 @@ import { LocationsComponent } from '@components/locations/locations.component';
 import { SettingsComponent } from '@components/settings/settings.component';
 import { DevicesComponent } from '@components/devices/devices.component';
 import { ActivityComponent } from '@components/activity/activity.component';
-import { LocationEditComponent } from '@components/locations/location-edit/location-edit.component';
+import { LocationSingleComponent } from '@components/locations/location-single/location-single.component';
 import { FormElementsComponent } from '@components/form-elements/form-elements.component';
 import { RolesComponent } from '@components/roles/roles.component';
 import { DefaultLayout, AuthLayout } from './layout';
@@ -21,11 +21,13 @@ export const appRoutes: Routes = [
   AuthLayout (IndexComponent, 'index'),
   AuthLayout (LocationsComponent, 'locations'),
   AuthLayout (SettingsComponent, 'settings'),
-  AuthLayout (LocationEditComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
-  AuthLayout (LocationEditComponent, 'locations/new', {data: {mode: 'new'}}),
+  AuthLayout (LocationSingleComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
+  AuthLayout (LocationSingleComponent, 'locations/new', {data: {mode: 'new'}}),
   AuthLayout (RolesComponent, 'roles'),
   AuthLayout (ActivityComponent, 'activities'),
   AuthLayout (DevicesComponent, 'devices'),
+  AuthLayout (DeviceSingleComponent, 'devices/create'),
+
   AuthLayout (DeviceSingleComponent, 'devices/:id'),
   AuthLayout (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
   AuthLayout (FormElementsComponent, 'form-elements'),

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IUserForm, GetNetworkError } from '../shared';
+import { IUserForm } from '../shared';
+import { GetNetworkError } from '@app/common';
 import { Router } from '@angular/router';
 import { IResponse } from 'response-type';
 import { HttpClient } from '@angular/common/http';

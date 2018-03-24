@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IResponse } from 'response-type';
-import { GetNetworkError } from '../shared';
+import { GetNetworkError } from '@app/common';
 
 @Component({
   selector: 'app-forgot-password',

@@ -4,6 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { RequestsService } from '@app/services/requests.service';
 import { random } from 'lodash';
+import 'rxjs/add/operator/toPromise';
+import { IResponse } from 'response-type';
+import { error } from '@app/common';
 
 @Component({
   selector: 'app-device-single',
@@ -13,6 +16,7 @@ import { random } from 'lodash';
 export class DeviceSingleComponent implements OnInit, OnDestroy {
 
   private ref = null;
+  public response: IResponse<CloudDevice> = null;
   public mode: 'edit' | 'new' = 'new';
   public locations: Array<any> = [];
   public form: CloudDevice = {
@@ -20,6 +24,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
     preferences: {},
   };
 
+  public error = error;
   constructor(
     private route: ActivatedRoute,
     private store: Store<AppState>,
@@ -52,18 +57,20 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   ngOnDestroy () {
 
   }
-  public SubmitForm () {
+  public async SubmitForm () {
     delete this.form.value;
-    const device = Object.assign({id: random(1000,9999)}, this.form);
-    this.store.dispatch({
-      type: 'UPDATE_DEVICE',
-      payload: device
-    });
-    this.store.dispatch({
-      type: 'CLEAR_UNCONNECTED_SOURCE',
-      payload: device.datasource
-    });
-    this.router.navigateByUrl('/devices');
+    const device = Object.assign({}, this.form);
+    try {
+      const response: IResponse<CloudDevice> = await this.requests.PostDevice(device);
+      if (response.data && response.data.items && response.data.items[0]) {
+        this.router.navigateByUrl('/devices');
+      }
+      this.response = response;
+    } catch (error) {
+      this.response = error;
+      console.warn('Error:', error);
+    }
+    
   }
 
   public DeleteDevice () {
