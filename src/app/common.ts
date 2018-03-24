@@ -40,3 +40,7 @@ export const IotImages = [
     name: 'Pathtub'
   }
 ];
+
+export function IsSuccessEntity (response: IResponse<any>) {
+  return response && response.data && response.data.items && response.data.items[0];
+}

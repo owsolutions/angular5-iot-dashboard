@@ -1,10 +1,12 @@
-import { Action } from '@app/definitions';
+import { Action, ILocation } from '@app/definitions';
 import UpdateOrInsert from '@components/functions/UpdateOrInsert';
 
-export function locationsReducer (state = [], action: Action) {
+export function locationsReducer (state: Array<ILocation> = [], action: Action) {
   switch (action.type) {
     case 'UPDATE_LOCATION':
       return UpdateOrInsert(action.payload , state, 'id');
+    case 'DELETE_LOCATION':
+      return state.filter(x => +x.id !== +action.payload);
   }
   return state;
 }

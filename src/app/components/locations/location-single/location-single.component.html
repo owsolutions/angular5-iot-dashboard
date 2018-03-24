@@ -1,8 +1,9 @@
 <app-page-header title="Edit location" icon="icon icon-camera-alt">
+  <a (click)="deleteItem()" class="touchbar-button" *ngIf="mode == 'edit' && form.id">Delete location</a>
   <a (click)="formSubmit()" class="touchbar-button" *ngIf="mode != 'edit'">Create new location</a>
   <a (click)="formSubmit()" class="touchbar-button" *ngIf="mode == 'edit'">Edit location</a>
+  
 </app-page-header>
-
 <div class="body" *ngIf="location" >
   <div style="max-width: 600px;">
     <app-forms-text-input
@@ -13,6 +14,7 @@
     (onChange)="onInputChange('name', $event)"
     >
   </app-forms-text-input>
+  <span style="color: red;" *ngIf="error(response, 'name')">{{error(response, 'name')}}</span>
 
   <app-forms-select-input
     placeholder="Select the level (floor)"
@@ -29,6 +31,8 @@
   <app-ng-media 
     (selectionChange)="changeSelection($event);"
     type="single" #locationIcon></app-ng-media>
+
+    
   <br><br>
 
   <app-forms-select-input

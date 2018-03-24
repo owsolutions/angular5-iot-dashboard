@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'environments/environment';
 import { MockService } from '@app/services/mocks.service';
 import { IResponse } from 'response-type';
-import { GetNetworkError } from '@app/common';
+import { GetNetworkError, IsSuccessEntity } from '@app/common';
 import { random } from 'lodash';
 
 @Injectable()
@@ -87,9 +87,8 @@ export class RequestsService {
     const ref = this.http.post(environment.api + '/api/location' , location).toPromise();
     try {
       const response: IResponse<ILocation> = await ref;
-      if (response && response.data && response.data.items && response.data.items[0]) {
+      if (IsSuccessEntity(response)) {
         const $location = response.data.items[0];
-
         if (! $location.id) {
           $location.id = random(1000, 999999);
         }
@@ -114,6 +113,32 @@ export class RequestsService {
       type: 'DELETE_DEVICE',
       payload: id
     });
+  }
+
+  async deleteLocation (id: number ) {
+    const ref = this.http.delete(environment.api + '/api/location/' + id).toPromise();
+    try {
+      const response: IResponse<ILocation> = await ref;
+      if (IsSuccessEntity(response)) {
+        const $location = response.data.items[0];
+        if (! $location.id) {
+          $location.id = random(1000, 999999);
+        }
+        if ($location) {
+          this.store.dispatch({
+            type: 'DELETE_LOCATION',
+            payload: id
+          });
+        }
+      }
+      return response;
+    } catch (error) {
+      if (error.name === 'HttpErrorResponse') {
+        return GetNetworkError();
+      }
+      return error;
+    }
+
   }
 
 }
