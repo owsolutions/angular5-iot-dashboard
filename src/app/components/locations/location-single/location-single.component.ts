@@ -106,6 +106,7 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
   }
   public deleteItem() {
     this.requests.deleteLocation(+this.form.id);
+    this.router.navigateByUrl('/locations');
   }
 }
 
