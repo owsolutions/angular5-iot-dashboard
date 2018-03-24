@@ -14,11 +14,7 @@ import { ILocation } from '@app/definitions';
 
 @Injectable()
 export class MockService {
-  routes = {
-    // 'GET /user/:id': 'fetchUser',
-    // 'DELETE /user/:id': 'destroyUser',
-    // 'PUT /user/:id': 'updateUser',
-    // 'GET /user': 'fetchUsers',
+  public routes = {
     'POST /api/user/signin': 'signIn',
     'POST /api/user/signup': 'signUp',
     'GET /api/locations': 'getLocations',
@@ -189,6 +185,66 @@ export class MockService {
             datasource: 'device-4',
             value: random(10, 30),
             location: 1,
+            preferences: {
+              DisplayAverageLastWeekInSidebar: true,
+              DisplayRealTimeTemperatureInSidebar: true
+            }
+          },
+          {
+            id: 4,
+            name: 'Lobby temperature',
+            type: CloudDeviceType.TemperatureSensor,
+            datasource: 'device-5',
+            value: random(10, 30),
+            location: 2,
+            preferences: {
+              DisplayAverageLastWeekInSidebar: true,
+              DisplayRealTimeTemperatureInSidebar: true
+            }
+          },
+          {
+            id: 5,
+            name: 'Wallroom temperature',
+            type: CloudDeviceType.TemperatureSensor,
+            datasource: 'device-6',
+            value: random(10, 30),
+            location: 2,
+            preferences: {
+              DisplayAverageLastWeekInSidebar: true,
+              DisplayRealTimeTemperatureInSidebar: true
+            }
+          },
+          {
+            id: 6,
+            name: 'Magnet temperature',
+            type: CloudDeviceType.TemperatureSensor,
+            datasource: 'device-7',
+            value: random(10, 30),
+            location: 2,
+            preferences: {
+              DisplayAverageLastWeekInSidebar: true,
+              DisplayRealTimeTemperatureInSidebar: true
+            }
+          },
+          {
+            id: 7,
+            name: 'Negative temperature',
+            type: CloudDeviceType.TemperatureSensor,
+            datasource: 'device-8',
+            value: random(10, 30),
+            location: 3,
+            preferences: {
+              DisplayAverageLastWeekInSidebar: true,
+              DisplayRealTimeTemperatureInSidebar: true
+            }
+          },
+          {
+            id: 8,
+            name: 'Thermal temperature',
+            type: CloudDeviceType.TemperatureSensor,
+            datasource: 'device-9',
+            value: random(10, 30),
+            location: 3,
             preferences: {
               DisplayAverageLastWeekInSidebar: true,
               DisplayRealTimeTemperatureInSidebar: true
