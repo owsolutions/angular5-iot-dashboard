@@ -1,5 +1,5 @@
 <app-page-header title="Edit location" icon="icon icon-camera-alt">
-  <a (click)="formSubmit()" class="touchbar-button" *ngIf="mode == 'new'">Create new location</a>
+  <a (click)="formSubmit()" class="touchbar-button" *ngIf="mode != 'edit'">Create new location</a>
   <a (click)="formSubmit()" class="touchbar-button" *ngIf="mode == 'edit'">Edit location</a>
 
 </app-page-header>
@@ -42,7 +42,7 @@
     (onChange)="onInputChange('temperatureDevice', $event)"
     >
   </app-forms-select-input>
-  <a (click)="formSubmit()" class="normal-button" *ngIf="mode == 'new'">Create new location</a>
+  <a (click)="formSubmit()" class="normal-button" *ngIf="mode != 'edit'">Create new location</a>
   <a (click)="formSubmit()" class="normal-button" *ngIf="mode == 'edit'">Edit location</a>
 
 </div>
