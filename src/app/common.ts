@@ -9,6 +9,7 @@ export function GetNetworkError (): IResponse<any> {
   };
 }
 import { IotSvgService } from '@app/services/iot-svg/iot-svg.service';
+import { DataSource } from '@app/definitions';
 
 export function error (response: IResponse<any>, fieldName: string) {
   if ( ! response || ! response.error || !response.error.errors) {
@@ -43,4 +44,15 @@ export const IotImages = [
 
 export function IsSuccessEntity (response: IResponse<any>) {
   return response && response.data && response.data.items && response.data.items[0];
+}
+
+export function IsDataSource (data: DataSource) {
+
+  if (! data.value) {
+    return false;
+  }
+  if (!data.dataSourceId) {
+    return false;
+  }
+  return true;
 }

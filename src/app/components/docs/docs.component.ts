@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IResponse } from 'response-type';
 import { DataSource } from '@app/definitions';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-docs',
@@ -44,11 +45,15 @@ export class DocsComponent {
     }
   };
   public boardcastBodyExample: DataSource = {
-    dataSourceId: '3381947jjw',
+    dataSourceId: 'device-1',
     value: 22.4,
     geo: {
       lat: 32.837298914,
       lng: 43.389482497
     }
   };
+
+  public GetUrl (affix: string) {
+    return environment.api + '/api/' + affix;
+  }
 }

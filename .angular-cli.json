@@ -31,9 +31,6 @@
           "../src/assets/scss"
         ]
       },
-      "scripts": [
-	      "assets/sails.io.js"
-      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

@@ -9,6 +9,7 @@ import { MockService } from '@app/services/mocks.service';
 import { IResponse } from 'response-type';
 import { GetNetworkError, IsSuccessEntity } from '@app/common';
 import { random } from 'lodash';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class RequestsService {
@@ -37,6 +38,10 @@ export class RequestsService {
     );
   }
 
+  async getDeviceToken (): Promise<IResponse<any>> {
+    return this.http.get(environment.api + '/api/devices/token').toPromise();
+  }
+
   getDevices () {
     this.http.get(environment.api + '/api/devices').subscribe(
       (response: any) => {
@@ -59,10 +64,6 @@ export class RequestsService {
       const response: IResponse<CloudDevice> = await ref;
       if (response && response.data && response.data.items && response.data.items[0]) {
         const $device = response.data.items[0];
-
-        if (! $device.id) {
-          $device.id = random(1000, 999999);
-        }
         if ($device) {
           this.store.dispatch({
             type: 'UPDATE_DEVICE',
@@ -108,13 +109,6 @@ export class RequestsService {
     }
   }
 
-  async deleteDevice (id: number) {
-    this.store.dispatch({
-      type: 'DELETE_DEVICE',
-      payload: id
-    });
-  }
-
   async deleteLocation (id: number ) {
     const ref = this.http.delete(environment.api + '/api/location/' + id).toPromise();
     try {
@@ -138,7 +132,31 @@ export class RequestsService {
       }
       return error;
     }
-
   }
 
+  async deleteDevice (id: number ) {
+    const ref = this.http.delete(environment.api + '/api/device/' + id).toPromise();
+    try {
+      const response: IResponse<ILocation> = await ref;
+      if (IsSuccessEntity(response)) {
+        const $location = response.data.items[0];
+        if (! $location.id) {
+          $location.id = random(1000, 999999);
+        }
+        if ($location) {
+          this.store.dispatch({
+            type: 'DELETE_DEVICE',
+            payload: id
+          });
+        }
+      }
+      return response;
+    } catch (error) {
+      if (error.name === 'HttpErrorResponse') {
+        return GetNetworkError();
+      }
+      return error;
+    }
+
+  }
 }

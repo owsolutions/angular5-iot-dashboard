@@ -1,8 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ApplicationRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState, CloudDevice, DataSource } from '@app/definitions';
 import { random } from 'lodash';
+import { environment } from 'environments/environment';
+import { IsDataSource } from '@app/common';
 declare var Pusher: any;
+
+declare var require: any;
+const io = require('sails.io.js')( require('socket.io-client') );
+
 
 @Injectable()
 export class RealtimeService {
@@ -12,13 +18,31 @@ export class RealtimeService {
   public unconnectedDevices: Array<DataSource> = [];
   constructor(
     private store: Store<AppState>,
+    private ref: ApplicationRef,
   ) {
-    this.ActivateMockIncomingMessages();
+    // this.ActivateMockIncomingMessages();
     this.store.select('devices').subscribe((devices) => {
       this.devices = devices;
     });
+    this.StartSailsSocket();
   }
 
+  /**
+   * For people who have developed their backend service in sails.js
+   */
+  public StartSailsSocket () {
+    io.sails.url = environment.api;
+    io.sails.autoConnect = true;
+    io.sails.connect(); // = true;
+    console.log('io:', io);
+    io.socket.on('DataSourceChange', (data: DataSource) => {
+      if (!IsDataSource(data)) {
+        console.warn('Recieved a data source which is not valid: ', data);
+        return false;
+      }
+      this.RecieveDataSourceIncoming(data);
+    });
+  }
   public StartPusher () {
     Pusher.logToConsole = true;
 
@@ -72,6 +96,7 @@ export class RealtimeService {
         payload: data
       });
     }
+    this.ref.tick();
   }
 
   public MockDataIncome () {

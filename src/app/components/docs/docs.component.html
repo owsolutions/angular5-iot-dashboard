@@ -84,12 +84,11 @@ if you can specify the location automatically, it's gonna give you same possibil
   </ul>
 
   <br>
-  <app-docs-api-workaround
-    type="post"
-    [body]="boardcastBodyExample"
-    [response]="boardcastResponseExample"
-    url="broadcast/collect"
-  ></app-docs-api-workaround>
-
+  <rd-inline-api
+  type="post"
+  [headers]="boardcastBodyExample"
+  [body]="boardcastBodyExample"
+  [url]="GetUrl('broadcast/collect')"
+  ></rd-inline-api>
 
 </div>

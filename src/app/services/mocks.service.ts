@@ -287,7 +287,9 @@ export class MockService {
   }
   public postDevice( req: HttpRequest<any> ): IResponse<CloudDevice> {
     const device: CloudDevice = req.body;
-
+    if (! device.id) {
+      device.id = random(1000, 999999);
+    }
     const validations = DeviceValidator(device);
     if (validations.length) {
       return {
