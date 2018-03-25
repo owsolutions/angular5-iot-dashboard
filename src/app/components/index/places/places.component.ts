@@ -7,7 +7,7 @@ import { ActionsService } from '@services/actions.service';
 @Component({
   selector: 'app-places',
   templateUrl: './places.component.html',
-  styleUrls: ['./places.component.scss',  '../../shared/checkbox-switch.scss']
+  styleUrls: ['./places.component.scss',  '../../checkbox-switch.scss']
 })
 export class PlacesComponent implements OnInit, OnDestroy {
 

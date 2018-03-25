@@ -1,0 +1,84 @@
+@import 'injects';
+.c-switch{
+    position: relative;
+    .cmn-toggle {
+        position: absolute;
+        margin-left: -9999px;
+        visibility: hidden;
+        + label {
+            display: block;
+            position: relative;
+            cursor: pointer;
+            outline: none;
+            user-select: none;
+        }
+    }
+    input.cmn-toggle-round{
+        + label {
+            padding: 2px;
+            width: 120px;
+            height: 60px;
+            background-color: #dbdee7;
+            border-radius: 60px;
+            @include transition(background 0.4s);
+            font-size: 35px;
+            overflow: hidden;
+            &:after,&:before{
+                display: block;
+                position: absolute;
+                top: 1px;
+                left: 1px;
+                bottom: 1px;
+                font-family: "icomoon";
+                font-style: normal;
+                font-weight: normal;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                content: "";
+            }
+            &:after{
+                width: 50px;
+                height: 50px;
+                top: 5px;
+                margin-left: 5px;
+                background-color: #fff;
+                border-radius: 100%;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+                @include transition(margin 0.4s);
+                content: attr(data-unchecked);
+                text-indent: 65px;
+                color: #888;
+            }
+            &:before{
+                content: attr(data-checked);
+                margin-top:4px;
+                margin-left:-40px;
+                @include transition(margin-left 0.4s);
+                color:white;
+            }
+        }
+        &:checked{
+            +label{
+                background-color: #8ce196;
+                &:after{
+                    margin-left: 64px;
+                };
+                &:before{
+                    margin-left:18px;
+                }
+            }
+        }
+    }
+    &.smallest{
+        @include transform(scale(0.4))
+    }
+    &.small{
+        @include transform(scale(0.5))
+    }
+    &.large{
+        @include transform(scale(0.8))
+    }
+    &.largest{
+        @include transform(scale(1))
+    }
+}

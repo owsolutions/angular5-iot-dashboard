@@ -1,0 +1,13 @@
+<div class="widget-box">
+  <div class="info-box col-sm-7">
+    <i class=" main-icon {{ GetIcon(device)}}"></i>
+    <div class="name">
+      <span>{{device.name}}</span>
+    </div>
+  </div>
+  <a class="view-button" [routerLink]="'/devices/' + device.id" >
+    <i class="icon icon-cogs"></i>
+  </a>
+ 
+  <div class="value">{{value(device)}}</div>
+</div>

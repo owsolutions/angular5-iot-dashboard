@@ -28,13 +28,12 @@ import { LocationsComponent } from '@components/locations/locations.component';
 import { ActivityComponent } from '@components/activity/activity.component';
 import { LocationRowComponent } from '@components/locations/location-row/location-row.component';
 import { LocationSingleComponent } from '@components/locations/location-single/location-single.component';
-import { OutputPinViewComponent } from '@components/shared/output-pin-view/output-pin-view.component';
-import { SwitchWidgetsComponent } from '@components/shared/switch-widgets/switch-widgets.component';
-import { UnConnectedSourceComponent } from '@components/shared/unconnected-source/unconnected-source.component';
+import { OutputPinViewComponent } from '@components/output-pin-view/output-pin-view.component';
+import { SwitchWidgetsComponent } from '@components/switch-widgets/switch-widgets.component';
+import { UnConnectedSourceComponent } from '@components/unconnected-source/unconnected-source.component';
 import { IconWidgetsComponent } from '@components/index/icon-widgets/icon-widgets.component';
 import { PlacesComponent } from '@components/index/places/places.component';
 import { IndexComponent } from '@components/index/index.component';
-import { DefaultLayoutComponent } from '@components/default-layout/default-layout.component';
 import { SidebarComponent } from '@components/sidebar/sidebar.component';
 import { UserWidgetComponent } from '@components/user-widget/user-widget.component';
 import { GalleryComponent } from '@components/gallery/gallery.component';
@@ -102,7 +101,6 @@ export class AppComponent {
     DocsComponent,
     QuickChartComponent,
     IndexComponent,
-    DefaultLayoutComponent,
     SidebarComponent,
     UserWidgetComponent,
     GalleryComponent,
