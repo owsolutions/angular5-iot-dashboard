@@ -7,10 +7,64 @@ import { ActivityComponent } from '@components/activity/activity.component';
 import { LocationSingleComponent } from '@components/locations/location-single/location-single.component';
 import { FormElementsComponent } from '@components/form-elements/form-elements.component';
 import { RolesComponent } from '@components/roles/roles.component';
-import { DefaultLayout, AuthLayout } from './layout';
 import { GalleryComponent } from '@components/gallery/gallery.component';
 import { DeviceSingleComponent } from '../app/components/device-single/device-single.component';
 import { DocsComponent } from '@components/docs/docs.component';
+import { NavigationComponent } from '@components/navigation/navigation.component';
+import { SidebarComponent } from '@components/sidebar/sidebar.component';
+import { Route } from '@angular/router';
+import { LayoutComponent } from './components/layout/layout.component';
+import { AuthGuard , DataSyncGuard} from '@services/user.service';
+import { environment } from '../environments/environment';
+import { navigation } from './app.navigation';
+
+
+const SidebarOutlets = [
+  {
+    path: '',
+    outlet: 'navigation',
+    component: NavigationComponent,
+    data: {
+      navigation
+    }
+  },
+  {
+    outlet: 'sidebar',
+    path: '',
+    component: SidebarComponent
+  }
+];
+
+export function AuthLayout (component: any, route: string, options: any = {}): Route {
+    return {
+        path: route,
+        ... options,
+        canActivate: environment.production ? [AuthGuard, DataSyncGuard] : [DataSyncGuard],
+        component: LayoutComponent,
+        children: [
+            {
+                path: '',
+                component: component
+            },
+            ...SidebarOutlets
+        ],
+    };
+}
+export function DefaultLayout (component: any, route: string, options: any = {}): Route {
+    return {
+        path: route,
+        ... options,
+        component: LayoutComponent,
+        children: [
+            {
+                path: '',
+                component: component
+            },
+            ...SidebarOutlets
+        ],
+    };
+}
+
 
 export const appRoutes: Routes = [
   {
@@ -27,7 +81,6 @@ export const appRoutes: Routes = [
   AuthLayout (ActivityComponent, 'activities'),
   AuthLayout (DevicesComponent, 'devices'),
   AuthLayout (DeviceSingleComponent, 'devices/create'),
-
   AuthLayout (DeviceSingleComponent, 'devices/:id'),
   AuthLayout (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
   AuthLayout (FormElementsComponent, 'form-elements'),
