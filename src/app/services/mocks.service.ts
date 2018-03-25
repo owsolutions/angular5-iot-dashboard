@@ -175,7 +175,7 @@ export class MockService {
             value: random(10, 30),
             location: 1,
             preferences: {
-              DisplayAverageLastWeekInSidebar: true,
+              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -187,7 +187,7 @@ export class MockService {
             value: random(10, 30),
             location: 1,
             preferences: {
-              DisplayAverageLastWeekInSidebar: true,
+              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -199,7 +199,7 @@ export class MockService {
             value: random(10, 30),
             location: 2,
             preferences: {
-              DisplayAverageLastWeekInSidebar: true,
+              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -211,7 +211,7 @@ export class MockService {
             value: random(10, 30),
             location: 2,
             preferences: {
-              DisplayAverageLastWeekInSidebar: true,
+              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -223,7 +223,7 @@ export class MockService {
             value: random(10, 30),
             location: 2,
             preferences: {
-              DisplayAverageLastWeekInSidebar: true,
+              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -235,7 +235,7 @@ export class MockService {
             value: random(10, 30),
             location: 3,
             preferences: {
-              DisplayAverageLastWeekInSidebar: true,
+              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -247,7 +247,7 @@ export class MockService {
             value: random(10, 30),
             location: 3,
             preferences: {
-              DisplayAverageLastWeekInSidebar: true,
+              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
