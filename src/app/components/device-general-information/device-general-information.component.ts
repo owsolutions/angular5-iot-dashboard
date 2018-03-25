@@ -26,7 +26,7 @@ export class DeviceGeneralInformationComponent implements OnInit, OnDestroy {
     private store: Store<AppState>,
   ) { }
 
-  
+
   ngOnInit() {
     this.ref = this.store.select('locations').subscribe((data) => {
       this.locations = data;

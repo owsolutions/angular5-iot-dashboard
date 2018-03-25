@@ -65,7 +65,7 @@ export class RealtimeService {
   /**
    * For development purposes, we simulate the incoming messages from server socket.
    */
-  private ActivateMockIncomingMessages () {
+  protected ActivateMockIncomingMessages () {
     setInterval(() => {
       this.MockDataIncome();
     }, 500);

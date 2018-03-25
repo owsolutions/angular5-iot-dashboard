@@ -10,7 +10,7 @@ export class LayoutComponent implements OnInit {
   constructor(
     private requests: RequestsService,
   ) {
-  
+
    }
 
   ngOnInit() {
