@@ -1,31 +1,29 @@
 <a class="place-row-link" routerLink='/locations/edit/{{location.id}}'>
   <div class="row place-row clearfix">
-    <div class="col-sm-3 col-xs-6 title-icon">
+    <div class="col title-icon">
       <h2>{{location.name}}</h2>
       <img width='200px' [src]="location.icon" [alt]="location.name">
     </div>
-    <div class="col-sm-3 col-xs-6 value-box" *ngIf="primaryTemperature">
+    <div class="col value-box" *ngIf="primaryTemperature">
       <h4>Temperature</h4>
       <div class="value">
           {{primaryTemperature}}<sup>&#8451;</sup>
       </div>
     </div>
-    <div class="clearfix visible-xs"></div>
-    <div class="col-sm-3 col-xs-6">
-      <h4>Name</h4>
+    <div class="col" *ngIf="widgets.length">
+      <h4>Devices</h4>
+      <br><br>
       <ul class="list-names" *ngIf="widgets && widgets.length > 0">
-          <li *ngFor="let device of widgets;">{{device.name}}</li>
+        <li *ngFor="let device of widgets;">
+          <div style="float:left; margin-right: 30px;">
+            <app-output-pin-view [device]="device"></app-output-pin-view>
+          </div>
+          
+          {{device.name}}
+        </li>
       </ul>
     </div>
-    <div class="col-sm-3 col-xs-6">
-        <h4>Status</h4>
-        <ul class="list status" *ngIf="widgets && widgets.length > 0">
-          <app-output-pin-view *ngFor="let device of widgets;"[device]="device"></app-output-pin-view>
-        </ul>
-    </div>
-    <div class="col-sm-1">
-      <span class="icon icon-arrow_forward icon-round-next"></span>
-    </div>
+    <span class="icon icon-arrow_forward icon-round-next"></span>
   </div>
 </a>
 <hr class="divider-item">

@@ -79,20 +79,25 @@
         height: 40px;
     }
 }
+
+.col {
+  flex: 1;
+}
 .place-row {
-    padding:15px 30px;
-    border-bottom: 4px solid red;
-    display: table-row;
-    > div{
-        display: table-cell;
-        float: none;
-        vertical-align: middle;
-        position: relative;
-        > h4{
-            position: absolute;
-            top: 0;
-        }
+  display: flex;
+  @include phone () {
+    flex-direction: column;
+  }
+  padding:15px 30px;
+  > div{
+    float: none;
+    vertical-align: middle;
+    position: relative;
+    > h4{
+      position: absolute;
+      top: 0;
     }
+  }
 }
 
 

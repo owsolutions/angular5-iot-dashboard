@@ -15,7 +15,7 @@ export class SwitchWidgetsComponent implements OnInit {
   }
 
   public GetIcon (device: CloudDevice) {
-    if (device.type === CloudDeviceType.TemperatureSensor) {
+    if (+device.type === CloudDeviceType.TemperatureSensor) {
       return 'icon icon-thermometer-2';
     }
     return 'icon icon-cloud';
