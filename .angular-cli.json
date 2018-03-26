@@ -21,7 +21,8 @@
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "assets/css/forms-style.css",
-        "styles.scss"
+        "styles.scss",
+        "../node_modules/simplebar/dist/simplebar.css"
       ],
       "stylePreprocessorOptions": {
         "includePaths": [
