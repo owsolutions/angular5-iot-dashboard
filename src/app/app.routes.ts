@@ -5,7 +5,6 @@ import { SettingsComponent } from '@components/settings/settings.component';
 import { DevicesComponent } from '@components/devices/devices.component';
 import { ActivityComponent } from '@components/activity/activity.component';
 import { LocationSingleComponent } from '@components/locations/location-single/location-single.component';
-import { FormElementsComponent } from '@components/form-elements/form-elements.component';
 import { RolesComponent } from '@components/roles/roles.component';
 import { GalleryComponent } from '@components/gallery/gallery.component';
 import { DeviceSingleComponent } from '../app/components/device-single/device-single.component';
@@ -83,7 +82,6 @@ export const appRoutes: Routes = [
   AuthLayout (DeviceSingleComponent, 'devices/create'),
   AuthLayout (DeviceSingleComponent, 'devices/:id'),
   AuthLayout (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
-  AuthLayout (FormElementsComponent, 'form-elements'),
   AuthLayout(DocsComponent, 'docs'),
   AuthLayout(GalleryComponent, 'gallery')
 ];

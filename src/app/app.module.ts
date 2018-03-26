@@ -7,7 +7,6 @@ import { HttpModule } from '@angular/http';
 import { appReducersGenerator } from './app.reducers';
 import { createRoutes  } from './app.routes';
 import { NgMediaModule } from 'ng-media';
-import { LayoutComponent } from './components/layout/layout.component';
 import { RealtimeService } from '@services/realtime.service';
 import { NgxUserModule } from './authentication/authentication.module';
 import { SettingsComponent } from '@components/settings/settings.component';
@@ -15,7 +14,6 @@ import { PageHeaderComponent } from '@components/page-header/page-header.compone
 import { TextInputComponent } from '@components/forms/text-input/text-input.component';
 import { RadioInputComponent } from '@components/forms/radio-input/radio-input.component';
 import { SelectInputComponent } from '@components/forms/select-input/select-input.component';
-import { FormElementsComponent } from '@components/form-elements/form-elements.component';
 import { RolesComponent } from '@components/roles/roles.component';
 import { PermissionsService } from '@services/permissions.service';
 import { RequestsService } from '@services/requests.service';
@@ -56,6 +54,23 @@ import { QuickChartComponent } from './components/quick-chart/quick-chart.compon
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
 import { ProgressLineComponent } from './components/progress-line/progress-line.component';
 import { RealtimeDocumentModule } from 'realtime-document';
+
+
+import { ProfileMenuComponent } from './components/profile-menu/profile-menu.component';
+import { NotificationListComponent } from './components/notification-list/notification-list.component';
+import { NgxSidebarModule } from './components/ngx-sidebar/ngx-sidebar.module';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { SidebarControllerService } from './services/sidebar-controller.service';
+import { ApplicationsListComponent } from './components/applications-list/applications-list.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ActivitiesComponent } from './components/widgets/activities/activities.component';
+import { FormElementsComponent } from './components/widgets/form-elements/form-elements.component';
+import { HistoryStatisticsComponent } from './components/widgets/history-statistics/history-statistics.component';
+import { FooterComponent } from './components/footer/footer.component';
+
+
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -106,13 +121,27 @@ export class AppComponent {
     GalleryComponent,
     LoadingComponent,
     StatisticsComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+
+
+    ProfileMenuComponent,
+    NotificationListComponent,
+    NavBarComponent,
+    SideBarComponent,
+    ApplicationsListComponent,
+    DevicesComponent,
+    LocationsComponent,
+    DashboardComponent,
+    ActivitiesComponent,
+    HistoryStatisticsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     NgxUserModule,
+    NgxSidebarModule,
     RealtimeDocumentModule,
     HttpModule,
     NgMediaModule,
@@ -133,6 +162,7 @@ export class AppComponent {
     ActionsService,
     UserService,
     AuthGuard,
+    SidebarControllerService,
     DataSyncGuard,
     {
       provide: HTTP_INTERCEPTORS,

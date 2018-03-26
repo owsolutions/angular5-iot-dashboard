@@ -1,7 +1,10 @@
-<div class="app-container">
-  <router-outlet name="navigation"></router-outlet>
-  <div class="app-component-outlet">
+<app-nav-bar></app-nav-bar>
+<app-side-bar></app-side-bar>
+<div [ngClass]="{'side-on': sideState }"  data-simplebar id="layout">
+  <div class="inside-wrapper">
+
       <router-outlet></router-outlet>
+
+      <app-footer></app-footer>
   </div>
-  <router-outlet name="sidebar"></router-outlet>
 </div>
