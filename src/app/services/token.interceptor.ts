@@ -3,7 +3,8 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpHeaders
 } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { UserService } from '@app/services/user.service';
@@ -16,11 +17,18 @@ export class TokenInterceptor implements HttpInterceptor {
   ) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    request = request.clone({
-      setHeaders: {
-        'x-token': this.user.GetToken()
-      }
-    });
+    const headers = Object.assign({
+      'x-token': this.user.GetToken()
+    } , HeadersToObject(request.headers));
+    request = request.clone({ setHeaders: headers });
     return next.handle(request);
   }
+}
+
+function HeadersToObject(headers: HttpHeaders): any {
+  const heads = {};
+  headers.keys().forEach((key) => {
+    heads[key] = headers.get(key);
+  });
+  return heads;
 }

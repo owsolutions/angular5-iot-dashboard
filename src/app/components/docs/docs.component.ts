@@ -55,7 +55,8 @@ export class DocsComponent implements OnInit {
   };
 
   public boardcastHeaderExample = {
-    'x-token': '-token-'
+    'x-token': '-token-',
+    'is-doc': true
   };
   public boardcastBodyExample: DataSource = {
     dataSourceId: 'device-1',
@@ -74,9 +75,7 @@ export class DocsComponent implements OnInit {
   async ngOnInit () {
     const token = await this.requests.getDeviceToken();
     if (IsSuccessEntity(token)) {
-      this.boardcastHeaderExample = {
-        'x-token': token.data.items[0].hash
-      };
+      this.boardcastHeaderExample['x-token'] = token.data.items[0].hash;
     }
   }
 
