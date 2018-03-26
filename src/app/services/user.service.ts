@@ -96,6 +96,7 @@ export class DataSyncGuard implements CanActivate {
   }
 
   canActivate (): boolean {
+    console.log("Iamworking")
     if ( ! this.isSynced) {
       this.requests.getDevices();
       this.requests.getLocations();

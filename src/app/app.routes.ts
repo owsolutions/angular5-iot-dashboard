@@ -84,8 +84,8 @@ export const appRoutes: Routes = [
   AuthLayout (DeviceSingleComponent, 'devices/:id'),
   AuthLayout (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
   AuthLayout (FormElementsComponent, 'form-elements'),
-  DefaultLayout(DocsComponent, 'docs'),
-  DefaultLayout(GalleryComponent, 'gallery')
+  AuthLayout(DocsComponent, 'docs'),
+  AuthLayout(GalleryComponent, 'gallery')
 ];
 
 export function createRoutes () {
