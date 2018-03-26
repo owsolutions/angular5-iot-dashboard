@@ -18,6 +18,7 @@ export class MockService {
     'POST /api/user/signin': 'signIn',
     'POST /api/user/signup': 'signUp',
     'GET /api/locations': 'getLocations',
+    'GET /api/devices/token': 'getDevicesToken',
     'GET /api/devices': 'getDevices',
     'POST /api/device': 'postDevice',
     'POST /api/location': 'postLocation',
@@ -338,6 +339,18 @@ export class MockService {
         ]
       }
     };
+  }
+
+  public getDevicesToken (req: HttpRequest<any>): IResponse<any> {
+    return {
+      data: {
+        items: [
+          {
+            hash: 'ei923040'
+          }
+        ]
+      }
+    }
   }
 }
 function DeviceValidator (device: CloudDevice) {

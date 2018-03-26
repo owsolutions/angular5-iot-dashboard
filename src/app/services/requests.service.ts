@@ -10,6 +10,9 @@ import { IResponse } from 'response-type';
 import { GetNetworkError, IsSuccessEntity } from '@app/common';
 import { random } from 'lodash';
 import 'rxjs/add/operator/toPromise';
+import { UserService } from '@app/services/user.service';
+
+declare var io: any;
 
 @Injectable()
 export class RequestsService {
@@ -38,8 +41,23 @@ export class RequestsService {
     );
   }
 
+  async connectToRoom (token) {
+    const options = {
+      url: environment.api + '/api/get/a/room',
+      method: 'get',
+      headers: {
+        'x-token': token
+      }
+    };
+    console.log('Connecting: ', options);
+    io.socket.on('connect', function () {
+      io.socket.request(options, function (data) {
+        console.log('Data from room: ', data);
+      });
+    });
+  }
   async getDeviceToken (): Promise<IResponse<any>> {
-    return this.http.get(environment.api + '/api/devices/token').toPromise();
+    return await this.http.get(environment.api + '/api/devices/token').toPromise();
   }
 
   getDevices () {

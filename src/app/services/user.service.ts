@@ -90,7 +90,8 @@ export class DataSyncGuard implements CanActivate {
 
   private isSynced = false;
   constructor (
-    private requests: RequestsService
+    private requests: RequestsService,
+    private user: UserService
   ) {
   }
 
@@ -98,6 +99,7 @@ export class DataSyncGuard implements CanActivate {
     if ( ! this.isSynced) {
       this.requests.getDevices();
       this.requests.getLocations();
+      this.requests.connectToRoom(this.user.GetToken());
       this.isSynced = true;
     }
     return true;

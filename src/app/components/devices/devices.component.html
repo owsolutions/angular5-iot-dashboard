@@ -2,7 +2,7 @@
   <a [routerLink]="'/devices/create'" class="touchbar-button">Connect a new device</a>
 </app-page-header>
 
-<div class='page-container' *ngIf="devices.length">
+<div class='page-container' *ngIf="devices.length || unconnected.length">
   <div *ngFor="let device of devices" class="col-sm-12 col-xs-12 col-lg-6 padding-box">
     <app-switch-widgets [device]="device"></app-switch-widgets>
   </div>

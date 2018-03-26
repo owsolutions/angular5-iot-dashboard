@@ -8,7 +8,7 @@ declare var Pusher: any;
 
 declare var require: any;
 const io = require('sails.io.js')( require('socket.io-client') );
-
+window['io'] = io;
 
 @Injectable()
 export class RealtimeService {
@@ -34,8 +34,8 @@ export class RealtimeService {
     io.sails.url = environment.api;
     io.sails.autoConnect = true;
     io.sails.connect(); // = true;
-    console.log('io:', io);
     io.socket.on('DataSourceChange', (data: DataSource) => {
+      console.log('Event triggered' , data);
       if (!IsDataSource(data)) {
         console.warn('Recieved a data source which is not valid: ', data);
         return false;
@@ -83,9 +83,10 @@ export class RealtimeService {
   }
 
   public RecieveDataSourceIncoming (data: DataSource) {
-
+    console.log('Updating!', data);
     const deviceWithThisSource = this.devices.find(x => x.datasource === data.dataSourceId);
     if ( ! deviceWithThisSource) {
+      console.log('Its unconnected');
       this.store.dispatch({
         type: 'UPDATE_UNCONNECTED_DATA_SOURCE',
         payload: data
