@@ -1,6 +1,6 @@
 .bd-sidebar {
     width: 285px;
-    position: fixed;
+    position: fixed !important;
     top: 7.2em;
     left: 0;
     bottom: 0;
@@ -11,6 +11,7 @@
     transition-duration: .5s;
     transition-timing-function: cubic-bezier(.25,.8,.25,1);
     transition-property: transform;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
     &.active{
         transform: translateX(0);
     }

@@ -3,3 +3,12 @@
 @import "assets/fonts/css/FFF-Forward.css";
 @import "injects";
 @import './assets/material-icon';
+
+body {
+    // background: #e9eaec;
+    background: #fff;
+}
+.simplebar-scrollbar{
+    width: 5px !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+}

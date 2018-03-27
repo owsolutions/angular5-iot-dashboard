@@ -24,6 +24,9 @@
         "styles.scss",
         "../node_modules/simplebar/dist/simplebar.css"
       ],
+      "scripts": [
+        "../node_modules/simplebar/dist/simplebar.js"
+      ],
       "stylePreprocessorOptions": {
         "includePaths": [
           "../src/assets/scss"

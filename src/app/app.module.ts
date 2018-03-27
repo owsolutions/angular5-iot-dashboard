@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -81,6 +81,15 @@ window['Highcharts'] = Highcharts;
   template: '<router-outlet></router-outlet>'
 })
 export class AppComponent {
+  constructor (private _sidebarController: SidebarControllerService) {}
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    if (event.target.innerWidth < 992) {
+      this._sidebarController.ToggleSidebar.emit('hidden');
+    } else {
+      this._sidebarController.ToggleSidebar.emit('show');
+    }
+  }
 }
 
 @NgModule({
