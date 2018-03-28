@@ -6,21 +6,21 @@ export const navigation = [
   },
   {
     link: '/devices',
-    icon: 'icon icon-developer_board',
+    icon: 'icon-devices_other',
     title: 'Devices',
     permissions: ['DEVICES::VIEW'],
     auth: true
   },
   {
     link: '/locations',
-    icon: 'icon icon-room',
+    icon: 'icon-location_searching',
     title: 'Locations',
     permissions: ['LOCATIONS::VIEW'],
     auth: true
   },
   {
     link: '/gallery',
-    icon: 'icon icon-eye',
+    icon: 'icon-attach_file',
     title: 'Gallery',
     permissions: ['USERS::VIEW'],
     auth: true

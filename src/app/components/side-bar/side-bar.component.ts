@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarControllerService } from '../../services/sidebar-controller.service';
+import { navigation } from '@app/app.navigation';
 
 @Component({
   selector: 'app-side-bar',
@@ -9,7 +10,9 @@ import { SidebarControllerService } from '../../services/sidebar-controller.serv
 export class SideBarComponent implements OnInit {
   public sideState = true;
   public keepOpen = false;
-  public navigation: Array<any> = [
+  public navigation: Array<any> = navigation;
+  
+  public nav2 = [
     {
       link: '/home',
       icon: 'icon-home',

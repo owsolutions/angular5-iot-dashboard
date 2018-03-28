@@ -69,6 +69,7 @@ import { ActivitiesComponent } from './components/widgets/activities/activities.
 import { FormElementsComponent } from './components/widgets/form-elements/form-elements.component';
 import { HistoryStatisticsComponent } from './components/widgets/history-statistics/history-statistics.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { DailyStatisticsComponent } from '@app/components/widgets/daily-statistics/daily-statistics.component';
 
 
 
@@ -92,6 +93,8 @@ export class AppComponent {
   }
 }
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -104,6 +107,7 @@ export class AppComponent {
     ProgressLineComponent,
     RadioInputComponent,
     SelectInputComponent,
+    DailyStatisticsComponent,
     FormElementsComponent,
     SidebarWidgetComponent,
     RolesComponent,
