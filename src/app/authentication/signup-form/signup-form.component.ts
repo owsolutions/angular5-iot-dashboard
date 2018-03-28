@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IResponse } from 'response-type';
-import { IUserForm } from '../shared';
+import { IUserForm, LoginResponse } from '../shared';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { UserService } from '@services/user.service';
@@ -55,11 +55,12 @@ export class SignupFormComponent implements OnInit {
   }
   private signupHttp (data: IUserForm) {
     this.http.post(this.signupUrl, data).subscribe(
-      (response) => {
+      (response: IResponse<LoginResponse>) => {
         this.response = response;
         this.isRequesting = false;
         if (this.response.data && this.response.data.items[0]) {
           this.user.SetUser(this.response.data.items[0].user);
+          this.user.SetToken(this.response.data.items[0].token);
           this.router.navigateByUrl('/index');
         }
         this.onSignupSuccess(response);

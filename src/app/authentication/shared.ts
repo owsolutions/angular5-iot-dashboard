@@ -11,3 +11,8 @@ export interface NgxUserConfig {
   signinUrl: string;
   forgetPasswordUrl: string;
 }
+
+export interface LoginResponse {
+  token: string;
+  user: any;
+}
