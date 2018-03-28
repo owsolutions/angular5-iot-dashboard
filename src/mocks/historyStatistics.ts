@@ -1,6 +1,5 @@
-declare var Math: any;
 export const HistoryStatistics = {
-    title: 'HallTempreture History',
+    title: 'Hall Tempreture History',
     subTitle: 'Show Hall Tempreture for now and others ...',
     unit: 'Centigrade',
     resultUnit: 'Avg',

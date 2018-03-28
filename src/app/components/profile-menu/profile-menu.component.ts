@@ -7,8 +7,6 @@ declare var require: any;
 })
 export class ProfileMenuComponent implements OnInit {
 
-  avatar = require('../../../assets/img/avatar.jpg');
-
   constructor() { }
 
   ngOnInit() {

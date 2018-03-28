@@ -6,7 +6,7 @@ import { SidebarControllerService } from '../../services/sidebar-controller.serv
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class BaseContainerComponent implements OnInit {
+export class LayoutComponent implements OnInit {
   public sideState = true;
   constructor(public _sdieController: SidebarControllerService) {
     this._sdieController.ToggleSidebar.subscribe((e) => {
