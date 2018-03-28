@@ -4,6 +4,10 @@
     top: 0;
     z-index: 1000;
     box-shadow: 0 0 5px #bbb;
+    @media(max-width: 400px) {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
 .f-basic-auto {
     flex-basis: auto !important;
@@ -26,6 +30,9 @@
 .navbar-brand{
     float: right;
     font-size: 1.07rem;
+    @media(max-width: 400px) {
+        font-size: 15px;  
+    }
 }
 .application-nav {
     padding: 0;
@@ -47,6 +54,9 @@
             white-space: nowrap;
             overflow:hidden;
             text-overflow: ellipsis;
+            @media(max-width: 400px) {
+                font-size: 13px;  
+            }
         }
         .application-avatar {
             width: 43px;
@@ -55,6 +65,11 @@
             color: #6091fe;
             border-radius: 5px;
             font-weight: bold;
+            @media(max-width: 400px) {
+                width: 35px;
+                height: 35px;
+                font-size: 13px;  
+            }
         }
     }
 }

@@ -11,3 +11,18 @@
 .no-padding {
   padding: 0 !important;
 }
+
+.app-statistics {
+  h2 {
+      font-size: 20px;
+  }
+  p{
+      margin-bottom: 0;
+  }
+  .app-statistics-value {
+      font-size: 35px;
+      color: #aaa;
+      font-weight: 500;
+      padding-right: 10px;
+  }
+}

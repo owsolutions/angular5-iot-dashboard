@@ -2,6 +2,9 @@
    .avatar-image {
         img{
             width: 40px;
+            @media(max-width: 400px) {
+                width: 35px;
+            }
             border-radius: 5px;
         }
     }
@@ -16,10 +19,19 @@
         justify-content: center;
         display: flex;
         font-weight: 600;
+        @media(max-width: 400px) {
+            width: 35px;
+            height: 35px;
+        }
     } 
     cursor: pointer;
     &:hover{
         color: #4c84ff;
+    }
+    @media(max-width: 400px) {
+        .pname {
+            font-size: 14px;
+        }
     }
 }
 

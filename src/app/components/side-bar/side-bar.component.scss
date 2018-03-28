@@ -1,6 +1,6 @@
 .bd-sidebar {
     width: 285px;
-    position: fixed !important;
+    position: fixed;
     top: 7.2em;
     left: 0;
     bottom: 0;
@@ -16,8 +16,13 @@
         transform: translateX(0);
     }
 }
+@media (max-width: 400px) {
+    .bd-sidebar {
+        top: 6.4em;
+    }
+}
 @media (min-width: 992px) {
     .bd-sidebar {
-        top: 4.5em;
+        top: 4.4em;
     }
 }

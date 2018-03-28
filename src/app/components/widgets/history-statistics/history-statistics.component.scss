@@ -1,5 +1,5 @@
 #history-statistics {
-    height: 320px;
+    height: 310px;
 }
 
 .overflow-hidden {
@@ -9,7 +9,7 @@
 .hs-container {
     .hs-title {
         padding: 15px;
-        box-shadow: 0px 2px 8px 0px #ddd;
+        border-bottom: 1px solid #eee;
         h2 {
             font-size: 20px;
         }
@@ -38,10 +38,11 @@
     }
     
     .hs-table {
-        box-shadow: 2px 0px 8px 0px #ddd;
-        height: 340px;
+        border-right: 1px solid #eee;
+        height: 320px;
         padding: 0px !important;
-        flex: 0 0 285px !important;
+        flex: 0 0 260px !important;
+        max-width: 260px;
         @media (max-width: 1199.98px) {
             display: none;
         }
@@ -52,7 +53,7 @@
                 vertical-align: middle;
                 font-size: 15px;
                 &.active{
-                    background: rgba(0, 0, 0, 0.075);
+                    background: rgba(0, 0, 0, 0.04);
                 }
                 td {
                     border-color: #f1f1f1;
@@ -78,6 +79,15 @@
                     }
                 }
             }
+        }
+    }
+    .hs-chart {
+        width: 100%;
+        @media (min-width: 1199.98px) {
+            position: absolute;
+            right: 0;
+            left: 260px;
+            width: auto;
         }
     }
 }

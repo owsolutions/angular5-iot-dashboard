@@ -1,5 +1,5 @@
 #layout{
-    position: fixed !important;
+    position: fixed;
     z-index: 998;
     bottom: 0;
     right: 0;
@@ -16,6 +16,14 @@
         padding: 0 20px;
     }
 }
+
+@media (max-width: 400px) {
+    #layout {
+        top: 6.4em;
+    }
+}
+
+
 @media (min-width: 992px) {
     #layout {
         top: 4.5em;

@@ -29,8 +29,8 @@
            </div>
        </div>
     </div>
-    <div class="d-flex overflow-hidden">
-        <div data-simplebar class="p-2 hs-table col-xl-3">
+    <div class="d-flex overflow-hidden position-relative">
+        <div data-simplebar class="p-2 hs-table">
             <table class="table table-hover">
                 <tbody>
                     <tr *ngFor="let serie of data.series; let i = index" (click)="setChart(i)" [ngClass]="{'active': i === activeIndex }">
@@ -51,7 +51,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="p-2 col-xl-9">
+        <div class="p-2 hs-chart">
             <div id="history-statistics"></div>
         </div>
     </div>

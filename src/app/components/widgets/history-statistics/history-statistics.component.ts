@@ -34,7 +34,8 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
             },
             labels: {
                 enabled: false
-            }
+            },
+            gridLineColor: '#f5f5f5'
         },
         legend: {
             layout: 'horizontal',

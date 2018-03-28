@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DailyStatistics } from '../../../mocks/dailyStatistics';
 import { HistoryStatistics } from '../../../mocks/historyStatistics';
 
 @Component({
@@ -8,10 +9,15 @@ import { HistoryStatistics } from '../../../mocks/historyStatistics';
 })
 export class DashboardComponent implements OnInit {
   public hs = HistoryStatistics;
+  public ds = DailyStatistics;
+  public liveData: any;
+
   constructor() { }
 
   ngOnInit() {
-    console.log(HistoryStatistics);
+    setInterval(() => {
+      this.liveData = [new Date().getTime(), Math.floor(Math.random() * 8 + 30)];
+    }, 2000);
   }
 
 }

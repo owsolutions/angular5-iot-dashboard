@@ -21,4 +21,8 @@
     &:hover i{
         color: #4c84ff;
     }
+    @media(max-width: 400px) {
+        width: 45px;
+        height: 50px;
+    }
 }
