@@ -22,6 +22,7 @@ export class DailyStatisticsComponent implements OnInit, OnChanges {
     if (valuie.dataHistory) {
       this.data = CastHistoryToSeries(valuie.dataHistory);
     }
+    this.drawChart();
   }
   @Input() data: any = DailyStatistics;
   @Input() liveChange: Array<any> = [];
