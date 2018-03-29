@@ -148,4 +148,5 @@ export interface CloudDevice {
   location?: any;
   preferences: IDeviceDisplayPreference;
   value?: any;
+  dataHistory?: Array<DataSource>;
 }

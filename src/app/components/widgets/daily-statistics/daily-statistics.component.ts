@@ -1,13 +1,30 @@
 import { Component, OnInit, Input, EventEmitter, OnChanges } from '@angular/core';
 declare var Highcharts: any;
+import { DailyStatistics } from '../../../../mocks/dailyStatistics';
+import { CloudDevice, DataSource } from '@app/definitions';
+
+
+function CastHistoryToSeries (items: Array<DataSource>): Array<Array<any>> {
+  return items.map(x => {
+    return [x.date, x.value];
+  });
+}
 @Component({
   selector: 'app-daily-statistics',
   templateUrl: './daily-statistics.component.html',
   styleUrls: ['./daily-statistics.component.scss']
 })
 export class DailyStatisticsComponent implements OnInit, OnChanges {
-  @Input() data: any;
-  @Input() liveChange: Array<any>;
+
+  public device: CloudDevice = null;
+  @Input('Device') public set Device (valuie: CloudDevice ) {
+    this.device = valuie;
+    if (valuie.dataHistory) {
+      this.data = CastHistoryToSeries(valuie.dataHistory);
+    }
+  }
+  @Input() data: any = DailyStatistics;
+  @Input() liveChange: Array<any> = [];
   public chart: any;
   public currentValue = 0;
   public highest: number;
@@ -94,13 +111,26 @@ export class DailyStatisticsComponent implements OnInit, OnChanges {
       this.highest = this.currentValue > this.highest ? this.currentValue : this.highest;
       this.lowest = this.currentValue < this.lowest ? this.currentValue : this.lowest;
       this.average = parseFloat(((this.average + this.currentValue) / 2).toFixed(1));
+      if (!this.chart) {
+        return;
+      }
       const series = this.chart.series[0],
             shift = series.data.length > 10;
       this.chart.series[0].addPoint(this.liveChange, true, shift);
     }
   }
 
+  public pushValue (date: Date, value: number) {
+    if ( !this.chart) {
+      return false;
+    }
+    const series = this.chart.series[0],
+    shift = series.data.length > 10;
+    this.chart.series[0].addPoint([date, value], true, shift);
+  }
+
   ngOnInit() {
+    console.log('Data change: ', this.device);
     this.currentValue = this.data.series[this.data.series.length - 1][1];
     this.highest = this.currentValue;
     this.lowest = this.currentValue;
@@ -109,6 +139,7 @@ export class DailyStatisticsComponent implements OnInit, OnChanges {
     }
     this.average = parseFloat((this.average / this.data.series.length).toFixed(1));
     this.drawChart();
+
   }
 
 }

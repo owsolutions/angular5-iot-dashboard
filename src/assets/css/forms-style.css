@@ -1576,27 +1576,6 @@ textarea.form-control {
   -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
-.btn-primary {
-  background-size: 200%;
-  background-position: 50%;
-  outline: none;
-}
-.btn-primary:hover,
-.btn-primary:active:hover,
-.btn-primary:focus {
-  outline: none;
-  background-color: #108180;
-}
-.btn-primary:active {
-  background-color: #108180;
-  background-image: -webkit-radial-gradient(circle, #108180 10%, #139c9b 11%);
-  background-image: radial-gradient(circle, #108180 10%, #139c9b 11%);
-  background-repeat: no-repeat;
-  background-size: 1000%;
-  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-}
 .btn-success {
   background-size: 200%;
   background-position: 50%;
@@ -1867,51 +1846,6 @@ fieldset[disabled] .btn-default.active {
 .btn-default .badge {
   color: #ffffff;
   background-color: #333333;
-}
-.btn-primary {
-  color: #ffffff;
-  background-color: #139c9b;
-  border-color: #118684;
-}
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary.focus,
-.btn-primary:active,
-.btn-primary.active,
-.open > .dropdown-toggle.btn-primary {
-  color: #ffffff;
-  background-color: #0e6f6e;
-  border-color: #0a4f4e;
-}
-.btn-primary:active,
-.btn-primary.active,
-.open > .dropdown-toggle.btn-primary {
-  background-image: none;
-}
-.btn-primary.disabled,
-.btn-primary[disabled],
-fieldset[disabled] .btn-primary,
-.btn-primary.disabled:hover,
-.btn-primary[disabled]:hover,
-fieldset[disabled] .btn-primary:hover,
-.btn-primary.disabled:focus,
-.btn-primary[disabled]:focus,
-fieldset[disabled] .btn-primary:focus,
-.btn-primary.disabled.focus,
-.btn-primary[disabled].focus,
-fieldset[disabled] .btn-primary.focus,
-.btn-primary.disabled:active,
-.btn-primary[disabled]:active,
-fieldset[disabled] .btn-primary:active,
-.btn-primary.disabled.active,
-.btn-primary[disabled].active,
-fieldset[disabled] .btn-primary.active {
-  background-color: #139c9b;
-  border-color: #118684;
-}
-.btn-primary .badge {
-  color: #139c9b;
-  background-color: #ffffff;
 }
 .btn-success {
   color: #ffffff;

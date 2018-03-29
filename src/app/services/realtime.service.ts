@@ -20,7 +20,7 @@ export class RealtimeService {
     private store: Store<AppState>,
     private ref: ApplicationRef,
   ) {
-    // this.ActivateMockIncomingMessages();
+    this.ActivateMockIncomingMessages();
     this.store.select('devices').subscribe((devices) => {
       this.devices = devices;
     });
@@ -83,10 +83,8 @@ export class RealtimeService {
   }
 
   public RecieveDataSourceIncoming (data: DataSource) {
-    console.log('Updating!', data);
     const deviceWithThisSource = this.devices.find(x => x.datasource === data.dataSourceId);
     if ( ! deviceWithThisSource) {
-      console.log('Its unconnected');
       this.store.dispatch({
         type: 'UPDATE_UNCONNECTED_DATA_SOURCE',
         payload: data
@@ -108,7 +106,7 @@ export class RealtimeService {
         lat: 22,
         lng: 21
       },
-      dataSourceId: 'device-' + random(2, 3)
+      dataSourceId: 'device-' + random(1, 2)
     };
     this.RecieveDataSourceIncoming(data);
   }

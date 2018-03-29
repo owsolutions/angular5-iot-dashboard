@@ -1,0 +1,28 @@
+
+.box-wrapper {
+  height: auto;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+  padding: 15px;
+  margin: 15px 0 15px;
+}
+.no-padding {
+  padding: 0 !important;
+}
+
+.app-statistics {
+  h2 {
+      font-size: 20px;
+  }
+  p{
+      margin-bottom: 0;
+  }
+  .app-statistics-value {
+      font-size: 35px;
+      color: #aaa;
+      font-weight: 500;
+      padding-right: 10px;
+  }
+}
