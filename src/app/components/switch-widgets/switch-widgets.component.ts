@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CloudDevice, CloudDeviceType } from '@app/definitions';
+import { CloudDevice } from '@app/definitions';
 
 @Component({
   selector: 'app-switch-widgets',
@@ -15,10 +15,10 @@ export class SwitchWidgetsComponent implements OnInit {
   }
 
   public GetIcon (device: CloudDevice) {
-    if (+device.type === CloudDeviceType.TemperatureSensor) {
-      return 'icon icon-thermometer-2';
-    }
-    return 'icon icon-cloud';
+    // if (+device.type === CloudDeviceType.TemperatureSensor) {
+    //   return 'icon icon-thermometer-2';
+    // }
+    return 'icon-cloud_circle';
   }
 
   public IsTemperature (device: CloudDevice) {

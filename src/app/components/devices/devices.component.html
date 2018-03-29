@@ -1,9 +1,8 @@
-
-<div class='page-container' *ngIf="devices.length || unconnected.length">
-  <div *ngFor="let device of devices" class="col-sm-12 col-xs-12 col-lg-6 padding-box">
+<div class='page-container row clearfix' *ngIf="devices.length || unconnected.length">
+  <div *ngFor="let device of devices" class=" col-sm-12 col col-lg-6">
     <app-switch-widgets [device]="device"></app-switch-widgets>
   </div>
-  <div *ngFor="let source of unconnected" class="col-sm-12 col-xs-12 col-lg-6 padding-box">
+  <div *ngFor="let source of unconnected" class=" col-sm-12 col col-lg-6">
     <app-unconnected-source [dataSource]="source"></app-unconnected-source>
   </div>
 </div>

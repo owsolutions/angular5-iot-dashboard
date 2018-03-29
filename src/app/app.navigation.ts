@@ -1,22 +1,50 @@
 export const navigation = [
   {
     link: '/index',
-    icon: 'icon icon-home',
+    icon: 'icon-home',
     title: 'Home'
   },
   {
-    link: '/devices',
     icon: 'icon-devices_other',
     title: 'Devices',
     permissions: ['DEVICES::VIEW'],
-    auth: true
+    auth: true,
+    children: [
+      {
+        link: '/devices/create',
+        icon: 'icon-add',
+        title: 'Create a device',
+        permissions: ['DEVICES::VIEW'],
+        auth: true
+      },
+      {
+        link: '/devices',
+        icon: 'icon-devices_other',
+        title: 'Devices List',
+        permissions: ['DEVICES::VIEW'],
+        auth: true,
+      }
+    ]
   },
   {
-    link: '/locations',
     icon: 'icon-location_searching',
     title: 'Locations',
-    permissions: ['LOCATIONS::VIEW'],
-    auth: true
+    children: [
+      {
+        link: '/location/new',
+        icon: 'icon-add',
+        title: 'Create a location',
+        permissions: ['LOCATIONS::VIEW'],
+        auth: true
+      },
+      {
+        link: '/locations',
+        icon: 'icon-list',
+        title: 'View Locations',
+        permissions: ['LOCATIONS::VIEW'],
+        auth: true
+      },
+    ]
   },
   {
     link: '/gallery',
@@ -27,18 +55,18 @@ export const navigation = [
   },
   {
     link: '/settings',
-    icon: 'icon icon-settings',
+    icon: 'icon-settings',
     title: 'Settings',
     auth: true
   },
   {
     link: '/docs',
-    icon: 'icon icon-star',
+    icon: 'icon-help',
     title: 'documents',
   },
   {
     link: '/login',
-    icon: 'icon icon-exit_to_app',
+    icon: 'icon-power_settings_new',
     title: 'Logout'
   }
 ];
