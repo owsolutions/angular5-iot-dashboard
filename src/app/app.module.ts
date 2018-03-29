@@ -70,6 +70,7 @@ import { FormElementsComponent } from './components/widgets/form-elements/form-e
 import { HistoryStatisticsComponent } from './components/widgets/history-statistics/history-statistics.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DailyStatisticsComponent } from '@app/components/widgets/daily-statistics/daily-statistics.component';
+import { ExperimentalComponent } from './components/experimental/experimental.component';
 
 
 
@@ -147,7 +148,8 @@ export class AppComponent {
     DashboardComponent,
     ActivitiesComponent,
     HistoryStatisticsComponent,
-    FooterComponent
+    FooterComponent,
+    ExperimentalComponent
   ],
   imports: [
     BrowserAnimationsModule,

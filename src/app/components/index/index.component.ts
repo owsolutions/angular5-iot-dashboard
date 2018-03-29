@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./index.component.scss']
 })
 
-export class IndexComponent {
+export class IndexComponent  {
 
 }

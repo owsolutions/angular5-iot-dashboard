@@ -16,6 +16,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { AuthGuard , DataSyncGuard} from '@services/user.service';
 import { environment } from '../environments/environment';
 import { navigation } from './app.navigation';
+import { ExperimentalComponent } from '@app/components/experimental/experimental.component';
 
 
 const SidebarOutlets = [
@@ -81,6 +82,7 @@ export const appRoutes: Routes = [
   AuthLayout (DevicesComponent, 'devices'),
   AuthLayout (DeviceSingleComponent, 'devices/create'),
   AuthLayout (DeviceSingleComponent, 'devices/:id'),
+  AuthLayout (ExperimentalComponent, 'experimental'),
   AuthLayout (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
   AuthLayout(DocsComponent, 'docs'),
   AuthLayout(GalleryComponent, 'gallery')

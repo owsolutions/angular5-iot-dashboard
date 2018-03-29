@@ -65,6 +65,11 @@ export const navigation = [
     title: 'documents',
   },
   {
+    link: '/experimental',
+    icon: 'icon-help',
+    title: 'Experimental',
+  },
+  {
     link: '/login',
     icon: 'icon-power_settings_new',
     title: 'Logout'
