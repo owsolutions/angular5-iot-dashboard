@@ -54,6 +54,7 @@ export function AuthLayoutChild(component: any, route: string, options: any = {}
 
 
 export const appRoutes: Routes = [
+  {   path: '', redirectTo: '/index', pathMatch: 'full' },
   {
     path: '',
     component: LayoutComponent,

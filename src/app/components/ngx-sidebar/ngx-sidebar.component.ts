@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Renderer } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   /* tslint:disable */
@@ -19,7 +19,6 @@ export class NgxSidebarComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.warn('Hello!');
   }
 
   menuToggle(event: any, nav: any) {
