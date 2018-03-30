@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, AfterViewInit } from '@angular/core';
 declare var Highcharts: any;
 import { CloudDevice, DataSource } from '@app/definitions';
 

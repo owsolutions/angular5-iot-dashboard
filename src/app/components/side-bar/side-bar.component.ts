@@ -11,7 +11,7 @@ export class SideBarComponent implements OnInit {
   public sideState = true;
   public keepOpen = false;
   public navigation: Array<any> = navigation;
-  
+
   public nav2 = [
     {
       link: '/home',

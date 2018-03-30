@@ -1,6 +1,6 @@
 <ul [ngClass]='containerClass'>
   <li *ngFor="let nav of navigation"  [routerLinkActive]="nav.link ? 'opened' : ''"  (click)="menuToggle($event, nav);$event.stopPropagation()">
-    <a [routerLink]="nav.link">
+    <a class="ngx-menu-item ngx-menu-link-{{nav.class}}" [routerLink]="nav.link">
         <i [class]='nav.icon'></i>
         {{nav.title}}
     </a>

@@ -363,7 +363,7 @@ export class MockService {
           }
         ]
       }
-    }
+    };
   }
 }
 function DeviceValidator (device: CloudDevice) {

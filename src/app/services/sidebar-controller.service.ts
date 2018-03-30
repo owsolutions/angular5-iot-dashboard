@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter, HostListener } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable()
 export class SidebarControllerService {
