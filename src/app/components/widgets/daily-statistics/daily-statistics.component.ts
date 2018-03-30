@@ -151,6 +151,18 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
   }
 
   ngAfterViewInit () {
+    setInterval(() => {
+      this.data = {
+        title: 'Bedroom Tempreture',
+        subTitle: 'Show Today Live Statistics',
+        for: 'Tempreture',
+        unit: '°C',
+        chartColor: 'orange',
+        series: generateMockSeries()
+      };
+      this.drawChart();
+
+    }, 2500);
     this.drawChart();
   }
 
