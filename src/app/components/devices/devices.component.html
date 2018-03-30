@@ -1,4 +1,4 @@
-<div class='page-container row clearfix' *ngIf="unconnected.length">
+<div class=' clearfix' *ngIf="unconnected.length">
   <div *ngFor="let source of unconnected" class=" col-sm-12 col col-lg-6">
     <app-unconnected-source [dataSource]="source"></app-unconnected-source>
   </div>
