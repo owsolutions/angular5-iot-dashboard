@@ -16,6 +16,7 @@ export class NgxSidebarComponent implements OnInit {
   constructor( private renderer: Renderer, private router: Router, private route: ActivatedRoute ) {}
 
   ngOnInit() {
+    console.warn('Hello!');
   }
 
   menuToggle(event: any, nav: any) {
