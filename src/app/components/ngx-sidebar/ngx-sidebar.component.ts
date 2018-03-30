@@ -13,7 +13,10 @@ export class NgxSidebarComponent implements OnInit {
   @Input('containerClass') containerClass = 'main-ul';
   public state = true;
 
-  constructor( private renderer: Renderer, private router: Router, private route: ActivatedRoute ) {}
+  constructor(
+    private renderer: Renderer,
+    private route: ActivatedRoute,
+  ) {}
 
   ngOnInit() {
     console.warn('Hello!');
