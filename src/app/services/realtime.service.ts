@@ -20,11 +20,14 @@ export class RealtimeService {
     private store: Store<AppState>,
     private ref: ApplicationRef,
   ) {
-    this.ActivateMockIncomingMessages();
+    if (environment.production) {
+      this.StartSailsSocket();
+    } else {
+      this.ActivateMockIncomingMessages();
+    }
     this.store.select('devices').subscribe((devices) => {
       this.devices = devices;
     });
-    this.StartSailsSocket();
   }
 
   /**

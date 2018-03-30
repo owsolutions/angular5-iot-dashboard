@@ -1,8 +1,20 @@
-import { Component, OnInit, Input, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, OnChanges, AfterViewInit } from '@angular/core';
 declare var Highcharts: any;
-import { DailyStatistics } from '../../../../mocks/dailyStatistics';
 import { CloudDevice, DataSource } from '@app/definitions';
 
+
+
+function generateMockSeries() {
+  const series = [];
+  for (let i = 20; i >= 1; i = i - 2) {
+      series.push([previousSeconds(i), Math.floor(Math.random() * 8 + 30)]);
+  }
+  return series;
+}
+
+function previousSeconds(s) {
+  return new Date().getTime() - (s * 1000);
+}
 
 function CastHistoryToSeries (items: Array<DataSource>): Array<Array<any>> {
   return items.map(x => {
@@ -14,17 +26,12 @@ function CastHistoryToSeries (items: Array<DataSource>): Array<Array<any>> {
   templateUrl: './daily-statistics.component.html',
   styleUrls: ['./daily-statistics.component.scss']
 })
-export class DailyStatisticsComponent implements OnInit, OnChanges {
+export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewInit {
 
-  public device: CloudDevice = null;
-  @Input('Device') public set Device (valuie: CloudDevice ) {
-    this.device = valuie;
-    if (valuie.dataHistory) {
-      this.data = CastHistoryToSeries(valuie.dataHistory);
-    }
-    this.drawChart();
-  }
-  @Input() data: any = DailyStatistics;
+  public chartName = 'live-tempreture';
+  public data = {};
+  @Input('device') public device: CloudDevice = null;
+  // @Input('
   @Input() liveChange: Array<any> = [];
   public chart: any;
   public currentValue = 0;
@@ -33,7 +40,7 @@ export class DailyStatisticsComponent implements OnInit, OnChanges {
   public average = 0;
 
   drawChart() {
-    this.chart = Highcharts.chart('live-tempreture', {
+    this.chart = Highcharts.chart(this.chartName, {
         chart: {
           events: {
               redraw: function () {
@@ -107,6 +114,7 @@ export class DailyStatisticsComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnChanges() {
+    console.log('Changes!');
     if (this.liveChange !== undefined) {
       this.currentValue = this.liveChange[1];
       this.highest = this.currentValue > this.highest ? this.currentValue : this.highest;
@@ -130,8 +138,8 @@ export class DailyStatisticsComponent implements OnInit, OnChanges {
     this.chart.series[0].addPoint([date, value], true, shift);
   }
 
+
   ngOnInit() {
-    console.log('Data change: ', this.device);
     this.currentValue = this.data.series[this.data.series.length - 1][1];
     this.highest = this.currentValue;
     this.lowest = this.currentValue;
@@ -139,8 +147,13 @@ export class DailyStatisticsComponent implements OnInit, OnChanges {
       this.average += seri[1];
     }
     this.average = parseFloat((this.average / this.data.series.length).toFixed(1));
-    this.drawChart();
+  
+    this.chartName = 'chart-' + this.device.id;
 
+  }
+
+  ngAfterViewInit () {
+    this.drawChart();
   }
 
 }

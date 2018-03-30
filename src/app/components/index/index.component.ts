@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ApplicationRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState, CloudDevice } from '@app/definitions';
-import { values } from 'lodash';
+import { values, clone } from 'lodash';
 import { DailyStatistics } from '../../../mocks/dailyStatistics';
 import { HistoryStatistics } from '../../../mocks/historyStatistics';
 
@@ -20,10 +20,11 @@ export class IndexComponent implements OnInit  {
 
   constructor(
     private store: Store<AppState>,
+    private ref: ApplicationRef,
   ) { }
   ngOnInit () {
     this.store.select('devices').subscribe((devices) => {
-      this.devices = devices;
+      this.devices = clone(devices);
     });
   }
   public TempWidget (device: CloudDevice) {
