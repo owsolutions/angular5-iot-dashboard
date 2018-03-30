@@ -28,4 +28,10 @@ export class TooltipDirective {
     this.appRef.detachView(this.componentRef.hostView);
     this.componentRef.destroy();
   }
+
+  @HostListener('click')
+  onClick(): void {
+    this.appRef.detachView(this.componentRef.hostView);
+    this.componentRef.destroy();
+  }
 }

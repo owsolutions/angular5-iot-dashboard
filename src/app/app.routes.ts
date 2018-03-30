@@ -65,27 +65,38 @@ export function DefaultLayout (component: any, route: string, options: any = {})
     };
 }
 
+export function AuthLayoutChild(component: any, route: string, options: any = {}): Route {
+    return {
+        path: route,
+        component: component,
+        ... options,
+        canActivate: environment.production ? [AuthGuard, DataSyncGuard] : [DataSyncGuard],
+    };
+}
+
 
 export const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/index',
-    pathMatch: 'full'
+    component: LayoutComponent,
+    children: [
+        AuthLayoutChild (IndexComponent, 'index'),
+        AuthLayoutChild (LocationsComponent, 'locations'),
+        AuthLayoutChild (SettingsComponent, 'settings'),
+        AuthLayoutChild (LocationSingleComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
+        AuthLayoutChild (LocationSingleComponent, 'location/new', {data: {mode: 'new'}}),
+        AuthLayoutChild (RolesComponent, 'roles'),
+        AuthLayoutChild (ActivityComponent, 'activities'),
+        AuthLayoutChild (DevicesComponent, 'devices'),
+        AuthLayoutChild (DeviceSingleComponent, 'device/create'),
+        AuthLayoutChild (DeviceSingleComponent, 'device/:id'),
+        AuthLayoutChild (ExperimentalComponent, 'experimental'),
+        AuthLayoutChild (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
+        AuthLayoutChild (DocsComponent, 'docs'),
+        AuthLayoutChild (GalleryComponent, 'gallery')
+    ]
   },
-  AuthLayout (IndexComponent, 'index'),
-  AuthLayout (LocationsComponent, 'locations'),
-  AuthLayout (SettingsComponent, 'settings'),
-  AuthLayout (LocationSingleComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
-  AuthLayout (LocationSingleComponent, 'location/new', {data: {mode: 'new'}}),
-  AuthLayout (RolesComponent, 'roles'),
-  AuthLayout (ActivityComponent, 'activities'),
-  AuthLayout (DevicesComponent, 'devices'),
-  AuthLayout (DeviceSingleComponent, 'devices/create'),
-  AuthLayout (DeviceSingleComponent, 'devices/:id'),
-  AuthLayout (ExperimentalComponent, 'experimental'),
-  AuthLayout (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
-  AuthLayout(DocsComponent, 'docs'),
-  AuthLayout(GalleryComponent, 'gallery')
+  {   path: '**', redirectTo: '/index' }
 ];
 
 export function createRoutes () {

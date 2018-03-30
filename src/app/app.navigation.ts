@@ -16,8 +16,8 @@ export const navigation = [
     auth: true,
     children: [
       {
-        link: '/devices/create',
-        icon: 'icon-add',
+        link: '/device/create',
+        icon: '',
         title: 'Create a device',
         permissions: ['DEVICES::VIEW'],
         auth: true,
@@ -25,7 +25,7 @@ export const navigation = [
       },
       {
         link: '/devices',
-        icon: 'icon-devices_other',
+        icon: '',
         title: 'Devices List',
         permissions: ['DEVICES::VIEW'],
         auth: true,
@@ -39,7 +39,7 @@ export const navigation = [
     children: [
       {
         link: '/location/new',
-        icon: 'icon-add',
+        icon: '',
         title: 'Create a location',
         permissions: ['LOCATIONS::VIEW'],
         auth: true,
@@ -47,7 +47,7 @@ export const navigation = [
       },
       {
         link: '/locations',
-        icon: 'icon-list',
+        icon: '',
         title: 'View Locations',
         permissions: ['LOCATIONS::VIEW'],
         auth: true,
