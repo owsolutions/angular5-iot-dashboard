@@ -66,7 +66,6 @@ import { SidebarControllerService } from './services/sidebar-controller.service'
 import { ApplicationsListComponent } from './components/applications-list/applications-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ActivitiesComponent } from './components/widgets/activities/activities.component';
-import { FormElementsComponent } from './components/widgets/form-elements/form-elements.component';
 import { HistoryStatisticsComponent } from './components/widgets/history-statistics/history-statistics.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DailyStatisticsComponent } from '@app/components/widgets/daily-statistics/daily-statistics.component';
@@ -109,7 +108,6 @@ export class AppComponent {
     RadioInputComponent,
     SelectInputComponent,
     DailyStatisticsComponent,
-    FormElementsComponent,
     SidebarWidgetComponent,
     RolesComponent,
     UnConnectedSourceComponent,
