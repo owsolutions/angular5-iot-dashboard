@@ -2,8 +2,6 @@ import { Component, OnInit, Input, EventEmitter, OnChanges, AfterViewInit } from
 declare var Highcharts: any;
 import { CloudDevice, DataSource } from '@app/definitions';
 
-
-
 function generateMockSeries() {
   const series = [];
   for (let i = 20; i >= 1; i = i - 2) {
@@ -29,7 +27,7 @@ function CastHistoryToSeries (items: Array<DataSource>): Array<Array<any>> {
 export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewInit {
 
   public chartName = 'live-tempreture';
-  public data = {};
+  public data: any = {};
   @Input('device') public device: CloudDevice = null;
   // @Input('
   @Input() liveChange: Array<any> = [];
@@ -140,16 +138,16 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
 
 
   ngOnInit() {
-    this.currentValue = this.data.series[this.data.series.length - 1][1];
-    this.highest = this.currentValue;
-    this.lowest = this.currentValue;
-    for (const seri of this.data.series) {
-      this.average += seri[1];
-    }
-    this.average = parseFloat((this.average / this.data.series.length).toFixed(1));
-  
     this.chartName = 'chart-' + this.device.id;
 
+    this.data = {
+      title: 'Bedroom Tempreture',
+      subTitle: 'Show Today Live Statistics',
+      for: 'Tempreture',
+      unit: '°C',
+      chartColor: 'orange',
+      series: generateMockSeries()
+    };
   }
 
   ngAfterViewInit () {
