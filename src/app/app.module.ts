@@ -71,7 +71,7 @@ import { HistoryStatisticsComponent } from './components/widgets/history-statist
 import { FooterComponent } from './components/footer/footer.component';
 import { DailyStatisticsComponent } from '@app/components/widgets/daily-statistics/daily-statistics.component';
 import { ExperimentalComponent } from './components/experimental/experimental.component';
-
+import { NgxTooltipModule } from './components/ngx-tooltip/ngx-tooltip.module';
 
 
 declare var require: any;
@@ -158,6 +158,7 @@ export class AppComponent {
     NgxUserModule,
     NgxSidebarModule,
     RealtimeDocumentModule,
+    NgxTooltipModule,
     HttpModule,
     NgMediaModule,
     BrowserAnimationsModule,
