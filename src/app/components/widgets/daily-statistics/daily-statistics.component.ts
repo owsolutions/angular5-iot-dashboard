@@ -150,6 +150,7 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
   }
 
   ngAfterViewInit () {
+    
     setInterval(() => {
       this.data = {
         title: 'Bedroom Tempreture',
@@ -157,7 +158,7 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
         for: 'Tempreture',
         unit: '°C',
         chartColor: 'orange',
-        series: CastHistoryToSeries(this.device.dataHistory).splice(0, 10)
+        series: CastHistoryToSeries(this.device.dataHistory.reverse()).splice(0, 10)
       };
       this.drawChart();
 
