@@ -1,3 +1,6 @@
+import { environment } from "environments/environment";
+
+
 export const navigation = [
   {
     link: '/index',
@@ -64,11 +67,11 @@ export const navigation = [
     icon: 'icon-help',
     title: 'documents',
   },
-  {
+  ! environment.production ? {
     link: '/experimental',
     icon: 'icon-help',
     title: 'Experimental',
-  },
+  } : null,
   {
     link: '/login',
     icon: 'icon-power_settings_new',

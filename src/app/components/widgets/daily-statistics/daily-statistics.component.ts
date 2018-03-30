@@ -112,7 +112,6 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
   constructor() { }
 
   ngOnChanges() {
-    console.log('Changes!');
     if (this.liveChange !== undefined) {
       this.currentValue = this.liveChange[1];
       this.highest = this.currentValue > this.highest ? this.currentValue : this.highest;
@@ -158,12 +157,11 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
         for: 'Tempreture',
         unit: '°C',
         chartColor: 'orange',
-        series: generateMockSeries()
+        series: CastHistoryToSeries(this.device.dataHistory).splice(0, 10)
       };
       this.drawChart();
 
     }, 2500);
-    this.drawChart();
   }
 
 }
