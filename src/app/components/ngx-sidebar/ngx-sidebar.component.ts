@@ -18,13 +18,6 @@ export class NgxSidebarComponent implements OnInit {
   ngOnInit() {
   }
 
-  public normalize (text: string) {
-    if (!text) {
-      return ;
-    }
-    return text.replace(/\//g, '-');
-  }
-
   menuToggle(event: any, nav: any) {
     if (nav.hasOwnProperty('children')) {
       if ( event.currentTarget.getAttribute('class') !== 'opened' ) {
