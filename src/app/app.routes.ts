@@ -9,60 +9,38 @@ import { RolesComponent } from '@components/roles/roles.component';
 import { GalleryComponent } from '@components/gallery/gallery.component';
 import { DeviceSingleComponent } from '../app/components/device-single/device-single.component';
 import { DocsComponent } from '@components/docs/docs.component';
-import { NavigationComponent } from '@components/navigation/navigation.component';
-import { SidebarComponent } from '@components/sidebar/sidebar.component';
 import { Route } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AuthGuard , DataSyncGuard} from '@services/user.service';
 import { environment } from '../environments/environment';
-import { navigation } from './app.navigation';
 import { ExperimentalComponent } from '@app/components/experimental/experimental.component';
 
-
-const SidebarOutlets = [
-  {
-    path: '',
-    outlet: 'navigation',
-    component: NavigationComponent,
-    data: {
-      navigation
-    }
-  },
-  {
-    outlet: 'sidebar',
-    path: '',
-    component: SidebarComponent
-  }
-];
-
 export function AuthLayout (component: any, route: string, options: any = {}): Route {
-    return {
-        path: route,
-        ... options,
-        canActivate: environment.production ? [AuthGuard, DataSyncGuard] : [DataSyncGuard],
-        component: LayoutComponent,
-        children: [
-            {
-                path: '',
-                component: component
-            },
-            ...SidebarOutlets
-        ],
-    };
+  return {
+    path: route,
+    ... options,
+    // canActivate: environment.production ? [AuthGuard, DataSyncGuard] : [DataSyncGuard],
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        component: component
+      },
+    ],
+  };
 }
 export function DefaultLayout (component: any, route: string, options: any = {}): Route {
-    return {
-        path: route,
-        ... options,
-        component: LayoutComponent,
-        children: [
-            {
-                path: '',
-                component: component
-            },
-            ...SidebarOutlets
-        ],
-    };
+  return {
+    path: route,
+    ... options,
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        component: component
+      },
+    ],
+  };
 }
 
 export function AuthLayoutChild(component: any, route: string, options: any = {}): Route {
