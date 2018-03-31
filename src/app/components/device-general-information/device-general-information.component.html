@@ -1,96 +1,68 @@
-<div class="col-md-12">
-  <div class="widget-wrap">
-    <div class="widget-header block-header margin-bottom-0 clearfix">
-      <div class="pull-left">
-        <h3>Device general information</h3>
-        <p>Here you can modify display name or other general information</p>
-      </div>
-    </div>
-    <hr/>
-    <div class="widget-container">
-      <div class="widget-content">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="j-forms">
-                <div class="form-content">
-                    <div class="row">
-                        <div class="col-md-6 unit">
-                            <label class="label">Name</label>
-                            <div class="input">
-                                <label class="icon-left" for="name">
-                                    <i class="icon icon-edit"></i>
-                                </label>
-                                <input class="form-control" 
-                                  [(ngModel)]="form.name"
-                                  (ngModelChange)="SubmitChange()"
-                                  type="name" placeholder="Device display name" id="name">                                  
-                            </div>
-                        </div>
-                        <div class="col-md-6 unit">
-                            <label class="label">Data source id</label>
-                            <div class="input">
-                                <label class="icon-left" for="datasource">
-                                    <i class="icon icon-edit"></i>
-                                </label>
-                                <input class="form-control" 
-                                  [(ngModel)]="form.datasource"
-                                  (ngModelChange)="SubmitChange()"
-                                  type="datasource" placeholder="Datasource id when your hardware requests the api" id="datasource">
-                            </div>
-                        </div>
 
-                        <div class="unit col-md-6 ">
-                            <label class="label">Type of device</label>
-                            <label class="input select">
-                                <select class="form-control" [(ngModel)]="form.type" (ngModelChange)="SubmitChange()">
-                                    <option value="0">Temperature sensor</option>
-                                </select>
-                                <i></i>
-                            </label>
-                        </div>
+<app-page-container title="Device general information"
+    subtitle="Here you can modify display name or other general information">
+  <div class="row">
+      <div class="col-md-6 unit">
+          <label class="label">Name</label>
+          <div class="input">
 
-                        <div class="unit col-md-6 ">
-                            <label class="label">Location</label>
-                            <label class="input select">
-                                <select class="form-control" [(ngModel)]="form.location" (ngModelChange)="SubmitChange()">
-                                    <option *ngFor="let location of locations" [value]="location.id">{{location.name}} (Level {{location.level}})</option>
-                                </select>
-                                <i></i>
-                            </label>
-                        </div>
-
-                        <div class="col-md-6 unit">
-                            <label class="label">Model</label>
-                            <div class="input">
-                                <label class="icon-left" for="model">
-                                    <i class="icon icon-lock"></i>
-                                </label>
-                                <input class="form-control" type="text"
-                                  [(ngModel)]="form.model"
-                                  (ngModelChange)="SubmitChange()"
-                                  placeholder="Model, brand or serial number" id="model">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="unit">
-                        <label class="label">Description</label>
-                        <div class="input">
-                            <label class="icon-left" for="description">
-                                <i class="icon icon-file-text-o"></i>
-                            </label>
-                            <textarea class="form-control"
-                              [(ngModel)]="form.description"
-                              (ngModelChange)="SubmitChange()"
-                              placeholder="Write few lines of description." 
-                              spellcheck="false" id="description"></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              <input class="form-control" 
+                [(ngModel)]="form.name"
+                (ngModelChange)="SubmitChange()"
+                type="name" placeholder="Device display name" id="name">                                  
           </div>
-
-        </div>
       </div>
-    </div>
+      <div class="col-md-6 unit">
+          <label class="label">Data source id</label>
+          <div class="input">
+
+              <input class="form-control" 
+                [(ngModel)]="form.datasource"
+                (ngModelChange)="SubmitChange()"
+                type="datasource" placeholder="Datasource id when your hardware requests the api" id="datasource">
+          </div>
+      </div>
+
+      <div class="unit col-md-6 ">
+          <label class="label">Type of device</label>
+          <label class="input select">
+              <select class="form-control" [(ngModel)]="form.type" (ngModelChange)="SubmitChange()">
+                  <option value="0">Temperature sensor</option>
+              </select>
+              <i></i>
+          </label>
+      </div>
+
+      <div class="unit col-md-6 ">
+          <label class="label">Location</label>
+          <label class="input select">
+              <select class="form-control" [(ngModel)]="form.location" (ngModelChange)="SubmitChange()">
+                  <option *ngFor="let location of locations" [value]="location.id">{{location.name}} (Level {{location.level}})</option>
+              </select>
+              <i></i>
+          </label>
+      </div>
+
+      <div class="col-md-6 unit">
+          <label class="label">Model</label>
+          <div class="input">
+
+              <input class="form-control" type="text"
+                [(ngModel)]="form.model"
+                (ngModelChange)="SubmitChange()"
+                placeholder="Model, brand or serial number" id="model">
+          </div>
+      </div>
   </div>
-</div>
+  <div class="unit">
+      <label class="label">Description</label>
+      <div class="input">
+
+          <textarea class="form-control"
+            [(ngModel)]="form.description"
+            (ngModelChange)="SubmitChange()"
+            placeholder="Write few lines of description." 
+            spellcheck="false" id="description"></textarea>
+      </div>
+  </div>
+</app-page-container>

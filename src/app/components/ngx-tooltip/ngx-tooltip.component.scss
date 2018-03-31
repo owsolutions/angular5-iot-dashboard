@@ -1,0 +1,24 @@
+.ngx-tooltip {
+    background: #333;
+    color: #fff;
+    padding: 4px 6px 6px;
+    position: fixed;
+    z-index: 1000000;
+    border-radius: 3px;
+    font-size: 13px;
+    max-width: 200px;
+    &:after{
+        content: " ";
+        position: absolute;
+        width:10px;
+        height: 10px;
+        bottom: -3px;
+        left: 50%;
+        border-right: 7px solid #333;
+        border-bottom: 7px solid #333;
+        display: inline-block;
+        transform: rotate(45deg);
+        margin-left: -5px;
+        z-index: -1;
+    }
+}

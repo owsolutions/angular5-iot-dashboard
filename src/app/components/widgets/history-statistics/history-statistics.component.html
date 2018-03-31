@@ -1,0 +1,58 @@
+<div class="hs-container">
+    <div class="hs-title">
+       <div class="d-flex d-md-flex d-sm-block d-xs-block align-items-center">
+           <div class="d-2">
+                <h2>
+                    {{data.title}}
+                </h2>
+                <p>
+                    {{data.subTitle}}
+                </p>
+           </div>
+           <div class="d-2 ml-auto d-sm-block current-item">
+                <div class="d-flex flex-column">
+                    <div class="d-2">
+                        {{data.series[activeIndex].date | date:'fullDate'}}
+                        
+                    </div>
+                    <div class="d-2">
+                        <span [class]="data.series[activeIndex].changeRate.status === 'up'? 'text-success changeRate' : 'text-danger changeRate'">
+                            <i [class]="'icon-arrow_drop_' + data.series[activeIndex].changeRate.status"></i>
+                            {{data.series[activeIndex].changeRate.value}} %
+                        </span>
+                        {{data.series[activeIndex].value}}
+                        <span class="unit">
+                            {{data.resultUnit}}
+                        </span>
+                    </div>
+                </div>
+           </div>
+       </div>
+    </div>
+    <div class="d-flex overflow-hidden position-relative">
+        <div data-simplebar class="p-2 hs-table">
+            <table class="table table-hover">
+                <tbody>
+                    <tr *ngFor="let serie of data.series; let i = index" (click)="setChart(i)" [ngClass]="{'active': i === activeIndex }">
+                        <td>
+                            {{serie.date | date:'MMM - dd'}}
+                            <span [class]="serie.changeRate.status === 'up'? 'text-success' : 'text-danger'">
+                               <i [class]="'icon-arrow_drop_' + serie.changeRate.status"></i>
+                               {{serie.changeRate.value}} %
+                            </span>
+                        </td>
+                        <td>
+                            {{serie.value}}
+                            <span class="unit">
+                                {{data.resultUnit}}
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="p-2 hs-chart">
+            <div id="history-statistics"></div>
+        </div>
+    </div>
+</div>

@@ -19,12 +19,13 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "assets/google-fonts/quicksand/import.css",
-        "assets/css/bootstrap.css",
-        "assets/css/datatable.css",
-        "assets/css/loader.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "assets/css/forms-style.css",
-        "styles.scss"
+        "styles.scss",
+        "../node_modules/simplebar/dist/simplebar.css"
+      ],
+      "scripts": [
+        "../node_modules/simplebar/dist/simplebar.js"
       ],
       "stylePreprocessorOptions": {
         "includePaths": [

@@ -1,0 +1,89 @@
+.main-ul {
+  list-style: none;
+  padding: 0;
+  position: relative;
+  margin-top: 2px;
+}
+
+ul li {
+  a {
+    position: relative;
+  }
+  display: none;
+  position: relative;
+  > a:after {
+    content: "\e99a";
+    font-family: 'material';
+    display: inline-block;
+    top: 16px;
+    right: 15px;
+    position: absolute;
+    font-size: 23px;
+    left: auto;
+    transition: transform .3s;
+  }
+  &.opened > a:after {
+    transform: rotate(90deg);
+  }
+  > a:only-child:after {
+    content: "";
+    border: 0;
+  }
+}
+
+.main-ul {
+  > li {
+    display: block;
+    &.opened {
+      background: #f7f7f7;
+      border-left: 3px solid #4c84ff;
+      
+      .child-ul {
+        background: #f9f9f9;
+      }
+    }
+    > a:hover{
+          background: #f7f7f7 !important;
+      }
+  }
+  li {
+    i[class^="icon-"] {
+      font-size: 22px;
+      padding-right: 5px;
+      text-align: center;
+      color: #888;
+    }
+    a {
+      display: block;
+      font-weight: 400;
+      padding: 16px 20px;
+      color: #333;
+      text-decoration: none;
+    }
+    &.opened > a{
+      color: #4c84ff !important;
+    }
+    &.opened > ngx-sidebar > .child-ul > li {
+      display: block !important;
+    }
+  }
+  > li > a:hover {
+    background: #fff;
+  }
+}
+
+.child-ul {
+  padding-left: 10px;
+  display: none;
+}
+
+.main-ul li.opened > ngx-sidebar > .child-ul {
+  display: block !important;
+}
+
+.child-ul > li {
+  position: relative;
+  &:hover > a {
+      color: #4c84ff;
+  }
+}

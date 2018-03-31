@@ -1,18 +1,57 @@
-<app-page-header [title]="'Devices '" icon="icon icon-keyboard">
-  <a [routerLink]="'/devices/create'" class="touchbar-button">Connect a new device</a>
-</app-page-header>
-
-<div class='page-container' *ngIf="devices.length || unconnected.length">
-  <div *ngFor="let device of devices" class="col-sm-12 col-xs-12 col-lg-6 padding-box">
-    <app-switch-widgets [device]="device"></app-switch-widgets>
-  </div>
-  <div *ngFor="let source of unconnected" class="col-sm-12 col-xs-12 col-lg-6 padding-box">
+<div class=' clearfix' *ngIf="unconnected.length">
+  <div *ngFor="let source of unconnected" class=" col-sm-12 col col-lg-6">
     <app-unconnected-source [dataSource]="source"></app-unconnected-source>
   </div>
 </div>
 
-
 <app-error-message *ngIf="devices.length === 0">
     There are no devices. Please create devices and you will be able to manage them here.
 </app-error-message>
-  
+
+
+<div class="box-wrapper">
+  <div class="row">
+    <div class="box-title">
+      <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <div class="d-2">
+            <h2>Devices</h2>
+            <p>All of your Devices in your Application</p>
+        </div>
+        <div class="d-2">
+          <a class="btn btn-primary add-button" routerLink="../device/create">Add New Device</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-responsive iot-table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Device Name</th>
+          <th>Data Source</th>
+          <th>Type</th>
+          <th>Location</th>
+          <th>Model</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let device of devices">
+          <td>{{device.name}}</td>
+          <td>{{device.datasource}}</td>
+          <td>
+            <i [Tooltip]="'Humidity'" class="icon-opacity"></i>
+            
+          </td>
+          <td><a [routerLink]="'/locations/edit/' + device.location ">{{FindLocationName (device.location)}}</a></td>
+          <td>{{device.model}}</td>
+          <td>
+            <a [routerLink]="'/device/' + device.id "><i [Tooltip]="'Edit'" class="icon-mode_edit action-btn"></i></a>
+            <a (click)="DeleteDevice(device.id)"><i [Tooltip]="'Delete'" class="icon-delete action-btn"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

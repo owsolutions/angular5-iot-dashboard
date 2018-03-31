@@ -1,13 +1,11 @@
-<app-page-header title="Locations" 
-  [searchbar]="false"
-  (searchChange)="searchChange($event);"
-  icon="icon icon-location">
-  <a routerLink="/location/new" class="touchbar-button">Add location</a>
-</app-page-header>
 
-<div *ngFor="let location of locations;">
-  <app-location-row [widgets]="actions.findWidgets(devices, location)" [location]="location"></app-location-row>
-</div>
+
+<ng-container *ngFor="let location of locations;">
+  <div class="box-wrapper">
+    <app-location-row [widgets]="actions.findWidgets(devices, location)" [location]="location"></app-location-row>
+  </div>
+</ng-container>
+
 
 <app-error-message *ngIf="locations.length === 0">
   There are no locations. Please create locations and you will be able to manage them here.

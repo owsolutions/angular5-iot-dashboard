@@ -22,7 +22,9 @@ export class MockService {
     'GET /api/devices': 'getDevices',
     'POST /api/device': 'postDevice',
     'POST /api/location': 'postLocation',
-    'DELETE /api/location/:id': 'deleteLocation'
+    'DELETE /api/location/:id': 'deleteLocation',
+    'DELETE /api/device/:id': 'deleteDevice'
+
   };
 
   constructor (
@@ -340,6 +342,17 @@ export class MockService {
       }
     };
   }
+  public deleteDevice (req: HttpRequest<any>): IResponse<any> {
+    return {
+      data: {
+        items: [
+          {
+
+          }
+        ]
+      }
+    };
+  }
 
   public getDevicesToken (req: HttpRequest<any>): IResponse<any> {
     return {
@@ -350,7 +363,7 @@ export class MockService {
           }
         ]
       }
-    }
+    };
   }
 }
 function DeviceValidator (device: CloudDevice) {

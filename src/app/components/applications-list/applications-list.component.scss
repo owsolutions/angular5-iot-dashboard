@@ -1,0 +1,18 @@
+.application-list-container{
+    width: 55px;
+    height: 55px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 24px;
+    color: #aaa;
+    position: relative;
+    cursor: pointer;
+    &:hover i{
+        color: #4c84ff;
+    }
+    @media(max-width: 400px) {
+        width: 45px;
+        height: 50px;
+    }
+}

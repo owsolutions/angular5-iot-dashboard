@@ -138,6 +138,10 @@ export enum CloudDeviceType {
   TemperatureSensor
 }
 
+export interface CloudDeviceStatistics {
+  minimumValue?: number;
+  maximumValue?: number;
+}
 export interface CloudDevice {
   id?: any;
   name?: string;
@@ -148,4 +152,6 @@ export interface CloudDevice {
   location?: any;
   preferences: IDeviceDisplayPreference;
   value?: any;
+  dataHistory?: Array<DataSource>;
+  statistics?: CloudDeviceStatistics;
 }

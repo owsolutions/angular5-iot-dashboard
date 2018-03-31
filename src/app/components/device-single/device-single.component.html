@@ -1,11 +1,5 @@
 <app-progress-line *ngIf="isRequesting"></app-progress-line>
 
-<app-page-header title="Device single" icon="icon icon-keyboard">
-  <a (click)="DeleteDevice();" class="touchbar-button" *ngIf="form.id">Delete Device</a>
-  <a (click)="SubmitForm()" class="touchbar-button" *ngIf="form.id">Edit device</a>
-  <a (click)="SubmitForm()" class="touchbar-button" *ngIf="!form.id">Create device</a>
-</app-page-header>
-
 <app-error-message *ngIf="response && response.error">
   {{response.error.message}}
 </app-error-message>
@@ -14,8 +8,5 @@
   (onChange)="DeviceGeneralChange($event)" ></app-device-general-information>
 <app-device-customization [preferences]="form.preferences" (onChange)="DeviceCustomizationChange($event)"></app-device-customization>
 
-<div class="col-md-12">
-  <button (click)="SubmitForm()" class="normal-button" *ngIf="form.id">Edit device</button>
-  <button (click)="SubmitForm()" class="normal-button" *ngIf="!form.id">Create device</button>
-  <br><br>
-</div>
+<button (click)="SubmitForm()" class="btn btn-primary" *ngIf="form.id">Edit device</button>
+<button (click)="SubmitForm()" class="btn btn-primary" *ngIf="!form.id">Create device</button>

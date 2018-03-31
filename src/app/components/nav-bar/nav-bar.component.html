@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-nav">
+    <div class="application-nav col-lg-7">
+      <div class="active-application-wrapper">
+        <div class="active-application" title="Work Office In London">
+          <div class="application-avatar">WO</div>
+          <div class="application-title">Cloud Access</div>
+        </div>
+      </div>
+      <a class="navbar-brand">IOT Angular Dashboard</a>
+    </div>
+    <button class="menu-toggle-button d-xl-none d-lg-none" (click)="ToggleSidebar()">
+      <i class="icon-menu"></i>
+    </button>
+    <div class="navbar-collapse f-basic-auto">
+      <div class="d-flex flex-row-reverse ml-auto justify-content-start nav-items">
+        <div class="d-2">
+            <app-profile-menu></app-profile-menu>
+        </div> 
+        <!-- <div class="d-2">
+          <app-notification-list></app-notification-list>
+        </div>
+        <div class="d-2">
+          <app-applications-list></app-applications-list>
+        </div> -->
+      </div>
+    </div>
+  </nav>

@@ -1,3 +1,26 @@
-<app-page-header title="Dashboard" icon="icon icon-hone"></app-page-header>
+<div *ngIf="HasNoPreferenceOnDevices(devices)" class="sidebar-no-widget-message">
+  You have not set any kind of widgets on your sidebar. You can add them here
+  by checking out each device single page and configure the customization
+</div>
+<!-- <app-sidebar-widget [items]="example0"></app-sidebar-widget>
+<app-sidebar-widget [items]="example1"></app-sidebar-widget> -->
+
+<div class="row">
+  <ng-container *ngFor="let device of devices">
+    <ng-container *ngIf="device.preferences">
+      
+      <div class="col-xl-4 col-lg-4 col-md-5 col-sm-6" *ngIf="device.preferences.DisplayRealTimeTemperatureInSidebar">
+        <div class="box-wrapper">
+          
+          <app-daily-statistics [device]="device"></app-daily-statistics>
+        </div>
+      </div>
+      <app-quick-chart
+        *ngIf="device.preferences.DisplayAverageLastWeekInSidebar"></app-quick-chart>
+    </ng-container>
+  </ng-container>
+</div>
+
+
 <app-statistics></app-statistics>
 <app-places></app-places>
