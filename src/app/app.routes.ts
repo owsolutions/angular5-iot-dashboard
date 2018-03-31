@@ -19,7 +19,6 @@ export function AuthLayout (component: any, route: string, options: any = {}): R
   return {
     path: route,
     ... options,
-    // canActivate: environment.production ? [AuthGuard, DataSyncGuard] : [DataSyncGuard],
     component: LayoutComponent,
     children: [
       {
@@ -57,6 +56,7 @@ export const appRoutes: Routes = [
   {   path: '', redirectTo: '/index', pathMatch: 'full' },
   {
     path: '',
+    canActivate: environment.production ? [AuthGuard, DataSyncGuard] : [AuthGuard, DataSyncGuard],
     component: LayoutComponent,
     children: [
         AuthLayoutChild (IndexComponent, 'index'),
