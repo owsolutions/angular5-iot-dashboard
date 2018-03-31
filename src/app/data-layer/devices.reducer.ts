@@ -20,6 +20,9 @@ export function devicesReducer (state: Array<CloudDevice> = [], action: Action) 
             if (!x.dataHistory) {
               x.dataHistory = [];
             }
+            if (x.dataHistory.length >= 5) {
+              x.dataHistory.shift();
+            }
             x.dataHistory.push(payload);
           }
           return x;

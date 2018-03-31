@@ -13,8 +13,11 @@
   </div>
 </div>
 
-<div [id]="chartName" class="chart"></div>
+<div *ngIf="HasHistory(device)" [id]="chartName" class="chart"></div>
 
+<div *ngIf="!HasHistory(device)" class="no-history">
+  There are no history for this device to draw usage chart.
+</div>
 <div class="row">
   <div class="d-flex st-bar">
     <div class="d-2 col-sm-4">

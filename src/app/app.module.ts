@@ -189,5 +189,10 @@ export class AppComponent {
   bootstrap: [AppComponent]
 })
 export class AppModule {
- 
+
+  constructor (
+    private realtime: RealtimeService,
+  ) {
+
+  }
 }

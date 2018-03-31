@@ -1,6 +1,12 @@
-.chart {
+.chart, .no-history {
   height: 150px;
 }
+.no-history {
+  font-size: 12px;
+  text-align: center;
+  padding-top: 30px;
+}
+
 .widget-value{
     margin-top: 12px;
     .widget-lable{

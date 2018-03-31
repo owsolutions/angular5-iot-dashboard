@@ -111,6 +111,7 @@ export class RealtimeService {
       },
       dataSourceId: 'device-' + random(1, 2)
     };
+    console.log('Sending data:', data);
     this.RecieveDataSourceIncoming(data);
   }
 
