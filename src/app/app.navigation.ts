@@ -53,14 +53,14 @@ export const navigation = [
       },
     ]
   },
-  {
+  ! environment.production ? {
     link: '/gallery',
     icon: 'icon-attach_file',
     title: 'Gallery',
     permissions: ['USERS::VIEW'],
     auth: true,
     class: 'gallery'
-  },
+  } : null,
   {
     link: '/settings',
     icon: 'icon-settings',

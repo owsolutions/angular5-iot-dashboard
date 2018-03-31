@@ -35,7 +35,7 @@
     "highcharts": "^5.0.14",
     "intl": "^1.2.5",
     "lodash": "^4.17.4",
-    "ng-media": "0.0.17",
+    "ng-media": "0.0.19",
     "realtime-document": "0.0.6",
     "response-type": "^1.0.3",
     "rxjs": "^5.1.0",
