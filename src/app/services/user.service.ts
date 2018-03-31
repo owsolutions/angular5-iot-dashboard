@@ -67,6 +67,10 @@ export class UserService {
     this.token = token;
     localStorage.setItem('tokenInformation', JSON.stringify(token));
   }
+  public Revoke () {
+    this.SetToken(null);
+    this.SetUser(null);
+  }
 }
 
 @Injectable()

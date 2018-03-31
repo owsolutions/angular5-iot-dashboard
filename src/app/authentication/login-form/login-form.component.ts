@@ -30,6 +30,7 @@ export class LoginFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.user.Revoke();
   }
 
   public async login (e) {
