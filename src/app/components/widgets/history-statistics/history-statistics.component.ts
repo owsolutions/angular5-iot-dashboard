@@ -11,7 +11,7 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
   public currentData: Array<any>;
   public activeIndex = 0;
   drawChart() {
-    const chart = Highcharts.chart('history-statistics', {
+    Highcharts.chart('history-statistics', {
         chart: {
           events: {
               redraw: function () {

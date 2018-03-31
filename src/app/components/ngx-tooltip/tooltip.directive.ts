@@ -2,6 +2,7 @@ import { Directive, HostListener, Input, ElementRef, ComponentFactoryResolver, A
          Injector, EmbeddedViewRef } from '@angular/core';
 import { NgxTooltipComponent } from './ngx-tooltip.component';
 @Directive({
+  /* tslint:disable */
   selector: '[Tooltip]'
 })
 export class TooltipDirective {
