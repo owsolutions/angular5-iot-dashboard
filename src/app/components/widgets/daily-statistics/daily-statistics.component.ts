@@ -151,9 +151,7 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
 
   ngAfterViewInit () {
     setInterval(() => {
-      if (!this.device.dataHistory) {
-        return;
-      }
+ 
       this.data = {
         title: 'Bedroom Tempreture',
         subTitle: 'Show Today Live Statistics',
