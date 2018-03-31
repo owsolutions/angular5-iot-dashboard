@@ -1,0 +1,28 @@
+.notification-container{
+    width: 55px;
+    height: 55px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 25px;
+    color: #aaa;
+    position: relative;
+    .notification-badge {
+        border: 2px solid orange;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        position: absolute;
+        top: 12px;
+        right: 10px;
+    }
+    cursor: pointer;
+    &:hover i{
+        color: #4c84ff;
+    }
+    @media(max-width: 400px) {
+        width: 45px;
+        height: 50px;
+    }
+}

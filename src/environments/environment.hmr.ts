@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
+  production: false,
   hmr: true,
-  api:  'https://cryptic-beyond-43608.herokuapp.com',//'http://localhost:1337'
+  api: 'http://localhost:1337'
 };

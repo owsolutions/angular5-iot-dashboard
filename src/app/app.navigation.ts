@@ -1,44 +1,89 @@
+import { environment } from 'environments/environment';
 export const navigation = [
   {
     link: '/index',
-    icon: 'icon icon-home',
-    title: 'Home'
+    icon: 'icon-home',
+    title: 'Home',
+    class: 'home'
   },
   {
-    link: '/devices',
-    icon: 'icon icon-developer_board',
+    icon: 'icon-devices_other',
     title: 'Devices',
     permissions: ['DEVICES::VIEW'],
-    auth: true
+    class: 'device',
+    auth: true,
+    children: [
+      {
+        link: '/device/create',
+        icon: '',
+        title: 'Create a device',
+        permissions: ['DEVICES::VIEW'],
+        auth: true,
+        class: 'device-create'
+      },
+      {
+        link: '/devices',
+        icon: '',
+        title: 'Devices List',
+        permissions: ['DEVICES::VIEW'],
+        auth: true,
+        class: 'device-list'
+      }
+    ]
   },
   {
-    link: '/locations',
-    icon: 'icon icon-room',
+    icon: 'icon-location_searching',
     title: 'Locations',
-    permissions: ['LOCATIONS::VIEW'],
-    auth: true
+    children: [
+      {
+        link: '/location/new',
+        icon: '',
+        title: 'Create a location',
+        permissions: ['LOCATIONS::VIEW'],
+        auth: true,
+        class: 'location-new'
+      },
+      {
+        link: '/locations',
+        icon: '',
+        title: 'View Locations',
+        permissions: ['LOCATIONS::VIEW'],
+        auth: true,
+        class: 'location-list'
+      },
+    ]
   },
   {
     link: '/gallery',
-    icon: 'icon icon-eye',
+    icon: 'icon-attach_file',
     title: 'Gallery',
     permissions: ['USERS::VIEW'],
-    auth: true
+    auth: true,
+    class: 'gallery'
   },
   {
     link: '/settings',
-    icon: 'icon icon-settings',
+    icon: 'icon-settings',
     title: 'Settings',
+    class: 'settings',
     auth: true
   },
   {
     link: '/docs',
-    icon: 'icon icon-star',
+    icon: 'icon-help',
     title: 'documents',
+    class: 'docs'
   },
+  ! environment.production ? {
+    link: '/experimental',
+    icon: 'icon-fingerprint',
+    title: 'Experimental',
+    class: 'experimental'
+  } : null,
   {
     link: '/login',
-    icon: 'icon icon-exit_to_app',
-    title: 'Logout'
+    icon: 'icon-power_settings_new',
+    title: 'Logout',
+    class: 'logout'
   }
 ];

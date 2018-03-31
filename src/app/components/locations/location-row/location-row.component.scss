@@ -5,12 +5,7 @@
 }
 .place-row-link{
     text-decoration: none;
-    &:hover {
-        .icon-round-next {
-            background: $theme-color-600;
-            color: white;
-        }
-    }
+    
 }
 .value-box {
     font-size:35px;
@@ -24,7 +19,7 @@
         }
     }
 }
-.icon-round-next {
+.next-icon {
     $size:40px;
     box-shadow: 0px 0px 0px 4px rgb(248, 249, 251);
     border:1px solid rgb(221, 224, 232);
@@ -33,12 +28,17 @@
     border-radius:100%;
     color: rgb(185, 195, 213);
     text-align:center;
-    padding:3px;
     font-size:25px;
+    line-height: 37px;
     display:inline-block;
-    line-height: 35px;
-    text-indent: 2px;
-    @include transition(all .5s);
+     @include transition(all .5s);
+
+    &:hover {
+    .icon-round-next {
+      background: $theme-color-600;
+      color: white;
+    }
+  }
 }
 .list.status {
     list-style: none;

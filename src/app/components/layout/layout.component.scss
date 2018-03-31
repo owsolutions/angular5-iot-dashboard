@@ -1,26 +1,37 @@
-@import 'injects';
+#layout{
+  position: fixed !important;
+    z-index: 998;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 7.2em;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(.25,.8,.25,1);
+    transition-property: right, left;
+    &.side-on{
+        left: 285px;
+        right: -285px;
+    }
+    .inside-wrapper{
+        padding: 0 20px;
+    }
+}
 
-.app-component-outlet {
+@media (max-width: 400px) {
+    #layout {
+        top: 6.4em;
+    }
+}
 
-	position:relative;
-	left:0px;
-	right:0px;
 
-	@include transition((right 0.5s,left .5s));
-
-	@media (min-width: $screen-desktop){
-		position: absolute;
-		left:400px;
-		right:0px;
-	}
-	@media (min-width: $screen-1366 + 1){
-		// right:300px;
-	}
-	@media (min-width: $screen-xlg-desktop){
-		position: absolute;
-		left:450px;
-		// right:350px;
-  }
-  
-  background: white;
+@media (min-width: 992px) {
+    #layout {
+        top: 4.5em;
+        &.side-on{
+            right: 0;
+        }
+        .inside-wrapper{
+            padding: 30px 50px 20px 50px;
+        }
+    }
 }

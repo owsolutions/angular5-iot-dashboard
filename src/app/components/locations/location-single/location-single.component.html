@@ -1,14 +1,9 @@
 <app-progress-line *ngIf="isRequesting"></app-progress-line>
 
-<app-page-header [title]="(form.id ? 'Edit' : 'Create') +  ' location'" icon="icon icon-camera-alt">
-  <a (click)="deleteItem()" class="touchbar-button" *ngIf="form.id">Delete location</a>
-  <a (click)="formSubmit()" class="touchbar-button" *ngIf="!form.id">Create new location</a>
-  <a (click)="formSubmit()" class="touchbar-button" *ngIf="form.id">Edit location</a>
-  
-</app-page-header>
-
 <app-error-message *ngIf="response && response.error">{{response.error.message}}</app-error-message>
-<div class="body" *ngIf="form" >
+
+<app-page-container [title]="( form.id ? 'Update' : 'Create' ) + ' location'" 
+  subtitle="Categorize the devices and distribute them into locations and floors.">
   <div style="max-width: 600px;">
     <app-forms-text-input
     placeholder="Location name"
@@ -36,7 +31,6 @@
     (selectionChange)="changeSelection($event);"
     type="single" #locationIcon></app-ng-media>
 
-    
   <br><br>
 
   <app-forms-select-input
@@ -49,7 +43,8 @@
     (onChange)="onInputChange('temperatureDevice', $event)"
     >
   </app-forms-select-input>
-  <a (click)="formSubmit()" class="normal-button" *ngIf="!form.id">Create new location</a>
-  <a (click)="formSubmit()" class="normal-button" *ngIf="form.id">Edit location</a>
+  <button (click)="formSubmit()" class="btn btn-primary" *ngIf="!form.id">Create new location</button>
+  <button (click)="formSubmit()" class="btn btn-primary" *ngIf="form.id">Edit location</button>
 
-</div>
+</app-page-container>
+  

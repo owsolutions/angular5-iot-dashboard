@@ -1,0 +1,49 @@
+
+footer {
+  padding: 15px 0 0;
+  ul {
+      margin-bottom: 0;
+      padding: 0;
+      list-style: none;
+      li {
+          display: inline-block;
+          a {
+              color: inherit;
+              padding: 15px;
+              font-size: 13px;
+              text-transform: uppercase;
+              border-radius: 3px;
+              text-decoration: none;
+              position: relative;
+              display: block;
+              color: #777;
+              &:hover {
+                  text-decoration: none;
+                  color: #4c84ff;
+              }
+          }
+      }
+  }
+  .copyright {
+      margin: 0;
+      padding: 15px;
+      text-align: right;
+      .material-icons {
+          font-size: 18px;
+          position: relative;
+          top: 3px;
+      }
+  }
+  .btn {
+      margin-top: 0;
+      margin-bottom: 0;
+  }
+}
+@media (max-width: 768px) { 
+  footer{   
+      text-align: center;
+      .copyright{
+          text-align: center;
+      }
+  }
+}

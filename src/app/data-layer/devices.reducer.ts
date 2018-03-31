@@ -17,6 +17,13 @@ export function devicesReducer (state: Array<CloudDevice> = [], action: Action) 
         return state.map(x => {
           if (x.id === deviceWithThisSource.id) {
             x.value = payload.value;
+            if (!x.dataHistory) {
+              x.dataHistory = [];
+            }
+            if (x.dataHistory.length >= 5) {
+              x.dataHistory.shift();
+            }
+            x.dataHistory.push(payload);
           }
           return x;
         });

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -7,7 +7,6 @@ import { HttpModule } from '@angular/http';
 import { appReducersGenerator } from './app.reducers';
 import { createRoutes  } from './app.routes';
 import { NgMediaModule } from 'ng-media';
-import { LayoutComponent } from './components/layout/layout.component';
 import { RealtimeService } from '@services/realtime.service';
 import { NgxUserModule } from './authentication/authentication.module';
 import { SettingsComponent } from '@components/settings/settings.component';
@@ -15,7 +14,6 @@ import { PageHeaderComponent } from '@components/page-header/page-header.compone
 import { TextInputComponent } from '@components/forms/text-input/text-input.component';
 import { RadioInputComponent } from '@components/forms/radio-input/radio-input.component';
 import { SelectInputComponent } from '@components/forms/select-input/select-input.component';
-import { FormElementsComponent } from '@components/form-elements/form-elements.component';
 import { RolesComponent } from '@components/roles/roles.component';
 import { PermissionsService } from '@services/permissions.service';
 import { RequestsService } from '@services/requests.service';
@@ -57,6 +55,25 @@ import { ErrorMessageComponent } from './components/error-message/error-message.
 import { ProgressLineComponent } from './components/progress-line/progress-line.component';
 import { RealtimeDocumentModule } from 'realtime-document';
 
+
+import { ProfileMenuComponent } from './components/profile-menu/profile-menu.component';
+import { NotificationListComponent } from './components/notification-list/notification-list.component';
+import { NgxSidebarModule } from './components/ngx-sidebar/ngx-sidebar.module';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { SidebarControllerService } from './services/sidebar-controller.service';
+import { ApplicationsListComponent } from './components/applications-list/applications-list.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ActivitiesComponent } from './components/widgets/activities/activities.component';
+import { HistoryStatisticsComponent } from './components/widgets/history-statistics/history-statistics.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { DailyStatisticsComponent } from '@app/components/widgets/daily-statistics/daily-statistics.component';
+import { ExperimentalComponent } from './components/experimental/experimental.component';
+import { NgxTooltipModule } from './components/ngx-tooltip/ngx-tooltip.module';
+import { PageContainerComponent } from './components/page-container/page-container.component';
+
+
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
 window['Highcharts'] = Highcharts;
@@ -66,7 +83,18 @@ window['Highcharts'] = Highcharts;
   template: '<router-outlet></router-outlet>'
 })
 export class AppComponent {
+  constructor (private _sidebarController: SidebarControllerService) {}
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    if (event.target.innerWidth < 992) {
+      this._sidebarController.ToggleSidebar.emit('hidden');
+    } else {
+      this._sidebarController.ToggleSidebar.emit('show');
+    }
+  }
 }
+
+
 
 @NgModule({
   declarations: [
@@ -80,7 +108,7 @@ export class AppComponent {
     ProgressLineComponent,
     RadioInputComponent,
     SelectInputComponent,
-    FormElementsComponent,
+    DailyStatisticsComponent,
     SidebarWidgetComponent,
     RolesComponent,
     UnConnectedSourceComponent,
@@ -106,14 +134,31 @@ export class AppComponent {
     GalleryComponent,
     LoadingComponent,
     StatisticsComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+
+
+    ProfileMenuComponent,
+    NotificationListComponent,
+    NavBarComponent,
+    SideBarComponent,
+    ApplicationsListComponent,
+    DevicesComponent,
+    LocationsComponent,
+    DashboardComponent,
+    ActivitiesComponent,
+    HistoryStatisticsComponent,
+    FooterComponent,
+    ExperimentalComponent,
+    PageContainerComponent
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     NgxUserModule,
+    NgxSidebarModule,
     RealtimeDocumentModule,
+    NgxTooltipModule,
     HttpModule,
     NgMediaModule,
     BrowserAnimationsModule,
@@ -133,6 +178,7 @@ export class AppComponent {
     ActionsService,
     UserService,
     AuthGuard,
+    SidebarControllerService,
     DataSyncGuard,
     {
       provide: HTTP_INTERCEPTORS,
@@ -145,8 +191,10 @@ export class AppComponent {
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
   constructor (
     private realtime: RealtimeService,
   ) {
+
   }
 }

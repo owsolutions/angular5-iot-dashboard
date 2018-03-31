@@ -3,10 +3,11 @@
 .widget-box {
   position: relative;
   min-height: 90px;
-  margin-bottom: 0;
+  margin-bottom: 15px;
 .main-icon {
   float: left;
-  margin-right: 15px;
+  font-size: 66px;
+  color: white;
 }
     display:flex;
     width: 100%;
@@ -19,15 +20,13 @@
     }
     padding:10px 0;
 
-    .icon {
+    .icon-settings {
         font-size:45px;
         color:white;
     }
 
     .info-box {
-        font-size:16px;
-        margin-left:15px;
-        
+        font-size:16px;        
         .name {
             font-size:13px;
             color:white;

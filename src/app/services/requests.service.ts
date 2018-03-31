@@ -10,7 +10,6 @@ import { IResponse } from 'response-type';
 import { GetNetworkError, IsSuccessEntity } from '@app/common';
 import { random } from 'lodash';
 import 'rxjs/add/operator/toPromise';
-import { UserService } from '@app/services/user.service';
 
 declare var io: any;
 

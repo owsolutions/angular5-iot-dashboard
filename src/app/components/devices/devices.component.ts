@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { AppState, ILocation, DataSource } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { RequestsService } from '@services/requests.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-devices',
@@ -19,6 +20,7 @@ export class DevicesComponent implements  OnInit, OnDestroy {
   constructor (
     private requests: RequestsService,
     public chRef: ChangeDetectorRef,
+    private router: Router,
     private store: Store<AppState>,
   ) {
   }
@@ -47,5 +49,18 @@ export class DevicesComponent implements  OnInit, OnDestroy {
   ngOnDestroy () {
     this._ref1.unsubscribe();
     this._ref2.unsubscribe();
+  }
+
+  public DeleteDevice (id: number) {
+    this.requests.deleteDevice(id);
+    this.router.navigateByUrl('/devices');
+
+  }
+
+  public FindLocationName (id: number): string {
+    const location = this.locations.find(x => x.id === id);
+    if (location) {
+      return location.name;
+    }
   }
 }
