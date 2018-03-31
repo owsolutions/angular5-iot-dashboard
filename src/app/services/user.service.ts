@@ -105,6 +105,7 @@ export class DataSyncGuard implements CanActivate {
       this.requests.getDevices();
       this.requests.getLocations();
       if (environment.production) {
+        console.log('Connecting to room...');
         this.requests.connectToRoom(this.user.GetToken());
       }
       this.isSynced = true;

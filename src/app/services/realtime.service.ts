@@ -34,6 +34,7 @@ export class RealtimeService {
    * For people who have developed their backend service in sails.js
    */
   public StartSailsSocket () {
+    console.log('Connecting to socket server...');
     io.sails.url = environment.api;
     io.sails.autoConnect = true;
     io.sails.connect(); // = true;
@@ -44,6 +45,9 @@ export class RealtimeService {
         return false;
       }
       this.RecieveDataSourceIncoming(data);
+    });
+    io.socket.on('connect', function () {
+      console.log('connected to socket server');
     });
   }
   public StartPusher () {

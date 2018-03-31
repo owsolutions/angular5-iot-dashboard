@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CloudDevice } from '@app/definitions';
 
 @Component({
@@ -6,18 +6,11 @@ import { CloudDevice } from '@app/definitions';
   templateUrl: './switch-widgets.component.html',
   styleUrls: ['./switch-widgets.component.scss' , '../checkbox-switch.scss']
 })
-export class SwitchWidgetsComponent implements OnInit {
+export class SwitchWidgetsComponent {
 
   @Input('device') public device: CloudDevice;
 
-  ngOnInit() {
-
-  }
-
   public GetIcon (device: CloudDevice) {
-    // if (+device.type === CloudDeviceType.TemperatureSensor) {
-    //   return 'icon icon-thermometer-2';
-    // }
     return 'icon-cloud_circle';
   }
 
