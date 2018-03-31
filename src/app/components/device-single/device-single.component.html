@@ -8,6 +8,5 @@
   (onChange)="DeviceGeneralChange($event)" ></app-device-general-information>
 <app-device-customization [preferences]="form.preferences" (onChange)="DeviceCustomizationChange($event)"></app-device-customization>
 
-
 <button (click)="SubmitForm()" class="btn btn-primary" *ngIf="form.id">Edit device</button>
 <button (click)="SubmitForm()" class="btn btn-primary" *ngIf="!form.id">Create device</button>
