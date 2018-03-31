@@ -1,47 +1,71 @@
 <app-progress-line *ngIf="isRequesting"></app-progress-line>
 
 <app-error-message *ngIf="response && response.error">{{response.error.message}}</app-error-message>
-<div class="box-wrapper" *ngIf="form" >
-  <div style="max-width: 600px;">
-    <app-forms-text-input
-    placeholder="Location name"
-    icon="icon icon-user"
-    name="Location name"
-    [value]="form.name"
-    (onChange)="onInputChange('name', $event)"
-    >
-  </app-forms-text-input>
-  <span style="color: red;" *ngIf="error(response, 'name')">{{error(response, 'name')}}</span>
 
-  <app-forms-select-input
-    placeholder="Select the level (floor)"
-    icon="icon icon-user"
-    name="Level"
-    [selected]="form.level"
-    [options]="levels"
-    (onChange)="onInputChange('level', $event)"
-    >
-  </app-forms-select-input>
-
+<div class="box-wrapper">
+    <div class="widget-header block-header margin-bottom-0 clearfix">
+      <div class="pull-left">
+        <h3>{{ form.id ? 'Update' : 'Create'}} location</h3>
+        <p>Categorize the devices and distribute them into locations and floors.</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="widget-container">
+      <div class="widget-content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="j-forms">
+                <div class="form-content">
+                    
+                    <div style="max-width: 600px;">
+                        <app-forms-text-input
+                        placeholder="Location name"
+                        icon="icon icon-user"
+                        name="Location name"
+                        [value]="form.name"
+                        (onChange)="onInputChange('name', $event)"
+                        >
+                      </app-forms-text-input>
+                      <span style="color: red;" *ngIf="error(response, 'name')">{{error(response, 'name')}}</span>
+                    
+                      <app-forms-select-input
+                        placeholder="Select the level (floor)"
+                        icon="icon icon-user"
+                        name="Level"
+                        [selected]="form.level"
+                        [options]="levels"
+                        (onChange)="onInputChange('level', $event)"
+                        >
+                      </app-forms-select-input>
+                    
+                      </div>
+                      
+                      <app-ng-media 
+                        (selectionChange)="changeSelection($event);"
+                        type="single" #locationIcon></app-ng-media>
+                    
+                      <br><br>
+                    
+                      <app-forms-select-input
+                        *ngIf="devices.length > 1"
+                        placeholder="Select a device that shows this location temperature"
+                        icon="icon icon-user"
+                        name="Location temperature"
+                        [selected]="form.temperatureDevice"
+                        [options]="devices"
+                        (onChange)="onInputChange('temperatureDevice', $event)"
+                        >
+                      </app-forms-select-input>
+                      <button (click)="formSubmit()" class="btn btn-primary" *ngIf="!form.id">Create new location</button>
+                      <button (click)="formSubmit()" class="btn btn-primary" *ngIf="form.id">Edit location</button>
+ 
+                      
+                </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
   </div>
   
-  <app-ng-media 
-    (selectionChange)="changeSelection($event);"
-    type="single" #locationIcon></app-ng-media>
-
-  <br><br>
-
-  <app-forms-select-input
-    *ngIf="devices.length > 1"
-    placeholder="Select a device that shows this location temperature"
-    icon="icon icon-user"
-    name="Location temperature"
-    [selected]="form.temperatureDevice"
-    [options]="devices"
-    (onChange)="onInputChange('temperatureDevice', $event)"
-    >
-  </app-forms-select-input>
-  <button (click)="formSubmit()" class="btn btn-primary" *ngIf="!form.id">Create new location</button>
-  <button (click)="formSubmit()" class="btn btn-primary" *ngIf="form.id">Edit location</button>
-
-</div>
