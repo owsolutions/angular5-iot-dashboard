@@ -24,7 +24,7 @@ export class IndexComponent implements OnInit  {
   ) { }
   ngOnInit () {
     this.store.select('devices').subscribe((devices) => {
-      this.devices = clone(devices);
+      this.devices = devices.concat([]);
     });
   }
   public TempWidget (device: CloudDevice) {

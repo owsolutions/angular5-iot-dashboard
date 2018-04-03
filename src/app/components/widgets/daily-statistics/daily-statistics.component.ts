@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges, AfterViewInit } from '@angular/core';
 declare var Highcharts: any;
-import { CloudDevice, DataSource } from '@app/definitions';
+import { CloudDevice, DataSource, AppState } from '@app/definitions';
+import { Store } from '@ngrx/store';
 import { random } from 'lodash';
 
 function generateMockSeries() {
@@ -31,6 +32,8 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
   public chartName = 'live-tempreture';
   public data: any = {};
   @Input('device') public device: CloudDevice = null;
+  @Input('id') public id: any = null;
+
   // @Input('
   @Input() liveChange: Array<any> = [];
   public chart: any;
@@ -40,6 +43,18 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
   public average = 0;
 
   drawChart() {
+    this.data = {
+      title: 'Bedroom Tempreture',
+      subTitle: 'Show Today Live Statistics',
+      for: 'Tempreture',
+      unit: '°C',
+      chartColor: 'orange',
+      series: CastHistoryToSeries(this.device && this.device.dataHistory || [])
+    };
+
+    if (this.chart) {
+      return ;
+    }
     this.chart = Highcharts.chart(this.chartName, {
         chart: {
           events: {
@@ -111,7 +126,9 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
     });
   }
 
-  constructor() { }
+  constructor(
+    private store: Store<AppState>
+  ) { }
 
   ngOnChanges() {
     console.log('Changed!');
@@ -137,7 +154,14 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
 
 
   ngOnInit() {
-    this.chartName = 'chart-' + this.device.id;
+    this.chartName = 'chart-' + this.id;
+
+
+    this.store.select('devices').subscribe(devices => {
+      this.device = devices.find(x => +x.id === +this.id);
+      console.log('Device change: ', this.device.id);
+      this.pushValue(new Date() , random(1,30));
+    });
 
     this.data = {
       title: 'Bedroom Tempreture',
@@ -150,21 +174,16 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
   }
 
   ngAfterViewInit () {
-    setInterval(() => {
-      if (!this.device.dataHistory) {
-        return;
-      }
-      this.data = {
-        title: 'Bedroom Tempreture',
-        subTitle: 'Show Today Live Statistics',
-        for: 'Tempreture',
-        unit: '°C',
-        chartColor: 'orange',
-        series: CastHistoryToSeries(this.device.dataHistory)
-      };
-      this.drawChart();
+    // setInterval(() => {
+    //   if (!this.device.dataHistory) {
+    //     return;
+    //   }
+      
 
-    }, 2500);
+    // }, 2500);
+
+    this.drawChart();
+
   }
 
   public HasHistory (device: CloudDevice) {
