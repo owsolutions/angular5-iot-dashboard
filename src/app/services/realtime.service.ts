@@ -20,26 +20,27 @@ export class RealtimeService {
     private store: Store<AppState>,
     private ref: ApplicationRef,
   ) {
-    if (environment.production) {
-      this.StartSailsSocket();
-    } else {
-      this.ActivateMockIncomingMessages();
-    }
+
     this.store.select('devices').subscribe((devices) => {
       this.devices = devices;
     });
   }
 
+  public ActivateRealtime () {
+    if (environment.production) {
+      this.StartSailsSocket();
+    } else {
+      this.ActivateMockIncomingMessages();
+    }
+  }
   /**
    * For people who have developed their backend service in sails.js
    */
   public StartSailsSocket () {
-    console.log('Connecting to socket server...');
     io.sails.url = environment.api;
     io.sails.autoConnect = true;
-    io.sails.connect(); // = true;
+    // io.sails.connect(io.sails.url); // = true;
     io.socket.on('DataSourceChange', (data: DataSource) => {
-      console.log('Event triggered' , data);
       if (!IsDataSource(data)) {
         console.warn('Recieved a data source which is not valid: ', data);
         return false;
@@ -67,6 +68,19 @@ export class RealtimeService {
     setTimeout(() => {
       pusher.trigger('my-channel', 'my-event', 'asasd');
     }, 1000);
+  }
+
+  async connectToRoom (token) {
+    const options = {
+      url: environment.api + '/api/get/a/room',
+      method: 'get',
+      headers: {
+        'x-token': token
+      }
+    };
+    io.socket.request(options, function (data) {
+      console.log('Data from room: ', data);
+    });
   }
 
   /**

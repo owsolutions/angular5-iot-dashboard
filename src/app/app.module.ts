@@ -84,8 +84,11 @@ window['Highcharts'] = Highcharts;
 })
 export class AppComponent {
   constructor (
-    private _sidebarController: SidebarControllerService
-  ) {}
+    private _sidebarController: SidebarControllerService,
+    private realtime: RealtimeService,
+  ) {
+    this.realtime.ActivateRealtime();
+  }
 }
 
 
@@ -189,6 +192,6 @@ export class AppModule {
   constructor (
     private realtime: RealtimeService,
   ) {
-
+    // Realtime service is imported intentionally
   }
 }

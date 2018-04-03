@@ -4,7 +4,7 @@ import { GetNetworkError } from '@app/common';
 import { Router } from '@angular/router';
 import { IResponse } from 'response-type';
 import { HttpClient } from '@angular/common/http';
-import { UserService } from '@app/services/user.service';
+import { UserService, DataSyncGuard } from '@app/services/user.service';
 import { environment} from '../../../environments/environment';
 
 @Component({
@@ -27,10 +27,12 @@ export class LoginFormComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
     private user: UserService,
+    private sync: DataSyncGuard
   ) { }
 
   ngOnInit() {
     this.user.Revoke();
+    this.sync.UnSync();
   }
 
   public async login (e) {
