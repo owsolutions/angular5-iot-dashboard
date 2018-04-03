@@ -10,10 +10,6 @@ export class ActionsService {
   ) {
   }
 
-  triggerDeviceChange (device: CloudDevice) {
-    console.warn('User has changed something!');
-  }
-
   /**
    * When a new event happens on system, you can call this function
    * to notify the rest of application an event occured.

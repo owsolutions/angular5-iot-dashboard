@@ -149,7 +149,6 @@ export class DailyStatisticsComponent implements OnInit, AfterViewInit {
       if (!history) {
         return ;
       }
-      console.log('History: ', this.device.dataHistory);
       this.pushValue(history.date, history.value);
     });
 

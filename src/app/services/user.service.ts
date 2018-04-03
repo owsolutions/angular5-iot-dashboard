@@ -106,7 +106,6 @@ export class DataSyncGuard implements CanActivate {
 
   canActivate (): boolean {
     if ( ! this.isSynced) {
-      console.warn('Resynced....');
       this.isSynced = true;
     }
     return true;

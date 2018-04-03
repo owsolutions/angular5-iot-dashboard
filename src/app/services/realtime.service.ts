@@ -39,7 +39,6 @@ export class RealtimeService {
   public StartSailsSocket () {
     io.sails.url = environment.api;
     io.sails.autoConnect = true;
-    // io.sails.connect(io.sails.url); // = true;
     io.socket.on('DataSourceChange', (data: DataSource) => {
       if (!IsDataSource(data)) {
         console.warn('Recieved a data source which is not valid: ', data);
@@ -47,27 +46,6 @@ export class RealtimeService {
       }
       this.RecieveDataSourceIncoming(data);
     });
-    io.socket.on('connect', function () {
-      console.log('connected to socket server');
-    });
-  }
-  public StartPusher () {
-    Pusher.logToConsole = true;
-
-    const pusher = new Pusher('b2306c94cd640903c3a1', {
-      cluster: 'ap1',
-      encrypted: true
-    });
-
-    const channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function(data) {
-      alert(data.message);
-    });
-    this.channel = channel;
-
-    setTimeout(() => {
-      pusher.trigger('my-channel', 'my-event', 'asasd');
-    }, 1000);
   }
 
   async connectToRoom (token) {
@@ -79,7 +57,7 @@ export class RealtimeService {
       }
     };
     io.socket.request(options, function (data) {
-      console.log('Data from room: ', data);
+      // connects the socket to the room on server.
     });
   }
 

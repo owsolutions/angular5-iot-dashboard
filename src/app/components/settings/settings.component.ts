@@ -19,9 +19,6 @@ export class SettingsComponent implements OnInit {
   }
   async ngOnInit() {
     const response = await this.requests.getDeviceToken();
-
-    console.log('Response coming from server: ', response);
-
     if (IsSuccessEntity(response)) {
       this.token = response.data.items[0].hash;
     } else {
