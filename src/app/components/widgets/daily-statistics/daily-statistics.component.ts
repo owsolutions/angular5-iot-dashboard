@@ -2,7 +2,6 @@ import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 declare var Highcharts: any;
 import { CloudDevice, DataSource, AppState } from '@app/definitions';
 import { Store } from '@ngrx/store';
-import { random } from 'lodash';
 
 function generateMockSeries() {
   const series = [];
@@ -169,7 +168,7 @@ export class DailyStatisticsComponent implements OnInit, AfterViewInit {
     //   if (!this.device.dataHistory) {
     //     return;
     //   }
-      
+
 
     // }, 2500);
 
