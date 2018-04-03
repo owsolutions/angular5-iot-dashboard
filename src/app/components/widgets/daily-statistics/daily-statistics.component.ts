@@ -33,8 +33,6 @@ export class DailyStatisticsComponent implements OnInit, AfterViewInit {
   @Input('device') public device: CloudDevice = null;
   @Input('id') public id: any = null;
 
-  // @Input('
-  @Input() liveChange: Array<any> = [];
   public chart: any;
   public currentValue = 0;
   public highest: number;
