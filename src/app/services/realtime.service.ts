@@ -1,7 +1,7 @@
 import { Injectable, ApplicationRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState, CloudDevice, DataSource } from '@app/definitions';
-import { random } from 'lodash';
+import { random, isNumber } from 'lodash';
 import { environment } from 'environments/environment';
 import { IsDataSource } from '@app/common';
 declare var Pusher: any;
@@ -82,6 +82,14 @@ export class RealtimeService {
   }
 
   public RecieveDataSourceIncoming (data: DataSource) {
+
+    if (!data.date) {
+      data.date = (new Date()).getTime() as any;
+    }
+    if (!isNumber(data.value)) {
+      data.value = +data.value;
+    }
+    console.warn('Incoming device from socket', data);
     const deviceWithThisSource = this.devices.find(x => x.datasource === data.dataSourceId);
     if ( ! deviceWithThisSource) {
       this.store.dispatch({
