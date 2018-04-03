@@ -13,6 +13,9 @@
   </div>
 </div>
 
+<pre>
+{{ device | json}}
+</pre>
 <div *ngIf="HasHistory(device)" [id]="chartName" class="chart"></div>
 
 <div *ngIf="!HasHistory(device)" class="no-history">

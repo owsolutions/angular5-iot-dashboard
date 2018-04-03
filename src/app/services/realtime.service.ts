@@ -75,7 +75,7 @@ export class RealtimeService {
   protected ActivateMockIncomingMessages () {
     setInterval(() => {
       this.MockDataIncome();
-    }, 500);
+    }, 1500);
   }
 
   /**
