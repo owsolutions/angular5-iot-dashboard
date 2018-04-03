@@ -11,7 +11,7 @@ import { DeviceSingleComponent } from '../app/components/device-single/device-si
 import { DocsComponent } from '@components/docs/docs.component';
 import { Route } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
-import { AuthGuard , DataSyncGuard} from '@services/user.service';
+import { AuthGuard } from '@services/user.service';
 import { environment } from '../environments/environment';
 import { ExperimentalComponent } from '@app/components/experimental/experimental.component';
 
@@ -56,7 +56,7 @@ export const appRoutes: Routes = [
   {   path: '', redirectTo: '/index', pathMatch: 'full' },
   {
     path: '',
-    canActivate: environment.production ? [AuthGuard, DataSyncGuard] : [AuthGuard, DataSyncGuard],
+    canActivate: [AuthGuard],
     component: LayoutComponent,
     children: [
         AuthLayoutChild (IndexComponent, 'index'),

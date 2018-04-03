@@ -3,7 +3,7 @@ import { IResponse } from 'response-type';
 import { IUserForm, LoginResponse } from '../shared';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { UserService, DataSyncGuard } from '@services/user.service';
+import { UserService } from '@services/user.service';
 import { Router } from '@angular/router';
 import { GetNetworkError } from '@app/common';
 @Component({
@@ -26,11 +26,9 @@ export class SignupFormComponent implements OnInit {
     private http: HttpClient,
     private user: UserService,
     private router: Router,
-    private sync: DataSyncGuard
   ) { }
 
   ngOnInit() {
-    this.sync.UnSync();
   }
 
 

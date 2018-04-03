@@ -88,26 +88,3 @@ export class AuthGuard implements CanActivate {
     return !!this.user.User;
   }
 }
-
-
-@Injectable()
-export class DataSyncGuard implements CanActivate {
-
-  private isSynced = false;
-  constructor (
-    private requests: RequestsService,
-    private user: UserService
-  ) {
-  }
-
-  public UnSync () {
-    this.isSynced = false;
-  }
-
-  canActivate (): boolean {
-    if ( ! this.isSynced) {
-      this.isSynced = true;
-    }
-    return true;
-  }
-}
