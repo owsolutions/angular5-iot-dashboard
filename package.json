@@ -14,7 +14,7 @@
     "cypress": "./node_modules/.bin/cypress open",
     "ci": "./node_modules/.bin/cypress run",
     "e2e": "ng e2e",
-    "copy": "cp -R dist/ ../node-microservices/.tmp/public"
+    "copy": "cp -R dist/. ../node-microservices/.tmp/public"
   },
   "private": true,
   "dependencies": {
