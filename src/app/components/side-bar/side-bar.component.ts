@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SidebarControllerService } from '../../services/sidebar-controller.service';
+import { SidebarControllerService } from '../ngx-sidebar/sidebar-controller.service';
 import { navigation } from '@app/app.navigation';
 
 @Component({
@@ -126,6 +126,9 @@ export class SideBarComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (window.innerWidth < 992) {
+      this.sideState = false;
+    }
   }
 
 }

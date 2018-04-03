@@ -155,3 +155,9 @@ export interface CloudDevice {
   dataHistory?: Array<DataSource>;
   statistics?: CloudDeviceStatistics;
 }
+
+
+export interface PagePointerPosition {
+  x: number;
+  y: number;
+}

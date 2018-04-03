@@ -5,7 +5,15 @@
 @import './assets/material-icon';
 
 body {
-    background: #e9eaec;
+  background: #e9eaec;
+  @media (max-width: 991.98px) {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 }
 .simplebar-scrollbar{
     width: 5px !important;
@@ -306,3 +314,5 @@ body {
         -webkit-transform: scaleY(1);
     }
 }
+
+
