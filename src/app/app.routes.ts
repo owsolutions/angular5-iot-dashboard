@@ -47,7 +47,7 @@ export function AuthLayoutChild(component: any, route: string, options: any = {}
         path: route,
         component: component,
         ... options,
-        canActivate: environment.production ? [AuthGuard, DataSyncGuard] : [DataSyncGuard],
+        canActivate: [AuthGuard],
     };
 }
 
