@@ -17,7 +17,7 @@ function previousSeconds(s) {
 
 function CastHistoryToSeries (items: Array<DataSource>): Array<Array<any>> {
   return items.map(x => {
-    return [x.date, x.value];
+    return [x.date, +x.value];
   });
 }
 @Component({

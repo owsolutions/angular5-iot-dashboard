@@ -61,7 +61,7 @@ export const appRoutes: Routes = [
     children: [
         AuthLayoutChild (IndexComponent, 'index'),
         AuthLayoutChild (LocationsComponent, 'locations'),
-        AuthLayoutChild (SettingsComponent, 'settings'),
+        AuthLayoutChild (SettingsComponent, 'token'),
         AuthLayoutChild (LocationSingleComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
         AuthLayoutChild (LocationSingleComponent, 'location/new', {data: {mode: 'new'}}),
         AuthLayoutChild (RolesComponent, 'roles'),
