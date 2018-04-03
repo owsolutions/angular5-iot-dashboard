@@ -5,7 +5,15 @@
 @import './assets/material-icon';
 
 body {
-    background: #e9eaec;
+  background: #e9eaec;
+  @media (max-width: 991.98px) {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 }
 .simplebar-scrollbar{
     width: 5px !important;
@@ -168,36 +176,36 @@ body {
   }
   
   .iot-table {
-      table {
-          -webkit-touch-callout: none;
-          -webkit-user-select: none;
-          -khtml-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none; 
-          tbody{
-              tr {
-                  &:hover{
-                      cursor: pointer;
-                      background: #f9f9f9;
-                  }
-              }
-          }
-          tr{
-              th {
-                  border-top: 0;
-                  font-size: 17px;
-                  font-weight: 500;
-                  color: #4c84ff;
-                  border-bottom-width: 1px;
-                  &:not(:nth-child(1)) {
-                      text-align: center;
-                  }
-                  &.action-column {
-                      min-width: 180px;
-                  }
-              }
-              td {
+    table {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none; 
+        tbody{
+            tr {
+                &:hover{
+                    cursor: pointer;
+                    background: #f9f9f9;
+                }
+            }
+        }
+        tr{
+            th {
+                border-top: 0;
+                font-size: 17px;
+                font-weight: 500;
+                color: #4c84ff;
+                border-bottom-width: 1px;
+                &:not(:nth-child(1)) {
+                    text-align: center;
+                }
+                &.action-column {
+                    min-width: 180px;
+                }
+            }
+            td {
                 border-color: #eee;
                 &:not(:nth-child(1)) {
                     text-align: center;
@@ -216,11 +224,10 @@ body {
                 a {
                     color: #333;
                 }
-              }
-          }
-          
-      }
-  }
+            }
+        }
+    }
+}
 
 
 .preloader{
@@ -247,7 +254,6 @@ body {
         height: 100%;
         width: 8px;
         border-radius: 10px;
-        display: inline-block;
         float: left;
         margin-left: 2px;
         -webkit-animation: delay 0.8s infinite ease-in-out;
@@ -306,3 +312,5 @@ body {
         -webkit-transform: scaleY(1);
     }
 }
+
+

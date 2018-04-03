@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -62,7 +62,7 @@ import { NgxSidebarModule } from './components/ngx-sidebar/ngx-sidebar.module';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { LayoutComponent } from './components/layout/layout.component';
-import { SidebarControllerService } from './services/sidebar-controller.service';
+import { SidebarControllerService } from './components/ngx-sidebar/sidebar-controller.service';
 import { ApplicationsListComponent } from './components/applications-list/applications-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ActivitiesComponent } from './components/widgets/activities/activities.component';
@@ -83,15 +83,9 @@ window['Highcharts'] = Highcharts;
   template: '<router-outlet></router-outlet>'
 })
 export class AppComponent {
-  constructor (private _sidebarController: SidebarControllerService) {}
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
-    if (event.target.innerWidth < 992) {
-      this._sidebarController.ToggleSidebar.emit('hidden');
-    } else {
-      this._sidebarController.ToggleSidebar.emit('show');
-    }
-  }
+  constructor (
+    private _sidebarController: SidebarControllerService
+  ) {}
 }
 
 

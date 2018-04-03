@@ -17,9 +17,14 @@
         transform: translateX(0);
     }
 }
+@media (max-width: 767.98px) {
+    .bd-sidebar {
+        top: 4.4em;
+    }
+}
 @media (max-width: 400px) {
     .bd-sidebar {
-        top: 6.4em;
+        top: 4.1em !important;
     }
 }
 @media (min-width: 992px) {

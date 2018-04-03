@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SidebarControllerService } from '../../services/sidebar-controller.service';
+import { SidebarControllerService } from '../ngx-sidebar/sidebar-controller.service';
 
 @Component({
   selector: 'app-layout',
@@ -22,6 +22,15 @@ export class LayoutComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (window.innerWidth < 992) {
+      this.sideState = false;
+    }
+  }
+
+  sideOff() {
+    if (this.sideState) {
+      this._sdieController.closeSidebar();
+    }
   }
 
 }
