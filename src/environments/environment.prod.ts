@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   hmr: false,
-  api: 'https://cryptic-beyond-43608.herokuapp.com'
+  api: 'https://warm-spire-25374.herokuapp.com'
 };
