@@ -638,7 +638,7 @@ MIT
 MIT
 MIT
 
-ng-media@0.0.17
+ng-media@0.0.19
 MIT
 MIT
 
