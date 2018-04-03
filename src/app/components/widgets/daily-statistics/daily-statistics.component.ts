@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 declare var Highcharts: any;
 import { CloudDevice, DataSource, AppState } from '@app/definitions';
 import { Store } from '@ngrx/store';
@@ -26,7 +26,7 @@ function CastHistoryToSeries (items: Array<DataSource>): Array<Array<any>> {
   templateUrl: './daily-statistics.component.html',
   styleUrls: ['./daily-statistics.component.scss']
 })
-export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewInit {
+export class DailyStatisticsComponent implements OnInit, AfterViewInit {
 
   public token = '';
   public chartName = 'live-tempreture';
@@ -130,19 +130,6 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
     private store: Store<AppState>
   ) { }
 
-  ngOnChanges() {
-    console.log('Changed!');
-    if (this.liveChange !== undefined) {
-      this.currentValue = this.liveChange[1];
-      if (!this.chart) {
-        return;
-      }
-      const series = this.chart.series[0],
-            shift = series.data.length > 10;
-      this.chart.series[0].addPoint(this.liveChange, true, shift);
-    }
-  }
-
   public pushValue (date: Date, value: number) {
     if ( !this.chart) {
       return false;
@@ -156,11 +143,15 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
   ngOnInit() {
     this.chartName = 'chart-' + this.id;
 
-
     this.store.select('devices').subscribe(devices => {
       this.device = devices.find(x => +x.id === +this.id);
-      console.log('Device change: ', this.device.id);
-      this.pushValue(new Date() , random(1,30));
+      const history = this.device && this.device.dataHistory &&
+        this.device.dataHistory[this.device.dataHistory.length - 1] || null;
+      if (!history) {
+        return ;
+      }
+      console.log('History: ', this.device.dataHistory);
+      this.pushValue(history.date, history.value);
     });
 
     this.data = {
@@ -186,11 +177,12 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
 
   }
 
-  public HasHistory (device: CloudDevice) {
-    if (device.dataHistory && device.dataHistory.length > 1) {
-      return true;
+  public HasHistory () {
+    const device = this.device;
+    if ( ! device || ! device.dataHistory) {
+      return 0;
     }
-    return false;
+    return device.dataHistory.length;
   }
 
 }

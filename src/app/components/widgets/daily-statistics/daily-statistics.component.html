@@ -1,7 +1,5 @@
 <ng-container *ngIf="device">
-  {{chartName}}
   <div class="row">
-
     <div class="box-title">
       <h2>{{device.name}} {{token}}</h2>
       <p>{{data.subTitle}}</p>
@@ -20,7 +18,8 @@
     {{chartName}}
   </div>
 
-  <div *ngIf="!HasHistory(device)" class="no-history">
+  
+  <div *ngIf="!HasHistory()" class="no-history">
     There are no history for this device to draw usage chart.
   </div>
   <div class="row">
