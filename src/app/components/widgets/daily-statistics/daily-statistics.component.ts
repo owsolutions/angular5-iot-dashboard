@@ -114,9 +114,6 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
   ngOnChanges() {
     if (this.liveChange !== undefined) {
       this.currentValue = this.liveChange[1];
-      this.highest = this.currentValue > this.highest ? this.currentValue : this.highest;
-      this.lowest = this.currentValue < this.lowest ? this.currentValue : this.lowest;
-      this.average = parseFloat(((this.average + this.currentValue) / 2).toFixed(1));
       if (!this.chart) {
         return;
       }
