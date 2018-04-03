@@ -27,4 +27,10 @@ export class LayoutComponent implements OnInit {
     }
   }
 
+  sideOff() {
+    if (this.sideState) {
+      this._sdieController.closeSidebar();
+    }
+  }
+
 }

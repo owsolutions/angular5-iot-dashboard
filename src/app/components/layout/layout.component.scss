@@ -19,7 +19,12 @@
 
 @media (max-width: 400px) {
     #layout {
-        top: 6.4em;
+        top: 4.1em !important;
+    }
+}
+@media (max-width: 767.98px) {
+    #layout {
+        top: 4.5em;
     }
 }
 
