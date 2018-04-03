@@ -38,4 +38,8 @@ export class IndexComponent implements OnInit  {
     return items.every(x => ! x.preferences || values(x.preferences).every(() => false));
   }
 
+  public AsDevice(device: CloudDevice): CloudDevice {
+    return Object.assign({}, device);
+  }
+
 }

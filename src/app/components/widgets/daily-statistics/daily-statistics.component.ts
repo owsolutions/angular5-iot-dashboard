@@ -114,6 +114,7 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
   constructor() { }
 
   ngOnChanges() {
+    console.log('Changed!');
     if (this.liveChange !== undefined) {
       this.currentValue = this.liveChange[1];
       if (!this.chart) {
@@ -136,7 +137,6 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
 
 
   ngOnInit() {
-    this.token = random(1,99999);
     this.chartName = 'chart-' + this.device.id;
 
     this.data = {
