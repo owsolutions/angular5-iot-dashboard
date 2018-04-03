@@ -15,7 +15,7 @@ export function devicesReducer (state: Array<CloudDevice> = [], action: Action) 
       const deviceWithThisSource = state.find(x => x.datasource === payload.dataSourceId);
       if (deviceWithThisSource) {
         return state.map(x => {
-          if (x.id === deviceWithThisSource.id) {
+          if (+x.id === +deviceWithThisSource.id) {
             x.value = payload.value;
             if (!x.dataHistory) {
               x.dataHistory = [];

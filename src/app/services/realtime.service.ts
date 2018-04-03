@@ -75,7 +75,7 @@ export class RealtimeService {
   protected ActivateMockIncomingMessages () {
     setInterval(() => {
       this.MockDataIncome();
-    }, 500);
+    }, 1000);
   }
 
   /**
@@ -115,7 +115,6 @@ export class RealtimeService {
       },
       dataSourceId: 'device-' + random(1, 2)
     };
-    console.log('Sending data:', data);
     this.RecieveDataSourceIncoming(data);
   }
 

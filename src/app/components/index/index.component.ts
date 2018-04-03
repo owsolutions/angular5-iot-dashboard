@@ -1,7 +1,7 @@
 import { Component, OnInit, ApplicationRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState, CloudDevice } from '@app/definitions';
-import { values, clone } from 'lodash';
+import { values } from 'lodash';
 import { DailyStatistics } from '../../../mocks/dailyStatistics';
 import { HistoryStatistics } from '../../../mocks/historyStatistics';
 
@@ -24,7 +24,7 @@ export class IndexComponent implements OnInit  {
   ) { }
   ngOnInit () {
     this.store.select('devices').subscribe((devices) => {
-      this.devices = clone(devices);
+      this.devices = devices.concat([]);
     });
   }
   public TempWidget (device: CloudDevice) {
@@ -36,6 +36,10 @@ export class IndexComponent implements OnInit  {
   }
   public HasNoPreferenceOnDevices (items: Array<CloudDevice> = []) {
     return items.every(x => ! x.preferences || values(x.preferences).every(() => false));
+  }
+
+  public AsDevice(device: CloudDevice): CloudDevice {
+    return Object.assign({}, device);
   }
 
 }

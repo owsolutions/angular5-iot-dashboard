@@ -12,7 +12,7 @@
       <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6" *ngIf="device.preferences.DisplayRealTimeTemperatureInSidebar">
         <div class="box-wrapper">
           
-          <app-daily-statistics [device]="device"></app-daily-statistics>
+          <app-daily-statistics [id]="device.id"></app-daily-statistics>
         </div>
       </div>
       <app-quick-chart

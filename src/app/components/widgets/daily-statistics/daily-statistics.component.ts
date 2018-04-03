@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 declare var Highcharts: any;
-import { CloudDevice, DataSource } from '@app/definitions';
+import { CloudDevice, DataSource, AppState } from '@app/definitions';
+import { Store } from '@ngrx/store';
 
 function generateMockSeries() {
   const series = [];
@@ -24,11 +25,14 @@ function CastHistoryToSeries (items: Array<DataSource>): Array<Array<any>> {
   templateUrl: './daily-statistics.component.html',
   styleUrls: ['./daily-statistics.component.scss']
 })
-export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewInit {
+export class DailyStatisticsComponent implements OnInit, AfterViewInit {
 
+  public token = '';
   public chartName = 'live-tempreture';
   public data: any = {};
   @Input('device') public device: CloudDevice = null;
+  @Input('id') public id: any = null;
+
   // @Input('
   @Input() liveChange: Array<any> = [];
   public chart: any;
@@ -38,6 +42,18 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
   public average = 0;
 
   drawChart() {
+    this.data = {
+      title: 'Bedroom Tempreture',
+      subTitle: 'Show Today Live Statistics',
+      for: 'Tempreture',
+      unit: '°C',
+      chartColor: 'orange',
+      series: CastHistoryToSeries(this.device && this.device.dataHistory || [])
+    };
+
+    if (this.chart) {
+      return ;
+    }
     this.chart = Highcharts.chart(this.chartName, {
         chart: {
           events: {
@@ -109,22 +125,9 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
     });
   }
 
-  constructor() { }
-
-  ngOnChanges() {
-    if (this.liveChange !== undefined) {
-      this.currentValue = this.liveChange[1];
-      this.highest = this.currentValue > this.highest ? this.currentValue : this.highest;
-      this.lowest = this.currentValue < this.lowest ? this.currentValue : this.lowest;
-      this.average = parseFloat(((this.average + this.currentValue) / 2).toFixed(1));
-      if (!this.chart) {
-        return;
-      }
-      const series = this.chart.series[0],
-            shift = series.data.length > 10;
-      this.chart.series[0].addPoint(this.liveChange, true, shift);
-    }
-  }
+  constructor(
+    private store: Store<AppState>
+  ) { }
 
   public pushValue (date: Date, value: number) {
     if ( !this.chart) {
@@ -137,7 +140,18 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
 
 
   ngOnInit() {
-    this.chartName = 'chart-' + this.device.id;
+    this.chartName = 'chart-' + this.id;
+
+    this.store.select('devices').subscribe(devices => {
+      this.device = devices.find(x => +x.id === +this.id);
+      const history = this.device && this.device.dataHistory &&
+        this.device.dataHistory[this.device.dataHistory.length - 1] || null;
+      if (!history) {
+        return ;
+      }
+      console.log('History: ', this.device.dataHistory);
+      this.pushValue(history.date, history.value);
+    });
 
     this.data = {
       title: 'Bedroom Tempreture',
@@ -150,28 +164,24 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
   }
 
   ngAfterViewInit () {
-    setInterval(() => {
-      if (!this.device.dataHistory) {
-        return;
-      }
-      this.data = {
-        title: 'Bedroom Tempreture',
-        subTitle: 'Show Today Live Statistics',
-        for: 'Tempreture',
-        unit: '°C',
-        chartColor: 'orange',
-        series: CastHistoryToSeries(this.device.dataHistory)
-      };
-      this.drawChart();
+    // setInterval(() => {
+    //   if (!this.device.dataHistory) {
+    //     return;
+    //   }
 
-    }, 2500);
+
+    // }, 2500);
+
+    this.drawChart();
+
   }
 
-  public HasHistory (device: CloudDevice) {
-    if (device.dataHistory && device.dataHistory.length > 1) {
-      return true;
+  public HasHistory () {
+    const device = this.device;
+    if ( ! device || ! device.dataHistory) {
+      return 0;
     }
-    return false;
+    return device.dataHistory.length;
   }
 
 }
