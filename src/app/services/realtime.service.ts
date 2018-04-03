@@ -73,9 +73,14 @@ export class RealtimeService {
    * For development purposes, we simulate the incoming messages from server socket.
    */
   protected ActivateMockIncomingMessages () {
-    setInterval(() => {
-      this.MockDataIncome();
-    }, 500);
+    function b() {
+      const a = setInterval(function() {
+        clearInterval(a);
+        this.MockDataIncome();
+        b();
+      }, 500);
+    }
+    b();
   }
 
   /**
