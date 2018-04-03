@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges, AfterViewInit } from '@angular/core';
 declare var Highcharts: any;
 import { CloudDevice, DataSource } from '@app/definitions';
+import { random } from 'lodash';
 
 function generateMockSeries() {
   const series = [];
@@ -26,6 +27,7 @@ function CastHistoryToSeries (items: Array<DataSource>): Array<Array<any>> {
 })
 export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewInit {
 
+  public token = '';
   public chartName = 'live-tempreture';
   public data: any = {};
   @Input('device') public device: CloudDevice = null;
@@ -134,6 +136,7 @@ export class DailyStatisticsComponent implements OnInit, OnChanges, AfterViewIni
 
 
   ngOnInit() {
+    this.token = random(1,99999);
     this.chartName = 'chart-' + this.device.id;
 
     this.data = {
