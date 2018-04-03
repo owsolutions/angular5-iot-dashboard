@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter, HostListener } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { PagePointerPosition } from '../../definitions';
 
 @Injectable()
