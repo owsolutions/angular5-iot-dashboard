@@ -23,9 +23,7 @@ export class NgxSidebarComponent implements OnInit {
 
   menuToggle(event: any, nav: any) {
     if (nav.hasOwnProperty('children')) {
-      if ( event.currentTarget.getAttribute('class') !== 'opened' ) {
-        this.state = true;
-      }
+      this.state = !event.currentTarget.classList.contains('opened') ? true : false;
       this.renderer.setElementClass(event.currentTarget, 'opened', this.state);
       this.state = !this.state;
     }
