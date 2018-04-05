@@ -5,7 +5,7 @@ import { IResponse, IResponseErrorItem } from 'response-type';
 import { matchPattern } from 'url-matcher';
 import { environment } from '../../environments/environment';
 import { PermissionsService } from '@services/permissions.service';
-import { IUserForm, CloudDevice } from '@app/definitions';
+import { IUserForm, CloudDevice, DataSource } from '@app/definitions';
 import { CloudDeviceType } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { random } from 'lodash';
@@ -20,6 +20,7 @@ export class MockService {
     'GET /api/locations': 'getLocations',
     'GET /api/devices/token': 'getDevicesToken',
     'GET /api/devices': 'getDevices',
+    'GET /api/unconnected': 'getUnconnected',
     'POST /api/device': 'postDevice',
     'POST /api/location': 'postLocation',
     'DELETE /api/location/:id': 'deleteLocation',
@@ -114,7 +115,19 @@ export class MockService {
       };
     }
   }
-
+  public getUnconnected (req: HttpRequest<any>): IResponse<DataSource> {
+    return {
+      data: {
+        items: [
+          {
+            dataSourceId: 'device-36',
+            date: new Date(),
+            value: 22
+          }
+        ]
+      }
+    };
+  }
   public signUp (req: HttpRequest<any>): IResponse<any> {
     const form = req.body;
     function hasUnvalidFields(user: IUserForm): Array<any> {
