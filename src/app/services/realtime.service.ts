@@ -22,6 +22,7 @@ export class RealtimeService {
     private store: Store<AppState>,
     private toast: ToasterService,
     private ref: ApplicationRef,
+    private toaster: ToasterService,
   ) {
 
     this.store.select('devices').subscribe((devices) => {
@@ -50,6 +51,10 @@ export class RealtimeService {
         return false;
       }
       this.RecieveDataSourceIncoming(data);
+    });
+    io.socket.on('connect', () => {
+      console.log('connected to socket server');
+      this.toaster.popAsync('success', 'Server', 'You are now connected');
     });
   }
 

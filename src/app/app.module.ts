@@ -56,7 +56,6 @@ import { ProgressLineComponent } from './components/progress-line/progress-line.
 import { RealtimeDocumentModule } from 'realtime-document';
 import { ToasterModule } from 'angular2-toaster';
 
-
 import { ProfileMenuComponent } from './components/profile-menu/profile-menu.component';
 import { NotificationListComponent } from './components/notification-list/notification-list.component';
 import { NgxSidebarModule } from './components/ngx-sidebar/ngx-sidebar.module';
@@ -149,7 +148,7 @@ export class AppComponent {
     FooterComponent,
     ExperimentalComponent,
     PageContainerComponent,
-    SendingInformationHttpsComponent
+    SendingInformationHttpsComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -167,6 +166,7 @@ export class AppComponent {
     FormsModule,
     HttpModule,
     NgMediaModule,
+    ToasterModule.forRoot(),
     createRoutes (),
     appReducersGenerator()
   ],

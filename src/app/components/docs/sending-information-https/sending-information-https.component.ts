@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IResponse } from 'response-type';
 import { DataSource } from '@app/definitions';
 import { environment } from 'environments/environment';
+import { RequestsService } from '@app/services/requests.service';
+import { IsSuccessEntity } from '@app/common';
 
 @Component({
   selector: 'app-sending-information-https',
@@ -18,7 +20,10 @@ export class SendingInformationHttpsComponent implements OnInit {
       lng: 43.389482497
     }
   };
-
+  public boardcastHeaderExample = {
+    'x-token': '-token-',
+    'is-doc': true
+  };
   public example: {
     dataSourceId?: string,
     value?: any
@@ -50,12 +55,16 @@ export class SendingInformationHttpsComponent implements OnInit {
 
     }
   };
-  constructor() { }
+  constructor(
+    private requests: RequestsService,
+  ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const token = await this.requests.getDeviceToken();
+    if (IsSuccessEntity(token)) {
+      this.boardcastHeaderExample['x-token'] = token.data.items[0].hash;
+    }
   }
-
-
   public ChangeExample () {
     this.boardcastBodyExample.dataSourceId = this.example.dataSourceId;
     this.boardcastBodyExample.value = this.example.value;

@@ -15,7 +15,6 @@ import { AuthGuard } from '@services/user.service';
 import { ExperimentalComponent } from '@app/components/experimental/experimental.component';
 import { SendingInformationHttpsComponent } from './components/docs/sending-information-https/sending-information-https.component';
 
-
 export function AuthLayout (component: any, route: string, options: any = {}): Route {
   return {
     path: route,
