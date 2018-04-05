@@ -1,13 +1,6 @@
-<div class=' clearfix' *ngIf="unconnected.length">
-  <div *ngFor="let source of unconnected" class=" col-sm-12 col col-lg-6">
-    <app-unconnected-source [dataSource]="source"></app-unconnected-source>
-  </div>
-</div>
-
 <app-error-message *ngIf="devices.length === 0">
     There are no devices. Please create devices and you will be able to manage them here.
 </app-error-message>
-
 
 <div class="box-wrapper">
   <div class="row">
@@ -37,7 +30,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let source of unconnected" class="unconnected-row">
+        <tr *ngFor="let source of unconnected" class="unconnected-row" >
           <td>N/A</td>
           <td>{{source.dataSourceId}}</td>
           <td>
@@ -47,7 +40,7 @@
           <td>N/A</td>
           <td>
             <a [routerLink]="'/create-device-from-source/' + source.dataSourceId">
-              <i [Tooltip]="'Edit'" class="icon-add"></i>
+              <i [Tooltip]="'Create device'" class="icon-add"></i>
             </a>
           </td>
         </tr>

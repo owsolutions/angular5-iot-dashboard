@@ -28,7 +28,6 @@ import { LocationRowComponent } from '@components/locations/location-row/locatio
 import { LocationSingleComponent } from '@components/locations/location-single/location-single.component';
 import { OutputPinViewComponent } from '@components/output-pin-view/output-pin-view.component';
 import { SwitchWidgetsComponent } from '@components/switch-widgets/switch-widgets.component';
-import { UnConnectedSourceComponent } from '@components/unconnected-source/unconnected-source.component';
 import { IconWidgetsComponent } from '@components/index/icon-widgets/icon-widgets.component';
 import { PlacesComponent } from '@components/index/places/places.component';
 import { IndexComponent } from '@components/index/index.component';
@@ -109,7 +108,6 @@ export class AppComponent {
     DailyStatisticsComponent,
     SidebarWidgetComponent,
     RolesComponent,
-    UnConnectedSourceComponent,
     CheckboxInputComponent,
     DevicesComponent,
     ActivityWidgetComponent,
