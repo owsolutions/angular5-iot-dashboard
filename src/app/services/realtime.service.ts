@@ -4,6 +4,8 @@ import { AppState, CloudDevice, DataSource } from '@app/definitions';
 import { random, isNumber } from 'lodash';
 import { environment } from 'environments/environment';
 import { IsDataSource } from '@app/common';
+import { ToasterService } from 'angular2-toaster';
+
 declare var Pusher: any;
 
 declare var require: any;
@@ -18,6 +20,7 @@ export class RealtimeService {
   public unconnectedDevices: Array<DataSource> = [];
   constructor(
     private store: Store<AppState>,
+    private toast: ToasterService,
     private ref: ApplicationRef,
   ) {
 
@@ -37,9 +40,11 @@ export class RealtimeService {
    * For people who have developed their backend service in sails.js
    */
   public StartSailsSocket () {
+
     io.sails.url = environment.api;
     io.sails.autoConnect = true;
     io.socket.on('DataSourceChange', (data: DataSource) => {
+      console.warn('Data change', data);
       if (!IsDataSource(data)) {
         console.warn('Recieved a data source which is not valid: ', data);
         return false;
@@ -56,8 +61,10 @@ export class RealtimeService {
         'x-token': token
       }
     };
-    io.socket.request(options, function (data) {
+    io.socket.request(options, (data) => {
       // connects the socket to the room on server.
+      console.warn('Connected to the room', data);
+      this.toast.popAsync('success', 'Server' , 'Your connected to server');
     });
   }
 
@@ -89,7 +96,6 @@ export class RealtimeService {
     if (!isNumber(data.value)) {
       data.value = +data.value;
     }
-    console.warn('Incoming device from socket', data);
     const deviceWithThisSource = this.devices.find(x => x.datasource === data.dataSourceId);
     if ( ! deviceWithThisSource) {
       this.store.dispatch({

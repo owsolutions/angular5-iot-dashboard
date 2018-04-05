@@ -54,6 +54,7 @@ import { QuickChartComponent } from './components/quick-chart/quick-chart.compon
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
 import { ProgressLineComponent } from './components/progress-line/progress-line.component';
 import { RealtimeDocumentModule } from 'realtime-document';
+import { ToasterModule } from 'angular2-toaster';
 
 
 import { ProfileMenuComponent } from './components/profile-menu/profile-menu.component';
@@ -158,6 +159,7 @@ export class AppComponent {
     NgxSidebarModule,
     RealtimeDocumentModule,
     NgxTooltipModule,
+    ToasterModule.forRoot(),
     HttpModule,
     NgMediaModule,
     BrowserAnimationsModule,
