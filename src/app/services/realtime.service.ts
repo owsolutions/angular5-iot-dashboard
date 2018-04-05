@@ -4,6 +4,8 @@ import { AppState, CloudDevice, DataSource } from '@app/definitions';
 import { random } from 'lodash';
 import { environment } from 'environments/environment';
 import { IsDataSource } from '@app/common';
+import { ToasterService } from 'angular2-toaster';
+
 declare var Pusher: any;
 
 declare var require: any;
@@ -19,6 +21,7 @@ export class RealtimeService {
   constructor(
     private store: Store<AppState>,
     private ref: ApplicationRef,
+    private toaster: ToasterService,
   ) {
     if (environment.production) {
       this.StartSailsSocket();
@@ -46,8 +49,9 @@ export class RealtimeService {
       }
       this.RecieveDataSourceIncoming(data);
     });
-    io.socket.on('connect', function () {
+    io.socket.on('connect', () => {
       console.log('connected to socket server');
+      this.toaster.popAsync('success', 'Server', 'You are now connected');
     });
   }
   public StartPusher () {
