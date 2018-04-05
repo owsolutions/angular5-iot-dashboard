@@ -62,37 +62,13 @@
   these kind of information, you need to use your dashboard device settings. Using api, you will only send the real values
   of the sensor device, sometimes not even specifiyng the type of device.
 
-  <h3>Sending a sensor data</h3>
-  We will collect sensor data using same api for analog and digital devices. Each request, must specifiy the device id, even if it's
-  specified in your token specially for this device. In order to do this, you want to send us your device current value and some other 
-  data:
   <br>
+  <br>
+  <br>
+  <h3>Next steps:</h3>
   <ul>
-    <li><strong>geo</strong> The geographical location of your device. We accept a lat/lng value for each request because
-    in some scenarios, your device might be moving over time and sending you the information. For example, if you have drone that
-  wants to estimate the temperature over a forest, it's nice to just send the position with temperature as well, so we can
-give you a heatmap over the google maps and you would make a better analysis. Also, in case of stable devices but many of them,
-if you can specify the location automatically, it's gonna give you same possibilties</li>
-    <li><strong>value</strong> Value is a numerical data, can be an integer or float. We will store non-numeric values as well, but
-    maybe reportings will be decreased due to type of the value you are sending to us.</li>
-    <li><strong>device</strong> any source of information must have a device id, and this id must be unique among your devices otherwise
-    we cannot differenciate between your multiple devices</li>
+    <li>
+      <a routerLink="/docs/sending-information-over-https">Sending information from sensor devices</a>
+    </li>
   </ul>
-
-  <br>
-
-  Type the value: 
-  <input type="text"   (input)="ChangeExample()"
-  [(ngModel)]="example.value" placeholder="Numeric value, for example 22.3">
-
-  Type the sourcename:
-  <input type="text"   (input)="ChangeExample()"
-  [(ngModel)]="example.dataSourceId" placeholder="For example, device-3">
-  <rd-inline-api
-  type="post"
-  [headers]="boardcastHeaderExample"
-  [body]="boardcastBodyExample"
-  [url]="GetUrl('broadcast/collect')"
-  ></rd-inline-api>
-
 </app-page-container>

@@ -73,10 +73,22 @@ export const navigation = [
         auth: true
       },
       {
-        link: '/docs',
+        // link: '/docs',
         icon: 'icon-help',
         title: 'documents',
-        class: 'docs'
+        class: 'docs',
+        children: [
+          {
+            title: 'Introduction',
+            class: 'docs-introduction',
+            link: '/docs'
+          },
+          {
+            title: 'Sending information',
+            class: 'docs-sending-information',
+            link: '/docs/sending-information-over-https'
+          }
+        ]
       },
     ]
   },
