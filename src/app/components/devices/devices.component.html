@@ -37,6 +37,20 @@
         </tr>
       </thead>
       <tbody>
+        <tr *ngFor="let source of unconnected" class="unconnected-row">
+          <td>N/A</td>
+          <td>{{source.dataSourceId}}</td>
+          <td>
+            N/A
+          </td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>
+            <a [routerLink]="'/create-device-from-source/' + source.dataSourceId">
+              <i [Tooltip]="'Edit'" class="icon-add"></i>
+            </a>
+          </td>
+        </tr>
         <tr *ngFor="let device of devices">
           <td>{{device.name}}</td>
           <td>{{device.datasource}}</td>

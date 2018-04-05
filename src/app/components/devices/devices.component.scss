@@ -92,3 +92,8 @@ input {
 }
 .device-item {
 }
+.unconnected-row {
+  td {
+    color: $error-color-800;
+  }
+}
