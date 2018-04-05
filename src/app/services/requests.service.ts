@@ -44,6 +44,22 @@ export class RequestsService {
     return await this.http.get(environment.api + '/api/devices/token').toPromise();
   }
 
+  getUnconnected () {
+    this.http.get(environment.api + '/api/unconnected').subscribe(
+      (response: any) => {
+        const collections = response.data.items;
+        for (const item of collections) {
+          this.store.dispatch({
+            type: 'UPDATE_UNCONNECTED_DATA_SOURCE',
+            payload: item
+          });
+        }
+      },
+      (response: any) => {
+      },
+    );
+  }
+
   getDevices () {
     this.http.get(environment.api + '/api/devices').subscribe(
       (response: any) => {
