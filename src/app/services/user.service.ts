@@ -3,7 +3,6 @@ import { CanActivate, Router } from '@angular/router';
 import { IUser } from '@app/definitions';
 import { RequestsService } from '@services/requests.service';
 import { PermissionsService } from '@app/services/permissions.service';
-import { environment } from 'environments/environment';
 
 @Injectable()
 export class UserService {
@@ -86,30 +85,5 @@ export class AuthGuard implements CanActivate {
       return false;
     }
     return !!this.user.User;
-  }
-}
-
-
-@Injectable()
-export class DataSyncGuard implements CanActivate {
-
-  private isSynced = false;
-  constructor (
-    private requests: RequestsService,
-    private user: UserService
-  ) {
-  }
-
-  canActivate (): boolean {
-    if ( ! this.isSynced) {
-      this.requests.getDevices();
-      this.requests.getLocations();
-      if (environment.production) {
-        console.log('Connecting to room...');
-        this.requests.connectToRoom(this.user.GetToken());
-      }
-      this.isSynced = true;
-    }
-    return true;
   }
 }

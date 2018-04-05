@@ -44,7 +44,6 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
   extractRouterInfo () {
     this.route.params.subscribe(params => {
       this.form.id = +params['id'];
-      console.log('Form: ', this.form, params);
       this.store.select('locations').subscribe((locations: Array<ILocation>) => {
         const form = locations.find(x => x.id === this.form.id);
         if ( form ) {

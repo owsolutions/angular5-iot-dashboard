@@ -11,8 +11,7 @@ import { DeviceSingleComponent } from '../app/components/device-single/device-si
 import { DocsComponent } from '@components/docs/docs.component';
 import { Route } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
-import { AuthGuard , DataSyncGuard} from '@services/user.service';
-import { environment } from '../environments/environment';
+import { AuthGuard } from '@services/user.service';
 import { ExperimentalComponent } from '@app/components/experimental/experimental.component';
 import { SendingInformationHttpsComponent } from './components/docs/sending-information-https/sending-information-https.component';
 
@@ -48,7 +47,7 @@ export function AuthLayoutChild(component: any, route: string, options: any = {}
         path: route,
         component: component,
         ... options,
-        canActivate: environment.production ? [AuthGuard, DataSyncGuard] : [DataSyncGuard],
+        canActivate: [AuthGuard],
     };
 }
 
@@ -57,12 +56,12 @@ export const appRoutes: Routes = [
   {   path: '', redirectTo: '/index', pathMatch: 'full' },
   {
     path: '',
-    canActivate: environment.production ? [AuthGuard, DataSyncGuard] : [AuthGuard, DataSyncGuard],
+    canActivate: [AuthGuard],
     component: LayoutComponent,
     children: [
         AuthLayoutChild (IndexComponent, 'index'),
         AuthLayoutChild (LocationsComponent, 'locations'),
-        AuthLayoutChild (SettingsComponent, 'settings'),
+        AuthLayoutChild (SettingsComponent, 'token'),
         AuthLayoutChild (LocationSingleComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
         AuthLayoutChild (LocationSingleComponent, 'location/new', {data: {mode: 'new'}}),
         AuthLayoutChild (RolesComponent, 'roles'),

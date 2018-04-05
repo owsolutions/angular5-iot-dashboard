@@ -40,21 +40,6 @@ export class RequestsService {
     );
   }
 
-  async connectToRoom (token) {
-    const options = {
-      url: environment.api + '/api/get/a/room',
-      method: 'get',
-      headers: {
-        'x-token': token
-      }
-    };
-    console.log('Connecting: ', options);
-    io.socket.on('connect', function () {
-      io.socket.request(options, function (data) {
-        console.log('Data from room: ', data);
-      });
-    });
-  }
   async getDeviceToken (): Promise<IResponse<any>> {
     return await this.http.get(environment.api + '/api/devices/token').toPromise();
   }

@@ -1,7 +1,7 @@
 import { Injectable, ApplicationRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState, CloudDevice, DataSource } from '@app/definitions';
-import { random } from 'lodash';
+import { random, isNumber } from 'lodash';
 import { environment } from 'environments/environment';
 import { IsDataSource } from '@app/common';
 import { ToasterService } from 'angular2-toaster';
@@ -20,29 +20,32 @@ export class RealtimeService {
   public unconnectedDevices: Array<DataSource> = [];
   constructor(
     private store: Store<AppState>,
+    private toast: ToasterService,
     private ref: ApplicationRef,
     private toaster: ToasterService,
   ) {
-    if (environment.production) {
-      this.StartSailsSocket();
-    } else {
-      this.ActivateMockIncomingMessages();
-    }
+
     this.store.select('devices').subscribe((devices) => {
       this.devices = devices;
     });
   }
 
+  public ActivateRealtime () {
+    if (environment.production) {
+      this.StartSailsSocket();
+    } else {
+      this.ActivateMockIncomingMessages();
+    }
+  }
   /**
    * For people who have developed their backend service in sails.js
    */
   public StartSailsSocket () {
-    console.log('Connecting to socket server...');
+
     io.sails.url = environment.api;
     io.sails.autoConnect = true;
-    io.sails.connect(); // = true;
     io.socket.on('DataSourceChange', (data: DataSource) => {
-      console.log('Event triggered' , data);
+      console.warn('Data change', data);
       if (!IsDataSource(data)) {
         console.warn('Recieved a data source which is not valid: ', data);
         return false;
@@ -54,23 +57,20 @@ export class RealtimeService {
       this.toaster.popAsync('success', 'Server', 'You are now connected');
     });
   }
-  public StartPusher () {
-    Pusher.logToConsole = true;
 
-    const pusher = new Pusher('b2306c94cd640903c3a1', {
-      cluster: 'ap1',
-      encrypted: true
+  async connectToRoom (token) {
+    const options = {
+      url: environment.api + '/api/get/a/room',
+      method: 'get',
+      headers: {
+        'x-token': token
+      }
+    };
+    io.socket.request(options, (data) => {
+      // connects the socket to the room on server.
+      console.warn('Connected to the room', data);
+      this.toast.popAsync('success', 'Server' , 'Your connected to server');
     });
-
-    const channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function(data) {
-      alert(data.message);
-    });
-    this.channel = channel;
-
-    setTimeout(() => {
-      pusher.trigger('my-channel', 'my-event', 'asasd');
-    }, 1000);
   }
 
   /**
@@ -94,6 +94,13 @@ export class RealtimeService {
   }
 
   public RecieveDataSourceIncoming (data: DataSource) {
+
+    if (!data.date) {
+      data.date = (new Date()).getTime() as any;
+    }
+    if (!isNumber(data.value)) {
+      data.value = +data.value;
+    }
     const deviceWithThisSource = this.devices.find(x => x.datasource === data.dataSourceId);
     if ( ! deviceWithThisSource) {
       this.store.dispatch({

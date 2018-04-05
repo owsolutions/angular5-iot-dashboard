@@ -17,7 +17,7 @@ function previousSeconds(s) {
 
 function CastHistoryToSeries (items: Array<DataSource>): Array<Array<any>> {
   return items.map(x => {
-    return [x.date, x.value];
+    return [x.date, +x.value];
   });
 }
 @Component({
@@ -33,8 +33,6 @@ export class DailyStatisticsComponent implements OnInit, AfterViewInit {
   @Input('device') public device: CloudDevice = null;
   @Input('id') public id: any = null;
 
-  // @Input('
-  @Input() liveChange: Array<any> = [];
   public chart: any;
   public currentValue = 0;
   public highest: number;
@@ -149,7 +147,6 @@ export class DailyStatisticsComponent implements OnInit, AfterViewInit {
       if (!history) {
         return ;
       }
-      console.log('History: ', this.device.dataHistory);
       this.pushValue(history.date, history.value);
     });
 

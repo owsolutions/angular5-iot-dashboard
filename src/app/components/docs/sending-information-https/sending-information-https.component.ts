@@ -65,8 +65,6 @@ export class SendingInformationHttpsComponent implements OnInit {
       this.boardcastHeaderExample['x-token'] = token.data.items[0].hash;
     }
   }
-
-
   public ChangeExample () {
     this.boardcastBodyExample.dataSourceId = this.example.dataSourceId;
     this.boardcastBodyExample.value = this.example.value;

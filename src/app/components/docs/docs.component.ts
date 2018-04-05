@@ -10,8 +10,6 @@ import { IsSuccessEntity } from '@app/common';
   styleUrls: ['./docs.component.scss']
 })
 export class DocsComponent implements OnInit {
-
-
   public healthCheckResponseExample: IResponse<any> = {
     data: {
       items: [

@@ -19,7 +19,7 @@ import { PermissionsService } from '@services/permissions.service';
 import { RequestsService } from '@services/requests.service';
 import { CheckboxInputComponent } from '@components/forms/checkbox-input/checkbox-input.component';
 import { ActionsService } from '@services/actions.service';
-import { UserService, AuthGuard, DataSyncGuard } from '@services/user.service';
+import { UserService, AuthGuard } from '@services/user.service';
 import { DevicesComponent } from '@components/devices/devices.component';
 import { ActivityWidgetComponent } from '@components/activity/activity-widget/activity-widget.component';
 import { LocationsComponent } from '@components/locations/locations.component';
@@ -85,8 +85,11 @@ window['Highcharts'] = Highcharts;
 })
 export class AppComponent {
   constructor (
-    private _sidebarController: SidebarControllerService
-  ) {}
+    private _sidebarController: SidebarControllerService,
+    private realtime: RealtimeService,
+  ) {
+    this.realtime.ActivateRealtime();
+  }
 }
 
 
@@ -155,6 +158,7 @@ export class AppComponent {
     NgxSidebarModule,
     RealtimeDocumentModule,
     NgxTooltipModule,
+    ToasterModule.forRoot(),
     HttpModule,
     NgMediaModule,
     BrowserAnimationsModule,
@@ -176,7 +180,6 @@ export class AppComponent {
     UserService,
     AuthGuard,
     SidebarControllerService,
-    DataSyncGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
@@ -192,6 +195,6 @@ export class AppModule {
   constructor (
     private realtime: RealtimeService,
   ) {
-
+    // Realtime service is imported intentionally
   }
 }

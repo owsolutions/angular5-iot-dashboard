@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarControllerService } from '../ngx-sidebar/sidebar-controller.service';
+import { RealtimeService } from '@app/services/realtime.service';
+import { RequestsService } from '@app/services/requests.service';
+import { UserService } from '@app/services/user.service';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-layout',
@@ -8,7 +12,12 @@ import { SidebarControllerService } from '../ngx-sidebar/sidebar-controller.serv
 })
 export class LayoutComponent implements OnInit {
   public sideState = true;
-  constructor(public _sdieController: SidebarControllerService) {
+  constructor(
+    public _sdieController: SidebarControllerService,
+    private realtime: RealtimeService,
+    private requests: RequestsService,
+    private user: UserService,
+  ) {
     this._sdieController.ToggleSidebar.subscribe((e) => {
       if (e === 'hidden') {
         this.sideState = false;
@@ -25,6 +34,13 @@ export class LayoutComponent implements OnInit {
     if (window.innerWidth < 992) {
       this.sideState = false;
     }
+    this.requests.getDevices();
+    this.requests.getLocations();
+    setTimeout(( ) => {
+      if (environment.production) {
+        this.realtime.connectToRoom(this.user.GetToken());
+      }
+    }, 500);
   }
 
   sideOff() {
