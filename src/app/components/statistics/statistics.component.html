@@ -1,10 +1,15 @@
-<section>
-  <div class="box" *ngFor="let statistic of statistics; let i = index;">
-    <div class="container">
-      <span class="number">{{statistic.value}}</span>
-      <br />
-      {{statistic.title}} 
+<div class="row">
+  <div class="col-md-3 col-6" *ngFor="let statistic of statistics; let i = index;">
+    <div class="box-wrapper app-statistics">
+      <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <div class="d-2">
+          <h2>{{statistic.value}}</h2>
+          <p>Number of the {{statistic.title}}</p>
+        </div>
+        <div class="d-2 app-statistics-value">
+            {{statistic.title}}
+        </div>
+      </div>
     </div>
-    <div class="fill speed{{i+1}}"></div>
   </div>
-</section>
+</div>
