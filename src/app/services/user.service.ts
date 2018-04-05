@@ -3,7 +3,6 @@ import { CanActivate, Router } from '@angular/router';
 import { IUser } from '@app/definitions';
 import { RequestsService } from '@services/requests.service';
 import { PermissionsService } from '@app/services/permissions.service';
-import { environment } from 'environments/environment';
 
 @Injectable()
 export class UserService {
