@@ -14,6 +14,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { AuthGuard , DataSyncGuard} from '@services/user.service';
 import { environment } from '../environments/environment';
 import { ExperimentalComponent } from '@app/components/experimental/experimental.component';
+import { SendingInformationHttpsComponent } from './components/docs/sending-information-https/sending-information-https.component';
 
 export function AuthLayout (component: any, route: string, options: any = {}): Route {
   return {
@@ -72,6 +73,7 @@ export const appRoutes: Routes = [
         AuthLayoutChild (ExperimentalComponent, 'experimental'),
         AuthLayoutChild (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
         AuthLayoutChild (DocsComponent, 'docs'),
+        AuthLayoutChild (SendingInformationHttpsComponent, 'docs/sending-information-over-https'),
         AuthLayoutChild (GalleryComponent, 'gallery')
     ]
   },

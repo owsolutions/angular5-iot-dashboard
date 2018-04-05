@@ -62,17 +62,35 @@ export const navigation = [
     class: 'gallery'
   } : null,
   {
-    link: '/settings',
-    icon: 'icon-settings',
-    title: 'Settings',
-    class: 'settings',
-    auth: true
-  },
-  {
-    link: '/docs',
-    icon: 'icon-help',
-    title: 'documents',
-    class: 'docs'
+    title: 'Integration',
+    icon: 'icon-link',
+    children: [
+      {
+        link: '/token',
+        icon: 'icon-settings',
+        title: 'Access tokens',
+        class: 'settings',
+        auth: true
+      },
+      {
+        // link: '/docs',
+        icon: 'icon-help',
+        title: 'documents',
+        class: 'docs',
+        children: [
+          {
+            title: 'Introduction',
+            class: 'docs-introduction',
+            link: '/docs'
+          },
+          {
+            title: 'Sending information',
+            class: 'docs-sending-information',
+            link: '/docs/sending-information-over-https'
+          }
+        ]
+      },
+    ]
   },
   ! environment.production ? {
     link: '/experimental',
