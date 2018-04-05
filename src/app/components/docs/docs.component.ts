@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IResponse } from 'response-type';
-import { DataSource } from '@app/definitions';
 import { environment } from 'environments/environment';
 import { RequestsService } from '@app/services/requests.service';
 import { IsSuccessEntity } from '@app/common';
@@ -12,7 +11,7 @@ import { IsSuccessEntity } from '@app/common';
 })
 export class DocsComponent implements OnInit {
 
- 
+
   public healthCheckResponseExample: IResponse<any> = {
     data: {
       items: [
