@@ -11,6 +11,7 @@ declare var Pusher: any;
 declare var require: any;
 let io: any = {};
 io = require('sails.io.js')( require('socket.io-client') );
+io.sails.autoConnect = false;
 
 window['io'] = io;
 
