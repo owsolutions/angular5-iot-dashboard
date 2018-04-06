@@ -9,7 +9,7 @@ describe('E2E tests', function () {
   });
 
   afterEach(() => {
-    /// cy.get('.ngx-menu-link-logout').click();
+    cy.get('.ngx-menu-link-logout').click();
   });
   
   it('It must be able to create a new device by feeling the form', function () {
@@ -31,6 +31,6 @@ describe('E2E tests', function () {
     cy.wait(100);
     cy.get('.ngx-menu-link-device-list').click();
 
-    cy.get('.app-devices-table');
+    cy.get('.app-devices-table').find('tr').should('have.length', 11);
   });
 });

@@ -9,8 +9,7 @@ import { ToasterService } from 'angular2-toaster';
 declare var Pusher: any;
 
 declare var require: any;
-// const io = require('sails.io.js')( require('socket.io-client') );
-const io: any = {};
+const io = require('sails.io.js')( require('socket.io-client') );
 window['io'] = io;
 
 @Injectable()

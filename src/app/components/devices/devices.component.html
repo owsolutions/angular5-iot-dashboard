@@ -2,21 +2,7 @@
     There are no devices. Please create devices and you will be able to manage them here.
 </app-error-message>
 
-<div class="box-wrapper">
-  <div class="row">
-    <div class="box-title">
-      <div class="d-flex flex-wrap justify-content-between align-items-center">
-        <div class="d-2">
-          <h2>Devices</h2>
-          <p>All of your Devices in your Application</p>
-        </div>
-        <div class="d-2">
-          <a class="btn btn-primary add-button" routerLink="../device/create">Add New Device</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
+<app-page-container title="Devices" subtitle="All of your Devices in your Application">
   <div ngx-sidebar-off class="table-responsive iot-table">
     <table class="table app-devices-table">
       <thead>
@@ -61,4 +47,4 @@
       </tbody>
     </table>
   </div>
-</div>
+</app-page-container>
