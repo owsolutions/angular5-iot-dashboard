@@ -15,7 +15,7 @@
     "heroku": "ng serve --hmr -e=heroku",
     "mock": "ng serve --hmr -e=prodmock",
     "cypress": "./node_modules/.bin/cypress open",
-    "ci": "./node_modules/.bin/cypress run",
+    "ci": "cd dist && serve & ./node_modules/.bin/cypress run",
     "e2e": "ng e2e",
     "copy": "cp -R dist/. ../node-microservices/.tmp/public"
   },
@@ -72,6 +72,7 @@
     "node-sass": "^4.5.3",
     "protractor": "~5.1.0",
     "sass-material-colors": "0.0.5",
+    "serve": "^6.5.3",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
     "typescript": "^2.7.2"
