@@ -4,6 +4,7 @@ import { RealtimeService } from '@app/services/realtime.service';
 import { RequestsService } from '@app/services/requests.service';
 import { UserService } from '@app/services/user.service';
 import { environment } from 'environments/environment';
+import { ToasterConfig } from 'angular2-toaster';
 
 @Component({
   selector: 'app-layout',
@@ -12,6 +13,10 @@ import { environment } from 'environments/environment';
 })
 export class LayoutComponent implements OnInit {
   public sideState = true;
+  public toastConfig: ToasterConfig = new ToasterConfig({
+    animation: 'flyRight',
+    positionClass: 'toast-bottom-right'
+  });
   constructor(
     public _sdieController: SidebarControllerService,
     private realtime: RealtimeService,

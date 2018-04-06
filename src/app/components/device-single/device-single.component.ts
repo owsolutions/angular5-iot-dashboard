@@ -6,6 +6,7 @@ import { RequestsService } from '@app/services/requests.service';
 import 'rxjs/add/operator/toPromise';
 import { IResponse } from 'response-type';
 import { error } from '@app/common';
+import { ToasterService } from 'angular2-toaster';
 
 @Component({
   selector: 'app-device-single',
@@ -24,12 +25,16 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   };
 
   public error = error;
+  private toasterService: ToasterService;
   constructor(
     private route: ActivatedRoute,
     private store: Store<AppState>,
     private router: Router,
     private requests: RequestsService,
-  ) { }
+    toasterService: ToasterService
+  ) {
+    this.toasterService = toasterService;
+   }
 
   ngOnInit() {
     this.route.params.subscribe((data: {id?: any, sourceId?: any}) => {
@@ -55,6 +60,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   ngOnDestroy () {
 
   }
+  
   public async SubmitForm () {
     delete this.form.value;
     this.isRequesting = true;
@@ -63,6 +69,8 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
       const response: IResponse<CloudDevice> = await this.requests.PostDevice(device);
       if (response.data && response.data.items && response.data.items[0]) {
         this.router.navigateByUrl('/devices');
+        const toaserTitle = (!this.form.id) ? 'Device Created Succesfully' : 'Device Edited!';
+        this.toasterService.pop('success', toaserTitle, response.data.items[0].name);
       }
       this.response = response;
     } catch (error) {
@@ -73,8 +81,8 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
 
   public DeleteDevice () {
     this.requests.deleteDevice(this.form.id);
+    this.toasterService.pop('error', 'Your Device Deleted', this.form.name);
     this.router.navigateByUrl('/devices');
-
   }
   public DeviceGeneralChange (data: any) {
     this.form = Object.assign(this.form, data);
@@ -82,4 +90,5 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   public DeviceCustomizationChange (value) {
     this.form.preferences = value;
   }
+  
 }

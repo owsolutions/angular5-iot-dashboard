@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Renderer } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SidebarControllerService } from '@app/components/ngx-sidebar/sidebar-controller.service';
 
 @Component({
   /* tslint:disable */
@@ -16,6 +17,7 @@ export class NgxSidebarComponent implements OnInit {
   constructor(
     private renderer: Renderer,
     private route: ActivatedRoute,
+    private _sidebar: SidebarControllerService
   ) {}
 
   ngOnInit() {
@@ -26,6 +28,8 @@ export class NgxSidebarComponent implements OnInit {
       this.state = !event.currentTarget.classList.contains('opened') ? true : false;
       this.renderer.setElementClass(event.currentTarget, 'opened', this.state);
       this.state = !this.state;
+    } else {
+      this._sidebar.closeSidebar();
     }
   }
 }

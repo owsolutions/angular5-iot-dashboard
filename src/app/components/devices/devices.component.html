@@ -38,7 +38,7 @@
             
           </td>
           <td><a [routerLink]="'/locations/edit/' + device.location ">{{FindLocationName (device.location)}}</a></td>
-          <td>{{ ! device.model ? '-' : device.model}}</td>
+          <td>{{ ! device.model ? 'N/A' : device.model}}</td>
           <td>
             <a [routerLink]="'/device/' + device.id "><i [Tooltip]="'Edit'" class="icon-mode_edit action-btn"></i></a>
             <a (click)="DeleteDevice(device.id)"><i [Tooltip]="'Delete'" class="icon-delete action-btn"></i></a>
