@@ -39,6 +39,14 @@ export class StatisticsComponent implements OnInit, OnDestroy {
         title: 'Locations',
         value: sink[0].length
       });
+      this.statistics.push({
+        title: 'Temperature',
+        value: sink[1].filter(x => x.type === 0).length
+      });
+      this.statistics.push({
+        title: 'Light',
+        value: sink[1].filter(x => x.type === 1).length
+      });
     });
   }
 
