@@ -1,13 +1,12 @@
 language: node_js
 node_js:
-  - "8"
+  - "9"
 
 branches:
   only:
     - master
 
 before_script:
-  - npm install -g firebase-tools
   - npm install -g @angular/cli
 
 cache:
@@ -28,16 +27,15 @@ before_install:
  - sudo apt-get install -y libappindicator1 fonts-liberation
  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
  - sudo dpkg -i google-chrome*.deb
+ - sudo sysctl fs.inotify.max_user_watches=524288
+ - sudo sysctl fs.inotify.max_queued_events=524288
+ - sudo sysctl -p
 
 script:
-  - npm run production
-
-deploy:
-  provider: firebase
-  on:
-    branch: master
-  token:
-    secure: "$FIREBASE_TOKEN"
+  - npm run lint
+  - npm run build
+  - npm run build:mock
+  - npm run ci
 
 notifications:
   email:

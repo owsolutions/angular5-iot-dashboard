@@ -2,11 +2,11 @@
   <div class="row">
     <div class="col-md-12">
       <label class="checkbox" >
-        <input type="checkbox" (change)="TriggerChange();" [(ngModel)]="form.DisplayRealTimeTemperatureInSidebar">
+        <input type="checkbox" class="app-device-customization-realtime" (change)="TriggerChange();" [(ngModel)]="form.DisplayRealTimeTemperatureInSidebar">
         <i></i> Display the real time value in home page
       </label>
       <label class="checkbox">
-        <input type="checkbox" (change)="TriggerChange();" [(ngModel)]="form.DisplayAverageLastWeekInSidebar">
+        <input type="checkbox" class="app-device-customization-7average" (change)="TriggerChange();" [(ngModel)]="form.DisplayAverageLastWeekInSidebar">
         <i></i> Display the last 7 days average in home page
       </label>
     </div>  
