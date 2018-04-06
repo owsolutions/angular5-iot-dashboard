@@ -7,7 +7,6 @@ branches:
     - master
 
 before_script:
-  - npm install -g firebase-tools
   - npm install -g @angular/cli
 
 cache:
@@ -31,13 +30,6 @@ before_install:
 
 script:
   - npm run production
-
-deploy:
-  provider: firebase
-  on:
-    branch: master
-  token:
-    secure: "$FIREBASE_TOKEN"
 
 notifications:
   email:
