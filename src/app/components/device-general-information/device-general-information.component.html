@@ -6,28 +6,25 @@
       <div class="col-md-6 unit">
           <label class="label">Name</label>
           <div class="input">
-
-              <input class="form-control" 
+              <input class="form-control app-device-general-name" 
                 [(ngModel)]="form.name"
                 (ngModelChange)="SubmitChange()"
-                type="name" placeholder="Device display name" id="name">                                  
+                type="text" placeholder="Device display name" id="name">                                  
           </div>
       </div>
       <div class="col-md-6 unit">
           <label class="label">Data source id</label>
           <div class="input">
-
-              <input class="form-control" 
+              <input class="form-control app-device-general-datasource" 
                 [(ngModel)]="form.datasource"
                 (ngModelChange)="SubmitChange()"
-                type="datasource" placeholder="Datasource id when your hardware requests the api" id="datasource">
+                type="text" placeholder="Datasource id when your hardware requests the api" id="datasource">
           </div>
       </div>
-
       <div class="unit col-md-6 ">
           <label class="label">Type of device</label>
           <label class="input select">
-              <select class="form-control" [(ngModel)]="form.type" (ngModelChange)="SubmitChange()">
+              <select class="form-control app-device-general-type" [(ngModel)]="form.type" (ngModelChange)="SubmitChange()">
                   <option value="0">Temperature sensor</option>
               </select>
               <i></i>
@@ -43,12 +40,10 @@
               <i></i>
           </label>
       </div>
-
       <div class="col-md-6 unit">
           <label class="label">Model</label>
           <div class="input">
-
-              <input class="form-control" type="text"
+              <input class="form-control app-device-general-model" type="text"
                 [(ngModel)]="form.model"
                 (ngModelChange)="SubmitChange()"
                 placeholder="Model, brand or serial number" id="model">
@@ -58,8 +53,7 @@
   <div class="unit">
       <label class="label">Description</label>
       <div class="input">
-
-          <textarea class="form-control"
+          <textarea class="form-control app-device-general-description"
             [(ngModel)]="form.description"
             (ngModelChange)="SubmitChange()"
             placeholder="Write few lines of description." 

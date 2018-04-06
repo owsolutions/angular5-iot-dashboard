@@ -11,6 +11,7 @@ export class TextInputComponent implements OnInit {
   @Input() public icon: string;
   @Input() public placeholder: string;
   @Input() public value: any;
+  @Input('class') public class: any;
   @Output() public onChange: EventEmitter<any> = new EventEmitter();
   constructor() { }
 

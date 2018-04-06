@@ -5,28 +5,29 @@
 <app-page-container [title]="( form.id ? 'Update' : 'Create' ) + ' location'" 
   subtitle="Categorize the devices and distribute them into locations and floors.">
   <div style="max-width: 600px;">
-    <app-forms-text-input
-    placeholder="Location name"
-    icon="icon icon-user"
-    name="Location name"
-    [value]="form.name"
-    (onChange)="onInputChange('name', $event)"
-    >
-  </app-forms-text-input>
-  <span style="color: red;" *ngIf="error(response, 'name')">{{error(response, 'name')}}</span>
 
-  <app-forms-select-input
-    placeholder="Select the level (floor)"
-    icon="icon icon-user"
-    name="Level"
-    [selected]="form.level"
-    [options]="levels"
-    (onChange)="onInputChange('level', $event)"
-    >
-  </app-forms-select-input>
+    <div class="form-group">
+      <label for="inputName">Location name*</label>
+      <div class="input-group Name">
+        <input type="text" class="form-control app-location-single-name" 
+        [(ngModel)]="form.name" placeholder="Location name">
+      </div>
+      <span style="color: red;" *ngIf="error(response, 'name')">{{error(response, 'name')}}</span>
+    </div>
+    
+    <div class="form-group">
+      <label for="inputName">Level*</label>
+      <div class="input-group Name">
+        <select type="text" [(ngModel)]="form.level" class="form-control app-location-single-level">
+          <option value="" disabled="disabled" selected="selected">Select the level (floor)</option>
+          <option *ngFor="let option of levels" [selected]="(option.value ? option.value : option.name) == selected" value="{{option.value ? option.value : option.name}}">{{option.name}}</option>
+        </select>
+      </div>
+    </div>
 
   </div>
   
+  <label for="">Select an image for the location</label>
   <app-ng-media 
     [enableToolbar]="false"
     (selectionChange)="changeSelection($event);"
@@ -39,13 +40,14 @@
     placeholder="Select a device that shows this location temperature"
     icon="icon icon-user"
     name="Location temperature"
+    class="app-location-single-default-temperature"
     [selected]="form.temperatureDevice"
     [options]="devices"
     (onChange)="onInputChange('temperatureDevice', $event)"
     >
   </app-forms-select-input>
-  <button (click)="formSubmit()" class="btn btn-primary" *ngIf="!form.id">Create new location</button>
-  <button (click)="formSubmit()" class="btn btn-primary" *ngIf="form.id">Edit location</button>
+  <button (click)="formSubmit()" class="btn btn-primary app-location-single-create" *ngIf="!form.id">Create new location</button>
+  <button (click)="formSubmit()" class="btn btn-primary app-location-single-update" *ngIf="form.id">Edit location</button>
 
 </app-page-container>
   
