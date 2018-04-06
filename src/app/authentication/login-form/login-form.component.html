@@ -13,7 +13,7 @@
       </div>
 
       <div class="form-group material-input">
-        <input type="text" material-input name="email" [(ngModel)]="form.email">
+        <input type="text" class="app-login-form-email" material-input name="email" [(ngModel)]="form.email">
         <span class="focus-input" data-placeholder="Email"></span>
         <span *ngIf="error('email')">{{error('email')}}</span>
 
@@ -23,7 +23,7 @@
         <span class="btn-show-pass" (click)="togglePassword();">
           <i [ngClass]="{'icon-visibility_off': passwordVisibilty, 'icon-visibility': (!passwordVisibilty)}"></i>
         </span>
-        <input [type]="passwordVisibilty ? 'text' : 'password'" material-input name="password" [(ngModel)]="form.password">
+        <input class="app-login-form-password" [type]="passwordVisibilty ? 'text' : 'password'" material-input name="password" [(ngModel)]="form.password">
         <span class="focus-input" data-placeholder="Password"></span>
         <span *ngIf="error('password')">{{error('password')}}</span>
 
@@ -33,14 +33,14 @@
         {{response.error.message}}
       </p>
       <div class="form-group login-button">
-        <button class="btn btn-primary" (click)="login($event);">
+        <button class="btn btn-primary app-login-form-submit" (click)="login($event);">
           Login
         </button>
       </div>
 
       <div class="">
         Don’t have an account?
-        <a routerLink="/signup">
+        <a routerLink="/signup" class="app-signup-button">
           Sign Up
         </a>
         <br>

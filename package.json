@@ -3,16 +3,18 @@
   "version": "1.0.5",
   "license": "MIT",
   "scripts": {
-    "production": "npm run lint && npm run build",
     "build": "ng build --env=prod -prod",
+    "build:local": "ng build --env=prodlocal -prod",
+    "build:mock": "ng build --env=prodmock -prod",
     "test": "ng test",
     "lint": "ng lint",
     "build:github": "ng build -e=github -prod --base-href=/angular5-iot-dashboard --deploy-url=/angular5-iot-dashboard/ --progress false",
     "gh-pages": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages",
     "start": "ng serve --hmr -e=hmr",
     "heroku": "ng serve --hmr -e=heroku",
+    "mock": "ng serve --hmr -e=prodmock",
     "cypress": "./node_modules/.bin/cypress open",
-    "ci": "./node_modules/.bin/cypress run",
+    "ci": "cd dist && PORT=4200 serve && cd .. & ./node_modules/.bin/cypress run",
     "e2e": "ng e2e",
     "copy": "cp -R dist/. ../node-microservices/.tmp/public"
   },
@@ -69,6 +71,7 @@
     "node-sass": "^4.5.3",
     "protractor": "~5.1.0",
     "sass-material-colors": "0.0.5",
+    "serve": "^6.5.3",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
     "typescript": "^2.7.2"

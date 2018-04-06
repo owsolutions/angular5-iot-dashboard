@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "test-project"
+    "name": "angular5-iot-dashboard"
   },
   "apps": [
     {
@@ -36,6 +36,8 @@
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts",
+        "prodlocal": "environments/environment.prodlocal.ts",
+        "prodmock": "environments/environment.prodmock.ts",
         "heroku": "environments/environment.heroku.ts",
         "github": "environments/environment.github.ts",
         "hmr": "environments/environment.hmr.ts"

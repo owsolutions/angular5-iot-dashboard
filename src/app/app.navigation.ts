@@ -34,6 +34,7 @@ export const navigation = [
   {
     icon: 'icon-location_searching',
     title: 'Locations',
+    class: 'location',
     children: [
       {
         link: '/location/new',
@@ -41,7 +42,7 @@ export const navigation = [
         title: 'Create a location',
         permissions: ['LOCATIONS::VIEW'],
         auth: true,
-        class: 'location-new'
+        class: 'location-create'
       },
       {
         link: '/locations',
