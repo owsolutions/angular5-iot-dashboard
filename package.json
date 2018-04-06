@@ -3,7 +3,6 @@
   "version": "1.0.5",
   "license": "MIT",
   "scripts": {
-    "production": "npm run lint && npm run build && npm run ci",
     "build": "ng build --env=prod -prod",
     "build:local": "ng build --env=prodlocal -prod",
     "build:mock": "ng build --env=prodmock -prod",
@@ -15,7 +14,7 @@
     "heroku": "ng serve --hmr -e=heroku",
     "mock": "ng serve --hmr -e=prodmock",
     "cypress": "./node_modules/.bin/cypress open",
-    "ci": "cd dist && PORT=4200 serve & ./node_modules/.bin/cypress run",
+    "ci": "cd dist && PORT=4200 serve && cd .. & ./node_modules/.bin/cypress run",
     "e2e": "ng e2e",
     "copy": "cp -R dist/. ../node-microservices/.tmp/public"
   },
