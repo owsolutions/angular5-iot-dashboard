@@ -1,3 +1,4 @@
+<form (keyup.enter)="formSubmit()">
 <app-progress-line *ngIf="isRequesting"></app-progress-line>
 
 <app-error-message *ngIf="response && response.error">{{response.error.message}}</app-error-message>
@@ -46,8 +47,10 @@
     (onChange)="onInputChange('temperatureDevice', $event)"
     >
   </app-forms-select-input>
-  <button (click)="formSubmit()" class="btn btn-primary app-location-single-create" *ngIf="!form.id">Create new location</button>
-  <button (click)="formSubmit()" class="btn btn-primary app-location-single-update" *ngIf="form.id">Edit location</button>
+
+  <input type="submit" (click)="formSubmit()" class="btn btn-primary  app-location-single-create" *ngIf="!form.id" value="Create new location" />
+  <button (click)="formSubmit()" class="btn btn-primary app-location-single-update" *ngIf="form.id">Edit Location</button>
+  <button (click)="deleteItem()" class="btn btn-danger" *ngIf="form.id">Delete Location</button>
 
 </app-page-container>
-  
+</form>

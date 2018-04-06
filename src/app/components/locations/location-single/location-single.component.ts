@@ -7,6 +7,7 @@ import { NgMediaComponent } from 'ng-media';
 import { RequestsService } from '@app/services/requests.service';
 import { IotImages, IsSuccessEntity, error } from '@app/common';
 import { IResponse } from 'response-type';
+import { ToasterService } from 'angular2-toaster';
 
 @Component({
   selector: 'app-location-single',
@@ -27,7 +28,7 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
   };
   public error = error;
   public items = [];
-
+  private toasterService: ToasterService;
   @ViewChild('locationIcon') public locationIcon: NgMediaComponent;
 
   public levels = times(100, (index) => {
@@ -61,7 +62,11 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
     private store: Store<AppState>,
     private router: Router,
     private requests: RequestsService,
-  ) { }
+    toasterService: ToasterService
+  ) {
+    this.toasterService = toasterService;
+   }
+
 
   ngOnInit() {
     this.extractRouterInfo();
@@ -70,9 +75,11 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
 
   public async formSubmit () {
     this.isRequesting = true;
+    const toaserTitle = (!this.form.id) ? 'Location Created Succesfully' : 'Location Edited!';
     const response = this.response = await this.requests.PostLocation(this.form);
     this.isRequesting = false;
     if (IsSuccessEntity(response)) {
+      this.toasterService.pop('success', toaserTitle, response.data.items[0].name);
       this.router.navigateByUrl('/locations');
     }
   }
@@ -95,6 +102,7 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
   }
   public deleteItem() {
     this.requests.deleteLocation(+this.form.id);
+    this.toasterService.pop('error', 'Your Location Deleted', this.form.name);
     this.router.navigateByUrl('/locations');
   }
 }

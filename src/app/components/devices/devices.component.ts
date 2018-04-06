@@ -3,6 +3,7 @@ import { AppState, ILocation, DataSource } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { RequestsService } from '@services/requests.service';
 import { Router } from '@angular/router';
+import { ToasterService } from 'angular2-toaster';
 
 @Component({
   selector: 'app-devices',
@@ -16,14 +17,15 @@ export class DevicesComponent implements  OnInit, OnDestroy {
   public locations: Array<ILocation> = [];
   private _ref1: any  = null;
   private _ref2 = null;
-
   constructor (
     private requests: RequestsService,
     public chRef: ChangeDetectorRef,
     private router: Router,
     private store: Store<AppState>,
+    private toasterService: ToasterService
   ) {
-  }
+    this.toasterService = toasterService;
+   }
 
   ngOnInit() {
     this._ref1 = this.store.select('devices').subscribe(collection => {
@@ -53,6 +55,7 @@ export class DevicesComponent implements  OnInit, OnDestroy {
 
   public DeleteDevice (id: number) {
     this.requests.deleteDevice(id);
+    this.toasterService.pop('error', 'Your Device Deleted', this.devices.filter(x => x.id === id)[0].name);
     this.router.navigateByUrl('/devices');
 
   }
