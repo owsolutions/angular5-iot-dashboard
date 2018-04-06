@@ -27,6 +27,9 @@ before_install:
  - sudo apt-get install -y libappindicator1 fonts-liberation
  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
  - sudo dpkg -i google-chrome*.deb
+ - sudo sysctl fs.inotify.max_user_watches=524288
+ - sudo sysctl fs.inotify.max_queued_events=524288
+ - sudo sysctl -p
 
 script:
   - npm run lint
