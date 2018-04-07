@@ -102,6 +102,22 @@ export class RequestsService {
     }
   }
 
+  // public resetPassword(req: HttpRequest<any>): IResponse<ILocation> {
+
+
+  public async RequestPasswordReset (username: string): Promise<IResponse<ILocation>> {
+    const ref = this.http.post(environment.api + '/api/forget-password' , {username}).toPromise();
+    try {
+      const response: IResponse<ILocation> = await ref;
+      return response;
+    } catch (error) {
+      if (error.name === 'HttpErrorResponse') {
+        return GetNetworkError();
+      }
+      return error;
+    }
+  }
+
   public async PostLocation (location: ILocation): Promise<IResponse<ILocation>> {
     const ref = this.http.post(environment.api + '/api/location' , location).toPromise();
     try {

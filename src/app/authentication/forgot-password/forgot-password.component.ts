@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IResponse } from 'response-type';
 import { GetNetworkError } from '@app/common';
+import { RequestsService } from '@app/services/requests.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -16,7 +17,8 @@ export class ForgotPasswordComponent implements OnInit {
   public isRequesting = false;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private requests: RequestsService,
   ) { }
 
   ngOnInit() {
@@ -34,22 +36,21 @@ export class ForgotPasswordComponent implements OnInit {
     const error = this.response.error.errors.find(x => x.location === fieldName);
     return error ? error.message : '';
   }
-  public forgetPasswordHttp (data: { email: string}) {
-    this.http.post(this.forgetUrl, data).subscribe(
-      (response) => {
-        this.response = response;
-        this.isRequesting = false;
-        this.onResetSuccess(response);
-      },
-      (response) => {
-        this.isRequesting = false;
-        if (response.name === 'HttpErrorResponse') {
-          this.response = GetNetworkError();
-          return false;
-        }
-        this.response = response;
+  public async forgetPasswordHttp (data: { email: string}) {
+    try {
+      const response = await this.requests.RequestPasswordReset(data.email);
+      this.response = response;
+      this.isRequesting = false;
+      this.onResetSuccess(response);
+    } catch (response) {
+      console.log('Response', response);
+      this.isRequesting = false;
+      if (response.name === 'HttpErrorResponse') {
+        this.response = GetNetworkError();
+        return false;
       }
-    );
+      this.response = response;
+    }
   }
 
   public onResetSuccess (response = null) {

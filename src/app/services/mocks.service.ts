@@ -22,6 +22,7 @@ export class MockService {
     'GET /api/devices': 'getDevices',
     'GET /api/unconnected': 'getUnconnected',
     'POST /api/device': 'postDevice',
+    'POST /api/forget-password': 'forgetPassword',
     'POST /api/location': 'postLocation',
     'DELETE /api/location/:id': 'deleteLocation',
     'DELETE /api/device/:id': 'deleteDevice'
@@ -340,6 +341,29 @@ export class MockService {
             temperatureDevice: location.temperatureDevice
           }
         ]
+      }
+    };
+  }
+
+  public forgetPassword(req: HttpRequest<any>): IResponse<any> {
+    const username: string = req.body.username;
+    if ( ! username) {
+      return {
+        error: {
+          code: 29,
+          message: 'We cannot process your reset password request',
+          errors: [
+            {
+              location: 'username',
+              message: 'Please provide us a username first.'
+            }
+          ]
+        },
+      };
+    };
+    return {
+      data: {
+        items: []
       }
     };
   }
