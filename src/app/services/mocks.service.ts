@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from '@rxjs';
 import { IResponse, IResponseErrorItem } from 'response-type';
 import { matchPattern } from 'url-matcher';
 import { environment } from '../../environments/environment';
@@ -10,7 +10,7 @@ import { CloudDeviceType } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { random } from 'lodash';
 import { ILocation } from '@app/definitions';
-
+import { of } from '@rxjs';
 
 @Injectable()
 export class MockService {
@@ -69,7 +69,7 @@ export class MockService {
       statusText: 'OK',
       url: req.url
     } );
-    return Observable.of( mockResponse );
+    return of( mockResponse );
   }
 
   public mockUser () {

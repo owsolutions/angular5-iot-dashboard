@@ -1,9 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/definitions';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/combineLatest';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription, combineLatest } from '@rxjs';
 
 @Component({
   selector: 'app-statistics',
@@ -26,7 +24,7 @@ export class StatisticsComponent implements OnInit, OnDestroy {
     if (this.statistics.length) {
       return;
     }
-    this.ref = Observable.combineLatest(
+    this.ref = combineLatest(
       this.store.select('locations'),
       this.store.select('devices'),
     ).subscribe((sink) => {

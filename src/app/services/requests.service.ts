@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AppState, CloudDevice, ILocation } from '@app/definitions';
 import { PermissionsService } from './permissions.service';
-import 'rxjs/add/observable/of';
 import { Store } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'environments/environment';
@@ -9,7 +8,6 @@ import { MockService } from '@app/services/mocks.service';
 import { IResponse } from 'response-type';
 import { GetNetworkError, IsSuccessEntity } from '@app/common';
 import { random } from 'lodash';
-import 'rxjs/add/operator/toPromise';
 
 declare var io: any;
 
