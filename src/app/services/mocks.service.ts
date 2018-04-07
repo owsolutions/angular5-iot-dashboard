@@ -106,12 +106,26 @@ export class MockService {
         }
       };
     } else {
+
+      const errors: Array<IResponseErrorItem> = [];
+      if (!req.body.email) {
+        errors.push({
+          location: 'email',
+          message: 'Please provide "test@test.com" as email'
+        });
+      }
+      if (!req.body.password) {
+        errors.push({
+          location: 'password',
+          message: 'Please provide "123321" as password'
+        });
+      }
       return {
         apiVersion: 'beta',
         error: {
           code: 401,
-          message: 'Wrong mock user: Set username to test@test.com and password 123321',
-          errors: []
+          message: 'There is an issue on sign-in. Please set the email and password as provided.',
+          errors: errors
         }
       };
     }

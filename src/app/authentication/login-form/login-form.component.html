@@ -1,5 +1,7 @@
 <app-progress-line *ngIf="isRequesting"></app-progress-line>
-
+<app-error-message *ngIf="response && response.error">
+  {{response.error.message}}
+</app-error-message>
 <div class="container-login">
   <div class="wrap-login">
     <form>
@@ -15,7 +17,7 @@
       <div class="form-group material-input">
         <input type="text" class="app-login-form-email" material-input name="email" [(ngModel)]="form.email">
         <span class="focus-input" data-placeholder="Email"></span>
-        <span *ngIf="error('email')">{{error('email')}}</span>
+        <span class="error-message" *ngIf="error('email')">{{error('email')}}</span>
 
       </div>
 
@@ -25,13 +27,10 @@
         </span>
         <input class="app-login-form-password" [type]="passwordVisibilty ? 'text' : 'password'" material-input name="password" [(ngModel)]="form.password">
         <span class="focus-input" data-placeholder="Password"></span>
-        <span *ngIf="error('password')">{{error('password')}}</span>
+        <span class="error-message" *ngIf="error('password')">{{error('password')}}</span>
 
       </div>
 
-      <p *ngIf="response && response.error && response.error.message" class="message">
-        {{response.error.message}}
-      </p>
       <div class="form-group login-button">
         <button class="btn btn-primary app-login-form-submit" (click)="login($event);">
           Login
