@@ -1,3 +1,4 @@
+@import 'injects';
 
 .material-input {
   width: 100%;
@@ -120,4 +121,12 @@
           color: linear-gradient(to left, #21d4fd, #b721ff);
       }
   }
+}
+
+.error-message {
+  font-size: 13px;
+  color: $error-color-800;
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 5px;
 }
