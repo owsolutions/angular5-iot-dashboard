@@ -1,6 +1,6 @@
 {
   "name": "angular-dashboard",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "license": "MIT",
   "scripts": {
     "build": "ng build --env=prod -prod",
