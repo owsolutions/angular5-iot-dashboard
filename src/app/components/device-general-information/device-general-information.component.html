@@ -31,7 +31,7 @@
           </label>
       </div>
 
-      <div class="unit col-md-6 ">
+      <div class="unit col-md-6" *ngIf="locations.length">
           <label class="label">Location</label>
           <label class="input select">
               <select class="form-control" [(ngModel)]="form.location" (ngModelChange)="SubmitChange()">
