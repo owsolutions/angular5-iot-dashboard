@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { random } from 'lodash';
+import { random } from '@lodash';
 
 @Component({
   selector: 'app-icon-widgets',

@@ -1,7 +1,7 @@
 import { Injectable, ApplicationRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState, CloudDevice, DataSource } from '@app/definitions';
-import { random, isNumber } from 'lodash';
+import { random, isNumber } from '@lodash';
 import { environment } from 'environments/environment';
 import { IsDataSource } from '@app/common';
 import { ToasterService } from 'angular2-toaster';

@@ -1,4 +1,4 @@
-import { merge } from 'lodash';
+import { merge } from '@lodash';
 
 export default function UpdateOrInsert (element: any, context: Array<any>, compareKey: any, mergeWithExisting = false) {
   let updated = false;
