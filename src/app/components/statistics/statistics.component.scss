@@ -1,52 +1,27 @@
 
-section {
-  margin : 5px; 
-  display: flex;
-}
-
-.box {
-  flex: 1;
-  height : 120px;  
-  position : relative;
-  display : inline-block; 
-
-
-  .container{
-    box-sizing : border-box; 
-    width : 100%; 
-    height: 100%;
-    position : absolute; 
-    bottom : 0;
-    z-index : 3;
-    text-align : center; 
-    color : white; 
-    font-size : 14px; 
-    padding-top : 15px;
-
-    .number {
-      font-size : 50px;    
-      margin-top : 25px;
+.app-statistics {
+  height: 85%;
+  h2 {
+      font-size: 20px;
+  }
+  p{
+      margin-bottom: 0;
+  }
+  .app-statistics-value {
+      font-size: 35px;
+      color: #aaa;
+      font-weight: 500;
+      padding-right: 10px;
+  }
+  @media (max-width: 575.98px) { 
+    h2 {
+      font-size: 16px;
+    }
+    p{
+        font-size: 13px;
+    }
+    .app-statistics-value {
+      font-size: 25px;
     }
   }
-
-  .fill {
-    z-index : 2; 
-    width : 100%; 
-    height: 100%;
-    position : absolute;  
-    bottom : 0;
-  }
-}
-
-.speed1 {
-  background : #81c784;
-}
-.speed2 {
-  background : #f69679;
-}
-.speed3 {
-  background : #92bafb;
-}
-.speed4 {
-  background : #9b92fb;
 }
