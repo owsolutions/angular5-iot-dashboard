@@ -3,7 +3,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { appReducersGenerator } from './app.reducers';
 import { createRoutes  } from './app.routes';
 import { NgMediaModule } from 'ng-media';
@@ -151,20 +150,13 @@ export class AppComponent {
     PrivacyPolicyComponent,
   ],
   imports: [
-    BrowserAnimationsModule,
-    BrowserModule,
-    FormsModule,
     NgxUserModule,
     NgxSidebarModule,
     RealtimeDocumentModule,
     NgxTooltipModule,
-    ToasterModule.forRoot(),
-    HttpModule,
-    NgMediaModule,
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    HttpModule,
     NgMediaModule,
     ToasterModule.forRoot(),
     createRoutes (),

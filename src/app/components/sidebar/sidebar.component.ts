@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SidebarWidgetItem } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { AppState, CloudDevice } from '@app/definitions';
-import { values } from 'lodash';
+import { values } from '@lodash';
 
 @Component({
   selector: 'app-sidebar',

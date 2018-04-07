@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, AfterContentInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppState, ILocation, CloudDevice } from '@app/definitions';
 import { Store } from '@ngrx/store';
-import { times } from 'lodash';
+import { times } from '@lodash';
 import { NgMediaComponent } from 'ng-media';
 import { RequestsService } from '@app/services/requests.service';
 import { IotImages, IsSuccessEntity, error } from '@app/common';
