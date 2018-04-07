@@ -1,43 +1,68 @@
-language: node_js
-node_js:
-  - "9"
+matrix:
+  include:
+    - language: node_js
+      node_js:
+        - "9"
 
-branches:
-  only:
-    - master
+      branches:
+        only:
+          - master
 
-before_script:
-  - npm install -g @angular/cli
+      before_script:
+        - npm install -g @angular/cli
 
-cache:
-  yarn: true
-  directories:
-    - $HOME/.yarn-cache
-    - node_modules
+      cache:
+        yarn: true
+        directories:
+          - $HOME/.yarn-cache
+          - node_modules
 
-dist: trusty
-addons:
-  chrome: stable
+      dist: trusty
+      addons:
+        chrome: stable
 
-before_install:  
- - export CHROME_BIN=/usr/bin/google-chrome
- - export DISPLAY=:99.0
- - sh -e /etc/init.d/xvfb start
- - sudo apt-get update
- - sudo apt-get install -y libappindicator1 fonts-liberation
- - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
- - sudo dpkg -i google-chrome*.deb
- - sudo sysctl fs.inotify.max_user_watches=524288
- - sudo sysctl fs.inotify.max_queued_events=524288
- - sudo sysctl -p
+      before_install:  
+      - export CHROME_BIN=/usr/bin/google-chrome
+      - export DISPLAY=:99.0
+      - sh -e /etc/init.d/xvfb start
+      - sudo apt-get update
+      - sudo apt-get install -y libappindicator1 fonts-liberation
+      - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      - sudo dpkg -i google-chrome*.deb
+      - sudo sysctl fs.inotify.max_user_watches=524288
+      - sudo sysctl fs.inotify.max_queued_events=524288
+      - sudo sysctl -p
 
-script:
-  - npm run lint
-  - npm run build
-  - npm run build:mock
-  - npm run ci
+      script:
+        - npm run lint
+        - npm run build
+        - npm run build:mock
+        - npm run ci
 
-notifications:
-  email:
-    on_failure: change
-    on_success: change
+    - language: android
+
+      node_js:
+        - 5.5
+
+      notifications:
+        email: false
+
+      sudo: false
+
+
+      install:
+        - npm cache clean
+        - npm install
+        - npm install -g cordova
+        - echo y | android update sdk -u --filter android-22,android-23
+
+      before_script:
+        - cordova platform rm android
+        - cordova platform add android
+
+      script:
+        - cordova prepare
+        - cordova build android --release -- --ant
+        
+      release:
+        - exit 0  
