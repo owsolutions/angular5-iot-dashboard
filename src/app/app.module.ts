@@ -72,6 +72,7 @@ import { ExperimentalComponent } from './components/experimental/experimental.co
 import { NgxTooltipModule } from './components/ngx-tooltip/ngx-tooltip.module';
 import { PageContainerComponent } from './components/page-container/page-container.component';
 import { SendingInformationHttpsComponent } from './components/docs/sending-information-https/sending-information-https.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 
 declare var require: any;
@@ -147,6 +148,7 @@ export class AppComponent {
     ExperimentalComponent,
     PageContainerComponent,
     SendingInformationHttpsComponent,
+    PrivacyPolicyComponent,
   ],
   imports: [
     BrowserAnimationsModule,

@@ -14,6 +14,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { AuthGuard } from '@services/user.service';
 import { ExperimentalComponent } from '@app/components/experimental/experimental.component';
 import { SendingInformationHttpsComponent } from './components/docs/sending-information-https/sending-information-https.component';
+import { PrivacyPolicyComponent } from '@app/components/privacy-policy/privacy-policy.component';
 
 export function AuthLayout (component: any, route: string, options: any = {}): Route {
   return {
@@ -54,6 +55,10 @@ export function AuthLayoutChild(component: any, route: string, options: any = {}
 
 export const appRoutes: Routes = [
   {   path: '', redirectTo: '/index', pathMatch: 'full' },
+  {
+    path: 'privacy-policy',
+    component: PrivacyPolicyComponent,
+  },
   {
     path: '',
     canActivate: [AuthGuard],
