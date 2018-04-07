@@ -8,9 +8,6 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "paths": {
-      "rxjs": [
-        "./vendor/rxjs.ts"
-      ],
       "@app/*": ["app/*"],
       "@components/*": ["app/components/*"],
       "@services/*": ["app/services/*"]
