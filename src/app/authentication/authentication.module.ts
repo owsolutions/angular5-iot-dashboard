@@ -12,6 +12,7 @@ import { MaterialInputDirective } from './material-input.directive';
 import { MockInterceptor} from '../services/mock.interceptor';
 import { environment } from '../../environments/environment';
 import { MockService } from '@app/services/mocks.service';
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MockService } from '@app/services/mocks.service';
     LoginFormComponent,
     SignupFormComponent,
     ProgressLineComponent,
-    MaterialInputDirective
+    MaterialInputDirective,
+    ErrorMessageComponent
   ],
   imports: [
     BrowserModule,

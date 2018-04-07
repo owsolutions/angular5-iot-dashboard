@@ -151,7 +151,7 @@ export class MockService {
       return {
         error: {
           code: 1,
-          message: 'Please fix the errors within the form',
+          message: 'Signup cannot be completed due to some errors. Please fix marked fields and try again',
           errors: hasUnvalidFields(form)
         }
       };
