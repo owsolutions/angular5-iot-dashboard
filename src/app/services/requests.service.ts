@@ -8,7 +8,7 @@ import { environment } from 'environments/environment';
 import { MockService } from '@app/services/mocks.service';
 import { IResponse } from 'response-type';
 import { GetNetworkError, IsSuccessEntity } from '@app/common';
-import { random } from 'lodash';
+import { random } from '@lodash';
 import 'rxjs/add/operator/toPromise';
 
 declare var io: any;

@@ -1,7 +1,7 @@
 import { Component, OnInit, ApplicationRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState, CloudDevice } from '@app/definitions';
-import { values } from 'lodash';
+import { values } from '@lodash';
 import { DailyStatistics } from '../../../mocks/dailyStatistics';
 import { HistoryStatistics } from '../../../mocks/historyStatistics';
 

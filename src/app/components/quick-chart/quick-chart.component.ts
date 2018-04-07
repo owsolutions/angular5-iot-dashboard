@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { times, random } from 'lodash';
+import { times, random } from '@lodash';
 declare var Highcharts: any;
 
 @Component({

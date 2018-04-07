@@ -8,6 +8,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "paths": {
+      "@lodash": ["vendor/lodash.ts"],
       "@app/*": ["app/*"],
       "@components/*": ["app/components/*"],
       "@services/*": ["app/services/*"]

@@ -8,7 +8,7 @@ import { PermissionsService } from '@services/permissions.service';
 import { IUserForm, CloudDevice, DataSource } from '@app/definitions';
 import { CloudDeviceType } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
-import { random } from 'lodash';
+import { random } from '@lodash';
 import { ILocation } from '@app/definitions';
 
 
