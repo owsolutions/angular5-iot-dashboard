@@ -1,0 +1,57 @@
+
+.container-login {
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: #f2f2f2;
+    .wrap-login {
+        max-width: 690px;
+        background: #fff;
+        border-radius: 3px;
+        overflow: hidden;
+        padding: 45px 45px 33px 45px;
+        box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+        -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+        -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+        .login-header {
+            font-size: 23px;
+            padding-bottom: 10px;
+            span {
+                display: inline-block;
+                margin-bottom: 10px
+            }
+            p {
+                font-size: 15px;
+            }
+        }
+        .login-button {
+            margin: 25px 0;
+            button {
+                border-radius: 3px;
+                padding-right: 25px;
+                padding-left: 25px;
+            }
+        }
+        .message {
+            font-size: 15px;
+        }
+    }
+}
+
+pre {
+  white-space: pre-wrap;       /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
