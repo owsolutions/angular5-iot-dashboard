@@ -41,8 +41,8 @@ matrix:
 
     - language: android
 
-      node_js:
-        - "9"
+      - before_install:
+        - nvm install 9
 
       notifications:
         email: false
