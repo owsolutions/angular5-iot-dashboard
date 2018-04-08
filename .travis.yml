@@ -1,43 +1,67 @@
-language: node_js
-node_js:
-  - "9"
-
-branches:
-  only:
-    - master
-
-before_script:
-  - npm install -g @angular/cli
-
-cache:
-  yarn: true
-  directories:
-    - $HOME/.yarn-cache
-    - node_modules
-
-dist: trusty
-addons:
-  chrome: stable
-
-before_install:  
- - export CHROME_BIN=/usr/bin/google-chrome
- - export DISPLAY=:99.0
- - sh -e /etc/init.d/xvfb start
- - sudo apt-get update
- - sudo apt-get install -y libappindicator1 fonts-liberation
- - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
- - sudo dpkg -i google-chrome*.deb
- - sudo sysctl fs.inotify.max_user_watches=524288
- - sudo sysctl fs.inotify.max_queued_events=524288
- - sudo sysctl -p
-
-script:
-  - npm run lint
-  - npm run build
-  - npm run build:mock
-  - npm run ci
-
-notifications:
-  email:
-    on_failure: change
-    on_success: change
+matrix:
+  include:
+  - language: node_js
+    node_js:
+    - '9'
+    branches:
+      only:
+      - master
+    before_script:
+    - npm install -g @angular/cli
+    cache:
+      yarn: true
+      directories:
+      - "$HOME/.yarn-cache"
+      - node_modules
+    dist: trusty
+    addons:
+      chrome: stable
+    before_install:
+    - export CHROME_BIN=/usr/bin/google-chrome
+    - export DISPLAY=:99.0
+    - sh -e /etc/init.d/xvfb start
+    - sudo apt-get update
+    - sudo apt-get install -y libappindicator1 fonts-liberation
+    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - sudo dpkg -i google-chrome*.deb
+    - sudo sysctl fs.inotify.max_user_watches=524288
+    - sudo sysctl fs.inotify.max_queued_events=524288
+    - sudo sysctl -p
+    script:
+    - npm run lint
+    - npm run build
+    - npm run build:mock
+    - npm run ci
+  - language: android
+    android:
+      components:
+      - tools
+    notifications:
+      email: false
+    before_install:
+    - yes | sdkmanager "platforms;android-26"
+    install:
+    - nvm install 9
+    - npm install
+    - npm install -g cordova
+    - echo y | android update sdk -u --filter android-22,android-23
+    before_deploy:
+    - git config --local user.name "TravisBuildAgent"
+    - git config --local user.email "travis@travis-ci.org"
+    - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+    deploy:
+      provider: releases
+      api_key:
+        secure: hu/XAmiqTJDH+4rGGEgTZATXIlX/9RjYTq3wS2+1ltnmEqNmKuImCLpz4W+Gd2WLa4nE04zVZONSjVwLjx1eNKO/mM5TPMT4NL2zZsEGDkKXajBRe+WiyZafvVZTNfbmTxmPnOoQQW0I3IjNVPEltx6dwBny0423cqkQcR9ORxGgZNvL+Ic/AuHEahQmdZzP74gk2hWFNh75U4sN2O0vstWqH2c1EU3owk0NYaw/1QMfy0Mk5sI7/87tlae8AuZ6wqWIkCYuUQHnEDfyYva3Qj0vPnde4fLvf+MOiDZ1y+uuFP44LjjjFdMntOIeGq8SU+7OrwWyU7t/wbB8e+VXqjnjzxoWEIw0xWtRXi+sPpVcKJgyhayJu5+eJlj3LK22rMKtzRhLg2lTG1xOBL7YLHnanBFPAyZRVGtPH9YFEFcwuJvDLXoQQVuZWy+nOtAxvsBxKf4fPFGXVfnigRdtZrx/7yauVUVer1rJndxsRNrGhIBFrVzLiP5Xg701Lc1XDLk1XxCEEv7HOj0OEiP8jL+FZL0q3JXO2C2yE1X/fLJ3pPFLmHBqbMTNYkQs7LhtVmtN0aKcGosvRChVeFQjevkG23se2wxHuIbx3NMz9ipumzuHUt+TZQOaTn3TqxUmo1b7Uim5hKZKMq6CTGyPoOjHywQDo76gZxj6ZMpAtZ8=
+      file: "/home/travis/build/owsolutions/angular5-iot-dashboard/mobile/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk"
+      on:
+        repo: owsolutions/angular5-iot-dashboard    
+    before_script:
+    - cordova platform rm android
+    - cordova platform add android
+    script:
+    - cd mobile
+    - cordova prepare
+    - cordova build android --release -- --ant
+    release:
+    - exit 0
