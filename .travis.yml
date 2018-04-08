@@ -42,13 +42,10 @@ matrix:
     - language: android
 
       node_js:
-        - 5.5
+        - "9"
 
       notifications:
         email: false
-
-      sudo: false
-
 
       install:
         - npm cache clean
