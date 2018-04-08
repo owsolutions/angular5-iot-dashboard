@@ -1,7 +1,7 @@
 <div class="form-group">
   <label for="inputName">{{name}}*</label>
   <div class="input-group Name">
-    <select type="text" class="form-control" (change)="onInputChange($event)">
+    <select type="text" class="form-control" [name]="name" (change)="onInputChange($event)">
       <option *ngFor="let option of options" [selected]="(option.value ? option.value : option.name) == selected" value="{{option.value ? option.value : option.name}}">{{option.name}}</option>
     </select>
   </div>
