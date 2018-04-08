@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build": "ng build --env=prod -prod",
+    "build:mobile": "ng build --env=prod -prod --app 1",
     "build:local": "ng build --env=prodlocal -prod",
     "build:mock": "ng build --env=prodmock -prod",
     "test": "ng test",

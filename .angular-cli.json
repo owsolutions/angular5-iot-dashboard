@@ -42,6 +42,41 @@
         "github": "environments/environment.github.ts",
         "hmr": "environments/environment.hmr.ts"
       }
+    },
+    {
+      "root": "src",
+      "outDir": "mobile/www",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index-mobile.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "assets/css/forms-style.css",
+        "styles.scss",
+        "../node_modules/simplebar/dist/simplebar.css"
+      ],
+      "scripts": [
+        "../node_modules/simplebar/dist/simplebar.js"
+      ],
+      "stylePreprocessorOptions": {
+        "includePaths": [
+          "../src/assets/scss"
+        ]
+      },
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts",
+        "hmr": "environments/environment.hmr.ts"
+      }
     }
   ],
   "e2e": {
