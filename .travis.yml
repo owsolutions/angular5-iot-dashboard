@@ -43,7 +43,6 @@ matrix:
 
       - before_install:
         - nvm install 9
-
       notifications:
         email: false
 
