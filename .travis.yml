@@ -40,6 +40,9 @@ matrix:
         - npm run ci
 
     - language: android
+      android:
+        components:
+          - tools
 
       notifications:
         email: false
