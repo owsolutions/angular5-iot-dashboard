@@ -45,6 +45,7 @@ matrix:
     - npm install
     - npm install -g cordova
     - echo y | android update sdk -u --filter android-22,android-23
+    - npm run build:mobile
     before_deploy:
     - git config --local user.name "TravisBuildAgent"
     - git config --local user.email "travis@travis-ci.org"
