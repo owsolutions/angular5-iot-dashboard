@@ -58,6 +58,7 @@ matrix:
         - cordova platform add android
 
       script:
+        - cd mobile
         - cordova prepare
         - cordova build android --release -- --ant
         
