@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppState, CloudDevice, ILocation } from '@app/definitions';
+import { AppState, CloudDevice, ILocation, IUser } from '@app/definitions';
 import { PermissionsService } from './permissions.service';
 import 'rxjs/add/observable/of';
 import { Store } from '@ngrx/store';
@@ -93,6 +93,19 @@ export class RequestsService {
           });
         }
       }
+      return response;
+    } catch (error) {
+      if (error.name === 'HttpErrorResponse') {
+        return GetNetworkError();
+      }
+      return error;
+    }
+  }
+
+  public async UpdateUserProfile (user: IUser): Promise<IResponse<IUser>> {
+    const ref = this.http.post(environment.api + '/api/user/settings' , user).toPromise();
+    try {
+      const response: IResponse<IUser> = await ref;
       return response;
     } catch (error) {
       if (error.name === 'HttpErrorResponse') {

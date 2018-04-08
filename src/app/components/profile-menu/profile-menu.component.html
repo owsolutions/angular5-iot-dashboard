@@ -1,9 +1,9 @@
 <div class="avatar-container d-flex flex-row justify-content-center align-items-center">
   <div class="p-2">
-    <div *ngIf="true" style="text-transform: uppercase;" class="avatar-name">{{name(display)}}</div>
+    <div *ngIf="true" style="text-transform: uppercase;" class="avatar-name app-avatar-name">{{name(display)}}</div>
   </div>
   <div class="p-2 pname">
-    {{display}}
+    <a routerLink="/profile" class="app-profile-view">{{display}}</a>
     <!-- <i class="icon-expand_more"></i> -->
   </div>
 </div>

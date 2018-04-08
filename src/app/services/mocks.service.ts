@@ -5,7 +5,7 @@ import { IResponse, IResponseErrorItem } from 'response-type';
 import { matchPattern } from 'url-matcher';
 import { environment } from '../../environments/environment';
 import { PermissionsService } from '@services/permissions.service';
-import { IUserForm, CloudDevice, DataSource } from '@app/definitions';
+import { IUserForm, CloudDevice, DataSource, IUser } from '@app/definitions';
 import { CloudDeviceType } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { random } from '@lodash';
@@ -25,7 +25,8 @@ export class MockService {
     'POST /api/forget-password': 'forgetPassword',
     'POST /api/location': 'postLocation',
     'DELETE /api/location/:id': 'deleteLocation',
-    'DELETE /api/device/:id': 'deleteDevice'
+    'DELETE /api/device/:id': 'deleteDevice',
+    'POST /api/user/settings': 'updateUserProfile'
 
   };
 
@@ -354,6 +355,16 @@ export class MockService {
             level: location.level,
             temperatureDevice: location.temperatureDevice
           }
+        ]
+      }
+    };
+  }
+  public updateUserProfile(req: HttpRequest<any>): IResponse<IUser> {
+    const user: IUser = req.body;
+    return {
+      data: {
+        items: [
+          user
         ]
       }
     };

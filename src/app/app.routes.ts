@@ -15,6 +15,7 @@ import { AuthGuard } from '@services/user.service';
 import { ExperimentalComponent } from '@app/components/experimental/experimental.component';
 import { SendingInformationHttpsComponent } from './components/docs/sending-information-https/sending-information-https.component';
 import { PrivacyPolicyComponent } from '@app/components/privacy-policy/privacy-policy.component';
+import { ProfileComponent } from '@app/components/profile/profile.component';
 
 export function AuthLayout (component: any, route: string, options: any = {}): Route {
   return {
@@ -73,6 +74,7 @@ export const appRoutes: Routes = [
         AuthLayoutChild (ActivityComponent, 'activities'),
         AuthLayoutChild (DevicesComponent, 'devices'),
         AuthLayoutChild (DeviceSingleComponent, 'device/create'),
+        AuthLayoutChild (ProfileComponent, 'profile'),
         AuthLayoutChild (DeviceSingleComponent, 'device/:id'),
         AuthLayoutChild (ExperimentalComponent, 'experimental'),
         AuthLayoutChild (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
