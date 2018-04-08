@@ -55,6 +55,17 @@ matrix:
         - npm install -g cordova
         - echo y | android update sdk -u --filter android-22,android-23
 
+      before_deploy:
+        # Set up git user name and tag this commit
+        - git config --local user.name "TravisBuildAgent"
+        - git config --local user.email "travis@travis-ci.org"
+        - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+      deploy:
+        provider: releases
+        api_key: "GITHUB OAUTH TOKEN"
+        file: "/home/travis/build/owsolutions/angular5-iot-dashboard/mobile/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk"
+        skip_cleanup: true
+
       before_script:
         - cordova platform rm android
         - cordova platform add android
