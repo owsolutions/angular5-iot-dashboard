@@ -41,12 +41,14 @@ matrix:
 
     - language: android
 
-      - before_install:
-        - nvm install 9
+      node_js:
+        - "9"
+
       notifications:
         email: false
 
       install:
+        - nvm install 9
         - npm cache clean
         - npm install
         - npm install -g cordova
