@@ -25,15 +25,13 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   };
 
   public error = error;
-  private toasterService: ToasterService;
   constructor(
     private route: ActivatedRoute,
     private store: Store<AppState>,
     private router: Router,
     private requests: RequestsService,
-    toasterService: ToasterService
+    private toasterService: ToasterService
   ) {
-    this.toasterService = toasterService;
    }
 
   ngOnInit() {
