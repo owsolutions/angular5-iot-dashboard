@@ -53,9 +53,12 @@ matrix:
       provider: releases
       api_key:
         secure: hu/XAmiqTJDH+4rGGEgTZATXIlX/9RjYTq3wS2+1ltnmEqNmKuImCLpz4W+Gd2WLa4nE04zVZONSjVwLjx1eNKO/mM5TPMT4NL2zZsEGDkKXajBRe+WiyZafvVZTNfbmTxmPnOoQQW0I3IjNVPEltx6dwBny0423cqkQcR9ORxGgZNvL+Ic/AuHEahQmdZzP74gk2hWFNh75U4sN2O0vstWqH2c1EU3owk0NYaw/1QMfy0Mk5sI7/87tlae8AuZ6wqWIkCYuUQHnEDfyYva3Qj0vPnde4fLvf+MOiDZ1y+uuFP44LjjjFdMntOIeGq8SU+7OrwWyU7t/wbB8e+VXqjnjzxoWEIw0xWtRXi+sPpVcKJgyhayJu5+eJlj3LK22rMKtzRhLg2lTG1xOBL7YLHnanBFPAyZRVGtPH9YFEFcwuJvDLXoQQVuZWy+nOtAxvsBxKf4fPFGXVfnigRdtZrx/7yauVUVer1rJndxsRNrGhIBFrVzLiP5Xg701Lc1XDLk1XxCEEv7HOj0OEiP8jL+FZL0q3JXO2C2yE1X/fLJ3pPFLmHBqbMTNYkQs7LhtVmtN0aKcGosvRChVeFQjevkG23se2wxHuIbx3NMz9ipumzuHUt+TZQOaTn3TqxUmo1b7Uim5hKZKMq6CTGyPoOjHywQDo76gZxj6ZMpAtZ8=
-      file: "/home/travis/build/owsolutions/angular5-iot-dashboard/mobile/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk"
+      file: "$TRAVIS_BUILD_DIR/mobile/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk"
       on:
         repo: owsolutions/angular5-iot-dashboard    
+      skip_cleanup: true
+      overwrite: true
+      prerelease: true
     before_script:
     - cordova platform rm android
     - cordova platform add android
