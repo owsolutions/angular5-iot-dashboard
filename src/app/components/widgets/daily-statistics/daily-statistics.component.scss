@@ -8,10 +8,14 @@
   font-size: 12px;
   text-align: center;
   padding-top: 30px;
+  width: 100%;
 }
 
 .widget-value{
     margin-top: 12px;
+    p {
+        margin-bottom: 0;
+    }
     .widget-lable{
         font-size: 21px;
         color: #999;
@@ -21,6 +25,14 @@
         position: relative;
         top: -4px;
         left: 10px;
+    }
+    @media (max-width: 991.98px) { 
+        .widget-lable{
+            font-size: 18px;
+        }
+        .current-value{
+            font-size: 20px;
+        }
     }
 }
 
@@ -45,5 +57,13 @@
         color: #888;
         font-size: 14px;
         font-weight: 400;
+    }
+    @media (max-width: 991.98px) { 
+        .d-2{
+            font-size: 14px;
+        }
+        p {
+            font-size: 11px;
+        }
     }
 }

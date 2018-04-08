@@ -36,9 +36,15 @@ body {
           border-bottom: 1px solid #eee;
           h2 {
               font-size: 20px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
           }
           p {
               margin: 0;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
           }
           .add-button {
               margin: 10px 0;
