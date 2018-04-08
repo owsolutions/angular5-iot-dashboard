@@ -20,7 +20,8 @@ export class ProfileComponent implements OnInit {
     firstname: null,
     lastname: null,
     role: null,
-    username: null
+    username: null,
+    phone: null
   };
   constructor(
     private toasterService: ToasterService,
@@ -41,7 +42,7 @@ export class ProfileComponent implements OnInit {
         const $user = response.data.items[0];
         this.user.SetUser($user);
         this.toasterService.pop('success', 'Profile updated',
-          'Your profile changes has been saved. Some of the changes may affect in the next signin.');;
+          'Your profile changes has been saved. Some of the changes may affect in the next signin.'); ;
       }
       this.response = response;
     } catch (error) {
