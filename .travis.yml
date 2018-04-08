@@ -41,9 +41,6 @@ matrix:
 
     - language: android
 
-      node_js:
-        - "9"
-
       notifications:
         email: false
 
