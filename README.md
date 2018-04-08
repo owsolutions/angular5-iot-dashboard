@@ -2,21 +2,39 @@
 
 
 # Smart angular dashboard ( Angular Iot Dashboard )
-IoT (Internet of Things) specific dashboard based on Angular 4. Many reusable components, you can inspire and implement your own version of hosted iot dashboard using Angular IoT dashboard. A real-time compatible dashboard for any browser.
-The goal of this repository is to be a resilience front-end for smart homes, smart offices, and industrial automation. 
-**This project is heavily under development; In case you need to use some components in production level, please contact the owners**
+Angular 5 Dashboard is a management dashboard for many purposes, focused on IoT, smart home, and autonomous.
+This project, is a fully functional app and is being used in some Iot infrastructure, as well as a hosted service.
+We will continously update the workflow of the application. You can use components from this project and get inspired how
+an intellgence dashboard can be working.
+Either you can fork this project, or build your own app, and import components from this repository.
+
+Please try to keep components as untouched possible if you want to get the weekly updates and improvements. In case your
+business logic is different from the way we are implementing ours, try to consult with us to build your own version,
+and still get benefit of minor and major features from our environment.
+
+keywords: Angular 5 Dashboard, Angular 4 Dashboard, Iot Dashboard using Angular, Interactive dashboard, Realtime Console,Realtime Console Angular.
+
+# Stable Features
+We list our stable features that are working as enterprise level inside the application.
+
+* User signup
+* User signin
+* User customizable dashboard
+* Managing locations, create and search, and assign devices
+* Connect devices using REST api, connect and integrate them in dashboard
+* Interactive documentation for the api
+* Mobile version support using cordova
+
 
 ![Smart home app](screenshot-2.png "Smart home app")
 
-# Features
-This project has a decoupled data layer and view layer. 
-The logic behind this app is connecting your physical devices to cloud, and make widgets based on their IO, and distribute between your locations.
-We are covering user/role control access, and tracking activities. Since project is heavily under development, we are in doubt of our 
-first stable version features yet.
 
 ## Technical stack
 
-* Project is based on Angular 4 and angular CLI. For developing, we've added `npm run hmr` to provide hot reloading, but for production level we use `npm run production`, which calls `ng *` tasks directly.
+* Project is based on Angular 5 and angular CLI. For developing, we've added `npm run hmr` to provide hot reloading, but for production level we use `npm run build`, which calls `ng *` tasks directly.
+Please review the package.json for different building environments. *This application can be run without any api or microservices, all endpoints having interactive mocks*. Since each customer might need a different way of building the application, we just put building examples.
+In case you are distributing this app again for your own purposes, please make your own environments and add them to `.angular-cli.json` file, and update the package, respectively.
+
 * We are using highcharts library for our charts. For any incoming pull requests that containing other chart libraries, please open an issue first and describe why it's not possible to do it using highcharts.
 * Lodash, and NgRx store are used heavily for data flow.
 * Async/Await concepts are everywhere since project is a realtime dashboard
@@ -25,6 +43,17 @@ write your CI specific configuration. We will cover CircleCI build in a near fut
 * This project will produce only static files, project demo is hosted on the `Google firebase` but you can host the `dist` folder anywhere you want.
 * We have a specific data flow, for catching data from server and posting back the user actions. Document for them currently missing, but you might check `requests.service` and `actions.service`
 for this purpose.
+
+# Mobile version
+This application also will be bundled into a cordova app for Android applications. We put the apk files into github releases, which are not signed. Please feel free to sign them by your own keystore.
+
+Read about signing a apk file here:
+https://stackoverflow.com/questions/10930331/how-to-sign-an-already-compiled-apk
+
+then, you can publish it or install it for test purposes. Please notice that we build our apk with mock data,
+so that app is not connected to any remote server and is only, for testing and demonstration purposes.
+
+Please fork the app, and update or CI/CD to build with your endpoint address or extra configuration.
 
 ## Live preview
 
