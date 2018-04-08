@@ -49,7 +49,6 @@ matrix:
 
       install:
         - nvm install 9
-        - npm cache clean
         - npm install
         - npm install -g cordova
         - echo y | android update sdk -u --filter android-22,android-23
