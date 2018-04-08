@@ -32,6 +32,15 @@ matrix:
     - npm run build
     - npm run build:mock
     - npm run ci
+    - npm run build:github
+    deploy:
+      provider: pages
+      skip-cleanup: true
+      local-dir: dist
+      github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+      keep-history: true
+      on:
+        branch: master
   - language: android
     android:
       components:
