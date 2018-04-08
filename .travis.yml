@@ -47,6 +47,8 @@ matrix:
       notifications:
         email: false
 
+      before_install:
+        - yes | sdkmanager "platforms;android-26"
       install:
         - nvm install 9
         - npm install
