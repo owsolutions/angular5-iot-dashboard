@@ -3,7 +3,7 @@
 
 <app-error-message *ngIf="response && response.error">{{response.error.message}}</app-error-message>
 
-<app-page-container [title]="( form.id ? 'Update' : 'Create' ) + ' location'" 
+<app-page-container [maintitle]="( form.id ? 'Update' : 'Create' ) + ' location'" 
   subtitle="Categorize the devices and distribute them into locations and floors.">
   <div style="max-width: 600px;">
 
