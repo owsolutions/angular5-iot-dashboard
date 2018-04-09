@@ -78,9 +78,11 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   }
 
   public DeleteDevice () {
-    this.requests.deleteDevice(this.form.id);
-    this.toasterService.pop('error', 'Your Device Deleted', this.form.name);
-    this.router.navigateByUrl('/devices');
+    if (confirm('Are you sure to delete this device?')) {
+      this.requests.deleteDevice(this.form.id);
+      this.toasterService.pop('error', 'Your Device Deleted', this.form.name);
+      this.router.navigateByUrl('/devices');
+    }
   }
   public DeviceGeneralChange (data: any) {
     this.form = Object.assign(this.form, data);

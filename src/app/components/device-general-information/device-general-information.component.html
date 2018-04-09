@@ -9,7 +9,8 @@
               <input class="form-control app-device-general-name" 
                 [(ngModel)]="form.name"
                 (ngModelChange)="SubmitChange()"
-                type="text" placeholder="Device display name" id="name">                                  
+                type="text" placeholder="Device display name" id="name">
+            <span class="error-message-inline" *ngIf="error(response, 'name')">{{error(response, 'name')}}</span>
           </div>
       </div>
       <div class="col-md-6 unit">
@@ -19,6 +20,7 @@
                 [(ngModel)]="form.datasource"
                 (ngModelChange)="SubmitChange()"
                 type="text" placeholder="Datasource id when your hardware requests the api" id="datasource">
+              <span class="error-message-inline" *ngIf="error(response, 'datasource')">{{error(response, 'datasource')}}</span>
           </div>
       </div>
       <div class="unit col-md-6 ">
@@ -35,7 +37,7 @@
           <label class="label">Location</label>
           <label class="input select">
               <select class="form-control" [(ngModel)]="form.location" (ngModelChange)="SubmitChange()">
-                  <option *ngFor="let location of locations" [value]="location.id">{{location.name}} (Level {{location.level}})</option>
+                <option *ngFor="let location of locations" [value]="location.id">{{location.name}} (Level {{location.level}})</option>
               </select>
               <i></i>
           </label>
