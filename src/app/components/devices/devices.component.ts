@@ -54,10 +54,11 @@ export class DevicesComponent implements  OnInit, OnDestroy {
   }
 
   public DeleteDevice (id: number) {
-    this.requests.deleteDevice(id);
-    this.toasterService.pop('error', 'Your Device Deleted', this.devices.filter(x => x.id === id)[0].name);
-    this.router.navigateByUrl('/devices');
-
+    if (confirm('Are you sure to delete this device?')) {
+      this.requests.deleteDevice(id);
+      this.toasterService.pop('error', 'Your Device Deleted', this.devices.filter(x => x.id === id)[0].name);
+      this.router.navigateByUrl('/devices');
+    }
   }
 
   public FindLocationName (id: number): string {
