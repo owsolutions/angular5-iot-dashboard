@@ -801,7 +801,7 @@ MIT
 MIT
 MIT
 
-core-js@2.5.4
+core-js@2.5.5
 MIT
 Copyright (c) 2014-2018 Denis Pushkarev
 
