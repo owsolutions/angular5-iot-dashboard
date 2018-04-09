@@ -27,7 +27,6 @@ function CastHistoryToSeries (items: Array<DataSource>): Array<Array<any>> {
 })
 export class DailyStatisticsComponent implements OnInit, AfterViewInit {
 
-  public token = '';
   public chartName = 'live-tempreture';
   public data: any = {};
   @Input('device') public device: CloudDevice = null;
