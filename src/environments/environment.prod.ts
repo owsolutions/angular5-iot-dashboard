@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   hmr: false,
-  api: '/'
+  api: 'http://159.65.113.50'
 };
