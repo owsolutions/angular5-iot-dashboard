@@ -52,9 +52,12 @@ export class DevicesComponent implements  OnInit, OnDestroy {
     this._ref2.unsubscribe();
   }
 
-  public DeleteDevice (device: CloudDevice) {
-    this.notification.InvokeDeviceDelete(device);
-    this.requests.deleteDevice(device.id);
+  public DeleteDevice (id: number) {
+    if (confirm('Are you sure to delete this device?')) {
+      this.requests.deleteDevice(id);
+      this.notification.InvokeDeviceDelete(device);
+      this.router.navigateByUrl('/devices');
+    }
   }
 
   public FindLocationName (id: number): string {
