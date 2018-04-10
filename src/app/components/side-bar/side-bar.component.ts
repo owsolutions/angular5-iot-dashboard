@@ -112,8 +112,8 @@ export class SideBarComponent implements OnInit {
       title: 'Logout',
     }
   ];
-  constructor(public _sdieController: SidebarControllerService) {
-    this._sdieController.ToggleSidebar.subscribe((e) => {
+  constructor(public sidebar: SidebarControllerService) {
+    this.sidebar.ToggleSidebar.subscribe((e) => {
       if (e === 'hidden' && !this.keepOpen) {
         this.sideState = false;
         return;

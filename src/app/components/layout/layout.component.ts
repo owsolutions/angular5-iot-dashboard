@@ -12,18 +12,19 @@ import { ToasterConfig } from 'angular2-toaster';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
+  public isRequesting = false;
   public sideState = true;
   public toastConfig: ToasterConfig = new ToasterConfig({
     animation: 'flyRight',
     positionClass: 'toast-bottom-right'
   });
   constructor(
-    public _sdieController: SidebarControllerService,
+    public sidebar: SidebarControllerService,
     private realtime: RealtimeService,
     private requests: RequestsService,
     private user: UserService,
   ) {
-    this._sdieController.ToggleSidebar.subscribe((e) => {
+    this.sidebar.ToggleSidebar.subscribe((e) => {
       if (e === 'hidden') {
         this.sideState = false;
         return;
@@ -36,6 +37,7 @@ export class LayoutComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isRequesting = true;
     if (window.innerWidth < 992) {
       this.sideState = false;
     }
@@ -46,12 +48,13 @@ export class LayoutComponent implements OnInit {
       if (environment.production) {
         this.realtime.connectToRoom(this.user.GetToken());
       }
+      this.isRequesting = false;
     }, 500);
   }
 
   sideOff() {
     if (this.sideState) {
-      this._sdieController.closeSidebar();
+      this.sidebar.closeSidebar();
     }
   }
 

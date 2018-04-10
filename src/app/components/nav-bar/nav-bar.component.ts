@@ -8,12 +8,12 @@ import { SidebarControllerService } from '../ngx-sidebar/sidebar-controller.serv
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(public _sdieController: SidebarControllerService) { }
+  constructor(public sidebar: SidebarControllerService) { }
 
   ngOnInit() {
   }
 
   ToggleSidebar() {
-    this._sdieController.ToggleSidebar.emit();
+    this.sidebar.ToggleSidebar.emit();
   }
 }
