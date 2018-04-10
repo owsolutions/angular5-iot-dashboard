@@ -12,6 +12,7 @@ import { ToasterConfig } from 'angular2-toaster';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
+  public isRequesting = false;
   public sideState = true;
   public toastConfig: ToasterConfig = new ToasterConfig({
     animation: 'flyRight',
@@ -36,6 +37,7 @@ export class LayoutComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isRequesting = true;
     if (window.innerWidth < 992) {
       this.sideState = false;
     }
@@ -46,6 +48,7 @@ export class LayoutComponent implements OnInit {
       if (environment.production) {
         this.realtime.connectToRoom(this.user.GetToken());
       }
+      this.isRequesting = false;
     }, 500);
   }
 
