@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { AppState, ILocation, DataSource } from '@app/definitions';
+import { AppState, ILocation, DataSource, CloudDevice } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { RequestsService } from '@services/requests.service';
 import { Router } from '@angular/router';
@@ -52,9 +52,9 @@ export class DevicesComponent implements  OnInit, OnDestroy {
     this._ref2.unsubscribe();
   }
 
-  public DeleteDevice (id: number) {
+  public DeleteDevice (device: CloudDevice) {
     if (confirm('Are you sure to delete this device?')) {
-      this.requests.deleteDevice(id);
+      this.requests.deleteDevice(device.id);
       this.notification.InvokeDeviceDelete(device);
       this.router.navigateByUrl('/devices');
     }
