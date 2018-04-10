@@ -4,7 +4,7 @@ import { AppState, CloudDevice, DataSource } from '@app/definitions';
 import { random, isNumber } from '@lodash';
 import { environment } from 'environments/environment';
 import { IsDataSource } from '@app/common';
-import { ToasterService } from 'angular2-toaster';
+import { NotificationService } from '@app/services/notification.service';
 
 declare var Pusher: any;
 
@@ -25,9 +25,8 @@ export class RealtimeService {
   public unconnectedDevices: Array<DataSource> = [];
   constructor(
     private store: Store<AppState>,
-    private toast: ToasterService,
     private ref: ApplicationRef,
-    private toaster: ToasterService,
+    private notification: NotificationService,
   ) {
 
     this.store.select('devices').subscribe((devices) => {
@@ -58,8 +57,7 @@ export class RealtimeService {
       this.RecieveDataSourceIncoming(data);
     });
     io.socket.on('connect', () => {
-      console.log('connected to socket server');
-      this.toaster.popAsync('success', 'Server', 'You are now connected');
+      this.notification.InvokeSocketConnect();
     });
   }
 
@@ -72,9 +70,7 @@ export class RealtimeService {
       }
     };
     io.socket.request(options, (data) => {
-      // connects the socket to the room on server.
-      console.warn('Connected to the room', data);
-      this.toast.popAsync('success', 'Server' , 'Your connected to server');
+      this.notification.InvokeRoomConnect();
     });
   }
 

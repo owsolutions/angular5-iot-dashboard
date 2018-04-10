@@ -6,7 +6,7 @@ import { RequestsService } from '@app/services/requests.service';
 import 'rxjs/add/operator/toPromise';
 import { IResponse } from 'response-type';
 import { error } from '@app/common';
-import { ToasterService } from 'angular2-toaster';
+import { NotificationService } from '@app/services/notification.service';
 
 @Component({
   selector: 'app-device-single',
@@ -30,7 +30,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
     private store: Store<AppState>,
     private router: Router,
     private requests: RequestsService,
-    private toasterService: ToasterService
+    private notification: NotificationService,
   ) {
    }
 
@@ -67,8 +67,12 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
       const response: IResponse<CloudDevice> = await this.requests.PostDevice(device);
       if (response.data && response.data.items && response.data.items[0]) {
         this.router.navigateByUrl('/devices');
-        const toaserTitle = (!this.form.id) ? 'Device Created Succesfully' : 'Device Edited!';
-        this.toasterService.pop('success', toaserTitle, response.data.items[0].name);
+        if (this.form.id) {
+          this.notification.InvokeDeviceUpdate(response.data.items[0]);
+        } else {
+          this.notification.InvokeDeviceCreate(response.data.items[0]);
+        }
+        
       }
       this.response = response;
     } catch (error) {
@@ -79,7 +83,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
 
   public DeleteDevice () {
     this.requests.deleteDevice(this.form.id);
-    this.toasterService.pop('error', 'Your Device Deleted', this.form.name);
+    this.notification.InvokeDeviceDelete(this.form);
     this.router.navigateByUrl('/devices');
   }
   public DeviceGeneralChange (data: any) {

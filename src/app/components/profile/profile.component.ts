@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from '@app/definitions';
 import { IResponse } from 'response-type';
-import { ToasterService } from 'angular2-toaster';
 import { Router } from '@angular/router';
 import { RequestsService } from '@app/services/requests.service';
 import { UserService } from '@app/services/user.service';
+import { NotificationService } from '@app/services/notification.service';
 
 @Component({
   selector: 'app-profile',
@@ -24,10 +24,10 @@ export class ProfileComponent implements OnInit {
     phone: null
   };
   constructor(
-    private toasterService: ToasterService,
     private router: Router,
     private requests: RequestsService,
     private user: UserService,
+    private notification: NotificationService,
   ) { }
 
   ngOnInit() {
@@ -41,8 +41,7 @@ export class ProfileComponent implements OnInit {
       if (response.data && response.data.items && response.data.items[0]) {
         const $user = response.data.items[0];
         this.user.SetUser($user);
-        this.toasterService.pop('success', 'Profile updated',
-          'Your profile changes has been saved. Some of the changes may affect in the next signin.'); ;
+        this.notification.InvokeProfileUpdate();
       }
       this.response = response;
     } catch (error) {

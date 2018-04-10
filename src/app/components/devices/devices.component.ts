@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { AppState, ILocation, DataSource } from '@app/definitions';
+import { AppState, ILocation, DataSource, CloudDevice } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { RequestsService } from '@services/requests.service';
 import { Router } from '@angular/router';
-import { ToasterService } from 'angular2-toaster';
+import { NotificationService } from '@app/services/notification.service';
 
 @Component({
   selector: 'app-devices',
@@ -22,9 +22,8 @@ export class DevicesComponent implements  OnInit, OnDestroy {
     public chRef: ChangeDetectorRef,
     private router: Router,
     private store: Store<AppState>,
-    private toasterService: ToasterService
+    private notification: NotificationService,
   ) {
-    this.toasterService = toasterService;
    }
 
   ngOnInit() {
@@ -53,11 +52,9 @@ export class DevicesComponent implements  OnInit, OnDestroy {
     this._ref2.unsubscribe();
   }
 
-  public DeleteDevice (id: number) {
-    this.requests.deleteDevice(id);
-    this.toasterService.pop('error', 'Your Device Deleted', this.devices.filter(x => x.id === id)[0].name);
-    this.router.navigateByUrl('/devices');
-
+  public DeleteDevice (device: CloudDevice) {
+    this.notification.InvokeDeviceDelete(device);
+    this.requests.deleteDevice(device.id);
   }
 
   public FindLocationName (id: number): string {

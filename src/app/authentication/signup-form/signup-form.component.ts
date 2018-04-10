@@ -6,7 +6,7 @@ import { environment } from '../../../environments/environment';
 import { UserService } from '@services/user.service';
 import { Router } from '@angular/router';
 import { GetNetworkError } from '@app/common';
-import { ToasterService } from 'angular2-toaster';
+import { NotificationService } from '@app/services/notification.service';
 
 @Component({
   selector: 'app-signup-form',
@@ -28,19 +28,14 @@ export class SignupFormComponent implements OnInit {
     private http: HttpClient,
     private user: UserService,
     private router: Router,
-    private toaster: ToasterService
+    private notification: NotificationService,
   ) { }
-
   ngOnInit() {
   }
-
-
   async signup (e) {
     e.preventDefault();
     this.isRequesting = true;
-
     this.signupHttp(this.form);
-
   }
   public error (fieldName: string) {
     if ( ! this.response || ! this.response.error || !this.response.error.errors) {
@@ -64,9 +59,8 @@ export class SignupFormComponent implements OnInit {
         if (this.response.data && this.response.data.items[0]) {
           this.user.SetUser(this.response.data.items[0].user);
           this.user.SetToken(this.response.data.items[0].token);
-          const message = 'Welcome to your dashboard. Please read introductions, in Integration>Docs to learn more.';
-          this.toaster.popAsync('success', 'Signup successful', message);
           this.router.navigateByUrl('/index');
+          this.notification.InvokeUserSignup();
         }
         this.onSignupSuccess(response);
       },
