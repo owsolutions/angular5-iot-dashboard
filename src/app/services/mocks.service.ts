@@ -437,5 +437,11 @@ function DeviceValidator (device: CloudDevice) {
       message: 'Device must have a name to be identified'
     });
   }
+  if ( ! device.datasource) {
+    errors.push({
+      location: 'datasource',
+      message: 'You must connect device to a data source'
+    });
+  }
   return errors;
 }
