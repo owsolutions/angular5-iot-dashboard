@@ -75,7 +75,7 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
       if (this.form.id) {
         this.notification.InvokeLocationUpdate($location);
       } else {
-        this.notification.InvokeLocationDelete($location);
+        this.notification.InvokeLocationCreate($location);
       }
       this.router.navigateByUrl('/locations');
     }

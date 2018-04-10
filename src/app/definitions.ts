@@ -162,3 +162,8 @@ export interface PagePointerPosition {
   x: number;
   y: number;
 }
+export interface INotification {
+  title?: string;
+  type: 'error' | 'success';
+  message?: string;
+}
