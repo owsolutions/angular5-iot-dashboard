@@ -45,19 +45,14 @@ export class RealtimeService {
    * For people who have developed their backend service in sails.js
    */
   public StartSailsSocket () {
-
     io.sails.url = environment.api;
     io.sails.autoConnect = true;
     io.socket.on('DataSourceChange', (data: DataSource) => {
-      console.warn('Data change', data);
       if (!IsDataSource(data)) {
         console.warn('Recieved a data source which is not valid: ', data);
         return false;
       }
       this.RecieveDataSourceIncoming(data);
-    });
-    io.socket.on('connect', () => {
-      this.notification.InvokeSocketConnect();
     });
   }
 
