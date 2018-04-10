@@ -1,11 +1,6 @@
-@import 'injects';
-
-.place-container {
-    > div{
-        padding: 15px 20px 5px;
-        border-bottom: 2px solid #f1f1f1;
-        &:hover{
-            background: #F9F9F9;
-        }
+.box-title {
+    h2 {
+        margin: 0;
+        color: #9ea8bb;
     }
 }
