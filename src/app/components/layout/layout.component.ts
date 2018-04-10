@@ -19,12 +19,12 @@ export class LayoutComponent implements OnInit {
     positionClass: 'toast-bottom-right'
   });
   constructor(
-    public _sdieController: SidebarControllerService,
+    public sidebar: SidebarControllerService,
     private realtime: RealtimeService,
     private requests: RequestsService,
     private user: UserService,
   ) {
-    this._sdieController.ToggleSidebar.subscribe((e) => {
+    this.sidebar.ToggleSidebar.subscribe((e) => {
       if (e === 'hidden') {
         this.sideState = false;
         return;
@@ -54,7 +54,7 @@ export class LayoutComponent implements OnInit {
 
   sideOff() {
     if (this.sideState) {
-      this._sdieController.closeSidebar();
+      this.sidebar.closeSidebar();
     }
   }
 

@@ -71,6 +71,7 @@ export interface IPermission {
 export interface AppState {
   devices: Array<CloudDevice>;
   roles: Array<IRole>;
+  notifications: Array<INotification>;
   locations: Array<any>;
   activities: Array<IActivity>;
   unconnectedSources: Array<DataSource>;
@@ -161,4 +162,9 @@ export interface CloudDevice {
 export interface PagePointerPosition {
   x: number;
   y: number;
+}
+export interface INotification {
+  title?: string;
+  type: 'error' | 'success';
+  message?: string;
 }
