@@ -5,6 +5,8 @@ import { DataSource } from '@app/definitions';
 export function unconnectedReducer (state: Array<DataSource> = [], action: Action) {
   const payload: DataSource = action.payload;
   switch (action.type) {
+    case 'RESET':
+      return [];
     case 'UPDATE_UNCONNECTED_DATA_SOURCE':
       return UpdateOrInsert(payload , state, 'dataSourceId', true);
     case 'CLEAR_UNCONNECTED_SOURCE':
