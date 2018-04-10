@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { AppState, ILocation, DataSource, CloudDevice } from '@app/definitions';
+import { AppState, ILocation, DataSource } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { RequestsService } from '@services/requests.service';
 import { Router } from '@angular/router';
