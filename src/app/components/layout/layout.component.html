@@ -1,5 +1,5 @@
+<app-progress-line *ngIf="isRequesting"></app-progress-line>
 <toaster-container [toasterconfig]="toastConfig"></toaster-container>
-
 <app-nav-bar></app-nav-bar>
 <app-side-bar></app-side-bar>
 <div [ngClass]="{'side-on': sideState }"  data-simplebar id="layout" (click)="sideOff();">
