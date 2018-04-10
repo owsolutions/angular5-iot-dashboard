@@ -71,6 +71,7 @@ export interface IPermission {
 export interface AppState {
   devices: Array<CloudDevice>;
   roles: Array<IRole>;
+  notifications: Array<INotification>;
   locations: Array<any>;
   activities: Array<IActivity>;
   unconnectedSources: Array<DataSource>;
