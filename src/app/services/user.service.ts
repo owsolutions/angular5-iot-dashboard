@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { IUser } from '@app/definitions';
+import { IUser, AppState } from '@app/definitions';
 import { RequestsService } from '@services/requests.service';
 import { PermissionsService } from '@app/services/permissions.service';
+import { Store } from '@ngrx/store';
 
 @Injectable()
 export class UserService {
@@ -11,6 +12,7 @@ export class UserService {
   private token: string;
   constructor (
     private requests: RequestsService,
+    private store: Store<AppState>,
     private permissions: PermissionsService
   ) {
     try {
@@ -68,6 +70,9 @@ export class UserService {
   }
   public Revoke () {
     this.SetToken(null);
+    this.store.dispatch({
+      type: 'RESET'
+    });
     this.SetUser(null);
   }
 }

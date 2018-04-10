@@ -4,6 +4,8 @@ import { CloudDevice, DataSource, Action } from '@app/definitions';
 export const UPDATE_DEVICE = 'UPDATE_DEVICE';
 export function devicesReducer (state: Array<CloudDevice> = [], action: Action) {
   switch (action.type) {
+    case 'RESET':
+      return [];
     case 'UPDATE_DEVICE':
       return UpdateOrInsert(action.payload , state, 'id', true);
     case 'DELETE_DEVICE':
