@@ -87,10 +87,10 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
 
   async ngOnInit() {
     this.currentData = this.data.series[0].data;
-    await this.GetDevice();
+    await this.GetDevice(this.device.id);
   }
 
-  private async GetDevice(id: number = 1) {
+  private async GetDevice(id: number) {
     try {
       const response = await this.requests.getDeviceDailyHisotry(id);
       this.dailyHistory = response.data.items;
@@ -112,7 +112,7 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
   async setChart(index) {
     if (this.activeIndex !== index) {
       this.activeIndex = index;
-      const data = await this.GetDayHistory(1, new Date());
+      const data = await this.GetDayHistory(this.device.id, new Date());
       this.currentData = data;
       this.drawChart();
     }
