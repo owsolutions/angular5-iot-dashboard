@@ -9,6 +9,7 @@ declare var Highcharts: any;
 })
 export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
   @Input() data: any;
+  public newData: any;
   public currentData: Array<any>;
   public activeIndex = 0;
   drawChart() {
@@ -89,8 +90,8 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
 
   private async GetDevice (id: number = 1) {
     try {
-      const result = await this.requests.getDeviceDailyHisotry(id);
-      console.log('Device daily source: ', result);
+      this.newData = await this.requests.getDeviceDailyHisotry(id);
+    //   console.log('Device daily source: ', result);
     } catch (error) {
     }
   }
