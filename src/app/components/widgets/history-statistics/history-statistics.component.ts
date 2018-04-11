@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { RequestsService } from '@app/services/requests.service';
+import { CloudDevice } from '@app/definitions';
 declare var Highcharts: any;
 
 @Component({
@@ -9,6 +10,7 @@ declare var Highcharts: any;
 })
 export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
   @Input() data: any;
+  @Input('device') public device: CloudDevice = null;
   public dailyHistory: any = [];
   public currentData: Array<any>;
   public activeIndex = 0;
