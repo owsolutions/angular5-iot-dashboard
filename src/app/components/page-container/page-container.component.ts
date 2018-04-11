@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PageContainerComponent implements OnInit {
 
-  @Input('title') public title = '';
+  @Input('maintitle') public maintitle = '';
   @Input('subtitle') public subtitle = '';
   constructor() { }
 

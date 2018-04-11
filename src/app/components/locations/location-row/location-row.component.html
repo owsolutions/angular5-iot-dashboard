@@ -1,28 +1,14 @@
-<a class="place-row-link" routerLink='/locations/edit/{{location.id}}'>
+<!-- <a class="place-row-link" routerLink='/locations/edit/{{location.id}}'> -->
   <div class="row place-row clearfix">
-    <div class="col title-icon">
-      <h2>{{location.name}}</h2>
-      <img width='200px' [src]="location.icon" [alt]="location.name">
-    </div>
-    <div class="col value-box" *ngIf="primaryTemperature">
-      <h4>Temperature</h4>
-      <div class="value">
-          {{primaryTemperature}}<sup>&#8451;</sup>
-      </div>
+    <div class="imaga-wrapper">
+      <img class="location-image" [src]="location.icon" [alt]="location.name">
     </div>
     <div class="col" *ngIf="widgets.length">
-      <h4>Devices</h4>
-      <br><br>
       <ul class="list-names" *ngIf="widgets && widgets.length > 0">
         <li *ngFor="let device of widgets;">
-          <div style="float:left; margin-right: 30px;">
-            <app-output-pin-view [device]="device"></app-output-pin-view>
-          </div>
-          
-          {{device.name}}
+         <i class="icon-thermometer-lines"></i> {{device.name}} : <span class="status">{{device.value}} <sup>°C</sup></span>
         </li>
       </ul>
     </div>
-    <span class="next-icon icon-arrow_forward"></span>
   </div>
-</a>
+<!-- </a> -->
