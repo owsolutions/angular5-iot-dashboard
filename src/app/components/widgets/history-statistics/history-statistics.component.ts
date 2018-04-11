@@ -14,85 +14,84 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
   public activeIndex = 0;
   drawChart() {
     Highcharts.chart('history-statistics', {
-        chart: {
-          events: {
-              redraw: function () {
-                const self = this;
-                setTimeout (function () {
-                    self.reflow();
-                }, 10);
-              }
-          },
+      chart: {
+        events: {
+          redraw: function () {
+            const self = this;
+            setTimeout(function () {
+              self.reflow();
+            }, 10);
+          }
         },
-        credits: {
-            enabled: false
-        },
+      },
+      credits: {
+        enabled: false
+      },
+      title: {
+        text: null
+      },
+      yAxis: {
         title: {
-            text: null
+          text: null,
         },
-        yAxis: {
-            title: {
-                text: null,
-            },
-            labels: {
-                enabled: false
-            },
-            gridLineColor: '#f5f5f5'
+        labels: {
+          enabled: false
         },
-        legend: {
-            layout: 'horizontal',
-            align: 'left',
-            verticalAlign: 'top',
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-                pointStart: 1
-            }
-        },
-        series: [{
-            name: this.data.unit,
-            data: this.currentData,
-            type: 'spline',
-            dashStyle: 'ShortDash',
-            showInLegend: false,
-            marker: {
-              enabled: false,
-            }
-        }],
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
+        gridLineColor: '#f5f5f5'
+      },
+      legend: {
+        layout: 'horizontal',
+        align: 'left',
+        verticalAlign: 'top',
+      },
+      plotOptions: {
+        series: {
+          label: {
+            connectorAllowed: false
+          },
+          pointStart: 1
         }
+      },
+      series: [{
+        name: this.data.unit,
+        data: this.currentData,
+        type: 'spline',
+        dashStyle: 'ShortDash',
+        showInLegend: false,
+        marker: {
+          enabled: false,
+        }
+      }],
+      responsive: {
+        rules: [{
+          condition: {
+            maxWidth: 500
+          },
+          chartOptions: {
+            legend: {
+              layout: 'horizontal',
+              align: 'center',
+              verticalAlign: 'bottom'
+            }
+          }
+        }]
+      }
     });
   }
 
   constructor(
     private requests: RequestsService,
-  ) {}
+  ) { }
 
   async ngOnInit() {
     this.currentData = this.data.series[0].data;
     await this.GetDevice();
   }
 
-  private async GetDevice (id: number = 1) {
+  private async GetDevice(id: number = 1) {
     try {
       const response = await this.requests.getDeviceDailyHisotry(id);
       this.dailyHistory = response.data.items;
-    //   console.log('Device daily source: ', result);
     } catch (error) {
     }
   }
@@ -101,7 +100,7 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
     this.drawChart();
   }
 
-  private async GetDayHistory (id: number, date: Date): Promise<number[]> {
+  private async GetDayHistory(id: number, date: Date): Promise<number[]> {
     try {
       const response = await this.requests.GetDeviceDayHistory(id, date);
       return response.data.items;
