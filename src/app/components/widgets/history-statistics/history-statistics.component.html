@@ -33,7 +33,7 @@
     <div data-simplebar class="p-2 hs-table">
       <table class="table table-hover">
         <tbody>
-          <tr *ngFor="let serie of newData.data.items; let i = index" (click)="setChart(i)" [ngClass]="{'active': i === activeIndex }">
+          <tr *ngFor="let serie of dailyHistory; let i = index" (click)="setChart(i)" [ngClass]="{'active': i === activeIndex }">
             <td>
               {{serie.date | date:'MMM - dd'}}
               <!-- <span [class]="serie.changeRate.status === 'up'? 'text-success' : 'text-danger'">

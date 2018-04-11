@@ -76,7 +76,7 @@ export class RequestsService {
     );
   }
 
-  public async getDeviceDailyHisotry (id: number) {
+  public async getDeviceDailyHisotry (id: number): Promise<IResponse<any>> {
     const url = environment.api + '/api/devices/daily-history/' + id;
     const ref = this.http.get(url).toPromise();
     try {
