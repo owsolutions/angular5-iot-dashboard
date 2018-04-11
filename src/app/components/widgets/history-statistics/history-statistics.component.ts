@@ -130,8 +130,4 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
       this.drawChart();
     }
   }
-
-  calcPrecent() {
-
-  }
 }
