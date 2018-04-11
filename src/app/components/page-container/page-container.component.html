@@ -1,20 +1,21 @@
 <div class="box-wrapper">
   <div class="row">
     <div class="box-title">
-        <h2>{{title}}</h2>
-        <p>{{subtitle}}</p>
+      <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <div class="d-2 elips-inner-content">
+            <h2 [title]="maintitle">{{maintitle}}</h2>
+            <p [title]="subtitle">{{subtitle}}</p>
+        </div>
+        <div class="d-2">
+          <ng-content select=[action-button]></ng-content>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="widget-container">
-    <div class="widget-content">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="j-forms">
-            <div class="form-content">
-              <ng-content></ng-content>
-            </div>
-          </div>
-        </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="j-forms">
+        <ng-content></ng-content>
       </div>
     </div>
   </div>

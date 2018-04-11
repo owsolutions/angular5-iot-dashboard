@@ -2,7 +2,8 @@
     There are no devices. Please create devices and you will be able to manage them here.
 </app-error-message>
 
-<app-page-container title="Devices" subtitle="All of your Devices in your Application">
+<app-page-container maintitle="Devices" subtitle="All of your Devices in your Application">
+  <a class="btn btn-primary add-button" routerLink="../device/create" action-button>Add New Device</a>
   <div ngx-sidebar-off class="table-responsive iot-table">
     <table class="table app-devices-table">
       <thead>

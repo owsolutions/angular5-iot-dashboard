@@ -214,6 +214,7 @@ body {
             }
             td {
                 border-color: #eee;
+                vertical-align: middle;
                 &:not(:nth-child(1)) {
                     text-align: center;
                 }
@@ -236,6 +237,11 @@ body {
     }
 }
 
+.elips-inner-content{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .preloader{
     width: 100%;

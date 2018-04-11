@@ -1,11 +1,39 @@
 
 
-<ng-container *ngFor="let location of locations;">
+<!-- <ng-container *ngFor="let location of locations;">
   <div class="box-wrapper">
     <app-location-row [widgets]="actions.findWidgets(devices, location)" [location]="location"></app-location-row>
   </div>
-</ng-container>
+</ng-container> -->
 
+<app-page-container maintitle="Locations" subtitle="All of your Locations in your Application">
+  <a class="btn btn-primary add-button" routerLink="../location/new" action-button >Add New Location</a>
+  <div ngx-sidebar-off class="table-responsive iot-table">
+    <table class="table app-devices-table">
+      <thead>
+        <tr>
+          <th class="text-center w-150">Image</th>
+          <th>Location name</th>
+          <th>Level</th>
+          <th>Location temperature</th>
+          <th class="action-column">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let location of locations" class="app-devices-row">
+          <td><img width='125px' [src]="location.icon" [alt]="location.name"></td>
+          <td>{{location.name}}</td>
+          <td>{{location.level}}</td>
+          <td>{{getLocationTempreture(location.temperatureDevice)}}</td>
+          <td>
+            <a [routerLink]="'/locations/edit/' + location.id "><i [Tooltip]="'Edit'" class="icon-mode_edit action-btn"></i></a>
+            <a (click)="DeleteLocation(location.id)"><i [Tooltip]="'Delete'" class="icon-delete action-btn"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</app-page-container>
 
 <app-error-message *ngIf="locations.length === 0">
   There are no locations. Please create locations and you will be able to manage them here.
