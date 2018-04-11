@@ -162,3 +162,10 @@ export interface PagePointerPosition {
   x: number;
   y: number;
 }
+/**
+ * Shows a device usage per month, and it's details.
+ */
+export interface ICloudDeviceDailyHistory {
+  date: Date;
+  average: number;
+}

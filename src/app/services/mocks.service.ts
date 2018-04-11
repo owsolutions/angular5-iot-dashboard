@@ -5,7 +5,7 @@ import { IResponse, IResponseErrorItem } from 'response-type';
 import { matchPattern } from 'url-matcher';
 import { environment } from '../../environments/environment';
 import { PermissionsService } from '@services/permissions.service';
-import { IUserForm, CloudDevice, DataSource, IUser } from '@app/definitions';
+import { IUserForm, CloudDevice, DataSource, IUser, ICloudDeviceDailyHistory } from '@app/definitions';
 import { CloudDeviceType } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { random } from '@lodash';
@@ -26,8 +26,8 @@ export class MockService {
     'POST /api/location': 'postLocation',
     'DELETE /api/location/:id': 'deleteLocation',
     'DELETE /api/device/:id': 'deleteDevice',
-    'POST /api/user/settings': 'updateUserProfile'
-
+    'POST /api/user/settings': 'updateUserProfile',
+    'GET /api/devices/daily-history/:id': 'GetDeviceDailyHistory'
   };
 
   constructor (
@@ -358,6 +358,27 @@ export class MockService {
         ]
       }
     };
+  }
+  public GetDeviceDailyHistory (req: HttpRequest<any>): IResponse<ICloudDeviceDailyHistory> {
+    // const id = req.body.id;
+    return {
+      data: {
+        items: [
+          {
+            date: new Date('2018-09-10'),
+            average: 33.5
+          },
+          {
+            date: new Date('2018-09-09'),
+            average: 32.5
+          },
+          {
+            date: new Date('2018-09-08'),
+            average: 31.5
+          }
+        ]
+      }
+    }
   }
   public updateUserProfile(req: HttpRequest<any>): IResponse<IUser> {
     const user: IUser = req.body;

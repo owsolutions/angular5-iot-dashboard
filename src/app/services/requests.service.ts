@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppState, CloudDevice, ILocation, IUser } from '@app/definitions';
+import { AppState, CloudDevice, ILocation, IUser, ICloudDeviceDailyHistory } from '@app/definitions';
 import { PermissionsService } from './permissions.service';
 import 'rxjs/add/observable/of';
 import { Store } from '@ngrx/store';
@@ -76,6 +76,19 @@ export class RequestsService {
     );
   }
 
+  public async getDeviceDailyHisotry (id: number) {
+    const ref = this.http.get(environment.api + '/api/devices/daily-history/' + id).toPromise();
+    try {
+      const response: IResponse<ICloudDeviceDailyHistory> = await ref;
+      return response;
+    } catch (error) {
+      if (error.name === 'HttpErrorResponse') {
+        return GetNetworkError();
+      }
+      return error;
+    }
+  }
+
   public async PostDevice (device: CloudDevice): Promise<IResponse<CloudDevice>> {
     const ref = this.http.post(environment.api + '/api/device' , device).toPromise();
     try {
@@ -102,6 +115,7 @@ export class RequestsService {
     }
   }
 
+  
   public async UpdateUserProfile (user: IUser): Promise<IResponse<IUser>> {
     const ref = this.http.post(environment.api + '/api/user/settings' , user).toPromise();
     try {
