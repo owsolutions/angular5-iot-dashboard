@@ -1,8 +1,12 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { RequestsService } from '@app/services/requests.service';
-import { CloudDevice } from '@app/definitions';
+import { CloudDevice, ICloudDeviceDailyHistory } from '@app/definitions';
 declare var Highcharts: any;
 
+interface IComponentHistory extends ICloudDeviceDailyHistory {
+  status: 'up' | 'down';
+  changeRate: string;
+}
 @Component({
   selector: 'app-history-statistics',
   templateUrl: './history-statistics.component.html',
@@ -10,7 +14,7 @@ declare var Highcharts: any;
 })
 export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
   @Input('device') public device: CloudDevice = null;
-  public dailyHistory: any = [];
+  public dailyHistory: Array<IComponentHistory> = [];
   public currentData: Array<any>;
   public activeIndex = 0;
   drawChart() {
@@ -86,26 +90,30 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
 
   async ngOnInit() {
     await this.GetDevice(this.device.id);
-    this.fetchChart();
+    this.fetchChart(this.dailyHistory[0].date);
   }
 
+  private CalculateChangeRate(items: Array<ICloudDeviceDailyHistory>): Array<IComponentHistory> {
+
+    return items.map((item: IComponentHistory, i) => {
+      if (items.length - 1 > i) {
+        const currentValue = item.average;
+        const nextValue = items[i + 1].average;
+        if (currentValue > nextValue) {
+          item.status = 'up';
+          item.changeRate = Math.abs(((nextValue - currentValue) / currentValue) * 100).toFixed(1);
+        } else {
+          item.status = 'down';
+          item.changeRate = Math.abs(((currentValue - nextValue) / nextValue) * 100).toFixed(1);
+        }
+      }
+      return item;
+    }) as Array<IComponentHistory>;
+  }
   private async GetDevice(id: number) {
     try {
       const response = await this.requests.getDeviceDailyHisotry(id);
-      response.data.items.map((item, i) => {
-        if (response.data.items.length - 1 > i) {
-            const currentValue = item.average;
-            const nextValue = response.data.items[i + 1].average;
-            if (currentValue > nextValue) {
-                item.status = 'up';
-                item.changeRate = Math.abs(((nextValue - currentValue) / currentValue ) * 100).toFixed(1);
-            }else {
-                item.status = 'down';
-                item.changeRate = Math.abs(((currentValue - nextValue) / nextValue ) * 100).toFixed(1);
-            }
-        }
-      });
-      this.dailyHistory = response.data.items;
+      this.dailyHistory = this.CalculateChangeRate(response.data.items);
     } catch (error) {
     }
   }
@@ -121,14 +129,14 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
     } catch (error) {
     }
   }
-  async setChart(index) {
+  async setChart(index: number, date: Date) {
     if (this.activeIndex !== index) {
       this.activeIndex = index;
-      this.fetchChart();
+      this.fetchChart(date);
     }
   }
-  public async fetchChart () {
-    const data = await this.GetDayHistory(this.device.id, new Date());
+  public async fetchChart(date: Date) {
+    const data = await this.GetDayHistory(this.device.id, date);
     this.currentData = data;
     this.drawChart();
   }
