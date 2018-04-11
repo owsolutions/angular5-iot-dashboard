@@ -16,8 +16,12 @@
           <app-daily-statistics [id]="device.id"></app-daily-statistics>
         </div>
       </div>
-      <app-quick-chart
-        *ngIf="device.preferences.DisplayAverageLastWeekInSidebar"></app-quick-chart>
+
+      <div class=" col-md-8 col-sm-6" *ngIf="device.preferences.DisplayHistoryStatisticsInHome">
+        <div class="box-wrapper no-padding">
+          <app-history-statistics [device]="device"></app-history-statistics>
+        </div>
+      </div>
     </ng-container>
   </ng-container>
 </div>

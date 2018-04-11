@@ -123,7 +123,7 @@ export enum TemperatureCustomization {
 
 export interface IDeviceDisplayPreference {
   DisplayRealTimeTemperatureInSidebar?: boolean;
-  DisplayAverageLastWeekInSidebar?: boolean;
+  DisplayHistoryStatisticsInHome?: boolean;
 }
 
 export interface DataSource {
@@ -163,6 +163,15 @@ export interface PagePointerPosition {
   x: number;
   y: number;
 }
+
+/**
+ * Shows a device usage per month, and it's details.
+ */
+export interface ICloudDeviceDailyHistory {
+  date: Date;
+  average: number;
+}
+
 export interface INotification {
   title?: string;
   type: 'error' | 'success';

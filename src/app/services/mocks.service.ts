@@ -5,10 +5,10 @@ import { IResponse, IResponseErrorItem } from 'response-type';
 import { matchPattern } from 'url-matcher';
 import { environment } from '../../environments/environment';
 import { PermissionsService } from '@services/permissions.service';
-import { IUserForm, CloudDevice, DataSource, IUser } from '@app/definitions';
+import { IUserForm, CloudDevice, DataSource, IUser, ICloudDeviceDailyHistory } from '@app/definitions';
 import { CloudDeviceType } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
-import { random } from '@lodash';
+import { random, times } from '@lodash';
 import { ILocation } from '@app/definitions';
 
 
@@ -18,7 +18,9 @@ export class MockService {
     'POST /api/user/signin': 'signIn',
     'POST /api/user/signup': 'signUp',
     'GET /api/locations': 'getLocations',
+    'GET /api/devices/daily-history/:id': 'GetDeviceDailyHistory',
     'GET /api/devices/token': 'getDevicesToken',
+    'GET /api/devices/day-history/:date/:id': 'GetDeviceDayHistory',
     'GET /api/devices': 'getDevices',
     'GET /api/unconnected': 'getUnconnected',
     'POST /api/device': 'postDevice',
@@ -26,8 +28,7 @@ export class MockService {
     'POST /api/location': 'postLocation',
     'DELETE /api/location/:id': 'deleteLocation',
     'DELETE /api/device/:id': 'deleteDevice',
-    'POST /api/user/settings': 'updateUserProfile'
-
+    'POST /api/user/settings': 'updateUserProfile',
   };
 
   constructor (
@@ -73,6 +74,13 @@ export class MockService {
     return Observable.of( mockResponse );
   }
 
+  public GetDeviceDayHistory(req: HttpRequest<any>): IResponse<number> {
+    return {
+      data: {
+        items: times(24 , () => random (10, 30)),
+      }
+    };
+  }
   public mockUser () {
     return {
       email: 'alitorabi@seekasia.com',
@@ -195,8 +203,8 @@ export class MockService {
             value: random(10, 30),
             location: 1,
             preferences: {
-              DisplayAverageLastWeekInSidebar: true,
-              DisplayRealTimeTemperatureInSidebar: true
+              DisplayRealTimeTemperatureInSidebar: true,
+              DisplayHistoryStatisticsInHome: true
             }
           },
           {
@@ -207,7 +215,6 @@ export class MockService {
             value: random(10, 30),
             location: 1,
             preferences: {
-              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -219,7 +226,6 @@ export class MockService {
             value: random(10, 30),
             location: 1,
             preferences: {
-              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -231,7 +237,6 @@ export class MockService {
             value: random(10, 30),
             location: 2,
             preferences: {
-              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -243,7 +248,6 @@ export class MockService {
             value: random(10, 30),
             location: 2,
             preferences: {
-              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -255,7 +259,6 @@ export class MockService {
             value: random(10, 30),
             location: 2,
             preferences: {
-              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -267,7 +270,6 @@ export class MockService {
             value: random(10, 30),
             location: 3,
             preferences: {
-              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -279,7 +281,6 @@ export class MockService {
             value: random(10, 30),
             location: 3,
             preferences: {
-              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -354,6 +355,27 @@ export class MockService {
             name: location.name,
             level: location.level,
             temperatureDevice: location.temperatureDevice
+          }
+        ]
+      }
+    };
+  }
+  public GetDeviceDailyHistory (req: HttpRequest<any>): IResponse<ICloudDeviceDailyHistory> {
+    // const id = req.body.id;
+    return {
+      data: {
+        items: [
+          {
+            date: new Date('2018-09-10'),
+            average: 33.5
+          },
+          {
+            date: new Date('2018-09-09'),
+            average: 35.2
+          },
+          {
+            date: new Date('2018-09-08'),
+            average: 31.5
           }
         ]
       }

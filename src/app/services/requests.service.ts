@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppState, CloudDevice, ILocation, IUser, ISettingsUpdateResponse } from '@app/definitions';
+import { AppState, CloudDevice, ILocation, IUser, ICloudDeviceDailyHistory, ISettingsUpdateResponse } from '@app/definitions';
 import { PermissionsService } from './permissions.service';
 import 'rxjs/add/observable/of';
 import { Store } from '@ngrx/store';
@@ -74,6 +74,34 @@ export class RequestsService {
       (response: any) => {
       },
     );
+  }
+
+  public async GetDeviceDayHistory(id: number, date: Date): Promise<IResponse<number>> {
+    const url = environment.api + '/api/devices/day-history/' + date + '/' + id;
+    const ref = this.http.get(url).toPromise();
+    try {
+      const response: IResponse<number> = await ref;
+      return response;
+    } catch (error) {
+      if (error.name === 'HttpErrorResponse') {
+        return GetNetworkError();
+      }
+      return error;
+    }
+  }
+
+  public async getDeviceDailyHisotry (id: number): Promise<IResponse<ICloudDeviceDailyHistory>> {
+    const url = environment.api + '/api/devices/daily-history/' + id;
+    const ref = this.http.get(url).toPromise();
+    try {
+      const response: IResponse<ICloudDeviceDailyHistory> = await ref;
+      return response;
+    } catch (error) {
+      if (error.name === 'HttpErrorResponse') {
+        return GetNetworkError();
+      }
+      return error;
+    }
   }
 
   public async PostDevice (device: CloudDevice): Promise<IResponse<CloudDevice>> {
