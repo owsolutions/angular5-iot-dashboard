@@ -9,7 +9,6 @@ declare var Highcharts: any;
   styleUrls: ['./history-statistics.component.scss']
 })
 export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
-  @Input() data: any;
   @Input('device') public device: CloudDevice = null;
   public dailyHistory: any = [];
   public currentData: Array<any>;
@@ -55,7 +54,7 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
         }
       },
       series: [{
-        name: this.data.unit,
+        name: 'Centigrade',
         data: this.currentData,
         type: 'spline',
         dashStyle: 'ShortDash',
@@ -86,8 +85,8 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
   ) { }
 
   async ngOnInit() {
-    this.currentData = this.data.series[0].data;
     await this.GetDevice(this.device.id);
+    this.fetchChart();
   }
 
   private async GetDevice(id: number) {
@@ -125,9 +124,12 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
   async setChart(index) {
     if (this.activeIndex !== index) {
       this.activeIndex = index;
-      const data = await this.GetDayHistory(this.device.id, new Date());
-      this.currentData = data;
-      this.drawChart();
+      this.fetchChart();
     }
+  }
+  public async fetchChart () {
+    const data = await this.GetDayHistory(this.device.id, new Date());
+    this.currentData = data;
+    this.drawChart();
   }
 }
