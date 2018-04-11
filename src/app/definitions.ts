@@ -71,6 +71,7 @@ export interface IPermission {
 export interface AppState {
   devices: Array<CloudDevice>;
   roles: Array<IRole>;
+  notifications: Array<INotification>;
   locations: Array<any>;
   activities: Array<IActivity>;
   unconnectedSources: Array<DataSource>;
@@ -162,10 +163,21 @@ export interface PagePointerPosition {
   x: number;
   y: number;
 }
+
 /**
  * Shows a device usage per month, and it's details.
  */
 export interface ICloudDeviceDailyHistory {
   date: Date;
   average: number;
+}
+
+export interface INotification {
+  title?: string;
+  type: 'error' | 'success';
+  message?: string;
+}
+export interface ISettingsUpdateResponse {
+  token: string;
+  user: IUser;
 }

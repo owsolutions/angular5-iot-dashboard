@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppState, CloudDevice, ILocation, IUser, ICloudDeviceDailyHistory } from '@app/definitions';
+import { AppState, CloudDevice, ILocation, IUser, ICloudDeviceDailyHistory, ISettingsUpdateResponse } from '@app/definitions';
 import { PermissionsService } from './permissions.service';
 import 'rxjs/add/observable/of';
 import { Store } from '@ngrx/store';
@@ -130,10 +130,10 @@ export class RequestsService {
     }
   }
 
-  public async UpdateUserProfile (user: IUser): Promise<IResponse<IUser>> {
+  public async UpdateUserProfile (user: IUser): Promise<IResponse<ISettingsUpdateResponse>> {
     const ref = this.http.post(environment.api + '/api/user/settings' , user).toPromise();
     try {
-      const response: IResponse<IUser> = await ref;
+      const response: IResponse<ISettingsUpdateResponse> = await ref;
       return response;
     } catch (error) {
       if (error.name === 'HttpErrorResponse') {
