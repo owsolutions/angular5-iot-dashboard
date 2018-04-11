@@ -1,4 +1,14 @@
-<div class="box-wrapper" *ngFor="let location of locations;">
-<app-location-row 
-  [widgets]="actions.findWidgets(devices, location)" [location]="location"></app-location-row>
+<div class="row">
+  <ng-container  *ngFor="let location of locations;">
+    <div class="col-md-6 col-sm-12">
+      <div class="box-wrapper">
+        <div class="row">
+          <div class="box-title">
+            <h2 [title]="location.name">{{location.name}}</h2>
+          </div>
+        </div>
+        <app-location-row [widgets]="actions.findWidgets(devices, location)" [location]="location"></app-location-row>
+      </div>
+    </div>
+  </ng-container>
 </div>
