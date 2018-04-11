@@ -203,8 +203,8 @@ export class MockService {
             value: random(10, 30),
             location: 1,
             preferences: {
-              DisplayAverageLastWeekInSidebar: true,
-              DisplayRealTimeTemperatureInSidebar: true
+              DisplayRealTimeTemperatureInSidebar: true,
+              DisplayHistoryStatisticsInHome: true
             }
           },
           {
@@ -215,7 +215,6 @@ export class MockService {
             value: random(10, 30),
             location: 1,
             preferences: {
-              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -227,7 +226,6 @@ export class MockService {
             value: random(10, 30),
             location: 1,
             preferences: {
-              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -239,7 +237,6 @@ export class MockService {
             value: random(10, 30),
             location: 2,
             preferences: {
-              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -251,7 +248,6 @@ export class MockService {
             value: random(10, 30),
             location: 2,
             preferences: {
-              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -263,7 +259,6 @@ export class MockService {
             value: random(10, 30),
             location: 2,
             preferences: {
-              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -275,7 +270,6 @@ export class MockService {
             value: random(10, 30),
             location: 3,
             preferences: {
-              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },
@@ -287,7 +281,6 @@ export class MockService {
             value: random(10, 30),
             location: 3,
             preferences: {
-              DisplayAverageLastWeekInSidebar: false,
               DisplayRealTimeTemperatureInSidebar: true
             }
           },

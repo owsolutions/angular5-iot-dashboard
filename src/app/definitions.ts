@@ -123,7 +123,6 @@ export enum TemperatureCustomization {
 
 export interface IDeviceDisplayPreference {
   DisplayRealTimeTemperatureInSidebar?: boolean;
-  DisplayAverageLastWeekInSidebar?: boolean;
   DisplayHistoryStatisticsInHome?: boolean;
 }
 
