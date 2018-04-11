@@ -90,6 +90,9 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
 
   async ngOnInit() {
     await this.GetDevice(this.device.id);
+    if (!this.dailyHistory || !this.dailyHistory.length) {
+      return ;
+    }
     this.fetchChart(this.dailyHistory[0].date);
   }
 
@@ -115,6 +118,7 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
       const response = await this.requests.getDeviceDailyHisotry(id);
       this.dailyHistory = this.CalculateChangeRate(response.data.items);
     } catch (error) {
+
     }
   }
 
