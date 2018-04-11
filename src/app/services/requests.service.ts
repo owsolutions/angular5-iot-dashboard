@@ -77,9 +77,12 @@ export class RequestsService {
   }
 
   public async getDeviceDailyHisotry (id: number) {
-    const ref = this.http.get(environment.api + '/api/devices/daily-history/' + id).toPromise();
+    const url = environment.api + '/api/devices/daily-history/' + id;
+    const ref = this.http.get(url).toPromise();
     try {
+      console.log(url);
       const response: IResponse<ICloudDeviceDailyHistory> = await ref;
+      console.warn('Error: ', response);
       return response;
     } catch (error) {
       if (error.name === 'HttpErrorResponse') {
@@ -115,7 +118,6 @@ export class RequestsService {
     }
   }
 
-  
   public async UpdateUserProfile (user: IUser): Promise<IResponse<IUser>> {
     const ref = this.http.post(environment.api + '/api/user/settings' , user).toPromise();
     try {

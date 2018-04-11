@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { RequestsService } from '@app/services/requests.service';
 declare var Highcharts: any;
 
 @Component({
@@ -77,10 +78,21 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
     });
   }
 
-  constructor() {}
+  constructor(
+    private requests: RequestsService,
+  ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     this.currentData = this.data.series[0].data;
+    await this.GetDevice();
+  }
+
+  private async GetDevice (id: number = 1) {
+    try {
+      const result = await this.requests.getDeviceDailyHisotry(id);
+      console.log('Device daily source: ', result);
+    } catch (error) {
+    }
   }
 
   ngAfterViewInit() {

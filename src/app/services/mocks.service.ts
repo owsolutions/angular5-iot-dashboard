@@ -18,6 +18,7 @@ export class MockService {
     'POST /api/user/signin': 'signIn',
     'POST /api/user/signup': 'signUp',
     'GET /api/locations': 'getLocations',
+    'GET /api/devices/daily-history/:id': 'GetDeviceDailyHistory',
     'GET /api/devices/token': 'getDevicesToken',
     'GET /api/devices': 'getDevices',
     'GET /api/unconnected': 'getUnconnected',
@@ -27,7 +28,6 @@ export class MockService {
     'DELETE /api/location/:id': 'deleteLocation',
     'DELETE /api/device/:id': 'deleteDevice',
     'POST /api/user/settings': 'updateUserProfile',
-    'GET /api/devices/daily-history/:id': 'GetDeviceDailyHistory'
   };
 
   constructor (
@@ -378,7 +378,7 @@ export class MockService {
           }
         ]
       }
-    }
+    };
   }
   public updateUserProfile(req: HttpRequest<any>): IResponse<IUser> {
     const user: IUser = req.body;
