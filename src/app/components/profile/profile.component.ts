@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IUser } from '@app/definitions';
+import { IUser, ISettingsUpdateResponse } from '@app/definitions';
 import { IResponse } from 'response-type';
 import { Router } from '@angular/router';
 import { RequestsService } from '@app/services/requests.service';
@@ -13,7 +13,7 @@ import { NotificationService } from '@app/services/notification.service';
 })
 export class ProfileComponent implements OnInit {
   public isRequesting = false;
-  public response: IResponse<IUser> = null;
+  public response: IResponse<ISettingsUpdateResponse> = null;
   public form: IUser = {
     email: null,
     avatar: null,
@@ -37,10 +37,9 @@ export class ProfileComponent implements OnInit {
     this.isRequesting = true;
     const user = Object.assign({}, this.form);
     try {
-      const response: IResponse<IUser> = await this.requests.UpdateUserProfile(user);
+      const response: IResponse<ISettingsUpdateResponse> = await this.requests.UpdateUserProfile(user);
       if (response.data && response.data.items && response.data.items[0]) {
-        const $user = response.data.items[0];
-        this.user.SetUser($user);
+        this.user.SetUser(response.data.items[0].user);
         this.notification.InvokeProfileUpdate();
       }
       this.response = response;
