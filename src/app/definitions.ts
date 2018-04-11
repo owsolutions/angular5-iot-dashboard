@@ -168,3 +168,7 @@ export interface INotification {
   type: 'error' | 'success';
   message?: string;
 }
+export interface ISettingsUpdateResponse {
+  token: string;
+  user: IUser;
+}

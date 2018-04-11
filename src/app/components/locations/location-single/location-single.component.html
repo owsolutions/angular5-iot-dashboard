@@ -1,4 +1,4 @@
-<form (keyup.enter)="formSubmit()">
+<form>
 <app-progress-line *ngIf="isRequesting"></app-progress-line>
 
 <app-error-message *ngIf="response && response.error">{{response.error.message}}</app-error-message>

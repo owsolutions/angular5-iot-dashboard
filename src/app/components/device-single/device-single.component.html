@@ -1,5 +1,5 @@
 <app-progress-line *ngIf="isRequesting"></app-progress-line>
-<form (keyup.enter)="SubmitForm()">
+<form>
   <app-error-message *ngIf="response && response.error">
     {{response.error.message}}
   </app-error-message>
@@ -9,7 +9,7 @@
   <app-device-customization [preferences]="form.preferences" (onChange)="DeviceCustomizationChange($event)"></app-device-customization>  
   
   
-  <button (click)="SubmitForm()" class="btn btn-primary app-device-single-edit" *ngIf="form.id">Edit device</button>
-  <button (click)="SubmitForm()" class="btn btn-primary app-device-single-create" *ngIf="!form.id">Create device</button>
+  <button (click)="SubmitForm()" type="submit" class="btn btn-primary app-device-single-edit" *ngIf="form.id">Edit device</button>
+  <button (click)="SubmitForm()" type="submit"  class="btn btn-primary app-device-single-create" *ngIf="!form.id">Create device</button>
   <button (click)="DeleteDevice()" class="btn btn-danger" *ngIf="form.id">Delete device</button>
 </form>
