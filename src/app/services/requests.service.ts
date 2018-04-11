@@ -76,13 +76,25 @@ export class RequestsService {
     );
   }
 
+  public async GetDeviceDayHistory(id: number, date: Date): Promise<IResponse<number>> {
+    const url = environment.api + '/api/devices/day-history/' + date + '/' + id;
+    const ref = this.http.get(url).toPromise();
+    try {
+      const response: IResponse<number> = await ref;
+      return response;
+    } catch (error) {
+      if (error.name === 'HttpErrorResponse') {
+        return GetNetworkError();
+      }
+      return error;
+    }
+  }
+
   public async getDeviceDailyHisotry (id: number): Promise<IResponse<any>> {
     const url = environment.api + '/api/devices/daily-history/' + id;
     const ref = this.http.get(url).toPromise();
     try {
-      console.log(url);
       const response: IResponse<ICloudDeviceDailyHistory> = await ref;
-      console.warn('Error: ', response);
       return response;
     } catch (error) {
       if (error.name === 'HttpErrorResponse') {

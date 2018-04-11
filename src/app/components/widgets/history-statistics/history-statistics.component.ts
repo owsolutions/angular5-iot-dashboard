@@ -101,11 +101,19 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
     this.drawChart();
   }
 
-  setChart(index) {
+  private async GetDayHistory (id: number, date: Date): Promise<number[]> {
+    try {
+      const response = await this.requests.GetDeviceDayHistory(id, date);
+      return response.data.items;
+    } catch (error) {
+    }
+  }
+  async setChart(index) {
     if (this.activeIndex !== index) {
-        this.activeIndex = index;
-        this.currentData = this.data.series[index].data;
-        this.drawChart();
+      this.activeIndex = index;
+      const data = await this.GetDayHistory(1, new Date());
+      this.currentData = data;
+      this.drawChart();
     }
   }
 }

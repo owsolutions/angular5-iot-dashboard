@@ -8,7 +8,7 @@ import { PermissionsService } from '@services/permissions.service';
 import { IUserForm, CloudDevice, DataSource, IUser, ICloudDeviceDailyHistory } from '@app/definitions';
 import { CloudDeviceType } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
-import { random } from '@lodash';
+import { random, times } from '@lodash';
 import { ILocation } from '@app/definitions';
 
 
@@ -20,6 +20,7 @@ export class MockService {
     'GET /api/locations': 'getLocations',
     'GET /api/devices/daily-history/:id': 'GetDeviceDailyHistory',
     'GET /api/devices/token': 'getDevicesToken',
+    'GET /api/devices/day-history/:date/:id': 'GetDeviceDayHistory',
     'GET /api/devices': 'getDevices',
     'GET /api/unconnected': 'getUnconnected',
     'POST /api/device': 'postDevice',
@@ -73,6 +74,13 @@ export class MockService {
     return Observable.of( mockResponse );
   }
 
+  public GetDeviceDayHistory(req: HttpRequest<any>): IResponse<number> {
+    return {
+      data: {
+        items: times(24 , () => random (10, 30)),
+      }
+    };
+  }
   public mockUser () {
     return {
       email: 'alitorabi@seekasia.com',
