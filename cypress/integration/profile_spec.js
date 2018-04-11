@@ -22,7 +22,7 @@ describe('Locations tests', function () {
     cy.get('.app-profile-update').click();
     cy.wait(100);
 
-    cy.get('.app-avatar-name').should('contain', 'AT');
+    cy.get('.app-avatar-name').should('contain', 'JD');
     cy.get('.ngx-menu-link-home').click();
     cy.get('.app-profile-view').click();
     cy.get('.app-profile-firstname').should('have.value', 'Ali');
