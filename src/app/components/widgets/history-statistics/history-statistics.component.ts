@@ -93,6 +93,19 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
   private async GetDevice(id: number) {
     try {
       const response = await this.requests.getDeviceDailyHisotry(id);
+      response.data.items.map((item, i) => {
+        if (response.data.items.length - 1 > i) {
+            const currentValue = item.average;
+            const nextValue = response.data.items[i + 1].average;
+            if (currentValue > nextValue) {
+                item.status = 'up';
+                item.changeRate = Math.abs(((nextValue - currentValue) / currentValue ) * 100).toFixed(1);
+            }else {
+                item.status = 'down';
+                item.changeRate = Math.abs(((currentValue - nextValue) / nextValue ) * 100).toFixed(1);
+            }
+        }
+      });
       this.dailyHistory = response.data.items;
     } catch (error) {
     }
@@ -116,5 +129,9 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
       this.currentData = data;
       this.drawChart();
     }
+  }
+
+  calcPrecent() {
+
   }
 }

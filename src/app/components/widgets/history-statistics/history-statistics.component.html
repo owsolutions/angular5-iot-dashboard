@@ -8,17 +8,17 @@
       <div class="d-2 ml-auto d-sm-block current-item">
         <div class="d-flex flex-column">
           <div class="d-2">
-            {{data.series[activeIndex].date | date:'fullDate'}}
+            {{dailyHistory[activeIndex].date | date:'fullDate'}}
 
           </div>
           <div class="d-2">
-            <span [class]="data.series[activeIndex].changeRate.status === 'up'? 'text-success changeRate' : 'text-danger changeRate'">
-              <i [class]="'icon-arrow_drop_' + data.series[activeIndex].changeRate.status"></i>
-              {{data.series[activeIndex].changeRate.value}} %
+            <span  *ngIf="dailyHistory[activeIndex].status" [class]="dailyHistory[activeIndex].status === 'up'? 'text-success changeRate' : 'text-danger changeRate'">
+              <i [class]="'icon-arrow_drop_' + dailyHistory[activeIndex].status"></i>
+              {{dailyHistory[activeIndex].changeRate}} %
             </span>
-            {{data.series[activeIndex].value}}
+            {{dailyHistory[activeIndex].average}}
             <span class="unit">
-              {{data.resultUnit}}
+                Avg
             </span>
           </div>
         </div>
@@ -31,15 +31,11 @@
         <tbody>
           <tr *ngFor="let serie of dailyHistory; let i = index" (click)="setChart(i)" [ngClass]="{'active': i === activeIndex }">
             <td>
-              {{serie.date | date:'MMM - dd'}}
-              <!-- <span [class]="serie.changeRate.status === 'up'? 'text-success' : 'text-danger'">
-                <i [class]="'icon-arrow_drop_' + serie.changeRate.status"></i> 
-                 </span> -->
-
-                 <span class="text-success">
-                    <i class="icon-arrow_drop_up"></i>
-                    0.5%
-                 </span>
+              {{serie.date | date:'MMM - dd'}} 
+              <span *ngIf="serie.status" [class]="serie.status === 'up'? 'text-success' : 'text-danger'">
+                <i [class]="'icon-arrow_drop_' + serie.status"></i> 
+                {{serie.changeRate}} %
+              </span>
             </td>
             <td>
                 {{serie.average}}°

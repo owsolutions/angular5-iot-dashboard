@@ -378,7 +378,7 @@ export class MockService {
           },
           {
             date: new Date('2018-09-09'),
-            average: 32.5
+            average: 35.2
           },
           {
             date: new Date('2018-09-08'),
