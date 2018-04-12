@@ -54,6 +54,21 @@ export const navigation = [
       },
     ]
   },
+  {
+    icon: 'icon-visibility',
+    title: 'Monitoring',
+    class: 'monitoring',
+    children: [
+      {
+        link: '/monitoring/manage-contacts',
+        icon: '',
+        title: 'Manage contacts',
+        permissions: ['LOCATIONS::VIEW'],
+        auth: true,
+        class: 'location-create'
+      },
+    ]
+  },
   ! environment.production ? {
     link: '/gallery',
     icon: 'icon-attach_file',
