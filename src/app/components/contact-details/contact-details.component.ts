@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IContact } from '@app/definitions';
 import { RequestsService } from '@app/services/requests.service';
 import { IsSuccessEntity } from '@app/common';
+import { NotificationService } from '@app/services/notification.service';
 
 @Component({
   selector: 'app-contact-details',
@@ -13,6 +14,7 @@ export class ContactDetailsComponent implements OnInit {
   public contacts: Array<IContact> = [];
   constructor(
     private requests: RequestsService,
+    private notification: NotificationService,
   ) { }
 
   ngOnInit() {
@@ -57,6 +59,7 @@ export class ContactDetailsComponent implements OnInit {
     this.isRequesting = true;
     try {
       const response = await this.requests.UpdateContactDetails(this.contacts);
+      this.notification.InvokeContactsUpdate();
     } catch (error) {
 
     }

@@ -60,6 +60,12 @@ export class NotificationService {
       message: location.name
     });
   }
+  public InvokeContactsUpdate() {
+    this.StoreNotification({
+      title: 'Contact details has been updated and will be used effectivly',
+      type: 'success',
+    });
+  }
   public InvokeLocationUpdate (location: ILocation) {
     this.StoreNotification({
       title: 'Your Location has been updated',
