@@ -1,30 +1,33 @@
+<app-progress-line *ngIf="isRequesting"></app-progress-line>
 <app-page-container
   maintitle="Manage your contact details"
   subtitle="Manage your emergency contacts so we can reach you in different situations and events">
-
-
-  <table class="table app-devices-table">
-    <thead>
-      <tr>
-        <th>Contact Type</th>
-        <th>Contact value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let contact of contacts" class="app-devices-row">
-        <td>
-          <select class="form-control" name="contact.type" [(ngModel)]="contact.type">
-            <option value="call">Phone call</option>
-            <option value="sms">Text message</option>
-            <option value="email">Email</option>
-          </select>        
-        </td>
-        <td><input class="form-control" [(ngModel)]="contact.value"></td>
-      </tr>
-    </tbody>
-  </table>
-
+  <form>
+    <table class="table app-devices-table">
+      <thead>
+        <tr>
+          <th>Contact Type</th>
+          <th>Contact value</th>
+          <th class="action-column">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of contacts; let i = index;" class="app-devices-row">
+          <td>
+            <select class="form-control" [name]="'type-name' + i" [(ngModel)]="contact.type">
+              <option value="call">Phone call</option>
+              <option value="sms">Text message</option>
+              <option value="email">Email</option>
+            </select>        
+          </td>
+          <td><input [name]="'type-' + i"class="form-control" [placeholder]="GetPlaceHolder(contact.type)" [(ngModel)]="contact.value"></td>
+          <td><a (click)="RemoveByIndex(i)" class="btn btn-danger btn-sm">Remove</a></td>
+        </tr>
+      </tbody>
+    </table>
   
-  <button (click)="SubmitForm()" class="btn btn-primary app-device-single-edit" >Update the contacts</button>
+    <button (click)="SubmitForm()" type="submit" class="btn btn-primary app-contact-detail-update" >Update the contacts</button>
+    <button (click)="AddAnother()" class="btn btn-secondary app-contact-detail-add" >+ Add another</button>
+  </form>
   
 </app-page-container>
