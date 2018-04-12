@@ -30,6 +30,7 @@ export class MockService {
     'DELETE /api/device/:id': 'deleteDevice',
     'GET /api/contact-details': 'GetContactDetails',
     'POST /api/user/settings': 'updateUserProfile',
+    'POST /api/contact-details': 'UpdateContactDetails',
   };
 
   constructor (
@@ -356,6 +357,18 @@ export class MockService {
             name: location.name,
             level: location.level,
             temperatureDevice: location.temperatureDevice
+          }
+        ]
+      }
+    };
+  }
+  public UpdateContactDetails(req: HttpRequest<any>): IResponse<any> {
+
+    return {
+      data: {
+        items: [
+          {
+
           }
         ]
       }

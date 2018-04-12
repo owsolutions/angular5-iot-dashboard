@@ -29,7 +29,6 @@ export class ContactDetailsComponent implements OnInit {
       const response = await this.requests.GetContactDetails();
       if (IsSuccessEntity(response)) {
         this.contacts = response.data.items;
-        console.log(this.contacts);
       }
     } catch (error) {
 
@@ -54,7 +53,13 @@ export class ContactDetailsComponent implements OnInit {
   public RemoveByIndex (id: number) {
     this.contacts.splice(id, 1);
   }
-  public SubmitForm () {
+  public async SubmitForm () {
     this.isRequesting = true;
+    try {
+      const response = await this.requests.UpdateContactDetails(this.contacts);
+    } catch (error) {
+
+    }
+    this.isRequesting = false;
   }
 }

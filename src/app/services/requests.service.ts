@@ -155,7 +155,18 @@ export class RequestsService {
       return error;
     }
   }
-
+  public async UpdateContactDetails (contacts: Array<IContact>): Promise<IResponse<any>> {
+    const ref = this.http.post(environment.api + '/api/contact-details' , {contacts}).toPromise();
+    try {
+      const response: IResponse<any> = await ref;
+      return response;
+    } catch (error) {
+      if (error.name === 'HttpErrorResponse') {
+        return GetNetworkError();
+      }
+      return error;
+    }
+  }
   // public resetPassword(req: HttpRequest<any>): IResponse<ILocation> {
 
 
