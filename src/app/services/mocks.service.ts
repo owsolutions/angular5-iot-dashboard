@@ -5,7 +5,7 @@ import { IResponse, IResponseErrorItem } from 'response-type';
 import { matchPattern } from 'url-matcher';
 import { environment } from '../../environments/environment';
 import { PermissionsService } from '@services/permissions.service';
-import { IUserForm, CloudDevice, DataSource, IUser, ICloudDeviceDailyHistory } from '@app/definitions';
+import { IUserForm, CloudDevice, DataSource, IUser, ICloudDeviceDailyHistory, IContact } from '@app/definitions';
 import { CloudDeviceType } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { random, times } from '@lodash';
@@ -28,6 +28,7 @@ export class MockService {
     'POST /api/location': 'postLocation',
     'DELETE /api/location/:id': 'deleteLocation',
     'DELETE /api/device/:id': 'deleteDevice',
+    'GET /api/contact-details': 'GetContactDetails',
     'POST /api/user/settings': 'updateUserProfile',
   };
 
@@ -359,6 +360,26 @@ export class MockService {
         ]
       }
     };
+  }
+  /**
+   * For email, phone, sms and etc that user determines when he wants
+   * to be notified when an action has occured.
+   */
+  public GetContactDetails (req: HttpRequest<any>): IResponse<IContact> {
+    return {
+      data: {
+        items: [
+          {
+            type: 'call',
+            value: '+14149990000'
+          },
+          {
+            type: 'sms',
+            value: '+492839179387'
+          }
+        ]
+      }
+    }
   }
   public GetDeviceDailyHistory (req: HttpRequest<any>): IResponse<ICloudDeviceDailyHistory> {
     // const id = req.body.id;
