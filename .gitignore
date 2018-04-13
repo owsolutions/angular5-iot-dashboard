@@ -4,6 +4,7 @@
 /tmp
 /out-tsc
 mobile/node_modules
+mobile/plugins
 # dependencies
 /node_modules
 package-lock.json
