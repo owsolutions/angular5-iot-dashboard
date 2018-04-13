@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 export interface IEventAction {
-
+  id?: number;
 }
 
 @Component({
@@ -12,7 +12,7 @@ export interface IEventAction {
 export class DeviceEventsActionsComponent implements OnInit {
   public terms: Array<IEventAction> = [
     {
-      
+
     }
   ];
   constructor() { }
