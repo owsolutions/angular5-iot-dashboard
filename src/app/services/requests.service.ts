@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppState, CloudDevice, ILocation, IUser, ICloudDeviceDailyHistory, ISettingsUpdateResponse } from '@app/definitions';
+import { AppState, CloudDevice, ILocation, IUser, ICloudDeviceDailyHistory, ISettingsUpdateResponse, IContact } from '@app/definitions';
 import { PermissionsService } from './permissions.service';
 import 'rxjs/add/observable/of';
 import { Store } from '@ngrx/store';
@@ -103,6 +103,19 @@ export class RequestsService {
       return error;
     }
   }
+  public async GetContactDetails (): Promise<IResponse<IContact>> {
+    const url = environment.api + '/api/contact-details';
+    const ref = this.http.get(url).toPromise();
+    try {
+      const response: IResponse<IContact> = await ref;
+      return response;
+    } catch (error) {
+      if (error.name === 'HttpErrorResponse') {
+        return GetNetworkError();
+      }
+      return error;
+    }
+  }
 
   public async PostDevice (device: CloudDevice): Promise<IResponse<CloudDevice>> {
     const ref = this.http.post(environment.api + '/api/device' , device).toPromise();
@@ -142,7 +155,18 @@ export class RequestsService {
       return error;
     }
   }
-
+  public async UpdateContactDetails (contacts: Array<IContact>): Promise<IResponse<any>> {
+    const ref = this.http.post(environment.api + '/api/contact-details' , {contacts}).toPromise();
+    try {
+      const response: IResponse<any> = await ref;
+      return response;
+    } catch (error) {
+      if (error.name === 'HttpErrorResponse') {
+        return GetNetworkError();
+      }
+      return error;
+    }
+  }
   // public resetPassword(req: HttpRequest<any>): IResponse<ILocation> {
 
 

@@ -16,6 +16,7 @@ import { ExperimentalComponent } from '@app/components/experimental/experimental
 import { SendingInformationHttpsComponent } from './components/docs/sending-information-https/sending-information-https.component';
 import { PrivacyPolicyComponent } from '@app/components/privacy-policy/privacy-policy.component';
 import { ProfileComponent } from '@app/components/profile/profile.component';
+import { ContactDetailsComponent } from '@app/components/contact-details/contact-details.component';
 
 export function AuthLayout (component: any, route: string, options: any = {}): Route {
   return {
@@ -72,6 +73,7 @@ export const appRoutes: Routes = [
         AuthLayoutChild (LocationSingleComponent, 'location/new', {data: {mode: 'new'}}),
         AuthLayoutChild (RolesComponent, 'roles'),
         AuthLayoutChild (ActivityComponent, 'activities'),
+        AuthLayoutChild (ContactDetailsComponent, 'monitoring/manage-contacts'),
         AuthLayoutChild (DevicesComponent, 'devices'),
         AuthLayoutChild (DeviceSingleComponent, 'device/create'),
         AuthLayoutChild (ProfileComponent, 'profile'),
