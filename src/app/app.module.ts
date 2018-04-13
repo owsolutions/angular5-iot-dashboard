@@ -74,7 +74,9 @@ import { PageContainerComponent } from './components/page-container/page-contain
 import { SendingInformationHttpsComponent } from './components/docs/sending-information-https/sending-information-https.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { DeviceEventsActionsComponent } from '@app/components/device-events-actions/device-events-actions.component';
 import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
+import { IfExperimentalComponent } from './components/if-experimental/if-experimental.component';
 
 
 declare var require: any;
@@ -152,7 +154,9 @@ export class AppComponent {
     SendingInformationHttpsComponent,
     PrivacyPolicyComponent,
     ProfileComponent,
+    DeviceEventsActionsComponent,
     ContactDetailsComponent,
+    IfExperimentalComponent,
   ],
   imports: [
     NgxUserModule,

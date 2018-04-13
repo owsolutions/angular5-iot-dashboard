@@ -36,13 +36,19 @@
           <td>{{device.datasource}}</td>
           <td>
             <i [Tooltip]="'Tempreture'" class="icon-thermometer-lines"></i>
-            
           </td>
-          <td><a [routerLink]="'/locations/edit/' + device.location ">{{FindLocationName (device.location)}}</a></td>
+          <td><a [routerLink]="'/locations/edit/' + device.location">
+            {{FindLocationName (device.location)}}</a>
+          </td>
           <td>{{ ! device.model ? 'N/A' : device.model}}</td>
           <td>
             <a [routerLink]="'/device/' + device.id "><i [Tooltip]="'Edit'" class="icon-mode_edit action-btn"></i></a>
             <a (click)="DeleteDevice(device)"><i [Tooltip]="'Delete'" class="icon-delete action-btn"></i></a>
+            <app-if-experimental>
+              <a [routerLink]="'/device/events-and-actions/' + device.id ">
+                <i [Tooltip]="'Manage'" class="icon-av_timer action-btn"></i>
+              </a>
+            </app-if-experimental>
           </td>
         </tr>
       </tbody>
