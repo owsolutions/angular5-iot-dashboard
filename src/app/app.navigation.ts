@@ -65,7 +65,7 @@ export const navigation = [
         title: 'Manage contacts',
         permissions: ['LOCATIONS::VIEW'],
         auth: true,
-        class: 'location-create'
+        class: 'manage-contacts'
       },
     ]
   } : null,
