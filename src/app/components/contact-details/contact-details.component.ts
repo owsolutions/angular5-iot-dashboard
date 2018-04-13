@@ -58,7 +58,7 @@ export class ContactDetailsComponent implements OnInit {
   public async SubmitForm () {
     this.isRequesting = true;
     try {
-      const response = await this.requests.UpdateContactDetails(this.contacts);
+      await this.requests.UpdateContactDetails(this.contacts);
       this.notification.InvokeContactsUpdate();
     } catch (error) {
 

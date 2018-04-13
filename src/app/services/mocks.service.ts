@@ -392,7 +392,7 @@ export class MockService {
           }
         ]
       }
-    }
+    };
   }
   public GetDeviceDailyHistory (req: HttpRequest<any>): IResponse<ICloudDeviceDailyHistory> {
     // const id = req.body.id;
