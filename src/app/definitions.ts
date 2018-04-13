@@ -181,3 +181,7 @@ export interface ISettingsUpdateResponse {
   token: string;
   user: IUser;
 }
+export interface IContact {
+  type: 'email' | 'call' | 'sms';
+  value: any;
+}
