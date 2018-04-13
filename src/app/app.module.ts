@@ -77,6 +77,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { DeviceEventsActionsComponent } from '@app/components/device-events-actions/device-events-actions.component';
 import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
 import { IfExperimentalComponent } from './components/if-experimental/if-experimental.component';
+import { GpsComponent } from '@app/gps/gps.component';
 
 
 declare var require: any;
@@ -157,6 +158,7 @@ export class AppComponent {
     DeviceEventsActionsComponent,
     ContactDetailsComponent,
     IfExperimentalComponent,
+    GpsComponent,
   ],
   imports: [
     NgxUserModule,

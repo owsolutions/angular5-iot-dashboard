@@ -109,10 +109,26 @@ export const navigation = [
     ]
   },
   ! environment.production ? {
-    link: '/experimental',
     icon: 'icon-fingerprint',
     title: 'Experimental',
-    class: 'experimental'
+    class: 'experimental',
+    children: [
+      {
+        link: '/experimental',
+        title: 'Introduction',
+        class: 'introduction',
+        permissions: ['LOCATIONS::VIEW'],
+        auth: true,
+      },
+      {
+        link: '/gps',
+        icon: '',
+        title: 'GPS Location',
+        permissions: ['LOCATIONS::VIEW'],
+        auth: true,
+        class: 'gps-location'
+      },
+    ]
   } : null,
   {
     link: '/login',
