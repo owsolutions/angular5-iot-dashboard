@@ -78,6 +78,7 @@ import { DeviceEventsActionsComponent } from '@app/components/device-events-acti
 import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
 import { IfExperimentalComponent } from './components/if-experimental/if-experimental.component';
 import { GpsComponent } from '@app/gps/gps.component';
+import { D3neComponent } from './components/d3ne/d3ne.component';
 
 
 declare var require: any;
@@ -159,6 +160,7 @@ export class AppComponent {
     ContactDetailsComponent,
     IfExperimentalComponent,
     GpsComponent,
+    D3neComponent,
   ],
   imports: [
     NgxUserModule,
