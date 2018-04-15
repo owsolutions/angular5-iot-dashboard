@@ -53,8 +53,6 @@ import { ErrorMessageComponent } from './components/error-message/error-message.
 import { ProgressLineComponent } from './components/progress-line/progress-line.component';
 import { RealtimeDocumentModule } from 'realtime-document';
 import { ToasterModule } from 'angular2-toaster';
-
-import { ProfileMenuComponent } from './components/profile-menu/profile-menu.component';
 import { NotificationListComponent } from './components/notification-list/notification-list.component';
 import { ApplicationsListComponent } from './components/applications-list/applications-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -130,7 +128,6 @@ export class AppComponent {
     LoadingComponent,
     StatisticsComponent,
     ErrorMessageComponent,
-    ProfileMenuComponent,
     NotificationListComponent,
     ApplicationsListComponent,
     DevicesComponent,
