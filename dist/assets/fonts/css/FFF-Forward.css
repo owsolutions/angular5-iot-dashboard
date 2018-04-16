@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'FFF-Forward';
+    src:url('../font/FFF-Forward.ttf.woff') format('woff'),
+        url('../font/FFF-Forward.ttf.svg#FFF-Forward') format('svg'),
+        url('../font/FFF-Forward.ttf.eot'),
+        url('../font/FFF-Forward.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
