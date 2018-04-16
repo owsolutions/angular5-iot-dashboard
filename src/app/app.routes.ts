@@ -10,7 +10,7 @@ import { GalleryComponent } from '@components/gallery/gallery.component';
 import { DeviceSingleComponent } from '../app/components/device-single/device-single.component';
 import { DocsComponent } from '@components/docs/docs.component';
 import { Route } from '@angular/router';
-import { LayoutComponent } from './components/layout/layout.component';
+import { LayoutComponent } from './ng5-basic/layout/layout.component';
 import { AuthGuard } from '@services/user.service';
 import { ExperimentalComponent } from '@app/components/experimental/experimental.component';
 import { SendingInformationHttpsComponent } from './components/docs/sending-information-https/sending-information-https.component';
@@ -18,7 +18,7 @@ import { PrivacyPolicyComponent } from '@app/components/privacy-policy/privacy-p
 import { ProfileComponent } from '@app/components/profile/profile.component';
 import { DeviceEventsActionsComponent } from '@app/components/device-events-actions/device-events-actions.component';
 import { ContactDetailsComponent } from '@app/components/contact-details/contact-details.component';
-import { GpsComponent } from '@app/gps/gps.component';
+import { GpsComponent } from '@app/components/gps/gps.component';
 
 export function AuthLayout (component: any, route: string, options: any = {}): Route {
   return {

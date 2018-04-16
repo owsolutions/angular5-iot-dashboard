@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Renderer } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SidebarControllerService } from '@app/components/ngx-sidebar/sidebar-controller.service';
+import { SidebarControllerService } from '../ngx-sidebar/sidebar-controller.service';
 
 @Component({
   /* tslint:disable */
