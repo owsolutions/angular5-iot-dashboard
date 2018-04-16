@@ -8,7 +8,6 @@ import { createRoutes  } from './app.routes';
 import { NgMediaModule } from 'ng-media';
 import { RealtimeService } from '@services/realtime.service';
 import { NotificationService } from '@services/notification.service';
-import { NgxUserModule } from './authentication/authentication.module';
 import { SettingsComponent } from '@components/settings/settings.component';
 import { PageHeaderComponent } from '@components/page-header/page-header.component';
 import { TextInputComponent } from '@components/forms/text-input/text-input.component';
@@ -148,7 +147,6 @@ export class AppComponent {
     D3neComponent,
   ],
   imports: [
-    NgxUserModule,
     RealtimeDocumentModule,
     NgxTooltipModule,
     BrowserAnimationsModule,

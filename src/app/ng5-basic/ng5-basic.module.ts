@@ -15,7 +15,7 @@ import { MockService } from '@services/mocks.service';
 import { TokenInterceptor } from '@services/token.interceptor';
 import { RealtimeDocumentModule } from 'realtime-document';
 import { ToasterModule } from 'angular2-toaster';
-
+import { NgxUserModule } from './authentication/authentication.module';
 import { LayoutComponent } from './layout/layout.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
@@ -36,6 +36,7 @@ import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    NgxUserModule,
     NgxSidebarModule,
     NgMediaModule,
     RouterModule.forRoot([]),
