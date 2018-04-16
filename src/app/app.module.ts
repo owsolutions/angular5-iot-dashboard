@@ -8,7 +8,6 @@ import { createRoutes  } from './app.routes';
 import { NgMediaModule } from 'ng-media';
 import { RealtimeService } from '@services/realtime.service';
 import { NotificationService } from '@services/notification.service';
-import { NgxUserModule } from './authentication/authentication.module';
 import { SettingsComponent } from '@components/settings/settings.component';
 import { PageHeaderComponent } from '@components/page-header/page-header.component';
 import { TextInputComponent } from '@components/forms/text-input/text-input.component';
@@ -31,7 +30,6 @@ import { SwitchWidgetsComponent } from '@components/switch-widgets/switch-widget
 import { IconWidgetsComponent } from '@components/index/icon-widgets/icon-widgets.component';
 import { PlacesComponent } from '@components/index/places/places.component';
 import { IndexComponent } from '@components/index/index.component';
-import { SidebarComponent } from '@components/sidebar/sidebar.component';
 import { UserWidgetComponent } from '@components/user-widget/user-widget.component';
 import { GalleryComponent } from '@components/gallery/gallery.component';
 import { LoadingComponent } from '@components/loading/loading.component';
@@ -54,14 +52,7 @@ import { ErrorMessageComponent } from './components/error-message/error-message.
 import { ProgressLineComponent } from './components/progress-line/progress-line.component';
 import { RealtimeDocumentModule } from 'realtime-document';
 import { ToasterModule } from 'angular2-toaster';
-
-import { ProfileMenuComponent } from './components/profile-menu/profile-menu.component';
 import { NotificationListComponent } from './components/notification-list/notification-list.component';
-import { NgxSidebarModule } from './components/ngx-sidebar/ngx-sidebar.module';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { SideBarComponent } from './components/side-bar/side-bar.component';
-import { LayoutComponent } from './components/layout/layout.component';
-import { SidebarControllerService } from './components/ngx-sidebar/sidebar-controller.service';
 import { ApplicationsListComponent } from './components/applications-list/applications-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ActivitiesComponent } from './components/widgets/activities/activities.component';
@@ -77,8 +68,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { DeviceEventsActionsComponent } from '@app/components/device-events-actions/device-events-actions.component';
 import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
 import { IfExperimentalComponent } from './components/if-experimental/if-experimental.component';
-import { GpsComponent } from '@app/gps/gps.component';
+import { GpsComponent } from '@app/components/gps/gps.component';
+import { D3neComponent } from './components/d3ne/d3ne.component';
 
+import { Ng5BasicModule } from './ng5-basic/ng5-basic.module';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -90,7 +83,6 @@ window['Highcharts'] = Highcharts;
 })
 export class AppComponent {
   constructor (
-    private _sidebarController: SidebarControllerService,
     private realtime: RealtimeService,
   ) {
     this.realtime.ActivateRealtime();
@@ -102,7 +94,6 @@ export class AppComponent {
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent,
     SettingsComponent,
     PageHeaderComponent,
     TextInputComponent,
@@ -131,18 +122,12 @@ export class AppComponent {
     DocsComponent,
     QuickChartComponent,
     IndexComponent,
-    SidebarComponent,
     UserWidgetComponent,
     GalleryComponent,
     LoadingComponent,
     StatisticsComponent,
     ErrorMessageComponent,
-
-
-    ProfileMenuComponent,
     NotificationListComponent,
-    NavBarComponent,
-    SideBarComponent,
     ApplicationsListComponent,
     DevicesComponent,
     LocationsComponent,
@@ -159,13 +144,13 @@ export class AppComponent {
     ContactDetailsComponent,
     IfExperimentalComponent,
     GpsComponent,
+    D3neComponent,
   ],
   imports: [
-    NgxUserModule,
-    NgxSidebarModule,
     RealtimeDocumentModule,
     NgxTooltipModule,
     BrowserAnimationsModule,
+    Ng5BasicModule,
     BrowserModule,
     FormsModule,
     NgMediaModule,
@@ -183,7 +168,6 @@ export class AppComponent {
     NotificationService,
     UserService,
     AuthGuard,
-    SidebarControllerService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

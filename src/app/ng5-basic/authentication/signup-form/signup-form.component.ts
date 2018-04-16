@@ -1,42 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { IUserForm } from '../shared';
-import { GetNetworkError } from '@app/common';
-import { Router } from '@angular/router';
 import { IResponse } from 'response-type';
+import { IUserForm, LoginResponse } from '../shared';
 import { HttpClient } from '@angular/common/http';
-import { UserService } from '@app/services/user.service';
-import { environment} from '../../../environments/environment';
+import { environment } from '../../../../environments/environment';
+import { UserService } from '@services/user.service';
+import { Router } from '@angular/router';
+import { GetNetworkError } from '@app/common';
+import { NotificationService } from '@app/services/notification.service';
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.scss']
+  selector: 'app-signup-form',
+  templateUrl: './signup-form.component.html',
+  styleUrls: ['./signup-form.component.scss']
 })
-export class LoginFormComponent implements OnInit {
+export class SignupFormComponent implements OnInit {
+
   public isRequesting = false;
-  public signinUrl = `${environment.api}/api/user/signin`;
   public response: IResponse<any> = null;
   public form: IUserForm = {
     email: '',
     password: ''
   };
-  public message = '';
   public passwordVisibilty = false;
 
+  public signupUrl = environment.api + '/api/user/signup';
   constructor(
-    private router: Router,
     private http: HttpClient,
     private user: UserService,
+    private router: Router,
+    private notification: NotificationService,
   ) { }
-
   ngOnInit() {
-    this.user.Revoke();
   }
-
-  public async login (e) {
+  async signup (e) {
     e.preventDefault();
     this.isRequesting = true;
-    this.signinHttp(this.form);
+    this.signupHttp(this.form);
   }
   public error (fieldName: string) {
     if ( ! this.response || ! this.response.error || !this.response.error.errors) {
@@ -49,20 +48,21 @@ export class LoginFormComponent implements OnInit {
     this.passwordVisibilty = this.passwordVisibilty ? false : true;
   }
 
-  public onSigninSuccess (response = null) {
+  public onSignupSuccess (response = null) {
 
   }
-  private signinHttp (data: IUserForm) {
-    this.http.post(this.signinUrl, data).subscribe(
-      (response) => {
+  private signupHttp (data: IUserForm) {
+    this.http.post(this.signupUrl, data).subscribe(
+      (response: IResponse<LoginResponse>) => {
         this.response = response;
+        this.isRequesting = false;
         if (this.response.data && this.response.data.items[0]) {
           this.user.SetUser(this.response.data.items[0].user);
           this.user.SetToken(this.response.data.items[0].token);
           this.router.navigateByUrl('/index');
+          this.notification.InvokeUserSignup();
         }
-        this.isRequesting = false;
-        this.onSigninSuccess(response);
+        this.onSignupSuccess(response);
       },
       (response) => {
         this.isRequesting = false;
