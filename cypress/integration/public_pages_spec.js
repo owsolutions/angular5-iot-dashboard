@@ -28,6 +28,12 @@ describe('E2E tests', function () {
       cy.get('.success-message .success-text').should(($el) => {
         expect($el).to.contain('Request success');
       });
-    })
+    });
+    it('As a user, I must me able to reset my password with the token', function () {
+      cy.visit('http://localhost:4200/#/reset-password/543654');
+      cy.get('.app-reset-password-pass1').click().type('123321');
+      cy.get('.app-reset-password-pass2').click().type('123321');
+      cy.get('.app-reset-password-pass1').click().type('{enter}');
+    });
   });
 });

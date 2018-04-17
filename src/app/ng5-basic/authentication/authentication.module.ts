@@ -37,7 +37,7 @@ import { ToasterModule } from 'angular2-toaster';
         component: LoginFormComponent
       },
       {
-        path: 'reset-password',
+        path: 'reset-password/:key',
         component: ResetPasswordComponent
       },
       {
@@ -45,7 +45,7 @@ import { ToasterModule } from 'angular2-toaster';
         component: SignupFormComponent
       },
       {
-        path: 'forgot-password/:key',
+        path: 'forgot-password',
         component: ForgotPasswordComponent
       }
     ], {
