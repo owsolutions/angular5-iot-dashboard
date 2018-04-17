@@ -14,7 +14,7 @@ import { environment} from '../../../../environments/environment';
 })
 export class LoginFormComponent implements OnInit {
   public isRequesting = false;
-  public signinUrl = `${environment.api}/api/user/signin`;
+  public url = `${environment.api}/api/user/signin`;
   public response: IResponse<any> = null;
   public form: IUserForm = {
     email: '',
@@ -53,7 +53,7 @@ export class LoginFormComponent implements OnInit {
 
   }
   private signinHttp (data: IUserForm) {
-    this.http.post(this.signinUrl, data).subscribe(
+    this.http.post(this.url, data).subscribe(
       (response) => {
         this.response = response;
         if (this.response.data && this.response.data.items[0]) {

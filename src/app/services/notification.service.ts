@@ -18,6 +18,14 @@ export class NotificationService {
     });
     this.toaster.popAsync(notification.type, notification.title, notification.message);
   }
+  public InvokePasswordReset () {
+    const notification: INotification = {
+      message: 'Your password has been reset successfully.',
+      title: 'Password reset',
+      type: 'success'
+    };
+    this.toaster.popAsync(notification.type, notification.title, notification.message);
+  }
   public InvokeUserSignup () {
     const title = 'Signup successful';
     const message = 'Welcome to your dashboard. Please read introductions, in Integration>Docs to learn more.';
