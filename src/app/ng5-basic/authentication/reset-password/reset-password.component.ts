@@ -22,6 +22,7 @@ export class ResetPasswordComponent implements OnInit {
   public form: IResetForm = {
     password1: null,
     password2: null,
+    key: null
   };
 
   constructor(
@@ -29,12 +30,11 @@ export class ResetPasswordComponent implements OnInit {
     private router: Router,
     private notification: NotificationService,
     private route: ActivatedRoute,
-
   ) { }
 
   ngOnInit() {
     this.route.params.subscribe((data: {key: string}) => {
-      this.key = data.key;
+      this.key = this.form.key = data.key;
     });
   }
   public SubmitForm () {

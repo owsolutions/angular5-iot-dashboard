@@ -189,4 +189,5 @@ export interface IContact {
 export interface IResetForm {
   password1: string;
   password2: string;
+  key: string;
 }
