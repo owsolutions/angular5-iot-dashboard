@@ -52,6 +52,7 @@ export class SignupFormComponent implements OnInit {
 
   }
   private signupHttp (data: IUserForm) {
+    window.scroll(0, 0);
     this.http.post(this.signupUrl, data).subscribe(
       (response: IResponse<LoginResponse>) => {
         this.response = response;
