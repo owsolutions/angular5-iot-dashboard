@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { IResponse } from 'response-type';
 import { GetNetworkError } from '@app/common';
 import { RequestsService } from '@app/services/requests.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',
@@ -12,7 +11,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  public key = '';
   public forgetUrl = 'http://localhost:1337/forgot';
   public email = '';
   public response: IResponse<any> = null;
@@ -21,13 +19,10 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private requests: RequestsService,
-    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
-    this.route.params.subscribe((data: {key: string}) => {
-      this.key = data.key;
-    });
+
   }
 
   requestPassword(e) {

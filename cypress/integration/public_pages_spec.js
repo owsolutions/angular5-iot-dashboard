@@ -3,6 +3,17 @@ describe('E2E tests', function () {
     beforeEach(() => {
       cy.visit('http://localhost:4200');
     });
+    it('As a user, I must me able to reset my password with the token', function () {
+      cy.visit('http://localhost:4200/#/reset-password/543654');
+      cy.get('.app-reset-password-pass1').click().type('123321');
+      cy.get('.app-reset-password-pass2').click().type('123321');
+      cy.wait(100);
+      cy.get('.app-reset-password-key').should($el => {
+        expect($el[0].value).to.eq('543654');
+      })
+      cy.get('.app-reset-password-pass1').click().type('{enter}');
+      
+    });
     it('As a user, I must be able to signup using an email and password', function () {
       cy.get('.login-header span').should(($el) => {
         expect($el).to.contain('Welcome');
@@ -29,11 +40,6 @@ describe('E2E tests', function () {
         expect($el).to.contain('Request success');
       });
     });
-    it('As a user, I must me able to reset my password with the token', function () {
-      cy.visit('http://localhost:4200/#/reset-password/543654');
-      cy.get('.app-reset-password-pass1').click().type('123321');
-      cy.get('.app-reset-password-pass2').click().type('123321');
-      cy.get('.app-reset-password-pass1').click().type('{enter}');
-    });
+   
   });
 });

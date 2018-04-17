@@ -6,6 +6,7 @@ import { IResponse } from 'response-type';
 import { Router } from '@angular/router';
 import { IResetForm } from '@app/definitions';
 import { NotificationService } from '@app/services/notification.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reset-password',
@@ -13,6 +14,7 @@ import { NotificationService } from '@app/services/notification.service';
   styleUrls: ['./reset-password.component.scss']
 })
 export class ResetPasswordComponent implements OnInit {
+  public key = '';
   public url = `${environment.api}/api/user/reset-password`;
   public error = error;
   public response: IResponse<any> = null;
@@ -26,9 +28,14 @@ export class ResetPasswordComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private notification: NotificationService,
+    private route: ActivatedRoute,
+
   ) { }
 
   ngOnInit() {
+    this.route.params.subscribe((data: {key: string}) => {
+      this.key = data.key;
+    });
   }
   public SubmitForm () {
     this.execute(this.form);
