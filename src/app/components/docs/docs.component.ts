@@ -24,7 +24,6 @@ export class DocsComponent implements OnInit {
 
   public boardcastHeaderExample = {
     'x-token': '-token-',
-    'is-doc': true
   };
 
 
