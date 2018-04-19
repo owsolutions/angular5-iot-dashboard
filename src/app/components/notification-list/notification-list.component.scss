@@ -26,3 +26,13 @@
         height: 50px;
     }
 }
+
+.notification-list-wrapper {
+    position: fixed;
+    top: 4.54em;
+    right: 0;
+    width: 350px;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: -1px 9px 5px 0px #ddd;
+}
