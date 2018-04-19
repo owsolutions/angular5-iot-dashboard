@@ -24,7 +24,6 @@ export class SendingInformationHttpsComponent implements OnInit {
   };
   public boardcastHeaderExample = {
     'x-token': '-token-',
-    'is-doc': true
   };
   public example: {
     dataSourceId?: string,
