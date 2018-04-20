@@ -13,6 +13,8 @@ import { MockInterceptor} from '@app/services/mock.interceptor';
 import { environment } from '../../../environments/environment';
 import { MockService } from '@app/services/mocks.service';
 import { ErrorMessageComponent } from './error-message/error-message.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ToasterModule } from 'angular2-toaster';
 
 @NgModule({
   declarations: [
@@ -21,16 +23,22 @@ import { ErrorMessageComponent } from './error-message/error-message.component';
     SignupFormComponent,
     ProgressLineComponent,
     MaterialInputDirective,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    ToasterModule.forRoot(),
     RouterModule.forRoot([
       {
         path: 'login',
         component: LoginFormComponent
+      },
+      {
+        path: 'reset-password/:key',
+        component: ResetPasswordComponent
       },
       {
         path: 'signup',

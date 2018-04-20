@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IUserForm } from '../shared';
-import { GetNetworkError } from '@app/common';
+import { GetNetworkError, error } from '@app/common';
 import { Router } from '@angular/router';
 import { IResponse } from 'response-type';
 import { HttpClient } from '@angular/common/http';
@@ -14,8 +14,9 @@ import { environment} from '../../../../environments/environment';
 })
 export class LoginFormComponent implements OnInit {
   public isRequesting = false;
-  public signinUrl = `${environment.api}/api/user/signin`;
+  public url = `${environment.api}/api/user/signin`;
   public response: IResponse<any> = null;
+  public error = error;
   public form: IUserForm = {
     email: '',
     password: ''
@@ -38,31 +39,25 @@ export class LoginFormComponent implements OnInit {
     this.isRequesting = true;
     this.signinHttp(this.form);
   }
-  public error (fieldName: string) {
-    if ( ! this.response || ! this.response.error || !this.response.error.errors) {
-      return '';
-    }
-    const error = this.response.error.errors.find(x => x.location === fieldName);
-    return error ? error.message : '';
-  }
-  togglePassword() {
+
+  public togglePassword() {
     this.passwordVisibilty = this.passwordVisibilty ? false : true;
   }
 
   public onSigninSuccess (response = null) {
-
+    this.user.SetUser(response.data.items[0].user);
+    this.user.SetToken(response.data.items[0].token);
+    this.router.navigateByUrl('/index');
   }
   private signinHttp (data: IUserForm) {
-    this.http.post(this.signinUrl, data).subscribe(
+    window.scroll(0, 0);
+    this.http.post(this.url, data).subscribe(
       (response) => {
         this.response = response;
         if (this.response.data && this.response.data.items[0]) {
-          this.user.SetUser(this.response.data.items[0].user);
-          this.user.SetToken(this.response.data.items[0].token);
-          this.router.navigateByUrl('/index');
+          this.onSigninSuccess(response);
         }
         this.isRequesting = false;
-        this.onSigninSuccess(response);
       },
       (response) => {
         this.isRequesting = false;
