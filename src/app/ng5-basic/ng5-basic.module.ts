@@ -23,6 +23,7 @@ import { NgxSidebarModule } from './ngx-sidebar/ngx-sidebar.module';
 import { SidebarControllerService } from './ngx-sidebar/sidebar-controller.service';
 import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
 import { NotificationListComponent } from '@app/components/notification-list/notification-list.component';
+import { NgxTooltipModule } from '@app/components/ngx-tooltip/ngx-tooltip.module';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { NotificationListComponent } from '@app/components/notification-list/not
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    NgxTooltipModule,
     NgxUserModule,
     NgxSidebarModule,
     NgMediaModule,

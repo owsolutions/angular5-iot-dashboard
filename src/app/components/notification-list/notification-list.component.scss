@@ -29,10 +29,87 @@
 
 .notification-list-wrapper {
     position: fixed;
-    top: 4.54em;
+    top: 4.46em;
     right: 0;
-    width: 350px;
+    width: 300px;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: -1px 9px 5px 0px #ddd;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0px 8px 9px -10px #949191 inset;
+    z-index: 2;
+    padding: 15px;
+    .notification-header {
+        margin-bottom: 15px;
+        padding: 0 15px 10px;
+        margin-left: -15px;
+        margin-right: -15px;
+        border-bottom: 1px solid #eee;
+    }
+    .no-content {
+        text-align: center;
+        font-size: 18px;
+        padding-top: 15px;
+        margin-top: 20px;
+        border: 1px dashed #ddd;
+        border-radius: 3px;
+        i {
+            font-size: 30px;
+            color: orange;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+    }
+}
+.notification-list{
+    ul{
+        padding: 0;
+        li {
+            list-style: none;
+            display: flex;
+            .notification-icon {
+                font-size: 23px;
+                width: 60x;
+                text-align: center;
+                i{
+                    &.icon-comment {
+                        color: orange;
+                    }
+                    &.icon-call_made {
+                        color: green;
+                    }
+                    &.icon-call_missed {
+                        color: red;
+                    }
+                    &.icon-mail_outline {
+                        color: #4c84ff;
+                    }
+                    &.icon-error {
+                        color: #e2a700;
+                    }
+                }
+            }
+            .notification-content {
+                display: inline-block;
+                padding-left: 10px;
+                .notification-message{
+                    font-size: 14px;
+                    margin-bottom: 3px;
+                    padding-top: 3px;
+                }
+                .notification-type {
+                    color: #aaa;
+                    font-size: 12px;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+.notification-overlay{
+    position: fixed;
+    top: 4.45em;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.25)
 }

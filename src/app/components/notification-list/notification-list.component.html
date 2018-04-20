@@ -4,6 +4,67 @@
     <i class="icon-notifications_none"></i>
 </div>
 
+<div class="notification-overlay"></div>
 <div class="notification-list-wrapper">
-    <h3>Notification List</h3>
+    <div class="d-flex justify-content-between notification-header">
+        <div class="d-2">
+            Notification
+        </div>
+        <div class="d-2">
+            <a *ngIf="true" href="#">See all</a>
+        </div>
+    </div>
+    <div *ngIf="false" class="no-content">
+        <i class="icon-error"></i>
+        <p>You don't have any activity at now</p>
+    </div>
+    <div class="notification-list" *ngIf="true">
+        <ul>
+            <li>
+                <div class="notification-icon">
+                    <i class="icon-comment" [Tooltip]="'Sent Message'"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">Kitcheb temprature is higher than normal temp</p>
+                    <p class="notification-type">Friday, March 26, 2018 - 06:00</p>
+                </div>
+            </li>
+            <li>
+                <div class="notification-icon">
+                    <i class="icon-mail_outline" [Tooltip]="'Sent Email'"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">5 Devices maybe has crashed</p>
+                    <p class="notification-type">Friday, March 26, 2018 - 08:15</p>
+                </div>
+            </li>
+            <li>
+                <div class="notification-icon">
+                    <i class="icon-call_missed" [Tooltip]="'Missed call'"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">You don't answer to phon call and we send the message to you</p>
+                    <p class="notification-type">Friday, March 27, 2018 - 15:30</p>
+                </div>
+            </li>
+            <li>
+                <div class="notification-icon">
+                    <i class="icon-error" [Tooltip]="'Warning'"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">8 Devices has detected but that's not connect to your dashboard</p>
+                    <p class="notification-type">Friday, March 27, 2018 - 18:30</p>
+                </div>
+            </li>
+            <li>
+                <div class="notification-icon">
+                    <i class="icon-call_made" [Tooltip]="'Called'"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">All Lights on for 2 days, Called to +98901234567 and answerd</p>
+                    <p class="notification-type">Friday, March 27, 2018 - 18:50</p>
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>
