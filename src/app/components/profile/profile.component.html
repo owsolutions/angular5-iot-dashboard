@@ -40,8 +40,6 @@
   </form>
 </app-page-container>
 
-
-
 <app-page-container maintitle="Regional options" subtitle="Set your language and location. Manage your timezone.">
   <form>
   <div class="row">
@@ -53,15 +51,12 @@
           name="preferences_language"
           (change)="ChangeLanguage()"
           type="text">
-          <option *ngFor="let item of GetLanguages()" [value]="item.lang" selected>{{item.label}}</option>
+          <option *ngFor="let item of globalization.GetLanguages()" [value]="item.lang" selected>{{item.label}}</option>
           
         </select>
 
       </div>
     </div>
   </div>
-
-  <button type="submit" (click)="SubmitForm()" 
-    class="btn btn-primary app-profile-update">Update my preferences</button>
   </form>
 </app-page-container>

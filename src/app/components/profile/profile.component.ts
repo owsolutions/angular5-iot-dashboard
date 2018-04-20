@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
     private user: UserService,
     private notification: NotificationService,
     private translate: TranslateService,
-    private globalization: GlobalizationService,
+    public globalization: GlobalizationService,
   ) {
 
   }
@@ -42,6 +42,7 @@ export class ProfileComponent implements OnInit {
     const lang = this.form.preferences.language;
     this.translate.setDefaultLang(lang);
     this.translate.use(lang);
+    localStorage.setItem('preferedLanguage', lang);
   }
 
   ngOnInit() {
@@ -62,14 +63,5 @@ export class ProfileComponent implements OnInit {
     }
     this.isRequesting = false;
   }
-
-  public GetLanguages () {
-    const langs: Array<{lang: string, label: string}> = [];
-    for (const lang of Object.keys(SupportedLanguages)) {
-      langs.push({label: SupportedLanguages[lang], lang});
-    }
-    return langs;
-  }
-
 
 }

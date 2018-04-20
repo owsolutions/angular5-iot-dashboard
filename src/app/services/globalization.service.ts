@@ -9,4 +9,13 @@ export class GlobalizationService {
 
   constructor() { }
 
+  public GetLanguages () {
+    const langs: Array<{lang: string, label: string}> = [];
+    for (const lang of Object.keys(SupportedLanguages)) {
+      langs.push({label: SupportedLanguages[lang], lang});
+    }
+    return langs;
+  }
+
+
 }

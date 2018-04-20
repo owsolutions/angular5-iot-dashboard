@@ -91,7 +91,18 @@ export class AppComponent {
 
   ) {
     this.realtime.ActivateRealtime();
-    translate.setTranslation('pl', pl);
+    this.RestoreLanguage();
+  }
+  private RestoreLanguage () {
+    let lang = 'en';
+    const _lang = localStorage.getItem('preferedLanguage');
+     if (_lang === 'en' || _lang === 'pl') {
+      lang = _lang;
+    }
+
+    this.translate.setTranslation('pl', pl);
+    this.translate.use(lang);
+    this.translate.setDefaultLang(lang);
   }
 }
 
