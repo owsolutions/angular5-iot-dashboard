@@ -5,7 +5,7 @@ export default {
   'Home': 'strona główna',
   'Devices': 'pomysłowość',
   'Create a device': 'Utwórz urządzenie',
-  'Devices list': 'Lista urządzeń',
+  'Devices List': 'Lista urządzeń',
   'Locations': 'Lokalizacje',
   'Create a location': 'Utwórz lokalizację',
   'View Locations': 'Wyświetl lokalizacje',
