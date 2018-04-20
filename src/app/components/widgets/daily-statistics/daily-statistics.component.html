@@ -2,12 +2,12 @@
   <div class="row">
     <div class="box-title">
       <h2 [title]="device.name">{{device.name}}</h2>
-      <p [title]="data.subTitle">{{data.subTitle}}</p>
+      <p [title]="data.subTitle">{{data.subTitle | translate}}</p>
     </div>
   </div>
   <div class="d-flex widget-value">
     <div class="d-2 widget-lable">
-      <p>{{data.for}} : </p>
+      <p>{{data.for | translate}} : </p>
     </div>
     <div class="d-2 current-value">
       <p>{{device.value}} <sup>{{data.unit}}</sup></p>
@@ -20,21 +20,21 @@
 
   
   <div *ngIf="!HasHistory()" class="no-history">
-    There are no history for this device to draw usage chart.
+    {{ 'There are no history for this device to draw usage chart.' | translate }}
   </div>
   <div class="row">
     <div class="d-flex st-bar">
       <div class="d-2 col-sm-4">
         N/A<sup>°</sup>
-        <p>Average</p>
+        <p>{{'Average' | translate}}</p>
       </div>
       <div class="d-2 col-sm-4">
         N/A <sup>°</sup>
-        <p>Highest</p>
+        <p>{{'Highest' | translate}}</p>
       </div>
       <div class="d-2 col-sm-4">
         N/A <sup>°</sup>
-        <p>Lowest</p>
+        <p>{{'Lowest' | translate}}</p>
       </div>
     </div>
   </div>

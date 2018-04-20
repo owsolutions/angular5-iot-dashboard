@@ -21,4 +21,14 @@ export default {
   'Introduction': 'Wprowadzenie',
   'GPS Location': 'Lokalizacja GPS',
   'Logout': 'Wyloguj',
+  'Number of the': 'Numer ',
+  'Temperatures': 'Temperatury',
+  'Lights': 'Światła',
+  'Show Today Live Statistics': 'Pokaż statystyki na żywo',
+  'Show for now and others': 'Pokaż na razie i na innych',
+  'Temperature': 'Temperatura',
+  'There are no history for this device to draw usage chart.': 'Nie ma historii dla tego urządzenia do rysowania wykresu użycia.',
+  'Average': 'Średni',
+  'Highest': 'Najwyższy',
+  'Lowest': 'Najniższy'
 };
