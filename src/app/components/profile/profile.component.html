@@ -52,9 +52,9 @@
           (change)="ChangeLanguage()"
           type="text">
           <option *ngFor="let item of globalization.GetLanguages()" [value]="item.lang" selected>{{item.label}}</option>
-          
         </select>
-
+        <span class="warning">At the moment, for some languages might be not fully covered and you still see english words. 
+          Plus, we do not store your preference in your account since it's an experimental feature.</span>
       </div>
     </div>
   </div>
