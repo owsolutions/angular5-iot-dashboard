@@ -30,5 +30,9 @@ export default {
   'There are no history for this device to draw usage chart.': 'Nie ma historii dla tego urządzenia do rysowania wykresu użycia.',
   'Average': 'Średni',
   'Highest': 'Najwyższy',
-  'Lowest': 'Najniższy'
+  'Lowest': 'Najniższy',
+  /* tslint:disable */
+  'At the moment, for some languages might be not fully covered and you still see english words.': 'W chwili obecnej niektóre języki mogą nie być w pełni pokryte i nadal widać angielskie słowa.',
+  'Plus, we do not store your preference in your account since it\'s an experimental feature.': 'Ponadto nie przechowujemy Twoich preferencji na koncie, ponieważ jest to funkcja eksperymentalna.'
 };
+
