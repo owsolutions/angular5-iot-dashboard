@@ -1,3 +1,4 @@
+<toaster-container></toaster-container>
 <app-progress-line *ngIf="isRequesting"></app-progress-line>
 <app-error-message *ngIf="response && response.error">
   {{response.error.message}}
@@ -17,7 +18,7 @@
       <div class="form-group material-input">
         <input type="text" class="app-login-form-email" material-input name="email" [(ngModel)]="form.email">
         <span class="focus-input" data-placeholder="Email"></span>
-        <span class="error-message" *ngIf="error('email')">{{error('email')}}</span>
+        <span class="error-message" *ngIf="error(response, 'email')">{{error(response, 'email')}}</span>
 
       </div>
 
@@ -27,7 +28,7 @@
         </span>
         <input class="app-login-form-password" [type]="passwordVisibilty ? 'text' : 'password'" material-input name="password" [(ngModel)]="form.password">
         <span class="focus-input" data-placeholder="Password"></span>
-        <span class="error-message" *ngIf="error('password')">{{error('password')}}</span>
+        <span class="error-message" *ngIf="error(response, 'password')">{{error(response, 'password')}}</span>
 
       </div>
 
@@ -43,7 +44,7 @@
           Sign Up
         </a>
         <br>
-        <a routerLink="/forgot-password">
+        <a routerLink="/forgot-password" class="app-forget-password-link">
           Forgot Password? 
         </a>
       </div>
