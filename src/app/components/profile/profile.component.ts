@@ -6,7 +6,7 @@ import { RequestsService } from '@app/services/requests.service';
 import { UserService } from '@app/services/user.service';
 import { NotificationService } from '@app/services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
-import { GlobalizationService, SupportedLanguages } from '@app/services/globalization.service';
+import { GlobalizationService } from '@app/services/globalization.service';
 
 @Component({
   selector: 'app-profile',
@@ -37,7 +37,7 @@ export class ProfileComponent implements OnInit {
   ) {
   }
 
-  
+
 
   public ChangeLanguage () {
     const lang = this.form.preferences.language;
