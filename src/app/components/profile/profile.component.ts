@@ -32,11 +32,12 @@ export class ProfileComponent implements OnInit {
     private requests: RequestsService,
     private user: UserService,
     private notification: NotificationService,
-    private translate: TranslateService,
+    public translate: TranslateService,
     public globalization: GlobalizationService,
   ) {
-
   }
+
+  
 
   public ChangeLanguage () {
     const lang = this.form.preferences.language;
