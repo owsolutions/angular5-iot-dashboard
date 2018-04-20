@@ -70,8 +70,10 @@ import { ContactDetailsComponent } from './components/contact-details/contact-de
 import { IfExperimentalComponent } from './components/if-experimental/if-experimental.component';
 import { GpsComponent } from '@app/components/gps/gps.component';
 import { D3neComponent } from './components/d3ne/d3ne.component';
-
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Ng5BasicModule } from './ng5-basic/ng5-basic.module';
+import pl from './translations/pl';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -84,8 +86,14 @@ window['Highcharts'] = Highcharts;
 export class AppComponent {
   constructor (
     private realtime: RealtimeService,
+    private translate: TranslateService,
+
   ) {
     this.realtime.ActivateRealtime();
+
+    translate.setDefaultLang('pl');
+    translate.use('pl');
+    translate.setTranslation('pl', pl);
   }
 }
 
@@ -153,6 +161,7 @@ export class AppComponent {
     Ng5BasicModule,
     BrowserModule,
     FormsModule,
+    TranslateModule.forRoot(),
     NgMediaModule,
     ToasterModule.forRoot(),
     createRoutes (),

@@ -28,7 +28,10 @@ export class ProfileComponent implements OnInit {
     private requests: RequestsService,
     private user: UserService,
     private notification: NotificationService,
-  ) { }
+
+  ) {
+
+  }
 
   ngOnInit() {
     this.form = Object.assign({}, this.user.User);
