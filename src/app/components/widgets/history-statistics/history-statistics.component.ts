@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { RequestsService } from '@app/services/requests.service';
 import { CloudDevice, ICloudDeviceDailyHistory } from '@app/definitions';
 declare var Highcharts: any;
@@ -12,7 +12,7 @@ interface IComponentHistory extends ICloudDeviceDailyHistory {
   templateUrl: './history-statistics.component.html',
   styleUrls: ['./history-statistics.component.scss']
 })
-export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
+export class HistoryStatisticsComponent implements OnInit {
   @Input('device') public device: CloudDevice = null;
   public dailyHistory: Array<IComponentHistory> = [];
   public currentData: Array<any>;
@@ -121,11 +121,6 @@ export class HistoryStatisticsComponent implements OnInit, AfterViewInit {
 
     }
   }
-
-  ngAfterViewInit() {
-    this.drawChart();
-  }
-
   private async GetDayHistory(id: number, date: Date): Promise<number[]> {
     try {
       const response = await this.requests.GetDeviceDayHistory(id, date);
