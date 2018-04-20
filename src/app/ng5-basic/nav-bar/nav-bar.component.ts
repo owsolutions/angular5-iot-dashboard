@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarControllerService } from '../ngx-sidebar/sidebar-controller.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,12 +9,18 @@ import { SidebarControllerService } from '../ngx-sidebar/sidebar-controller.serv
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(public sidebar: SidebarControllerService) { }
+  constructor(
+    public sidebar: SidebarControllerService,
+    private translate: TranslateService,
+  ) { }
 
   ngOnInit() {
   }
 
   ToggleSidebar() {
     this.sidebar.ToggleSidebar.emit();
+  }
+  public CurrentLanguage () {
+    return this.translate.currentLang;
   }
 }

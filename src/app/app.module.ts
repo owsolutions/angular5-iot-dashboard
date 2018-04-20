@@ -74,6 +74,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Ng5BasicModule } from './ng5-basic/ng5-basic.module';
 import pl from './translations/pl';
+import { GlobalizationService } from '@app/services/globalization.service';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -90,9 +91,6 @@ export class AppComponent {
 
   ) {
     this.realtime.ActivateRealtime();
-
-    translate.setDefaultLang('pl');
-    translate.use('pl');
     translate.setTranslation('pl', pl);
   }
 }
@@ -177,6 +175,7 @@ export class AppComponent {
     NotificationService,
     UserService,
     AuthGuard,
+    GlobalizationService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
