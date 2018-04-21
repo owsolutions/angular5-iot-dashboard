@@ -1,4 +1,4 @@
-describe('Locations tests', function () {
+describe('Profile test', function () {
   beforeEach(() => {
     cy.visit('http://localhost:4200');
     cy.get('.app-login-form-email').type('test@test.com');

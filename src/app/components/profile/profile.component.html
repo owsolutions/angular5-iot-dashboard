@@ -46,7 +46,7 @@
     <div class="col-md-6 unit">
       <label class="label">Language:</label>
       <div class="input">
-        <select class="form-control app-profile-firstname" 
+        <select class="form-control app-profile-language" 
           [(ngModel)]="form.preferences.language"
           name="preferences_language"
           (change)="ChangeLanguage()"
@@ -57,7 +57,6 @@
           {{ 'At the moment, for some languages might be not fully covered and you still see english words.' | translate }}
           {{ 'Plus, we do not store your preference in your account since it\'s an experimental feature.' | translate }}
         </span>
-
         <app-if-experimental>
           <span class="warning">
             Please try to contribute to this repository if you are interested to add your own language with official support. At the moment we only do support Polish language.
