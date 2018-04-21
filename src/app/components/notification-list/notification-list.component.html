@@ -18,7 +18,7 @@
         <i class="icon-error"></i>
         <p>You don't have any activity at now</p>
     </div>
-    <div class="notification-list" *ngIf="true">
+    <div class="notification-list" data-simplebar *ngIf="true">
         <ul>
             <li>
                 <div class="notification-icon">
@@ -58,11 +58,38 @@
             </li>
             <li>
                 <div class="notification-icon">
+                    <i class="icon-remove_circle" [Tooltip]="'Remove'"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">Removed Location: Bathroom has removed successfuly.</p>
+                    <p class="notification-type">Friday, March 27, 2018 - 18:30</p>
+                </div>
+            </li>
+            <li>
+                <div class="notification-icon">
                     <i class="icon-call_made" [Tooltip]="'Called'"></i>
                 </div>
                 <div class="notification-content">
                     <p class="notification-message">All Lights on for 2 days, Called to +98901234567 and answerd</p>
                     <p class="notification-type">Friday, March 27, 2018 - 18:50</p>
+                </div>
+            </li>
+            <li>
+                <div class="notification-icon">
+                    <i class="icon-mode_edit" [Tooltip]="'Edit'"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">Edited Device: Temrature has edited successfuly</p>
+                    <p class="notification-type">Friday, March 27, 2018 - 19:50</p>
+                </div>
+            </li>
+            <li>
+                <div class="notification-icon">
+                    <i class="icon-add_circle" [Tooltip]="'Add'"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">Added Location: Kitchen has created successfuly</p>
+                    <p class="notification-type">Friday, March 27, 2018 - 19:50</p>
                 </div>
             </li>
         </ul>
