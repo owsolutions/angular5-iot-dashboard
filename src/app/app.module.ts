@@ -57,7 +57,6 @@ import { ApplicationsListComponent } from './components/applications-list/applic
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ActivitiesComponent } from './components/widgets/activities/activities.component';
 import { HistoryStatisticsComponent } from './components/widgets/history-statistics/history-statistics.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { DailyStatisticsComponent } from '@app/components/widgets/daily-statistics/daily-statistics.component';
 import { ExperimentalComponent } from './components/experimental/experimental.component';
 import { NgxTooltipModule } from './components/ngx-tooltip/ngx-tooltip.module';
@@ -151,7 +150,6 @@ export class AppComponent {
     DashboardComponent,
     ActivitiesComponent,
     HistoryStatisticsComponent,
-    FooterComponent,
     ExperimentalComponent,
     PageContainerComponent,
     SendingInformationHttpsComponent,

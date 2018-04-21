@@ -22,6 +22,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { NgxSidebarModule } from './ngx-sidebar/ngx-sidebar.module';
 import { SidebarControllerService } from './ngx-sidebar/sidebar-controller.service';
 import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
+import { FooterComponent } from '@app/components/footer/footer.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
     LayoutComponent,
     SideBarComponent,
     NavBarComponent,
-    ProfileMenuComponent
+    ProfileMenuComponent,
+    FooterComponent
   ],
   imports: [
     RealtimeDocumentModule,
