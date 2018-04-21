@@ -11,7 +11,15 @@
             Notification
         </div>
         <div class="d-2">
-            <a *ngIf="true" href="#">See all</a>
+            <button class="search-btn" (click)="ToggleSearch();" [Tooltip]="'Filter'">
+                <i class="icon-filter_list"></i>
+            </button>
+        </div>
+        <div class="search-input" *ngIf="searchStatus">
+            <button class="search-btn close-search-bar" (click)="ToggleSearch();">
+                <i class="icon-close"></i>
+            </button>
+            <input type="text" class="form-control" placeholder="Filter of all notifications ..."/>
         </div>
     </div>
     <div *ngIf="false" class="no-content">

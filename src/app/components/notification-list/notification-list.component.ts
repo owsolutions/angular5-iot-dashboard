@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notification-list.component.scss']
 })
 export class NotificationListComponent implements OnInit {
-
+  public searchStatus = false;
   constructor() { }
 
   ngOnInit() {
   }
 
+  ToggleSearch() {
+    this.searchStatus = (this.searchStatus) ? false : true;
+    console.log(this.searchStatus);
+  }
 }
