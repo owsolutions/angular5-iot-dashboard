@@ -7,7 +7,7 @@ mobile/node_modules
 mobile/plugins
 # dependencies
 /node_modules
-package-lock.json
+#package-lock.json
 
 # IDEs and editors
 /.idea

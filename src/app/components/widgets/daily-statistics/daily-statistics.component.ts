@@ -40,9 +40,9 @@ export class DailyStatisticsComponent implements OnInit, AfterViewInit {
 
   drawChart() {
     this.data = {
-      title: 'Bedroom Tempreture',
+      title: 'Bedroom Temperature',
       subTitle: 'Show Today Live Statistics',
-      for: 'Tempreture',
+      for: 'Temperature',
       unit: '°C',
       chartColor: 'orange',
       series: CastHistoryToSeries(this.device && this.device.dataHistory || [])

@@ -15,6 +15,9 @@ export interface IUser {
   username: string;
   email: string;
   avatar: string;
+  preferences: {
+    language?: 'pl' | 'en';
+  };
   phone: string;
   firstname: string;
   lastname: string;
