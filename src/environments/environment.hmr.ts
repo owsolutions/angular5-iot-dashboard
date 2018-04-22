@@ -1,8 +1,8 @@
 declare var require: any;
-const { version } = require('../../package.json');
+const package2 = require('../../package.json');
 export const environment = {
   production: false,
   hmr: true,
-  version,
+  version: package2.version,
   api: 'http://localhost:1337'
 };
