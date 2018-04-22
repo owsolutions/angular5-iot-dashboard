@@ -1,53 +1,46 @@
 <app-page-container maintitle="Welcome to realtime documentations" subtitle="In this section, we explain all about the dashboard usage and it's connectivity conditions to server, and how you can interact your hardwares using our REST api to make an interactive dashboard.">
   
   <h2>REST API</h2>
-  In order to display any information on your dashboard, you need to send your device information changes to our restful API.
-  These apis, all require a token to distingush the identity.
+  <p>In order to display any information on your dashboard, you need to send your device information changes to our restful API.
+  These apis, all require a token to distingush the identity.</p>
 
-  <br>
-  For more flexibilty, we can accept token per different device or a general token that can describe information for all devices,
+  <p>For more flexibilty, we can accept token per different device or a general token that can describe information for all devices,
   and in the request body, you can specifiy the device by it's id.
-  Mostly our api sets are used to collect information but also you can find some apis that return you useful information about your ecosystem.
+  Mostly our api sets are used to collect information but also you can find some apis that return you useful information about your ecosystem.</p>
 
-  <br>
-  <b>It's very important to notice that</b> all responses from our server api are coming back with a guideline from google,
+  <p><b>It's very important to notice that</b> all responses from our server api are coming back with a guideline from google,
   called <i>google json styleguide</i> and you can guess success and failure of your api request based on this format.
   Generally speaking, if our servers be able to catch your request, we will return 200 response anyway, even if the operation
-  has not performed. In this case you must look for error field within the response object.
-  <br>
-  Response that are having 50x, 40x or else, are rarely appear because we aim to handle all possible situation with our api,
-  and you must consider these kind of errors temporary out of service or partially downtime.
+  has not performed. In this case you must look for error field within the response object.</p>
+  
+  <p>Response that are having 50x, 40x or else, are rarely appear because we aim to handle all possible situation with our api,
+  and you must consider these kind of errors temporary out of service or partially downtime.</p>
 
   <h2>Getting a token</h2>
-  You can find your <b>IOT Token</b> inside your settings section. Make sure you use the <b>IOT Token</b> only to update us for your device information,
+  <p>You can find your <b>IOT Token</b> inside your settings section. Make sure you use the <b>IOT Token</b> only to update us for your device information,
   such as the changes in temperature or humidity, devices usages and etc. There might be other tokens provided to you
   and each have their own usage.
-
-  <br>
-
-  Eversince you have your token, you can make post and get requests to the api server included <strong>x-access-token</strong> in headers.
-  <br>
+  Eversince you have your token, you can make post and get requests to the api server included <strong>x-access-token</strong> in headers.</p>
 
   <h2>Devices Information API</h2>
-  Most important api for developers who want to integrate with dashboard is to post their devices information to our cloud.
-  Basically, you can send these information using REST API and we will collect it overtime and make your analytics.
-  <br>
-  Eventhought there are couple of other different apis, such as your login and etc, we cover data section here and 
-  describe for example, <b>how to connect a temperature arduino device to this end point</b>
+  <p>Most important api for developers who want to integrate with dashboard is to post their devices information to our cloud.
+  Basically, you can send these information using REST API and we will collect it overtime and make your analytics.</p>
+  
+  <p>Eventhought there are couple of other different apis, such as your login and etc, we cover data section here and 
+  describe for example, <b>how to connect a temperature arduino device to this end point</b></p>
 
   <h2>Schemas vs Data collection</h2>
-  There are two main topic on collecting information and displaying information. Imagine you 2 different kind of temperature measurement
-  devices. One is to measure a house temperature, and other one is going to measure the industrial device temperature.
+  <p>There are two main topic on collecting information and displaying information. Imagine you 2 different kind of temperature measurement
+  devices. One is to measure a house temperature, and other one is going to measure the industrial device temperature.</p>
 
-  <br>
-  What is obvious in this scenrio, you will collect a number from your sensor, let's say for house between 15-40 degrees centegrade and
+  <p>What is obvious in this scenrio, you will collect a number from your sensor, let's say for house between 15-40 degrees centegrade and
   for industrial device, probably something between 500-2500 degrees of centigrade.
   You will send both of information with same api, but when you want to do analytics or monitoring the way you want system behave 
-  is different.
-  <br>
-  If a house temperature goes more than 60 degree, there must be a alarm but this is not the case for industrial device. To configurate
+  is different.</p>
+
+  <p>If a house temperature goes more than 60 degree, there must be a alarm but this is not the case for industrial device. To configurate
   these kind of information, you need to use your dashboard device settings. Using api, you will only send the real values
-  of the sensor device, sometimes not even specifiyng the type of device.
+  of the sensor device, sometimes not even specifiyng the type of device.</p>
 
   <br>
   <br>
