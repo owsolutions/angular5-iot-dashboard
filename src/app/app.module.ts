@@ -74,6 +74,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Ng5BasicModule } from './ng5-basic/ng5-basic.module';
 import pl from './translations/pl';
 import { GlobalizationService } from '@app/services/globalization.service';
+import { RestfulComponent } from '@app/components/docs/restful/restful.component';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -160,6 +161,7 @@ export class AppComponent {
     IfExperimentalComponent,
     GpsComponent,
     D3neComponent,
+    RestfulComponent,
   ],
   imports: [
     RealtimeDocumentModule,

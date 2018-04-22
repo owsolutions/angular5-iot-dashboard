@@ -1,0 +1,29 @@
+<app-page-container maintitle="Restful API" subtitle="Understanding the Restful API and how to implement it">
+  
+  <h2>Overview</h2>
+  <p>In order to display any information on your dashboard, you need to send your device information changes to our restful API.
+  These apis, all require a token to distingush the identity.</p>
+
+  <p>For more flexibilty, we can accept token per different device or a general token that can describe information for all devices,
+  and in the request body, you can specifiy the device by it's id.
+  Mostly our api sets are used to collect information but also you can find some apis that return you useful information about your ecosystem.</p>
+
+  <p><b>It's very important to notice that</b> all responses from our server api are coming back with a guideline from google,
+  called <i>google json styleguide</i> and you can guess success and failure of your api request based on this format.
+  Generally speaking, if our servers be able to catch your request, we will return 200 response anyway, even if the operation
+  has not performed. In this case you must look for error field within the response object.</p>
+  
+  <p>Response that are having 50x, 40x or else, are rarely appear because we aim to handle all possible situation with our api,
+  and you must consider these kind of errors temporary out of service or partially downtime.</p>
+
+  <h2>Your token</h2>
+  <strong>For any requests for devices, you need to get a token.</strong>
+  You can <a routerLink="/token">see your token here.</a>
+  <br>
+  <h2>Next steps:</h2>
+  <ul>
+    <li>
+      <a routerLink="/docs/sending-information-over-https">Sending information from sensor devices using REST api</a>
+    </li>
+  </ul>
+</app-page-container>
