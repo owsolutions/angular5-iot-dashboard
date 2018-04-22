@@ -1,8 +1,5 @@
 <app-page-container maintitle="Welcome to realtime documentations" subtitle="In this section, we explain all about the dashboard usage and it's connectivity conditions to server, and how you can interact your hardwares using our REST api to make an interactive dashboard.">
   
-
-  <br>
-
   <h2>REST API</h2>
   In order to display any information on your dashboard, you need to send your device information changes to our restful API.
   These apis, all require a token to distingush the identity.
@@ -31,16 +28,6 @@
   Eversince you have your token, you can make post and get requests to the api server included <strong>x-access-token</strong> in headers.
   <br>
 
-  <h3>Server health example</h3>
-  You can get a response from your dashboard to see if it's running healthy and discover a little bit of information.
-  <br><br>
-
-  <app-docs-api-workaround
-    type="get"
-    [response]="healthCheckResponseExample"
-    url="broadcast/healthcheck"
-  ></app-docs-api-workaround>
-
   <h2>Devices Information API</h2>
   Most important api for developers who want to integrate with dashboard is to post their devices information to our cloud.
   Basically, you can send these information using REST API and we will collect it overtime and make your analytics.
@@ -48,7 +35,7 @@
   Eventhought there are couple of other different apis, such as your login and etc, we cover data section here and 
   describe for example, <b>how to connect a temperature arduino device to this end point</b>
 
-  <h3>Schemas vs Data collection</h3>
+  <h2>Schemas vs Data collection</h2>
   There are two main topic on collecting information and displaying information. Imagine you 2 different kind of temperature measurement
   devices. One is to measure a house temperature, and other one is going to measure the industrial device temperature.
 
@@ -64,8 +51,7 @@
 
   <br>
   <br>
-  <br>
-  <h3>Next steps:</h3>
+  <h2>Next steps:</h2>
   <ul>
     <li>
       <a routerLink="/docs/sending-information-over-https">Sending information from sensor devices</a>
