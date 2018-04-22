@@ -7,7 +7,7 @@ import { IsSuccessEntity } from '@app/common';
 @Component({
   selector: 'app-docs',
   templateUrl: './docs.component.html',
-  styleUrls: ['./docs.component.scss']
+  styleUrls: ['./docs.component.scss', './docs.styling.scss']
 })
 export class DocsComponent implements OnInit {
   public healthCheckResponseExample: IResponse<any> = {
