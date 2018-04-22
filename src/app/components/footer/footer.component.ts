@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { GlobalizationService } from '@app/services/globalization.service';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-footer',
@@ -9,6 +10,7 @@ import { GlobalizationService } from '@app/services/globalization.service';
 })
 export class FooterComponent implements OnInit {
 
+  public version = environment.version;
   constructor(
     public translate: TranslateService,
     public globalization: GlobalizationService,
