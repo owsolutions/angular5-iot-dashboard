@@ -16,7 +16,8 @@ export class NotificationListComponent implements OnInit {
   @HostListener('document:click', ['$event'])
   clickout(event) {
     if (this.notificationStatus) {
-      const isTarget = event.path.filter(x => x.id === 'notification-list' || x.id === 'notification-button');
+      const path = event.path || (event.composedPath && event.composedPath()) || this.composedPath(event.target);
+      const isTarget = path.filter(x => x.id === 'notification-list' || x.id === 'notification-button');
       if (isTarget.length === 0) {
         this.ToggleNotification();
       }
@@ -45,5 +46,18 @@ export class NotificationListComponent implements OnInit {
   filterNotifications(value) {
     const filtered = this.notificationsBackup.filter(x => x.message.indexOf(value) > -1 || x.title.indexOf(value) > -1);
     this.notifications = (filtered.length) ? filtered : this.notificationsBackup;
+  }
+
+  composedPath (el) {
+    const path = [];
+    while (el) {
+        path.push(el);
+        if (el.tagName === 'HTML') {
+            path.push(document);
+            path.push(window);
+            return path;
+       }
+       el = el.parentElement;
+    }
   }
 }
