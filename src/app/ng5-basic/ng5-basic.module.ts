@@ -24,6 +24,7 @@ import { SidebarControllerService } from './ngx-sidebar/sidebar-controller.servi
 import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
 import { NotificationListComponent } from '@app/components/notification-list/notification-list.component';
 import { NgxTooltipModule } from '@app/components/ngx-tooltip/ngx-tooltip.module';
+import { FooterComponent } from '@app/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NgxTooltipModule } from '@app/components/ngx-tooltip/ngx-tooltip.module
     SideBarComponent,
     NavBarComponent,
     ProfileMenuComponent,
-    NotificationListComponent
+    NotificationListComponent,
+    FooterComponent
   ],
   imports: [
     RealtimeDocumentModule,

@@ -21,6 +21,8 @@ export class NotificationService {
   public InvokePasswordReset () {
     const notification: INotification = {
       message: 'Your password has been reset successfully.',
+      status: 'icon-vpn_key',
+      date: new Date(),
       title: 'Password reset',
       type: 'success'
     };
