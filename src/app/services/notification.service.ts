@@ -24,6 +24,8 @@ export class NotificationService {
     this.StoreNotification({
       title,
       type: 'success',
+      status: 'icon-exit_to_app',
+      date: new Date(),
       message
     });
   }
@@ -33,6 +35,8 @@ export class NotificationService {
     this.StoreNotification({
       title,
       type: 'success',
+      status: 'icon-add_circle',
+      date: new Date(),
       message: device.name
     });
   }
@@ -42,6 +46,8 @@ export class NotificationService {
     this.StoreNotification({
       title,
       type: 'success',
+      status: 'icon-mode_edit',
+      date: new Date(),
       message: device.name
     });
   }
@@ -50,6 +56,8 @@ export class NotificationService {
     this.StoreNotification({
       title: 'Your Device Deleted',
       type: 'error',
+      status: 'icon-remove_circle',
+      date: new Date(),
       message: device.name
     });
   }
@@ -57,6 +65,8 @@ export class NotificationService {
     this.StoreNotification({
       title: 'Your Location Deleted',
       type: 'error',
+      status: 'icon-remove_circle',
+      date: new Date(),
       message: location.name
     });
   }
@@ -64,12 +74,16 @@ export class NotificationService {
     this.StoreNotification({
       title: 'Contact details has been updated and will be used effectivly',
       type: 'success',
+      status: 'icon-mode_edit',
+      date: new Date()
     });
   }
   public InvokeLocationUpdate (location: ILocation) {
     this.StoreNotification({
       title: 'Your Location has been updated',
       type: 'success',
+      status: 'icon-mode_edit',
+      date: new Date(),
       message: location.name
     });
   }
@@ -77,6 +91,8 @@ export class NotificationService {
     this.StoreNotification({
       title: 'Location Created Succesfully',
       type: 'success',
+      status: 'icon-add_circle',
+      date: new Date(),
       message: location.name
     });
   }
@@ -84,6 +100,8 @@ export class NotificationService {
     this.StoreNotification({
       title: 'Profile updated',
       type: 'success',
+      status: 'icon-account_box',
+      date: new Date(),
       message: 'Your profile changes has been saved. Some of the changes may affect in the next signin.'
     });
   }
@@ -91,6 +109,8 @@ export class NotificationService {
     this.StoreNotification({
       title:  'Server',
       type: 'success',
+      status: 'icon-dns',
+      date: new Date(),
       message: 'You are now connected'
     });
   }
@@ -98,6 +118,8 @@ export class NotificationService {
     this.StoreNotification({
       title:  'Private environment',
       type: 'success',
+      status: 'icon-cloud_done',
+      date: new Date,
       message: 'You are inside your environment now'
     });
   }
