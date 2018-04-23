@@ -25,7 +25,6 @@ import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
 import { NotificationListComponent } from '@app/components/notification-list/notification-list.component';
 import { NgxTooltipModule } from '@app/components/ngx-tooltip/ngx-tooltip.module';
 
-
 @NgModule({
   declarations: [
     LayoutComponent,

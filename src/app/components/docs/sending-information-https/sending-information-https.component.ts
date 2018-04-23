@@ -4,6 +4,8 @@ import { DataSource } from '@app/definitions';
 import { environment } from 'environments/environment';
 import { RequestsService } from '@app/services/requests.service';
 import { IsSuccessEntity } from '@app/common';
+declare var require: any;
+const YAML = require('yamljs');
 
 @Component({
   selector: 'app-sending-information-https',
@@ -22,7 +24,6 @@ export class SendingInformationHttpsComponent implements OnInit {
   };
   public boardcastHeaderExample = {
     'x-token': '-token-',
-    'is-doc': true
   };
   public example: {
     dataSourceId?: string,
@@ -72,5 +73,9 @@ export class SendingInformationHttpsComponent implements OnInit {
 
   public GetUrl (affix: string) {
     return environment.api + '/api/' + affix;
+  }
+
+  public GetYAML (object) {
+    return YAML.stringify(object, 2);
   }
 }

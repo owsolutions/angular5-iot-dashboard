@@ -56,7 +56,6 @@ import { ApplicationsListComponent } from './components/applications-list/applic
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ActivitiesComponent } from './components/widgets/activities/activities.component';
 import { HistoryStatisticsComponent } from './components/widgets/history-statistics/history-statistics.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { DailyStatisticsComponent } from '@app/components/widgets/daily-statistics/daily-statistics.component';
 import { ExperimentalComponent } from './components/experimental/experimental.component';
 import { NgxTooltipModule } from './components/ngx-tooltip/ngx-tooltip.module';
@@ -69,8 +68,12 @@ import { ContactDetailsComponent } from './components/contact-details/contact-de
 import { IfExperimentalComponent } from './components/if-experimental/if-experimental.component';
 import { GpsComponent } from '@app/components/gps/gps.component';
 import { D3neComponent } from './components/d3ne/d3ne.component';
-
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Ng5BasicModule } from './ng5-basic/ng5-basic.module';
+import pl from './translations/pl';
+import { GlobalizationService } from '@app/services/globalization.service';
+import { RestfulComponent } from '@app/components/docs/restful/restful.component';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -83,8 +86,22 @@ window['Highcharts'] = Highcharts;
 export class AppComponent {
   constructor (
     private realtime: RealtimeService,
+    private translate: TranslateService,
+
   ) {
     this.realtime.ActivateRealtime();
+    this.RestoreLanguage();
+  }
+  private RestoreLanguage () {
+    let lang = 'en';
+    const _lang = localStorage.getItem('preferedLanguage');
+     if (_lang === 'en' || _lang === 'pl') {
+      lang = _lang;
+    }
+
+    this.translate.setTranslation('pl', pl);
+    this.translate.use(lang);
+    this.translate.setDefaultLang(lang);
   }
 }
 
@@ -132,7 +149,6 @@ export class AppComponent {
     DashboardComponent,
     ActivitiesComponent,
     HistoryStatisticsComponent,
-    FooterComponent,
     ExperimentalComponent,
     PageContainerComponent,
     SendingInformationHttpsComponent,
@@ -143,6 +159,7 @@ export class AppComponent {
     IfExperimentalComponent,
     GpsComponent,
     D3neComponent,
+    RestfulComponent,
   ],
   imports: [
     RealtimeDocumentModule,
@@ -151,6 +168,7 @@ export class AppComponent {
     Ng5BasicModule,
     BrowserModule,
     FormsModule,
+    TranslateModule.forRoot(),
     NgMediaModule,
     ToasterModule.forRoot(),
     createRoutes (),
@@ -166,6 +184,7 @@ export class AppComponent {
     NotificationService,
     UserService,
     AuthGuard,
+    GlobalizationService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

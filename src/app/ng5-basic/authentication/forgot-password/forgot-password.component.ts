@@ -22,6 +22,7 @@ export class ForgotPasswordComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
   }
 
   requestPassword(e) {

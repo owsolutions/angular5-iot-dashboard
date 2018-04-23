@@ -39,3 +39,31 @@
     class="btn btn-primary app-profile-update">Update my profile</button>
   </form>
 </app-page-container>
+
+<app-page-container maintitle="Regional options" subtitle="Set your language and location. Manage your timezone.">
+  <form>
+  <div class="row">
+    <div class="col-md-6 unit">
+      <label class="label">Language:</label>
+      <div class="input">
+        <select class="form-control app-profile-language" 
+          [(ngModel)]="form.preferences.language"
+          name="preferences_language"
+          (change)="ChangeLanguage()"
+          type="text">
+          <option *ngFor="let item of globalization.GetLanguages()" [value]="item.lang" [selected]="translate.currentLang === item.lang">{{item.label}}</option>
+        </select>
+        <span class="warning">
+          {{ 'At the moment, for some languages might be not fully covered and you still see english words.' | translate }}
+          {{ 'Plus, we do not store your preference in your account since it\'s an experimental feature.' | translate }}
+        </span>
+        <app-if-experimental>
+          <span class="warning">
+            Please try to contribute to this repository if you are interested to add your own language with official support. At the moment we only do support Polish language.
+          </span>
+        </app-if-experimental>
+      </div>
+    </div>
+  </div>
+  </form>
+</app-page-container>

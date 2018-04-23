@@ -5,7 +5,7 @@ import { IResponse, IResponseErrorItem } from 'response-type';
 import { matchPattern } from 'url-matcher';
 import { environment } from '../../environments/environment';
 import { PermissionsService } from '@services/permissions.service';
-import { IUserForm, CloudDevice, DataSource, IUser, ICloudDeviceDailyHistory, IContact } from '@app/definitions';
+import { IUserForm, CloudDevice, DataSource, IUser, ICloudDeviceDailyHistory, IContact, IResetForm } from '@app/definitions';
 import { CloudDeviceType } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { random, times } from '@lodash';
@@ -31,6 +31,7 @@ export class MockService {
     'GET /api/contact-details': 'GetContactDetails',
     'POST /api/user/settings': 'updateUserProfile',
     'POST /api/contact-details': 'UpdateContactDetails',
+    'POST /api/user/reset-password': 'ResetPassword',
   };
 
   constructor (
@@ -74,6 +75,34 @@ export class MockService {
       url: req.url
     } );
     return Observable.of( mockResponse );
+  }
+
+  public ResetPassword(req: HttpRequest<IResetForm>): IResponse<any> {
+
+    if (req.body.password1 !== '123321' || req.body.password2 !== req.body.password1) {
+      return {
+        error: {
+          code: 17,
+          message: 'Please reset your password to 123321, and both fields must be identicial. You see this message because your are' +
+          'running an experimental version of app',
+          errors: [
+            {
+              location: 'password1',
+              message: 'Please type 123321'
+            },
+            {
+              location: 'password2',
+              message: 'Please repeat 123321'
+            }
+          ]
+        }
+      };
+    }
+    return {
+      data: {
+        items: times(24 , () => random (10, 30)),
+      }
+    };
   }
 
   public GetDeviceDayHistory(req: HttpRequest<any>): IResponse<number> {

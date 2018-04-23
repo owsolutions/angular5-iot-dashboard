@@ -1,74 +1,55 @@
 <app-page-container maintitle="Welcome to realtime documentations" subtitle="In this section, we explain all about the dashboard usage and it's connectivity conditions to server, and how you can interact your hardwares using our REST api to make an interactive dashboard.">
   
+  <h2>Basics and understanding</h2>
+  <p>Here we are describing some basics about the dashboard and explain some definitions. You can connect your devices
+    to <strong>esam.io</strong> dashboard for realtime monitoring, artificial intelligence, and reporting.
+    We provide scalable and relaible platform for Iot devices which can be used for vast variety of purposes.
+  </p>
 
-  <br>
+  <h2>Integrating devices and softwares</h2>
+  <p>We are trying to provide couple of methods that gives developers this ability to conenct their devices to dashboard.
+    These methods are consisting:
+  </p>
+  <ul>
+    <li><a routerLink="/docs/restful-api">RESTful api for biodirectional information, such as temperature devices</a></li>
+    <li>UDP api for biodirectional information, such as temperature devices</li>
+    <li>MQTT api, for multidirectional communications, such as sending information and recieving orders</li>
+  </ul>
 
-  <h2>REST API</h2>
-  In order to display any information on your dashboard, you need to send your device information changes to our restful API.
-  These apis, all require a token to distingush the identity.
+  <strong>Note: </strong> <i>UDP and MQTT are still in experimental area, so they are not available in production and their
+  api and domain access might change in near future.</i>
 
-  <br>
-  For more flexibilty, we can accept token per different device or a general token that can describe information for all devices,
-  and in the request body, you can specifiy the device by it's id.
-  Mostly our api sets are used to collect information but also you can find some apis that return you useful information about your ecosystem.
-
-  <br>
-  <b>It's very important to notice that</b> all responses from our server api are coming back with a guideline from google,
-  called <i>google json styleguide</i> and you can guess success and failure of your api request based on this format.
-  Generally speaking, if our servers be able to catch your request, we will return 200 response anyway, even if the operation
-  has not performed. In this case you must look for error field within the response object.
-  <br>
-  Response that are having 50x, 40x or else, are rarely appear because we aim to handle all possible situation with our api,
-  and you must consider these kind of errors temporary out of service or partially downtime.
-
+  
   <h2>Getting a token</h2>
-  You can find your <b>IOT Token</b> inside your settings section. Make sure you use the <b>IOT Token</b> only to update us for your device information,
+  <p>You can find your <a routerLink="/token">Access Token</a> inside your settings section. Make sure you use the <a routerLink="/token">Access Token</a> only to update us for your device information,
   such as the changes in temperature or humidity, devices usages and etc. There might be other tokens provided to you
   and each have their own usage.
+  Eversince you have your token, you can make post and get requests to the api server included <strong>x-token</strong> in headers.</p>
 
-  <br>
+  <h2>CloudDevice vs DataSource</h2>
+  <p>We have two definition in dashboard for data and devices which are really simple to understand and straightforward.</p>
 
-  Eversince you have your token, you can make post and get requests to the api server included <strong>x-access-token</strong> in headers.
-  <br>
+  <p><b>CloudDevice</b> is a device that you can create in your management dashboard, in your Devices > Create a device. This device
+  represents a phyical device or a part of that, and main purpose is to be used for human interactions, drawing charts and making reports.
+  Each device, has a datasource. This datasource, is a raw data, such as a number for temperature that you send to api
+  from your device. All devices must be connected to a datasource inorder to collect information.
+  </p>
+  <p>When you send your data with a data source id, we collect it, but if there is no device for this API we will show it in
+    devices pages, as unconnected device. We are not subject to hold these information for long, if there is no device assigned.
+    So it's necessary to create device based on device as quick as possible.
 
-  <h3>Server health example</h3>
-  You can get a response from your dashboard to see if it's running healthy and discover a little bit of information.
-  <br><br>
-
-  <app-docs-api-workaround
-    type="get"
-    [response]="healthCheckResponseExample"
-    url="broadcast/healthcheck"
-  ></app-docs-api-workaround>
-
-  <h2>Devices Information API</h2>
-  Most important api for developers who want to integrate with dashboard is to post their devices information to our cloud.
-  Basically, you can send these information using REST API and we will collect it overtime and make your analytics.
+  </p>
+  <p>You can connect a datasource to many devices only for biodirectional devices. We don't know why you might use this,
+    but it's available in case of any usages.
+  </p>
   <br>
-  Eventhought there are couple of other different apis, such as your login and etc, we cover data section here and 
-  describe for example, <b>how to connect a temperature arduino device to this end point</b>
-
-  <h3>Schemas vs Data collection</h3>
-  There are two main topic on collecting information and displaying information. Imagine you 2 different kind of temperature measurement
-  devices. One is to measure a house temperature, and other one is going to measure the industrial device temperature.
-
-  <br>
-  What is obvious in this scenrio, you will collect a number from your sensor, let's say for house between 15-40 degrees centegrade and
-  for industrial device, probably something between 500-2500 degrees of centigrade.
-  You will send both of information with same api, but when you want to do analytics or monitoring the way you want system behave 
-  is different.
-  <br>
-  If a house temperature goes more than 60 degree, there must be a alarm but this is not the case for industrial device. To configurate
-  these kind of information, you need to use your dashboard device settings. Using api, you will only send the real values
-  of the sensor device, sometimes not even specifiyng the type of device.
-
-  <br>
-  <br>
-  <br>
-  <h3>Next steps:</h3>
+  <h2>Next steps:</h2>
   <ul>
     <li>
-      <a routerLink="/docs/sending-information-over-https">Sending information from sensor devices</a>
+      <a routerLink="/docs/restful-api">Understanding REST api basics</a>
+    </li>
+    <li>
+      <a routerLink="/docs/sending-information-over-https">Sending information from sensor devices using REST api</a>
     </li>
   </ul>
 </app-page-container>

@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { UserService } from '@services/user.service';
 import { Router } from '@angular/router';
-import { GetNetworkError } from '@app/common';
+import { GetNetworkError, error } from '@app/common';
 import { NotificationService } from '@app/services/notification.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class SignupFormComponent implements OnInit {
     password: ''
   };
   public passwordVisibilty = false;
-
+  public error = error;
   public signupUrl = environment.api + '/api/user/signup';
   constructor(
     private http: HttpClient,
@@ -37,13 +37,6 @@ export class SignupFormComponent implements OnInit {
     this.isRequesting = true;
     this.signupHttp(this.form);
   }
-  public error (fieldName: string) {
-    if ( ! this.response || ! this.response.error || !this.response.error.errors) {
-      return '';
-    }
-    const error = this.response.error.errors.find(x => x.location === fieldName);
-    return error ? error.message : '';
-  }
   togglePassword() {
     this.passwordVisibilty = this.passwordVisibilty ? false : true;
   }
@@ -52,6 +45,7 @@ export class SignupFormComponent implements OnInit {
 
   }
   private signupHttp (data: IUserForm) {
+    window.scroll(0, 0);
     this.http.post(this.signupUrl, data).subscribe(
       (response: IResponse<LoginResponse>) => {
         this.response = response;

@@ -15,6 +15,9 @@ export interface IUser {
   username: string;
   email: string;
   avatar: string;
+  preferences: {
+    language?: 'pl' | 'en';
+  };
   phone: string;
   firstname: string;
   lastname: string;
@@ -186,4 +189,10 @@ export interface ISettingsUpdateResponse {
 export interface IContact {
   type: 'email' | 'call' | 'sms';
   value: any;
+}
+
+export interface IResetForm {
+  password1: string;
+  password2: string;
+  key: string;
 }
