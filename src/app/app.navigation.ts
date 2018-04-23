@@ -100,10 +100,16 @@ export const navigation = [
             link: '/docs'
           },
           {
+            title: 'Restful API',
+            class: 'docs-restful-api',
+            link: '/docs/restful-api'
+          },
+          {
             title: 'Sending information',
             class: 'docs-sending-information',
             link: '/docs/sending-information-over-https'
-          }
+          },
+
         ]
       },
     ]

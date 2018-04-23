@@ -19,6 +19,7 @@ import { ProfileComponent } from '@app/components/profile/profile.component';
 import { DeviceEventsActionsComponent } from '@app/components/device-events-actions/device-events-actions.component';
 import { ContactDetailsComponent } from '@app/components/contact-details/contact-details.component';
 import { GpsComponent } from '@app/components/gps/gps.component';
+import { RestfulComponent } from '@app/components/docs/restful/restful.component';
 
 export function AuthLayout (component: any, route: string, options: any = {}): Route {
   return {
@@ -86,6 +87,7 @@ export const appRoutes: Routes = [
         AuthLayoutChild (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
         AuthLayoutChild (DocsComponent, 'docs'),
         AuthLayoutChild (SendingInformationHttpsComponent, 'docs/sending-information-over-https'),
+        AuthLayoutChild (RestfulComponent, 'docs/restful-api'),
         AuthLayoutChild (GalleryComponent, 'gallery')
     ]
   },
