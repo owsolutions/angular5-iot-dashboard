@@ -33,6 +33,28 @@ export default {
   'Lowest': 'Najniższy',
   /* tslint:disable */
   'At the moment, for some languages might be not fully covered and you still see english words.': 'W chwili obecnej niektóre języki mogą nie być w pełni pokryte i nadal widać angielskie słowa.',
-  'Plus, we do not store your preference in your account since it\'s an experimental feature.': 'Ponadto nie przechowujemy Twoich preferencji na koncie, ponieważ jest to funkcja eksperymentalna.'
+  'Plus, we do not store your preference in your account since it\'s an experimental feature.': 'Ponadto nie przechowujemy Twoich preferencji na koncie, ponieważ jest to funkcja eksperymentalna.',
+  'Interactive Dashboard': 'Interaktywny pulpit nawigacyjny',
+  'Private Cloud': 'Prywatna chmura',
+  'Bathroom': 'Łazienka',
+  'Kitchen': 'Kuchnia',
+  'Master bedroom': 'Główna sypialnia',
+  'Name': 'Nazwa',
+  'Data source id': 'Identyfikator źródła danych',
+  'Type of device': 'Typ urządzenia',
+  'Temperature sensor': 'Czujnik temperatury',
+  'Location': 'Lokalizacja',
+  'Model': 'Model',
+  'Description': 'Opis',
+  'Device general information': 'Ogólne informacje o urządzeniu',
+  'Here you can modify display name or other general information': 'Tutaj możesz modyfikować nazwę wyświetlaną lub inne ogólne informacje',
+  'Device Customization': 'Dostosowanie urządzenia',
+  'Modify how a device can look and feel among dashboard': 'Zmień sposób, w jaki urządzenie może wyglądać i czuć się po pulpicie nawigacyjnym',
+  'Model, brand or serial number': 'Wzór, marka lub numer seryjny',
+  'Write few lines of description.': 'Napisz kilka linii opisu.',
+  'Datasource id when your hardware requests the api': 'Identyfikator źródła danych, gdy twój sprzęt wymaga api',
+  'Display the real time value in home page': 'Wyświetl wartość czasu rzeczywistego na stronie głównej',
+  'Display the device history on home page': 'Wyświetl historię urządzenia na stronie głównej',
+  'Create device': 'Utwórz urządzenie'
 };
 
