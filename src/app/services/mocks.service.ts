@@ -377,6 +377,37 @@ export class MockService {
     if ( ! location.id) {
       location.id = random(100, 9999);
     }
+    const validate = (location: ILocation) => {
+      const errors: Array<IResponseErrorItem> = [];
+      if (!location.name) {
+        errors.push({
+          message: 'Please provide a name for location',
+          location: 'name'
+        });
+      }
+      if (!location.level) {
+        errors.push({
+          message: 'Please select a level',
+          location: 'level'
+        });
+      }
+      if (!location.icon) {
+        errors.push({
+          message: 'Please select an icon for location',
+          location: 'icon'
+        });
+      }
+      return errors;
+    }
+    if (validate(location).length) {
+      return {
+        error: {
+          message: 'Cannot create a device. Please fix the following issues',
+          code: 294,
+          errors: validate(location)
+        }
+      }
+    }
     return {
       data: {
         items: [

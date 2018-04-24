@@ -5,6 +5,10 @@
 @import './assets/material-icon';
 @import 'node_modules/angular2-toaster/toaster';
 
+.error-message-inline {
+  color: $error-color-800;
+  font-size: 12px;
+}
 body {
   background: #e9eaec;
   @media (max-width: 991.98px) {

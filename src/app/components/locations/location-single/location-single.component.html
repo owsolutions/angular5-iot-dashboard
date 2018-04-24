@@ -13,7 +13,8 @@
         <input type="text" class="form-control app-location-single-name" name="name"
         [(ngModel)]="form.name" placeholder="Location name">
       </div>
-      <span style="color: red;" *ngIf="error(response, 'name')">{{error(response, 'name')}}</span>
+      <span class="error-message-inline" *ngIf="error(response, 'name')">{{error(response, 'name')}}</span>
+
     </div>
     
     <div class="form-group">
@@ -24,6 +25,8 @@
           <option *ngFor="let option of levels" [selected]="(option.value ? option.value : option.name) == selected" value="{{option.value ? option.value : option.name}}">{{option.name}}</option>
         </select>
       </div>
+      <span class="error-message-inline" *ngIf="error(response, 'level')">{{error(response, 'level')}}</span>
+
     </div>
 
   </div>
@@ -33,6 +36,8 @@
     [enableToolbar]="false"
     (selectionChange)="changeSelection($event);"
     type="single" #locationIcon></app-ng-media>
+
+  <span class="error-message-inline" *ngIf="error(response, 'icon')">{{error(response, 'icon')}}</span>
 
   <br><br>
 
