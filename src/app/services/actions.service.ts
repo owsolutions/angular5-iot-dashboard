@@ -19,7 +19,7 @@ export class ActionsService {
   }
 
   public findWidgets (devices, location: ILocation): Array<CloudDevice> {
-    return devices.filter(device => device.location === location.id);
+    return devices.filter(device => +device.location === +location.id);
   }
 
 }
