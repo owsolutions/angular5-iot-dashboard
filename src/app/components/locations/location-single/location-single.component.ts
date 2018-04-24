@@ -8,6 +8,7 @@ import { RequestsService } from '@app/services/requests.service';
 import { IotImages, IsSuccessEntity, error } from '@app/common';
 import { IResponse } from 'response-type';
 import { NotificationService } from '@app/services/notification.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-location-single',
@@ -30,12 +31,7 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
   public items = [];
   @ViewChild('locationIcon') public locationIcon: NgMediaComponent;
 
-  public levels = times(100, (index) => {
-    return {
-      name: 'Level ' + (1 + index),
-      value: index + 1
-    };
-  });
+  public levels = [];
 
   /**
    * Assigns the mode and id above;
@@ -62,9 +58,16 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
     private router: Router,
     private requests: RequestsService,
     private notification: NotificationService,
+    private translation: TranslateService,
   ) {}
   ngOnInit() {
     this.extractRouterInfo();
+    this.levels = times(100, (index) => {
+      return {
+        name:  this.translation.get('Level')['value'] + ' ' + (1 + index),
+        value: index + 1
+      };
+    });
   }
   public async formSubmit () {
     this.isRequesting = true;

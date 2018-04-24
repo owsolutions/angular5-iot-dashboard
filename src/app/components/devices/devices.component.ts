@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { RequestsService } from '@services/requests.service';
 import { Router } from '@angular/router';
 import { NotificationService } from '@app/services/notification.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-devices',
@@ -23,6 +24,8 @@ export class DevicesComponent implements  OnInit, OnDestroy {
     private router: Router,
     private store: Store<AppState>,
     private notification: NotificationService,
+    private translate: TranslateService,
+
   ) {
    }
 
@@ -53,7 +56,7 @@ export class DevicesComponent implements  OnInit, OnDestroy {
   }
 
   public DeleteDevice (device: CloudDevice) {
-    if (confirm('Are you sure to delete this device?')) {
+    if (confirm( this.translate.get('Are you sure to delete this device?')['value'])) {
       this.requests.deleteDevice(device.id);
       this.notification.InvokeDeviceDelete(device);
       this.router.navigateByUrl('/devices');

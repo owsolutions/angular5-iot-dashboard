@@ -9,7 +9,6 @@
         <div class="d-flex flex-column" *ngIf="dailyHistory.length">
           <div class="d-2">
             {{dailyHistory[activeIndex].date | date:'fullDate'}}
-
           </div>
           <div class="d-2">
             <span  *ngIf="dailyHistory[activeIndex].status" [class]="dailyHistory[activeIndex].status === 'up'? 'text-success changeRate' : 'text-danger changeRate'">
