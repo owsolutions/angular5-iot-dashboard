@@ -12,7 +12,28 @@ import { random, times } from '@lodash';
 import { ILocation } from '@app/definitions';
 import { TranslateService } from '@ngx-translate/core';
 
-
+const validateLocation = (location: ILocation) => {
+  const errors: Array<IResponseErrorItem> = [];
+  if (!location.name) {
+    errors.push({
+      message: 'Please provide a name for location',
+      location: 'name'
+    });
+  }
+  if (!location.level) {
+    errors.push({
+      message: 'Please select a level',
+      location: 'level'
+    });
+  }
+  if (!location.icon) {
+    errors.push({
+      message: 'Please select an icon for location',
+      location: 'icon'
+    });
+  }
+  return errors;
+};
 @Injectable()
 export class MockService {
   public routes = {
@@ -387,6 +408,15 @@ export class MockService {
     const location: ILocation = req.body;
     if ( ! location.id) {
       location.id = random(100, 9999);
+    }
+    if (validateLocation(location).length) {
+      return {
+        error: {
+          message: 'Cannot create a device. Please fix the following issues',
+          code: 294,
+          errors: validateLocation(location)
+        }
+      };
     }
     return {
       data: {
