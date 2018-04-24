@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { RequestsService } from '@app/services/requests.service';
 import { UserService } from '@app/services/user.service';
 import { NotificationService } from '@app/services/notification.service';
+import { TranslateService } from '@ngx-translate/core';
+import { GlobalizationService } from '@app/services/globalization.service';
 
 @Component({
   selector: 'app-profile',
@@ -19,6 +21,8 @@ export class ProfileComponent implements OnInit {
     avatar: null,
     firstname: null,
     lastname: null,
+    preferences: {
+    },
     role: null,
     username: null,
     phone: null
@@ -28,10 +32,22 @@ export class ProfileComponent implements OnInit {
     private requests: RequestsService,
     private user: UserService,
     private notification: NotificationService,
-  ) { }
+    public translate: TranslateService,
+    public globalization: GlobalizationService,
+  ) {
+  }
+
+
+
+  public ChangeLanguage () {
+    const lang = this.form.preferences.language;
+    this.translate.setDefaultLang(lang);
+    this.translate.use(lang);
+    localStorage.setItem('preferedLanguage', lang);
+  }
 
   ngOnInit() {
-    this.form = Object.assign({}, this.user.User);
+    this.form = Object.assign(this.form, this.user.User);
   }
   public async SubmitForm () {
     this.isRequesting = true;
@@ -48,6 +64,5 @@ export class ProfileComponent implements OnInit {
     }
     this.isRequesting = false;
   }
-
 
 }

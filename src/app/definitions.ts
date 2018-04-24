@@ -15,6 +15,9 @@ export interface IUser {
   username: string;
   email: string;
   avatar: string;
+  preferences: {
+    language?: 'pl' | 'en';
+  };
   phone: string;
   firstname: string;
   lastname: string;
@@ -177,6 +180,8 @@ export interface ICloudDeviceDailyHistory {
 export interface INotification {
   title?: string;
   type: 'error' | 'success';
+  status: string;
+  date: Date;
   message?: string;
 }
 export interface ISettingsUpdateResponse {

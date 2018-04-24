@@ -22,21 +22,28 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { NgxSidebarModule } from './ngx-sidebar/ngx-sidebar.module';
 import { SidebarControllerService } from './ngx-sidebar/sidebar-controller.service';
 import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
-
+import { NotificationListComponent } from '@app/components/notification-list/notification-list.component';
+import { NgxTooltipModule } from '@app/components/ngx-tooltip/ngx-tooltip.module';
+import { FooterComponent } from '@app/components/footer/footer.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
     LayoutComponent,
     SideBarComponent,
     NavBarComponent,
-    ProfileMenuComponent
+    ProfileMenuComponent,
+    NotificationListComponent,
+    FooterComponent
   ],
   imports: [
     RealtimeDocumentModule,
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    NgxTooltipModule,
     NgxUserModule,
+    TranslateModule.forRoot(),
     NgxSidebarModule,
     NgMediaModule,
     RouterModule.forRoot([]),

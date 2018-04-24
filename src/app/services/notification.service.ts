@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ToasterService } from 'angular2-toaster';
 import { CloudDevice, ILocation, AppState, INotification } from '@app/definitions';
 import { Store } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class NotificationService {
@@ -9,18 +10,23 @@ export class NotificationService {
   constructor(
     private toaster: ToasterService,
     private store: Store<AppState>,
+    private translation: TranslateService,
   ) { }
 
   private StoreNotification (notification: INotification) {
+    notification.title = this.translation.get(notification.title)['value'];
+    notification.message = this.translation.get(notification.message)['value'];
     this.store.dispatch({
       type: 'INSERT_NOTIFICATION',
       payload: notification
     });
-    this.toaster.popAsync(notification.type, notification.title, notification.message);
+    this.toaster.popAsync(notification.type, notification.title , notification.message);
   }
   public InvokePasswordReset () {
     const notification: INotification = {
       message: 'Your password has been reset successfully.',
+      status: 'icon-vpn_key',
+      date: new Date(),
       title: 'Password reset',
       type: 'success'
     };
@@ -32,6 +38,8 @@ export class NotificationService {
     this.StoreNotification({
       title,
       type: 'success',
+      status: 'icon-exit_to_app',
+      date: new Date(),
       message
     });
   }
@@ -41,6 +49,8 @@ export class NotificationService {
     this.StoreNotification({
       title,
       type: 'success',
+      status: 'icon-add_circle',
+      date: new Date(),
       message: device.name
     });
   }
@@ -50,6 +60,8 @@ export class NotificationService {
     this.StoreNotification({
       title,
       type: 'success',
+      status: 'icon-mode_edit',
+      date: new Date(),
       message: device.name
     });
   }
@@ -58,6 +70,8 @@ export class NotificationService {
     this.StoreNotification({
       title: 'Your Device Deleted',
       type: 'error',
+      status: 'icon-remove_circle',
+      date: new Date(),
       message: device.name
     });
   }
@@ -65,6 +79,8 @@ export class NotificationService {
     this.StoreNotification({
       title: 'Your Location Deleted',
       type: 'error',
+      status: 'icon-remove_circle',
+      date: new Date(),
       message: location.name
     });
   }
@@ -72,12 +88,16 @@ export class NotificationService {
     this.StoreNotification({
       title: 'Contact details has been updated and will be used effectivly',
       type: 'success',
+      status: 'icon-mode_edit',
+      date: new Date()
     });
   }
   public InvokeLocationUpdate (location: ILocation) {
     this.StoreNotification({
       title: 'Your Location has been updated',
       type: 'success',
+      status: 'icon-mode_edit',
+      date: new Date(),
       message: location.name
     });
   }
@@ -85,6 +105,8 @@ export class NotificationService {
     this.StoreNotification({
       title: 'Location Created Succesfully',
       type: 'success',
+      status: 'icon-add_circle',
+      date: new Date(),
       message: location.name
     });
   }
@@ -92,6 +114,8 @@ export class NotificationService {
     this.StoreNotification({
       title: 'Profile updated',
       type: 'success',
+      status: 'icon-account_box',
+      date: new Date(),
       message: 'Your profile changes has been saved. Some of the changes may affect in the next signin.'
     });
   }
@@ -99,6 +123,8 @@ export class NotificationService {
     this.StoreNotification({
       title:  'Server',
       type: 'success',
+      status: 'icon-dns',
+      date: new Date(),
       message: 'You are now connected'
     });
   }
@@ -106,7 +132,9 @@ export class NotificationService {
     this.StoreNotification({
       title:  'Private environment',
       type: 'success',
-      message: 'You are inside your environment now'
+      status: 'icon-cloud_done',
+      date: new Date,
+      message: 'You are inside your private environment now'
     });
   }
 }

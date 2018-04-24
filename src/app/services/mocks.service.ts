@@ -10,8 +10,30 @@ import { CloudDeviceType } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { random, times } from '@lodash';
 import { ILocation } from '@app/definitions';
+import { TranslateService } from '@ngx-translate/core';
 
-
+const validateLocation = (location: ILocation) => {
+  const errors: Array<IResponseErrorItem> = [];
+  if (!location.name) {
+    errors.push({
+      message: 'Please provide a name for location',
+      location: 'name'
+    });
+  }
+  if (!location.level) {
+    errors.push({
+      message: 'Please select a level',
+      location: 'level'
+    });
+  }
+  if (!location.icon) {
+    errors.push({
+      message: 'Please select an icon for location',
+      location: 'icon'
+    });
+  }
+  return errors;
+};
 @Injectable()
 export class MockService {
   public routes = {
@@ -36,7 +58,8 @@ export class MockService {
 
   constructor (
     private permissions: PermissionsService,
-    private iotsvg: IotSvgService
+    private iotsvg: IotSvgService,
+    private translate: TranslateService,
   ) {}
 
   urlMatch( url: string, method: string = null ) {
@@ -67,6 +90,15 @@ export class MockService {
     const action = this.routes[ url ];
     const result = this[ action ].call( this, req );
 
+    if (result && result.error) {
+      result.error.message = this.translate.get(result.error.message)['value'];
+    }
+    if (result && result.error && result.error.errors) {
+      result.error.errors = result.error.errors.map((x: IResponseErrorItem) => {
+        x.message = this.translate.get(x.message)['value'];
+        return x;
+      });
+    }
     const mockResponse = new HttpResponse( {
       body: result,
       headers: new HttpHeaders(),
@@ -78,13 +110,13 @@ export class MockService {
   }
 
   public ResetPassword(req: HttpRequest<IResetForm>): IResponse<any> {
-
+    const message = 'Please reset your password to 123321, and both fields must be identical.' +
+    ' You see this message because your are running an experimental version of app';
     if (req.body.password1 !== '123321' || req.body.password2 !== req.body.password1) {
       return {
         error: {
           code: 17,
-          message: 'Please reset your password to 123321, and both fields must be identicial. You see this message because your are' +
-          'running an experimental version of app',
+          message,
           errors: [
             {
               location: 'password1',
@@ -240,7 +272,7 @@ export class MockService {
           },
           {
             id: 2,
-            name: 'Kitchen Temperature',
+            name: 'Kitchen temperature',
             type: CloudDeviceType.TemperatureSensor,
             datasource: 'device-2',
             value: random(10, 30),
@@ -358,7 +390,7 @@ export class MockService {
     if (validations.length) {
       return {
         error: {
-          message: 'Device cannot be created. Please current the issue fields',
+          message: 'Device cannot be created. Please currect the fields are highlighted',
           errors: validations,
           code: 34
         }
@@ -376,6 +408,15 @@ export class MockService {
     const location: ILocation = req.body;
     if ( ! location.id) {
       location.id = random(100, 9999);
+    }
+    if (validateLocation(location).length) {
+      return {
+        error: {
+          message: 'Cannot create a device. Please fix the following issues',
+          code: 294,
+          errors: validateLocation(location)
+        }
+      };
     }
     return {
       data: {

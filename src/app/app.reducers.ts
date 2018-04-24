@@ -14,7 +14,7 @@ export function appReducersGenerator () {
     activities: activitiesReducer,
     roles: rolesReducer,
     unconnectedSources: unconnectedReducer,
-    notification: notificationsReducer,
+    notifications: notificationsReducer,
 
   });
 }

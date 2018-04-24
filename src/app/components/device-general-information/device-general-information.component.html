@@ -1,20 +1,34 @@
 <app-page-container maintitle="Device general information" subtitle="Here you can modify display name or other general information">
   <br>
   <div class="row">
-    <div class="col-md-6 unit">
-      <label class="label">Name</label>
-      <div class="input">
-        <input class="form-control app-device-general-name" [(ngModel)]="form.name" (ngModelChange)="SubmitChange()" type="text"
-          placeholder="Device display name" id="name">
-        <span class="error-message-inline" *ngIf="error(response, 'name')">{{error(response, 'name')}}</span>
+      <div class="col-md-6 unit">
+          <label class="label" translate>Name</label>
+          <div class="input">
+              <input class="form-control app-device-general-name" 
+                [(ngModel)]="form.name"
+                (ngModelChange)="SubmitChange()"
+                type="text" placeholder="{{ 'Device display name' | translate }}" id="name">
+            <span class="error-message-inline" *ngIf="error(response, 'name')">{{error(response, 'name')}}</span>
+          </div>
       </div>
-    </div>
-    <div class="col-md-6 unit">
-      <label class="label">Data source id</label>
-      <div class="input">
-        <input class="form-control app-device-general-datasource" [(ngModel)]="form.datasource" (ngModelChange)="SubmitChange()"
-          type="text" placeholder="Datasource id when your hardware requests the api" id="datasource">
-        <span class="error-message-inline" *ngIf="error(response, 'datasource')">{{error(response, 'datasource')}}</span>
+      <div class="col-md-6 unit">
+          <label class="label" translate>Data source id</label>
+          <div class="input">
+              <input class="form-control app-device-general-datasource" 
+                [(ngModel)]="form.datasource"
+                (ngModelChange)="SubmitChange()"
+                type="text" placeholder="{{ 'Datasource id when your hardware requests the api' | translate }}" id="datasource">
+              <span class="error-message-inline" *ngIf="error(response, 'datasource')">{{error(response, 'datasource')}}</span>
+          </div>
+      </div>
+      <div class="unit col-md-6 ">
+          <label class="label" translate>Type of device</label>
+          <label class="input select">
+              <select class="form-control app-device-general-type" [(ngModel)]="form.type" (ngModelChange)="SubmitChange()">
+                  <option value="0" translate>Temperature sensor</option>
+              </select>
+              <i></i>
+          </label>
       </div>
     </div>
     <div class="unit col-md-6 ">
@@ -28,28 +42,34 @@
       </label>
     </div>
 
-    <div class="unit col-md-6" *ngIf="locations.length">
-      <label class="label">Location</label>
-      <label class="input select">
-        <select class="form-control" [(ngModel)]="form.location" (ngModelChange)="SubmitChange()">
-          <option *ngFor="let location of locations" [value]="location.id">{{location.name}} (Level {{location.level}})</option>
-        </select>
-        <i></i>
-      </label>
-    </div>
-    <div class="col-md-6 unit">
-      <label class="label">Model</label>
-      <div class="input">
-        <input class="form-control app-device-general-model" type="text" [(ngModel)]="form.model" (ngModelChange)="SubmitChange()"
-          placeholder="Model, brand or serial number" id="model">
+      <div class="unit col-md-6" *ngIf="locations.length">
+          <label class="label" translate>Location</label>
+          <label class="input select">
+              <select class="form-control" [(ngModel)]="form.location" (ngModelChange)="SubmitChange()">
+                <option *ngFor="let location of locations" [value]="location.id">{{location.name}} (Level {{location.level}})</option>
+              </select>
+              <i></i>
+          </label>
+      </div>
+      <div class="col-md-6 unit">
+          <label class="label" translate>Model</label>
+          <div class="input">
+              <input class="form-control app-device-general-model" type="text"
+                [(ngModel)]="form.model"
+                (ngModelChange)="SubmitChange()"
+                placeholder="{{ 'Model, brand or serial number' | translate }}" id="model">
+          </div>
       </div>
     </div>
   </div>
   <div class="unit">
-    <label class="label">Description</label>
-    <div class="input">
-      <textarea class="form-control app-device-general-description" [(ngModel)]="form.description" (ngModelChange)="SubmitChange()"
-        placeholder="Write few lines of description." spellcheck="false" id="description"></textarea>
-    </div>
+      <label class="label" translate>Description</label>
+      <div class="input">
+          <textarea class="form-control app-device-general-description"
+            [(ngModel)]="form.description"
+            (ngModelChange)="SubmitChange()"
+            placeholder="{{ 'Write few lines of description.' | translate}}" 
+            spellcheck="false" id="description"></textarea>
+      </div>
   </div>
 </app-page-container>

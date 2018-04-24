@@ -52,12 +52,10 @@ import { ErrorMessageComponent } from './components/error-message/error-message.
 import { ProgressLineComponent } from './components/progress-line/progress-line.component';
 import { RealtimeDocumentModule } from 'realtime-document';
 import { ToasterModule } from 'angular2-toaster';
-import { NotificationListComponent } from './components/notification-list/notification-list.component';
 import { ApplicationsListComponent } from './components/applications-list/applications-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ActivitiesComponent } from './components/widgets/activities/activities.component';
 import { HistoryStatisticsComponent } from './components/widgets/history-statistics/history-statistics.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { DailyStatisticsComponent } from '@app/components/widgets/daily-statistics/daily-statistics.component';
 import { ExperimentalComponent } from './components/experimental/experimental.component';
 import { NgxTooltipModule } from './components/ngx-tooltip/ngx-tooltip.module';
@@ -71,7 +69,13 @@ import { IfExperimentalComponent } from './components/if-experimental/if-experim
 import { GpsComponent } from '@app/components/gps/gps.component';
 import { D3neComponent } from './components/d3ne/d3ne.component';
 import { LampCardComponent } from '@app/components/widgets/lamp-card//lamp-card.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Ng5BasicModule } from './ng5-basic/ng5-basic.module';
+import pl from './translations/pl';
+import { GlobalizationService } from '@app/services/globalization.service';
+import { RestfulComponent } from '@app/components/docs/restful/restful.component';
+import { IfNotEnglishComponent } from './components/if-not-english/if-not-english.component';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -84,8 +88,22 @@ window['Highcharts'] = Highcharts;
 export class AppComponent {
   constructor (
     private realtime: RealtimeService,
+    private translate: TranslateService,
+
   ) {
     this.realtime.ActivateRealtime();
+    this.RestoreLanguage();
+  }
+  private RestoreLanguage () {
+    let lang = 'en';
+    const _lang = localStorage.getItem('preferedLanguage');
+     if (_lang === 'en' || _lang === 'pl') {
+      lang = _lang;
+    }
+
+    this.translate.setTranslation('pl', pl);
+    this.translate.use(lang);
+    this.translate.setDefaultLang(lang);
   }
 }
 
@@ -128,14 +146,12 @@ export class AppComponent {
     LoadingComponent,
     StatisticsComponent,
     ErrorMessageComponent,
-    NotificationListComponent,
     ApplicationsListComponent,
     DevicesComponent,
     LocationsComponent,
     DashboardComponent,
     ActivitiesComponent,
     HistoryStatisticsComponent,
-    FooterComponent,
     ExperimentalComponent,
     PageContainerComponent,
     SendingInformationHttpsComponent,
@@ -146,6 +162,8 @@ export class AppComponent {
     IfExperimentalComponent,
     GpsComponent,
     D3neComponent,
+    RestfulComponent,
+    IfNotEnglishComponent,
   ],
   imports: [
     RealtimeDocumentModule,
@@ -154,6 +172,7 @@ export class AppComponent {
     Ng5BasicModule,
     BrowserModule,
     FormsModule,
+    TranslateModule.forRoot(),
     NgMediaModule,
     ToasterModule.forRoot(),
     createRoutes (),
@@ -169,6 +188,7 @@ export class AppComponent {
     NotificationService,
     UserService,
     AuthGuard,
+    GlobalizationService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

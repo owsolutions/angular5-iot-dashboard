@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { GlobalizationService } from '@app/services/globalization.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  public langs = [];
+  constructor(
+    public translate: TranslateService,
+    public globalization: GlobalizationService,
+  ) { }
 
   ngOnInit() {
+    this.langs = this.globalization.GetLanguages();
   }
 
+  public ChangeLanguage (lang) {
+    this.translate.setDefaultLang(lang);
+    this.translate.use(lang);
+    localStorage.setItem('preferedLanguage', lang);
+  }
 }

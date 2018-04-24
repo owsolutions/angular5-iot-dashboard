@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgxSidebarComponent } from './ngx-sidebar.component';
+
 import {
   RouterModule
 } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,8 @@ import {
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+    TranslateModule.forRoot()
   ],
   providers: [],
   exports: [

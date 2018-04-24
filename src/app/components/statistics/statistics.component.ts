@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from '@app/definitions';
+import { AppState, CloudDeviceType } from '@app/definitions';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
 import { Subscription } from 'rxjs/Subscription';
@@ -41,11 +41,11 @@ export class StatisticsComponent implements OnInit, OnDestroy {
       });
       this.statistics.push({
         title: 'Temperatures',
-        value: sink[1].filter(x => x.type === 0).length
+        value: sink[1].filter(x => +x.type === CloudDeviceType.TemperatureSensor).length
       });
       this.statistics.push({
         title: 'Lights',
-        value: sink[1].filter(x => x.type === 1).length
+        value: 0
       });
     });
   }

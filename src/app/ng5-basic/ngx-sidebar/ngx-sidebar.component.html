@@ -3,7 +3,7 @@
     <li *ngIf="nav" [routerLinkActive]="nav.link ? 'opened' : ''"  (click)="menuToggle($event, nav);$event.stopPropagation()">
       <a class="ngx-menu-item ngx-menu-link-{{nav.class}}" [routerLink]="nav.link">
         <i [class]='nav.icon'></i>
-        {{nav.title}}
+        {{ nav.title | translate }}
       </a>
       <ngx-sidebar *ngIf="nav.children" [navigation]='nav.children' [containerClass]="'child-ul'"></ngx-sidebar>
     </li>

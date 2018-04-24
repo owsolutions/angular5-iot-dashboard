@@ -18,7 +18,8 @@ export class SidebarControllerService {
       }
     });
     this.addListenerMulti(window, 'touchstart touchend touchmove mousedown mouseup mousemove', (e: any) => {
-      this.sidebarStatus(e.path).then(status => {
+      const path = e.path || (e.composedPath && e.composedPath()) || this.composedPath(e.target);
+      this.sidebarStatus(path).then(status => {
         if (!status) {
           if (e.type === 'touchstart' || e.type === 'mousedown') {
             this.eventIsActive = true;
@@ -84,5 +85,18 @@ export class SidebarControllerService {
       }
       res(false);
     });
+  }
+
+  composedPath (el) {
+    const path = [];
+    while (el) {
+        path.push(el);
+        if (el.tagName === 'HTML') {
+            path.push(document);
+            path.push(window);
+            return path;
+       }
+       el = el.parentElement;
+    }
   }
 }

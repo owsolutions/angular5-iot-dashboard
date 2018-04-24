@@ -1,0 +1,15 @@
+@import 'injects';
+
+ul {
+  margin-left: 15px;
+  margin-top: 15px;
+  strong {
+    background: $theme-color-100;
+  }
+}
+
+h2 {
+  font-size: 21px;
+  font-weight: bold;
+  margin-top: 30px;
+}
