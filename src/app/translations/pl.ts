@@ -116,7 +116,21 @@ export default {
   'You are now connected': 'Jesteś teraz połączony',
   'Private environment': 'Środowisko prywatne',
   'You are inside your private environment now': 'Jesteś teraz w swoim prywatnym środowisku',
-  'Are you sure to delete this device?': 'Czy na pewno chcesz usunąć to urządzenie?'
+  'Are you sure to delete this device?': 'Czy na pewno chcesz usunąć to urządzenie?',
+  'Please reset your password to 123321, and both fields must be identical. You see this message because your are running an experimental version of app': 'Zresetuj hasło do 123321, a oba pola muszą być identyczne. Widzisz tę wiadomość, ponieważ korzystasz z eksperymentalnej wersji aplikacji',
+  'Device must have a name to be identified': 'Urządzenie musi mieć nazwę, którą należy zidentyfikować',
+  'You must connect device to a data source': 'Musisz podłączyć urządzenie do źródła danych',
+  'Please provide "test@test.com" as email': 'Podaj "test@test.com" jako e-mail',
+  'Please provide "123321" as password': 'Podaj "123321" jako hasło',
+  'There is an issue on sign-in. Please set the email and password as provided.': 'Wystąpił problem z logowaniem. Ustaw adres e-mail i hasło zgodnie z opisem.',
+  'Please provide the email': 'Podaj adres e-mail',
+  'Please provide a strong password': 'Podaj silne hasło',
+  'Signup cannot be completed due to some errors. Please fix marked fields and try again': 'Nie można ukończyć rejestracji z powodu błędów. Popraw oznaczone pola i spróbuj ponownie',
+  'Device cannot be created. Please currect the fields are highlighted': 'Urządzenia nie można utworzyć. Proszę poprawić pola są podświetlone',
+  'We cannot process your reset password request': 'Nie możemy przetworzyć żądania zresetowania hasła',
+  'Please provide us a username first.': 'Podaj nam najpierw nazwę użytkownika.',
+  '': '',
+  
 };
 
 

@@ -10,6 +10,7 @@ import { CloudDeviceType } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { random, times } from '@lodash';
 import { ILocation } from '@app/definitions';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Injectable()
@@ -36,7 +37,8 @@ export class MockService {
 
   constructor (
     private permissions: PermissionsService,
-    private iotsvg: IotSvgService
+    private iotsvg: IotSvgService,
+    private translate: TranslateService,
   ) {}
 
   urlMatch( url: string, method: string = null ) {
@@ -67,6 +69,15 @@ export class MockService {
     const action = this.routes[ url ];
     const result = this[ action ].call( this, req );
 
+    if (result && result.error) {
+      result.error.message = this.translate.get(result.error.message)['value'];
+    }
+    if (result && result.error && result.error.errors) {
+      result.error.errors = result.error.errors.map((x: IResponseErrorItem) => {
+        x.message = this.translate.get(x.message)['value'];
+        return x;
+      });
+    }
     const mockResponse = new HttpResponse( {
       body: result,
       headers: new HttpHeaders(),
@@ -83,8 +94,7 @@ export class MockService {
       return {
         error: {
           code: 17,
-          message: 'Please reset your password to 123321, and both fields must be identicial. You see this message because your are' +
-          'running an experimental version of app',
+          message: 'Please reset your password to 123321, and both fields must be identical. You see this message because your are running an experimental version of app',
           errors: [
             {
               location: 'password1',
