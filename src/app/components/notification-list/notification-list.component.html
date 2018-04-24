@@ -1,5 +1,118 @@
 
-<div class="notification-container">
+<div class="notification-container" id="notification-button" (click)="ToggleNotification();" [ngClass]="{'active': notificationStatus}">
     <span class="notification-badge"></span>
     <i class="icon-notifications_none"></i>
+</div>
+
+<div class="notification-overlay" [ngClass]="{'active': notificationStatus}"></div>
+<div class="notification-list-wrapper" id="notification-list" [ngClass]="{'active': notificationStatus}">
+    <div class="d-flex justify-content-between notification-header">
+        <div class="d-2">
+            Notification
+        </div>
+        <div class="d-2">
+            <button class="search-btn" (click)="ToggleSearch();" *ngIf="notifications.length" [Tooltip]="'Filter'">
+                <i class="icon-filter_list"></i>
+            </button>
+        </div>
+        <div class="search-input" *ngIf="searchStatus" >
+            <button class="search-btn close-search-bar" (click)="ToggleSearch();">
+                <i class="icon-close"></i>
+            </button>
+            <input type="text" class="form-control" (keyup)="filterNotifications($event.target.value);" placeholder="Filter of all notifications ..."/>
+        </div>
+    </div>
+    <div *ngIf="!notifications.length" class="no-content">
+        <i class="icon-error"></i>
+        <p>You don't have any activity at now</p>
+    </div>
+    <div class="notification-list" data-simplebar *ngIf="notifications.length">
+        <ul>
+            <li *ngFor="let item of notifications">
+                <div class="notification-icon">
+                    <i [class]="item.status"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">{{item.title}}{{ item.message.length > 0 ? ' : ' : ''}}{{item.message}}</p>
+                    <p class="notification-type">{{item.date  | date:'fullDate'}} - {{item.date  | date:'HH:MM'}}</p>
+                </div>
+            </li>
+
+            <!-- Don't remove this lines we need it for Reminding -->
+            <!-- <li>
+                <div class="notification-icon">
+                    <i class="icon-comment" [Tooltip]="'Sent Message'"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">Kitcheb temprature is higher than normal temp</p>
+                    <p class="notification-type">Friday, March 26, 2018 - 06:00</p>
+                </div>
+            </li>
+            <li>
+                <div class="notification-icon">
+                    <i class="icon-mail_outline" [Tooltip]="'Sent Email'"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">5 Devices maybe has crashed</p>
+                    <p class="notification-type">Friday, March 26, 2018 - 08:15</p>
+                </div>
+            </li>
+            <li>
+                <div class="notification-icon">
+                    <i class="icon-call_missed" [Tooltip]="'Missed call'"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">You don't answer to phon call and we send the message to you</p>
+                    <p class="notification-type">Friday, March 27, 2018 - 15:30</p>
+                </div>
+            </li>
+            <li>
+                <div class="notification-icon">
+                    <i class="icon-error" [Tooltip]="'Warning'"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">8 Devices has detected but that's not connect to your dashboard</p>
+                    <p class="notification-type">Friday, March 27, 2018 - 18:30</p>
+                </div>
+            </li>
+            <li>
+                <div class="notification-icon">
+                    <i class="icon-remove_circle" [Tooltip]="'Remove'"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">Removed Location: Bathroom has removed successfuly.</p>
+                    <p class="notification-type">Friday, March 27, 2018 - 18:30</p>
+                </div>
+            </li>
+            <li>
+                <div class="notification-icon">
+                    <i class="icon-call_made" [Tooltip]="'Called'"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">All Lights on for 2 days, Called to +98901234567 and answerd</p>
+                    <p class="notification-type">Friday, March 27, 2018 - 18:50</p>
+                </div>
+            </li>
+            <li>
+                <div class="notification-icon">
+                    <i class="icon-mode_edit" [Tooltip]="'Edit'"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">Edited Device: Temrature has edited successfuly</p>
+                    <p class="notification-type">Friday, March 27, 2018 - 19:50</p>
+                </div>
+            </li>
+            <li>
+                <div class="notification-icon">
+                    <i class="icon-add_circle" [Tooltip]="'Add'"></i>
+                </div>
+                <div class="notification-content">
+                    <p class="notification-message">Added Location: Kitchen has created successfuly</p>
+                    <p class="notification-type">Friday, March 27, 2018 - 19:50</p>
+                </div>
+            </li> -->
+
+            
+        </ul>
+    </div>
 </div>

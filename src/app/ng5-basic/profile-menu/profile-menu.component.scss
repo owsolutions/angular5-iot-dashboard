@@ -28,9 +28,14 @@
     &:hover{
         color: #4c84ff;
     }
-    @media(max-width: 400px) {
+    @media(max-width: 475px) {
         .pname {
             font-size: 14px;
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 95px;
         }
     }
 }

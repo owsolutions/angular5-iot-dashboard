@@ -22,8 +22,9 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { NgxSidebarModule } from './ngx-sidebar/ngx-sidebar.module';
 import { SidebarControllerService } from './ngx-sidebar/sidebar-controller.service';
 import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
+import { NotificationListComponent } from '@app/components/notification-list/notification-list.component';
+import { NgxTooltipModule } from '@app/components/ngx-tooltip/ngx-tooltip.module';
 import { FooterComponent } from '@app/components/footer/footer.component';
-
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FooterComponent } from '@app/components/footer/footer.component';
     SideBarComponent,
     NavBarComponent,
     ProfileMenuComponent,
+    NotificationListComponent,
     FooterComponent
   ],
   imports: [
@@ -38,6 +40,7 @@ import { FooterComponent } from '@app/components/footer/footer.component';
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    NgxTooltipModule,
     NgxUserModule,
     NgxSidebarModule,
     NgMediaModule,

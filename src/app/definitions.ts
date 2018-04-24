@@ -178,6 +178,8 @@ export interface ICloudDeviceDailyHistory {
 export interface INotification {
   title?: string;
   type: 'error' | 'success';
+  status: string;
+  date: Date;
   message?: string;
 }
 export interface ISettingsUpdateResponse {
