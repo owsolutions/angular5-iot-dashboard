@@ -90,8 +90,20 @@ export default {
   'Regional options': 'Opcje regionalne',
   'Set your language, location and timezone': 'Ustaw swój język, lokalizację i strefę czasową',
   'Language:': 'Język:',
-  'Update my profile': 'Zaktualizuj mój profil'
+  'Update my profile': 'Zaktualizuj mój profil',
+  'There are not any activities yet': 'Nie ma jeszcze żadnych działań',
+  'Notifications': 'Powiadomienia',
+  'Manage locations in your account': 'Zarządzaj lokalizacjami na swoim koncie',
+  'There are no locations. Please create locations and you will be able to manage them here.': 'Nie ma żadnych lokalizacji. Utwórz lokalizacje, a będziesz mógł nimi zarządzać tutaj.',
+  'Add New Location': 'Dodaj nową lokalizację',
+  'Location name': 'Nazwa lokalizacji',
+  'Image': 'Obraz',
+  'Edit': 'edytować',
+  'Delete': 'Kasować'
 };
+
+
+
 
 
 

@@ -7,8 +7,8 @@
 <div class="notification-overlay" [ngClass]="{'active': notificationStatus}"></div>
 <div class="notification-list-wrapper" id="notification-list" [ngClass]="{'active': notificationStatus}">
     <div class="d-flex justify-content-between notification-header">
-        <div class="d-2">
-            Notification
+        <div class="d-2" translate>
+            Notifications
         </div>
         <div class="d-2">
             <button class="search-btn" (click)="ToggleSearch();" *ngIf="notifications.length" [Tooltip]="'Filter'">
@@ -24,7 +24,7 @@
     </div>
     <div *ngIf="!notifications.length" class="no-content">
         <i class="icon-error"></i>
-        <p>You don't have any activity at now</p>
+        <p translate>There are not any activities yet</p>
     </div>
     <div class="notification-list" data-simplebar *ngIf="notifications.length">
         <ul>
