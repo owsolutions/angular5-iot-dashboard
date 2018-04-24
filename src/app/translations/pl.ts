@@ -116,7 +116,7 @@ export default {
   'You are now connected': 'Jesteś teraz połączony',
   'Private environment': 'Środowisko prywatne',
   'You are inside your private environment now': 'Jesteś teraz w swoim prywatnym środowisku',
-
+  'Are you sure to delete this device?': 'Czy na pewno chcesz usunąć to urządzenie?'
 };
 
 

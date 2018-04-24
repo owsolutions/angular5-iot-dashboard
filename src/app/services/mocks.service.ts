@@ -358,7 +358,7 @@ export class MockService {
     if (validations.length) {
       return {
         error: {
-          message: 'Device cannot be created. Please current the issue fields',
+          message: 'Device cannot be created. Please currect the fields are highlighted',
           errors: validations,
           code: 34
         }

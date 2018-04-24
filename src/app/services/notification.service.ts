@@ -15,11 +15,13 @@ export class NotificationService {
   ) { }
 
   private StoreNotification (notification: INotification) {
+    notification.title = this.translation.get(notification.title)['value'];
+    notification.message = this.translation.get(notification.message)['value'];
     this.store.dispatch({
       type: 'INSERT_NOTIFICATION',
       payload: notification
     });
-    this.toaster.popAsync(notification.type, notification.title, notification.message);
+    this.toaster.popAsync(notification.type, notification.title , notification.message);
   }
   public InvokePasswordReset () {
     const notification: INotification = {
