@@ -42,26 +42,26 @@
       </label>
     </div>
 
-      <div class="unit col-md-6" *ngIf="locations.length">
-          <label class="label" translate>Location</label>
-          <label class="input select">
-              <select class="form-control" [(ngModel)]="form.location" (ngModelChange)="SubmitChange()">
-                <option *ngFor="let location of locations" [value]="location.id">{{location.name}} (Level {{location.level}})</option>
-              </select>
-              <i></i>
-          </label>
-      </div>
-      <div class="col-md-6 unit">
-          <label class="label" translate>Model</label>
-          <div class="input">
-              <input class="form-control app-device-general-model" type="text"
-                [(ngModel)]="form.model"
-                (ngModelChange)="SubmitChange()"
-                placeholder="{{ 'Model, brand or serial number' | translate }}" id="model">
-          </div>
-      </div>
+    <div class="unit col-md-6" *ngIf="locations.length">
+        <label class="label" translate>Location</label>
+        <label class="input select">
+            <select class="form-control" [(ngModel)]="form.location" (ngModelChange)="SubmitChange()">
+            <option *ngFor="let location of locations" [value]="location.id">{{location.name}} (Level {{location.level}})</option>
+            </select>
+            <i></i>
+        </label>
     </div>
-  </div>
+    <div class="col-md-6 unit">
+        <label class="label" translate>Model</label>
+        <div class="input">
+            <input class="form-control app-device-general-model" type="text"
+            [(ngModel)]="form.model"
+            (ngModelChange)="SubmitChange()"
+            placeholder="{{ 'Model, brand or serial number' | translate }}" id="model">
+        </div>
+    </div>
+
+
   <div class="unit">
       <label class="label" translate>Description</label>
       <div class="input">
