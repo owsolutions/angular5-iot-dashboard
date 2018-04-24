@@ -5,10 +5,10 @@
 
 <app-page-container [maintitle]="( form.id ? 'Update' : 'Create' ) + ' location'" 
   subtitle="Categorize the devices and distribute them into locations and floors.">
-  <div style="max-width: 600px;">
+  <div class="row">
 
-    <div class="form-group">
-      <label for="inputName">Location name*</label>
+    <div class="form-group col-md-6">
+      <label for="inputName" translate>Location name:</label>
       <div class="input-group Name">
         <input type="text" class="form-control app-location-single-name" name="name"
         [(ngModel)]="form.name" placeholder="Location name">
@@ -16,8 +16,8 @@
       <span style="color: red;" *ngIf="error(response, 'name')">{{error(response, 'name')}}</span>
     </div>
     
-    <div class="form-group">
-      <label for="inputName">Level*</label>
+    <div class="form-group col-md-6">
+      <label for="inputName" translate>Level:</label>
       <div class="input-group Name">
         <select type="text" [(ngModel)]="form.level" name="level" class="form-control app-location-single-level">
           <option value="" disabled="disabled" selected="selected">Select the level (floor)</option>
@@ -28,13 +28,13 @@
 
   </div>
   
-  <label for="">Select an image for the location</label>
+  <label translate>Choose an image to recognize location easier:</label>
   <app-ng-media 
     [enableToolbar]="false"
     (selectionChange)="changeSelection($event);"
     type="single" #locationIcon></app-ng-media>
 
-  <br><br>
+  <br> 
 
   <app-forms-select-input
     *ngIf="devices.length > 1"

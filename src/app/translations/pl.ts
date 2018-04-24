@@ -70,7 +70,12 @@ export default {
   'Parking temperature': 'Temperatura w parkingu',
   'Lobby temperature': 'Temperatura w holu',
   'Magnet temperature': 'Temperatura magnesu',
-  'Device display name': 'Nazwa wyświetlana urządzenia'
+  'Device display name': 'Nazwa wyświetlana urządzenia',
+  'Create location': 'Utwórz lokalizację',
+  'Categorize the devices and distribute them into locations and floors.': 'Skategoryzuj urządzenia i rozmieść je w lokalizacjach i piętrach.',
+  'Location name:': 'Nazwa lokalizacji:',
+  'Level:': 'Poziom:',
+  'Choose an image to recognize location easier:': 'Wybierz obraz, aby łatwiej rozpoznać lokalizację:'
 };
 
 
