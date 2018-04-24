@@ -7,6 +7,7 @@ import 'rxjs/add/operator/toPromise';
 import { IResponse } from 'response-type';
 import { error } from '@app/common';
 import { NotificationService } from '@app/services/notification.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-device-single',
@@ -31,6 +32,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
     private router: Router,
     private requests: RequestsService,
     private notification: NotificationService,
+    private translate: TranslateService,
   ) {
    }
 
@@ -82,7 +84,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   }
 
   public DeleteDevice () {
-    if (confirm('Are you sure to delete this device?')) {
+    if (confirm( this.translate.get('Are you sure to delete this device?')['value'])) {
       this.requests.deleteDevice(this.form.id);
       this.notification.InvokeDeviceDelete(this.form);
       this.router.navigateByUrl('/devices');

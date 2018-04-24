@@ -5,6 +5,7 @@ import { ActionsService } from '@services/actions.service';
 import { RequestsService } from '@app/services/requests.service';
 import { Router } from '@angular/router';
 import { ToasterService } from 'angular2-toaster';
+import { NotificationService } from '@app/services/notification.service';
 
 @Component({
   selector: 'app-locations',
@@ -22,7 +23,8 @@ export class LocationsComponent implements OnInit {
     public actions: ActionsService,
     private requests: RequestsService,
     private router: Router,
-    private toasterService: ToasterService
+    private toasterService: ToasterService,
+    private notification: NotificationService,
   ) {
     this.toasterService = toasterService;
    }
@@ -38,12 +40,8 @@ export class LocationsComponent implements OnInit {
     });
   }
 
-  getLocationTempreture(id) {
-    return this.devices.filter(x => x.id === parseInt(id, 0))[0].name;
-  }
-
   public DeleteLocation (id: number) {
     this.requests.deleteLocation(id);
-    this.toasterService.pop('error', 'Your Location Deleted', this.locations.filter(x => x.id === id)[0].name);
+    this.notification.InvokeLocationDelete(this.locations.find(x => x.id === id));
   }
 }

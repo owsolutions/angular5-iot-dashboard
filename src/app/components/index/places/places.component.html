@@ -4,7 +4,7 @@
       <div class="box-wrapper">
         <div class="row">
           <div class="box-title">
-            <h2 [title]="location.name">{{location.name}}</h2>
+            <h2 [title]="location.name">{{location.name | translate }}</h2>
           </div>
         </div>
         <app-location-row [widgets]="actions.findWidgets(devices, location)" [location]="location"></app-location-row>

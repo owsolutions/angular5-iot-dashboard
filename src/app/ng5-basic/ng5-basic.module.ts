@@ -25,6 +25,7 @@ import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
 import { NotificationListComponent } from '@app/components/notification-list/notification-list.component';
 import { NgxTooltipModule } from '@app/components/ngx-tooltip/ngx-tooltip.module';
 import { FooterComponent } from '@app/components/footer/footer.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { FooterComponent } from '@app/components/footer/footer.component';
     FormsModule,
     NgxTooltipModule,
     NgxUserModule,
+    TranslateModule.forRoot(),
     NgxSidebarModule,
     NgMediaModule,
     RouterModule.forRoot([]),
