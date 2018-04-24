@@ -79,8 +79,21 @@ export default {
   'Choose an image to recognize location easier:': 'Wybierz obraz, aby łatwiej rozpoznać lokalizację:',
   'Edit Location': 'Edytuj lokalizację',
   'Delete Location': 'Usuń lokalizację',
-  'Create Location': 'Utwórz lokalizację'
+  'Create Location': 'Utwórz lokalizację',
+  'Your devices can communicate over RESTful or MQTT using tokens.': 'Twoje urządzenia mogą komunikować się za pomocą RESTful lub MQTT za pomocą tokenów.',
+  'Consider this token highly secret. Anybody has this token can make changes on your dashboard or control your devices over network.': 'Rozważ ten token bardzo tajny. Każdy ma token, który może wprowadzać zmiany na pulpicie nawigacyjnym lub kontrolować urządzenia przez sieć.',
+  'My profile': 'Mój profil',
+  'Manage and edit your personal and other information': 'Zarządzaj i edytuj swoje dane osobowe i inne',
+  'Firstname:': 'Imię:',
+  'Lastname:': 'Nazwisko:',
+  'Phone:': 'Telefon:',
+  'Regional options': 'Opcje regionalne',
+  'Set your language, location and timezone': 'Ustaw swój język, lokalizację i strefę czasową',
+  'Language:': 'Język:',
+  'Update my profile': 'Zaktualizuj mój profil'
 };
+
+
 
 
 
