@@ -99,8 +99,36 @@ export default {
   'Location name': 'Nazwa lokalizacji',
   'Image': 'Obraz',
   'Edit': 'edytować',
-  'Delete': 'Kasować'
+  'Delete': 'Kasować',
+  'Your password has been reset successfully.': 'Twoje hasło zostało zresetowane pomyślnie.',
+  'Password reset': 'Resetowania hasła',
+  'Signup successful': 'Rejestracja pomyślna',
+  'Welcome to your dashboard. Please read introductions, in Integration>Docs to learn more.': 'Witamy na pulpicie nawigacyjnym. Proszę przeczytać wprowadzenie, w części Integracja> Dokumenty, aby dowiedzieć się więcej. ',
+  'Device Created Succesfully': 'Urządzenie zostało utworzone pomyślnie',
+  'Device Edited!': 'Urządzenie edytowane!',
+  'Your Device Deleted': 'Twoje urządzenie usunięte',
+  'Your Location Deleted': 'Twoja lokalizacja usunięta',
+  'Contact details has been updated and will be used effectivly': 'Dane kontaktowe zostały zaktualizowane i będą stosowane skutecznie',
+  'Your Location has been updated': 'Twoja lokalizacja została zaktualizowana',
+  'Location Created Succesfully': 'Lokalizacja została utworzona pomyślnie',
+  'Profile updated': 'Profil zaktualizowany',
+  'Your profile changes has been saved. Some of the changes may affect in the next signin.': 'Twoje zmiany profilu zostały zapisane. Niektóre zmiany mogą dotyczyć następnego wpisu.',
+  'You are now connected': 'Jesteś teraz połączony',
+  'Private environment': 'Środowisko prywatne',
+  'You are inside your private environment now': 'Jesteś teraz w swoim prywatnym środowisku',
+
 };
+
+
+
+
+
+
+
+
+
+
+
 
 
 
