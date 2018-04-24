@@ -128,33 +128,5 @@ export default {
   'Signup cannot be completed due to some errors. Please fix marked fields and try again': 'Nie można ukończyć rejestracji z powodu błędów. Popraw oznaczone pola i spróbuj ponownie',
   'Device cannot be created. Please currect the fields are highlighted': 'Urządzenia nie można utworzyć. Proszę poprawić pola są podświetlone',
   'We cannot process your reset password request': 'Nie możemy przetworzyć żądania zresetowania hasła',
-  'Please provide us a username first.': 'Podaj nam najpierw nazwę użytkownika.',
-  '': '',
-  
+  'Please provide us a username first.': 'Podaj nam najpierw nazwę użytkownika.',  
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
