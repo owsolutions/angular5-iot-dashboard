@@ -3,11 +3,11 @@
   {{response.error.message}}
 </app-error-message>
 
-<app-page-container maintitle="My profile" subtitle="Manage and edit your personal information and billing data">
+<app-page-container maintitle="My profile" subtitle="Manage and edit your personal and other information">
   <form>
   <div class="row">
     <div class="col-md-6 unit">
-      <label class="label">Firstname:</label>
+      <label class="label" translate>Firstname:</label>
       <div class="input">
         <input class="form-control app-profile-firstname" 
           [(ngModel)]="form.firstname"
@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="col-md-6 unit">
-      <label class="label">Lastname:</label>
+      <label class="label" translate>Lastname:</label>
       <div class="input">
         <input class="form-control app-profile-lastname" 
           [(ngModel)]="form.lastname"
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="col-md-6 unit">
-      <label class="label">Phone:</label>
+      <label class="label" translate>Phone:</label>
       <div class="input">
         <input class="form-control app-profile-phone" 
           [(ngModel)]="form.phone"
@@ -40,11 +40,11 @@
   </form>
 </app-page-container>
 
-<app-page-container maintitle="Regional options" subtitle="Set your language and location. Manage your timezone.">
+<app-page-container maintitle="Regional options" subtitle="Set your language, location and timezone">
   <form>
   <div class="row">
     <div class="col-md-6 unit">
-      <label class="label">Language:</label>
+      <label class="label" translate>Language:</label>
       <div class="input">
         <select class="form-control app-profile-language" 
           [(ngModel)]="form.preferences.language"

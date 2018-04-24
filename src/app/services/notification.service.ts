@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ToasterService } from 'angular2-toaster';
 import { CloudDevice, ILocation, AppState, INotification } from '@app/definitions';
 import { Store } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class NotificationService {
@@ -9,14 +10,17 @@ export class NotificationService {
   constructor(
     private toaster: ToasterService,
     private store: Store<AppState>,
+    private translation: TranslateService,
   ) { }
 
   private StoreNotification (notification: INotification) {
+    notification.title = this.translation.get(notification.title)['value'];
+    notification.message = this.translation.get(notification.message)['value'];
     this.store.dispatch({
       type: 'INSERT_NOTIFICATION',
       payload: notification
     });
-    this.toaster.popAsync(notification.type, notification.title, notification.message);
+    this.toaster.popAsync(notification.type, notification.title , notification.message);
   }
   public InvokePasswordReset () {
     const notification: INotification = {
@@ -130,7 +134,7 @@ export class NotificationService {
       type: 'success',
       status: 'icon-cloud_done',
       date: new Date,
-      message: 'You are inside your environment now'
+      message: 'You are inside your private environment now'
     });
   }
 }
