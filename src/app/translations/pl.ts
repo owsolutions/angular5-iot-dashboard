@@ -55,6 +55,29 @@ export default {
   'Datasource id when your hardware requests the api': 'Identyfikator źródła danych, gdy twój sprzęt wymaga api',
   'Display the real time value in home page': 'Wyświetl wartość czasu rzeczywistego na stronie głównej',
   'Display the device history on home page': 'Wyświetl historię urządzenia na stronie głównej',
-  'Create device': 'Utwórz urządzenie'
+  'Create device': 'Utwórz urządzenie',
+  'All of your Devices in your environment': 'Wszystkie twoje urządzenia w twoim środowisku',
+  'Connect a new device': 'Podłącz nowe urządzenie',
+  'Device Name': 'Nazwa urządzenia',
+  'Data Source': 'Źródło danych',
+  'Type': 'Rodzaj',
+  'Actions': 'działania',
+  'cancel': 'Anuluj',
+  'Edit device': 'Edytuj urządzenie',
+  'Delete device': 'Usuń urządzenie',
+  'Hall temperature': 'Temperatura w pomieszczeniu',
+  'Kitchen temperature': 'Temperatura w kuchni',
+  'Parking temperature': 'Temperatura w parkingu',
+  'Lobby temperature': 'Temperatura w holu',
+  'Magnet temperature': 'Temperatura magnesu',
+  'Device display name': 'Nazwa wyświetlana urządzenia'
 };
+
+
+
+
+
+
+
+
 

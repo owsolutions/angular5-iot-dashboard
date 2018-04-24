@@ -240,7 +240,7 @@ export class MockService {
           },
           {
             id: 2,
-            name: 'Kitchen Temperature',
+            name: 'Kitchen temperature',
             type: CloudDeviceType.TemperatureSensor,
             datasource: 'device-2',
             value: random(10, 30),

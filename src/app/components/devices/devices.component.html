@@ -2,18 +2,18 @@
     There are no devices. Please create devices and you will be able to manage them here.
 </app-error-message>
 
-<app-page-container maintitle="Devices" subtitle="All of your Devices in your Application">
-  <a class="btn btn-primary add-button" routerLink="../device/create" action-button>Add New Device</a>
+<app-page-container maintitle="Devices" subtitle="All of your Devices in your environment">
+  <a class="btn btn-primary add-button" routerLink="../device/create" action-button translate>Connect a new device</a>
   <div ngx-sidebar-off class="table-responsive iot-table">
     <table class="table app-devices-table">
       <thead>
         <tr>
-          <th>Device Name</th>
-          <th>Data Source</th>
-          <th>Type</th>
-          <th>Location</th>
-          <th>Model</th>
-          <th class="action-column">Actions</th>
+          <th translate>Device Name</th>
+          <th translate>Data Source</th>
+          <th translate>Type</th>
+          <th translate>Location</th>
+          <th translate>Model</th>
+          <th class="action-column" translate>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -32,13 +32,13 @@
           </td>
         </tr>
         <tr *ngFor="let device of devices" class="app-devices-row">
-          <td>{{device.name}}</td>
+          <td>{{device.name | translate}}</td>
           <td>{{device.datasource}}</td>
           <td>
             <i [Tooltip]="'Tempreture'" class="icon-thermometer-lines"></i>
           </td>
           <td><a [routerLink]="'/locations/edit/' + device.location">
-            {{FindLocationName (device.location)}}</a>
+            {{FindLocationName (device.location) | translate}}</a>
           </td>
           <td>{{ ! device.model ? 'N/A' : device.model}}</td>
           <td>

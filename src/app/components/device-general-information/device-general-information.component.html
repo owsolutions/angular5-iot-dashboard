@@ -9,7 +9,7 @@
               <input class="form-control app-device-general-name" 
                 [(ngModel)]="form.name"
                 (ngModelChange)="SubmitChange()"
-                type="text" placeholder="Device display name" id="name">
+                type="text" placeholder="{{ 'Device display name' | translate }}" id="name">
             <span class="error-message-inline" *ngIf="error(response, 'name')">{{error(response, 'name')}}</span>
           </div>
       </div>
