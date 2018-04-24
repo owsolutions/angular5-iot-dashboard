@@ -38,10 +38,6 @@ export class LocationsComponent implements OnInit {
     });
   }
 
-  getLocationTempreture(id) {
-    return this.devices.filter(x => x.id === parseInt(id, 0))[0].name;
-  }
-
   public DeleteLocation (id: number) {
     this.requests.deleteLocation(id);
     this.toasterService.pop('error', 'Your Location Deleted', this.locations.filter(x => x.id === id)[0].name);

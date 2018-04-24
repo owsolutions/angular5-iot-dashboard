@@ -75,8 +75,13 @@ export default {
   'Categorize the devices and distribute them into locations and floors.': 'Skategoryzuj urządzenia i rozmieść je w lokalizacjach i piętrach.',
   'Location name:': 'Nazwa lokalizacji:',
   'Level:': 'Poziom:',
-  'Choose an image to recognize location easier:': 'Wybierz obraz, aby łatwiej rozpoznać lokalizację:'
+  'Level': 'Poziom',
+  'Choose an image to recognize location easier:': 'Wybierz obraz, aby łatwiej rozpoznać lokalizację:',
+  'Edit Location': 'Edytuj lokalizację',
+  'Delete Location': 'Usuń lokalizację',
+  'Create Location': 'Utwórz lokalizację'
 };
+
 
 
 
