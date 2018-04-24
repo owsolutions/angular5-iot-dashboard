@@ -55,7 +55,7 @@ We are considering to support right-to-left (rtl) support for layout and compone
 
 Please feel free to contribute to the locales for your own country.
 
-![Smart home app](screenshot-2.png "Smart home app")
+![Angular Iot Dashboard | Angular 5 Dashboard | Realtime Dashboard](angular-iot-dashboard.gif "Angular Iot Dashboard | Angular 5 Dashboard | Realtime Dashboard")
 
 
 # Angular 6 Support
