@@ -9,12 +9,14 @@ import { GlobalizationService } from '@app/services/globalization.service';
 })
 export class FooterComponent implements OnInit {
 
+  public langs = [];
   constructor(
     public translate: TranslateService,
     public globalization: GlobalizationService,
   ) { }
 
   ngOnInit() {
+    this.langs = this.globalization.GetLanguages();
   }
 
   public ChangeLanguage (lang) {
