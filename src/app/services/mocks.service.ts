@@ -89,12 +89,13 @@ export class MockService {
   }
 
   public ResetPassword(req: HttpRequest<IResetForm>): IResponse<any> {
-
+    const message = 'Please reset your password to 123321, and both fields must be identical.' +
+    ' You see this message because your are running an experimental version of app';
     if (req.body.password1 !== '123321' || req.body.password2 !== req.body.password1) {
       return {
         error: {
           code: 17,
-          message: 'Please reset your password to 123321, and both fields must be identical. You see this message because your are running an experimental version of app',
+          message,
           errors: [
             {
               location: 'password1',

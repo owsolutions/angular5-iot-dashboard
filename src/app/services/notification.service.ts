@@ -11,7 +11,6 @@ export class NotificationService {
     private toaster: ToasterService,
     private store: Store<AppState>,
     private translation: TranslateService,
-    
   ) { }
 
   private StoreNotification (notification: INotification) {
