@@ -3,6 +3,7 @@
   "version": "1.0.11",
   "license": "MIT",
   "scripts": {
+    "ng": "ng",
     "build": "ng build --env=prod -prod",
     "build:mobile": "ng build --env=prod -prod --app 1",
     "build:local": "ng build --env=prodlocal -prod",

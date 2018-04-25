@@ -1,0 +1,10 @@
+<app-page-container maintitle="Humidity Customization" subtitle="Modify how a humidity sensor can look and feel among dashboard">
+  <div class="row">
+    <div class="col-md-12">
+      <label class="checkbox" >
+        <input type="checkbox" class="app-device-customization-realtime" (change)="TriggerChange();" [(ngModel)]="form.DisplayHumidityInHome">
+        <i></i> <span translate>Show the humidity precentage in home page</span>
+      </label>
+    </div>  
+  </div>
+</app-page-container>

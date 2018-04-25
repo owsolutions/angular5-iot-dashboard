@@ -294,13 +294,13 @@ export class MockService {
           },
           {
             id: 4,
-            name: 'Lobby temperature',
-            type: CloudDeviceType.TemperatureSensor,
+            name: 'Lobby humidity',
+            type: CloudDeviceType.HumiditySensor,
             datasource: 'device-5',
-            value: random(10, 30),
+            value: random(10, 60),
             location: 2,
             preferences: {
-              DisplayRealTimeTemperatureInSidebar: true
+              DisplayHumidityInHome: true,
             }
           },
           {

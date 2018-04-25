@@ -16,6 +16,12 @@
             <app-lamp-card [id]="device.id"></app-lamp-card>
           </div>
         </div>
+        
+        <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6" *ngIf="device.preferences.DisplayHumidityInHome && +device.type === 2">
+          <div class="box-wrapper">
+            <app-humidity [id]="device.id"></app-humidity>
+          </div>
+        </div>
       <div class=" col-md-8 col-sm-6" *ngIf="device.preferences.DisplayHistoryStatisticsInHome">
         <div class="box-wrapper no-padding">
           <app-history-statistics [device]="device"></app-history-statistics>

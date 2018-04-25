@@ -8,16 +8,22 @@
     (onChange)="DeviceGeneralChange($event)" ></app-device-general-information>
 
     <app-device-temperature
-    *ngIf="IsTemperature()"
-    [preferences]="form.preferences" 
-    (onChange)="DeviceCustomizationChange($event)">
-  </app-device-temperature>
-  <app-device-lamp
-    *ngIf="IsLamp()"
-    [preferences]="form.preferences" 
-    (onChange)="DeviceCustomizationChange($event)">
-  </app-device-lamp>
-  
+      *ngIf="IsTemperature()"
+      [preferences]="form.preferences" 
+      (onChange)="DeviceCustomizationChange($event)">
+    </app-device-temperature>
+    <app-device-lamp
+      *ngIf="IsLamp()"
+      [preferences]="form.preferences" 
+      (onChange)="DeviceCustomizationChange($event)">
+    </app-device-lamp>
+    
+    <app-device-humidity
+      *ngIf="IsHumidity()"
+      [preferences]="form.preferences" 
+      (onChange)="DeviceCustomizationChange($event)">
+    </app-device-humidity>
+
   <button (click)="SubmitForm()" translate class="btn btn-primary app-device-single-edit" *ngIf="form.id">Edit device</button>
   <button (click)="DeleteDevice()" translate class="btn btn-danger" *ngIf="form.id">Delete device</button>
   

@@ -42,6 +42,7 @@ import { DocsApiWorkaroundComponent } from '@components/docs/docs-api-workaround
 import { DeviceGeneralInformationComponent } from 'app/components/device-general-information/device-general-information.component';
 import { DeviceTemperatureComponent } from '@app/components/device-temperature/device-temperature.component';
 import { DeviceLampComponent } from '@app/components/device-lamp/device-lamp.component';
+import { DeviceHumidityComponent } from '@app/components/device-humidity/device-humidity.component';
 import { StatisticsComponent } from '@components/statistics/statistics.component';
 import { environment } from '../environments/environment';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -70,6 +71,7 @@ import { IfExperimentalComponent } from './components/if-experimental/if-experim
 import { GpsComponent } from '@app/components/gps/gps.component';
 import { D3neComponent } from './components/d3ne/d3ne.component';
 import { LampCardComponent } from '@app/components/widgets/lamp-card//lamp-card.component';
+import { HumidityComponent } from '@app/components/widgets/humidity/humidity.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Ng5BasicModule } from './ng5-basic/ng5-basic.module';
@@ -77,6 +79,7 @@ import pl from './translations/pl';
 import { GlobalizationService } from '@app/services/globalization.service';
 import { RestfulComponent } from '@app/components/docs/restful/restful.component';
 import { IfNotEnglishComponent } from './components/if-not-english/if-not-english.component';
+import { WaterBubbleComponent } from './components/water-bubble/water-bubble.component';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -125,6 +128,7 @@ export class AppComponent {
     CheckboxInputComponent,
     DevicesComponent,
     LampCardComponent,
+    HumidityComponent,
     ActivityWidgetComponent,
     LocationsComponent,
     ActivityComponent,
@@ -135,6 +139,7 @@ export class AppComponent {
     NavigationComponent,
     DeviceTemperatureComponent,
     DeviceLampComponent,
+    DeviceHumidityComponent,
     SwitchWidgetsComponent,
     IconWidgetsComponent,
     PlacesComponent,
@@ -164,6 +169,7 @@ export class AppComponent {
     D3neComponent,
     RestfulComponent,
     IfNotEnglishComponent,
+    WaterBubbleComponent,
   ],
   imports: [
     RealtimeDocumentModule,

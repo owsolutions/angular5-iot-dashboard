@@ -1,0 +1,25 @@
+<ng-container *ngIf="device">
+  <div class="row">
+    <div class="box-title">
+      <h2 [title]="device.name">{{device.name}}</h2>
+      <p [title]="data.subTitle">Amount of humidity in precentage</p>
+    </div>
+  </div>
+  <app-water-bubble [value]="device.value"></app-water-bubble>
+  <div class="row">
+    <div class="d-flex st-bar">
+      <div class="d-2 col-sm-4">
+        N/A<sup>°</sup>
+        <p>Average</p>
+      </div>
+      <div class="d-2 col-sm-4">
+        N/A <sup>°</sup>
+        <p>Highest</p>
+      </div>
+      <div class="d-2 col-sm-4">
+        N/A <sup>°</sup>
+        <p>Lowest</p>
+      </div>
+    </div>
+  </div>
+</ng-container>
