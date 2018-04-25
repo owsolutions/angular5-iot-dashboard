@@ -24,6 +24,13 @@
       (onChange)="DeviceCustomizationChange($event)">
     </app-device-humidity>
 
+
+    <app-device-co2
+      *ngIf="IsCo2()"
+      [preferences]="form.preferences" 
+      (onChange)="DeviceCustomizationChange($event)">
+    </app-device-co2>
+
   <button (click)="SubmitForm()" translate class="btn btn-primary app-device-single-edit" *ngIf="form.id">Edit device</button>
   <button (click)="DeleteDevice()" translate class="btn btn-danger" *ngIf="form.id">Delete device</button>
   

@@ -1,0 +1,10 @@
+<app-page-container maintitle="CO2 Sensor Customization" subtitle="Modify how a CO2 can look and feel among dashboard">
+  <div class="row">
+    <div class="col-md-12">
+      <label class="checkbox" >
+        <input type="checkbox" class="app-device-customization-realtime" (change)="TriggerChange();" [(ngModel)]="form.DisplayCO2InHome">
+        <i></i> <span translate>Display the ppm amount in home page</span>
+      </label>
+    </div>  
+  </div>
+</app-page-container>
