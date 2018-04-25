@@ -69,7 +69,9 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   public IsHumidity () {
     return +this.form.type === CloudDeviceType.HumiditySensor;
   }
-  
+  public IsCo2 () {
+    return +this.form.type === CloudDeviceType.CO2Sensor;
+  }
   public async SubmitForm () {
     delete this.form.value;
     this.isRequesting = true;

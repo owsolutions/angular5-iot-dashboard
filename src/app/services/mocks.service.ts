@@ -305,13 +305,13 @@ export class MockService {
           },
           {
             id: 5,
-            name: 'Wallroom temperature',
-            type: CloudDeviceType.TemperatureSensor,
+            name: 'CO2 sensor',
+            type: CloudDeviceType.CO2Sensor,
             datasource: 'device-6',
-            value: random(10, 30),
+            value: random(100, 600),
             location: 2,
             preferences: {
-              DisplayRealTimeTemperatureInSidebar: true
+              DisplayCO2InHome: true
             }
           },
           {
