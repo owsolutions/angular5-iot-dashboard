@@ -69,6 +69,7 @@ import { IfExperimentalComponent } from './components/if-experimental/if-experim
 import { GpsComponent } from '@app/components/gps/gps.component';
 import { D3neComponent } from './components/d3ne/d3ne.component';
 import { LampCardComponent } from '@app/components/widgets/lamp-card//lamp-card.component';
+import { HumidityComponent } from '@app/components/widgets/humidity/humidity.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Ng5BasicModule } from './ng5-basic/ng5-basic.module';
@@ -127,6 +128,7 @@ export class AppComponent {
     CheckboxInputComponent,
     DevicesComponent,
     LampCardComponent,
+    HumidityComponent,
     ActivityWidgetComponent,
     LocationsComponent,
     ActivityComponent,
