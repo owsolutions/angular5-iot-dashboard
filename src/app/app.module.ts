@@ -76,6 +76,7 @@ import pl from './translations/pl';
 import { GlobalizationService } from '@app/services/globalization.service';
 import { RestfulComponent } from '@app/components/docs/restful/restful.component';
 import { IfNotEnglishComponent } from './components/if-not-english/if-not-english.component';
+import { WaterBubbleComponent } from './components/water-bubble/water-bubble.component';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -164,6 +165,7 @@ export class AppComponent {
     D3neComponent,
     RestfulComponent,
     IfNotEnglishComponent,
+    WaterBubbleComponent,
   ],
   imports: [
     RealtimeDocumentModule,
