@@ -68,6 +68,7 @@ import { ContactDetailsComponent } from './components/contact-details/contact-de
 import { IfExperimentalComponent } from './components/if-experimental/if-experimental.component';
 import { GpsComponent } from '@app/components/gps/gps.component';
 import { D3neComponent } from './components/d3ne/d3ne.component';
+import { LampCardComponent } from '@app/components/widgets/lamp-card//lamp-card.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Ng5BasicModule } from './ng5-basic/ng5-basic.module';
@@ -124,6 +125,7 @@ export class AppComponent {
     RolesComponent,
     CheckboxInputComponent,
     DevicesComponent,
+    LampCardComponent,
     ActivityWidgetComponent,
     LocationsComponent,
     ActivityComponent,

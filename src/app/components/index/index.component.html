@@ -6,11 +6,16 @@
 <div class="row">
   <ng-container *ngFor="let device of devices">
     <ng-container *ngIf="device.preferences">
-      <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6" *ngIf="device.preferences.DisplayRealTimeTemperatureInSidebar">
-        <div class="box-wrapper">
-          <app-daily-statistics [id]="device.id"></app-daily-statistics>
+        <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6" *ngIf="device.preferences.DisplayRealTimeTemperatureInSidebar">
+          <div class="box-wrapper">
+            <app-daily-statistics [id]="device.id"></app-daily-statistics>
+          </div>
         </div>
-      </div>
+        <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6" *ngIf="device.preferences.DisplayLampOnOffInHome">
+          <div class="box-wrapper">
+            <app-lamp-card [id]="device.id"></app-lamp-card>
+          </div>
+        </div>
       <div class=" col-md-8 col-sm-6" *ngIf="device.preferences.DisplayHistoryStatisticsInHome">
         <div class="box-wrapper no-padding">
           <app-history-statistics [device]="device"></app-history-statistics>

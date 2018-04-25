@@ -254,7 +254,7 @@ export class MockService {
     };
   }
 
-  public getDevices () {
+  public getDevices (): IResponse<CloudDevice> {
     return {
       data: {
         items: [
@@ -283,13 +283,13 @@ export class MockService {
           },
           {
             id: 3,
-            name: 'Parking temperature',
-            type: CloudDeviceType.TemperatureSensor,
+            name: 'Main Lamp',
+            type: CloudDeviceType.LampBridge,
             datasource: 'device-4',
-            value: random(10, 30),
+            value: 1,
             location: 1,
             preferences: {
-              DisplayRealTimeTemperatureInSidebar: true
+              DisplayLampOnOffInHome: true
             }
           },
           {

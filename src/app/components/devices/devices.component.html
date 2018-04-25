@@ -35,7 +35,8 @@
           <td>{{device.name | translate}}</td>
           <td>{{device.datasource}}</td>
           <td>
-            <i [Tooltip]="'Tempreture'" class="icon-thermometer-lines"></i>
+            <i *ngIf="+device.type === 0" [Tooltip]="'Tempreture'" class="icon-thermometer-lines"></i>
+            <i *ngIf="+device.type === 1" [Tooltip]="'Light'" class="icon-lightbulb_outline"></i>
           </td>
           <td><a [routerLink]="'/locations/edit/' + device.location">
             {{FindLocationName (device.location) | translate}}</a>
