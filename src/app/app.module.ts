@@ -40,7 +40,8 @@ import { DeviceSingleComponent } from 'app/components/device-single/device-singl
 import { DocsComponent } from '@components/docs/docs.component';
 import { DocsApiWorkaroundComponent } from '@components/docs/docs-api-workaround/docs-api-workaround.component';
 import { DeviceGeneralInformationComponent } from 'app/components/device-general-information/device-general-information.component';
-import { DeviceCustomizationComponent } from 'app/components/device-customization/device-customization.component';
+import { DeviceTemperatureComponent } from '@app/components/device-temperature/device-temperature.component';
+import { DeviceLampComponent } from '@app/components/device-lamp/device-lamp.component';
 import { StatisticsComponent } from '@components/statistics/statistics.component';
 import { environment } from '../environments/environment';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -109,8 +110,6 @@ export class AppComponent {
   }
 }
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -137,7 +136,8 @@ export class AppComponent {
     LocationSingleComponent,
     OutputPinViewComponent,
     NavigationComponent,
-    DeviceCustomizationComponent,
+    DeviceTemperatureComponent,
+    DeviceLampComponent,
     SwitchWidgetsComponent,
     IconWidgetsComponent,
     PlacesComponent,

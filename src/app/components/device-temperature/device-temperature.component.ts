@@ -2,11 +2,11 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { IDeviceDisplayPreference } from '@app/definitions';
 
 @Component({
-  selector: 'app-device-customization',
-  templateUrl: './device-customization.component.html',
-  styleUrls: ['./device-customization.component.scss']
+  selector: 'app-device-temperature',
+  templateUrl: './device-temperature.component.html',
+  styleUrls: ['./device-temperature.component.scss']
 })
-export class DeviceCustomizationComponent implements OnInit {
+export class DeviceTemperatureComponent implements OnInit {
 
   public form: IDeviceDisplayPreference = {};
   @Output('onChange') public onChange: EventEmitter<IDeviceDisplayPreference> = new EventEmitter();
