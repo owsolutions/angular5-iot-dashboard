@@ -42,6 +42,7 @@ import { DocsApiWorkaroundComponent } from '@components/docs/docs-api-workaround
 import { DeviceGeneralInformationComponent } from 'app/components/device-general-information/device-general-information.component';
 import { DeviceTemperatureComponent } from '@app/components/device-temperature/device-temperature.component';
 import { DeviceLampComponent } from '@app/components/device-lamp/device-lamp.component';
+import { DeviceHumidityComponent } from '@app/components/device-humidity/device-humidity.component';
 import { StatisticsComponent } from '@components/statistics/statistics.component';
 import { environment } from '../environments/environment';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -138,6 +139,7 @@ export class AppComponent {
     NavigationComponent,
     DeviceTemperatureComponent,
     DeviceLampComponent,
+    DeviceHumidityComponent,
     SwitchWidgetsComponent,
     IconWidgetsComponent,
     PlacesComponent,

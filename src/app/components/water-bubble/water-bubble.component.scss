@@ -1,6 +1,8 @@
+$size: 150px;
 .wrapper {
   display: -ms-flexbox;
   display: box;
+  min-height: 194px;
   display: flex;
   -o-box-align: center;
   align-items: center;
@@ -22,8 +24,8 @@
 .green .progress,
 .red .progress,
 .orange .progress {
-  width: 250px;
-  height: 250px;
+  width: $size;
+  height: $size;
 }
 .green .progress {
   border: 5px solid #53fc53;
@@ -47,8 +49,8 @@
 .green .progress .inner,
 .red .progress .inner,
 .orange .progress .inner {
-  width: 240px;
-  height: 240px;
+  width: $size - 10px;
+  height: $size - 10px;
 }
 .green .progress .inner,
 .red .progress .inner,
@@ -133,14 +135,14 @@
 .green .progress .inner .percent,
 .red .progress .inner .percent,
 .orange .progress .inner .percent {
-  line-height: 240px;
-  font-size: 92.3076923076923px;
+  line-height: $size - 10px;
+  font-size: 32.3076923076923px;
 }
 .green .progress .inner .percent {
-  color: #03c603;
+  color: black;
 }
 .green .progress .inner .percent {
-  text-shadow: 0 0 10px #029502;
+  text-shadow: 0 0 10px black;
 }
 .green .progress .inner .percent,
 .red .progress .inner .percent,

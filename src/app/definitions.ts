@@ -127,6 +127,7 @@ export enum TemperatureCustomization {
 export interface IDeviceDisplayPreference {
   DisplayRealTimeTemperatureInSidebar?: boolean;
   DisplayLampOnOffInHome?: boolean;
+  DisplayHumidityInHome?: boolean;
   DisplayHistoryStatisticsInHome?: boolean;
 }
 
@@ -142,7 +143,8 @@ export interface DataSource {
 
 export enum CloudDeviceType {
   TemperatureSensor,
-  LampBridge
+  LampBridge,
+  HumiditySensor
 }
 
 export interface CloudDeviceStatistics {

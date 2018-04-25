@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-water-bubble',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WaterBubbleComponent implements OnInit {
 
+  public _val = 50;
+  @Input('value') public set value (val) {
+    this._val = val;
+  }
   constructor() { }
 
   ngOnInit() {
   }
+ 
 
 }

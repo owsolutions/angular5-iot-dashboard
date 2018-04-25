@@ -2,8 +2,8 @@
   <div class="green">
     <div class="progress">
       <div class="inner">
-        <div class="percent"><span>67</span>%</div>
-        <div class="water"></div>
+        <div class="percent"><span>{{_val}}</span>%</div>
+        <div class="water" [style.top]=" (100 - _val) + '%'"></div>
         <div class="glare"></div>
       </div>
     </div>
