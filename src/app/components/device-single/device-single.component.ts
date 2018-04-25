@@ -60,6 +60,12 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   ngOnDestroy () {
 
   }
+  public IsTemperature () {
+    return +this.form.type === CloudDeviceType.TemperatureSensor;
+  }
+  public IsLamp () {
+    return +this.form.type === CloudDeviceType.LampBridge;
+  }
   
   public async SubmitForm () {
     delete this.form.value;
