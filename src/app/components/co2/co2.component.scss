@@ -1,0 +1,156 @@
+.set > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+ul li {
+  margin: 2em;
+}
+
+.atom {
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  color: black;
+}
+.atom:before {
+  display: block;
+  border-radius: 50%;
+  background: radial-gradient(circle at 25% 25%, #ffffff, rgba(255, 255, 255, 0));
+  content: '';
+}
+.molecules .atom:before {
+  animation: rotr 4s linear infinite;
+  animation-play-state: paused;
+}
+.atom:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+.atom[class*=O]:before {
+  width: 3.55em;
+  height: 3.55em;
+  background-color: #193987;
+}
+.atoms .atom[class*=O]:after {
+  font: 700 1.25em Arial Narrow;
+  line-height: 2.84em;
+  content: "O";
+}
+.atom[class*=H]:before {
+  width: 1.6em;
+  height: 1.6em;
+  background-color: #da240e;
+}
+.atoms .atom[class*=H]:after {
+  font: 700 1.25em Arial Narrow;
+  line-height: 1.28em;
+  content: "H";
+}
+.atom[class*=C]:before {
+  width: 3.1em;
+  height: 3.1em;
+  background-color: #fb9a00;
+}
+.atoms .atom[class*=C]:after {
+  font: 700 1.25em Arial Narrow;
+  line-height: 2.48em;
+  content: "C";
+}
+.atom[class*=N]:before {
+  width: 3.15em;
+  height: 3.15em;
+  background-color: #05ca09;
+}
+.atoms .atom[class*=N]:after {
+  font: 700 1.25em Arial Narrow;
+  line-height: 2.52em;
+  content: "N";
+}
+.atom[class*=Cl]:before {
+  width: 3.7em;
+  height: 3.7em;
+  background-color: #ba31fb;
+}
+.atoms .atom[class*=Cl]:after {
+  font: 700 1.25em Arial Narrow;
+  line-height: 2.96em;
+  content: "Cl";
+}
+
+.molecule-wrap {
+  perspective: 32em;
+}
+
+.molecule {
+  min-width: 10em;
+  min-height: 10em;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rot 4s linear infinite;
+  animation-play-state: paused;
+  pointer-events: none;
+}
+.molecule .atom {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+.molecule .atom[class*=O] {
+  margin: -1.775em;
+}
+.molecule .atom[class*=H] {
+  margin: -0.8em;
+}
+.molecule .atom[class*=C] {
+  margin: -1.55em;
+}
+.molecule .atom[class*=N] {
+  margin: -1.575em;
+}
+.molecule .atom[class*=Cl] {
+  margin: -1.85em;
+}
+.molecule-wrap:hover .molecule, .molecule-wrap:hover .molecule .atom:before {
+  animation-play-state: running;
+}
+
+@keyframes rot {
+  to {
+    transform: rotate(360deg) rotateY(360deg) rotateX(360deg);
+  }
+}
+@keyframes rotr {
+  to {
+    transform: rotateX(-360deg) rotateY(-360deg) rotate(-360deg);
+  }
+}
+.H2O .O {
+  transform: translateZ(-1em);
+}
+.H2O .H:nth-of-type(1) {
+  transform: translateZ(-1em) rotateY(-52.225deg) translateZ(2.575em) rotateY(52.225deg);
+}
+.H2O .H:nth-of-type(2) {
+  transform: translateZ(-1em) rotateY(52.225deg) translateZ(2.575em) rotateY(-52.225deg);
+}
+
+.CO2 {
+  /* linear molecule */
+}
+.CO2 .C {
+  transform: translateZ(-1em);
+}
+.CO2 .O:nth-of-type(2) {
+  transform: translateZ(-1em) translateX(-3.325em);
+}
+.CO2 .O:nth-of-type(3) {
+  transform: translateZ(-1em) translateX(3.325em);
+}
