@@ -1,0 +1,10 @@
+<app-page-container maintitle="Lamp Customization" subtitle="Modify how a lamp can look and feel among dashboard">
+  <div class="row">
+    <div class="col-md-12">
+      <label class="checkbox" >
+        <input type="checkbox" class="app-device-customization-realtime" (change)="TriggerChange();" [(ngModel)]="form.DisplayLampOnOffInHome">
+        <i></i> <span translate>Display the real time value in home page</span>
+      </label>
+    </div>  
+  </div>
+</app-page-container>
