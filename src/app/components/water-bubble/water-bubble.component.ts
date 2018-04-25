@@ -15,6 +15,6 @@ export class WaterBubbleComponent implements OnInit {
 
   ngOnInit() {
   }
- 
+
 
 }
