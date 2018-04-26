@@ -6,6 +6,7 @@ import { IRole, IPermission } from '@app/definitions';
 import { AppState } from '@app/definitions';
 
 import { Store } from '@ngrx/store';
+import { ActionsService } from '@app/services/actions.service';
 
 @Component({
   selector: 'app-roles',
@@ -14,13 +15,15 @@ import { Store } from '@ngrx/store';
 })
 export class RolesComponent implements OnInit {
 
+  public DeleteRole = this.actions.DeleteRole.bind(this.actions);
   public perms: Array<any> = [];
   public roles: Array<IRole> = [];
   constructor (
     private router: Router,
     private permissions: PermissionsService,
     private requests: RequestsService,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private actions: ActionsService,
   ) { }
 
   async ngOnInit() {
