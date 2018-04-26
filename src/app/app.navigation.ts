@@ -54,7 +54,7 @@ export const navigation = [
       },
     ]
   },
-  ! environment.production ? {
+  {
     icon: 'icon-visibility',
     title: 'Monitoring',
     class: 'monitoring',
@@ -68,7 +68,7 @@ export const navigation = [
         class: 'manage-contacts'
       },
     ]
-  } : null,
+  },
   ! environment.production ? {
     link: '/gallery',
     icon: 'icon-attach_file',
