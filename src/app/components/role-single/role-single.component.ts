@@ -8,7 +8,6 @@ import { Store } from '@ngrx/store';
 import { error } from '@app/common';
 import { IResponse } from 'response-type';
 import { NotificationService } from '@app/services/notification.service';
-import { TranslateService } from '@ngx-translate/core';
 import { ActionsService } from '@app/services/actions.service';
 
 @Component({
@@ -36,7 +35,6 @@ export class RoleSingleComponent implements OnInit {
     private store: Store<AppState>,
     private route: ActivatedRoute,
     private notification: NotificationService,
-    private translate: TranslateService,
     private actions: ActionsService,
   ) { }
 
