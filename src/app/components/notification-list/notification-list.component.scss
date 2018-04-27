@@ -203,3 +203,29 @@
         top: 4.2em;
     }
 }
+
+::ng-deep body[dir="rtl"] {
+    .notification-list-wrapper {
+        right: auto;
+        left: 0px;
+        transform: translateX(-100%);
+        direction: rtl !important;
+
+        .search-btn {
+            &.close-search-bar{
+                right: auto !important;
+                left: 5px;
+            }
+        }
+    }
+    .notification-list{
+        ul{
+            li {
+                .notification-content {
+                    padding-left: 0px;
+                    padding-right: 15px;
+                }
+            }
+        }
+    }
+}

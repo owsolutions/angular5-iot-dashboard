@@ -17,6 +17,18 @@
     }
 }
 
+::ng-deep body[dir="rtl"] {
+    #layout{
+        &.side-on{
+            right: 285px;
+            left: -285px;
+            @media (min-width: 992px) {
+                left: 0;
+            }
+        }
+    }
+}
+
 @media (max-width: 400px) {
     #layout {
         top: 4.1em !important;

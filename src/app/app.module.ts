@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -83,6 +83,7 @@ import { RestfulComponent } from '@app/components/docs/restful/restful.component
 import { IfNotEnglishComponent } from './components/if-not-english/if-not-english.component';
 import { WaterBubbleComponent } from './components/water-bubble/water-bubble.component';
 import { Co2Component } from './components/co2/co2.component';
+import { DOCUMENT } from '@angular/common';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -92,15 +93,23 @@ window['Highcharts'] = Highcharts;
   selector: 'app-root',
   template: '<router-outlet></router-outlet>'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor (
     private realtime: RealtimeService,
     private translate: TranslateService,
-
+    private globalization: GlobalizationService,
+    @Inject(DOCUMENT) private document: Document
   ) {
     this.realtime.ActivateRealtime();
     this.RestoreLanguage();
   }
+
+  ngOnInit() {
+    this.globalization.layoutDirectionEmmiter.subscribe(direction => {
+      this.document.body.setAttribute('dir', direction);
+    });
+  }
+
   private RestoreLanguage () {
     let lang = 'en';
     const _lang = localStorage.getItem('preferedLanguage');
@@ -111,6 +120,8 @@ export class AppComponent {
     this.translate.setTranslation('pl', pl);
     this.translate.use(lang);
     this.translate.setDefaultLang(lang);
+    this.globalization.setLayoutDirection();
+    this.document.body.setAttribute('dir', this.globalization.getLayoutDirection());
   }
 }
 

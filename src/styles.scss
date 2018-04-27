@@ -20,6 +20,9 @@ body {
     user-select: none;
   }
 }
+body[dir="rtl"] {
+    text-align: right;
+}
 .simplebar-scrollbar{
     width: 5px !important;
     background: rgba(0, 0, 0, 0.5) !important;

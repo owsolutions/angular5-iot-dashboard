@@ -17,6 +17,15 @@
         transform: translateX(0);
     }
 }
+
+::ng-deep body[dir="rtl"] {
+    .bd-sidebar{
+        right: 0;
+        left: auto;
+        transform: translateX(100%);
+    }    
+}
+
 @media (max-width: 767.98px) {
     .bd-sidebar {
         top: 4.4em;

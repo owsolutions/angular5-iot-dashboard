@@ -28,6 +28,7 @@ footer {
       margin: 0;
       padding: 15px;
       text-align: right;
+      direction: ltr !important;
       .material-icons {
           font-size: 18px;
           position: relative;
@@ -51,4 +52,15 @@ footer {
     background: #eee;
     font-size: 14px;
     outline: none;
+}
+
+::ng-deep body[dir="rtl"] {
+    .copyright {
+        text-align: left !important;
+    }
+    @media (max-width: 768px) { 
+        .copyright{
+            text-align: center !important;
+        }
+    }
 }
