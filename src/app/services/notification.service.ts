@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToasterService } from 'angular2-toaster';
-import { CloudDevice, ILocation, AppState, INotification } from '@app/definitions';
+import { CloudDevice, ILocation, AppState, INotification, IRole } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -54,6 +54,26 @@ export class NotificationService {
       message: device.name
     });
   }
+  public InvokeRoleUpdate (role: IRole) {
+    const title = 'Role Update Succesfully';
+    this.StoreNotification({
+      title,
+      type: 'success',
+      status: 'icon-add_circle',
+      date: new Date(),
+      message: role.title
+    });
+  }
+  public InvokeRoleCreate (role: IRole) {
+    const title = 'Role Created Succesfully';
+    this.StoreNotification({
+      title,
+      type: 'success',
+      status: 'icon-add_circle',
+      date: new Date(),
+      message: role.title
+    });
+  }
 
   public InvokeDeviceUpdate (device: CloudDevice) {
     const title = 'Device Edited!';
@@ -65,7 +85,15 @@ export class NotificationService {
       message: device.name
     });
   }
-
+  public InvokeRoleDelete (role: IRole) {
+    this.StoreNotification({
+      title: 'Your Role Deleted',
+      type: 'error',
+      status: 'icon-remove_circle',
+      date: new Date(),
+      message: role.title
+    });
+  }
   public InvokeDeviceDelete (device: CloudDevice) {
     this.StoreNotification({
       title: 'Your Device Deleted',

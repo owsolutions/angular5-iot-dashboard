@@ -44,6 +44,7 @@ export class LayoutComponent implements OnInit {
     this.requests.getDevices();
     this.requests.getLocations();
     this.requests.getUnconnected();
+    this.requests.GetRoles();
     setTimeout(( ) => {
       if (environment.production) {
         this.realtime.connectToRoom(this.user.GetToken());
