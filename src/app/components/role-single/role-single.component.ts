@@ -25,7 +25,7 @@ export class RoleSingleComponent implements OnInit {
     permissions: [],
     title: ''
   };
-  public DeleteRole = this.actions.DeleteRole;
+  public DeleteRole = this.actions.DeleteRole.bind(this.actions);
   public perms: Array<any> = [];
   public roles: Array<IRole> = [];
   constructor (
