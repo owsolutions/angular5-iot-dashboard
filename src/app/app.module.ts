@@ -78,6 +78,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Ng5BasicModule } from './ng5-basic/ng5-basic.module';
 import pl from './translations/pl';
+import fa from './translations/fa';
 import { GlobalizationService } from '@app/services/globalization.service';
 import { RestfulComponent } from '@app/components/docs/restful/restful.component';
 import { IfNotEnglishComponent } from './components/if-not-english/if-not-english.component';
@@ -113,11 +114,12 @@ export class AppComponent implements OnInit {
   private RestoreLanguage () {
     let lang = 'en';
     const _lang = localStorage.getItem('preferedLanguage');
-     if (_lang === 'en' || _lang === 'pl') {
+     if (_lang === 'en' || _lang === 'pl' || _lang === 'fa') {
       lang = _lang;
     }
 
     this.translate.setTranslation('pl', pl);
+    this.translate.setTranslation('fa', fa);
     this.translate.use(lang);
     this.translate.setDefaultLang(lang);
     this.globalization.setLayoutDirection();

@@ -2,7 +2,8 @@ import { Injectable, EventEmitter } from '@angular/core';
 
 export const SupportedLanguages = {
   'en': {'title': 'English (United States)', 'direction': 'ltr'},
-  'pl': {'title': 'Polish (Poland)', 'direction': 'rtl'},
+  'pl': {'title': 'Polish (Poland)', 'direction': 'ltr'},
+  'fa': {'title': 'Persian (فارسی ایران)', 'direction': 'rtl'},
 };
 @Injectable()
 export class GlobalizationService {
