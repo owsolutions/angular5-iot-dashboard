@@ -19,7 +19,6 @@ import { Observable } from 'rxjs/Observable';
 export class DeviceSingleComponent implements OnInit, OnDestroy {
 
   public isRequesting = false;
-  private ref = null;
   public response: IResponse<CloudDevice> = null;
   public locations: Array<any> = [];
   public form: CloudDevice = {
@@ -89,7 +88,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
         } else {
           this.notification.InvokeDeviceCreate(response.data.items[0]);
         }
-        
+
       }
       this.response = response;
     } catch (error) {
@@ -111,5 +110,5 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   public DeviceCustomizationChange (value) {
     this.form.preferences = value;
   }
-  
+
 }
