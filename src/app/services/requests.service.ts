@@ -1,5 +1,14 @@
 import { Injectable } from '@angular/core';
-import { AppState, CloudDevice, ILocation, IUser, ICloudDeviceDailyHistory, ISettingsUpdateResponse, IContact, IRole } from '@app/definitions';
+import {
+  AppState,
+  CloudDevice,
+  ILocation,
+  IUser,
+  ICloudDeviceDailyHistory,
+  ISettingsUpdateResponse,
+  IContact,
+  IRole
+ } from '@app/definitions';
 import { PermissionsService } from './permissions.service';
 import 'rxjs/add/observable/of';
 import { Store } from '@ngrx/store';

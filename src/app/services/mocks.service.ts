@@ -174,7 +174,7 @@ export class MockService {
           }
         ]
       }
-    }
+    };
   }
   signIn( req: HttpRequest<any> ): IResponse<any> {
     if ( req.body.email === 'test@test.com' && req.body.password === '123321' ) {
@@ -299,7 +299,7 @@ export class MockService {
           }
         ]
       }
-    }
+    };
   }
 
   public getDevices (): IResponse<CloudDevice> {
