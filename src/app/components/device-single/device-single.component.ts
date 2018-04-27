@@ -8,6 +8,8 @@ import { IResponse } from 'response-type';
 import { error } from '@app/common';
 import { NotificationService } from '@app/services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
+import 'rxjs/add/observable/combineLatest';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-device-single',
@@ -36,26 +38,28 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   ) {
    }
 
-  ngOnInit() {
-    this.route.params.subscribe((data: {id?: any, sourceId?: any}) => {
-      if (data.sourceId) {
-        this.form.datasource = data.sourceId;
+  async ngOnInit() {
+    Observable.combineLatest(
+      this.store.select('devices'),
+      this.route.params
+    ).subscribe(([devices, params]) => {
+       if (params.sourceId) {
+        this.form.datasource = params.sourceId;
       }
-      if ( ! data.id ) {
+      if ( ! params.id ) {
         return ;
       }
-      this.form.id = data.id;
-      this.ref = this.store.select('devices').subscribe((devices: Array<CloudDevice>) => {
-        /* tslint:disable */
-        const form = devices.find(dev => dev.id == data.id);
-        if ( ! form) {
-          return;
-        }
-        this.form = Object.assign({}, form);
-
-
-      }).unsubscribe();
+      this.form.id = params.id;
+      const form = devices.find(dev => dev.id === +params.id);
+      if (!form) {
+        return;
+      }
+      this.form = Object.assign({}, form);
     }).unsubscribe();
+    const device = await this.requests.getDevice(this.form.id);
+    if ( device ) {
+      this.form = device;
+    }
   }
   ngOnDestroy () {
 
