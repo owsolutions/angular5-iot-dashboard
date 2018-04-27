@@ -12,7 +12,7 @@
 body {
   background: #e9eaec;
   opacity: 1;
-  transition: all 0.1s;
+  transition: opacity 0.1s;
   @media (max-width: 991.98px) {
     -webkit-touch-callout: none;
     -webkit-user-select: none;

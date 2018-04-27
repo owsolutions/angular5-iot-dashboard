@@ -35,17 +35,25 @@ export class GlobalizationService {
     return langs;
   }
 
-  public setLayoutDirection () {
-    this.document.body.classList.add('display-off');
-    setTimeout(() => {
-      const lang = localStorage.getItem('preferedLanguage');
-      const direction = SupportedLanguages[lang].direction;
-      this.layoutDirectionEmmiter.emit(direction);
-      this.layoutDirection = direction;
-    }, 500);
-    setTimeout(() => {
-      this.document.body.classList.remove('display-off');
-    }, 1000);
+  public setLayoutDirection (effectOn?: boolean) {
+    if (!effectOn) {
+      this.document.body.classList.add('display-off');
+      setTimeout(() => {
+        this.localSetter();
+      }, 500);
+      setTimeout(() => {
+        this.document.body.classList.remove('display-off');
+      }, 1000);
+    } else {
+      this.localSetter();
+    }
+  }
+
+  localSetter() {
+    const lang = localStorage.getItem('preferedLanguage');
+    const direction = SupportedLanguages[lang].direction;
+    this.layoutDirectionEmmiter.emit(direction);
+    this.layoutDirection = direction;
   }
 
   public getLayoutDirection() {

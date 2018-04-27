@@ -123,7 +123,7 @@ export class AppComponent implements OnInit {
     this.translate.setTranslation('fa', fa);
     this.translate.use(lang);
     this.translate.setDefaultLang(lang);
-    this.globalization.setLayoutDirection();
+    this.globalization.setLayoutDirection(true);
     this.document.body.setAttribute('dir', this.globalization.getLayoutDirection());
   }
 }
