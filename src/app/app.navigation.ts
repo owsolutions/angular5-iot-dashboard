@@ -70,6 +70,21 @@ export const navigation = [
     ]
   },
   ! environment.production ? {
+    icon: 'icon-verified_user',
+    title: 'Users & Access',
+    class: 'users-access',
+    children: [
+      {
+        link: '/roles',
+        icon: '',
+        title: 'Roles list',
+        permissions: ['LOCATIONS::VIEW'],
+        auth: true,
+        class: 'roles-list'
+      },
+    ]
+  } : null,
+  ! environment.production ? {
     link: '/gallery',
     icon: 'icon-attach_file',
     title: 'Gallery',

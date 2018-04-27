@@ -33,7 +33,6 @@
 
   <button (click)="SubmitForm()" translate class="btn btn-primary app-device-single-edit" *ngIf="form.id">Edit device</button>
   <button (click)="DeleteDevice()" translate class="btn btn-danger" *ngIf="form.id">Delete device</button>
-  
   <button (click)="SubmitForm()" class="btn btn-primary app-device-single-create" *ngIf="!form.id" translate>Create device</button>
   <a class="btn btn-warning app-device-single-cancel" routerLink="/devices" translate>cancel</a>
 
