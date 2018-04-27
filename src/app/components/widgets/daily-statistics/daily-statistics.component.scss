@@ -36,6 +36,15 @@
     }
 }
 
+::ng-deep body[dir="rtl"] {
+    .widget-value{
+        .current-value{
+            left: auto !important;
+            right: 10px;
+        }
+    }
+}
+
 .st-bar {
     width: 100%;
     text-align: center;

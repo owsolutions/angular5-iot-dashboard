@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RequestsService } from '@app/services/requests.service';
 import { CloudDevice, ICloudDeviceDailyHistory } from '@app/definitions';
+import { GlobalizationService } from '@app/services/globalization.service';
 declare var Highcharts: any;
 
 interface IComponentHistory extends ICloudDeviceDailyHistory {
@@ -17,7 +18,7 @@ export class HistoryStatisticsComponent implements OnInit {
   public dailyHistory: Array<IComponentHistory> = [];
   public currentData: Array<any>;
   public activeIndex = 0;
-  drawChart() {
+  drawChart(is_reversed?: boolean) {
     Highcharts.chart('history-statistics', {
       chart: {
         events: {
@@ -44,10 +45,18 @@ export class HistoryStatisticsComponent implements OnInit {
         },
         gridLineColor: '#f5f5f5'
       },
+      xAxis: {
+        reversed: (is_reversed === undefined) ?
+          this.globalization.getLayoutDirection() === 'ltr' ? false : true :
+          (is_reversed) ? true : false
+      },
       legend: {
         layout: 'horizontal',
         align: 'left',
         verticalAlign: 'top',
+      },
+      tooltip: {
+        useHTML: true
       },
       plotOptions: {
         series: {
@@ -86,7 +95,12 @@ export class HistoryStatisticsComponent implements OnInit {
 
   constructor(
     private requests: RequestsService,
-  ) { }
+    private globalization: GlobalizationService
+  ) {
+    globalization.layoutDirectionEmmiter.subscribe(direction => {
+      this.drawChart(true);
+    });
+   }
 
   async ngOnInit() {
     await this.GetDevice(this.device.id);

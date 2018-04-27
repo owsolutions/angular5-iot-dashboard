@@ -17,6 +17,11 @@
             margin: 0;
         }
         .current-item {
+            margin-left: auto;
+            .current-item-statistic-unit{
+                direction: ltr;
+                text-align: left;
+            }
             .changeRate {
                 background: #eaeaea;
                 padding: 3px;
@@ -90,4 +95,35 @@
             width: auto;
         }
     }
+}
+
+
+::ng-deep body[dir="rtl"] {
+    .hs-container {
+        .hs-title{
+            .current-item {
+                margin-left: 0px !important;
+                margin-right: auto !important;
+            }
+        }
+        .hs-table {
+            border-right: 0px !important;
+            border-left: 1px solid #eee;
+            table {
+                tr td > span {
+                    direction: ltr;
+                    float: left;                
+                }
+            }
+        }
+        .hs-chart {
+            width: 100%;
+            @media (min-width: 1199.98px) {
+                position: absolute;
+                left: 0 !important;
+                right: 260px !important;
+                width: auto;
+            }
+        }
+}
 }

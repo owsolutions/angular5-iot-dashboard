@@ -29,6 +29,18 @@
     padding-bottom: 7px;
 }
 
+::ng-deep body[dir="rtl"] {
+    .list-names 
+    {
+        li {
+            .status {
+                float: left !important;
+            }
+        }
+    }
+}
+
+
 @media (max-width: 991.98px) {
     .location-image {
         width: 175px;

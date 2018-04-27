@@ -11,6 +11,8 @@
 }
 body {
   background: #e9eaec;
+  opacity: 1;
+  transition: all 0.1s;
   @media (max-width: 991.98px) {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -18,6 +20,9 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+  }
+  &.display-off {
+      opacity: 0;
   }
 }
 body[dir="rtl"] {
