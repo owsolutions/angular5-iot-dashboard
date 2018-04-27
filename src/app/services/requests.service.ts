@@ -69,6 +69,21 @@ export class RequestsService {
     );
   }
 
+  public async getDevice (id: number) {
+    try {
+      const response: IResponse<CloudDevice> = await (this.http.get(environment.api + '/api/device/' + id).toPromise());
+      const collections = response.data.items;
+      for (const item of collections) {
+        this.store.dispatch({
+          type: 'UPDATE_DEVICE',
+          payload: item
+        });
+      }
+      return collections[0];
+    } catch (error) {
+
+    }
+  }
   getDevices () {
     this.http.get(environment.api + '/api/devices').subscribe(
       (response: any) => {
