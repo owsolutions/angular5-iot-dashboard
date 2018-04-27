@@ -83,6 +83,7 @@ import { RestfulComponent } from '@app/components/docs/restful/restful.component
 import { IfNotEnglishComponent } from './components/if-not-english/if-not-english.component';
 import { WaterBubbleComponent } from './components/water-bubble/water-bubble.component';
 import { Co2Component } from './components/co2/co2.component';
+import { RoleSingleComponent } from '@app/components/role-single/role-single.component';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -130,6 +131,7 @@ export class AppComponent {
     RolesComponent,
     CheckboxInputComponent,
     DevicesComponent,
+    RoleSingleComponent,
     LampCardComponent,
     HumidityComponent,
     ActivityWidgetComponent,

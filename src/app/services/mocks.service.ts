@@ -5,7 +5,7 @@ import { IResponse, IResponseErrorItem } from 'response-type';
 import { matchPattern } from 'url-matcher';
 import { environment } from '../../environments/environment';
 import { PermissionsService } from '@services/permissions.service';
-import { IUserForm, CloudDevice, DataSource, IUser, ICloudDeviceDailyHistory, IContact, IResetForm } from '@app/definitions';
+import { IUserForm, CloudDevice, DataSource, IUser, ICloudDeviceDailyHistory, IContact, IResetForm, IRole } from '@app/definitions';
 import { CloudDeviceType } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { random, times } from '@lodash';
@@ -40,6 +40,9 @@ export class MockService {
     'POST /api/user/signin': 'signIn',
     'POST /api/user/signup': 'signUp',
     'GET /api/locations': 'getLocations',
+    'DELETE /api/role/:id': 'deleteRole',
+    'GET /api/roles': 'getRoles',
+    'POST /api/role': 'postRole',
     'GET /api/devices/daily-history/:id': 'GetDeviceDailyHistory',
     'GET /api/devices/token': 'getDevicesToken',
     'GET /api/devices/day-history/:date/:id': 'GetDeviceDayHistory',
@@ -163,7 +166,16 @@ export class MockService {
       },
     };
   }
-
+  public deleteRole (req: HttpRequest<any>): IResponse<any> {
+    return {
+      data: {
+        items: [
+          {
+          }
+        ]
+      }
+    };
+  }
   signIn( req: HttpRequest<any> ): IResponse<any> {
     if ( req.body.email === 'test@test.com' && req.body.password === '123321' ) {
       return {
@@ -215,6 +227,19 @@ export class MockService {
       }
     };
   }
+  public postRole (req: HttpRequest<any>): IResponse<IRole> {
+    const form: IRole = req.body;
+    if (!form.id) {
+      form.id = random(1, 99999);
+    }
+    return {
+      data: {
+        items: [
+          form
+        ]
+      }
+    };
+  }
   public signUp (req: HttpRequest<any>): IResponse<any> {
     const form = req.body;
     function hasUnvalidFields(user: IUserForm): Array<any> {
@@ -248,6 +273,29 @@ export class MockService {
           {
             user: this.mockUser(),
             token: 'fake-token3892379828932982789237982'
+          }
+        ]
+      }
+    };
+  }
+  public getRoles (): IResponse<IRole> {
+    return {
+      data: {
+        items: [
+          {
+            id: 1,
+            title: 'Developer',
+            permissions: []
+          },
+          {
+            id: 2,
+            title: 'Master',
+            permissions: []
+          },
+          {
+            id: 3,
+            title: 'Guest',
+            permissions: []
           }
         ]
       }

@@ -1,5 +1,14 @@
 import { Injectable } from '@angular/core';
-import { AppState, CloudDevice, ILocation, IUser, ICloudDeviceDailyHistory, ISettingsUpdateResponse, IContact } from '@app/definitions';
+import {
+  AppState,
+  CloudDevice,
+  ILocation,
+  IUser,
+  ICloudDeviceDailyHistory,
+  ISettingsUpdateResponse,
+  IContact,
+  IRole
+ } from '@app/definitions';
 import { PermissionsService } from './permissions.service';
 import 'rxjs/add/observable/of';
 import { Store } from '@ngrx/store';
@@ -103,6 +112,26 @@ export class RequestsService {
       return error;
     }
   }
+  public async GetRoles (): Promise<IResponse<IRole>> {
+    const url = environment.api + '/api/roles';
+    const ref = this.http.get(url).toPromise();
+    try {
+      const response: IResponse<IRole> = await ref;
+      const collections = response.data.items;
+      for (const item of collections) {
+        this.store.dispatch({
+          type: 'UPDATE_ROLE',
+          payload: item
+        });
+      }
+      return response;
+    } catch (error) {
+      if (error.name === 'HttpErrorResponse') {
+        return GetNetworkError();
+      }
+      return error;
+    }
+  }
   public async GetContactDetails (): Promise<IResponse<IContact>> {
     const url = environment.api + '/api/contact-details';
     const ref = this.http.get(url).toPromise();
@@ -116,7 +145,27 @@ export class RequestsService {
       return error;
     }
   }
-
+  public async PostRole (role: IRole): Promise<IResponse<IRole>> {
+    const ref = this.http.post(environment.api + '/api/role' , role).toPromise();
+    try {
+      const response: IResponse<IRole> = await ref;
+      if (response && response.data && response.data.items && response.data.items[0]) {
+        const $role = response.data.items[0];
+        if ($role) {
+          this.store.dispatch({
+            type: 'UPDATE_ROLE',
+            payload: $role
+          });
+        }
+      }
+      return response;
+    } catch (error) {
+      if (error.name === 'HttpErrorResponse') {
+        return GetNetworkError();
+      }
+      return error;
+    }
+  }
   public async PostDevice (device: CloudDevice): Promise<IResponse<CloudDevice>> {
     const ref = this.http.post(environment.api + '/api/device' , device).toPromise();
     try {
@@ -207,7 +256,6 @@ export class RequestsService {
       return error;
     }
   }
-
   async deleteLocation (id: number ) {
     const ref = this.http.delete(environment.api + '/api/location/' + id).toPromise();
     try {
@@ -220,6 +268,27 @@ export class RequestsService {
         if ($location) {
           this.store.dispatch({
             type: 'DELETE_LOCATION',
+            payload: id
+          });
+        }
+      }
+      return response;
+    } catch (error) {
+      if (error.name === 'HttpErrorResponse') {
+        return GetNetworkError();
+      }
+      return error;
+    }
+  }
+  async deleteRole (id: number ) {
+    const ref = this.http.delete(environment.api + '/api/role/' + id).toPromise();
+    try {
+      const response: IResponse<IRole> = await ref;
+      if (IsSuccessEntity(response)) {
+        const $role = response.data.items[0];
+        if ($role) {
+          this.store.dispatch({
+            type: 'DELETE_ROLE',
             payload: id
           });
         }

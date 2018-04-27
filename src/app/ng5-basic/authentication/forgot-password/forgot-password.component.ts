@@ -44,7 +44,6 @@ export class ForgotPasswordComponent implements OnInit {
       this.isRequesting = false;
       this.onResetSuccess(response);
     } catch (response) {
-      console.log('Response', response);
       this.isRequesting = false;
       if (response.name === 'HttpErrorResponse') {
         this.response = GetNetworkError();
