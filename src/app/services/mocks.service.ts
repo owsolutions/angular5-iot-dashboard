@@ -5,13 +5,105 @@ import { IResponse, IResponseErrorItem } from 'response-type';
 import { matchPattern } from 'url-matcher';
 import { environment } from '../../environments/environment';
 import { PermissionsService } from '@services/permissions.service';
-import { IUserForm, CloudDevice, DataSource, IUser, ICloudDeviceDailyHistory, IContact, IResetForm } from '@app/definitions';
+import { IUserForm, CloudDevice, DataSource, IUser, ICloudDeviceDailyHistory, IContact, IResetForm, IRole } from '@app/definitions';
 import { CloudDeviceType } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { random, times } from '@lodash';
 import { ILocation } from '@app/definitions';
 import { TranslateService } from '@ngx-translate/core';
+import 'rxjs/add/operator/delay';
 
+const devices = [
+  {
+    id: 1,
+    name: 'Hall temperature',
+    type: CloudDeviceType.TemperatureSensor,
+    datasource: 'device-1',
+    value: random(10, 30),
+    location: 1,
+    preferences: {
+      DisplayRealTimeTemperatureInSidebar: true,
+      DisplayHistoryStatisticsInHome: true
+    }
+  },
+  {
+    id: 2,
+    name: 'Kitchen temperature',
+    type: CloudDeviceType.TemperatureSensor,
+    datasource: 'device-2',
+    value: random(10, 30),
+    location: 1,
+    preferences: {
+      DisplayRealTimeTemperatureInSidebar: true
+    }
+  },
+  {
+    id: 3,
+    name: 'Main Lamp',
+    type: CloudDeviceType.LampBridge,
+    datasource: 'device-4',
+    value: 1,
+    location: 1,
+    preferences: {
+      DisplayLampOnOffInHome: true
+    }
+  },
+  {
+    id: 4,
+    name: 'Lobby humidity',
+    type: CloudDeviceType.HumiditySensor,
+    datasource: 'device-5',
+    value: random(10, 60),
+    location: 2,
+    preferences: {
+      DisplayHumidityInHome: true,
+    }
+  },
+  {
+    id: 5,
+    name: 'CO2 sensor',
+    type: CloudDeviceType.CO2Sensor,
+    datasource: 'device-6',
+    value: random(100, 600),
+    location: 2,
+    preferences: {
+      DisplayCO2InHome: true
+    }
+  },
+  {
+    id: 6,
+    name: 'Magnet temperature',
+    type: CloudDeviceType.TemperatureSensor,
+    datasource: 'device-7',
+    value: random(10, 30),
+    location: 2,
+    preferences: {
+      DisplayRealTimeTemperatureInSidebar: true
+    }
+  },
+  {
+    id: 7,
+    name: 'Negative temperature',
+    type: CloudDeviceType.TemperatureSensor,
+    datasource: 'device-8',
+    value: random(10, 30),
+    location: 3,
+    preferences: {
+      DisplayRealTimeTemperatureInSidebar: true
+    }
+  },
+  {
+    id: 8,
+    name: 'Thermal temperature',
+    type: CloudDeviceType.TemperatureSensor,
+    datasource: 'device-9',
+    value: random(10, 30),
+    location: 3,
+    preferences: {
+      DisplayRealTimeTemperatureInSidebar: true
+    }
+  },
+];
 const validateLocation = (location: ILocation) => {
   const errors: Array<IResponseErrorItem> = [];
   if (!location.name) {
@@ -40,9 +132,13 @@ export class MockService {
     'POST /api/user/signin': 'signIn',
     'POST /api/user/signup': 'signUp',
     'GET /api/locations': 'getLocations',
+    'DELETE /api/role/:id': 'deleteRole',
+    'GET /api/roles': 'getRoles',
+    'POST /api/role': 'postRole',
     'GET /api/devices/daily-history/:id': 'GetDeviceDailyHistory',
     'GET /api/devices/token': 'getDevicesToken',
     'GET /api/devices/day-history/:date/:id': 'GetDeviceDayHistory',
+    'GET /api/device/:id': 'getDevice',
     'GET /api/devices': 'getDevices',
     'GET /api/unconnected': 'getUnconnected',
     'POST /api/device': 'postDevice',
@@ -163,7 +259,16 @@ export class MockService {
       },
     };
   }
-
+  public deleteRole (req: HttpRequest<any>): IResponse<any> {
+    return {
+      data: {
+        items: [
+          {
+          }
+        ]
+      }
+    };
+  }
   signIn( req: HttpRequest<any> ): IResponse<any> {
     if ( req.body.email === 'test@test.com' && req.body.password === '123321' ) {
       return {
@@ -215,6 +320,19 @@ export class MockService {
       }
     };
   }
+  public postRole (req: HttpRequest<any>): IResponse<IRole> {
+    const form: IRole = req.body;
+    if (!form.id) {
+      form.id = random(1, 99999);
+    }
+    return {
+      data: {
+        items: [
+          form
+        ]
+      }
+    };
+  }
   public signUp (req: HttpRequest<any>): IResponse<any> {
     const form = req.body;
     function hasUnvalidFields(user: IUserForm): Array<any> {
@@ -253,101 +371,42 @@ export class MockService {
       }
     };
   }
-
-  public getDevices (): IResponse<CloudDevice> {
+  public getRoles (): IResponse<IRole> {
     return {
       data: {
         items: [
           {
             id: 1,
-            name: 'Hall temperature',
-            type: CloudDeviceType.TemperatureSensor,
-            datasource: 'device-1',
-            value: random(10, 30),
-            location: 1,
-            preferences: {
-              DisplayRealTimeTemperatureInSidebar: true,
-              DisplayHistoryStatisticsInHome: true
-            }
+            title: 'Developer',
+            permissions: []
           },
           {
             id: 2,
-            name: 'Kitchen temperature',
-            type: CloudDeviceType.TemperatureSensor,
-            datasource: 'device-2',
-            value: random(10, 30),
-            location: 1,
-            preferences: {
-              DisplayRealTimeTemperatureInSidebar: true
-            }
+            title: 'Master',
+            permissions: []
           },
           {
             id: 3,
-            name: 'Main Lamp',
-            type: CloudDeviceType.LampBridge,
-            datasource: 'device-4',
-            value: 1,
-            location: 1,
-            preferences: {
-              DisplayLampOnOffInHome: true
-            }
-          },
-          {
-            id: 4,
-            name: 'Lobby humidity',
-            type: CloudDeviceType.HumiditySensor,
-            datasource: 'device-5',
-            value: random(10, 60),
-            location: 2,
-            preferences: {
-              DisplayHumidityInHome: true,
-            }
-          },
-          {
-            id: 5,
-            name: 'CO2 sensor',
-            type: CloudDeviceType.CO2Sensor,
-            datasource: 'device-6',
-            value: random(100, 600),
-            location: 2,
-            preferences: {
-              DisplayCO2InHome: true
-            }
-          },
-          {
-            id: 6,
-            name: 'Magnet temperature',
-            type: CloudDeviceType.TemperatureSensor,
-            datasource: 'device-7',
-            value: random(10, 30),
-            location: 2,
-            preferences: {
-              DisplayRealTimeTemperatureInSidebar: true
-            }
-          },
-          {
-            id: 7,
-            name: 'Negative temperature',
-            type: CloudDeviceType.TemperatureSensor,
-            datasource: 'device-8',
-            value: random(10, 30),
-            location: 3,
-            preferences: {
-              DisplayRealTimeTemperatureInSidebar: true
-            }
-          },
-          {
-            id: 8,
-            name: 'Thermal temperature',
-            type: CloudDeviceType.TemperatureSensor,
-            datasource: 'device-9',
-            value: random(10, 30),
-            location: 3,
-            preferences: {
-              DisplayRealTimeTemperatureInSidebar: true
-            }
-          },
+            title: 'Guest',
+            permissions: []
+          }
         ]
+      }
+    };
+  }
+
+  public getDevices (): IResponse<CloudDevice> {
+    return {
+      data: {
+        items: devices
+      }
+    };
+  }
+  public getDevice (req: HttpRequest<any> , params): IResponse<CloudDevice> {
+    const id = req.url.split('/').reverse()[0];
+    return {
+      data: {
+        items: devices.filter(device => device.id === +id)
       }
     };
   }

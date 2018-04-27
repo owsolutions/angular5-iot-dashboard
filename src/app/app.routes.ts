@@ -20,43 +20,16 @@ import { DeviceEventsActionsComponent } from '@app/components/device-events-acti
 import { ContactDetailsComponent } from '@app/components/contact-details/contact-details.component';
 import { GpsComponent } from '@app/components/gps/gps.component';
 import { RestfulComponent } from '@app/components/docs/restful/restful.component';
-
-export function AuthLayout (component: any, route: string, options: any = {}): Route {
-  return {
-    path: route,
-    ... options,
-    component: LayoutComponent,
-    children: [
-      {
-        path: '',
-        component: component
-      },
-    ],
-  };
-}
-export function DefaultLayout (component: any, route: string, options: any = {}): Route {
-  return {
-    path: route,
-    ... options,
-    component: LayoutComponent,
-    children: [
-      {
-        path: '',
-        component: component
-      },
-    ],
-  };
-}
+import { RoleSingleComponent } from '@app/components/role-single/role-single.component';
 
 export function AuthLayoutChild(component: any, route: string, options: any = {}): Route {
-    return {
-        path: route,
-        component: component,
-        ... options,
-        canActivate: [AuthGuard],
-    };
+  return {
+    path: route,
+    component: component,
+    ... options,
+    canActivate: [AuthGuard],
+  };
 }
-
 
 export const appRoutes: Routes = [
   {   path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -74,6 +47,8 @@ export const appRoutes: Routes = [
         AuthLayoutChild (SettingsComponent, 'token'),
         AuthLayoutChild (LocationSingleComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
         AuthLayoutChild (LocationSingleComponent, 'location/new', {data: {mode: 'new'}}),
+        AuthLayoutChild (RoleSingleComponent, 'role/create'),
+        AuthLayoutChild (RoleSingleComponent, 'role/:id'),
         AuthLayoutChild (RolesComponent, 'roles'),
         AuthLayoutChild (ActivityComponent, 'activities'),
         AuthLayoutChild (GpsComponent, 'gps'),

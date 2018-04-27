@@ -85,6 +85,7 @@ import { IfNotEnglishComponent } from './components/if-not-english/if-not-englis
 import { WaterBubbleComponent } from './components/water-bubble/water-bubble.component';
 import { Co2Component } from './components/co2/co2.component';
 import { DOCUMENT } from '@angular/common';
+import { RoleSingleComponent } from '@app/components/role-single/role-single.component';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -143,6 +144,7 @@ export class AppComponent implements OnInit {
     RolesComponent,
     CheckboxInputComponent,
     DevicesComponent,
+    RoleSingleComponent,
     LampCardComponent,
     HumidityComponent,
     ActivityWidgetComponent,
