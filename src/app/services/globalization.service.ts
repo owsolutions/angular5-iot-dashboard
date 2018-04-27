@@ -1,8 +1,8 @@
 import { Injectable, EventEmitter } from '@angular/core';
 
 export const SupportedLanguages = {
-  'en': ['English (United States)', 'ltr'],
-  'pl': ['Polish (Poland)', 'rtl'],
+  'en': {'title': 'English (United States)', 'direction': 'ltr'},
+  'pl': {'title': 'Polish (Poland)', 'direction': 'rtl'},
 };
 @Injectable()
 export class GlobalizationService {
@@ -13,14 +13,14 @@ export class GlobalizationService {
   public GetLanguages () {
     const langs: Array<{lang: string, label: string}> = [];
     for (const lang of Object.keys(SupportedLanguages)) {
-      langs.push({label: SupportedLanguages[lang][0], lang});
+      langs.push({label: SupportedLanguages[lang].title, lang});
     }
     return langs;
   }
 
   public setLayoutDirection () {
     const lang = localStorage.getItem('preferedLanguage');
-    const direction = SupportedLanguages[lang][1];
+    const direction = SupportedLanguages[lang].direction;
     this.layoutDirectionEmmiter.emit(direction);
     this.layoutDirection = direction;
   }
