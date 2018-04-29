@@ -5,12 +5,12 @@
         <h2>{{device.name}}</h2>
         <p>{{'Show for now and others' | translate}}</p>
       </div>
-      <div class="d-2 ml-auto d-sm-block current-item">
+      <div class="d-2 d-sm-block current-item">
         <div class="d-flex flex-column" *ngIf="dailyHistory.length">
           <div class="d-2">
             {{dailyHistory[activeIndex].date | date:'fullDate'}}
           </div>
-          <div class="d-2">
+          <div class="d-2 current-item-statistic-unit">
             <span  *ngIf="dailyHistory[activeIndex].status" [class]="dailyHistory[activeIndex].status === 'up'? 'text-success changeRate' : 'text-danger changeRate'">
               <i [class]="'icon-arrow_drop_' + dailyHistory[activeIndex].status"></i>
               {{dailyHistory[activeIndex].changeRate}} %

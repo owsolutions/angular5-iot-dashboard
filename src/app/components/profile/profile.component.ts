@@ -44,6 +44,7 @@ export class ProfileComponent implements OnInit {
     this.translate.setDefaultLang(lang);
     this.translate.use(lang);
     localStorage.setItem('preferedLanguage', lang);
+    this.globalization.setLayoutDirection();
   }
 
   ngOnInit() {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -78,11 +78,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Ng5BasicModule } from './ng5-basic/ng5-basic.module';
 import pl from './translations/pl';
+import fa from './translations/fa';
 import { GlobalizationService } from '@app/services/globalization.service';
 import { RestfulComponent } from '@app/components/docs/restful/restful.component';
 import { IfNotEnglishComponent } from './components/if-not-english/if-not-english.component';
 import { WaterBubbleComponent } from './components/water-bubble/water-bubble.component';
 import { Co2Component } from './components/co2/co2.component';
+import { DOCUMENT } from '@angular/common';
 import { RoleSingleComponent } from '@app/components/role-single/role-single.component';
 
 declare var require: any;
@@ -93,25 +95,36 @@ window['Highcharts'] = Highcharts;
   selector: 'app-root',
   template: '<router-outlet></router-outlet>'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor (
     private realtime: RealtimeService,
     private translate: TranslateService,
-
+    private globalization: GlobalizationService,
+    @Inject(DOCUMENT) private document: Document
   ) {
     this.realtime.ActivateRealtime();
     this.RestoreLanguage();
   }
+
+  ngOnInit() {
+    this.globalization.layoutDirectionEmmiter.subscribe(direction => {
+      this.document.body.setAttribute('dir', direction);
+    });
+  }
+
   private RestoreLanguage () {
     let lang = 'en';
     const _lang = localStorage.getItem('preferedLanguage');
-     if (_lang === 'en' || _lang === 'pl') {
+     if (_lang === 'en' || _lang === 'pl' || _lang === 'fa') {
       lang = _lang;
     }
 
     this.translate.setTranslation('pl', pl);
+    this.translate.setTranslation('fa', fa);
     this.translate.use(lang);
     this.translate.setDefaultLang(lang);
+    this.globalization.setLayoutDirection(true);
+    this.document.body.setAttribute('dir', this.globalization.getLayoutDirection());
   }
 }
 

@@ -1,5 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { PagePointerPosition } from '../../definitions';
+import { GlobalizationService } from '@app/services/globalization.service';
 
 @Injectable()
 export class SidebarControllerService {
@@ -9,7 +10,7 @@ export class SidebarControllerService {
   public evetStartPoint: PagePointerPosition = {x: undefined, y: undefined};
 
   public ToggleSidebar: EventEmitter<any> = new EventEmitter();
-  constructor() {
+  constructor(private globalization: GlobalizationService) {
     window.addEventListener('resize', (event: any) => {
       if (event.target.innerWidth < 992) {
         this.ToggleSidebar.emit('hidden');
@@ -27,10 +28,18 @@ export class SidebarControllerService {
           if (e.type === 'touchend' || e.type === 'mouseup') {
             if (window.innerWidth < 992) {
               if (!(Math.abs((this.evetStartPoint.y - this.eventMoveChange.y)) > 50 )) {
-                if (this.evetStartPoint.x > (this.eventMoveChange.x + 15)) {
-                  this.ToggleSidebar.emit('hidden');
-                } else if (this.evetStartPoint.x < (this.eventMoveChange.x - 15)) {
-                  this.ToggleSidebar.emit('show');
+                if (this.globalization.getLayoutDirection() === 'ltr') {
+                  if (this.evetStartPoint.x > (this.eventMoveChange.x + 15)) {
+                    this.ToggleSidebar.emit('hidden');
+                  } else if (this.evetStartPoint.x < (this.eventMoveChange.x - 15)) {
+                    this.ToggleSidebar.emit('show');
+                  }
+                } else {
+                  if (this.evetStartPoint.x > (this.eventMoveChange.x + 15)) {
+                    this.ToggleSidebar.emit('show');
+                  } else if (this.evetStartPoint.x < (this.eventMoveChange.x - 15)) {
+                    this.ToggleSidebar.emit('hidden');
+                  }
                 }
               }
             }

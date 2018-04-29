@@ -2,6 +2,7 @@ import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 declare var Highcharts: any;
 import { CloudDevice, DataSource, AppState } from '@app/definitions';
 import { Store } from '@ngrx/store';
+import { GlobalizationService } from '@app/services/globalization.service';
 
 function generateMockSeries() {
   const series = [];
@@ -80,12 +81,16 @@ export class DailyStatisticsComponent implements OnInit, AfterViewInit {
           type: 'datetime',
           dateTimeLabelFormats: {
             minute: '%H:%M',
-          }
+          },
+          reversed: this.globalization.getLayoutDirection() === 'ltr' ? false : true
         },
         legend: {
             layout: 'horizontal',
             align: 'left',
             verticalAlign: 'top',
+        },
+        tooltip: {
+          useHTML: true
         },
         plotOptions: {
             series: {
@@ -123,8 +128,14 @@ export class DailyStatisticsComponent implements OnInit, AfterViewInit {
   }
 
   constructor(
-    private store: Store<AppState>
-  ) { }
+    private store: Store<AppState>,
+    private globalization: GlobalizationService
+  ) {
+    globalization.layoutDirectionEmmiter.subscribe(direction => {
+      this.chart.xAxis.reversed = direction === 'ltr' ? false : true;
+      this.drawChart();
+    });
+  }
 
   public pushValue (date: Date, value: number) {
     if ( !this.chart) {

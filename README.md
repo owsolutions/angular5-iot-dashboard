@@ -48,10 +48,23 @@ We are trying to cover as many as languages as possible. At the moment we do cov
 Please feel free to contribute to this repository in case you want to add your language.
 
 ## Right to left Support
-We are considering to support right-to-left (rtl) support for layout and components as well. Our goal is to support:
 
-* Persian (Iran, Afghanistan)
+We do support RTL layout but some components are not integrated that well. Our focus was on layout, direction and etc.
+We do support Persian language at the moment as experimental, and it's not provided in commercial version.
+Marketting team would choose either if they want new languages or regions and it's out of the scope.
+
+Currently supporting experimental
+
+* Polish ( Poland )
+* Persian ( Iran )
+* English ( World Wide )
+
+Target to support languages:
+
 * Arabic (United Arab Emirates, Egypt)
+* Turkish ( Turkey )
+* German ( Germany, Austria )
+* Spanish ( Spain )
 
 Please feel free to contribute to the locales for your own country.
 

@@ -11,6 +11,8 @@
 }
 body {
   background: #e9eaec;
+  opacity: 1;
+  transition: opacity 0.1s;
   @media (max-width: 991.98px) {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -19,6 +21,12 @@ body {
     -ms-user-select: none;
     user-select: none;
   }
+  &.display-off {
+      opacity: 0;
+  }
+}
+body[dir="rtl"] {
+    text-align: right;
 }
 .simplebar-scrollbar{
     width: 5px !important;
