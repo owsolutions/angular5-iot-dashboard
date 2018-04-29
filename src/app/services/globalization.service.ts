@@ -2,6 +2,7 @@ import { Injectable, EventEmitter, Inject } from '@angular/core';
 import { environment } from 'environments/environment';
 import { merge } from '@lodash';
 import { DOCUMENT } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
 /**
  * At the moment, we are not supporting other languages rather than english in production wise.
  * Since this repository is a dependency for commerical version, we will remove the other experimental
@@ -24,7 +25,8 @@ export class GlobalizationService {
   public layoutDirectionEmmiter: EventEmitter<any> = new EventEmitter();
   public layoutDirection: string;
   constructor(
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private translate: TranslateService,
   ) { }
 
   public GetLanguages () {
@@ -50,7 +52,7 @@ export class GlobalizationService {
   }
 
   localSetter() {
-    const lang = localStorage.getItem('preferedLanguage');
+    const lang: string = this.translate.currentLang;
     const direction = SupportedLanguages[lang].direction;
     this.layoutDirectionEmmiter.emit(direction);
     this.layoutDirection = direction;
