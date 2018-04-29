@@ -149,6 +149,11 @@
   text-align: left;
   margin-bottom: 0;
 }
+
+body[dir="rtl"] .j-forms label{
+  text-align: right;
+}
+
 .j-forms .label {
   font-size: 14px;
   margin-bottom: 6px;
@@ -190,6 +195,14 @@
 .j-forms .inline-group .checkbox {
   padding: 9px 0 8px 32px;
 }
+
+body[dir="rtl"] .j-forms .radio,
+body[dir="rtl"] .j-forms .checkbox,
+body[dir="rtl"] .j-forms .inline-group .radio,
+body[dir="rtl"] .j-forms .inline-group .checkbox {
+  padding: 9px 32px 8px 0px;
+}
+
 .j-forms .radio-toggle,
 .j-forms .checkbox-toggle,
 .j-forms .inline-group .radio-toggle,
@@ -216,6 +229,15 @@
   position: absolute;
   left: -9999px;
 }
+
+body[dir="rtl"] .j-forms .radio input,
+body[dir="rtl"] .j-forms .checkbox input,
+body[dir="rtl"] .j-forms .radio-toggle input,
+body[dir="rtl"] .j-forms .checkbox-toggle input {
+  position: absolute;
+  right: -9999px;
+}
+
 .j-forms .radio i,
 .j-forms .checkbox i,
 .j-forms .checkbox-toggle i,
@@ -234,6 +256,15 @@
   -o-transition: border-color 0.2s;
   transition: border-color 0.2s;
 }
+
+body[dir="rtl"] .j-forms .radio i,
+body[dir="rtl"] .j-forms .checkbox i,
+body[dir="rtl"] .j-forms .checkbox-toggle i,
+body[dir="rtl"] .j-forms .radio-toggle i {
+  left: auto !important;
+  right: 0px;
+}
+
 .j-forms .radio i,
 .j-forms .checkbox i {
   width: 18px;
@@ -312,6 +343,12 @@
   top: 2px;
   width: 14px;
 }
+body[dir="rtl"] .j-forms .checkbox-toggle i:before,
+body[dir="rtl"] .j-forms .radio-toggle i:before {
+  left: auto !important;
+  right: 2px !important;
+}
+
 .j-forms .checkbox-toggle input:checked + i:before,
 .j-forms .radio-toggle input:checked + i:before {
   left: 28px;
