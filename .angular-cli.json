@@ -38,7 +38,6 @@
         "prod": "environments/environment.prod.ts",
         "prodlocal": "environments/environment.prodlocal.ts",
         "prodmock": "environments/environment.prodmock.ts",
-        "heroku": "environments/environment.heroku.ts",
         "github": "environments/environment.github.ts",
         "hmr": "environments/environment.hmr.ts"
       }
