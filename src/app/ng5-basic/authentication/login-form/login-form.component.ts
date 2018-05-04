@@ -32,7 +32,7 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit() {
     this.user.Revoke();
-    if (!environment.production && this.user.IsFirst) {
+    if (environment.github && this.user.IsFirst) {
       this.user.IsFirst = false;
       this.signinHttp({
         email: 'test@test.com',
