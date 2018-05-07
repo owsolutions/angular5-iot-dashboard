@@ -12,6 +12,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { ActionsService } from '@app/services/actions.service';
 
 
 @Injectable()
@@ -21,9 +22,11 @@ export class TokenInterceptor implements HttpInterceptor {
     private user: UserService,
     private router: Router,
     private translate: TranslateService,
+    private actions: ActionsService,
   ) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    this.actions.scrollTop();
     const headers = Object.assign({
       'x-token': this.user.GetToken(),
       'x-lang': this.translate.currentLang
