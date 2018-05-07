@@ -10,6 +10,7 @@ import { NotificationService } from '@app/services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
 import 'rxjs/add/observable/combineLatest';
 import { Observable } from 'rxjs/Observable';
+import { ActionsService } from '@app/services/actions.service';
 
 @Component({
   selector: 'app-device-single',
@@ -31,6 +32,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private store: Store<AppState>,
     private router: Router,
+    private actions: ActionsService,
     private requests: RequestsService,
     private notification: NotificationService,
     private translate: TranslateService,
@@ -77,6 +79,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   }
   public async SubmitForm () {
     delete this.form.value;
+    this.actions.scrollTop();
     this.isRequesting = true;
     const device = Object.assign({}, this.form);
     try {

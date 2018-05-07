@@ -9,6 +9,7 @@ import { IotImages, IsSuccessEntity, error } from '@app/common';
 import { IResponse } from 'response-type';
 import { NotificationService } from '@app/services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
+import { ActionsService } from '@app/services/actions.service';
 
 @Component({
   selector: 'app-location-single',
@@ -57,6 +58,7 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
     private store: Store<AppState>,
     private router: Router,
     private requests: RequestsService,
+    private actions: ActionsService,
     private notification: NotificationService,
     private translation: TranslateService,
   ) {}
@@ -70,6 +72,7 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
     });
   }
   public async formSubmit () {
+    this.actions.scrollTop();
     this.isRequesting = true;
     const response = this.response = await this.requests.PostLocation(this.form);
     this.isRequesting = false;

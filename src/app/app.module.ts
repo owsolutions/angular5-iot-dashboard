@@ -50,6 +50,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MockInterceptor } from '@services/mock.interceptor';
 import { MockService } from '@services/mocks.service';
 import { TokenInterceptor } from '@services/token.interceptor';
+import { GeneralInterceptorService } from '@services/general-interceptor.service';
 import { QuickChartComponent } from './components/quick-chart/quick-chart.component';
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
 import { ProgressLineComponent } from './components/progress-line/progress-line.component';
@@ -216,6 +217,11 @@ export class AppComponent implements OnInit {
     UserService,
     AuthGuard,
     GlobalizationService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: GeneralInterceptorService,
+      multi: true
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
