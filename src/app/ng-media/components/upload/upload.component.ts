@@ -42,8 +42,6 @@ export class UploadComponent {
   // @todo check for lack of memory
   uploadHandler(files) {
     this.UploadToCloud(files);
-    const filesCount = files.length;
-    // let fileIndex = 0;
     for (const _file of files) {
       this.progressPrecent = 0;
       this.progressIsActive = true;

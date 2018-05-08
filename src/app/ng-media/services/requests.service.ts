@@ -2,12 +2,8 @@ import { Injectable } from '@angular/core';
 import { IImage } from '../interfaces/definitions';
 import { StoreService } from '../services/store.service';
 
-function randomDate(start, end): Date {
-  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-}
 import { HttpClient } from '@angular/common/http';
 declare var require: any;
-const uuid = require('uuid/v1');
 
 @Injectable()
 export class RequestsService {
@@ -21,13 +17,6 @@ export class RequestsService {
    * Gets the media object based on popularity, or based on user search
    */
   public GetInitialMedias () {
-
-    // this.store.ResetItems(media.map((x: any) => {
-    //   x.id = uuid();
-    //   x.createdAt = randomDate(new Date(2018, 0, 1), new Date(2018, 12, 30));
-    //   return x as any;
-    // }));
-
   }
 
   public DeleteItem(id: string) {
