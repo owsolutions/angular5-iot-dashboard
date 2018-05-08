@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NgMediaModule } from 'ng-media';
+import { NgMediaModule } from '../ng-media';
 import { RealtimeService } from '@services/realtime.service';
 import { NotificationService } from '@services/notification.service';
 import { PermissionsService } from '@services/permissions.service';

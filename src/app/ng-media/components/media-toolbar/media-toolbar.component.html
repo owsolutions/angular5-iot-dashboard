@@ -1,0 +1,26 @@
+<app-upload [storage]="storage" [Active]="active"></app-upload>
+
+<div class="ngm-media-toolbar">
+  <div class="view-switch ngm-inline-block">
+    <!-- <div class="ngm-inline-block">
+      <span class="icon dashicons-list-view"></span>
+    </div>
+    <div class="ngm-inline-block">
+      <span class="icon dashicons-grid-view"></span>
+    </div> -->
+  </div>
+  <!-- <select id="media-attachment-filters" >
+    <option [value]="type.value" *ngFor="let type of types">{{type.value}}</option>
+  </select> -->
+
+  <!-- <select id="media-attachment-date-filters" >
+      <option [value]="date.value" *ngFor="let date of dates">{{date.value}}</option>
+  </select> -->
+
+  <button *ngIf="enableUpload" class="ngm-btn ngm-btn-md" style="padding: 8px 15px;" (click)="UploaderToggle();">Upload file</button>
+
+  <!-- <input (input)="InputChange($event.target.value)" type="text" -->
+    <!-- class="ngm-pull-right ngm-media-search" placeholder="Search media items..."> -->
+  <app-spinner [ngClass]="loadingActive ? 'active' : ''" *ngIf="loading" class="ngm-pull-right"></app-spinner>
+
+</div>

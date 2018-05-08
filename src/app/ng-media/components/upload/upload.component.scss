@@ -1,0 +1,60 @@
+@import '../../ngm-assets/style.scss';
+.ngm-btn{
+    margin-left: 5px;
+}
+.uploader-container{
+    font-size: 18px;
+    border: 4px dashed #b4b9be;
+    padding: 15px;
+    position: relative;
+    .uploader-zone{
+        position: relative;
+        z-index: 1;
+        p {
+            margin-bottom: 5px;
+        }
+        span{
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .ngm-upload-button{
+            margin: 15px 0; 
+        }
+    }
+    .uploader-window {
+        background: rgba(0,86,132,.9);
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+        text-align: center;
+        color: #fff;
+        z-index: 2;
+        h1 {
+            margin-top: 70px;
+        }
+    }
+}
+
+.ngm-upload-progress {
+    width: 100%;
+    height: 15px;
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    position: relative;
+    margin-top: 15px;
+    .ngm-progress-bar {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        background: #008ec2;
+        transition: width .1s;
+    }
+}
+
+#file-upload {
+    display: none;
+}

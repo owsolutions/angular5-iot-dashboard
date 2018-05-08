@@ -1,0 +1,26 @@
+<div *ngIf="active" class="uploader-container ngm-text-center"  
+  (dragenter)="eventHandler($event)" 
+  (dragover)="eventHandler($event)" 
+  (dragleave)="eventHandler($event)" 
+  (drop)="setToFileUploader($event)">
+  <div *ngIf="windowUploader" class="uploader-window">
+    <h1>
+      Drop files to upload
+    </h1>
+  </div>
+  <div class="uploader-zone">
+    <p>
+      Drop files to upload box
+    </p>
+    <span>or</span>
+    <div class="ngm-upload-button">
+      <label for="file-upload" class="ngm-btn ngm-btn-lg">
+        Select Files
+      </label>
+      <input #inputFile id="file-upload" type="file" multiple (change)="uploader()"/>
+    </div>
+    <span>
+      Maximum upload file size: 2 MB.
+    </span>
+  </div>
+</div>
