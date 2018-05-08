@@ -1,5 +1,4 @@
 import { Component, ViewChild, AfterContentInit } from '@angular/core';
-import { NgMediaComponent } from 'ng-media';
 import { IotSvgService } from '@app/services/iot-svg/iot-svg.service';
 
 declare var $: any;
@@ -13,7 +12,7 @@ import { IotImages } from '@app/common';
 export class GalleryComponent implements AfterContentInit {
 
   @ViewChild('gallery')
-  public gallery: NgMediaComponent;
+  public gallery: any;
 
   constructor(
     private iot: IotSvgService

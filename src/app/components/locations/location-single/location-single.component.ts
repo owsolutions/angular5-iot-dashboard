@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AppState, ILocation, CloudDevice } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { times } from '@lodash';
-import { NgMediaComponent } from 'ng-media';
 import { RequestsService } from '@app/services/requests.service';
 import { IotImages, IsSuccessEntity, error } from '@app/common';
 import { IResponse } from 'response-type';
@@ -29,7 +28,7 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
   };
   public error = error;
   public items = [];
-  @ViewChild('locationIcon') public locationIcon: NgMediaComponent;
+  @ViewChild('locationIcon') public locationIcon: any;
 
   public levels = [];
 

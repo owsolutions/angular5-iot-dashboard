@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { appReducersGenerator } from './app.reducers';
 import { createRoutes  } from './app.routes';
-import { NgMediaModule } from 'ng-media';
 import { RealtimeService } from '@services/realtime.service';
 import { NotificationService } from '@services/notification.service';
 import { SettingsComponent } from '@components/settings/settings.component';
@@ -200,7 +199,6 @@ export class AppComponent implements OnInit {
     BrowserModule,
     FormsModule,
     TranslateModule.forRoot(),
-    NgMediaModule,
     ToasterModule.forRoot(),
     createRoutes (),
     appReducersGenerator()
