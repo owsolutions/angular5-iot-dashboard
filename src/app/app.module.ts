@@ -199,7 +199,6 @@ export class AppComponent implements OnInit {
     BrowserModule,
     FormsModule,
     TranslateModule.forRoot(),
-    NgMediaModule,
     ToasterModule.forRoot(),
     createRoutes (),
     appReducersGenerator()

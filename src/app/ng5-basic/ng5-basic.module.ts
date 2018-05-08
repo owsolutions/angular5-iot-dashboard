@@ -44,7 +44,6 @@ import { TranslateModule } from '@ngx-translate/core';
     NgxUserModule,
     TranslateModule.forRoot(),
     NgxSidebarModule,
-    NgMediaModule,
     RouterModule.forRoot([]),
     ToasterModule.forRoot(),
   ],

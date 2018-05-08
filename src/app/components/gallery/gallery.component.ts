@@ -12,7 +12,7 @@ import { IotImages } from '@app/common';
 export class GalleryComponent implements AfterContentInit {
 
   @ViewChild('gallery')
-  public gallery: NgMediaComponent;
+  public gallery: any;
 
   constructor(
     private iot: IotSvgService

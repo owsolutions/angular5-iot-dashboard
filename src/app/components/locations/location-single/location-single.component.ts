@@ -28,7 +28,7 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
   };
   public error = error;
   public items = [];
-  @ViewChild('locationIcon') public locationIcon: NgMediaComponent;
+  @ViewChild('locationIcon') public locationIcon: any;
 
   public levels = [];
 
