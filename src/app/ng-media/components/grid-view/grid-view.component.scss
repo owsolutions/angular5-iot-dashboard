@@ -1,0 +1,29 @@
+@import '../../ngm-assets/style.scss';
+
+.preview-image{
+  display: inline-block;
+  transition: box-shadow .1s;
+  > div {
+    border: 1px solid #ddd;
+    background-position: center;
+    background-size: cover;
+  }
+  &:hover, &.active {
+    -webkit-box-shadow: inset 0 0 2px 3px #fff, 0 0 0 2px #5b9dd9;
+    box-shadow: inset 0 0 2px 3px #fff, 0 0 0 2px #5b9dd9;
+    cursor: pointer;
+  }
+}
+.images-container {
+   // display: flex;
+  font-size: 0;
+  flex-wrap:wrap;
+  margin:0;
+}
+.preview-image {
+  display: inline-block;
+  margin:2px 0 0 2px;
+  flex-grow: 1;
+  height:120px;
+  width: 160px;;
+}

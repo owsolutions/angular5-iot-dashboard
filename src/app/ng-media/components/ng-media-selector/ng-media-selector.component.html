@@ -1,0 +1,25 @@
+<div class="ngm-form-container" (click)="close($event)">
+  <div class="ngm-form">
+    <div class="ngm-form-header">
+      <div class="ngm-form-header-title">
+        <h1>Select your image<sup>{{selectedItems.length}}</sup></h1>
+      </div>
+      <div class="ngm-form-header-controller">
+        <button (click)="CloseDialog()" class="select-button">Select</button>
+        <button (click)="close($event)" class=" icon dashicons-no-alt"></button>
+      </div>
+    </div>
+    <div class="ngm-form-content" style="overflow-y: scroll;">
+      <app-media-toolbar [storage]="storage"></app-media-toolbar>
+
+      <div style="margin: 7.5px;">
+        <app-grid-view 
+          [storage]="storage"
+          (selectionChange)="updateSelection($event)" 
+          [InteractionType]="GetInteractionType()">
+        </app-grid-view>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+@import '../../ngm-assets/style.scss';
+.ngm-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 16000;
+  .ngm-form {
+    position: relative;
+    width: 96%;
+    height: 92vh;
+    margin: 4vh auto;
+    background: #FCFCFC;
+    box-shadow: 0 5px 15px rgba(0,0,0,.7);
+    .ngm-form-header {
+      background-color: #fcfcfc;
+      height: 50px;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      .ngm-form-header-title {
+        position: absolute;
+        height: 100%;
+        right: 150px;
+        left: 0;
+        h1 {
+          margin: 10px 0 0 20px;
+          font-size: 21px;
+          font-weight: 600;
+        }
+      }
+      .ngm-form-header-controller {
+        position: absolute;
+        right: 0;
+        height: 100%;
+        letter-spacing: -0.31em;
+        *letter-spacing: normal;
+        *word-spacing: -0.43em;
+        text-rendering: optimizespeed;
+        > .icon {
+          width: 50px;
+        }
+        > button {
+          height: 50px;
+          border: none;
+          border-left: 1px solid #ddd;
+          margin: 0px;
+          background: transparent;
+          cursor: pointer;
+          outline: transparent;
+          color: #72777c;
+          transition: background 0.2s;
+          -webkit-transition: background 0.2s;
+          -moz-transition: background 0.2s;
+          -o-transition: background 0.2s;
+          &:hover {
+            background: #e9e9e9;
+          }
+        }
+      }
+    }
+    .ngm-form-content {
+      position: absolute;
+      top: 50px;
+      bottom: 0;
+      width: 100%;
+      box-shadow: inset 0 4px 4px -4px rgba(0,0,0,.1);
+      border-top: 1px solid #ddd;
+      .ngm-form-content-img, .ngm-form-content-info {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+      }
+      .ngm-form-content-img {
+        left: 0;
+        width: 70%;
+        text-align: center;
+        overflow: auto;
+        > img {
+          max-width: 92%;
+          max-height: 90%;
+          max-height: calc(100% - 110px);
+          margin-top: 40px;
+        }
+        .edit-image-button {
+          margin: 15px 0;
+        }
+      }
+      .ngm-form-content-info {
+        right: 0;
+        width: 30%;
+        padding: 15px;
+        background: #f3f3f3;
+        color: #666;
+        border-left: 1px solid #ddd;
+        overflow: auto;
+        box-shadow: inset 0 4px 4px -4px rgba(0,0,0,.1);
+        .ngm-form-content-info-detail {
+          font-size: 12px;
+          margin-bottom: 15px;
+          padding-bottom: 15px;
+          line-height: 25px;
+          border-bottom: 1px solid #ddd;
+        }
+      }
+    }
+  }
+}
+
+.select-button {
+  background-color: #3F51B5 !important;
+  color: #E8EAF6 !important;
+  padding-right: 15px;
+  padding-left: 15px;
+}
