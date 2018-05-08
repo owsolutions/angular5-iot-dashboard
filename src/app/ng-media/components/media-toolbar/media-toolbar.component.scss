@@ -1,0 +1,30 @@
+@import '../../ngm-assets/style.scss';
+.ngm-media-toolbar {
+  background: #fff;
+  padding: 2px;
+  border:1px solid #ddd;
+  
+  margin-bottom: 5px;
+  .view-switch {
+      >div:first-child {
+          margin-right:5px;
+      }
+  }
+ 
+}
+
+.ngm-media-search {
+  width: 280px;
+  padding: 8px;
+  border: 0;
+  font-size: 16px;
+
+}
+
+select {
+  font-size: 17px;
+
+  /* padding: 40px; */
+  height: 35px;
+  width: 160px;
+}

@@ -1,5 +1,5 @@
 import { Component, ViewChild, AfterContentInit } from '@angular/core';
-import { NgMediaComponent } from 'ng-media';
+import { NgMediaComponent } from '../../ng-media';
 import { IotSvgService } from '@app/services/iot-svg/iot-svg.service';
 
 declare var $: any;
