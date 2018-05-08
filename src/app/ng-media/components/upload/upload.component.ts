@@ -1,7 +1,6 @@
 import { Component, ViewChild, ElementRef, Input } from '@angular/core';
 import { UploaderService } from '../../services/uploader.service';
-import { AppState, IImage } from '../../interfaces/definitions';
-import { StoreService } from '../../services/store.service';
+import { IImage } from '../../interfaces/definitions';
 import { Storage } from '../../services/storage';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 declare var require: any;

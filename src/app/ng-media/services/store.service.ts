@@ -1,8 +1,4 @@
 import { Injectable } from '@angular/core';
-import { IImage } from '../interfaces/definitions';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
-import { merge } from 'lodash';
 import { Storage } from './storage';
 @Injectable()
 export class StoreService {

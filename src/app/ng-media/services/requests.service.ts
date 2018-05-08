@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import { AppState, IImage } from '../interfaces/definitions';
+import { IImage } from '../interfaces/definitions';
 import { StoreService } from '../services/store.service';
 
 function randomDate(start, end): Date {
   return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 }
-
-import media from '../mocks';
-import { HttpRequest, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 declare var require: any;
 const uuid = require('uuid/v1');
 

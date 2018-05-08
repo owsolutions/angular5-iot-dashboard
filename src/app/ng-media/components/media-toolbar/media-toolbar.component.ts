@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UploaderService } from '../../services/uploader.service';
-import { AppState, IImage, IInteractionType } from '../../interfaces/definitions';
+import { IImage, IInteractionType } from '../../interfaces/definitions';
 import mocks from '../../mocks';
 import { sample, times, random, sortBy, uniqBy } from 'lodash';
-import { StoreService } from '../../services/store.service';
 import { Storage } from '../../services/storage';
 
 @Component({

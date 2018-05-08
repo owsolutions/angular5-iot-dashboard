@@ -1,9 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { UploaderService } from '../../services/uploader.service';
-import { IImage, AppState, IEvent, IInteractionType } from '../../interfaces/definitions';
+import { IImage, IEvent, IInteractionType } from '../../interfaces/definitions';
 import { RequestsService } from '../../services/requests.service';
 import { DetailPanelService } from './../../services/detail-panel.service';
-import { StoreService } from '../../services/store.service';
 import { Storage } from '../../services/storage';
 
 declare var require: any;

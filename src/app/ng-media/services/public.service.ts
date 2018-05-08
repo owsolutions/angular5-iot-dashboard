@@ -1,5 +1,5 @@
 import { Injectable, ComponentFactoryResolver, ApplicationRef, Injector, EmbeddedViewRef } from '@angular/core';
-import { IImage, IDialogConfiguration, IDialogResult, IInteractionType } from '../interfaces/definitions';
+import { IDialogConfiguration, IDialogResult } from '../interfaces/definitions';
 import { NgMediaSelectorComponent } from '../components/ng-media-selector/ng-media-selector.component';
 import { Subject } from 'rxjs/Subject';
 

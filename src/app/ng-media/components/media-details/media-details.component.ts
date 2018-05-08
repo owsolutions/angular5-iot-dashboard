@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UploaderService } from '../../services/uploader.service';
-import { IImage, AppState } from '../../interfaces/definitions';
+import { IImage } from '../../interfaces/definitions';
 import { RequestsService } from '../../services/requests.service';
-import { StoreService } from '../../services/store.service';
 import { UtilsService } from '../../services/utils.service';
 import { Storage } from '../../services/storage';
 

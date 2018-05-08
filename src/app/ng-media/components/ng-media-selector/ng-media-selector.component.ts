@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { IInteractionType, IImage, IDialogConfiguration } from '../../interfaces/definitions';
 import { UtilsService } from '../../services/utils.service';
 import { Storage } from '../../services/storage';
-import { StoreService } from '../../services/store.service';
 
 @Component({
   templateUrl: './ng-media-selector.component.html',

@@ -3,7 +3,6 @@ import { NgMediaService } from '../../services/public.service';
 import { IInteractionType, IImage,  } from '../../interfaces/definitions';
 import { StoreService } from '../../services/store.service';
 import { Storage } from '../../services/storage';
-import mocks from '../../mocks';
 
 @Component({
   selector: 'app-ng-media',

@@ -1,7 +1,6 @@
 import { Component, Input, ViewChild, ViewContainerRef, OnInit } from '@angular/core';
 import { IImage } from '../../interfaces/definitions';
 import { UtilsService } from '../../services/utils.service';
-import { StoreService } from '../../services/store.service';
 import { Storage } from '../../services/storage';
 
 @Component({
