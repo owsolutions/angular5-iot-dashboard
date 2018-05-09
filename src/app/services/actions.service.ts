@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { RequestsService } from '@app/services/requests.service';
 import { NotificationService } from '@app/services/notification.service';
 import { Router } from '@angular/router';
+declare var SimpleBar: any;
 
 @Injectable()
 export class ActionsService {
@@ -35,6 +36,11 @@ export class ActionsService {
       this.notification.InvokeRoleDelete(role);
       this.router.navigateByUrl('/roles');
     }
+  }
+
+  public scrollTop () {
+    const el = new SimpleBar(document.getElementById('layout'));
+    el.scrollContentEl.scrollTop = 0;
   }
 
 }
