@@ -1,0 +1,134 @@
+@import "./fonts/dashicons.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+  background: white;
+  font-family: "Segoe UI","Helvetica Neue",sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+// Display generator
+$displays: "inline", "inline-block", "block", "none", "flex", "table", "table-row", "table-cell";
+@each $display in $displays{
+    .ngm-#{$display} {
+        display: #{$display}
+    }
+}
+// Float generator
+$floats: "left", "right";
+@each $float in $floats {
+    .ngm-pull-#{$float}{
+        float: #{$float};
+    }
+}
+// Text align generator
+$textAlign: "left", "right", "center";
+@each $align in $textAlign {
+    .ngm-text-#{$align} {
+        text-align: #{$align};
+    }
+}
+
+// Inputs
+.ngm-input {
+    border: 1px solid #ddd;
+    border-radius: 1px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+    box-shadow: 0 1px 0 #ccc;
+    padding: 4px;
+    font-size: 14px;
+}
+
+// Buttons
+.ngm-btn {
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 0 #ccc;
+    padding: 5px;
+    border-radius: 2px;
+    cursor: pointer;
+    outline-width: 0;
+    &:hover{
+        background-color: darken($color: #fff, $amount: 3%)
+    }
+    &.ngm-btn-sm {
+        font-size: 11px;
+    }
+    &.ngm-btn-md {
+        font-size: 14px;
+    }
+    &.ngm-btn-lg {
+        font-size: 17px;
+        padding: 9px 12px;
+    }
+    &.ngm-btn-primary {
+        border-color: #00a0d2;
+        background-color: #008EC2;
+        color: #fff;
+        &:hover{
+            background-color: lighten($color: #008EC2, $amount: 10%)
+        }
+    }
+    &.ngm-btn-success {
+        border-color: #80c200;
+        background-color: #6ed200;
+        color: #fff;
+        &:hover{
+            background-color: lighten($color: #6ed200, $amount: 10%)
+        }
+    }
+    &.ngm-btn-danger {
+        border-color: #bc0b0b;
+        background-color: #bc0b0b;
+        color: #fff;
+        &:hover{
+            background-color: lighten($color: #bc0b0b, $amount: 10%)
+        }
+    }
+}
+
+// Form group
+.ngm-form-group-container{
+    display: table;
+    width: 90%;
+    border-spacing: 0 5px;
+    .ngm-form-group{
+        display: table-row;
+        .ngm-form-group-title, .ngm-form-group-element {
+            display: table-cell;
+            vertical-align: top;
+            border-spacing: 5px 0;
+            font-size: 13px;
+        }
+        .ngm-form-group-title {
+            padding: 0 10px;
+            text-align: right;
+            white-space: nowrap;
+            >span {
+                position: relative;
+                top: 5px;
+            }
+        }
+        .ngm-form-group-element {
+            input[type=text] {
+                padding: 6px;
+                width: 100%;
+            }
+            textarea {
+                width: 100%;
+                height: 75px;
+                resize: horizontal;
+            }
+        }
+    }
+}
+.icon {
+    font: 400 20px/1 dashicons;
+    vertical-align: middle;
+}

@@ -1,0 +1,78 @@
+
+<div #editorContainer class="ngm-form-content-img">
+  <div class="editor-buttons">
+    <button class="ngm-btn ngm-btn-lg icon dashicons-image-crop"></button>
+    <button (click)="rotateImage('left')" class="ngm-btn ngm-btn-lg icon dashicons-image-rotate-left"></button>
+    <button (click)="rotateImage('right')" class="ngm-btn ngm-btn-lg icon dashicons-image-rotate-right"></button>
+    <button (click)="flipImage('vertical');" class="ngm-btn ngm-btn-lg icon dashicons-image-flip-vertical"></button>
+    <button (click)="flipImage('horizontal');" class="ngm-btn ngm-btn-lg icon dashicons-image-flip-horizontal"></button>
+    <button class="ngm-btn ngm-btn-lg icon dashicons-edit"></button>
+    <button class="ngm-btn ngm-btn-lg icon dashicons-admin-customizer"></button>
+    <button class="ngm-btn ngm-btn-lg icon dashicons-art"></button>
+    <button class="ngm-btn ngm-btn-lg icon dashicons-editor-removeformatting"></button>
+    <button class="ngm-btn ngm-btn-lg icon dashicons-undo"></button>
+    <button class="ngm-btn ngm-btn-lg icon dashicons-redo"></button>
+    <button class="ngm-btn ngm-btn-lg icon dashicons-image-rotate"></button>
+  </div>
+
+  <canvas #imageBox></canvas>
+
+  <div class="edit-image-button">
+    <button (click)="disableEditing(image);" class="ngm-btn ngm-btn-md">Cancel</button>
+    <button (click)="saveImage();" class="ngm-btn ngm-btn-md ngm-btn-primary">Save</button>
+  </div>
+</div>
+<div class="ngm-form-content-info">
+  <div class="ngm-form-content-info-detail">
+    <div>
+      <strong>File name : </strong>
+      {{ image.name }}
+    </div>
+    <div>
+      <strong>File type : </strong>
+      {{ image.type }}
+    </div>
+    <div>
+      <strong>Uploaded on : </strong>
+      {{ image.createdAt | date:'fullDate'}}
+    </div>
+    <div>
+      <strong>File size : </strong>
+      {{ image.size / 1024 | number: '1.1-1' }} KB
+    </div>
+    <div>
+      <strong>Demensions : </strong>
+      {{ image.width }} × {{ image.height }}
+    </div>
+    <div>
+        <strong>Uploaded by : </strong>
+        {{ image.uploadedBy }}
+      </div>
+  </div>
+  <div class="ngm-form-content-info-detail">
+    <div>
+      <strong>File name : </strong>
+      {{ image.name }}
+    </div>
+    <div>
+      <strong>File type : </strong>
+      {{ image.type }}
+    </div>
+    <div>
+      <strong>Uploaded on : </strong>
+      {{ image.createdAt | date:'fullDate'}}
+    </div>
+    <div>
+      <strong>File size : </strong>
+      {{ image.size / 1024 | number: '1.1-1' }} KB
+    </div>
+    <div>
+      <strong>Demensions : </strong>
+      {{ image.width }} × {{ image.height }}
+    </div>
+    <div>
+        <strong>Uploaded by : </strong>
+        {{ image.uploadedBy }}
+      </div>
+  </div>
+</div>

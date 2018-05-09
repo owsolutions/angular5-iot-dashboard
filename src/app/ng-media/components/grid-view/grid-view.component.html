@@ -1,0 +1,12 @@
+<div *ngIf="searchMode">
+  <h3>Matches your search: {{GetSearchImages().length}}</h3>
+  <img class="preview-image " [src]=" image.src " *ngFor="let image of GetSearchImages()" (click)="ImageSelect(image)" 
+    [ngClass]="image.$meta && image.$meta.selected ? ' active ' : ''">
+</div>
+<div *ngIf="searchMode">
+  <h3>Other Images: {{GetImages().length}}</h3>
+</div>
+<div class="images-container">
+  <img class="preview-image " [src]=" image.src " *ngFor="let image of GetImages()" (click)="ImageSelect(image)" 
+    [ngClass]="image.$meta && image.$meta.selected ? ' active ' : ''">
+</div>

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { IResponse } from 'response-type';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from '@app/services/user.service';
-import { environment} from '../../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-login-form',
@@ -32,6 +32,13 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit() {
     this.user.Revoke();
+    if (environment.github && this.user.IsFirst) {
+      this.user.IsFirst = false;
+      this.signinHttp({
+        email: 'test@test.com',
+        password: '123321'
+      });
+    }
   }
 
   public async login (e) {

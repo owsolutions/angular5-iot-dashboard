@@ -8,6 +8,7 @@ import { Store } from '@ngrx/store';
 @Injectable()
 export class UserService {
 
+  private isFirst = true;
   private user: IUser;
   private token: string;
   constructor (
@@ -21,6 +22,12 @@ export class UserService {
     } catch (err) {
 
     }
+  }
+  get IsFirst () {
+    return this.isFirst;
+  }
+  set IsFirst (value) {
+    this.isFirst = value;
   }
   get User (): IUser {
     return this.user;

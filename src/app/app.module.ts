@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { appReducersGenerator } from './app.reducers';
 import { createRoutes  } from './app.routes';
-import { NgMediaModule } from 'ng-media';
+import { NgMediaModule } from './ng-media/ng-media-module';
 import { RealtimeService } from '@services/realtime.service';
 import { NotificationService } from '@services/notification.service';
 import { SettingsComponent } from '@components/settings/settings.component';
