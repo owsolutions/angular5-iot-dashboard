@@ -36,6 +36,16 @@
         <button class="btn btn-primary app-login-form-submit" (click)="login($event);">
           Login
         </button>
+
+        <button *ngIf="!isLoggedInByFacebook" class="btn btn-primary app-login-form-submit" (click)="loginFacebook($event);">
+          Login by facebook
+        </button>
+
+        <button *ngIf="isLoggedInByFacebook" class="btn btn-primary app-login-form-submit" (click)="continueWithFacebook($event);">
+          <i class="icon-facebook"></i>
+          Continue with facebook
+        </button>
+        
       </div>
 
       <div class="">
