@@ -34,6 +34,7 @@
     "@ngrx/core": "^1.2.0",
     "@ngrx/store": "^5.1.0",
     "@ngx-translate/core": "^9.1.1",
+    "amazing-time-picker": "^1.5.3",
     "angular-calendar": "^0.24.1",
     "angular2-toaster": "^5.0.1",
     "bootstrap": "^4.0.0",

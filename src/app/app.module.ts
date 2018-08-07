@@ -89,6 +89,8 @@ import { DOCUMENT } from '@angular/common';
 import { RoleSingleComponent } from '@app/components/role-single/role-single.component';
 import { CalendarModule } from 'angular-calendar';
 import { AngularCalendarComponent } from './components/angular-calendar/angular-calendar.component';
+import { AmazingTimePickerComponent } from './components/amazing-time-picker/amazing-time-picker.component';
+import { AmazingTimePickerModule } from 'amazing-time-picker'; // this line you need
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -195,6 +197,7 @@ export class AppComponent implements OnInit {
     WaterBubbleComponent,
     Co2Component,
     AngularCalendarComponent,
+    AmazingTimePickerComponent,
   ],
   imports: [
     RealtimeDocumentModule,
@@ -206,6 +209,7 @@ export class AppComponent implements OnInit {
     TranslateModule.forRoot(),
     CalendarModule.forRoot(),
     NgMediaModule,
+    AmazingTimePickerModule,
     ToasterModule.forRoot(),
     createRoutes (),
     appReducersGenerator()
