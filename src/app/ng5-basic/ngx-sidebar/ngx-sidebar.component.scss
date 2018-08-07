@@ -26,7 +26,7 @@ ul li {
     transform: rotate(90deg);
   }
   > a:only-child:after {
-    content: "" !important;
+    content: "";
     border: 0;
   }
 }
@@ -47,11 +47,15 @@ ul li {
       }
   }
   li {
-    i[class^="icon-"] {
+    i[class^="icon-"], i[class^="fa-"] {
       font-size: 22px;
       padding-right: 5px;
       text-align: center;
       color: #888;
+    }
+    i[class^="fa-"] {
+      font-size: 20px;
+      padding: 0 9px;
     }
     a {
       display: block;
@@ -87,35 +91,9 @@ ul li {
       color: #4c84ff;
   }
 }
-
-::ng-deep body[dir="rtl"] {
-  .bd-sidebar{
-    ul li {
-      a {
-        text-align: right;
-      }
-      > a:after {
-        content: "\e999" !important;
-        right: auto !important;
-        left: 15px !important;
-      }
-      &.opened > a:after {
-        transform: rotate(-90deg) !important;
-      }
-    }
-    .main-ul {
-      > li {
-        &.opened {
-          border-right: 3px solid #4c84ff;
-          border-left: 0 !important;
-        }
-      }
-      li {
-        i[class^="icon-"] {
-          padding-right: 0px !important;
-          padding-left: 5px;
-        }
-      }
-    }
-  }
+.move-back-btn {
+  padding: 10px 5px;
+  display: block;
+  cursor: pointer;
+  text-align: right;
 }
