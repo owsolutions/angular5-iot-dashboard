@@ -21,6 +21,7 @@ import { ContactDetailsComponent } from '@app/components/contact-details/contact
 import { GpsComponent } from '@app/components/gps/gps.component';
 import { RestfulComponent } from '@app/components/docs/restful/restful.component';
 import { RoleSingleComponent } from '@app/components/role-single/role-single.component';
+import { AngularCalendarComponent } from '@app/components/angular-calendar/angular-calendar.component';
 
 export function AuthLayoutChild(component: any, route: string, options: any = {}): Route {
   return {
@@ -58,6 +59,7 @@ export const appRoutes: Routes = [
         AuthLayoutChild (ProfileComponent, 'profile'),
         AuthLayoutChild (DeviceEventsActionsComponent, 'device/events-and-actions/:id'),
         AuthLayoutChild (DeviceSingleComponent, 'device/:id'),
+        AuthLayoutChild (AngularCalendarComponent, 'angular-calendar'),
         AuthLayoutChild (ExperimentalComponent, 'experimental'),
         AuthLayoutChild (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
         AuthLayoutChild (DocsComponent, 'docs'),

@@ -87,6 +87,8 @@ import { WaterBubbleComponent } from './components/water-bubble/water-bubble.com
 import { Co2Component } from './components/co2/co2.component';
 import { DOCUMENT } from '@angular/common';
 import { RoleSingleComponent } from '@app/components/role-single/role-single.component';
+import { CalendarModule } from 'angular-calendar';
+import { AngularCalendarComponent } from './components/angular-calendar/angular-calendar.component';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -192,6 +194,7 @@ export class AppComponent implements OnInit {
     IfNotEnglishComponent,
     WaterBubbleComponent,
     Co2Component,
+    AngularCalendarComponent,
   ],
   imports: [
     RealtimeDocumentModule,
@@ -201,6 +204,7 @@ export class AppComponent implements OnInit {
     BrowserModule,
     FormsModule,
     TranslateModule.forRoot(),
+    CalendarModule.forRoot(),
     NgMediaModule,
     ToasterModule.forRoot(),
     createRoutes (),

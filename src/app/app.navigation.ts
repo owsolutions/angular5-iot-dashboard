@@ -7,6 +7,17 @@ export const navigation = [
     class: 'home'
   },
   {
+    icon: 'icon-cogs',
+    title: 'Components',
+    children: [
+      {
+        link: '/angular-calendar',
+        title: 'Angular Calendar',
+        icon: 'icon-calendar'
+      }
+    ]
+  },
+  {
     icon: 'icon-devices_other',
     title: 'Devices',
     permissions: ['DEVICES::VIEW'],
