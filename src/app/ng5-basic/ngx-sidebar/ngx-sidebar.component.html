@@ -1,11 +1,26 @@
 <ul [ngClass]='containerClass'>
-  <ng-container *ngFor="let nav of navigation" >
+  
+  <ng-container *ngIf="isRouteFocused">
+    <a class="move-back-btn" (click)="GoBack();">Move back</a>
     <li *ngIf="nav" [routerLinkActive]="nav.link ? 'opened' : ''"  (click)="menuToggle($event, nav);$event.stopPropagation()">
-      <a class="ngx-menu-item ngx-menu-link-{{nav.class}}" [routerLink]="nav.link">
+      <a (click)="onLinkClick(nav)" class="ngx-menu-item ngx-menu-link-{{nav.class}}" [routerLink]="nav.link">
         <i [class]='nav.icon'></i>
         {{ nav.title | translate }}
       </a>
-      <ngx-sidebar *ngIf="nav.children" [navigation]='nav.children' [containerClass]="'child-ul'"></ngx-sidebar>
     </li>
+  </ng-container>
+<!-- 
+  <app-peer-nav-list *ngIf="currentRoute === '/yacht-monitoring'"></app-peer-nav-list> -->
+  <ng-template #dynamic></ng-template>
+  <ng-container *ngIf="!isRouteFocused">
+    <ng-container *ngFor="let nav of navigation" >
+      <li *ngIf="nav" [routerLinkActive]="nav.link ? 'opened' : ''"  (click)="menuToggle($event, nav);$event.stopPropagation()">
+        <a (click)="renderComponents(nav.component)" class="ngx-menu-item ngx-menu-link-{{nav.class}}" [routerLink]="nav.link">
+          <i [class]='nav.icon'></i>
+          {{ nav.title | translate }}
+        </a>
+        <ngx-sidebar *ngIf="nav.children" [navigation]='nav.children' [containerClass]="'child-ul'"></ngx-sidebar>
+      </li>
+    </ng-container>
   </ng-container>
 </ul>
