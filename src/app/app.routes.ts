@@ -5,7 +5,6 @@ import { SettingsComponent } from '@components/settings/settings.component';
 import { DevicesComponent } from '@components/devices/devices.component';
 import { ActivityComponent } from '@components/activity/activity.component';
 import { LocationSingleComponent } from '@components/locations/location-single/location-single.component';
-import { RolesComponent } from '@components/roles/roles.component';
 import { GalleryComponent } from '@components/gallery/gallery.component';
 import { DeviceSingleComponent } from '../app/components/device-single/device-single.component';
 import { DocsComponent } from '@components/docs/docs.component';
@@ -20,7 +19,6 @@ import { DeviceEventsActionsComponent } from '@app/components/device-events-acti
 import { ContactDetailsComponent } from '@app/components/contact-details/contact-details.component';
 import { GpsComponent } from '@app/components/gps/gps.component';
 import { RestfulComponent } from '@app/components/docs/restful/restful.component';
-import { RoleSingleComponent } from '@app/components/role-single/role-single.component';
 
 export function AuthLayoutChild(component: any, route: string, options: any = {}): Route {
   return {
@@ -47,9 +45,6 @@ export const appRoutes: Routes = [
         AuthLayoutChild (SettingsComponent, 'token'),
         AuthLayoutChild (LocationSingleComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
         AuthLayoutChild (LocationSingleComponent, 'location/new', {data: {mode: 'new'}}),
-        AuthLayoutChild (RoleSingleComponent, 'role/create'),
-        AuthLayoutChild (RoleSingleComponent, 'role/:id'),
-        AuthLayoutChild (RolesComponent, 'roles'),
         AuthLayoutChild (ActivityComponent, 'activities'),
         AuthLayoutChild (GpsComponent, 'gps'),
         AuthLayoutChild (ContactDetailsComponent, 'monitoring/manage-contacts'),

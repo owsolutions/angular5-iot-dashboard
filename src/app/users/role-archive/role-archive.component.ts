@@ -9,11 +9,11 @@ import { Store } from '@ngrx/store';
 import { ActionsService } from '@app/services/actions.service';
 
 @Component({
-  selector: 'app-roles',
-  templateUrl: './roles.component.html',
-  styleUrls: ['./roles.component.scss']
+  selector: 'app-role-archive',
+  templateUrl: './role-archive.component.html',
+  styleUrls: ['./role-archive.component.scss']
 })
-export class RolesComponent implements OnInit {
+export class RoleArchiveComponent implements OnInit {
 
   public DeleteRole = this.actions.DeleteRole.bind(this.actions);
   public perms: Array<any> = [];

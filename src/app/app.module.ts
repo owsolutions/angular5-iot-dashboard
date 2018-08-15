@@ -13,7 +13,6 @@ import { PageHeaderComponent } from '@components/page-header/page-header.compone
 import { TextInputComponent } from '@components/forms/text-input/text-input.component';
 import { RadioInputComponent } from '@components/forms/radio-input/radio-input.component';
 import { SelectInputComponent } from '@components/forms/select-input/select-input.component';
-import { RolesComponent } from '@components/roles/roles.component';
 import { PermissionsService } from '@services/permissions.service';
 import { RequestsService } from '@services/requests.service';
 import { CheckboxInputComponent } from '@components/forms/checkbox-input/checkbox-input.component';
@@ -86,7 +85,6 @@ import { IfNotEnglishComponent } from './components/if-not-english/if-not-englis
 import { WaterBubbleComponent } from './components/water-bubble/water-bubble.component';
 import { Co2Component } from './components/co2/co2.component';
 import { DOCUMENT } from '@angular/common';
-import { RoleSingleComponent } from '@app/components/role-single/role-single.component';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -142,10 +140,8 @@ export class AppComponent implements OnInit {
     SelectInputComponent,
     DailyStatisticsComponent,
     SidebarWidgetComponent,
-    RolesComponent,
     CheckboxInputComponent,
     DevicesComponent,
-    RoleSingleComponent,
     LampCardComponent,
     HumidityComponent,
     ActivityWidgetComponent,

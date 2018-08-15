@@ -1,0 +1,58 @@
+<app-page-container [maintitle]="maintitle" [subtitle]="subtitle">
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-md-6 unit">
+        <label class="label" translate>First Name</label>
+        <div class="input">
+          <input 
+            formControlName="firstname" 
+            class="form-control app-user-firstname"
+            type="text" 
+            placeholder="{{ 'User first name' | translate }}"
+            id="name">
+          <span class="error-message-inline" *ngIf="error(response, 'firstname')">{{error(response, 'firstname')}}</span>
+        </div>
+      </div>
+
+      <div class="col-md-6 unit">
+        <label class="label" translate>Last Name</label>
+        <div class="input">
+          <input 
+            formControlName="lastname" 
+            class="form-control app-user-lastname"
+            type="text" 
+            placeholder="{{ 'User last name' | translate }}"
+            id="name">
+          <span class="error-message-inline" *ngIf="error(response, 'lastname')">{{error(response, 'lastname')}}</span>
+        </div>
+      </div>
+      <div class="col-md-6 unit">
+        <label class="label" translate>Phone</label>
+        <div class="input">
+          <input 
+            formControlName="phone" 
+            class="form-control app-user-phone"
+            type="text" 
+            placeholder="{{ 'User last name' | translate }}"
+            id="name">
+          <span class="error-message-inline" *ngIf="error(response, 'phone')">{{error(response, 'phone')}}</span>
+        </div>
+      </div>
+      <div class="col-md-6 unit">
+        <label class="label" translate>Email</label>
+        <div class="input">
+          <input 
+            formControlName="email" 
+            class="form-control app-user-email"
+            type="text" 
+            placeholder="{{ 'User last name' | translate }}"
+            id="name">
+          <span class="error-message-inline" *ngIf="error(response, 'email')">{{error(response, 'email')}}</span>
+        </div>
+      </div>
+    </div>
+    <button (click)="SubmitForm()" translate class="btn btn-primary app-user-single-edit" *ngIf="IsEditing()">Edit user</button>
+    <button (click)="SubmitForm()" class="btn btn-primary app-user-single-create" *ngIf="!IsEditing()" translate>Create user</button>
+    <a class="btn app-user-single-cancel" routerLink="/users" translate>cancel</a>
+  </form>
+</app-page-container>
