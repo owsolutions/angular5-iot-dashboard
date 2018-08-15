@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import en from '../translations/users.module.en';
 import { UserRequestsService } from '@app/users/user-requests.service';
+import { UserModuleState } from '@app/users/user.module.defs';
 
 @Component({
   selector: 'app-users-archive',
@@ -20,26 +21,23 @@ export class UsersArchiveComponent implements OnInit, OnDestroy {
   public closeResult: string;
 
   constructor(
-    private store: Store<AppState>,
+    private store: Store<UserModuleState>,
     private requests: UserRequestsService,
     private modalService: NgbModal,
   ) { }
 
   ngOnInit() {
-    this.ref = this.store.select('users').subscribe((users => {
+    this.ref = this.store.select('userModule').subscribe(({users}) => {
       this.users = users;
-    }));
+    });
     this.requests.GetUsers();
   }
-
   ngOnDestroy() {
     this.ref.unsubscribe();
   }
-
   public DeleteUser(id: number, dialogTemplate) {
     this.open(dialogTemplate, id);
   }
-
   open(content, id) {
     this.modalService.open(content).result.then((result) => {
       this.requests.DeleteUser(id);

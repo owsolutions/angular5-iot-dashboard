@@ -1,8 +1,8 @@
-<app-error-message *ngIf="roles.length === 0">
+<app-error-message *ngIf="!roles || roles.length === 0">
   There are no roles. Please create roles and you will be able to manage them here.
 </app-error-message>
 
-<app-page-container maintitle="Roles" subtitle="Manage roles and access levels">
+<app-page-container maintitle="Roles" subtitle="Manage roles and access levels" *ngIf="roles && roles.length">
 <a class="btn btn-primary add-button" routerLink="../role/create" action-button translate>create a new role</a>
 <div ngx-sidebar-off class="table-responsive iot-table">
   <table class="table app-roles-table">

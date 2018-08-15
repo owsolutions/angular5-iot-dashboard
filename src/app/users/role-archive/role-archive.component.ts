@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import { PermissionsService } from '@services/permissions.service';
 import { RequestsService } from '@services/requests.service';
 import { IRole, IPermission } from '@app/definitions';
-import { AppState } from '@app/definitions';
-
 import { Store } from '@ngrx/store';
 import { ActionsService } from '@app/services/actions.service';
+import { UserModuleState } from '@app/users/user.module.defs';
+import { UserRequestsService } from '@app/users/user-requests.service';
 
 @Component({
   selector: 'app-role-archive',
@@ -21,16 +21,17 @@ export class RoleArchiveComponent implements OnInit {
   constructor (
     private router: Router,
     private permissions: PermissionsService,
-    private requests: RequestsService,
-    private store: Store<AppState>,
+    private requests: UserRequestsService,
+    private store: Store<UserModuleState>,
     private actions: ActionsService,
   ) { }
 
   async ngOnInit() {
-    this.store.select('roles').subscribe(collection => {
-      this.roles = (collection as Array<IRole>);
+    this.store.select('userModule').subscribe(({roles}) => {
+      this.roles = (roles as Array<IRole>);
     });
     this.perms = this.permissions.getAll();
+    this.requests.GetRoles();
   }
 
   countRolePermissions(role: IRole): Number {

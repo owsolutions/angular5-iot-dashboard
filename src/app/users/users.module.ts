@@ -16,6 +16,8 @@ import { UserMockInterceptor } from '@app/users/user-mock.interceptor';
 import { environment } from 'environments/environment';
 import { RoleArchiveComponent } from '@app/users/role-archive/role-archive.component';
 import { RoleSingleComponent } from '@app/users/role-single/role-single.component';
+import { Store } from '@ngrx/store';
+import { userModuleReducersGenerator } from '@app/users/user-module.reducers';
 
 @NgModule({
   imports: [
@@ -27,7 +29,8 @@ import { RoleSingleComponent } from '@app/users/role-single/role-single.componen
     ReactiveFormsModule,
     FormsModule,
     NgbModule.forRoot(),
-    NgbModalModule.forRoot()
+    NgbModalModule.forRoot(),
+    userModuleReducersGenerator(),
   ],
   providers: [
     UserCommonService,

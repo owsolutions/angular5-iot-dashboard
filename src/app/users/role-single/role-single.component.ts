@@ -3,12 +3,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PermissionsService } from '@services/permissions.service';
 import { RequestsService } from '@services/requests.service';
 import { IRole, IPermission } from '@app/definitions';
-import { AppState } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { error } from '@app/common';
 import { IResponse } from 'response-type';
 import { NotificationService } from '@app/services/notification.service';
 import { ActionsService } from '@app/services/actions.service';
+import { UserModuleState } from '@app/users/user.module.defs';
 
 @Component({
   selector: 'app-role-single',
@@ -32,15 +32,15 @@ export class RoleSingleComponent implements OnInit {
     private router: Router,
     private permissions: PermissionsService,
     private requests: RequestsService,
-    private store: Store<AppState>,
+    private store: Store<UserModuleState>,
     private route: ActivatedRoute,
     private notification: NotificationService,
     private actions: ActionsService,
   ) { }
 
   async ngOnInit() {
-    this.store.select('roles').subscribe(collection => {
-      this.roles = (collection as Array<IRole>);
+    this.store.select('userModule').subscribe(({roles}) => {
+      this.roles = (roles as Array<IRole>);
     });
     this.perms = this.permissions.getAll();
     this.Init();
@@ -96,9 +96,9 @@ export class RoleSingleComponent implements OnInit {
         return ;
       }
       this.form.id = data.id;
-      this.store.select('roles').subscribe((devices: Array<IRole>) => {
+      this.store.select('userModule').subscribe(({roles}) => {
         /* tslint:disable */
-        const form = devices.find(dev => dev.id == data.id);
+        const form = roles.find(dev => dev.id == data.id);
         if ( ! form) {
           return;
         }

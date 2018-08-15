@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {
-  AppState,
   IUser,
   IRole
  } from '@app/definitions';
@@ -12,6 +11,7 @@ import { UserMockService } from './user-mocks.service';
 import { IResponse } from 'response-type';
 import { GetNetworkError, IsSuccessEntity } from '@app/common';
 import 'rxjs/add/operator/toPromise';
+import { UserModuleState } from '@app/users/user.module.defs';
 
 declare var io: any;
 
@@ -20,7 +20,7 @@ export class UserRequestsService {
 
   constructor(
     private mocks: UserMockService,
-    private store: Store<AppState>,
+    private store: Store<UserModuleState>,
     private http: HttpClient,
   ) { }
 
@@ -57,7 +57,6 @@ export class UserRequestsService {
       return error;
     }
   }
-
   public async GetUsers (): Promise<IResponse<IUser>> {
     const url = environment.api + '/api/users';
     const ref = this.http.get(url).toPromise();
