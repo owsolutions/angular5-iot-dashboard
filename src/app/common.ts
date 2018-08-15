@@ -1,4 +1,7 @@
 import { IResponse } from 'response-type';
+import { Observable } from 'rxjs/Observable';
+import { HttpEvent, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
+import { matchPattern } from 'url-matcher';
 
 export function GetNetworkError (): IResponse<any> {
   return {
@@ -55,4 +58,45 @@ export function IsDataSource (data: DataSource) {
     return false;
   }
   return true;
+}
+
+export function handleRoute (req: HttpRequest<any>, routes, prefixAPI: string): Observable<HttpEvent<any>> {
+  const { url, match } = urlMatch( req.url, req.method, routes, prefixAPI);
+  const action = routes[ url ];
+  const result = this[ action ].call( this, req, match );
+
+  const mockResponse = new HttpResponse( {
+    body: result,
+    headers: new HttpHeaders(),
+    status: (result.data) ? 200 : result.error.code,
+    statusText: 'OK',
+    url: req.url
+  } );
+  return Observable.of( mockResponse );
+}
+
+export function urlMatch( url: string, method: string = null, routes, prefixAPI) {
+  url = url.replace(prefixAPI, '');
+  for ( const route of Object.keys( routes ) ) {
+    const urlMethod = route.split( ' ' );
+    let result = '';
+    if ( urlMethod.length === 2 ) {
+      if ( method === null ) {
+        result = matchPattern( urlMethod[ 1 ], url );
+      } else {
+        if ( urlMethod[ 0 ].toUpperCase() === method.toUpperCase() ) {
+          result = matchPattern( urlMethod[ 1 ], url );
+        }
+      }
+    } else {
+      result = matchPattern( route, url );
+    }
+    if ( result ) {
+      return {
+        url: route,
+        match: result
+      };
+    }
+  }
+  return null;
 }

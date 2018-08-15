@@ -19,6 +19,7 @@ import { DeviceEventsActionsComponent } from '@app/components/device-events-acti
 import { ContactDetailsComponent } from '@app/components/contact-details/contact-details.component';
 import { GpsComponent } from '@app/components/gps/gps.component';
 import { RestfulComponent } from '@app/components/docs/restful/restful.component';
+import { userAuthLayoutRoutes } from '@app/users/user-routes';
 
 export function AuthLayoutChild(component: any, route: string, options: any = {}): Route {
   return {
@@ -40,26 +41,26 @@ export const appRoutes: Routes = [
     canActivate: [AuthGuard],
     component: LayoutComponent,
     children: [
-        AuthLayoutChild (IndexComponent, 'index'),
-        AuthLayoutChild (LocationsComponent, 'locations'),
-        AuthLayoutChild (SettingsComponent, 'token'),
-        AuthLayoutChild (LocationSingleComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
-        AuthLayoutChild (LocationSingleComponent, 'location/new', {data: {mode: 'new'}}),
-        AuthLayoutChild (ActivityComponent, 'activities'),
-        AuthLayoutChild (GpsComponent, 'gps'),
-        AuthLayoutChild (ContactDetailsComponent, 'monitoring/manage-contacts'),
-        AuthLayoutChild (DevicesComponent, 'devices'),
-        AuthLayoutChild (DeviceSingleComponent, 'device/create'),
-        AuthLayoutChild (ProfileComponent, 'profile'),
-        AuthLayoutChild (DeviceEventsActionsComponent, 'device/events-and-actions/:id'),
-        AuthLayoutChild (DeviceSingleComponent, 'device/:id'),
-        AuthLayoutChild (ExperimentalComponent, 'experimental'),
-        AuthLayoutChild (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
-        AuthLayoutChild (DocsComponent, 'docs'),
-        AuthLayoutChild (SendingInformationHttpsComponent, 'docs/sending-information-over-https'),
-        AuthLayoutChild (RestfulComponent, 'docs/restful-api'),
-        AuthLayoutChild (GalleryComponent, 'gallery')
-    ]
+      AuthLayoutChild (IndexComponent, 'index'),
+      AuthLayoutChild (LocationsComponent, 'locations'),
+      AuthLayoutChild (SettingsComponent, 'token'),
+      AuthLayoutChild (LocationSingleComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
+      AuthLayoutChild (LocationSingleComponent, 'location/new', {data: {mode: 'new'}}),
+      AuthLayoutChild (ActivityComponent, 'activities'),
+      AuthLayoutChild (GpsComponent, 'gps'),
+      AuthLayoutChild (ContactDetailsComponent, 'monitoring/manage-contacts'),
+      AuthLayoutChild (DevicesComponent, 'devices'),
+      AuthLayoutChild (DeviceSingleComponent, 'device/create'),
+      AuthLayoutChild (ProfileComponent, 'profile'),
+      AuthLayoutChild (DeviceEventsActionsComponent, 'device/events-and-actions/:id'),
+      AuthLayoutChild (DeviceSingleComponent, 'device/:id'),
+      AuthLayoutChild (ExperimentalComponent, 'experimental'),
+      AuthLayoutChild (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
+      AuthLayoutChild (DocsComponent, 'docs'),
+      AuthLayoutChild (SendingInformationHttpsComponent, 'docs/sending-information-over-https'),
+      AuthLayoutChild (RestfulComponent, 'docs/restful-api'),
+      AuthLayoutChild (GalleryComponent, 'gallery')
+    ].concat(userAuthLayoutRoutes)
   },
   {   path: '**', redirectTo: '/index' }
 ];

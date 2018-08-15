@@ -51,7 +51,6 @@ import { MockService } from '@services/mocks.service';
 import { TokenInterceptor } from '@services/token.interceptor';
 import { GeneralInterceptorService } from '@services/general-interceptor.service';
 import { QuickChartComponent } from './components/quick-chart/quick-chart.component';
-import { ErrorMessageComponent } from './components/error-message/error-message.component';
 import { ProgressLineComponent } from './components/progress-line/progress-line.component';
 import { RealtimeDocumentModule } from 'realtime-document';
 import { ToasterModule } from 'angular2-toaster';
@@ -62,7 +61,6 @@ import { HistoryStatisticsComponent } from './components/widgets/history-statist
 import { DailyStatisticsComponent } from '@app/components/widgets/daily-statistics/daily-statistics.component';
 import { ExperimentalComponent } from './components/experimental/experimental.component';
 import { NgxTooltipModule } from './components/ngx-tooltip/ngx-tooltip.module';
-import { PageContainerComponent } from './components/page-container/page-container.component';
 import { SendingInformationHttpsComponent } from './components/docs/sending-information-https/sending-information-https.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -85,6 +83,8 @@ import { IfNotEnglishComponent } from './components/if-not-english/if-not-englis
 import { WaterBubbleComponent } from './components/water-bubble/water-bubble.component';
 import { Co2Component } from './components/co2/co2.component';
 import { DOCUMENT } from '@angular/common';
+import { UsersModule } from '@app/users/users.module';
+import { NgUikitModule } from '@app/ng-uikit/ng-uikit.module';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -166,7 +166,6 @@ export class AppComponent implements OnInit {
     GalleryComponent,
     LoadingComponent,
     StatisticsComponent,
-    ErrorMessageComponent,
     ApplicationsListComponent,
     DevicesComponent,
     CO2WidgetComponent,
@@ -175,7 +174,6 @@ export class AppComponent implements OnInit {
     ActivitiesComponent,
     HistoryStatisticsComponent,
     ExperimentalComponent,
-    PageContainerComponent,
     SendingInformationHttpsComponent,
     PrivacyPolicyComponent,
     ProfileComponent,
@@ -196,8 +194,10 @@ export class AppComponent implements OnInit {
     Ng5BasicModule,
     BrowserModule,
     FormsModule,
+    UsersModule,
     TranslateModule.forRoot(),
     NgMediaModule,
+    NgUikitModule,
     ToasterModule.forRoot(),
     createRoutes (),
     appReducersGenerator()

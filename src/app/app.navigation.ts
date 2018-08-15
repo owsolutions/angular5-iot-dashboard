@@ -1,4 +1,5 @@
 import { environment } from 'environments/environment';
+import { DefaultUsersModuleNavigation } from '@app/users/users.module';
 export const navigation = [
   {
     link: '/index',
@@ -69,6 +70,7 @@ export const navigation = [
       },
     ]
   },
+  DefaultUsersModuleNavigation,
   ! environment.production ? {
     link: '/gallery',
     icon: 'icon-attach_file',
