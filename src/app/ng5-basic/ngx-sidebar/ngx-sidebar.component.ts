@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Renderer, Inject, ViewChild, ViewContainerRef, AfterContentInit, ComponentRef, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit, Input, Renderer, ViewChild, ViewContainerRef,
+  ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { SidebarControllerService } from '../ngx-sidebar/sidebar-controller.service';
 import { flatten } from '@lodash';
