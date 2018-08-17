@@ -33,6 +33,8 @@ matrix:
     - npm run build:mock
     - npm install cypress
     - npm install serve
+    - cd dist && PORT=4200 ./node_modules/.bin/serve
+    - travis_wait 30 sleep 1800 &
     - npm run ci
     - npm run build:github
     deploy:
