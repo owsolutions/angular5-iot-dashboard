@@ -1,5 +1,5 @@
 import { environment } from 'environments/environment';
-import { DefaultUsersModuleNavigation } from '@app/users/users.module';=======
+import { DefaultUsersModuleNavigation } from '@app/users/users.module';
 import { NgxMenuItem } from '@app/ng5-basic/ngx-sidebar/ngx-sidebar.module';
 export const navigation: NgxMenuItem[] = [
   {
