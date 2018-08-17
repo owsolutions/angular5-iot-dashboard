@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { IUser, AppState } from '@app/definitions';
+import { IUser } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs/Subscription';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';

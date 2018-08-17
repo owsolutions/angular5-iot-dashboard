@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { error, IsSuccessEntity } from '@app/common';
-import { RequestsService } from '@app/services/requests.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserCommonService } from '@app/users/user-common.service';
 import en from '../translations/users.module.en';

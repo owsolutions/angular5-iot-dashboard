@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest } from '@angular/common/http';
 import { IResponse } from 'response-type';
-import { matchPattern } from 'url-matcher';
-import { environment } from '../../environments/environment';
 import { IUser, IRole } from '@app/definitions';
 import { random } from '@lodash';
 import { TranslateService } from '@ngx-translate/core';
