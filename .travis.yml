@@ -38,7 +38,7 @@ matrix:
     - cd /home/travis/build/owsolutions/angular5-iot-dashboard && PORT=4200 ./node_modules/.bin/serve dist &
     - sleep 10
     - npm run ci
-    - npm run build:github
+    - npm install && npm run build:github
     deploy:
       provider: pages
       skip-cleanup: true
