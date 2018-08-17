@@ -7,7 +7,7 @@ matrix:
       only:
       - master
     before_script:
-    - npm install -g @angular/cli
+    - npm install -g @angular/cli@1.7.2
     cache:
       yarn: true
       directories:
