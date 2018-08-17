@@ -6,11 +6,13 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { UiIconBoxComponent } from '@app/uikit/ui-icon-box/ui-icon-box.component';
 import { UiPanelBoxComponent } from '@app/uikit/ui-panel-box/ui-panel-box.component';
 import { UiSmallBoxComponent } from '@app/uikit/ui-small-box/ui-small-box.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     TranslateModule.forRoot(),
+    RouterModule.forChild([]),
   ],
   declarations: [
     PageContainerComponent,
