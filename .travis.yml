@@ -31,13 +31,14 @@ matrix:
     
     - npm install serve
     - cd /home/travis/build/owsolutions/angular5-iot-dashboard && PORT=4200 ./node_modules/.bin/serve dist &
-    
+    - travis_wait 30 sleep 15000 &
+    - echo "Sleep for 15"
     # - npm run lint
     # - npm run build
     # - npm run build:mock
     # - npm install cypress
     
-    # - travis_wait 30 sleep 1800 &
+    # 
     # - npm run ci
     # - npm run build:github
     deploy:
