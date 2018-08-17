@@ -26,7 +26,7 @@ ul li {
     transform: rotate(90deg);
   }
   > a:only-child:after {
-    content: "" !important;
+    content: "";
     border: 0;
   }
 }
@@ -47,11 +47,15 @@ ul li {
       }
   }
   li {
-    i[class^="icon-"] {
+    i[class^="icon-"], i[class^="fa-"] {
       font-size: 22px;
       padding-right: 5px;
       text-align: center;
       color: #888;
+    }
+    i[class^="fa-"] {
+      font-size: 20px;
+      padding: 0 9px;
     }
     a {
       display: block;
@@ -118,4 +122,10 @@ ul li {
       }
     }
   }
+}
+.move-back-btn {
+  padding: 10px 5px;
+  display: block;
+  cursor: pointer;
+  text-align: right;
 }

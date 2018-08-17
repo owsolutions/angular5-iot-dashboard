@@ -1,5 +1,6 @@
 import { environment } from 'environments/environment';
-export const navigation = [
+import { NgxMenuItem } from '@app/ng5-basic/ngx-sidebar/ngx-sidebar.module';
+export const navigation: NgxMenuItem[] = [
   {
     link: '/index',
     icon: 'icon-home',
@@ -43,7 +44,7 @@ export const navigation = [
         title: 'Devices List',
         permissions: ['DEVICES::VIEW'],
         auth: true,
-        class: 'device-list'
+        class: 'device-list',
       }
     ]
   },
@@ -106,7 +107,8 @@ export const navigation = [
     title: 'Gallery',
     permissions: ['USERS::VIEW'],
     auth: true,
-    class: 'gallery'
+    class: 'gallery',
+    focused: true,
   } : null,
   {
     title: 'Integration',

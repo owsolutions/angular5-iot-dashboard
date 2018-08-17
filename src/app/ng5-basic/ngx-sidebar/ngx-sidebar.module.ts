@@ -2,9 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgxSidebarComponent } from './ngx-sidebar.component';
 
-import {
-  RouterModule
-} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -16,7 +14,6 @@ import { TranslateModule } from '@ngx-translate/core';
     RouterModule.forRoot([]),
     TranslateModule.forRoot()
   ],
-  providers: [],
   exports: [
     NgxSidebarComponent
   ]
@@ -29,5 +26,9 @@ export interface NgxMenuItem {
   icon?: string;
   title: string;
   active?: boolean;
+  class?: string;
+  permissions?: Array<string>;
+  auth?: boolean;
+  focused?: boolean;
   children?: Array<NgxMenuItem>;
 }
