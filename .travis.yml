@@ -32,6 +32,7 @@ matrix:
     - npm run build
     - npm run build:mock
     - npm install cypress
+    - npm install serve
     - npm run ci
     - npm run build:github
     deploy:
