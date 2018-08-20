@@ -47,7 +47,7 @@ matrix:
       keep-history: true
       on:
         branch: master
-  # - language: android
+  # - language: android 
   #   android:
   #     components:
   #     - tools
