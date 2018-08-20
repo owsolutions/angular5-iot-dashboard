@@ -4,6 +4,7 @@
 @import "injects";
 @import './assets/material-icon';
 @import 'node_modules/angular2-toaster/toaster';
+@import "node_modules/angular-calendar/scss/angular-calendar.scss";
 
 .error-message-inline {
   color: $error-color-800;
