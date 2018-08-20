@@ -20,6 +20,7 @@ import { ContactDetailsComponent } from '@app/components/contact-details/contact
 import { GpsComponent } from '@app/components/gps/gps.component';
 import { RestfulComponent } from '@app/components/docs/restful/restful.component';
 import { userAuthLayoutRoutes } from '@app/users/user-routes';
+import { AngularCalendarComponent } from '@app/components/angular-calendar/angular-calendar.component';
 
 export function AuthLayoutChild(component: any, route: string, options: any = {}): Route {
   return {
@@ -60,6 +61,7 @@ export const appRoutes: Routes = [
       AuthLayoutChild (SendingInformationHttpsComponent, 'docs/sending-information-over-https'),
       AuthLayoutChild (RestfulComponent, 'docs/restful-api'),
       AuthLayoutChild (GalleryComponent, 'gallery')
+      AuthLayoutChild (AngularCalendarComponent, 'angular-calendar'),
     ].concat(userAuthLayoutRoutes)
   },
   {   path: '**', redirectTo: '/index' }
