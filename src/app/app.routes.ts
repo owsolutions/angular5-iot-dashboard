@@ -22,7 +22,6 @@ import { GpsComponent } from '@app/components/gps/gps.component';
 import { RestfulComponent } from '@app/components/docs/restful/restful.component';
 import { RoleSingleComponent } from '@app/components/role-single/role-single.component';
 import { AngularCalendarComponent } from '@app/components/angular-calendar/angular-calendar.component';
-import { AmazingTimePickerComponent } from '@app/components/amazing-time-picker/amazing-time-picker.component';
 
 export function AuthLayoutChild(component: any, route: string, options: any = {}): Route {
   return {
@@ -61,7 +60,6 @@ export const appRoutes: Routes = [
         AuthLayoutChild (DeviceEventsActionsComponent, 'device/events-and-actions/:id'),
         AuthLayoutChild (DeviceSingleComponent, 'device/:id'),
         AuthLayoutChild (AngularCalendarComponent, 'angular-calendar'),
-        AuthLayoutChild (AmazingTimePickerComponent, 'amazing-time-picker'),
         AuthLayoutChild (ExperimentalComponent, 'experimental'),
         AuthLayoutChild (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
         AuthLayoutChild (DocsComponent, 'docs'),

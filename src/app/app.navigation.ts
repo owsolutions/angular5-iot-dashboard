@@ -16,11 +16,6 @@ export const navigation: NgxMenuItem[] = [
         title: 'Angular Calendar',
         icon: 'icon-calendar'
       },
-      {
-        link: '/amazing-time-picker',
-        title: 'Timepicker',
-        icon: 'icon-clock'
-      }
     ]
   },
   {
