@@ -14,7 +14,7 @@ import {
   isSameMonth,
   addHours
 } from 'date-fns';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 import {
   CalendarEvent,
   CalendarEventAction,
@@ -45,7 +45,7 @@ const colors: any = {
 export class AngularCalendarComponent {
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
-  public view: string = 'month';
+  public view = 'month';
   public viewDate: Date = new Date();
 
   public modalData: {
@@ -103,7 +103,7 @@ export class AngularCalendarComponent {
     }
   ];
 
-  activeDayIsOpen: boolean = true;
+  activeDayIsOpen = true;
 
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
