@@ -62,6 +62,7 @@ export const appRoutes: Routes = [
       AuthLayoutChild (RestfulComponent, 'docs/restful-api'),
       AuthLayoutChild (GalleryComponent, 'gallery'),
       AuthLayoutChild (AngularCalendarComponent, 'angular-calendar'),
+      ...userAuthLayoutRoutes,
     ]
   },
   {   path: '**', redirectTo: '/index' }
