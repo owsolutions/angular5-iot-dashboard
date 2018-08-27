@@ -1,4 +1,5 @@
 import { environment } from 'environments/environment';
+import { DefaultUsersModuleNavigation } from '@app/users/users.module';
 import { NgxMenuItem } from '@app/ng5-basic/ngx-sidebar/ngx-sidebar.module';
 export const navigation: NgxMenuItem[] = [
   {
@@ -81,21 +82,7 @@ export const navigation: NgxMenuItem[] = [
       },
     ]
   },
-  {
-    icon: 'icon-verified_user',
-    title: 'Users & Access',
-    class: 'users-access',
-    children: [
-      {
-        link: '/roles',
-        icon: '',
-        title: 'Roles list',
-        permissions: ['LOCATIONS::VIEW'],
-        auth: true,
-        class: 'roles-list'
-      },
-    ]
-  },
+  DefaultUsersModuleNavigation,
   ! environment.production ? {
     link: '/gallery',
     icon: 'icon-attach_file',

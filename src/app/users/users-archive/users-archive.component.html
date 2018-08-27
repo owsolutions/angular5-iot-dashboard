@@ -1,0 +1,52 @@
+<app-error-message *ngIf="users && users.length === 0">
+  There are no users. Please create users and you will be able to manage them here.
+</app-error-message>
+  
+<app-page-container [maintitle]="maintitle" [subtitle]="subtitle">
+  <a class="btn btn-primary add-button" routerLink="../user/create" action-button translate>create a new user</a>
+  <div ngx-sidebar-off class="table-responsive iot-table">
+    <table class="table app-users-table">
+      <thead>
+        <tr>
+          <th translate>Name</th>
+          <th translate>Email</th>
+          <th translate>Phone</th>
+          <th class="action-column" translate>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users" class="app-users-row" [ngClass]="'user-row-' + user.id">
+            <td>{{user.firstname + ' ' + user.lastname}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>
+            <a [routerLink]="'/user/' + user.id" class="no-decoration" [ngClass]="'user-edit-button-' + user.id">
+              <i [Tooltip]="'Edit'" class="icon-mode_edit action-btn"></i>
+            </a>
+            <a (click)="DeleteUser(user.id, deleteConfirm);" class="no-decoration"  [ngClass]="'user-delete-button-' + user.id">
+              <i [Tooltip]="'Delete'" class="icon-delete action-btn"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</app-page-container>
+
+<ng-template #deleteConfirm let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('cancel')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+     Are you sure to delete this user? You cannot undo this later.
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger btn-outline-dark" (click)="c('confirm')">Okay</button>
+    <button type="button" class="btn btn-primary" (click)="d('cancel')">Cancel</button>
+  </div>
+</ng-template>
+
+{{ closeResult }}

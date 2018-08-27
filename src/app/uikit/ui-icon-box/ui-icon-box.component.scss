@@ -1,0 +1,45 @@
+@import 'injects';
+
+h2 {
+  font-size: 20px;
+}
+p{
+  margin-bottom: 0;
+}
+.value {
+  font-size: 35px;
+  color: #aaa;
+  font-weight: 500;
+  padding-right: 10px;
+}
+@media (max-width: 575.98px) { 
+  h2 {
+    font-size: 16px;
+  }
+  p{
+      font-size: 13px;
+  }
+  .value {
+    font-size: 25px;
+  }
+}
+.app-statistics {
+  height: 85%; 
+}
+
+.align-items-center {
+  text-align: center;
+}
+
+.icon {
+  font-size: 38px;
+}
+.box-wrapper {
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+    background: $hover;
+    transition: color 2s;
+  }
+  display: block;
+}

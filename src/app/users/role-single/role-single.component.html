@@ -1,0 +1,24 @@
+<app-error-message *ngIf="roles.length === 0">
+  There are no roles. Please create roles and you will be able to manage them here.
+</app-error-message>
+
+<app-page-container [maintitle]="form.id ? 'Edit role \'' + form.title + '\'' : ' Create a new role'" subtitle="Manage roles and access levels">
+  <form>
+    <div class="row">
+      <div class="col-md-6 unit">
+          <label class="label" translate>Role name</label>
+          <div class="input">
+              <input class="form-control app-role-name" [(ngModel)]="form.title" type="text"
+                name="title"
+                placeholder="{{ 'Role name' | translate }}" id="title">
+              <span class="error-message-inline" *ngIf="error(response, 'title')">{{error(response, 'title')}}</span>
+          </div>
+      </div>
+    </div>
+
+    <button type="submit" (click)="SubmitForm()" translate class="btn btn-primary app-role-single-edit" *ngIf="form.id">Edit role</button>
+    <button (click)="DeleteRole(form)" translate class="btn btn-danger app-role-single-delete" *ngIf="form.id">Delete role</button>
+    <button type="submit" (click)="SubmitForm()" class="btn btn-primary app-role-single-create" *ngIf="!form.id" translate>Create role</button>
+    <a class="btn btn-warning app-role-single-cancel" routerLink="/roles" translate>cancel</a>
+  </form>
+</app-page-container>

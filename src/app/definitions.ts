@@ -12,6 +12,7 @@ export interface IUserForm {
 }
 
 export interface IUser {
+  id?: number;
   username: string;
   email: string;
   avatar: string;
@@ -74,6 +75,7 @@ export interface IPermission {
 export interface AppState {
   devices: Array<CloudDevice>;
   roles: Array<IRole>;
+  users: Array<IUser>;
   notifications: Array<INotification>;
   locations: Array<any>;
   activities: Array<IActivity>;

@@ -1,7 +1,6 @@
 $size: 150px;
 .wrapper {
-  display: -ms-flexbox;
-  display: box;
+  display: flex;
   min-height: 194px;
   display: flex;
   -o-box-align: center;

@@ -1,0 +1,30 @@
+<app-error-message *ngIf="!roles || roles.length === 0">
+  There are no roles. Please create roles and you will be able to manage them here.
+</app-error-message>
+
+<app-page-container maintitle="Roles" subtitle="Manage roles and access levels" *ngIf="roles && roles.length">
+<a class="btn btn-primary add-button" routerLink="../role/create" action-button translate>create a new role</a>
+<div ngx-sidebar-off class="table-responsive iot-table">
+  <table class="table app-roles-table">
+    <thead>
+      <tr>
+        <th translate>Role Name</th>
+        <th class="action-column" translate>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let role of roles" class="app-roles-row" [ngClass]="'role-row-' + role.id">
+        <td>{{role.title | translate}}</td>
+        <td>
+          <a [routerLink]="'/role/' + role.id" [ngClass]="'role-edit-button-' + role.id">
+            <i [Tooltip]="'Edit'" class="icon-mode_edit action-btn"></i>
+          </a>
+          <a (click)="DeleteRole(role);" [ngClass]="'role-delete-button-' + role.id">
+            <i [Tooltip]="'Delete'" class="icon-delete action-btn"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</app-page-container>

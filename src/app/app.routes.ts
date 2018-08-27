@@ -5,7 +5,6 @@ import { SettingsComponent } from '@components/settings/settings.component';
 import { DevicesComponent } from '@components/devices/devices.component';
 import { ActivityComponent } from '@components/activity/activity.component';
 import { LocationSingleComponent } from '@components/locations/location-single/location-single.component';
-import { RolesComponent } from '@components/roles/roles.component';
 import { GalleryComponent } from '@components/gallery/gallery.component';
 import { DeviceSingleComponent } from '../app/components/device-single/device-single.component';
 import { DocsComponent } from '@components/docs/docs.component';
@@ -20,7 +19,7 @@ import { DeviceEventsActionsComponent } from '@app/components/device-events-acti
 import { ContactDetailsComponent } from '@app/components/contact-details/contact-details.component';
 import { GpsComponent } from '@app/components/gps/gps.component';
 import { RestfulComponent } from '@app/components/docs/restful/restful.component';
-import { RoleSingleComponent } from '@app/components/role-single/role-single.component';
+import { userAuthLayoutRoutes } from '@app/users/user-routes';
 import { AngularCalendarComponent } from '@app/components/angular-calendar/angular-calendar.component';
 
 export function AuthLayoutChild(component: any, route: string, options: any = {}): Route {
@@ -43,29 +42,27 @@ export const appRoutes: Routes = [
     canActivate: [AuthGuard],
     component: LayoutComponent,
     children: [
-        AuthLayoutChild (IndexComponent, 'index'),
-        AuthLayoutChild (LocationsComponent, 'locations'),
-        AuthLayoutChild (SettingsComponent, 'token'),
-        AuthLayoutChild (LocationSingleComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
-        AuthLayoutChild (LocationSingleComponent, 'location/new', {data: {mode: 'new'}}),
-        AuthLayoutChild (RoleSingleComponent, 'role/create'),
-        AuthLayoutChild (RoleSingleComponent, 'role/:id'),
-        AuthLayoutChild (RolesComponent, 'roles'),
-        AuthLayoutChild (ActivityComponent, 'activities'),
-        AuthLayoutChild (GpsComponent, 'gps'),
-        AuthLayoutChild (ContactDetailsComponent, 'monitoring/manage-contacts'),
-        AuthLayoutChild (DevicesComponent, 'devices'),
-        AuthLayoutChild (DeviceSingleComponent, 'device/create'),
-        AuthLayoutChild (ProfileComponent, 'profile'),
-        AuthLayoutChild (DeviceEventsActionsComponent, 'device/events-and-actions/:id'),
-        AuthLayoutChild (DeviceSingleComponent, 'device/:id'),
-        AuthLayoutChild (AngularCalendarComponent, 'angular-calendar'),
-        AuthLayoutChild (ExperimentalComponent, 'experimental'),
-        AuthLayoutChild (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
-        AuthLayoutChild (DocsComponent, 'docs'),
-        AuthLayoutChild (SendingInformationHttpsComponent, 'docs/sending-information-over-https'),
-        AuthLayoutChild (RestfulComponent, 'docs/restful-api'),
-        AuthLayoutChild (GalleryComponent, 'gallery')
+      AuthLayoutChild (IndexComponent, 'index'),
+      AuthLayoutChild (LocationsComponent, 'locations'),
+      AuthLayoutChild (SettingsComponent, 'token'),
+      AuthLayoutChild (LocationSingleComponent, 'locations/edit/:id', {data: {mode: 'edit'}}),
+      AuthLayoutChild (LocationSingleComponent, 'location/new', {data: {mode: 'new'}}),
+      AuthLayoutChild (ActivityComponent, 'activities'),
+      AuthLayoutChild (GpsComponent, 'gps'),
+      AuthLayoutChild (ContactDetailsComponent, 'monitoring/manage-contacts'),
+      AuthLayoutChild (DevicesComponent, 'devices'),
+      AuthLayoutChild (DeviceSingleComponent, 'device/create'),
+      AuthLayoutChild (ProfileComponent, 'profile'),
+      AuthLayoutChild (DeviceEventsActionsComponent, 'device/events-and-actions/:id'),
+      AuthLayoutChild (DeviceSingleComponent, 'device/:id'),
+      AuthLayoutChild (ExperimentalComponent, 'experimental'),
+      AuthLayoutChild (DeviceSingleComponent, 'create-device-from-source/:sourceId'),
+      AuthLayoutChild (DocsComponent, 'docs'),
+      AuthLayoutChild (SendingInformationHttpsComponent, 'docs/sending-information-over-https'),
+      AuthLayoutChild (RestfulComponent, 'docs/restful-api'),
+      AuthLayoutChild (GalleryComponent, 'gallery'),
+      AuthLayoutChild (AngularCalendarComponent, 'angular-calendar'),
+      ...userAuthLayoutRoutes,
     ]
   },
   {   path: '**', redirectTo: '/index' }

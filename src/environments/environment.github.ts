@@ -2,5 +2,6 @@ export const environment = {
   production: false,
   hmr: false,
   api: '',
-  github: true
+  github: true,
+  targetAPI: false,
 };
