@@ -83,14 +83,10 @@ import { IfNotEnglishComponent } from './components/if-not-english/if-not-englis
 import { WaterBubbleComponent } from './components/water-bubble/water-bubble.component';
 import { Co2Component } from './components/co2/co2.component';
 import { DOCUMENT } from '@angular/common';
-<<<<<<< HEAD
 import { UsersModule } from '@app/users/users.module';
 import { NgUikitModule } from '@app/ng-uikit/ng-uikit.module';
-=======
-import { RoleSingleComponent } from '@app/components/role-single/role-single.component';
 import { CalendarModule } from 'angular-calendar';
 import { AngularCalendarComponent } from './components/angular-calendar/angular-calendar.component';
->>>>>>> @{-1}
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');

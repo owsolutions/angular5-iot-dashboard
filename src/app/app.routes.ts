@@ -60,7 +60,7 @@ export const appRoutes: Routes = [
       AuthLayoutChild (DocsComponent, 'docs'),
       AuthLayoutChild (SendingInformationHttpsComponent, 'docs/sending-information-over-https'),
       AuthLayoutChild (RestfulComponent, 'docs/restful-api'),
-      AuthLayoutChild (GalleryComponent, 'gallery')
+      AuthLayoutChild (GalleryComponent, 'gallery'),
       AuthLayoutChild (AngularCalendarComponent, 'angular-calendar'),
     ].concat(userAuthLayoutRoutes)
   },
