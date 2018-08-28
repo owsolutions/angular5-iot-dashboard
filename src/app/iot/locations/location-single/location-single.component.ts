@@ -8,9 +8,9 @@ import { IotImages, IsSuccessEntity, error } from '@app/common';
 import { IResponse } from 'response-type';
 import { NotificationService } from '@app/services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
-import { ActionsService } from '@app/services/actions.service';
 import { IotModuleState } from '@app/iot/iot.module.defs';
 import { IotRequestsService } from '@app/iot/iot-requests.service';
+import { ActionsService } from '@app/ng5-basic/actions.service';
 
 @Component({
   selector: 'app-location-single',

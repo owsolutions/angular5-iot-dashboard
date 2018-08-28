@@ -1,6 +1,5 @@
 import { NgModule, } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgUikitModule } from '@app/ng-uikit/ng-uikit.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { NgxTooltipModule } from '../components/ngx-tooltip/ngx-tooltip.module';
@@ -17,7 +16,6 @@ import { userModuleReducersGenerator } from '@app/users/user-module.reducers';
 @NgModule({
   imports: [
     CommonModule,
-    NgUikitModule,
     RouterModule.forChild([]),
     TranslateModule.forRoot(),
     NgxTooltipModule,

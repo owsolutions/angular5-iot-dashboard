@@ -1,7 +1,6 @@
 import { NgModule, } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsersArchiveComponent } from './users-archive/users-archive.component';
-import { NgUikitModule } from '@app/ng-uikit/ng-uikit.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { NgxTooltipModule } from '../components/ngx-tooltip/ngx-tooltip.module';
@@ -17,11 +16,11 @@ import { environment } from 'environments/environment';
 import { RoleArchiveComponent } from '@app/users/role-archive/role-archive.component';
 import { RoleSingleComponent } from '@app/users/role-single/role-single.component';
 import { userModuleReducersGenerator } from '@app/users/user-module.reducers';
+import { Ng5BasicModule } from '@app/ng5-basic/ng5-basic.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    NgUikitModule,
     RouterModule.forChild([]),
     TranslateModule.forRoot(),
     NgxTooltipModule,
@@ -30,6 +29,7 @@ import { userModuleReducersGenerator } from '@app/users/user-module.reducers';
     NgbModule.forRoot(),
     NgbModalModule.forRoot(),
     userModuleReducersGenerator(),
+    Ng5BasicModule,
   ],
   providers: [
     UserCommonService,
@@ -40,31 +40,3 @@ import { userModuleReducersGenerator } from '@app/users/user-module.reducers';
   declarations: [UsersArchiveComponent, UsersSingleComponent, RoleArchiveComponent, RoleSingleComponent]
 })
 export class UsersModule { }
-
-export const DefaultUsersModuleNavigation = {
-  icon: 'icon-verified_user',
-  title: 'Users & Access',
-  class: 'users-access',
-  children: [
-    {
-      link: '/roles',
-      icon: 'fa-user-circle',
-      title: 'Roles list',
-      permissions: ['LOCATIONS::VIEW'],
-      auth: true,
-      class: 'roles-list'
-    },
-    {
-      link: '/users',
-      icon: 'fa-users',
-      title: 'View users',
-      class: 'users-list'
-    },
-    {
-      link: '/user/create',
-      icon: 'fa-plus',
-      title: 'Create a user',
-      class: 'users-create'
-    },
-  ]
-};

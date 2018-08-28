@@ -12,8 +12,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { ActionsService } from '@app/services/actions.service';
-
+import { ActionsService } from '@app/ng5-basic/actions.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {

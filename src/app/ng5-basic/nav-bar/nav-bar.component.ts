@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarControllerService } from '../ngx-sidebar/sidebar-controller.service';
 import { TranslateService } from '@ngx-translate/core';
-import { SupportedLanguages } from '@app/services/globalization.service';
+import { SupportedLanguages } from '@app/ng5-basic/globalization.service';
 
 @Component({
   selector: 'app-nav-bar',

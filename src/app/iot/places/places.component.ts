@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ILocation, CloudDevice } from '@app/definitions';
 import { ChangeDetectorRef } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ActionsService } from '@services/actions.service';
 import { IotModuleState } from '@app/iot/iot.module.defs';
 
 @Component({
@@ -18,7 +17,6 @@ export class PlacesComponent implements OnInit, OnDestroy {
   constructor(
     public chRef: ChangeDetectorRef,
     private store: Store<IotModuleState>,
-    public actions: ActionsService,
   ) {
     // Initialize the private variables
   }
@@ -34,6 +32,9 @@ export class PlacesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy () {
     this.chRef.detach();
+  }
+  public findWidgets (devices, location: ILocation): Array<CloudDevice> {
+    return devices.filter(device => +device.location === +location.id);
   }
 
 }

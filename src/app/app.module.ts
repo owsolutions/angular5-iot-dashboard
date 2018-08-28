@@ -15,7 +15,6 @@ import { SelectInputComponent } from '@components/forms/select-input/select-inpu
 import { PermissionsService } from '@services/permissions.service';
 import { RequestsService } from '@services/requests.service';
 import { CheckboxInputComponent } from '@components/forms/checkbox-input/checkbox-input.component';
-import { ActionsService } from '@services/actions.service';
 import { UserService, AuthGuard } from '@services/user.service';
 import { OutputPinViewComponent } from '@components/output-pin-view/output-pin-view.component';
 import { UserWidgetComponent } from '@components/user-widget/user-widget.component';
@@ -29,7 +28,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MockInterceptor } from '@services/mock.interceptor';
 import { MockService } from '@services/mocks.service';
 import { TokenInterceptor } from '@services/token.interceptor';
-import { GeneralInterceptorService } from '@services/general-interceptor.service';
 import { QuickChartComponent } from '@app/components/quick-chart/quick-chart.component';
 import { ToasterModule } from 'angular2-toaster';
 import { NgxTooltipModule } from '@app/components/ngx-tooltip/ngx-tooltip.module';
@@ -41,13 +39,12 @@ import { TranslateService } from '@ngx-translate/core';
 import { Ng5BasicModule } from './ng5-basic/ng5-basic.module';
 import pl from './translations/pl';
 import fa from './translations/fa';
-import { GlobalizationService } from '@app/services/globalization.service';
 import { DOCUMENT } from '@angular/common';
 import { UsersModule } from '@app/users/users.module';
-import { NgUikitModule } from '@app/ng-uikit/ng-uikit.module';
 import { CalendarModule } from 'angular-calendar';
 import { AngularCalendarComponent } from '@app/boilerplate/angular-calendar/angular-calendar.component';
 import { IotModule } from '@app/iot/iot.module';
+import { GlobalizationService } from '@app/ng5-basic/globalization.service';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -119,7 +116,6 @@ export class AppComponent implements OnInit {
     TranslateModule.forRoot(),
     CalendarModule.forRoot(),
     NgMediaModule,
-    NgUikitModule,
     ToasterModule.forRoot(),
     createRoutes (),
     appReducersGenerator()
@@ -128,16 +124,9 @@ export class AppComponent implements OnInit {
     PermissionsService,
     RequestsService,
     MockService,
-    ActionsService,
     NotificationService,
     UserService,
     AuthGuard,
-    GlobalizationService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: GeneralInterceptorService,
-      multi: true
-    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

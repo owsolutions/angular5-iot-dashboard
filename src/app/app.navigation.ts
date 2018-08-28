@@ -1,8 +1,8 @@
 import { environment } from 'environments/environment';
-import { DefaultUsersModuleNavigation } from '@app/users/users.module';
 import { NgxMenuItem } from '@app/ng5-basic/ngx-sidebar/ngx-sidebar.module';
-import { DefaultIotModuleNavigation } from '@app/iot/iot.module';
 import { DefaultBoilerPlateModuleNavigation } from '@app/boilerplate/boilerplate.module';
+import { DefaultUsersModuleNavigation } from '@app/users/users.navigation';
+import { DefaultIotModuleNavigation } from '@app/iot/iot.navigation';
 
 export const navigation: NgxMenuItem[] = [
   ...DefaultBoilerPlateModuleNavigation,

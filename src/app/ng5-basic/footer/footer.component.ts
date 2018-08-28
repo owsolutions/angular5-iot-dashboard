@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { GlobalizationService } from '@app/services/globalization.service';
+import { GlobalizationService } from '@app/ng5-basic/globalization.service';
 
 @Component({
   selector: 'app-footer',

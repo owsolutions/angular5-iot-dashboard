@@ -7,7 +7,7 @@ import { NgMediaModule } from '../ng-media';
 import { NotificationService } from '@services/notification.service';
 import { PermissionsService } from '@services/permissions.service';
 import { RequestsService } from '@services/requests.service';
-import { ActionsService } from '@services/actions.service';
+import { ActionsService } from './actions.service';
 import { UserService, AuthGuard } from '@services/user.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MockService } from '@services/mocks.service';
@@ -23,8 +23,15 @@ import { SidebarControllerService } from './ngx-sidebar/sidebar-controller.servi
 import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
 import { NotificationListComponent } from '@app/components/notification-list/notification-list.component';
 import { NgxTooltipModule } from '@app/components/ngx-tooltip/ngx-tooltip.module';
-import { FooterComponent } from '@app/components/footer/footer.component';
+import { FooterComponent } from './footer/footer.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { UiIconBoxComponent } from '@app/ng5-basic/ui-icon-box/ui-icon-box.component';
+import { UiPanelBoxComponent } from '@app/ng5-basic/ui-panel-box/ui-panel-box.component';
+import { UiSmallBoxComponent } from '@app/ng5-basic/ui-small-box/ui-small-box.component';
+import { ProgressLineComponent } from '@app/ng5-basic/progress-line/progress-line.component';
+import { PageContainerComponent } from '@app/ng5-basic/page-container/page-container.component';
+import { ErrorMessageComponent } from '@app/ng5-basic/error-message/error-message.component';
+import { GlobalizationService } from '@app/ng5-basic/globalization.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +40,27 @@ import { TranslateModule } from '@ngx-translate/core';
     NavBarComponent,
     ProfileMenuComponent,
     NotificationListComponent,
-    FooterComponent
+    FooterComponent,
+    UiIconBoxComponent,
+    ProgressLineComponent,
+    UiPanelBoxComponent,
+    UiSmallBoxComponent,
+    PageContainerComponent,
+    ErrorMessageComponent,
+  ],
+  exports: [
+    LayoutComponent,
+    SideBarComponent,
+    NavBarComponent,
+    ProfileMenuComponent,
+    NotificationListComponent,
+    FooterComponent,
+    UiIconBoxComponent,
+    ProgressLineComponent,
+    UiPanelBoxComponent,
+    UiSmallBoxComponent,
+    PageContainerComponent,
+    ErrorMessageComponent,
   ],
   imports: [
     RealtimeDocumentModule,
@@ -56,6 +83,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ActionsService,
     NotificationService,
     UserService,
+    GlobalizationService,
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
