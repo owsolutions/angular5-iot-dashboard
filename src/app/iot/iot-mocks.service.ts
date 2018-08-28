@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest } from '@angular/common/http';
 import { IResponse, IResponseErrorItem } from 'response-type';
-import { IUser, IRole, ILocation, CloudDeviceType, CloudDevice, ICloudDeviceDailyHistory, DataSource } from '@app/definitions';
+import { ILocation, CloudDevice, ICloudDeviceDailyHistory, DataSource } from '@app/definitions';
 import { random, times } from '@lodash';
 import { TranslateService } from '@ngx-translate/core';
 import 'rxjs/add/operator/delay';
 import { handleRoute, urlMatch } from '@app/common';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { IotDevices } from './iot-mocks';
-let devices = IotDevices;
+const devices = IotDevices;
 const validateLocation = (location: ILocation) => {
   const errors: Array<IResponseErrorItem> = [];
   if (!location.name) {
@@ -31,19 +31,6 @@ const validateLocation = (location: ILocation) => {
   }
   return errors;
 };
-let $Users: Array<IUser> = [
-  {
-    id: 1,
-    firstname: 'Ali',
-    lastname: 'Torabi',
-    email: 'connexion.founder@outlook.com',
-    phone: '+48783538796',
-    username: 'ali.torabi',
-    preferences: {},
-    role: null,
-    avatar: ''
-  },
-];
 
 @Injectable()
 export class IotMockService {

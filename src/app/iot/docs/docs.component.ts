@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IResponse } from 'response-type';
 import { environment } from 'environments/environment';
-import { RequestsService } from '@app/services/requests.service';
 import { IsSuccessEntity } from '@app/common';
 import { IotRequestsService } from '@app/iot/iot-requests.service';
 

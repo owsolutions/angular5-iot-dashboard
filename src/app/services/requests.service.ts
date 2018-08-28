@@ -4,8 +4,7 @@ import {
   ILocation,
   IUser,
   ISettingsUpdateResponse,
-  IContact,
-  IRole
+  IContact
  } from '@app/definitions';
 import { PermissionsService } from './permissions.service';
 import 'rxjs/add/observable/of';
@@ -14,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'environments/environment';
 import { MockService } from '@app/services/mocks.service';
 import { IResponse } from 'response-type';
-import { GetNetworkError, IsSuccessEntity } from '@app/common';
+import { GetNetworkError } from '@app/common';
 import 'rxjs/add/operator/toPromise';
 
 declare var io: any;

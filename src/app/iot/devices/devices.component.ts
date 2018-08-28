@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { AppState, ILocation, DataSource, CloudDevice } from '@app/definitions';
+import { ILocation, DataSource, CloudDevice } from '@app/definitions';
 import { Store } from '@ngrx/store';
-import { RequestsService } from '@services/requests.service';
 import { Router } from '@angular/router';
 import { NotificationService } from '@app/services/notification.service';
 import { TranslateService } from '@ngx-translate/core';

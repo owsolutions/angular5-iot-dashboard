@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ILocation, CloudDevice, AppState } from '@app/definitions';
+import { ILocation, CloudDevice } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { IotModuleState } from '@app/iot/iot.module.defs';
 

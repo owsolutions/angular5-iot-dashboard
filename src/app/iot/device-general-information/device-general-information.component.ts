@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
-import { CloudDevice, AppState } from '@app/definitions';
+import { CloudDevice } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { IResponse } from 'response-type';
 import { error } from '@app/common';

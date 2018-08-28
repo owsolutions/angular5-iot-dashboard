@@ -5,7 +5,7 @@ import { IResponse, IResponseErrorItem } from 'response-type';
 import { matchPattern } from 'url-matcher';
 import { environment } from '../../environments/environment';
 import { PermissionsService } from '@services/permissions.service';
-import { IUserForm, CloudDevice, IUser, IContact, IResetForm, IRole } from '@app/definitions';
+import { IUserForm, IUser, IContact, IResetForm } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { random, times } from '@lodash';
 import { TranslateService } from '@ngx-translate/core';
@@ -231,7 +231,7 @@ export class MockService {
         ]
       }
     };
-  } 
+  }
   public updateUserProfile(req: HttpRequest<any>): IResponse<IUser> {
     const user: IUser = req.body;
     return {
@@ -265,21 +265,4 @@ export class MockService {
       }
     };
   }
-}
-function DeviceValidator (device: CloudDevice) {
-  const errors: Array<IResponseErrorItem> = [];
-
-  if ( ! device.name) {
-    errors.push({
-      location: 'name',
-      message: 'Device must have a name to be identified'
-    });
-  }
-  if ( ! device.datasource) {
-    errors.push({
-      location: 'datasource',
-      message: 'You must connect device to a data source'
-    });
-  }
-  return errors;
 }

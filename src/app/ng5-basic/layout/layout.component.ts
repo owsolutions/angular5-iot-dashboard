@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarControllerService } from '../ngx-sidebar/sidebar-controller.service';
-import { RequestsService } from '@app/services/requests.service';
 import { UserService } from '@app/services/user.service';
 import { ToasterConfig } from 'angular2-toaster';
-import { IotRequestsService } from '@app/iot/iot-requests.service';
 
 @Component({
   selector: 'app-layout',

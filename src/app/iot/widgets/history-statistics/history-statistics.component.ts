@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RequestsService } from '@app/services/requests.service';
 import { CloudDevice, ICloudDeviceDailyHistory } from '@app/definitions';
 import { GlobalizationService } from '@app/services/globalization.service';
 import { IotRequestsService } from '@app/iot/iot-requests.service';

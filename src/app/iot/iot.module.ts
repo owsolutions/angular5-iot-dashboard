@@ -114,7 +114,7 @@ import { RealtimeService } from '@app/iot/realtime.service';
     IfExperimentalComponent,
   ]
 })
-export class IotModule { 
+export class IotModule {
   constructor(
     private realtime: RealtimeService,
   ) {

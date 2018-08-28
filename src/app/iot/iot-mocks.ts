@@ -1,5 +1,5 @@
-import { CloudDeviceType } from "@app/definitions";
-import { random } from "@lodash";
+import { CloudDeviceType } from '@app/definitions';
+import { random } from '@lodash';
 
 export const IotDevices = [
   {

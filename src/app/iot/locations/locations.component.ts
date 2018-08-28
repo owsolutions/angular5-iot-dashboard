@@ -1,8 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { AppState, ILocation, CloudDevice } from '@app/definitions';
+import { ILocation, CloudDevice } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { ActionsService } from '@services/actions.service';
-import { RequestsService } from '@app/services/requests.service';
 import { Router } from '@angular/router';
 import { ToasterService } from 'angular2-toaster';
 import { NotificationService } from '@app/services/notification.service';

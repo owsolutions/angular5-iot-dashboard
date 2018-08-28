@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ILocation, AppState, CloudDevice } from '@app/definitions';
+import { ILocation, CloudDevice } from '@app/definitions';
 import { ChangeDetectorRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ActionsService } from '@services/actions.service';

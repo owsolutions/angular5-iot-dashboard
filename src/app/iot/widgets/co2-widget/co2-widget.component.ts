@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 declare var Highcharts: any;
-import { CloudDevice, AppState } from '@app/definitions';
+import { CloudDevice } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { IotModuleState } from '@app/iot/iot.module.defs';
 

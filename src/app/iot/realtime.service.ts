@@ -1,6 +1,6 @@
 import { Injectable, ApplicationRef } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState, CloudDevice, DataSource } from '@app/definitions';
+import { CloudDevice, DataSource } from '@app/definitions';
 import { random, isNumber } from '@lodash';
 import { environment } from 'environments/environment';
 import { IsDataSource } from '@app/common';
@@ -125,7 +125,6 @@ export class RealtimeService {
     this.RecieveDataSourceIncoming(data);
   }
 }
-
 // setTimeout(( ) => {
 //   if (environment.production) {
 //     this.realtime.connectToRoom(this.user.GetToken());

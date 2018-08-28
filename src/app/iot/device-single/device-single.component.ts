@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CloudDevice, CloudDeviceType, AppState } from '@app/definitions';
+import { CloudDevice, CloudDeviceType } from '@app/definitions';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { RequestsService } from '@app/services/requests.service';
 import 'rxjs/add/operator/toPromise';
 import { IResponse } from 'response-type';
 import { error } from '@app/common';

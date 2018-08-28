@@ -34,7 +34,7 @@ import { userModuleReducersGenerator } from '@app/users/user-module.reducers';
     !environment.targetAPI ? { provide: HTTP_INTERCEPTORS, useClass: UserMockInterceptor, multi: true } : [],
   ],
   declarations: [
-    
+
   ]
 })
 export class BoilerplateModule { }

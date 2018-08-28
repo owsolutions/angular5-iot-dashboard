@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PermissionsService } from '@services/permissions.service';
-import { RequestsService } from '@services/requests.service';
 import { IRole, IPermission } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { error } from '@app/common';

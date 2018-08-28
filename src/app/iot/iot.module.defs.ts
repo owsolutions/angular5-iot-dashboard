@@ -1,4 +1,4 @@
-import { IRole, IUser, CloudDevice, DataSource } from '@app/definitions';
+import { CloudDevice, DataSource } from '@app/definitions';
 
 export interface IotModuleState {
   iotModule: {

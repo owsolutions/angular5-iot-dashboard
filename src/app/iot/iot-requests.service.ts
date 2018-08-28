@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import {
-  IUser,
-  IRole,
   CloudDevice,
   ICloudDeviceDailyHistory,
-  ILocation,
-  IContact
+  ILocation
  } from '@app/definitions';
 import 'rxjs/add/observable/of';
 import { Store } from '@ngrx/store';
@@ -144,7 +141,7 @@ export class IotRequestsService {
       return error;
     }
   }
-  
+
   public async PostLocation (location: ILocation): Promise<IResponse<ILocation>> {
     const ref = this.http.post(environment.api + '/api/location' , location).toPromise();
     try {
