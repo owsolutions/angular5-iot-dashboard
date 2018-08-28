@@ -51,7 +51,7 @@
           name="preferences_language"
           (change)="ChangeLanguage()"
           type="text">
-          <option *ngFor="let item of globalization.GetLanguages()" [value]="item.lang" [selected]="translate.currentLang === item.lang">{{item.label}}</option>
+          <option *ngFor="let item of langs;" [value]="item.lang" [selected]="currentLang === item.lang">{{item.label}}</option>
         </select>
         <span class="warning">
           {{ 'At the moment, for some languages might be not fully covered and you still see english words.' | translate }}
