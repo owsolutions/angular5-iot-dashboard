@@ -20,7 +20,6 @@ export class RequestsService {
   }
 
   public DeleteItem(id: string) {
-    console.log('Requested to delete: ', id);
     this.http.delete('http://localhost:1337/ngmedia/delete/' + id).subscribe(
       (response) => {
         console.log(response);

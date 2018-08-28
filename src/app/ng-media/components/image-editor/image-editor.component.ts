@@ -83,7 +83,6 @@ export class ImageEditorComponent implements OnInit {
   flipImage(state) {
     switch (state) {
       case 'horizontal':
-        console.log('1');
         this.ctx.translate(this.canvas.width, 0);
         this.ctx.scale(-1, 1);
       break;

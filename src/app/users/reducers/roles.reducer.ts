@@ -2,7 +2,6 @@ import { Action } from '@app/definitions';
 import UpdateOrInsert from '@components/functions/UpdateOrInsert';
 
 export function rolesReducer (state = [], action: Action) {
-  console.log('::', state, action);
   switch (action.type) {
     case 'RESET':
       return [];

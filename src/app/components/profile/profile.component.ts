@@ -37,8 +37,6 @@ export class ProfileComponent implements OnInit {
   ) {
   }
 
-
-
   public ChangeLanguage () {
     const lang = this.form.preferences.language;
     this.translate.setDefaultLang(lang);
