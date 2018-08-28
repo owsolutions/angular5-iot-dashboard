@@ -12,8 +12,6 @@ import { IResponse } from 'response-type';
 import { GetNetworkError } from '@app/common';
 import 'rxjs/add/operator/toPromise';
 
-declare var io: any;
-
 @Injectable()
 export class RequestsService {
 
