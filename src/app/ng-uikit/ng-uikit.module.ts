@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PageContainerComponent } from '../components/page-container/page-container.component';
+import { PageContainerComponent } from '@app/ng5-basic/page-container/page-container.component';
 import { ErrorMessageComponent } from '../components/error-message/error-message.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { UiIconBoxComponent } from '@app/uikit/ui-icon-box/ui-icon-box.component';

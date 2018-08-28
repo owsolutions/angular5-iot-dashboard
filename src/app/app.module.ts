@@ -36,8 +36,8 @@ import { NavigationComponent } from '@components/navigation/navigation.component
 import { SidebarWidgetComponent } from '@components/sidebar-widget/sidebar-widget.component';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { DeviceSingleComponent } from '@app/iot/device-single/device-single.component';
-import { DocsComponent } from '@components/docs/docs.component';
-import { DocsApiWorkaroundComponent } from '@components/docs/docs-api-workaround/docs-api-workaround.component';
+import { DocsComponent } from '@app/iot/docs/docs.component';
+import { DocsApiWorkaroundComponent } from '@app/iot/docs/docs-api-workaround/docs-api-workaround.component';
 import { DeviceGeneralInformationComponent } from '@app/iot/device-general-information/device-general-information.component';
 import { DeviceTemperatureComponent } from '@app/iot/device-temperature/device-temperature.component';
 import { DeviceLampComponent } from '@app/iot/device-lamp/device-lamp.component';
@@ -54,14 +54,13 @@ import { QuickChartComponent } from '@app/components/quick-chart/quick-chart.com
 import { ProgressLineComponent } from '@app/components/progress-line/progress-line.component';
 import { RealtimeDocumentModule } from 'realtime-document';
 import { ToasterModule } from 'angular2-toaster';
-import { ApplicationsListComponent } from '@app/components/applications-list/applications-list.component';
 import { DashboardComponent } from '@app/components/dashboard/dashboard.component';
 import { ActivitiesComponent } from '@app/iot/widgets/activities/activities.component';
 import { HistoryStatisticsComponent } from '@app/iot/widgets/history-statistics/history-statistics.component';
 import { DailyStatisticsComponent } from '@app/iot/widgets/daily-statistics/daily-statistics.component';
 import { ExperimentalComponent } from '@app/components/experimental/experimental.component';
 import { NgxTooltipModule } from '@app/components/ngx-tooltip/ngx-tooltip.module';
-import { SendingInformationHttpsComponent } from '@app/components/docs/sending-information-https/sending-information-https.component';
+import { SendingInformationHttpsComponent } from '@app/iot/docs/sending-information-https/sending-information-https.component';
 import { PrivacyPolicyComponent } from '@app/components/privacy-policy/privacy-policy.component';
 import { ProfileComponent } from '@app/components/profile/profile.component';
 import { DeviceEventsActionsComponent } from '@app/iot/device-events-actions/device-events-actions.component';
@@ -78,7 +77,7 @@ import { Ng5BasicModule } from './ng5-basic/ng5-basic.module';
 import pl from './translations/pl';
 import fa from './translations/fa';
 import { GlobalizationService } from '@app/services/globalization.service';
-import { RestfulComponent } from '@app/components/docs/restful/restful.component';
+import { RestfulComponent } from '@app/iot/docs/restful/restful.component';
 import { IfNotEnglishComponent } from '@app/components/if-not-english/if-not-english.component';
 import { WaterBubbleComponent } from '@app/iot/water-bubble/water-bubble.component';
 import { Co2Component } from '@app/iot/co2/co2.component';
@@ -86,7 +85,7 @@ import { DOCUMENT } from '@angular/common';
 import { UsersModule } from '@app/users/users.module';
 import { NgUikitModule } from '@app/ng-uikit/ng-uikit.module';
 import { CalendarModule } from 'angular-calendar';
-import { AngularCalendarComponent } from '@app/components/angular-calendar/angular-calendar.component';
+import { AngularCalendarComponent } from '@app/boilerplate/angular-calendar/angular-calendar.component';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -167,7 +166,6 @@ export class AppComponent implements OnInit {
     GalleryComponent,
     LoadingComponent,
     StatisticsComponent,
-    ApplicationsListComponent,
     DevicesComponent,
     CO2WidgetComponent,
     LocationsComponent,
