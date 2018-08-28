@@ -6,7 +6,7 @@ import { RequestsService } from '@app/services/requests.service';
 import { UserService } from '@app/services/user.service';
 import { NotificationService } from '@app/services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
-import { GlobalizationService } from '@app/services/globalization.service';
+import { GlobalizationService } from '@app/ng5-basic/globalization.service';
 
 @Component({
   selector: 'app-profile',

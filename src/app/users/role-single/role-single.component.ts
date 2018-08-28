@@ -6,7 +6,6 @@ import { Store } from '@ngrx/store';
 import { error } from '@app/common';
 import { IResponse } from 'response-type';
 import { NotificationService } from '@app/services/notification.service';
-import { ActionsService } from '@app/services/actions.service';
 import { UserModuleState } from '@app/users/user.module.defs';
 import { UserRequestsService } from '@app/users/user-requests.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -35,7 +34,6 @@ export class RoleSingleComponent implements OnInit {
     private store: Store<UserModuleState>,
     private route: ActivatedRoute,
     private notification: NotificationService,
-    private actions: ActionsService,
     private translate: TranslateService,
 
   ) { }

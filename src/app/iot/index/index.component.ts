@@ -2,8 +2,6 @@ import { Component, OnInit, ApplicationRef, AfterContentInit } from '@angular/co
 import { Store } from '@ngrx/store';
 import { CloudDevice } from '@app/definitions';
 import { values } from '@lodash';
-import { DailyStatistics } from '../../../mocks/dailyStatistics';
-import { HistoryStatistics } from '../../../mocks/historyStatistics';
 import { IotModuleState } from '@app/iot/iot.module.defs';
 import { IotRequestsService } from '@app/iot/iot-requests.service';
 
@@ -15,8 +13,6 @@ import { IotRequestsService } from '@app/iot/iot-requests.service';
 })
 
 export class IndexComponent implements OnInit, AfterContentInit  {
-  public hs = HistoryStatistics;
-  public ds = DailyStatistics;
   public liveData: any;
   public devices: Array<any> = [];
 

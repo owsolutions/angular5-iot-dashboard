@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DailyStatistics } from '../../../mocks/dailyStatistics';
-import { HistoryStatistics } from '../../../mocks/historyStatistics';
 import { CloudDevice, CloudDeviceType } from '@app/definitions';
 
 @Component({
@@ -10,8 +8,6 @@ import { CloudDevice, CloudDeviceType } from '@app/definitions';
 })
 export class ExperimentalComponent implements OnInit {
 
-  public hs = HistoryStatistics;
-  public ds = DailyStatistics;
   public liveData: any;
   public exampleDevice: CloudDevice = {
     name: 'Living room',

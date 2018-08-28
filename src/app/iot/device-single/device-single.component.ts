@@ -9,9 +9,9 @@ import { NotificationService } from '@app/services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
 import 'rxjs/add/observable/combineLatest';
 import { Observable } from 'rxjs/Observable';
-import { ActionsService } from '@app/services/actions.service';
 import { IotModuleState } from '@app/iot/iot.module.defs';
 import { IotRequestsService } from '@app/iot/iot-requests.service';
+import { ActionsService } from '@app/ng5-basic/actions.service';
 
 @Component({
   selector: 'app-device-single',

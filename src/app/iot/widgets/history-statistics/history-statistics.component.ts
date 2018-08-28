@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CloudDevice, ICloudDeviceDailyHistory } from '@app/definitions';
-import { GlobalizationService } from '@app/services/globalization.service';
 import { IotRequestsService } from '@app/iot/iot-requests.service';
+import { GlobalizationService } from '@app/ng5-basic/globalization.service';
 declare var Highcharts: any;
 
 interface IComponentHistory extends ICloudDeviceDailyHistory {

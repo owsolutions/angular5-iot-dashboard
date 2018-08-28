@@ -2,8 +2,8 @@ import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 declare var Highcharts: any;
 import { CloudDevice, DataSource } from '@app/definitions';
 import { Store } from '@ngrx/store';
-import { GlobalizationService } from '@app/services/globalization.service';
 import { IotModuleState } from '@app/iot/iot.module.defs';
+import { GlobalizationService } from '@app/ng5-basic/globalization.service';
 
 function generateMockSeries() {
   const series = [];

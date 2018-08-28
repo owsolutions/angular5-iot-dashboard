@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { PermissionsService } from '@services/permissions.service';
 import { IRole, IPermission } from '@app/definitions';
 import { Store } from '@ngrx/store';
-import { ActionsService } from '@app/services/actions.service';
 import { UserModuleState } from '@app/users/user.module.defs';
 import { UserRequestsService } from '@app/users/user-requests.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -24,7 +23,6 @@ export class RoleArchiveComponent implements OnInit {
     private store: Store<UserModuleState>,
     private translate: TranslateService,
     private notification: NotificationService,
-    private actions: ActionsService,
   ) { }
 
   public DeleteRole (role: IRole) {

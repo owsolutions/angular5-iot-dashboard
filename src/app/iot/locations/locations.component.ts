@@ -1,7 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ILocation, CloudDevice } from '@app/definitions';
 import { Store } from '@ngrx/store';
-import { ActionsService } from '@services/actions.service';
 import { Router } from '@angular/router';
 import { ToasterService } from 'angular2-toaster';
 import { NotificationService } from '@app/services/notification.service';
@@ -21,7 +20,6 @@ export class LocationsComponent implements OnInit {
   constructor (
     public chRef: ChangeDetectorRef,
     private store: Store<IotModuleState>,
-    public actions: ActionsService,
     private router: Router,
     private toasterService: ToasterService,
     private notification: NotificationService,

@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { PagePointerPosition } from '../../definitions';
-import { GlobalizationService } from '@app/services/globalization.service';
+import { GlobalizationService } from '@app/ng5-basic/globalization.service';
 
 @Injectable()
 export class SidebarControllerService {
