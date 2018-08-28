@@ -4,6 +4,7 @@ import { AppState, CloudDevice } from '@app/definitions';
 import { values } from '@lodash';
 import { DailyStatistics } from '../../../mocks/dailyStatistics';
 import { HistoryStatistics } from '../../../mocks/historyStatistics';
+import { IotModuleState } from '@app/iot/iot.module.defs';
 
 
 @Component({
@@ -19,11 +20,11 @@ export class IndexComponent implements OnInit  {
   public devices: Array<any> = [];
 
   constructor(
-    private store: Store<AppState>,
+    private store: Store<IotModuleState>,
     private ref: ApplicationRef,
   ) { }
   ngOnInit () {
-    this.store.select('devices').subscribe((devices) => {
+    this.store.select('iotModule').subscribe(({devices}) => {
       this.devices = devices.concat([]);
     });
   }

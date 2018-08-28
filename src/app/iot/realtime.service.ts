@@ -5,6 +5,7 @@ import { random, isNumber } from '@lodash';
 import { environment } from 'environments/environment';
 import { IsDataSource } from '@app/common';
 import { NotificationService } from '@app/services/notification.service';
+import { IotModuleState } from '@app/iot/iot.module.defs';
 
 declare var Pusher: any;
 
@@ -24,12 +25,11 @@ export class RealtimeService {
   public devices: Array<CloudDevice> = [];
   public unconnectedDevices: Array<DataSource> = [];
   constructor(
-    private store: Store<AppState>,
+    private store: Store<IotModuleState>,
     private ref: ApplicationRef,
     private notification: NotificationService,
   ) {
-
-    this.store.select('devices').subscribe((devices) => {
+    this.store.select('iotModule').subscribe(({devices}) => {
       this.devices = devices;
     });
   }
@@ -124,5 +124,11 @@ export class RealtimeService {
     };
     this.RecieveDataSourceIncoming(data);
   }
-
 }
+
+// setTimeout(( ) => {
+//   if (environment.production) {
+//     this.realtime.connectToRoom(this.user.GetToken());
+//   }
+//   this.isRequesting = false;
+// }, 500);

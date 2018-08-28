@@ -3,6 +3,7 @@ import { CloudDevice, AppState } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { IResponse } from 'response-type';
 import { error } from '@app/common';
+import { IotModuleState } from '@app/iot/iot.module.defs';
 
 @Component({
   selector: 'app-device-general-information',
@@ -23,13 +24,13 @@ export class DeviceGeneralInformationComponent implements OnInit, OnDestroy {
   public error = error;
 
   constructor (
-    private store: Store<AppState>,
+    private store: Store<IotModuleState>,
   ) { }
 
 
   ngOnInit() {
-    this.ref = this.store.select('locations').subscribe((data) => {
-      this.locations = data;
+    this.ref = this.store.select('iotModule').subscribe(({locations}) => {
+      this.locations = locations;
     });
 
   }

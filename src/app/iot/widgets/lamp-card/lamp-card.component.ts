@@ -2,6 +2,7 @@ import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 declare var Highcharts: any;
 import { CloudDevice, DataSource, AppState } from '@app/definitions';
 import { Store } from '@ngrx/store';
+import { IotModuleState } from '@app/iot/iot.module.defs';
 
 function generateMockSeries() {
   const series = [];
@@ -123,7 +124,7 @@ export class LampCardComponent implements OnInit, AfterViewInit {
   }
 
   constructor(
-    private store: Store<AppState>
+    private store: Store<IotModuleState>
   ) { }
 
   public pushValue (date: Date, value: number) {
@@ -139,7 +140,7 @@ export class LampCardComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.chartName = 'chart-' + this.id;
 
-    this.store.select('devices').subscribe(devices => {
+    this.store.select('iotModule').subscribe(({devices}) => {
       this.device = devices.find(x => +x.id === +this.id);
       const history = this.device && this.device.dataHistory &&
         this.device.dataHistory[this.device.dataHistory.length - 1] || null;

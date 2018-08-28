@@ -73,13 +73,10 @@ export interface IPermission {
  * Represents the application store structure
  */
 export interface AppState {
-  devices: Array<CloudDevice>;
   roles: Array<IRole>;
   users: Array<IUser>;
   notifications: Array<INotification>;
-  locations: Array<any>;
   activities: Array<IActivity>;
-  unconnectedSources: Array<DataSource>;
 }
 
 /**

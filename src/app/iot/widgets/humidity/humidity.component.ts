@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 declare var Highcharts: any;
 import { CloudDevice, AppState } from '@app/definitions';
 import { Store } from '@ngrx/store';
+import { IotModuleState } from '@app/iot/iot.module.defs';
 
 @Component({
   selector: 'app-humidity',
@@ -21,11 +22,11 @@ export class HumidityComponent implements OnInit, OnDestroy {
   public average = 0;
 
   constructor(
-    private store: Store<AppState>
+    private store: Store<IotModuleState>
   ) { }
 
   ngOnInit() {
-    this.ref = this.store.select('devices').subscribe(devices => {
+    this.ref = this.store.select('iotModule').subscribe(({devices}) => {
       this.device = devices.find(x => +x.id === +this.id);
     });
   }

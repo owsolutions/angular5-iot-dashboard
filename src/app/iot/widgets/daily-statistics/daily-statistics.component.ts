@@ -3,6 +3,7 @@ declare var Highcharts: any;
 import { CloudDevice, DataSource, AppState } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { GlobalizationService } from '@app/services/globalization.service';
+import { IotModuleState } from '@app/iot/iot.module.defs';
 
 function generateMockSeries() {
   const series = [];
@@ -128,7 +129,7 @@ export class DailyStatisticsComponent implements OnInit, AfterViewInit {
   }
 
   constructor(
-    private store: Store<AppState>,
+    private store: Store<IotModuleState>,
     private globalization: GlobalizationService
   ) {
     globalization.layoutDirectionEmmiter.subscribe(direction => {
@@ -150,7 +151,7 @@ export class DailyStatisticsComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.chartName = 'chart-' + this.id;
 
-    this.store.select('devices').subscribe(devices => {
+    this.store.select('iotModule').subscribe(({devices}) => {
       this.device = devices.find(x => +x.id === +this.id);
       const history = this.device && this.device.dataHistory &&
         this.device.dataHistory[this.device.dataHistory.length - 1] || null;

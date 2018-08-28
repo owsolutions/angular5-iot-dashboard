@@ -10,6 +10,7 @@ import { IResponse } from 'response-type';
 import { NotificationService } from '@app/services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ActionsService } from '@app/services/actions.service';
+import { IotModuleState } from '@app/iot/iot.module.defs';
 
 @Component({
   selector: 'app-location-single',
@@ -41,21 +42,21 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
   extractRouterInfo () {
     this.route.params.subscribe(params => {
       this.form.id = +params['id'];
-      this.store.select('locations').subscribe((locations: Array<ILocation>) => {
+      this.store.select('iotModule').subscribe(({locations}) => {
         const form = locations.find(x => x.id === this.form.id);
         if ( form ) {
           this.form = form;
         }
       }).unsubscribe();
     }).unsubscribe();
-    this.store.select('devices').subscribe((devices: Array<CloudDevice>) => {
+    this.store.select('iotModule').subscribe(({devices}) => {
       this.devices = DevicesAsKeyName(devices);
     }).unsubscribe();
   }
 
   constructor(
     private route: ActivatedRoute,
-    private store: Store<AppState>,
+    private store: Store<IotModuleState>,
     private router: Router,
     private requests: RequestsService,
     private actions: ActionsService,

@@ -5,6 +5,7 @@ import { RequestsService } from '@services/requests.service';
 import { Router } from '@angular/router';
 import { NotificationService } from '@app/services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
+import { IotModuleState } from '@app/iot/iot.module.defs';
 
 @Component({
   selector: 'app-devices',
@@ -22,7 +23,7 @@ export class DevicesComponent implements  OnInit, OnDestroy {
     private requests: RequestsService,
     public chRef: ChangeDetectorRef,
     private router: Router,
-    private store: Store<AppState>,
+    private store: Store<IotModuleState>,
     private notification: NotificationService,
     private translate: TranslateService,
 
@@ -30,14 +31,14 @@ export class DevicesComponent implements  OnInit, OnDestroy {
    }
 
   ngOnInit() {
-    this._ref1 = this.store.select('devices').subscribe(collection => {
-      this.devices = collection;
+    this._ref1 = this.store.select('iotModule').subscribe(({devices}) => {
+      this.devices = devices;
     });
-    this._ref2 = this.store.select('locations').subscribe(collection => {
-      this.locations = (collection as Array<ILocation>);
+    this._ref2 = this.store.select('iotModule').subscribe(({locations}) => {
+      this.locations = (locations as Array<ILocation>);
     });
-    this.store.select('unconnectedSources').subscribe(sources => {
-      this.unconnected = sources;
+    this.store.select('iotModule').subscribe(({unconnectedSources}) => {
+      this.unconnected = unconnectedSources;
     });
   }
   public FormatDate (value: Date) {

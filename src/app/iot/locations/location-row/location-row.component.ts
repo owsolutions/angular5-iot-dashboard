@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ILocation, CloudDevice, AppState } from '@app/definitions';
 import { Store } from '@ngrx/store';
+import { IotModuleState } from '@app/iot/iot.module.defs';
 
 @Component({
   selector: 'app-location-row',
@@ -17,7 +18,7 @@ export class LocationRowComponent implements OnInit {
   @Input() public widgets: Array<CloudDevice> = [];
   @Input() public location = <ILocation>null;
   constructor (
-    private store: Store<AppState>,
+    private store: Store<IotModuleState>,
   ) {
 
   }
@@ -26,7 +27,7 @@ export class LocationRowComponent implements OnInit {
    * we will display it here.
    */
   public findTemperature (location: ILocation) {
-    this.store.select('devices').subscribe((devices) => {
+    this.store.select('iotModule').subscribe(({devices}) => {
       /* tslint:disable */
       const device = devices.find(d => d.id == location.temperatureDevice);
       if (device) {

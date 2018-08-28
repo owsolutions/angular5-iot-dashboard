@@ -11,6 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 import 'rxjs/add/observable/combineLatest';
 import { Observable } from 'rxjs/Observable';
 import { ActionsService } from '@app/services/actions.service';
+import { IotModuleState } from '@app/iot/iot.module.defs';
 
 @Component({
   selector: 'app-device-single',
@@ -30,7 +31,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
   public error = error;
   constructor(
     private route: ActivatedRoute,
-    private store: Store<AppState>,
+    private store: Store<IotModuleState>,
     private router: Router,
     private actions: ActionsService,
     private requests: RequestsService,
@@ -41,9 +42,9 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
 
   async ngOnInit() {
     Observable.combineLatest(
-      this.store.select('devices'),
+      this.store.select('iotModule'),
       this.route.params
-    ).subscribe(([devices, params]) => {
+    ).subscribe(([{devices}, params]) => {
        if (params.sourceId) {
         this.form.datasource = params.sourceId;
       }

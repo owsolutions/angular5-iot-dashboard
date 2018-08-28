@@ -50,6 +50,7 @@ import { RealtimeDocumentModule } from 'realtime-document';
 import { IconWidgetsComponent } from '@app/iot/index/icon-widgets/icon-widgets.component';
 import { IndexComponent } from '@app/iot/index/index.component';
 import { StatisticsComponent } from '@app/iot/statistics/statistics.component';
+import { RealtimeService } from '@app/iot/realtime.service';
 
 @NgModule({
   imports: [
@@ -69,6 +70,7 @@ import { StatisticsComponent } from '@app/iot/statistics/statistics.component';
   providers: [
     IotCommonService,
     IotMockService,
+    RealtimeService,
     IotRequestsService,
     !environment.targetAPI ? { provide: HTTP_INTERCEPTORS, useClass: IotMockInterceptor, multi: true } : [],
   ],
@@ -112,7 +114,13 @@ import { StatisticsComponent } from '@app/iot/statistics/statistics.component';
     IfExperimentalComponent,
   ]
 })
-export class IotModule { }
+export class IotModule { 
+  constructor(
+    private realtime: RealtimeService,
+  ) {
+    this.realtime.ActivateRealtime();
+  }
+}
 
 export const DefaultIotModuleNavigation = [
   {

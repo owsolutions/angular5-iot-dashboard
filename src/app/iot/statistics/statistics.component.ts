@@ -4,6 +4,7 @@ import { AppState, CloudDeviceType } from '@app/definitions';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
 import { Subscription } from 'rxjs/Subscription';
+import { IotModuleState } from '@app/iot/iot.module.defs';
 
 @Component({
   selector: 'app-statistics',
@@ -15,7 +16,7 @@ export class StatisticsComponent implements OnInit, OnDestroy {
   private ref: Subscription = null;
   @Input('statistics') public statistics: Array<{title: string, value: any}> = [];
   constructor(
-    private store: Store<AppState>,
+    private store: Store<IotModuleState>,
   ) { }
 
   ngOnInit() {
@@ -27,21 +28,20 @@ export class StatisticsComponent implements OnInit, OnDestroy {
       return;
     }
     this.ref = Observable.combineLatest(
-      this.store.select('locations'),
-      this.store.select('devices'),
+      this.store.select('iotModule'),
     ).subscribe((sink) => {
       this.statistics = [];
       this.statistics.push({
         title: 'Devices',
-        value: sink[1].length
+        value: sink[0].devices.length
       });
       this.statistics.push({
         title: 'Locations',
-        value: sink[0].length
+        value: sink[0].locations.length
       });
       this.statistics.push({
         title: 'Temperatures',
-        value: sink[1].filter(x => +x.type === CloudDeviceType.TemperatureSensor).length
+        value: sink[0].devices.filter(x => +x.type === CloudDeviceType.TemperatureSensor).length
       });
       this.statistics.push({
         title: 'Lights',

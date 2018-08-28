@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { appReducersGenerator } from './app.reducers';
 import { createRoutes  } from './app.routes';
 import { NgMediaModule } from './ng-media/ng-media-module';
-import { RealtimeService } from '@services/realtime.service';
 import { NotificationService } from '@services/notification.service';
 import { SettingsComponent } from '@components/settings/settings.component';
 import { PageHeaderComponent } from '@components/page-header/page-header.component';
@@ -60,12 +59,10 @@ window['Highcharts'] = Highcharts;
 })
 export class AppComponent implements OnInit {
   constructor (
-    private realtime: RealtimeService,
     private translate: TranslateService,
     private globalization: GlobalizationService,
     @Inject(DOCUMENT) private document: Document
   ) {
-    this.realtime.ActivateRealtime();
     this.RestoreLanguage();
   }
 
@@ -128,10 +125,8 @@ export class AppComponent implements OnInit {
     appReducersGenerator()
   ],
   providers: [
-    RealtimeService,
     PermissionsService,
     RequestsService,
-    RealtimeService,
     MockService,
     ActionsService,
     NotificationService,
@@ -155,9 +150,4 @@ export class AppComponent implements OnInit {
 })
 export class AppModule {
 
-  constructor (
-    private realtime: RealtimeService,
-  ) {
-    // Realtime service is imported intentionally
-  }
 }

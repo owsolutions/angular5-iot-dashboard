@@ -6,6 +6,7 @@ import { RequestsService } from '@app/services/requests.service';
 import { Router } from '@angular/router';
 import { ToasterService } from 'angular2-toaster';
 import { NotificationService } from '@app/services/notification.service';
+import { IotModuleState } from '@app/iot/iot.module.defs';
 
 @Component({
   selector: 'app-locations',
@@ -19,7 +20,7 @@ export class LocationsComponent implements OnInit {
 
   constructor (
     public chRef: ChangeDetectorRef,
-    private store: Store<AppState>,
+    private store: Store<IotModuleState>,
     public actions: ActionsService,
     private requests: RequestsService,
     private router: Router,
@@ -32,11 +33,11 @@ export class LocationsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.select('locations').subscribe(collection => {
-      this.locations = (collection as Array<ILocation>);
+    this.store.select('iotModule').subscribe(({locations}) => {
+      this.locations = locations;
     });
-    this.store.select('devices').subscribe(collection => {
-      this.devices = (collection as Array<CloudDevice>);
+    this.store.select('iotModule').subscribe(({devices}) => {
+      this.devices = devices;
     });
   }
 
