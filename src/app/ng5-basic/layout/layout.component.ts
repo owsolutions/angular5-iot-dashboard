@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarControllerService } from '../ngx-sidebar/sidebar-controller.service';
-import { RealtimeService } from '@app/services/realtime.service';
-import { RequestsService } from '@app/services/requests.service';
 import { UserService } from '@app/services/user.service';
-import { environment } from 'environments/environment';
 import { ToasterConfig } from 'angular2-toaster';
 
 @Component({
@@ -20,8 +17,7 @@ export class LayoutComponent implements OnInit {
   });
   constructor(
     public sidebar: SidebarControllerService,
-    private realtime: RealtimeService,
-    private requests: RequestsService,
+    // private realtime: RealtimeService,
     private user: UserService,
   ) {
     this.sidebar.ToggleSidebar.subscribe((e) => {
@@ -37,20 +33,9 @@ export class LayoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isRequesting = true;
     if (window.innerWidth < 992) {
       this.sideState = false;
     }
-    this.requests.getDevices();
-    this.requests.getLocations();
-    this.requests.getUnconnected();
-    this.requests.GetRoles();
-    setTimeout(( ) => {
-      if (environment.production) {
-        this.realtime.connectToRoom(this.user.GetToken());
-      }
-      this.isRequesting = false;
-    }, 500);
   }
 
   sideOff() {

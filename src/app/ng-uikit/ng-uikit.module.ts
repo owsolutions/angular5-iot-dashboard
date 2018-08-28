@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PageContainerComponent } from '../components/page-container/page-container.component';
+import { PageContainerComponent } from '@app/ng5-basic/page-container/page-container.component';
 import { ErrorMessageComponent } from '../components/error-message/error-message.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { UiIconBoxComponent } from '@app/uikit/ui-icon-box/ui-icon-box.component';
 import { UiPanelBoxComponent } from '@app/uikit/ui-panel-box/ui-panel-box.component';
 import { UiSmallBoxComponent } from '@app/uikit/ui-small-box/ui-small-box.component';
 import { RouterModule } from '@angular/router';
+import { ProgressLineComponent } from '@app/uikit/progress-line/progress-line.component';
 
 @NgModule({
   imports: [
@@ -18,12 +19,14 @@ import { RouterModule } from '@angular/router';
     PageContainerComponent,
     ErrorMessageComponent,
     UiIconBoxComponent,
+    ProgressLineComponent,
     UiPanelBoxComponent,
     UiSmallBoxComponent,
   ],
   exports: [
     PageContainerComponent,
     ErrorMessageComponent,
+    ProgressLineComponent,
     UiIconBoxComponent,
     UiPanelBoxComponent,
     UiSmallBoxComponent,

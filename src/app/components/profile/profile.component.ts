@@ -15,6 +15,8 @@ import { GlobalizationService } from '@app/services/globalization.service';
 })
 export class ProfileComponent implements OnInit {
   public isRequesting = false;
+  public currentLang = 'en';
+  public langs: any[] = [];
   public response: IResponse<ISettingsUpdateResponse> = null;
   public form: IUser = {
     email: null,
@@ -35,9 +37,8 @@ export class ProfileComponent implements OnInit {
     public translate: TranslateService,
     public globalization: GlobalizationService,
   ) {
+    this.langs = this.globalization.GetLanguages();
   }
-
-
 
   public ChangeLanguage () {
     const lang = this.form.preferences.language;
@@ -48,6 +49,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.currentLang = this.translate.currentLang;
     this.form = Object.assign(this.form, this.user.User);
   }
   public async SubmitForm () {

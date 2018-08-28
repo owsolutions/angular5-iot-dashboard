@@ -6,6 +6,8 @@ import { Store } from '@ngrx/store';
 import { ActionsService } from '@app/services/actions.service';
 import { UserModuleState } from '@app/users/user.module.defs';
 import { UserRequestsService } from '@app/users/user-requests.service';
+import { TranslateService } from '@ngx-translate/core';
+import { NotificationService } from '@app/services/notification.service';
 
 @Component({
   selector: 'app-role-archive',
@@ -13,8 +15,6 @@ import { UserRequestsService } from '@app/users/user-requests.service';
   styleUrls: ['./role-archive.component.scss']
 })
 export class RoleArchiveComponent implements OnInit {
-
-  public DeleteRole = this.actions.DeleteRole.bind(this.actions);
   public perms: Array<any> = [];
   public roles: Array<IRole> = [];
   constructor (
@@ -22,8 +22,18 @@ export class RoleArchiveComponent implements OnInit {
     private permissions: PermissionsService,
     private requests: UserRequestsService,
     private store: Store<UserModuleState>,
+    private translate: TranslateService,
+    private notification: NotificationService,
     private actions: ActionsService,
   ) { }
+
+  public DeleteRole (role: IRole) {
+    if (confirm( this.translate.get('Are you sure to delete this role?')['value'])) {
+      this.requests.deleteRole(role.id);
+      this.notification.InvokeRoleDelete(role);
+      this.router.navigateByUrl('/roles');
+    }
+  }
 
   async ngOnInit() {
     this.store.select('userModule').subscribe(({roles}) => {

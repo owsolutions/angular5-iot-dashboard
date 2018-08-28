@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgMediaModule } from '../ng-media';
-import { RealtimeService } from '@services/realtime.service';
 import { NotificationService } from '@services/notification.service';
 import { PermissionsService } from '@services/permissions.service';
 import { RequestsService } from '@services/requests.service';
@@ -51,10 +50,8 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   providers: [
     SidebarControllerService,
-    RealtimeService,
     PermissionsService,
     RequestsService,
-    RealtimeService,
     MockService,
     ActionsService,
     NotificationService,
@@ -69,9 +66,4 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class Ng5BasicModule {
 
-  constructor (
-    private realtime: RealtimeService,
-  ) {
-    // Realtime service is imported intentionally
-  }
 }
