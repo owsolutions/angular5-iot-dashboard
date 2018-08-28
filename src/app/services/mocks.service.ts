@@ -16,9 +16,6 @@ export class MockService {
   public routes = {
     'POST /api/user/signin': 'signIn',
     'POST /api/user/signup': 'signUp',
-    'DELETE /api/role/:id': 'deleteRole',
-    'GET /api/roles': 'getRoles',
-    'POST /api/role': 'postRole',
     'POST /api/forget-password': 'forgetPassword',
     'GET /api/contact-details': 'GetContactDetails',
     'POST /api/user/settings': 'updateUserProfile',
@@ -126,16 +123,6 @@ export class MockService {
       },
     };
   }
-  public deleteRole (req: HttpRequest<any>): IResponse<any> {
-    return {
-      data: {
-        items: [
-          {
-          }
-        ]
-      }
-    };
-  }
   signIn( req: HttpRequest<any> ): IResponse<any> {
     if ( req.body.email === 'test@test.com' && req.body.password === '123321' ) {
       return {
@@ -173,19 +160,6 @@ export class MockService {
         }
       };
     }
-  } 
-  public postRole (req: HttpRequest<any>): IResponse<IRole> {
-    const form: IRole = req.body;
-    if (!form.id) {
-      form.id = random(1, 99999);
-    }
-    return {
-      data: {
-        items: [
-          form
-        ]
-      }
-    };
   }
   public signUp (req: HttpRequest<any>): IResponse<any> {
     const form = req.body;
@@ -225,30 +199,7 @@ export class MockService {
       }
     };
   }
-  public getRoles (): IResponse<IRole> {
-    return {
-      data: {
-        items: [
-          {
-            id: 1,
-            title: 'Developer',
-            permissions: []
-          },
-          {
-            id: 2,
-            title: 'Master',
-            permissions: []
-          },
-          {
-            id: 3,
-            title: 'Guest',
-            permissions: []
-          }
-        ]
-      }
-    };
-  }
-     
+
   public UpdateContactDetails(req: HttpRequest<any>): IResponse<any> {
 
     return {

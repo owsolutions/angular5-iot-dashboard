@@ -9,6 +9,8 @@ import { IResponse } from 'response-type';
 import { NotificationService } from '@app/services/notification.service';
 import { ActionsService } from '@app/services/actions.service';
 import { UserModuleState } from '@app/users/user.module.defs';
+import { UserRequestsService } from '@app/users/user-requests.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-role-single',
@@ -25,18 +27,27 @@ export class RoleSingleComponent implements OnInit {
     permissions: [],
     title: ''
   };
-  public DeleteRole = this.actions.DeleteRole.bind(this.actions);
   public perms: Array<any> = [];
   public roles: Array<IRole> = [];
   constructor (
     private router: Router,
     private permissions: PermissionsService,
-    private requests: RequestsService,
+    private requests: UserRequestsService,
     private store: Store<UserModuleState>,
     private route: ActivatedRoute,
     private notification: NotificationService,
     private actions: ActionsService,
+    private translate: TranslateService,
+
   ) { }
+
+  public DeleteRole (role: IRole) {
+    if (confirm( this.translate.get('Are you sure to delete this role?')['value'])) {
+      this.requests.deleteRole(role.id);
+      this.notification.InvokeRoleDelete(role);
+      this.router.navigateByUrl('/roles');
+    }
+  }
 
   async ngOnInit() {
     this.store.select('userModule').subscribe(({roles}) => {
