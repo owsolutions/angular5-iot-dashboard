@@ -132,7 +132,7 @@ export class DailyStatisticsComponent implements OnInit, AfterViewInit {
     private store: Store<IotModuleState>,
     private globalization: GlobalizationService
   ) {
-    globalization.layoutDirectionEmmiter.subscribe(direction => {
+    globalization.layoutDirectionEmitter.subscribe(direction => {
       this.chart.xAxis.reversed = direction === 'ltr' ? false : true;
       this.drawChart();
     });

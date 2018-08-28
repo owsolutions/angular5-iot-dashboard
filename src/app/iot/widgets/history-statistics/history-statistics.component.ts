@@ -97,7 +97,7 @@ export class HistoryStatisticsComponent implements OnInit {
     private requests: RequestsService,
     private globalization: GlobalizationService
   ) {
-    globalization.layoutDirectionEmmiter.subscribe(direction => {
+    globalization.layoutDirectionEmitter.subscribe(direction => {
       this.drawChart(true);
     });
    }

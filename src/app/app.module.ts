@@ -67,7 +67,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.globalization.layoutDirectionEmmiter.subscribe(direction => {
+    this.globalization.layoutDirectionEmitter.subscribe(direction => {
       this.document.body.setAttribute('dir', direction);
     });
   }

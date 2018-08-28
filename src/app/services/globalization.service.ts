@@ -22,7 +22,7 @@ export const StableLanguages = {
 export const SupportedLanguages = environment.production ? StableLanguages : merge(StableLanguages, ExperimentalLanguages);
 @Injectable()
 export class GlobalizationService {
-  public layoutDirectionEmmiter: EventEmitter<any> = new EventEmitter();
+  public layoutDirectionEmitter: EventEmitter<any> = new EventEmitter();
   public layoutDirection: string;
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -54,7 +54,7 @@ export class GlobalizationService {
   localSetter() {
     const lang: string = this.translate.currentLang;
     const direction = SupportedLanguages[lang].direction;
-    this.layoutDirectionEmmiter.emit(direction);
+    this.layoutDirectionEmitter.emit(direction);
     this.layoutDirection = direction;
   }
 
