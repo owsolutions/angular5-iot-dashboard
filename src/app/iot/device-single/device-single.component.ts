@@ -12,6 +12,7 @@ import 'rxjs/add/observable/combineLatest';
 import { Observable } from 'rxjs/Observable';
 import { ActionsService } from '@app/services/actions.service';
 import { IotModuleState } from '@app/iot/iot.module.defs';
+import { IotRequestsService } from '@app/iot/iot-requests.service';
 
 @Component({
   selector: 'app-device-single',
@@ -34,7 +35,7 @@ export class DeviceSingleComponent implements OnInit, OnDestroy {
     private store: Store<IotModuleState>,
     private router: Router,
     private actions: ActionsService,
-    private requests: RequestsService,
+    private requests: IotRequestsService,
     private notification: NotificationService,
     private translate: TranslateService,
   ) {

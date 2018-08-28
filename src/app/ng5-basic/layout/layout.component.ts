@@ -3,6 +3,7 @@ import { SidebarControllerService } from '../ngx-sidebar/sidebar-controller.serv
 import { RequestsService } from '@app/services/requests.service';
 import { UserService } from '@app/services/user.service';
 import { ToasterConfig } from 'angular2-toaster';
+import { IotRequestsService } from '@app/iot/iot-requests.service';
 
 @Component({
   selector: 'app-layout',
@@ -19,7 +20,7 @@ export class LayoutComponent implements OnInit {
   constructor(
     public sidebar: SidebarControllerService,
     // private realtime: RealtimeService,
-    private requests: RequestsService,
+    private requests: IotRequestsService,
     private user: UserService,
   ) {
     this.sidebar.ToggleSidebar.subscribe((e) => {
@@ -42,7 +43,6 @@ export class LayoutComponent implements OnInit {
     this.requests.getDevices();
     this.requests.getLocations();
     this.requests.getUnconnected();
-    this.requests.GetRoles();
   }
 
   sideOff() {

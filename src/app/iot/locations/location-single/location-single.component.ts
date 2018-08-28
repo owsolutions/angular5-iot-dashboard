@@ -11,6 +11,7 @@ import { NotificationService } from '@app/services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ActionsService } from '@app/services/actions.service';
 import { IotModuleState } from '@app/iot/iot.module.defs';
+import { IotRequestsService } from '@app/iot/iot-requests.service';
 
 @Component({
   selector: 'app-location-single',
@@ -58,7 +59,7 @@ export class LocationSingleComponent implements OnInit, AfterContentInit {
     private route: ActivatedRoute,
     private store: Store<IotModuleState>,
     private router: Router,
-    private requests: RequestsService,
+    private requests: IotRequestsService,
     private actions: ActionsService,
     private notification: NotificationService,
     private translation: TranslateService,

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { NotificationService } from '@app/services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
 import { IotModuleState } from '@app/iot/iot.module.defs';
+import { IotRequestsService } from '@app/iot/iot-requests.service';
 
 @Component({
   selector: 'app-devices',
@@ -20,7 +21,7 @@ export class DevicesComponent implements  OnInit, OnDestroy {
   private _ref1: any  = null;
   private _ref2 = null;
   constructor (
-    private requests: RequestsService,
+    private requests: IotRequestsService,
     public chRef: ChangeDetectorRef,
     private router: Router,
     private store: Store<IotModuleState>,
@@ -40,6 +41,7 @@ export class DevicesComponent implements  OnInit, OnDestroy {
     this.store.select('iotModule').subscribe(({unconnectedSources}) => {
       this.unconnected = unconnectedSources;
     });
+    this.requests.getDevices();
   }
   public FormatDate (value: Date) {
     if ( ! value ) {
