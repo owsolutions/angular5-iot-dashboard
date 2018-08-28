@@ -20,7 +20,6 @@ export class LayoutComponent implements OnInit {
   constructor(
     public sidebar: SidebarControllerService,
     // private realtime: RealtimeService,
-    private requests: IotRequestsService,
     private user: UserService,
   ) {
     this.sidebar.ToggleSidebar.subscribe((e) => {
@@ -36,13 +35,9 @@ export class LayoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isRequesting = true;
     if (window.innerWidth < 992) {
       this.sideState = false;
     }
-    this.requests.getDevices();
-    this.requests.getLocations();
-    this.requests.getUnconnected();
   }
 
   sideOff() {

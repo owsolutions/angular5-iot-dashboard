@@ -217,5 +217,8 @@ export class IotRequestsService {
       return error;
     }
   }
+  async getDeviceToken (): Promise<IResponse<any>> {
+    return await this.http.get(environment.api + '/api/devices/token').toPromise();
+  }
 
 }

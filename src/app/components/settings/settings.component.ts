@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RequestsService } from '@app/services/requests.service';
 import { IsSuccessEntity } from '@app/common';
+import { IotRequestsService } from '@app/iot/iot-requests.service';
 
 @Component({
   selector: 'app-settings',
@@ -11,7 +11,7 @@ export class SettingsComponent implements OnInit {
 
   private token: string = null;
   constructor(
-    private requests: RequestsService,
+    private requests: IotRequestsService,
   ) { }
 
   public GetDeviceToken () {

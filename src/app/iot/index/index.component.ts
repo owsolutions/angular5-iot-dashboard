@@ -1,10 +1,11 @@
-import { Component, OnInit, ApplicationRef } from '@angular/core';
+import { Component, OnInit, ApplicationRef, AfterContentInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState, CloudDevice } from '@app/definitions';
 import { values } from '@lodash';
 import { DailyStatistics } from '../../../mocks/dailyStatistics';
 import { HistoryStatistics } from '../../../mocks/historyStatistics';
 import { IotModuleState } from '@app/iot/iot.module.defs';
+import { IotRequestsService } from '@app/iot/iot-requests.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { IotModuleState } from '@app/iot/iot.module.defs';
   styleUrls: ['./index.component.scss']
 })
 
-export class IndexComponent implements OnInit  {
+export class IndexComponent implements OnInit, AfterContentInit  {
   public hs = HistoryStatistics;
   public ds = DailyStatistics;
   public liveData: any;
@@ -22,11 +23,17 @@ export class IndexComponent implements OnInit  {
   constructor(
     private store: Store<IotModuleState>,
     private ref: ApplicationRef,
+    private requests: IotRequestsService
   ) { }
   ngOnInit () {
     this.store.select('iotModule').subscribe(({devices}) => {
       this.devices = devices.concat([]);
     });
+  }
+  ngAfterContentInit() {
+    this.requests.getDevices();
+    // this.requests.getLocations();
+    // this.requests.getUnconnected();
   }
   public TempWidget (device: CloudDevice) {
     return [{

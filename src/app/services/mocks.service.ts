@@ -5,147 +5,21 @@ import { IResponse, IResponseErrorItem } from 'response-type';
 import { matchPattern } from 'url-matcher';
 import { environment } from '../../environments/environment';
 import { PermissionsService } from '@services/permissions.service';
-import { IUserForm, CloudDevice, DataSource, IUser, ICloudDeviceDailyHistory, IContact, IResetForm, IRole } from '@app/definitions';
-import { CloudDeviceType } from '@app/definitions';
+import { IUserForm, CloudDevice, IUser, IContact, IResetForm, IRole } from '@app/definitions';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { random, times } from '@lodash';
-import { ILocation } from '@app/definitions';
 import { TranslateService } from '@ngx-translate/core';
 import 'rxjs/add/operator/delay';
 
-const devices = [
-  {
-    id: 1,
-    name: 'Hall temperature',
-    type: CloudDeviceType.TemperatureSensor,
-    datasource: 'device-1',
-    value: random(10, 30),
-    location: 1,
-    preferences: {
-      DisplayRealTimeTemperatureInSidebar: true,
-      DisplayHistoryStatisticsInHome: true
-    }
-  },
-  {
-    id: 2,
-    name: 'Kitchen temperature',
-    type: CloudDeviceType.TemperatureSensor,
-    datasource: 'device-2',
-    value: random(10, 30),
-    location: 1,
-    preferences: {
-      DisplayRealTimeTemperatureInSidebar: true
-    }
-  },
-  {
-    id: 3,
-    name: 'Main Lamp',
-    type: CloudDeviceType.LampBridge,
-    datasource: 'device-4',
-    value: 1,
-    location: 1,
-    preferences: {
-      DisplayLampOnOffInHome: true
-    }
-  },
-  {
-    id: 4,
-    name: 'Lobby humidity',
-    type: CloudDeviceType.HumiditySensor,
-    datasource: 'device-5',
-    value: random(10, 60),
-    location: 2,
-    preferences: {
-      DisplayHumidityInHome: true,
-    }
-  },
-  {
-    id: 5,
-    name: 'CO2 sensor',
-    type: CloudDeviceType.CO2Sensor,
-    datasource: 'device-6',
-    value: random(100, 600),
-    location: 2,
-    preferences: {
-      DisplayCO2InHome: true
-    }
-  },
-  {
-    id: 6,
-    name: 'Magnet temperature',
-    type: CloudDeviceType.TemperatureSensor,
-    datasource: 'device-7',
-    value: random(10, 30),
-    location: 2,
-    preferences: {
-      DisplayRealTimeTemperatureInSidebar: true
-    }
-  },
-  {
-    id: 7,
-    name: 'Negative temperature',
-    type: CloudDeviceType.TemperatureSensor,
-    datasource: 'device-8',
-    value: random(10, 30),
-    location: 3,
-    preferences: {
-      DisplayRealTimeTemperatureInSidebar: true
-    }
-  },
-  {
-    id: 8,
-    name: 'Thermal temperature',
-    type: CloudDeviceType.TemperatureSensor,
-    datasource: 'device-9',
-    value: random(10, 30),
-    location: 3,
-    preferences: {
-      DisplayRealTimeTemperatureInSidebar: true
-    }
-  },
-];
-const validateLocation = (location: ILocation) => {
-  const errors: Array<IResponseErrorItem> = [];
-  if (!location.name) {
-    errors.push({
-      message: 'Please provide a name for location',
-      location: 'name'
-    });
-  }
-  if (!location.level) {
-    errors.push({
-      message: 'Please select a level',
-      location: 'level'
-    });
-  }
-  if (!location.icon) {
-    errors.push({
-      message: 'Please select an icon for location',
-      location: 'icon'
-    });
-  }
-  return errors;
-};
 @Injectable()
 export class MockService {
   public routes = {
     'POST /api/user/signin': 'signIn',
     'POST /api/user/signup': 'signUp',
-    'GET /api/locations': 'getLocations',
     'DELETE /api/role/:id': 'deleteRole',
     'GET /api/roles': 'getRoles',
     'POST /api/role': 'postRole',
-    'GET /api/devices/daily-history/:id': 'GetDeviceDailyHistory',
-    'GET /api/devices/token': 'getDevicesToken',
-    'GET /api/devices/day-history/:date/:id': 'GetDeviceDayHistory',
-    'GET /api/device/:id': 'getDevice',
-    'GET /api/devices': 'getDevices',
-    'GET /api/unconnected': 'getUnconnected',
-    'POST /api/device': 'postDevice',
     'POST /api/forget-password': 'forgetPassword',
-    'POST /api/location': 'postLocation',
-    'DELETE /api/location/:id': 'deleteLocation',
-    'DELETE /api/device/:id': 'deleteDevice',
     'GET /api/contact-details': 'GetContactDetails',
     'POST /api/user/settings': 'updateUserProfile',
     'POST /api/contact-details': 'UpdateContactDetails',
@@ -233,13 +107,6 @@ export class MockService {
     };
   }
 
-  public GetDeviceDayHistory(req: HttpRequest<any>): IResponse<number> {
-    return {
-      data: {
-        items: times(24 , () => random (10, 30)),
-      }
-    };
-  }
   public mockUser () {
     return {
       email: 'alitorabi@seekasia.com',
@@ -306,20 +173,7 @@ export class MockService {
         }
       };
     }
-  }
-  public getUnconnected (req: HttpRequest<any>): IResponse<DataSource> {
-    return {
-      data: {
-        items: [
-          {
-            dataSourceId: 'device-36',
-            date: new Date(),
-            value: 22
-          }
-        ]
-      }
-    };
-  }
+  } 
   public postRole (req: HttpRequest<any>): IResponse<IRole> {
     const form: IRole = req.body;
     if (!form.id) {
@@ -394,103 +248,7 @@ export class MockService {
       }
     };
   }
-
-  public getDevices (): IResponse<CloudDevice> {
-    return {
-      data: {
-        items: devices
-      }
-    };
-  }
-  public getDevice (req: HttpRequest<any> , params): IResponse<CloudDevice> {
-    const id = req.url.split('/').reverse()[0];
-    return {
-      data: {
-        items: devices.filter(device => device.id === +id)
-      }
-    };
-  }
-
-  public getLocations (): IResponse<any> {
-    return {
-      data: {
-        items: [
-          {
-            id: 1,
-            name: 'Kitchen',
-            'icon': IotSvgService.kitchen,
-            level: '2',
-            temperatureDevice: 1
-          },
-          {
-            id: 2,
-            name: 'Bathroom',
-            'icon': IotSvgService.pathtub,
-            level: '3',
-            temperatureDevice: 2
-          },
-          {
-            id: 3,
-            name: 'Master bedroom',
-            'icon': IotSvgService.masterBedroom,
-            level: '2',
-            temperatureDevice: 1
-          },
-        ]
-      }
-    };
-  }
-  public postDevice( req: HttpRequest<any> ): IResponse<CloudDevice> {
-    const device: CloudDevice = req.body;
-    if (! device.id) {
-      device.id = random(1000, 999999);
-    }
-    const validations = DeviceValidator(device);
-    if (validations.length) {
-      return {
-        error: {
-          message: 'Device cannot be created. Please currect the fields are highlighted',
-          errors: validations,
-          code: 34
-        }
-      };
-    }
-    return {
-      data: {
-        items: [
-          device
-        ]
-      }
-    };
-  }
-  public postLocation(req: HttpRequest<any>): IResponse<ILocation> {
-    const location: ILocation = req.body;
-    if ( ! location.id) {
-      location.id = random(100, 9999);
-    }
-    if (validateLocation(location).length) {
-      return {
-        error: {
-          message: 'Cannot create a device. Please fix the following issues',
-          code: 294,
-          errors: validateLocation(location)
-        }
-      };
-    }
-    return {
-      data: {
-        items: [
-          {
-            icon: location.icon,
-            id: location.id,
-            name: location.name,
-            level: location.level,
-            temperatureDevice: location.temperatureDevice
-          }
-        ]
-      }
-    };
-  }
+     
   public UpdateContactDetails(req: HttpRequest<any>): IResponse<any> {
 
     return {
@@ -522,28 +280,7 @@ export class MockService {
         ]
       }
     };
-  }
-  public GetDeviceDailyHistory (req: HttpRequest<any>): IResponse<ICloudDeviceDailyHistory> {
-    // const id = req.body.id;
-    return {
-      data: {
-        items: [
-          {
-            date: new Date('2018-09-10'),
-            average: 33.5
-          },
-          {
-            date: new Date('2018-09-09'),
-            average: 35.2
-          },
-          {
-            date: new Date('2018-09-08'),
-            average: 31.5
-          }
-        ]
-      }
-    };
-  }
+  } 
   public updateUserProfile(req: HttpRequest<any>): IResponse<IUser> {
     const user: IUser = req.body;
     return {
@@ -574,41 +311,6 @@ export class MockService {
     return {
       data: {
         items: []
-      }
-    };
-  }
-
-  public deleteLocation (req: HttpRequest<any>): IResponse<any> {
-    return {
-      data: {
-        items: [
-          {
-
-          }
-        ]
-      }
-    };
-  }
-  public deleteDevice (req: HttpRequest<any>): IResponse<any> {
-    return {
-      data: {
-        items: [
-          {
-
-          }
-        ]
-      }
-    };
-  }
-
-  public getDevicesToken (req: HttpRequest<any>): IResponse<any> {
-    return {
-      data: {
-        items: [
-          {
-            hash: 'ei923040'
-          }
-        ]
       }
     };
   }

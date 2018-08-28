@@ -4,6 +4,7 @@ import { DataSource } from '@app/definitions';
 import { environment } from 'environments/environment';
 import { RequestsService } from '@app/services/requests.service';
 import { IsSuccessEntity } from '@app/common';
+import { IotRequestsService } from '@app/iot/iot-requests.service';
 declare var require: any;
 const YAML = require('yamljs');
 
@@ -57,7 +58,7 @@ export class SendingInformationHttpsComponent implements OnInit {
     }
   };
   constructor(
-    private requests: RequestsService,
+    private requests: IotRequestsService,
   ) { }
 
   async ngOnInit() {
