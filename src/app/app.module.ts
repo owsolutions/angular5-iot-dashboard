@@ -7,7 +7,6 @@ import { appReducersGenerator } from './app.reducers';
 import { createRoutes  } from './app.routes';
 import { NgMediaModule } from './ng-media/ng-media-module';
 import { NotificationService } from '@services/notification.service';
-import { SettingsComponent } from '@components/settings/settings.component';
 import { PageHeaderComponent } from '@components/page-header/page-header.component';
 import { TextInputComponent } from '@components/forms/text-input/text-input.component';
 import { RadioInputComponent } from '@components/forms/radio-input/radio-input.component';
@@ -87,7 +86,6 @@ export class AppComponent implements OnInit {
 @NgModule({
   declarations: [
     AppComponent,
-    SettingsComponent,
     PageHeaderComponent,
     TextInputComponent,
     RadioInputComponent,

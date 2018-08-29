@@ -12,6 +12,7 @@ import { SendingInformationHttpsComponent } from '@app/iot/docs/sending-informat
 import { DeviceEventsActionsComponent } from '@app/iot/device-events-actions/device-events-actions.component';
 import { GpsComponent } from '@app/iot/gps/gps.component';
 import { RestfulComponent } from '@app/iot/docs/restful/restful.component';
+import { SettingsComponent } from '@app/iot/settings/settings.component';
 
 export function AuthLayoutChild(component: any, route: string, options: any = {}): Route {
   return {
@@ -29,6 +30,7 @@ export const IotAuthLayoutRoutes = [
   AuthLayoutChild (LocationSingleComponent, 'location/new', {data: {mode: 'new'}}),
   AuthLayoutChild (ActivityComponent, 'activities'),
   AuthLayoutChild (GpsComponent, 'gps'),
+  AuthLayoutChild (SettingsComponent, 'token'),
   AuthLayoutChild (DevicesComponent, 'devices'),
   AuthLayoutChild (DeviceSingleComponent, 'device/create'),
   AuthLayoutChild (DeviceEventsActionsComponent, 'device/events-and-actions/:id'),

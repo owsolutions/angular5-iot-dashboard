@@ -1,5 +1,4 @@
 import { RouterModule, Routes } from '@angular/router';
-import { SettingsComponent } from '@components/settings/settings.component';
 import { GalleryComponent } from '@components/gallery/gallery.component';
 import { Route } from '@angular/router';
 import { LayoutComponent } from './ng5-basic/layout/layout.component';
@@ -32,7 +31,6 @@ export const appRoutes: Routes = [
     component: LayoutComponent,
     children: [
       ...IotAuthLayoutRoutes,
-      AuthLayoutChild (SettingsComponent, 'token'),
       AuthLayoutChild (ProfileComponent, 'profile'),
       AuthLayoutChild (ContactDetailsComponent, 'monitoring/manage-contacts'),
       AuthLayoutChild (GalleryComponent, 'gallery'),
