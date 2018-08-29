@@ -12,6 +12,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserMockInterceptor } from '@app/users/user-mock.interceptor';
 import { environment } from 'environments/environment';
 import { userModuleReducersGenerator } from '@app/users/user-module.reducers';
+import { SampleIndexComponent } from './sample-index/sample-index.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,7 @@ import { userModuleReducersGenerator } from '@app/users/user-module.reducers';
     !environment.targetAPI ? { provide: HTTP_INTERCEPTORS, useClass: UserMockInterceptor, multi: true } : [],
   ],
   declarations: [
-
+    SampleIndexComponent
   ]
 })
 export class BoilerplateModule { }

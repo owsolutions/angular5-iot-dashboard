@@ -51,6 +51,7 @@ import { IndexComponent } from '@app/iot/index/index.component';
 import { StatisticsComponent } from '@app/iot/statistics/statistics.component';
 import { RealtimeService } from '@app/iot/realtime.service';
 import { Ng5BasicModule } from '@app/ng5-basic/ng5-basic.module';
+import { SettingsComponent } from '@app/iot/settings/settings.component';
 
 @NgModule({
   imports: [
@@ -75,6 +76,7 @@ import { Ng5BasicModule } from '@app/ng5-basic/ng5-basic.module';
     !environment.targetAPI ? { provide: HTTP_INTERCEPTORS, useClass: IotMockInterceptor, multi: true } : [],
   ],
   declarations: [
+    SettingsComponent,
     StatisticsComponent,
     IndexComponent,
     IconWidgetsComponent,
