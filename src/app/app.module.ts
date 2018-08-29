@@ -7,27 +7,17 @@ import { appReducersGenerator } from './app.reducers';
 import { createRoutes  } from './app.routes';
 import { NgMediaModule } from './ng-media/ng-media-module';
 import { NotificationService } from '@services/notification.service';
-import { PageHeaderComponent } from '@components/page-header/page-header.component';
-import { TextInputComponent } from '@components/forms/text-input/text-input.component';
-import { RadioInputComponent } from '@components/forms/radio-input/radio-input.component';
-import { SelectInputComponent } from '@components/forms/select-input/select-input.component';
 import { PermissionsService } from '@services/permissions.service';
 import { RequestsService } from '@services/requests.service';
-import { CheckboxInputComponent } from '@components/forms/checkbox-input/checkbox-input.component';
 import { UserService, AuthGuard } from '@services/user.service';
-import { OutputPinViewComponent } from '@components/output-pin-view/output-pin-view.component';
-import { UserWidgetComponent } from '@components/user-widget/user-widget.component';
 import { GalleryComponent } from '@components/gallery/gallery.component';
 import { LoadingComponent } from '@components/loading/loading.component';
-import { NavigationComponent } from '@components/navigation/navigation.component';
-import { SidebarWidgetComponent } from '@components/sidebar-widget/sidebar-widget.component';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { environment } from '../environments/environment';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MockInterceptor } from '@services/mock.interceptor';
 import { MockService } from '@services/mocks.service';
 import { TokenInterceptor } from '@services/token.interceptor';
-import { QuickChartComponent } from '@app/components/quick-chart/quick-chart.component';
 import { ToasterModule } from 'angular2-toaster';
 import { NgxTooltipModule } from '@app/components/ngx-tooltip/ngx-tooltip.module';
 import { PrivacyPolicyComponent } from '@app/components/privacy-policy/privacy-policy.component';
@@ -47,8 +37,7 @@ import { GlobalizationService } from '@app/ng5-basic/globalization.service';
 import { BoilerplateModule } from '@app/boilerplate/boilerplate.module';
 
 declare var require: any;
-const Highcharts = require('highcharts/highstock');
-window['Highcharts'] = Highcharts;
+window['Highcharts'] = require('highcharts/highstock');
 
 @Component({
   selector: 'app-root',
@@ -87,22 +76,12 @@ export class AppComponent implements OnInit {
 @NgModule({
   declarations: [
     AppComponent,
-    PageHeaderComponent,
-    TextInputComponent,
-    RadioInputComponent,
-    SelectInputComponent,
-    SidebarWidgetComponent,
-    CheckboxInputComponent,
-    QuickChartComponent,
-    UserWidgetComponent,
     GalleryComponent,
     LoadingComponent,
     PrivacyPolicyComponent,
     ProfileComponent,
     ContactDetailsComponent,
     AngularCalendarComponent,
-    OutputPinViewComponent,
-    NavigationComponent,
   ],
   imports: [
     BoilerplateModule,
