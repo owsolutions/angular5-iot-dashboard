@@ -44,6 +44,7 @@ import { CalendarModule } from 'angular-calendar';
 import { AngularCalendarComponent } from '@app/boilerplate/angular-calendar/angular-calendar.component';
 import { IotModule } from '@app/iot/iot.module';
 import { GlobalizationService } from '@app/ng5-basic/globalization.service';
+import { BoilerplateModule } from '@app/boilerplate/boilerplate.module';
 
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
@@ -104,6 +105,7 @@ export class AppComponent implements OnInit {
     NavigationComponent,
   ],
   imports: [
+    BoilerplateModule,
     NgxTooltipModule,
     BrowserAnimationsModule,
     Ng5BasicModule,

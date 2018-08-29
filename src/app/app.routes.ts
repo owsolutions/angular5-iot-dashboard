@@ -9,6 +9,7 @@ import { ContactDetailsComponent } from '@app/components/contact-details/contact
 import { userAuthLayoutRoutes } from '@app/users/user-routes';
 import { AngularCalendarComponent } from '@app/boilerplate/angular-calendar/angular-calendar.component';
 import { IotAuthLayoutRoutes } from '@app/iot/iot-routes';
+import { boilerplateRoutes } from '@app/boilerplate/boilerplate.routes';
 
 export function AuthLayoutChild(component: any, route: string, options: any = {}): Route {
   return {
@@ -31,6 +32,7 @@ export const appRoutes: Routes = [
     component: LayoutComponent,
     children: [
       ...IotAuthLayoutRoutes,
+      ...boilerplateRoutes,
       AuthLayoutChild (ProfileComponent, 'profile'),
       AuthLayoutChild (ContactDetailsComponent, 'monitoring/manage-contacts'),
       AuthLayoutChild (GalleryComponent, 'gallery'),
