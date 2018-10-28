@@ -14,13 +14,13 @@ import 'rxjs/add/operator/delay';
 @Injectable()
 export class MockService {
   public routes = {
-    'POST /iot-api/user/signin': 'signIn',
-    'POST /iot-api/user/signup': 'signUp',
-    'POST /iot-api/forget-password': 'forgetPassword',
-    'GET /iot-api/contact-details': 'GetContactDetails',
-    'POST /iot-api/user/settings': 'updateUserProfile',
-    'POST /iot-api/contact-details': 'UpdateContactDetails',
-    'POST /iot-api/user/reset-password': 'ResetPassword',
+    'POST /api-iot/user/signin': 'signIn',
+    'POST /api-iot/user/signup': 'signUp',
+    'POST /api-iot/forget-password': 'forgetPassword',
+    'GET /api-iot/contact-details': 'GetContactDetails',
+    'POST /api-iot/user/settings': 'updateUserProfile',
+    'POST /api-iot/contact-details': 'UpdateContactDetails',
+    'POST /api-iot/user/reset-password': 'ResetPassword',
   };
 
   constructor (

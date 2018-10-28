@@ -38,17 +38,17 @@ export class IotMockService {
   public handleRoute = handleRoute.bind(this);
   public urlMatch = urlMatch.bind(this);
   public routes = {
-    'GET /iot-api/locations': 'getLocations',
-    'GET /iot-api/devices/daily-history/:id': 'GetDeviceDailyHistory',
-    'GET /iot-api/devices/token': 'getDevicesToken',
-    'GET /iot-api/devices/day-history/:date/:id': 'GetDeviceDayHistory',
-    'GET /iot-api/device/:id': 'getDevice',
-    'GET /iot-api/devices': 'getDevices',
-    'GET /iot-api/unconnected': 'getUnconnected',
-    'POST /iot-api/device': 'postDevice',
-    'POST /iot-api/location': 'postLocation',
-    'DELETE /iot-api/location/:id': 'deleteLocation',
-    'DELETE /iot-api/device/:id': 'deleteDevice',
+    'GET /api-iot/locations': 'getLocations',
+    'GET /api-iot/devices/daily-history/:id': 'GetDeviceDailyHistory',
+    'GET /api-iot/devices/token': 'getDevicesToken',
+    'GET /api-iot/devices/day-history/:date/:id': 'GetDeviceDayHistory',
+    'GET /api-iot/device/:id': 'getDevice',
+    'GET /api-iot/devices': 'getDevices',
+    'GET /api-iot/unconnected': 'getUnconnected',
+    'POST /api-iot/device': 'postDevice',
+    'POST /api-iot/location': 'postLocation',
+    'DELETE /api-iot/location/:id': 'deleteLocation',
+    'DELETE /api-iot/device/:id': 'deleteDevice',
   };
 
   constructor (

@@ -25,7 +25,7 @@ export class UserRequestsService {
   ) { }
 
   public async GetRoles (): Promise<IResponse<IRole>> {
-    const url = environment.api + '/iot-api/roles';
+    const url = environment.api + '/api-iot/roles';
     const ref = this.http.get(url).toPromise();
     try {
       const response: IResponse<IRole> = await ref;
@@ -45,7 +45,7 @@ export class UserRequestsService {
     }
   }
   public async GetUser (id: number): Promise<IResponse<IRole>> {
-    const url = environment.api + '/iot-api/user/' + id;
+    const url = environment.api + '/api-iot/user/' + id;
     const ref = this.http.get(url).toPromise();
     try {
       const response: IResponse<IRole> = await ref;
@@ -58,7 +58,7 @@ export class UserRequestsService {
     }
   }
   public async GetUsers (): Promise<IResponse<IUser>> {
-    const url = environment.api + '/iot-api/users';
+    const url = environment.api + '/api-iot/users';
     const ref = this.http.get(url).toPromise();
     try {
       const response: IResponse<IUser> = await ref;
@@ -79,7 +79,7 @@ export class UserRequestsService {
   }
 
   public async PostRole (role: IRole): Promise<IResponse<IRole>> {
-    const ref = this.http.post(environment.api + '/iot-api/role' , role).toPromise();
+    const ref = this.http.post(environment.api + '/api-iot/role' , role).toPromise();
     try {
       const response: IResponse<IRole> = await ref;
       if (response && response.data && response.data.items && response.data.items[0]) {
@@ -100,7 +100,7 @@ export class UserRequestsService {
     }
   }
   public async PostUser (user: IUser): Promise<IResponse<IUser>> {
-    const ref = this.http.post(environment.api + '/iot-api/user' , user).toPromise();
+    const ref = this.http.post(environment.api + '/api-iot/user' , user).toPromise();
     try {
       const response: IResponse<IUser> = await ref;
       if (response && response.data && response.data.items && response.data.items[0]) {
@@ -121,7 +121,7 @@ export class UserRequestsService {
     }
   }
   async DeleteUser (id: number ) {
-    const url = environment.api + '/iot-api/user/' + id;
+    const url = environment.api + '/api-iot/user/' + id;
     const ref = this.http.delete(url).toPromise();
     try {
       const response: IResponse<IUser> = await ref;
@@ -145,7 +145,7 @@ export class UserRequestsService {
   }
 
   async deleteRole (id: number ) {
-    const ref = this.http.delete(environment.api + '/iot-api/role/' + id).toPromise();
+    const ref = this.http.delete(environment.api + '/api-iot/role/' + id).toPromise();
     try {
       const response: IResponse<IRole> = await ref;
       if (IsSuccessEntity(response)) {

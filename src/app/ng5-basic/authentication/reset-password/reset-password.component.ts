@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ResetPasswordComponent implements OnInit {
   public key = '';
-  public url = `${environment.api}/iot-api/user/reset-password`;
+  public url = `${environment.api}/api-iot/user/reset-password`;
   public error = error;
   public response: IResponse<any> = null;
   public isRequesting = false;

@@ -23,7 +23,7 @@ export class SignupFormComponent implements OnInit {
   };
   public passwordVisibilty = false;
   public error = error;
-  public signupUrl = environment.api + '/iot-api/user/signup';
+  public signupUrl = environment.api + '/api-iot/user/signup';
   constructor(
     private http: HttpClient,
     private user: UserService,
