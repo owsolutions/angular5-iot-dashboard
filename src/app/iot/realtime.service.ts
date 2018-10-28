@@ -58,7 +58,7 @@ export class RealtimeService {
 
   async connectToRoom (token) {
     const options = {
-      url: environment.api + '/api/get/a/room',
+      url: environment.api + '/iot-api/get/a/room',
       method: 'get',
       headers: {
         'x-token': token

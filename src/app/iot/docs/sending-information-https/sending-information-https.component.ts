@@ -72,7 +72,7 @@ export class SendingInformationHttpsComponent implements OnInit {
   }
 
   public GetUrl (affix: string) {
-    return environment.api + '/api/' + affix;
+    return environment.api + '/iot-api/' + affix;
   }
 
   public GetYAML (object) {

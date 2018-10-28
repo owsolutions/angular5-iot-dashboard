@@ -27,15 +27,15 @@ export class UserMockService {
   public handleRoute = handleRoute.bind(this);
   public urlMatch = urlMatch.bind(this);
   public routes = {
-    'POST /api/user/signin': 'signIn',
-    'POST /api/user/signup': 'signUp',
-    'DELETE /api/role/:id': 'deleteRole',
-    'GET /api/roles': 'getRoles',
-    'GET /api/users': 'getUsers',
-    'POST /api/role': 'postRole',
-    'POST /api/user': 'postUser',
-    'GET /api/user/:id': 'getUser',
-    'DELETE /api/user/:id': 'deleteUser',
+    'POST /iot-api/user/signin': 'signIn',
+    'POST /iot-api/user/signup': 'signUp',
+    'DELETE /iot-api/role/:id': 'deleteRole',
+    'GET /iot-api/roles': 'getRoles',
+    'GET /iot-api/users': 'getUsers',
+    'POST /iot-api/role': 'postRole',
+    'POST /iot-api/user': 'postUser',
+    'GET /iot-api/user/:id': 'getUser',
+    'DELETE /iot-api/user/:id': 'deleteUser',
   };
 
   constructor (

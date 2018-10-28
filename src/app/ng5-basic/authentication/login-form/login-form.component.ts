@@ -14,7 +14,7 @@ import { environment } from '../../../../environments/environment';
 })
 export class LoginFormComponent implements OnInit {
   public isRequesting = false;
-  public url = `${environment.api}/api/user/signin`;
+  public url = `${environment.api}/iot-api/user/signin`;
   public response: IResponse<any> = null;
   public error = error;
   public form: IUserForm = {
