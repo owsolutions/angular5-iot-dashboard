@@ -4,24 +4,19 @@
       <nav class="col-md-6">
           <ul>
               <li >
-                  <a href="https://esam.io" target="_blank">
+                  <a href="https://pixelplux.com" target="_blank">
                       Home
                   </a>
               </li>
              <li>
-                <a href="https://esam.io/#pricing" target="_blank">
+                <a href="https://pixelplux.com/en/pricing" target="_blank">
                     Pricing
-                </a>
-             </li>
-             <li>
-                <a href="https://esam.io/#subscribe" target="_blank">
-                    Subscribe
                 </a>
              </li>
           </ul>
       </nav>
       <div class="copyright col-md-6">
-        © 2018 <a href="https://esam.io">ESAM</a>, Inc. <i class="icon-language"></i> Language  
+        © 2018 <a href="https://esam.io">PixelPlux</a>, Inc. <i class="icon-language"></i> Language  
         <select class="change-lang" (change)="ChangeLanguage($event.target.value)">
             <option *ngFor="let item of langs" [value]="item.lang" [selected]="translate.currentLang === item.lang">{{item.lang | uppercase}}</option>
         </select>

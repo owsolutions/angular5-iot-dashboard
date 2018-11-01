@@ -72,7 +72,7 @@ export class NgxSidebarComponent implements OnInit {
     let focused = false;
     const flatNav = flatten(this.navigation);
     flatNav.map(nav => {
-      if (nav.link === url && nav.focused) {
+      if (nav && nav.link === url && nav.focused) {
         focused = true;
         $nav = nav;
       }
