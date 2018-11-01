@@ -1,21 +1,20 @@
-
 language: node_js
-  node_js:
+node_js:
   - '9'
-  branches:
-    only:
-    - master
-  before_script:
+branches:
+  only:
+  - master
+before_script:
   - npm install -g @angular/cli@1.7.2
-  cache:
-    yarn: true
-    directories:
-    - "$HOME/.yarn-cache"
-    - node_modules
-  dist: trusty
-  addons:
-    chrome: stable
-  before_install:
+cache:
+  yarn: true
+  directories:
+  - "$HOME/.yarn-cache"
+  - node_modules
+dist: trusty
+addons:
+  chrome: stable
+before_install:
   - export CHROME_BIN=/usr/bin/google-chrome
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
@@ -26,8 +25,8 @@ language: node_js
   - sudo sysctl fs.inotify.max_user_watches=524288
   - sudo sysctl fs.inotify.max_queued_events=524288
   - sudo sysctl -p
-  script:
-  
+
+script:
 
   - npm run lint
   - npm run build
@@ -38,11 +37,11 @@ language: node_js
   - sleep 10
   - npm run ci
   - npm install && npm run build:github
-  deploy:
-    provider: pages
-    skip-cleanup: true
-    local-dir: dist
-    github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
-    keep-history: true
-    on:
-      branch: master
+deploy:
+  provider: pages
+  skip-cleanup: true
+  local-dir: dist
+  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  keep-history: true
+  on:
+    branch: master
