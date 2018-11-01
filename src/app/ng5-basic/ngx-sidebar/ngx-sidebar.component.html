@@ -2,7 +2,7 @@
   
   <ng-container *ngIf="isRouteFocused">
     <a class="move-back-btn" (click)="GoBack();">Move back</a>
-    <li *ngIf="nav" [routerLinkActive]="nav.link ? 'opened' : ''"  (click)="menuToggle($event, nav);$event.stopPropagation()">
+    <li *ngIf="nav" [routerLinkActive]="nav && nav.link ? 'opened' : ''"  (click)="menuToggle($event, nav);$event.stopPropagation()">
       <a (click)="onLinkClick(nav)" class="ngx-menu-item ngx-menu-link-{{nav.class}}" [routerLink]="nav.link">
         <i [class]='nav.icon'></i>
         {{ nav.title | translate }}
