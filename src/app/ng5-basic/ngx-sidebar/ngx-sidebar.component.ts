@@ -43,6 +43,9 @@ export class NgxSidebarComponent implements OnInit {
     this.componentRef.destroy();
   }
   renderComponents(childComponent) {
+    if (!childComponent) {
+      return;
+    }
     let componentFactory = this.compiler.resolveComponentFactory(childComponent);
     this.componentRef = this.target.createComponent(componentFactory);
     this.renderComponent();
