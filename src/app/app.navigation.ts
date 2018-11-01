@@ -21,4 +21,10 @@ export const navigation: NgxMenuItem[] = [
     class: 'gallery',
     focused: true,
   } : null,
+  {
+    link: '/login',
+    icon: 'icon-power_settings_new',
+    title: 'Logout',
+    class: 'logout'
+  },
 ];
