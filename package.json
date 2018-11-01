@@ -9,6 +9,7 @@
     "build:local": "./node_modules/.bin/ng build --env=prodlocal -prod",
     "build:mock": "./node_modules/.bin/ng build --env=prodmock -prod",
     "test": "./node_modules/.bin/ng test",
+    "serve": "cd dist && serve",
     "lint": "./node_modules/.bin/ng lint",
     "lint:fix": "ng lint --fix",
     "build:github": "./node_modules/.bin/ng build -e=github -prod --base-href=/angular5-iot-dashboard --deploy-url=/angular5-iot-dashboard/ --progress false",
