@@ -39,6 +39,6 @@ export class DocsComponent implements OnInit {
   }
 
   public GetUrl (affix: string) {
-    return environment.api + '/api/' + affix;
+    return environment.api + environment.apiPrefix + '/' + affix;
   }
 }

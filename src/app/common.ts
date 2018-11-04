@@ -13,6 +13,7 @@ export function GetNetworkError (): IResponse<any> {
 }
 import { IotSvgService } from '@app/services/iot-svg/iot-svg.service';
 import { DataSource } from '@app/definitions';
+import { environment } from 'environments/environment';
 
 export function error (response: IResponse<any>, fieldName: string) {
   if ( ! response || ! response.error || !response.error.errors) {
@@ -99,4 +100,15 @@ export function urlMatch( url: string, method: string = null, routes, prefixAPI)
     }
   }
   return null;
+}
+
+export const API = {
+  'get': (affix) => 'GET ' + environment.apiPrefix + '/' + affix,
+  'post': (affix) => 'POST ' + environment.apiPrefix + '/' + affix,
+  'delete': (affix) => 'delete ' + environment.apiPrefix + '/' + affix,
+}
+
+
+export function GetUrl (affix: string) {
+  return environment.api + environment.apiPrefix + '/' + affix;
 }

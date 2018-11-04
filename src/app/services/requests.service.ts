@@ -9,7 +9,7 @@ import 'rxjs/add/observable/of';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'environments/environment';
 import { IResponse } from 'response-type';
-import { GetNetworkError } from '@app/common';
+import { GetNetworkError, GetUrl } from '@app/common';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -22,7 +22,7 @@ export class RequestsService {
   }
 
   public async GetContactDetails (): Promise<IResponse<IContact>> {
-    const url = environment.api + '/api/contact-details';
+    const url = GetUrl('contact-details');
     const ref = this.http.get(url).toPromise();
     try {
       const response: IResponse<IContact> = await ref;
@@ -36,7 +36,7 @@ export class RequestsService {
   }
 
   public async UpdateUserProfile (user: IUser): Promise<IResponse<ISettingsUpdateResponse>> {
-    const ref = this.http.post(environment.api + '/api/user/settings' , user).toPromise();
+    const ref = this.http.post(GetUrl('user/settings') , user).toPromise();
     try {
       const response: IResponse<ISettingsUpdateResponse> = await ref;
       return response;
@@ -48,7 +48,7 @@ export class RequestsService {
     }
   }
   public async UpdateContactDetails (contacts: Array<IContact>): Promise<IResponse<any>> {
-    const ref = this.http.post(environment.api + '/api/contact-details' , {contacts}).toPromise();
+    const ref = this.http.post(GetUrl('contact-details') , {contacts}).toPromise();
     try {
       const response: IResponse<any> = await ref;
       return response;
@@ -61,7 +61,7 @@ export class RequestsService {
   }
 
   public async RequestPasswordReset (username: string): Promise<IResponse<ILocation>> {
-    const ref = this.http.post(environment.api + '/api/forget-password' , {username}).toPromise();
+    const ref = this.http.post(GetUrl('forget-password') , {username}).toPromise();
     try {
       const response: IResponse<ILocation> = await ref;
       return response;

@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { CloudDevice, DataSource } from '@app/definitions';
 import { random, isNumber } from '@lodash';
 import { environment } from 'environments/environment';
-import { IsDataSource } from '@app/common';
+import { IsDataSource, GetUrl } from '@app/common';
 import { NotificationService } from '@app/services/notification.service';
 import { IotModuleState } from '@app/iot/iot.module.defs';
 import { IotRequestsService } from './iot-requests.service';
@@ -60,7 +60,7 @@ export class RealtimeService {
 
   async connectToRoom (token) {
     const options = {
-      url: environment.api + '/api/get/a/room',
+      url: GetUrl('get/a/room'),
       method: 'get',
       headers: {
         'x-token': token

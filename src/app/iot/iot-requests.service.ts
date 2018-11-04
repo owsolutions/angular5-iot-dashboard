@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'environments/environment';
 import { IotMockService } from './iot-mocks.service';
 import { IResponse } from 'response-type';
-import { GetNetworkError, IsSuccessEntity } from '@app/common';
+import { GetNetworkError, IsSuccessEntity, GetUrl } from '@app/common';
 import 'rxjs/add/operator/toPromise';
 import { IotModuleState } from '@app/iot/iot.module.defs';
 import { random } from '@lodash';
@@ -26,7 +26,7 @@ export class IotRequestsService {
   ) { }
 
   public getLocations() {
-    this.http.get(environment.api + '/api/locations').subscribe(
+    this.http.get(GetUrl('locations')).subscribe(
       (response: any) => {
         const collections = response.data.items;
         for (const item of collections) {
@@ -41,7 +41,7 @@ export class IotRequestsService {
     );
   }
   public getUnconnected () {
-    this.http.get(environment.api + '/api/unconnected').subscribe(
+    this.http.get(GetUrl('unconnected')).subscribe(
       (response: any) => {
         const collections = response.data.items;
         for (const item of collections) {
@@ -58,7 +58,7 @@ export class IotRequestsService {
 
   public async getDevice (id: number) {
     try {
-      const response: IResponse<CloudDevice> = await (this.http.get(environment.api + '/api/device/' + id).toPromise());
+      const response: IResponse<CloudDevice> = await (this.http.get(GetUrl('device/' + id)).toPromise());
       const collections = response.data.items;
       for (const item of collections) {
         this.store.dispatch({
@@ -72,7 +72,7 @@ export class IotRequestsService {
     }
   }
   public getDevices () {
-    this.http.get(environment.api + '/api/devices').subscribe(
+    this.http.get(GetUrl('devices')).subscribe(
       (response: any) => {
         const collections = response.data.items;
         for (const item of collections) {
@@ -88,7 +88,7 @@ export class IotRequestsService {
   }
 
   public async GetDeviceDayHistory(id: number, date: Date): Promise<IResponse<number>> {
-    const url = environment.api + '/api/devices/day-history/' + date + '/' + id;
+    const url = GetUrl('devices/day-history/' + date + '/' + id);
     const ref = this.http.get(url).toPromise();
     try {
       const response: IResponse<number> = await ref;
@@ -102,7 +102,7 @@ export class IotRequestsService {
   }
 
   public async getDeviceDailyHisotry (id: number): Promise<IResponse<ICloudDeviceDailyHistory>> {
-    const url = environment.api + '/api/devices/daily-history/' + id;
+    const url = GetUrl('devices/daily-history/' + id);
     const ref = this.http.get(url).toPromise();
     try {
       const response: IResponse<ICloudDeviceDailyHistory> = await ref;
@@ -117,7 +117,7 @@ export class IotRequestsService {
 
 
   public async PostDevice (device: CloudDevice): Promise<IResponse<CloudDevice>> {
-    const ref = this.http.post(environment.api + '/api/device' , device).toPromise();
+    const ref = this.http.post(GetUrl('device') , device).toPromise();
     try {
       const response: IResponse<CloudDevice> = await ref;
       if (response && response.data && response.data.items && response.data.items[0]) {
@@ -143,7 +143,7 @@ export class IotRequestsService {
   }
 
   public async PostLocation (location: ILocation): Promise<IResponse<ILocation>> {
-    const ref = this.http.post(environment.api + '/api/location' , location).toPromise();
+    const ref = this.http.post(GetUrl('location') , location).toPromise();
     try {
       const response: IResponse<ILocation> = await ref;
       if (IsSuccessEntity(response)) {
@@ -167,7 +167,7 @@ export class IotRequestsService {
     }
   }
   async deleteLocation (id: number ) {
-    const ref = this.http.delete(environment.api + '/api/location/' + id).toPromise();
+    const ref = this.http.delete(GetUrl('location/' + id)).toPromise();
     try {
       const response: IResponse<ILocation> = await ref;
       if (IsSuccessEntity(response)) {
@@ -191,7 +191,7 @@ export class IotRequestsService {
     }
   }
   async deleteDevice (id: number ) {
-    const ref = this.http.delete(environment.api + '/api/device/' + id).toPromise();
+    const ref = this.http.delete(GetUrl('device/' + id)).toPromise();
     try {
       const response: IResponse<ILocation> = await ref;
       if (IsSuccessEntity(response)) {
@@ -215,14 +215,14 @@ export class IotRequestsService {
     }
   }
   async getDeviceToken (): Promise<IResponse<any>> {
-    return await this.http.get(environment.api + '/api/devices/token').toPromise();
+    return await this.http.get(GetUrl('devices/token')).toPromise();
   }
 
   async changeComplexBoardOutput (dataSourceId, pin, value): Promise<IResponse<any>> {
     const data = {
       dataSourceId, pin, value
     };
-    return await this.http.post(environment.api + '/api/devices/complex-terminal', data).toPromise();
+    return await this.http.post(GetUrl('devices/complex-terminal'), data).toPromise();
   }
 
 }

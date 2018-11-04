@@ -5,7 +5,7 @@ import { IUser, IRole } from '@app/definitions';
 import { random } from '@lodash';
 import { TranslateService } from '@ngx-translate/core';
 import 'rxjs/add/operator/delay';
-import { handleRoute, urlMatch } from '@app/common';
+import { handleRoute, urlMatch, API } from '@app/common';
 
 let $Users: Array<IUser> = [
   {
@@ -27,15 +27,15 @@ export class UserMockService {
   public handleRoute = handleRoute.bind(this);
   public urlMatch = urlMatch.bind(this);
   public routes = {
-    'POST /api/user/signin': 'signIn',
-    'POST /api/user/signup': 'signUp',
-    'DELETE /api/role/:id': 'deleteRole',
-    'GET /api/roles': 'getRoles',
-    'GET /api/users': 'getUsers',
-    'POST /api/role': 'postRole',
-    'POST /api/user': 'postUser',
-    'GET /api/user/:id': 'getUser',
-    'DELETE /api/user/:id': 'deleteUser',
+    [API.post('user/signin')]: 'signIn',
+    [API.post('user/signup')]: 'signUp',
+    [API.delete('role/:id')]: 'deleteRole',
+    [API.get('roles')]: 'getRoles',
+    [API.get('users')]: 'getUsers',
+    [API.post('role')]: 'postRole',
+    [API.post('user')]: 'postUser',
+    [API.get('user/:id')]: 'getUser',
+    [API.delete('user/:id')]: 'deleteUser',
   };
 
   constructor (
