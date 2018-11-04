@@ -25,7 +25,7 @@ export class TokenInterceptor implements HttpInterceptor {
   ) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    this.actions.scrollTop();
+    // this.actions.scrollTop();
     const headers = Object.assign({
       'x-token': this.user.GetToken(),
       'x-lang': this.translate.currentLang

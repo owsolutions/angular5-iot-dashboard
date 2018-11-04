@@ -6,6 +6,19 @@ export function devicesReducer (state: Array<CloudDevice> = [], action: Action) 
   switch (action.type) {
     case 'RESET':
       return [];
+
+    case 'UPDATE_COMPLEX_DEVICE':
+      const data: { device: string, pin: string, value: string} = action.payload;
+      return state.map((device) => {
+        if (device.datasource === data.device) {
+          if (typeof device.value !== 'object' || device.value === null) {
+            device.value = {};
+          }
+          device.value[data.pin] = data.value;
+        }
+        return device;
+      });
+      break;
     case 'UPDATE_DEVICE':
       return UpdateOrInsert(action.payload , state, 'id', true);
     case 'DELETE_DEVICE':

@@ -50,7 +50,9 @@ import { IconWidgetsComponent } from '@app/iot/index/icon-widgets/icon-widgets.c
 import { IndexComponent } from '@app/iot/index/index.component';
 import { StatisticsComponent } from '@app/iot/statistics/statistics.component';
 import { RealtimeService } from '@app/iot/realtime.service';
+import { UiSwitchModule } from 'ngx-toggle-switch';
 import { Ng5BasicModule } from '@app/ng5-basic/ng5-basic.module';
+import { KanaBetaComponent } from './widgets/kana-beta/kana-beta.component';
 
 @NgModule({
   imports: [
@@ -60,6 +62,7 @@ import { Ng5BasicModule } from '@app/ng5-basic/ng5-basic.module';
     NgxTooltipModule,
     ReactiveFormsModule,
     FormsModule,
+    UiSwitchModule,
     NgbModule.forRoot(),
     NgbModalModule.forRoot(),
     iotModuleReducersGenerator(),
@@ -85,6 +88,7 @@ import { Ng5BasicModule } from '@app/ng5-basic/ng5-basic.module';
     DailyStatisticsComponent,
     DevicesComponent,
     LampCardComponent,
+    KanaBetaComponent,
     HumidityComponent,
     ActivityWidgetComponent,
     LocationsComponent,

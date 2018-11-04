@@ -37,6 +37,7 @@
           <td>
             <i *ngIf="+device.type === 0" [Tooltip]="'Tempreture'" class="icon-thermometer-lines"></i>
             <i *ngIf="+device.type === 1" [Tooltip]="'Light'" class="icon-lightbulb_outline"></i>
+            <i *ngIf="+device.type === 4" [Tooltip]="'Kana beta'" class="icon-link"></i>
           </td>
           <td><a [routerLink]="'/locations/edit/' + device.location">
             {{FindLocationName (device.location) | translate}}</a>

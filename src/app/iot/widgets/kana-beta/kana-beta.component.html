@@ -1,0 +1,38 @@
+<ng-container *ngIf="device">
+  <div class="row">
+    <div class="box-title">
+      <h2 [title]="device.name">{{device.name}}</h2>
+      <p [title]="data.subTitle">{{device.model}}</p>
+    </div>
+  </div>
+  <div class="d-flex widget-value">
+    <div class="d-2 widget-lable">
+      <p>Complex board</p>
+    </div>
+  </div>
+
+  Output 1 Output 2 Output 3 Output 4
+
+  <ui-switch [checked]="isChecked('OUTPUT_1')" (change)="onChange('OUTPUT_1', $event)"></ui-switch>
+  <ui-switch [checked]="isChecked('OUTPUT_2')" (change)="onChange('OUTPUT_2', $event)"></ui-switch>
+  <ui-switch [checked]="isChecked('OUTPUT_3')" (change)="onChange('OUTPUT_3', $event)"></ui-switch>
+  <ui-switch [checked]="isChecked('OUTPUT_4')" (change)="onChange('OUTPUT_4', $event)"></ui-switch>
+
+  
+  <div class="row">
+    <div class="d-flex st-bar">
+      <div class="d-2 col-sm-4">
+        N/A<sup>°</sup>
+        <p>Average</p>
+      </div>
+      <div class="d-2 col-sm-4">
+        N/A <sup>°</sup>
+        <p>Highest</p>
+      </div>
+      <div class="d-2 col-sm-4">
+        N/A <sup>°</sup>
+        <p>Lowest</p>
+      </div>
+    </div>
+  </div>
+</ng-container>

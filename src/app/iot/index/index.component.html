@@ -11,6 +11,12 @@
           <app-daily-statistics [id]="device.id"></app-daily-statistics>
         </div>
       </div>
+
+      <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6" *ngIf="+device.type === 4">
+        <div class="box-wrapper">
+          <app-kana-beta [id]="device.id"></app-kana-beta>
+        </div>
+      </div>
       <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6" *ngIf="device.preferences.DisplayLampOnOffInHome && +device.type === 1">
         <div class="box-wrapper">
           <app-lamp-card [id]="device.id"></app-lamp-card>

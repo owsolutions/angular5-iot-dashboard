@@ -52,6 +52,8 @@
     "lodash.random": "^3.2.0",
     "lodash.times": "^4.3.2",
     "lodash.values": "^4.3.0",
+    "ngx-toggle-switch": "^2.0.5",
+    "ngx-ui-switch": "^1.6.1",
     "realtime-document": "0.0.6",
     "response-type": "^1.0.3",
     "rxjs": "^5.5.2",
