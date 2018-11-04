@@ -6,6 +6,7 @@ import { environment } from 'environments/environment';
 import { IsDataSource } from '@app/common';
 import { NotificationService } from '@app/services/notification.service';
 import { IotModuleState } from '@app/iot/iot.module.defs';
+import { IotRequestsService } from './iot-requests.service';
 
 declare var Pusher: any;
 
@@ -27,6 +28,7 @@ export class RealtimeService {
   constructor(
     private store: Store<IotModuleState>,
     private ref: ApplicationRef,
+    private requests: IotRequestsService,
     private notification: NotificationService,
   ) {
     this.store.select('iotModule').subscribe(({devices}) => {
@@ -123,6 +125,26 @@ export class RealtimeService {
       dataSourceId: 'device-' + random(1, 2)
     };
     this.RecieveDataSourceIncoming(data);
+  }
+
+  /**
+   * @description triggers when user wants to change a complex board (boards having more than one I/O)
+   * using socket.io/mqtt protocol.
+   */
+  public ChangeComplexOutputValue (deviceDataSourceId, pin, value) {
+    this.store.dispatch({
+      type: 'UPDATE_COMPLEX_DEVICE',
+      payload: {
+        device: deviceDataSourceId,
+        pin,
+        value
+      }
+    });
+    this.requests.changeComplexBoardOutput(deviceDataSourceId, pin, value).then((response) => {
+      console.log(response);
+    }). catch(error => {
+      console.error('Errro on sending data');
+    })
   }
 }
 // setTimeout(( ) => {

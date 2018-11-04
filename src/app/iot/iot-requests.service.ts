@@ -218,4 +218,11 @@ export class IotRequestsService {
     return await this.http.get(environment.api + '/api/devices/token').toPromise();
   }
 
+  async changeComplexBoardOutput (dataSourceId, pin, value): Promise<IResponse<any>> {
+    const data = {
+      dataSourceId, pin, value
+    };
+    return await this.http.post(environment.api + '/api/devices/complex-terminal', data).toPromise();
+  }
+
 }

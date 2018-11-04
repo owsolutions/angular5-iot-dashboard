@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  hmr: true,
+  hmr: false,
   api: 'http://localhost:1337',
   github: false,
   targetAPI: false,
