@@ -105,9 +105,8 @@ export function urlMatch( url: string, method: string = null, routes, prefixAPI)
 export const API = {
   'get': (affix) => 'GET ' + environment.apiPrefix + '/' + affix,
   'post': (affix) => 'POST ' + environment.apiPrefix + '/' + affix,
-  'delete': (affix) => 'delete ' + environment.apiPrefix + '/' + affix,
-}
-
+  'delete': (affix) => 'delete ' + environment.apiPrefix + '/' + affix
+};
 
 export function GetUrl (affix: string) {
   return environment.api + environment.apiPrefix + '/' + affix;

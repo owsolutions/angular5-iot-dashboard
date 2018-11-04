@@ -7,7 +7,6 @@ import {
  } from '@app/definitions';
 import 'rxjs/add/observable/of';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'environments/environment';
 import { IResponse } from 'response-type';
 import { GetNetworkError, GetUrl } from '@app/common';
 import 'rxjs/add/operator/toPromise';

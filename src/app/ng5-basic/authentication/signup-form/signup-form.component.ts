@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { IResponse } from 'response-type';
 import { IUserForm, LoginResponse } from '../shared';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
 import { UserService } from '@services/user.service';
 import { Router } from '@angular/router';
 import { GetNetworkError, error, GetUrl } from '@app/common';

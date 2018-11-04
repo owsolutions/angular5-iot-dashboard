@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { error, GetNetworkError, GetUrl } from '@app/common';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'environments/environment';
 import { IResponse } from 'response-type';
 import { Router } from '@angular/router';
 import { IResetForm } from '@app/definitions';

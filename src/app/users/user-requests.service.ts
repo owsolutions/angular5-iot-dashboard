@@ -6,7 +6,6 @@ import {
 import 'rxjs/add/observable/of';
 import { Store } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'environments/environment';
 import { UserMockService } from './user-mocks.service';
 import { IResponse } from 'response-type';
 import { GetNetworkError, IsSuccessEntity, GetUrl } from '@app/common';
