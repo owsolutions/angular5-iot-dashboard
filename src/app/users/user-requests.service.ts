@@ -6,10 +6,9 @@ import {
 import 'rxjs/add/observable/of';
 import { Store } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'environments/environment';
 import { UserMockService } from './user-mocks.service';
 import { IResponse } from 'response-type';
-import { GetNetworkError, IsSuccessEntity } from '@app/common';
+import { GetNetworkError, IsSuccessEntity, GetUrl } from '@app/common';
 import 'rxjs/add/operator/toPromise';
 import { UserModuleState } from '@app/users/user.module.defs';
 
@@ -25,7 +24,7 @@ export class UserRequestsService {
   ) { }
 
   public async GetRoles (): Promise<IResponse<IRole>> {
-    const url = environment.api + '/api/roles';
+    const url = GetUrl('roles');
     const ref = this.http.get(url).toPromise();
     try {
       const response: IResponse<IRole> = await ref;
@@ -45,7 +44,7 @@ export class UserRequestsService {
     }
   }
   public async GetUser (id: number): Promise<IResponse<IRole>> {
-    const url = environment.api + '/api/user/' + id;
+    const url = GetUrl('user/' + id);
     const ref = this.http.get(url).toPromise();
     try {
       const response: IResponse<IRole> = await ref;
@@ -58,7 +57,7 @@ export class UserRequestsService {
     }
   }
   public async GetUsers (): Promise<IResponse<IUser>> {
-    const url = environment.api + '/api/users';
+    const url = GetUrl('users');
     const ref = this.http.get(url).toPromise();
     try {
       const response: IResponse<IUser> = await ref;
@@ -79,7 +78,7 @@ export class UserRequestsService {
   }
 
   public async PostRole (role: IRole): Promise<IResponse<IRole>> {
-    const ref = this.http.post(environment.api + '/api/role' , role).toPromise();
+    const ref = this.http.post(GetUrl('role') , role).toPromise();
     try {
       const response: IResponse<IRole> = await ref;
       if (response && response.data && response.data.items && response.data.items[0]) {
@@ -100,7 +99,7 @@ export class UserRequestsService {
     }
   }
   public async PostUser (user: IUser): Promise<IResponse<IUser>> {
-    const ref = this.http.post(environment.api + '/api/user' , user).toPromise();
+    const ref = this.http.post(GetUrl('user') , user).toPromise();
     try {
       const response: IResponse<IUser> = await ref;
       if (response && response.data && response.data.items && response.data.items[0]) {
@@ -121,7 +120,7 @@ export class UserRequestsService {
     }
   }
   async DeleteUser (id: number ) {
-    const url = environment.api + '/api/user/' + id;
+    const url = GetUrl('user/' + id);
     const ref = this.http.delete(url).toPromise();
     try {
       const response: IResponse<IUser> = await ref;
@@ -145,7 +144,7 @@ export class UserRequestsService {
   }
 
   async deleteRole (id: number ) {
-    const ref = this.http.delete(environment.api + '/api/role/' + id).toPromise();
+    const ref = this.http.delete(GetUrl('role/' + id)).toPromise();
     try {
       const response: IResponse<IRole> = await ref;
       if (IsSuccessEntity(response)) {

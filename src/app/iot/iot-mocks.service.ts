@@ -5,7 +5,7 @@ import { ILocation, CloudDevice, ICloudDeviceDailyHistory, DataSource } from '@a
 import { random, times } from '@lodash';
 import { TranslateService } from '@ngx-translate/core';
 import 'rxjs/add/operator/delay';
-import { handleRoute, urlMatch } from '@app/common';
+import { handleRoute, urlMatch, API } from '@app/common';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { IotDevices } from './iot-mocks';
 const devices = IotDevices;
@@ -38,17 +38,17 @@ export class IotMockService {
   public handleRoute = handleRoute.bind(this);
   public urlMatch = urlMatch.bind(this);
   public routes = {
-    'GET /api/locations': 'getLocations',
-    'GET /api/devices/daily-history/:id': 'GetDeviceDailyHistory',
-    'GET /api/devices/token': 'getDevicesToken',
-    'GET /api/devices/day-history/:date/:id': 'GetDeviceDayHistory',
-    'GET /api/device/:id': 'getDevice',
-    'GET /api/devices': 'getDevices',
-    'GET /api/unconnected': 'getUnconnected',
-    'POST /api/device': 'postDevice',
-    'POST /api/location': 'postLocation',
-    'DELETE /api/location/:id': 'deleteLocation',
-    'DELETE /api/device/:id': 'deleteDevice',
+    [API.get('locations')]: 'getLocations',
+    [API.get('devices/daily-history/:id')]: 'GetDeviceDailyHistory',
+    [API.get('devices/token')]: 'getDevicesToken',
+    [API.get('devices/day-history/:date/:id')]: 'GetDeviceDayHistory',
+    [API.get('device/:id')]: 'getDevice',
+    [API.get('devices')]: 'getDevices',
+    [API.get('unconnected')]: 'getUnconnected',
+    [API.post('device')]: 'postDevice',
+    [API.post('location')]: 'postLocation',
+    [API.delete('location/:id')]: 'deleteLocation',
+    [API.delete('device/:id')]: 'deleteDevice',
   };
 
   constructor (

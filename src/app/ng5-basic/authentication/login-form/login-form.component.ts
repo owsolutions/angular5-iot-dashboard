@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IUserForm } from '../shared';
-import { GetNetworkError, error } from '@app/common';
+import { GetNetworkError, error, GetUrl } from '@app/common';
 import { Router } from '@angular/router';
 import { IResponse } from 'response-type';
 import { HttpClient } from '@angular/common/http';
@@ -14,7 +14,7 @@ import { environment } from '../../../../environments/environment';
 })
 export class LoginFormComponent implements OnInit {
   public isRequesting = false;
-  public url = `${environment.api}/api/user/signin`;
+  public url = GetUrl('user/signin');
   public response: IResponse<any> = null;
   public error = error;
   public form: IUserForm = {

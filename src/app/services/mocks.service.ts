@@ -10,17 +10,18 @@ import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { random, times } from '@lodash';
 import { TranslateService } from '@ngx-translate/core';
 import 'rxjs/add/operator/delay';
+import { API } from '@app/common';
 
 @Injectable()
 export class MockService {
   public routes = {
-    'POST /api/user/signin': 'signIn',
-    'POST /api/user/signup': 'signUp',
-    'POST /api/forget-password': 'forgetPassword',
-    'GET /api/contact-details': 'GetContactDetails',
-    'POST /api/user/settings': 'updateUserProfile',
-    'POST /api/contact-details': 'UpdateContactDetails',
-    'POST /api/user/reset-password': 'ResetPassword',
+    [API.post('user/signin')]: 'signIn',
+    [API.post('user/signup')]: 'signUp',
+    [API.post('forget-password')]: 'forgetPassword',
+    [API.get('contact-details')]: 'GetContactDetails',
+    [API.post('user/settings')]: 'updateUserProfile',
+    [API.post('contact-details')]: 'UpdateContactDetails',
+    [API.post('user/reset-password')]: 'ResetPassword',
   };
 
   constructor (

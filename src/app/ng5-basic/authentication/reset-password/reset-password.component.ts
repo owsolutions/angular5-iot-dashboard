@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { error, GetNetworkError } from '@app/common';
+import { error, GetNetworkError, GetUrl } from '@app/common';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'environments/environment';
 import { IResponse } from 'response-type';
 import { Router } from '@angular/router';
 import { IResetForm } from '@app/definitions';
@@ -15,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ResetPasswordComponent implements OnInit {
   public key = '';
-  public url = `${environment.api}/api/user/reset-password`;
+  public url = GetUrl('user/reset-password');
   public error = error;
   public response: IResponse<any> = null;
   public isRequesting = false;

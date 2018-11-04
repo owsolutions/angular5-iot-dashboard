@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { IResponse } from 'response-type';
 import { IUserForm, LoginResponse } from '../shared';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
 import { UserService } from '@services/user.service';
 import { Router } from '@angular/router';
-import { GetNetworkError, error } from '@app/common';
+import { GetNetworkError, error, GetUrl } from '@app/common';
 import { NotificationService } from '@app/services/notification.service';
 
 @Component({
@@ -23,7 +22,7 @@ export class SignupFormComponent implements OnInit {
   };
   public passwordVisibilty = false;
   public error = error;
-  public signupUrl = environment.api + '/api/user/signup';
+  public signupUrl = GetUrl('user/signup');
   constructor(
     private http: HttpClient,
     private user: UserService,
