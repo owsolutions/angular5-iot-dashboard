@@ -10,6 +10,6 @@ export class ActionsService {
     } catch (error) {
       // intentionally empty
     }
-    
+
   }
 }

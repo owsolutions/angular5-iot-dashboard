@@ -141,15 +141,8 @@ export class RealtimeService {
       }
     });
     this.requests.changeComplexBoardOutput(deviceDataSourceId, pin, value).then((response) => {
-      console.log(response);
     }). catch(error => {
       console.error('Errro on sending data');
-    })
+    });
   }
 }
-// setTimeout(( ) => {
-//   if (environment.production) {
-//     this.realtime.connectToRoom(this.user.GetToken());
-//   }
-//   this.isRequesting = false;
-// }, 500);

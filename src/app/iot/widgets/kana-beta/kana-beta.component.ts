@@ -1,27 +1,10 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 declare var Highcharts: any;
-import { CloudDevice, DataSource } from '@app/definitions';
+import { CloudDevice } from '@app/definitions';
 import { Store } from '@ngrx/store';
 import { IotModuleState } from '@app/iot/iot.module.defs';
 import { RealtimeService } from '@app/iot/realtime.service';
 
-function generateMockSeries() {
-  const series = [];
-  for (let i = 20; i >= 1; i = i - 2) {
-      series.push([previousSeconds(i), Math.floor(Math.random() * 8 + 30)]);
-  }
-  return series;
-}
-
-function previousSeconds(s) {
-  return new Date().getTime() - (s * 1000);
-}
-
-function CastHistoryToSeries (items: Array<DataSource>): Array<Array<any>> {
-  return items.map(x => {
-    return [x.date, +x.value];
-  });
-}
 @Component({
   selector: 'app-kana-beta',
   templateUrl: './kana-beta.component.html',
