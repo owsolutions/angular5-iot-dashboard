@@ -1,7 +1,27 @@
-
 <app-page-container 
   maintitle="IOT Access Token"
   subtitle="Your devices can communicate over RESTful or MQTT using tokens.">
   <pre>{{GetDeviceToken()}}</pre>
   <span style="color: red;" translate>Consider this token highly secret. Anybody has this token can make changes on your dashboard or control your devices over network.</span>
+
+  <br>
+  <br>
+  <br>
+  <h3>Short tokens</h3>
+  <p>Short tokens can be used for developing devices. You can revoke them later. Since they are short, they
+    are quite handy when it comes to embedeed devices.
+  </p>
+  <form (submit)="FormSubmit($value);">
+    <label for="">Description (Device name, purpose)</label>
+    <textarea type="text" class="form-control" [(ngModel)]="description" [ngModelOptions]="{standalone: true}"></textarea>
+    <input type="submit" value="Generate a token">
+  </form>
+
+  <br>
+  <table class="table">
+    <tr *ngFor="let record of hashkeys">
+      <td>{{record.hash}}</td>
+      <td>{{record.description}}</td>
+    </tr>
+  </table>
 </app-page-container>

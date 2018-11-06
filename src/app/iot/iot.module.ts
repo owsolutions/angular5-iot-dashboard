@@ -53,6 +53,7 @@ import { RealtimeService } from '@app/iot/realtime.service';
 import { UiSwitchModule } from 'ngx-toggle-switch';
 import { Ng5BasicModule } from '@app/ng5-basic/ng5-basic.module';
 import { KanaBetaComponent } from './widgets/kana-beta/kana-beta.component';
+import { UserService } from '@app/services/user.service';
 
 @NgModule({
   imports: [
@@ -121,6 +122,7 @@ import { KanaBetaComponent } from './widgets/kana-beta/kana-beta.component';
 export class IotModule {
   constructor(
     private realtime: RealtimeService,
+    private user: UserService,
   ) {
     this.realtime.ActivateRealtime();
   }

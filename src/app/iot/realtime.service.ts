@@ -59,6 +59,7 @@ export class RealtimeService {
   }
 
   async connectToRoom (token) {
+    console.log('Requesting to get a room:', token);
     const options = {
       url: GetUrl('get/a/room'),
       method: 'get',
@@ -67,6 +68,7 @@ export class RealtimeService {
       }
     };
     io.socket.request(options, (data) => {
+      console.log('Connected to room!');
       this.notification.InvokeRoomConnect();
     });
   }

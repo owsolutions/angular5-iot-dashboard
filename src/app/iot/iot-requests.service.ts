@@ -224,4 +224,11 @@ export class IotRequestsService {
     return await this.http.post(GetUrl('devices/complex-terminal'), data).toPromise();
   }
 
+  async createHash ({description}): Promise<IResponse<any>> {
+    const data = {
+      description
+    };
+    return await this.http.post(GetUrl('hashtable'), data).toPromise();
+  }
+
 }

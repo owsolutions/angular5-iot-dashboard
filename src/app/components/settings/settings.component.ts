@@ -9,6 +9,8 @@ import { IotRequestsService } from '@app/iot/iot-requests.service';
 })
 export class SettingsComponent implements OnInit {
 
+  public hashkeys = [];
+  private description = '';
   private token: string = null;
   constructor(
     private requests: IotRequestsService,
@@ -24,6 +26,18 @@ export class SettingsComponent implements OnInit {
     } else {
       this.token = 'Cannot get the token from server. Please try again in few minutes';
     }
+  }
+
+  public async FormSubmit() {
+    this.requests.createHash({ description: this.description }).then((response) => {
+      const record = IsSuccessEntity(response);
+      if (record) {
+        this.hashkeys.push(record);
+      }
+    }).catch(error => {
+      console.error(error);
+    });
+    
   }
 
 }

@@ -4,6 +4,8 @@ import { CloudDevice } from '@app/definitions';
 import { values } from '@lodash';
 import { IotModuleState } from '@app/iot/iot.module.defs';
 import { IotRequestsService } from '@app/iot/iot-requests.service';
+import { RealtimeService } from '../realtime.service';
+import { UserService } from '@app/services/user.service';
 
 
 @Component({
@@ -19,9 +21,13 @@ export class IndexComponent implements OnInit, AfterContentInit  {
   constructor(
     private store: Store<IotModuleState>,
     private ref: ApplicationRef,
-    private requests: IotRequestsService
+    private requests: IotRequestsService,
+    private realtime: RealtimeService,
+    private user: UserService,
   ) { }
   ngOnInit () {
+    this.realtime.connectToRoom(this.user.GetToken());
+
     this.store.select('iotModule').subscribe(({devices}) => {
       this.devices = devices.concat([]);
     });
