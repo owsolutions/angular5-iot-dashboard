@@ -11,7 +11,7 @@
   <p>Short tokens can be used for developing devices. You can revoke them later. Since they are short, they
     are quite handy when it comes to embedeed devices.
   </p>
-  <form (submit)="FormSubmit($value);">
+  <form (submit)="FormSubmit();">
     <label for="">Description (Device name, purpose)</label>
     <textarea type="text" class="form-control" [(ngModel)]="description" [ngModelOptions]="{standalone: true}"></textarea>
     <input type="submit" value="Generate a token">

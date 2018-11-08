@@ -10,7 +10,7 @@ import { IotRequestsService } from '@app/iot/iot-requests.service';
 export class SettingsComponent implements OnInit {
 
   public hashkeys = [];
-  private description = '';
+  public description = '';
   private token: string = null;
   constructor(
     private requests: IotRequestsService,
