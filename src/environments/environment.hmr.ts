@@ -1,10 +1,10 @@
 export const environment = {
   production: true,
   hmr: false,
-  api: 'http://localhost:1337',
+  api: 'https://pixelplux.com',
   apiPrefix: '/api',
   github: false,
   targetAPI: true,
-  socket: 'http://localhost:1337'
+  socket: 'https://pixelplux.com'
 };
 
