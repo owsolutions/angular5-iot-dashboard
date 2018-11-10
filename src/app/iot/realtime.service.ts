@@ -47,7 +47,7 @@ export class RealtimeService {
    * For people who have developed their backend service in sails.js
    */
   public StartSailsSocket () {
-    io.sails.url = environment.api;
+    io.sails.url = environment.socket;
     io.sails.autoConnect = true;
     io.socket.on('DataSourceChange', (data: DataSource) => {
       if (!IsDataSource(data)) {
