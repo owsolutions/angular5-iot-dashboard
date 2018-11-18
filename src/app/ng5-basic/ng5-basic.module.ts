@@ -12,7 +12,7 @@ import { UserService, AuthGuard } from '@services/user.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MockService } from '@services/mocks.service';
 import { TokenInterceptor } from '@services/token.interceptor';
-import { RealtimeDocumentModule } from 'realtime-document';
+// import { RealtimeDocumentModule } from 'realtime-document';
 import { ToasterModule } from 'angular2-toaster';
 import { NgxUserModule } from './authentication/authentication.module';
 import { LayoutComponent } from './layout/layout.component';
@@ -63,7 +63,7 @@ import { GlobalizationService } from '@app/ng5-basic/globalization.service';
     ErrorMessageComponent,
   ],
   imports: [
-    RealtimeDocumentModule,
+    // RealtimeDocumentModule,
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,

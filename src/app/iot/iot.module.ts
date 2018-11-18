@@ -45,7 +45,7 @@ import { Co2Component } from '@app/iot/co2/co2.component';
 import { IfExperimentalComponent } from '@app/components/if-experimental/if-experimental.component';
 import { NgMediaModule } from '@app/ng-media';
 import { IfNotEnglishComponent } from '@app/iot/if-not-english/if-not-english.component';
-import { RealtimeDocumentModule } from 'realtime-document';
+// import { RealtimeDocumentModule } from 'realtime-document';
 import { IconWidgetsComponent } from '@app/iot/index/icon-widgets/icon-widgets.component';
 import { IndexComponent } from '@app/iot/index/index.component';
 import { StatisticsComponent } from '@app/iot/statistics/statistics.component';
@@ -54,6 +54,7 @@ import { UiSwitchModule } from 'ngx-toggle-switch';
 import { Ng5BasicModule } from '@app/ng5-basic/ng5-basic.module';
 import { KanaBetaComponent } from './widgets/kana-beta/kana-beta.component';
 import { UserService } from '@app/services/user.service';
+import { NgBillingModule } from '@ng-dashboard/billing';
 
 @NgModule({
   imports: [
@@ -62,13 +63,14 @@ import { UserService } from '@app/services/user.service';
     TranslateModule.forRoot(),
     NgxTooltipModule,
     ReactiveFormsModule,
+    NgBillingModule,
     FormsModule,
     UiSwitchModule,
     NgbModule.forRoot(),
     NgbModalModule.forRoot(),
     iotModuleReducersGenerator(),
     NgMediaModule,
-    RealtimeDocumentModule,
+    // RealtimeDocumentModule,
     Ng5BasicModule,
   ],
   providers: [

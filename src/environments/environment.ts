@@ -8,6 +8,6 @@ export const environment = {
   hmr: false,
   api: 'http://localhost:1337',
   apiPrefix: '/api',
-  github: false,
+  github: true,
   targetAPI: true,
 };

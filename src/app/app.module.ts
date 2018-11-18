@@ -46,7 +46,7 @@ import { AngularCalendarComponent } from '@app/boilerplate/angular-calendar/angu
 import { IotModule } from '@app/iot/iot.module';
 import { GlobalizationService } from '@app/ng5-basic/globalization.service';
 import { NgxSidebarModule } from '@app/ng5-basic/ngx-sidebar/ngx-sidebar.module';
-
+import { NgBillingModule } from '@ng-dashboard/billing';
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
 window['Highcharts'] = Highcharts;
@@ -115,6 +115,7 @@ export class AppComponent implements OnInit {
     IotModule,
     UsersModule,
     NgxSidebarModule,
+    NgBillingModule.forRoot({}),
     TranslateModule.forRoot(),
     CalendarModule.forRoot(),
     NgMediaModule,

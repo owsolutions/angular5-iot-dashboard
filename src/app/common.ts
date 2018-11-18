@@ -1,5 +1,5 @@
 import { IResponse } from 'response-type';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { HttpEvent, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
 import { matchPattern } from 'url-matcher';
 
