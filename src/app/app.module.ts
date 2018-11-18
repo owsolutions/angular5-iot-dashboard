@@ -47,9 +47,11 @@ import { IotModule } from '@app/iot/iot.module';
 import { GlobalizationService } from '@app/ng5-basic/globalization.service';
 import { NgxSidebarModule } from '@app/ng5-basic/ngx-sidebar/ngx-sidebar.module';
 import { NgBillingModule } from '@ng-dashboard/billing';
+import { NgDashboardModule } from '@ng-dashboard/core';
 declare var require: any;
 const Highcharts = require('highcharts/highstock');
 window['Highcharts'] = Highcharts;
+import { navigation } from '@app/app.navigation';
 
 @Component({
   selector: 'app-root',
@@ -115,6 +117,9 @@ export class AppComponent implements OnInit {
     IotModule,
     UsersModule,
     NgxSidebarModule,
+    NgDashboardModule.forRoot({
+      navigation: navigation
+    }),
     NgBillingModule.forRoot({}),
     TranslateModule.forRoot(),
     CalendarModule.forRoot(),

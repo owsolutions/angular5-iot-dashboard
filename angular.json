@@ -26,6 +26,7 @@
               "src/favicon.ico"
             ],
             "styles": [
+              "node_modules/@ng-dashboard/core/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/css/forms-style.css",
               "src/styles.scss",
@@ -145,6 +146,7 @@
               "node_modules/simplebar/dist/simplebar.js"
             ],
             "styles": [
+              "node_modules/@ng-dashboard/core/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/css/forms-style.css",
               "src/styles.scss",
@@ -291,6 +293,7 @@
               "node_modules/simplebar/dist/simplebar.js"
             ],
             "styles": [
+              "node_modules/@ng-dashboard/core/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/css/forms-style.css",
               "src/styles.scss",
