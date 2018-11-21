@@ -5,9 +5,8 @@
   "scripts": {
     "ng": "ng",
     "build": "./node_modules/.bin/ng build -c=production --prod",
-    "build:mobile": "./node_modules/.bin/ng build --env=prod -prod --app 1",
     "build:local": "./node_modules/.bin/ng build --env=prodlocal -prod",
-    "build:mock": "./node_modules/.bin/ng build --env=prodmock -prod",
+    "build:mock": "./node_modules/.bin/ng build -c=prodmock --prod",
     "test": "./node_modules/.bin/ng test",
     "serve": "cd dist && serve",
     "lint": "./node_modules/.bin/ng lint",
