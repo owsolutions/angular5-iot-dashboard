@@ -3,6 +3,7 @@ export const environment = {
   hmr: false,
   api: '',
   apiPrefix: '',
+  socket: 'http://localhost:1337',
   github: false,
   targetAPI: false,
 };

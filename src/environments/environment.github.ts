@@ -4,5 +4,6 @@ export const environment = {
   api: '',
   apiPrefix: '/api',
   github: true,
+  socket: 'http://localhost:1337',
   targetAPI: false,
 };
