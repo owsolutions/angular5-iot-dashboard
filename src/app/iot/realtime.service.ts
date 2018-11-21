@@ -15,7 +15,7 @@ declare var require: any;
 let io: any = {};
 io = require('sails.io.js')( require('socket.io-client') );
 if ( ! environment.production) {
-  io.sails.autoConnect = false;
+  io.sails.autoConnect = true;
 }
 
 window['io'] = io;
@@ -48,7 +48,10 @@ export class RealtimeService {
    * For people who have developed their backend service in sails.js
    */
   public StartSailsSocket () {
-    io.sails.url = environment.api;
+    // io.sails.url = environment.socket;
+    // io.sails.useCORSRouteToGetCookie = false;
+    io.sails.url = 'https://apiiot.pixelplux.com';
+    // io.sails.path = '/api-iot/socket.io';
     io.sails.autoConnect = true;
     io.socket.on('DataSourceChange', (data: DataSource) => {
       if (!IsDataSource(data)) {
