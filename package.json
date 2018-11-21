@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "build": "./node_modules/.bin/ng build --env=prod -prod",
+    "build": "./node_modules/.bin/ng build -c=production --prod",
     "build:mobile": "./node_modules/.bin/ng build --env=prod -prod --app 1",
     "build:local": "./node_modules/.bin/ng build --env=prodlocal -prod",
     "build:mock": "./node_modules/.bin/ng build --env=prodmock -prod",
@@ -38,7 +38,7 @@
     "@ng-dashboard/core": "0.0.27",
     "@ngrx/core": "^1.2.0",
     "@ngrx/store": "^5.1.0",
-    "@ngx-translate/core": "^9.1.1",
+    "@ngx-translate/core": "^11.0.1",
     "angular-calendar": "^0.24.1",
     "angular2-toaster": "^7.0.0",
     "bootstrap": "^4.0.0",

@@ -9,7 +9,7 @@ import { PermissionsService } from '@services/permissions.service';
 import { RequestsService } from '@services/requests.service';
 import { ActionsService } from './actions.service';
 import { UserService, AuthGuard } from '@services/user.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MockService } from '@services/mocks.service';
 import { TokenInterceptor } from '@services/token.interceptor';
 // import { RealtimeDocumentModule } from 'realtime-document';
@@ -63,7 +63,7 @@ import { GlobalizationService } from '@app/ng5-basic/globalization.service';
     ErrorMessageComponent,
   ],
   imports: [
-    // RealtimeDocumentModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,

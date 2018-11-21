@@ -24,7 +24,7 @@ import { NavigationComponent } from '@components/navigation/navigation.component
 import { SidebarWidgetComponent } from '@components/sidebar-widget/sidebar-widget.component';
 import { IotSvgService } from '@services/iot-svg/iot-svg.service';
 import { environment } from '../environments/environment';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MockInterceptor } from '@services/mock.interceptor';
 import { MockService } from '@services/mocks.service';
 import { TokenInterceptor } from '@services/token.interceptor';
@@ -109,6 +109,7 @@ export class AppComponent implements OnInit {
     NavigationComponent,
   ],
   imports: [
+    HttpClientModule,
     NgxTooltipModule,
     BrowserAnimationsModule,
     Ng5BasicModule,

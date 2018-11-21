@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { NgxTooltipModule } from '../components/ngx-tooltip/ngx-tooltip.module';
 import { NgbModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { environment } from 'environments/environment';
 import { IotRequestsService } from '@app/iot/iot-requests.service';
 import { iotModuleReducersGenerator } from '@app/iot/iot-module.reducers';
@@ -58,6 +58,7 @@ import { NgBillingModule } from '@ng-dashboard/billing';
 
 @NgModule({
   imports: [
+    HttpClientModule,
     CommonModule,
     RouterModule.forChild([]),
     TranslateModule.forRoot(),
