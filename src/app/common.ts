@@ -19,8 +19,8 @@ export function error (response: IResponse<any>, fieldName: string) {
   if ( ! response || ! response.error || !response.error.errors) {
     return '';
   }
-  const error = response.error.errors.find(x => x.location === fieldName);
-  return error ? error.message : '';
+  const $error = response.error.errors.find(x => x.location === fieldName);
+  return $error ? $error.message : '';
 }
 
 export const IotImages = [

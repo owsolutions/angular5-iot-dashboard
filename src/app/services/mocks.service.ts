@@ -259,7 +259,7 @@ export class MockService {
           ]
         },
       };
-    };
+    }
     return {
       data: {
         items: []

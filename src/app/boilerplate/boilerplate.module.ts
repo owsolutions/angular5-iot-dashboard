@@ -21,8 +21,8 @@ import { userModuleReducersGenerator } from '@app/users/user-module.reducers';
     NgxTooltipModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule.forRoot(),
-    NgbModalModule.forRoot(),
+    NgbModule,
+    NgbModalModule,
     userModuleReducersGenerator(),
   ],
   providers: [

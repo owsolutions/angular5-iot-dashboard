@@ -18,7 +18,7 @@
  * BROWSER POLYFILLS
  */
 
-(window as any).global = window
+(window as any).global = window;
 
 import 'rxjs/add/operator/share';
 

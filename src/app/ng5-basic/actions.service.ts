@@ -11,7 +11,7 @@ export class ActionsService {
     } catch (error) {
       // intentionally empty
     }
-    console.log('#6')
+    console.log('#6');
 
   }
 }
