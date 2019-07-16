@@ -1,10 +1,9 @@
 export const environment = {
   production: true,
   hmr: false,
-  api: 'https://apiiot.pixelplux.com',
+  api: 'https://iot.pixelplux.com',
   apiPrefix: '/api',
   github: false,
   targetAPI: true,
-  socket: 'https://apiiot.pixelplux.com'
+  socket: 'https://iot.pixelplux.com'
 };
-

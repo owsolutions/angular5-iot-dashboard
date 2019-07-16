@@ -49,7 +49,7 @@ export class RealtimeService {
   public StartSailsSocket () {
     // io.sails.url = environment.socket;
     // io.sails.useCORSRouteToGetCookie = false;
-    io.sails.url = 'https://apiiot.pixelplux.com';
+    io.sails.url = 'https://iot.pixelplux.com';
     // io.sails.path = '/api-iot/socket.io';
     io.sails.autoConnect = true;
     io.socket.on('DataSourceChange', (data: DataSource) => {
