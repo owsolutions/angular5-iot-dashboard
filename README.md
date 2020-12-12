@@ -1,15 +1,15 @@
 [![Build Status](https://travis-ci.org/smart-dashboard/angular-dashboard.svg?branch=master)](https://travis-ci.org/smart-dashboard/angular-dashboard)
 
-# Depricated! Use https://torabito.com
+# Depricated! Visit https://pixelplux.com
 
-This project is no longer maintained. You need to use https://torabito.com, for monitoring
+This project is no longer maintained. You need to use https://pixelplux.com, for monitoring
 your Arduino/ESP8266 project.
 
 
 # Angular 5 Iot Dashboard
 
 Angular 5 Dashboard is a management dashboard for many purposes, focused on IoT, smart home, and autonomy.
-This project, is a fully functional app and is hosted on https://torabito.com as an enterprise product. We are sharing many components and our workflow here inside this repository.
+This project, is a fully functional app and is hosted on https://pixelplux.com as an enterprise product. We are sharing many components and our workflow here inside this repository.
 
 This project can be used for Internet of things, reporting dashboard, user management, live monitoring and other other 
 dashboard based projects for angular.
