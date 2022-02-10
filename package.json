@@ -73,7 +73,7 @@
     "@types/node": "~6.0.60",
     "codelyzer": "~2.0.0",
     "cypress": "^2.1.0",
-    "node-sass": "^4.5.3",
+    "node-sass": "^7.0.0",
     "protractor": "~5.1.0",
     "sass-material-colors": "0.0.5",
     "serve": "^6.5.3",
