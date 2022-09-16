@@ -38,7 +38,7 @@
     "@ngx-translate/core": "^9.1.1",
     "angular-calendar": "^0.24.1",
     "angular2-toaster": "^5.0.1",
-    "bootstrap": "^4.0.0",
+    "bootstrap": "^4.3.1",
     "compass-mixins": "^0.12.10",
     "cordova-android": "^7.0.0",
     "cordova-browser": "^5.0.3",
